@@ -95,7 +95,9 @@ function main() {
         sy: l.scaleY || 1,
         w: l.texW,
         h: l.texH,
-        group: l.group || '----bg----',
+        // ----fg_effect---- and model-subtree layers render in front of the
+        // character; everything else renders behind it.
+        fg: (l.group || '----bg----') === '----fg_effect----' || (l.group || '') === '----live2d_modle----',
       }));
       added++;
     }

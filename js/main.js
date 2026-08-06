@@ -20,6 +20,7 @@ const state = {
   currentPath: null,
   currentBgList: [],
   bgContainer: null,
+  fgContainer: null,
   bgTextures: [],
   currentBgKey: null,
   options: {
@@ -89,6 +90,14 @@ function createBackgroundContainer() {
   state.bgContainer = container;
   // Behind the model (which is added to the camera after this).
   state.camera.addChildAt(container, 0);
+
+  // ----fg_effect---- layers draw in front of the character, so they get a
+  // container added AFTER the model.
+  const fg = new Container();
+  fg.eventMode = 'none';
+  fg.interactive = false;
+  state.fgContainer = fg;
+  state.camera.addChild(fg);
 }
 
 function bgTextureValid(tex) {
@@ -115,21 +124,26 @@ function fitBgLayer(sprite, layer) {
   sprite.y = model.y - (layer.y || 0) * pxPerUnit * model.scale.y;
 }
 
-// Re-apply transform of every bg layer after the model is fitted/rescaled.
+// Re-apply transform of every bg/fg layer after the model is fitted/rescaled.
 function fitBackground() {
-  const container = state.bgContainer;
-  if (!container) return;
-  for (const child of container.children) {
-    if (child._bgLayer) fitBgLayer(child, child._bgLayer);
+  for (const container of [state.bgContainer, state.fgContainer]) {
+    if (!container) continue;
+    for (const child of container.children) {
+      if (child._bgLayer) fitBgLayer(child, child._bgLayer);
+    }
   }
 }
 
-function clearBackground() {
-  const container = state.bgContainer;
+function clearContainer(container) {
   if (!container) return;
   // Detach all sprites first: destroying a texture still referenced by a
   // sprite makes the batch pipe flush a sprite whose _source is null.
   while (container.children.length) container.removeChildAt(0);
+}
+
+function clearBackground() {
+  clearContainer(state.bgContainer);
+  clearContainer(state.fgContainer);
   for (const tex of state.bgTextures) {
     try {
       if (tex.key) Assets.cache.remove(tex.key);
@@ -140,9 +154,17 @@ function clearBackground() {
   state.currentBgKey = null;
 }
 
-// Render a background composed of one or more ordered layers (back-to-front).
+// Incremented on every setBackground call; a request that finishes loading
+// after a newer one was issued drops its textures instead of stacking them
+// on the newest scene.
+let bgLoadSeq = 0;
+
+// Render a background composed of one or more ordered layers.  Layers with
+// fg=true go in front of the model; all others go behind it.
 async function setBackground(layers) {
   const container = state.bgContainer;
+  const fgContainer = state.fgContainer;
+  const seq = ++bgLoadSeq;
   clearBackground();
   if (!container || !layers || !layers.length) return;
 
@@ -150,9 +172,11 @@ async function setBackground(layers) {
   // shows a partially-composed background.
   const loaded = [];
   for (const layer of layers) {
+    if (seq !== bgLoadSeq) return;
     const p = resolveUrl(layer.path);
     try {
       const texture = await Assets.load(p);
+      if (seq !== bgLoadSeq) return;
       loaded.push({ layer, texture });
     } catch (e) {
       console.error('Failed to load background layer', p, e);
@@ -166,7 +190,7 @@ async function setBackground(layers) {
     sprite.interactive = false;
     sprite._bgLayer = layer;
     fitBgLayer(sprite, layer);
-    container.addChild(sprite);
+    (layer.fg ? fgContainer : container).addChild(sprite);
     state.bgTextures.push({ key: resolveUrl(layer.path), texture });
   }
   state.currentBgKey = loaded[0].layer.path;
@@ -652,6 +676,11 @@ export async function loadModel(path) {
   try {
     const model = await Live2DModel.from(path);
     camera.addChild(model);
+    // Keep camera child order: bg (0), model, fg (last) so fg draws in front.
+    if (state.bgContainer && state.fgContainer) {
+      camera.removeChild(state.fgContainer);
+      camera.addChild(state.fgContainer);
+    }
     model.interactive = false;
     model.position.set(0, 0);
     model.anchor?.set?.(0.5);
@@ -935,4 +964,5 @@ async function init() {
   }
 }
 
+window.__dbg = { state };
 init();
