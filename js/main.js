@@ -158,6 +158,9 @@ function clearBackground() {
 // after a newer one was issued drops its textures instead of stacking them
 // on the newest scene.
 let bgLoadSeq = 0;
+// Incremented on every loadModel call; a model that finishes loading after a
+// newer entry was clicked is dropped so only the last-clicked model renders.
+let modelLoadSeq = 0;
 
 // Render a background composed of one or more ordered layers.  Layers with
 // fg=true go in front of the model; all others go behind it.
@@ -650,7 +653,7 @@ function hookOverrideApply() {
 export async function loadModel(path) {
   const app = state.app;
   const camera = state.camera;
-  const currentModel = state.model;
+  const seq = ++modelLoadSeq;
 
   state.currentPath = path;
   const { layers } = getVariantBgs(path);
@@ -659,7 +662,8 @@ export async function loadModel(path) {
   state.options.angles = { x: 0, y: 0, z: 0 };
   state.options.bodyAngles = { x: 0, y: 0, z: 0 };
 
-  if (currentModel) {
+  if (state.model) {
+    const currentModel = state.model;
     if (state._overrideHandler && currentModel.internalModel) {
       currentModel.internalModel.off('beforeModelUpdate', state._overrideHandler);
     }
@@ -675,6 +679,12 @@ export async function loadModel(path) {
 
   try {
     const model = await Live2DModel.from(path);
+    // A newer entry was clicked while this one was loading; drop it so stale
+    // loads don't stack every previously clicked model on the scene.
+    if (seq !== modelLoadSeq) {
+      model.destroy({ children: true, texture: true, baseTexture: true });
+      return;
+    }
     camera.addChild(model);
     // Keep camera child order: bg (0), model, fg (last) so fg draws in front.
     if (state.bgContainer && state.fgContainer) {
@@ -692,6 +702,7 @@ export async function loadModel(path) {
     hookOverrideApply();
     els.status.textContent = '';
   } catch (e) {
+    if (seq !== modelLoadSeq) return;
     els.status.textContent = 'Failed: ' + e.message;
     console.error(e);
   }
@@ -964,5 +975,4 @@ async function init() {
   }
 }
 
-window.__dbg = { state };
 init();
