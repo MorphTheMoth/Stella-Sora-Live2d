@@ -1,5 +1,5 @@
 import { Application, Container, Sprite, Assets, extensions } from './pixi.min.mjs';
-import { Live2DModel, Live2DPlugin, configureCubismSDK } from './cubism.es.js';
+import { Live2DModel, Live2DPlugin, configureCubismSDK, CubismFramework } from './cubism.es.js';
 
 extensions.add(Live2DPlugin);
 
@@ -41,8 +41,6 @@ const els = {
   status: document.getElementById('status'),
   bgcolor: document.getElementById('bgcolor'),
   bginput: document.getElementById('bginput'),
-  screenshot: document.getElementById('screenshot'),
-  zoomreset: document.getElementById('zoomreset'),
   optionsOpen: document.getElementById('options_open'),
   optionsClose: document.getElementById('options_close'),
   optionsWrapper: document.getElementById('options_wrapper'),
@@ -51,6 +49,10 @@ const els = {
 
 const ANGLE_PARAMS = ['ParamAngleX', 'ParamAngleY', 'ParamAngleZ'];
 const BODY_ANGLE_PARAMS = ['ParamBodyAngleX', 'ParamBodyAngleY', 'ParamBodyAngleZ'];
+
+// The engine's parameter lookups compare against interned CubismId objects,
+// so raw strings never match and writes go to a dead "not exist" buffer.
+const getId = (id) => CubismFramework.getIdManager().getId(id);
 
 function fitModelToScreen() {
   const model = state.model;
@@ -222,7 +224,7 @@ function setParam(id, value) {
   state.options.overrides.set(id, value);
   const core = state.model.internalModel.coreModel;
   try {
-    core.setParameterValueById(id, value);
+    core.setParameterValueById(getId(id), value);
   } catch (e) {
     // parameter may not exist in this model; ignore
   }
@@ -231,14 +233,10 @@ function setParam(id, value) {
 function getParamValue(id) {
   const core = state.model.internalModel.coreModel;
   try {
-    return core.getParameterValueById(id);
+    return core.getParameterValueById(getId(id));
   } catch (e) {
     return 0;
   }
-}
-
-function clearOverride(id) {
-  state.options.overrides.delete(id);
 }
 
 function getVariantInfo(path) {
@@ -522,13 +520,9 @@ function addParameterControls(section) {
 
     const head = document.createElement('div');
     head.className = 'opt-param-head';
-    const check = document.createElement('input');
-    check.type = 'checkbox';
-    check.checked = state.options.overrides.has(p.id);
     const lab = document.createElement('label');
     lab.textContent = p.id;
     lab.title = p.id;
-    head.appendChild(check);
     head.appendChild(lab);
     wrap.appendChild(head);
 
@@ -539,30 +533,18 @@ function addParameterControls(section) {
     slider.min = p.min;
     slider.max = p.max;
     slider.step = Math.max((p.max - p.min) / 1000, 0.01);
-    slider.value = getParamValue(p.id);
-    const value = document.createElement('span');
-    value.className = 'opt-value';
     const initVal = getParamValue(p.id);
     slider.value = initVal;
+    const value = document.createElement('span');
+    value.className = 'opt-value';
     value.textContent = Number(initVal).toFixed(2);
-    slider.disabled = !check.checked;
 
     const syncValue = () => {
       const v = parseFloat(slider.value);
       value.textContent = v.toFixed(2);
-      if (check.checked) setParam(p.id, v);
+      setParam(p.id, v);
     };
     slider.addEventListener('input', syncValue);
-    check.addEventListener('change', () => {
-      slider.disabled = !check.checked;
-      if (check.checked) {
-        setParam(p.id, parseFloat(slider.value));
-      } else {
-        clearOverride(p.id);
-        slider.value = getParamValue(p.id);
-        value.textContent = slider.value.toFixed(2);
-      }
-    });
 
     sliderRow.appendChild(slider);
     sliderRow.appendChild(value);
@@ -609,7 +591,7 @@ function applyEyeBlink() {
     const params = getParamInfo();
     for (const p of params) {
       if (/^ParamEye[LR]Open$/.test(p.id)) {
-        internal.coreModel.setParameterValueById(p.id, p.max);
+        internal.coreModel.setParameterValueById(getId(p.id), p.max);
       }
     }
   }
@@ -622,18 +604,18 @@ function applyAngleOverrides() {
   const a = o.angles;
   const b = o.bodyAngles;
   try {
-    core.setParameterValueById('ParamAngleX', a.x * 30);
-    core.setParameterValueById('ParamAngleY', a.y * 30);
-    core.setParameterValueById('ParamAngleZ', a.z * 30);
-    core.setParameterValueById('ParamBodyAngleX', b.x * 10);
-    core.setParameterValueById('ParamBodyAngleY', b.y * 10);
-    core.setParameterValueById('ParamBodyAngleZ', b.z * 10);
+    core.setParameterValueById(getId('ParamAngleX'), a.x * 30);
+    core.setParameterValueById(getId('ParamAngleY'), a.y * 30);
+    core.setParameterValueById(getId('ParamAngleZ'), a.z * 30);
+    core.setParameterValueById(getId('ParamBodyAngleX'), b.x * 10);
+    core.setParameterValueById(getId('ParamBodyAngleY'), b.y * 10);
+    core.setParameterValueById(getId('ParamBodyAngleZ'), b.z * 10);
   } catch (e) {
     // some models lack body angle params; ignore
   }
   for (const [id, value] of o.overrides) {
     try {
-      core.setParameterValueById(id, value);
+      core.setParameterValueById(typeof id === 'string' ? getId(id) : id, value);
     } catch (e) {
       // ignore
     }
@@ -915,27 +897,6 @@ function setupBackgroundPicker() {
   els.bginput.addEventListener('change', () => apply(els.bginput.value));
   // default
   apply('#161616');
-  // preset swatches
-  document.querySelectorAll('.bg-swatch').forEach((s) => {
-    s.addEventListener('click', () => apply(s.dataset.color));
-  });
-}
-
-function setupScreenshot() {
-  els.screenshot.addEventListener('click', () => {
-    const canvas = state.app.canvas;
-    const url = canvas.toDataURL('image/png');
-    const a = document.createElement('a');
-    a.download = 'stella-sora-live2d.png';
-    a.href = url;
-    a.click();
-  });
-}
-
-function setupZoomReset() {
-  els.zoomreset.addEventListener('click', () => {
-    if (state.model) fitModelToScreen();
-  });
 }
 
 async function init() {
@@ -967,8 +928,6 @@ async function init() {
   enableZoom();
   handleMenuState();
   setupBackgroundPicker();
-  setupScreenshot();
-  setupZoomReset();
 
   if (state.models.length && state.models[0].variants.length) {
     loadModel(resolveUrl(state.models[0].variants[0].path));

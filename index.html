@@ -97,14 +97,7 @@
     border: 1px solid var(--border2);
     display: inline-block;
   }
-  .bg-swatch {
-    width: 16px;
-    height: 16px;
-    border: 1px solid var(--border2);
-    cursor: pointer;
-    display: inline-block;
-  }
-  .bg-swatch:hover { border-color: var(--text-dim); }
+  #bginput, #status { display: none; }
   #status {
     margin-left: auto;
     font-size: 11px;
@@ -343,7 +336,6 @@
     align-items: center;
     gap: 6px;
   }
-  .opt-param .opt-param-head input[type="checkbox"] { accent-color: var(--accent); }
   .opt-param .opt-param-head label {
     flex: 1;
     font-size: 11px;
@@ -378,15 +370,8 @@
       <span class="swatch" id="bgcolor-swatch"></span> Background
     </button>
     <input type="color" id="bginput" value="#161616" />
-    <span class="bg-swatch" data-color="#161616" title="#161616"></span>
-    <span class="bg-swatch" data-color="#1a1a1a" title="#1a1a1a"></span>
-    <span class="bg-swatch" data-color="#264278" title="#264278"></span>
-    <span class="bg-swatch" data-color="#2a2a2a" title="#2a2a2a"></span>
-    <span class="bg-swatch" data-color="#000000" title="#000000"></span>
-    <button class="tool" id="zoomreset" type="button">Reset</button>
-    <button class="tool" id="screenshot" type="button">Screenshot</button>
-    <span id="status"></span>
   </div>
+  <span id="status"></span>
 
   <button id="entity-list_open" class="panel-toggle left" type="button" title="Characters">▦</button>
   <button id="options_open" class="panel-toggle right" type="button" title="Options">⚙</button>
