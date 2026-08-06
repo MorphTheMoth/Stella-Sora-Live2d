@@ -19,9 +19,9 @@ const state = {
   models: [],
   currentPath: null,
   currentBgList: [],
-  bgSprite: null,
-  bgTexture: null,
-  currentBg: null,
+  bgContainer: null,
+  bgTextures: [],
+  currentBgKey: null,
   options: {
     eyeBlink: true,
     angles: { x: 0, y: 0, z: 0 },
@@ -73,51 +73,103 @@ function fitModelToScreen() {
 
 /* ---------------- Background (in-bundle l2d scene image) ---------------- */
 
-function createBackgroundSprite() {
-  const sprite = new Sprite();
-  sprite.eventMode = 'none';
-  sprite.interactive = false;
-  state.app.stage.addChildAt(sprite, 0);
-  state.bgSprite = sprite;
+// The game parents the bg ("----bg----") to the L2D model root as a stack of
+// SpriteRenderers.  World units == 1/100 of texture px (PPU 100), and the
+// model canvas is 24x17 world units scaled to the model's internal size.
+//
+// pixi-cubism renders the model's cubism meshes via addRenderable() and then
+// its own children (collectRenderables -> addRenderable; collectChildren), so
+// any child of the model draws ON TOP of the character.  We therefore keep the
+// bg as a sibling of the model inside the camera container (behind it) and
+// mirror the model's transform manually so it still pans/zooms/fits together.
+function createBackgroundContainer() {
+  const container = new Container();
+  container.eventMode = 'none';
+  container.interactive = false;
+  state.bgContainer = container;
+  // Behind the model (which is added to the camera after this).
+  state.camera.addChildAt(container, 0);
 }
 
-function fitBackground() {
-  const sprite = state.bgSprite;
-  if (!sprite || !sprite.texture || !sprite.texture.valid) return;
-  const w = state.app.renderer.width;
-  const h = state.app.renderer.height;
-  const tw = sprite.texture.width || 1;
-  const th = sprite.texture.height || 1;
-  const scale = Math.max(w / tw, h / th);
-  sprite.scale.set(scale, scale);
+function bgTextureValid(tex) {
+  return !!tex && !!tex._source;
+}
+
+// Position/scale a bg layer sprite in camera-local (screen) space so it
+// matches the model canvas.  World units == 1/100 texture px (PPU 100);
+// the canvas is 24x17 world units mapped to the model's internal size.
+function fitBgLayer(sprite, layer) {
+  const model = state.model;
+  if (!model || !bgTextureValid(sprite.texture)) return;
+  const internalW = model.internalModel.width;
+  const cw = model.internalModel.coreModel.getCanvasWidth();
+  const pxPerUnit = internalW / cw; // model-local px per world unit
+  const baseScale = pxPerUnit / 100; // sprite scale at model scale 1
   sprite.anchor.set(0.5);
-  sprite.x = w / 2;
-  sprite.y = h / 2;
+  sprite.scale.set(
+    model.scale.x * baseScale * (layer.sx || 1),
+    model.scale.y * baseScale * (layer.sy || 1)
+  );
+  // Model-local offset from pivot (0,0 = canvas top-left, pivot = center).
+  sprite.x = model.x + (layer.x || 0) * pxPerUnit * model.scale.x;
+  sprite.y = model.y - (layer.y || 0) * pxPerUnit * model.scale.y;
 }
 
-async function setBackground(path) {
-  const sprite = state.bgSprite;
-  if (state.currentBg) {
-    const oldKey = resolveUrl(state.currentBg);
-    try { Assets.cache.remove(oldKey); } catch (e) { /* ignore */ }
+// Re-apply transform of every bg layer after the model is fitted/rescaled.
+function fitBackground() {
+  const container = state.bgContainer;
+  if (!container) return;
+  for (const child of container.children) {
+    if (child._bgLayer) fitBgLayer(child, child._bgLayer);
   }
-  if (state.bgTexture) {
-    state.bgTexture.destroy(true);
-    state.bgTexture = null;
+}
+
+function clearBackground() {
+  const container = state.bgContainer;
+  if (!container) return;
+  // Detach all sprites first: destroying a texture still referenced by a
+  // sprite makes the batch pipe flush a sprite whose _source is null.
+  while (container.children.length) container.removeChildAt(0);
+  for (const tex of state.bgTextures) {
+    try {
+      if (tex.key) Assets.cache.remove(tex.key);
+    } catch (e) { /* ignore */ }
+    try { tex.texture.destroy(true); } catch (e) { /* ignore */ }
   }
-  state.currentBg = path;
-  if (!path || !sprite) {
-    if (sprite) sprite.texture = null;
-    return;
+  state.bgTextures = [];
+  state.currentBgKey = null;
+}
+
+// Render a background composed of one or more ordered layers (back-to-front).
+async function setBackground(layers) {
+  const container = state.bgContainer;
+  clearBackground();
+  if (!container || !layers || !layers.length) return;
+
+  // Load all layer textures up-front, then attach in order so no frame ever
+  // shows a partially-composed background.
+  const loaded = [];
+  for (const layer of layers) {
+    const p = resolveUrl(layer.path);
+    try {
+      const texture = await Assets.load(p);
+      loaded.push({ layer, texture });
+    } catch (e) {
+      console.error('Failed to load background layer', p, e);
+    }
   }
-  try {
-    const texture = await Assets.load(resolveUrl(path));
-    state.bgTexture = texture;
-    sprite.texture = texture;
-    fitBackground();
-  } catch (e) {
-    console.error('Failed to load background', path, e);
+  if (!loaded.length) return;
+
+  for (const { layer, texture } of loaded) {
+    const sprite = new Sprite(texture);
+    sprite.eventMode = 'none';
+    sprite.interactive = false;
+    sprite._bgLayer = layer;
+    fitBgLayer(sprite, layer);
+    container.addChild(sprite);
+    state.bgTextures.push({ key: resolveUrl(layer.path), texture });
   }
+  state.currentBgKey = loaded[0].layer.path;
 }
 
 function getParamInfo() {
@@ -171,13 +223,25 @@ function getVariantInfo(path) {
   return null;
 }
 
-function getBackgroundList(path) {
+function getVariantBgs(path) {
   const variant = getVariantInfo(path);
-  return (variant && variant.bg) ? variant.bg.slice() : [];
+  if (!variant) return { layers: [], singles: [] };
+  const skin = path.split('/')[1];
+  const variantDir = path.split('/')[2];
+  const bgPath = (f) => `chars/${skin}/${variantDir}/bg/${f}`;
+  const layers = (variant.bgLayers || []).map((l) => ({ ...l, path: bgPath(l.file + '.png') }));
+  const singles = (variant.bg || []).slice();
+  // Variants without a recorded composition fall back to their primary bg
+  // file as a standalone full-frame layer centered on the canvas.
+  if (!layers.length && singles.length) {
+    const p = singles[0];
+    layers.push({ x: 0, y: 0, sx: 1, sy: 1, file: p.split('/').pop().replace(/\.png$/, ''), path: p });
+  }
+  return { layers, singles };
 }
 
 function addBackgroundControls(section) {
-  const list = state.currentBgList || [];
+  const { layers, singles } = getVariantBgs(state.currentPath);
   const row = document.createElement('div');
   row.className = 'opt-row';
   const lab = document.createElement('label');
@@ -187,25 +251,41 @@ function addBackgroundControls(section) {
   none.value = '';
   none.textContent = 'None';
   sel.appendChild(none);
-  list.forEach((p, idx) => {
+  if (layers.length > 1) {
+    const comp = document.createElement('option');
+    comp.value = 'all';
+    comp.textContent = 'Composition (' + layers.length + ' layers)';
+    sel.appendChild(comp);
+  }
+  const seen = new Set();
+  const addOption = (label, key, path) => {
+    if (seen.has(key)) return;
+    seen.add(key);
     const opt = document.createElement('option');
-    opt.value = idx;
-    opt.textContent = p.split('/').pop();
+    opt.value = 'k:' + key;
+    opt.textContent = label;
+    opt.dataset.path = path;
     sel.appendChild(opt);
-  });
-  const current = state.currentBg;
-  if (current) {
-    const i = list.indexOf(current);
-    sel.value = i >= 0 ? String(i) : '0';
-  } else {
-    sel.value = '';
+  };
+  for (const l of layers) addOption(l.file, l.file, l.path);
+  for (const p of singles) {
+    const name = p.split('/').pop().replace(/\.png$/, '');
+    addOption(name, name, p);
+  }
+  if (sel.querySelector('option[value="all"]')) sel.value = 'all';
+  else if (seen.size) {
+    const first = sel.querySelector('option[data-path]');
+    if (first) sel.value = first.value;
   }
   sel.addEventListener('change', () => {
     const v = sel.value;
     if (v === '') {
       setBackground(null);
-    } else {
-      setBackground(list[parseInt(v, 10)]);
+    } else if (v === 'all') {
+      setBackground(layers);
+    } else if (v.startsWith('k:')) {
+      const opt = sel.options[sel.selectedIndex];
+      setBackground([{ path: opt.dataset.path }]);
     }
   });
   row.appendChild(lab);
@@ -549,7 +629,8 @@ export async function loadModel(path) {
   const currentModel = state.model;
 
   state.currentPath = path;
-  state.currentBgList = getBackgroundList(path);
+  const { layers } = getVariantBgs(path);
+  state.currentBgList = layers;
   state.options.overrides.clear();
   state.options.angles = { x: 0, y: 0, z: 0 };
   state.options.bodyAngles = { x: 0, y: 0, z: 0 };
@@ -559,6 +640,7 @@ export async function loadModel(path) {
       currentModel.internalModel.off('beforeModelUpdate', state._overrideHandler);
     }
     state._overrideHandler = null;
+    clearBackground();
     camera.removeChild(currentModel);
     currentModel.destroy({ children: true, texture: true, baseTexture: true });
     state.model = null;
@@ -575,7 +657,7 @@ export async function loadModel(path) {
     model.anchor?.set?.(0.5);
     state.model = model;
     fitModelToScreen();
-    setBackground(state.currentBgList[0] || null);
+    setBackground(state.currentBgList);
     buildOptionsPanel();
     applyEyeBlink();
     hookOverrideApply();
@@ -747,8 +829,10 @@ function handleResize() {
     const h = els.canvas.clientHeight;
     if (!w || !h) return;
     app.renderer.resize(w, h);
-    fitBackground();
-    if (state.model) fitModelToScreen();
+    if (state.model) {
+      fitModelToScreen();
+      fitBackground();
+    }
   };
   new ResizeObserver(onResize).observe(els.canvas);
   window.addEventListener('resize', onResize);
@@ -760,6 +844,7 @@ function handleContextLost() {
     e.preventDefault();
     els.status.textContent = 'WebGL context lost - reloading ...';
     if (state.model) {
+      clearBackground();
       state.model.destroy({ children: true, texture: true, baseTexture: true });
       state.model = null;
     }
@@ -829,7 +914,7 @@ async function init() {
   const camera = new Container();
   app.stage.addChild(camera);
   state.camera = camera;
-  createBackgroundSprite();
+  createBackgroundContainer();
 
   const res = await fetch(resolveUrl('data/models.json'));
   state.models = await res.json();
