@@ -40,7 +40,9 @@
         "label": "Awakened",
         "path": "chars/10302/10302_l/10302_L.model3.json",
         "bg": [
-          "chars/10302/10302_l/bg/fx_live2d_10301_ex_bg_01.png"
+          "chars/10302/10302_l/bg/fx_live2d_10301_ex_bg_01.png",
+          "chars/10302/10302_l/bg/fx_live2d_10301_ex_bg_02.png",
+          "chars/10302/10302_l/bg/fx_live2d_10301_ex_bg_04.png"
         ],
         "bgLayers": [
           {
@@ -83,6 +85,7 @@
           "chars/10303/10303_l/bg/live2d_10303_ex_bg_01.png",
           "chars/10303/10303_l/bg/live2d_10303_ex_bg_02.png",
           "chars/10303/10303_l/bg/live2d_10303_ex_bg_03.png",
+          "chars/10303/10303_l/bg/live2d_10303_ex_bg_04.png",
           "chars/10303/10303_l/bg/live2d_10303_ex_bg_05.png"
         ],
         "bgLayers": [
@@ -144,7 +147,17 @@
         "path": "chars/10304/10304_l/10304_L.model3.json",
         "bg": [
           "chars/10304/10304_l/bg/live2d_10304_ex_bg_01.png",
-          "chars/10304/10304_l/bg/live2d_10304_ex_bg_02.png"
+          "chars/10304/10304_l/bg/live2d_10304_ex_bg_02.png",
+          "chars/10304/10304_l/bg/live2d_10304_ex_bg_03.png",
+          "chars/10304/10304_l/bg/live2d_10304_ex_bg_04.png",
+          "chars/10304/10304_l/bg/live2d_10304_ex_bg_05.png",
+          "chars/10304/10304_l/bg/live2d_10304_ex_bg_06.png",
+          "chars/10304/10304_l/bg/live2d_10304_ex_bg_07.png",
+          "chars/10304/10304_l/bg/live2d_10304_ex_bg_08.png",
+          "chars/10304/10304_l/bg/live2d_10304_ex_bg_09.png",
+          "chars/10304/10304_l/bg/live2d_10304_ex_bg_10.png",
+          "chars/10304/10304_l/bg/live2d_10304_ex_bg_11.png",
+          "chars/10304/10304_l/bg/live2d_10304_ex_bg_12.png"
         ],
         "bgLayers": [
           {
@@ -294,7 +307,9 @@
           "chars/10701/10701_lf/bg/tiliya_bg_grass_5.png",
           "chars/10701/10701_lf/bg/tiliya_bg_mountain.png",
           "chars/10701/10701_lf/bg/tiliya_bg_ol.png",
-          "chars/10701/10701_lf/bg/tiliya_cg_bg.png"
+          "chars/10701/10701_lf/bg/tiliya_cg_bg.png",
+          "chars/10701/10701_lf/bg/tiliya_cg_fenche.png",
+          "chars/10701/10701_lf/bg/tiliya_cg_fenche_yezi.png"
         ],
         "bgLayers": [
           {
@@ -419,7 +434,9 @@
         "name": "10702_l",
         "label": "Awakened",
         "path": "chars/10702/10702_l/10702_L.model3.json",
-        "bg": [],
+        "bg": [
+          "chars/10702/10702_l/bg/fx_live2d_10701_ex_electromobile.png"
+        ],
         "bgLayers": [
           {
             "file": "fx_live2d_10701_ex_electromobile",
@@ -438,7 +455,15 @@
         "label": "Unknow",
         "path": "chars/10703/10703_l/10703_L_a.model3.json",
         "bg": [
-          "chars/10703/10703_l/bg/10703_live2d_bg_001.png"
+          "chars/10703/10703_l/bg/10703_live2d_bg_001.png",
+          "chars/10703/10703_l/bg/10703_live2d_cloud_001.png",
+          "chars/10703/10703_l/bg/10703_live2d_cloud_002.png",
+          "chars/10703/10703_l/bg/10703_live2d_cloud_003.png",
+          "chars/10703/10703_l/bg/10703_live2d_cloud_004.png",
+          "chars/10703/10703_l/bg/10703_live2d_cloud_005.png",
+          "chars/10703/10703_l/bg/10703_live2d_cloud_006.png",
+          "chars/10703/10703_l/bg/10703_live2d_cloud_007.png",
+          "chars/10703/10703_l/bg/10703_live2d_ground_001.png"
         ],
         "bgLayers": [
           {
@@ -550,6 +575,7 @@
         "label": "Memory Snapshot",
         "path": "chars/10801/10801_lf/10801_F.model3.json",
         "bg": [
+          "chars/10801/10801_lf/bg/10801_live2d_BG_000.png",
           "chars/10801/10801_lf/bg/10801_live2d_BG_001.png",
           "chars/10801/10801_lf/bg/10801_live2d_BG_002.png"
         ],
@@ -616,7 +642,19 @@
         "path": "chars/11001/11001_lf/11001_F_a.model3.json",
         "bg": [
           "chars/11001/11001_lf/bg/fx_11001_live2d_bg_001.png",
-          "chars/11001/11001_lf/bg/fx_11001_live2d_bg_002.png"
+          "chars/11001/11001_lf/bg/fx_11001_live2d_bg_build.png",
+          "chars/11001/11001_lf/bg/fx_11001_live2d_bg_light.png",
+          "chars/11001/11001_lf/bg/fx_11001_live2d_bg_logo.png",
+          "chars/11001/11001_lf/bg/fx_11001_live2d_flag_1.png",
+          "chars/11001/11001_lf/bg/fx_11001_live2d_flag_2.png",
+          "chars/11001/11001_lf/bg/fx_11001_live2d_leaf_1.png",
+          "chars/11001/11001_lf/bg/fx_11001_live2d_leaf_2.png",
+          "chars/11001/11001_lf/bg/fx_11001_live2d_leaf_3.png",
+          "chars/11001/11001_lf/bg/fx_11001_live2d_ub_1_b.png",
+          "chars/11001/11001_lf/bg/fx_11001_live2d_ub_1_c.png",
+          "chars/11001/11001_lf/bg/fx_11001_live2d_ub_1_f.png",
+          "chars/11001/11001_lf/bg/fx_11001_live2d_ub_2_b.png",
+          "chars/11001/11001_lf/bg/fx_11001_live2d_ub_2_b_2.png"
         ],
         "bgLayers": [
           {
@@ -772,7 +810,16 @@
         "label": "Awakened",
         "path": "chars/11002/11002_l/11002_L.model3.json",
         "bg": [
-          "chars/11002/11002_l/bg/live2d_11002_ex_bg_001.png"
+          "chars/11002/11002_l/bg/live2d_11002_ex_bg_001.png",
+          "chars/11002/11002_l/bg/live2d_11002_ex_daoguang_001.png",
+          "chars/11002/11002_l/bg/live2d_11002_ex_daoguang_002.png",
+          "chars/11002/11002_l/bg/live2d_11002_ex_lang_001.png",
+          "chars/11002/11002_l/bg/live2d_11002_ex_lang_002.png",
+          "chars/11002/11002_l/bg/live2d_11002_ex_lang_003.png",
+          "chars/11002/11002_l/bg/live2d_11002_ex_lang_004.png",
+          "chars/11002/11002_l/bg/live2d_11002_ex_lang_005.png",
+          "chars/11002/11002_l/bg/live2d_11002_ex_lang_006.png",
+          "chars/11002/11002_l/bg/live2d_11002_ex_tree_001.png"
         ],
         "bgLayers": [
           {
@@ -894,7 +941,13 @@
         "label": "Memory Snapshot",
         "path": "chars/11101/11101_lf/11101_F.model3.json",
         "bg": [
-          "chars/11101/11101_lf/bg/11101_live2d_BG_001.png"
+          "chars/11101/11101_lf/bg/11101_live2d_BG_001.png",
+          "chars/11101/11101_lf/bg/11101_live2d_BG_002.png",
+          "chars/11101/11101_lf/bg/11101_live2d_BG_003.png",
+          "chars/11101/11101_lf/bg/11101_live2d_BG_004.png",
+          "chars/11101/11101_lf/bg/11101_live2d_BG_005.png",
+          "chars/11101/11101_lf/bg/11101_live2d_BG_006.png",
+          "chars/11101/11101_lf/bg/11101_live2d_BG_007.png"
         ],
         "bgLayers": [
           {
@@ -981,8 +1034,12 @@
         "path": "chars/11102/11102_l/11102_L.model3.json",
         "bg": [
           "chars/11102/11102_l/bg/fx_live2d_11101_env_bg_ex.png",
-          "chars/11102/11102_l/bg/fx_live2d_11101_main_bg_04.png",
-          "chars/11102/11102_l/bg/fx_live2d_11101_main_bg_06.png"
+          "chars/11102/11102_l/bg/fx_live2d_11101_env_ol_bag.png",
+          "chars/11102/11102_l/bg/fx_live2d_11101_env_ol_bag_ol.png",
+          "chars/11102/11102_l/bg/fx_live2d_11101_env_ol_ex1.png",
+          "chars/11102/11102_l/bg/fx_live2d_11101_env_ol_table.png",
+          "chars/11102/11102_l/bg/fx_live2d_11101_main_bg_06.png",
+          "chars/11102/11102_l/bg/fx_live2d_11101_main_bg_07.png"
         ],
         "bgLayers": [
           {
@@ -1137,7 +1194,11 @@
         "label": "Unknow",
         "path": "chars/11104/11104_l/11104_L.model3.json",
         "bg": [
-          "chars/11104/11104_l/bg/11104_live2d_bg_001.png"
+          "chars/11104/11104_l/bg/11104_live2d_bg_001.png",
+          "chars/11104/11104_l/bg/11104_live2d_leaves_001.png",
+          "chars/11104/11104_l/bg/11104_live2d_leaves_002.png",
+          "chars/11104/11104_l/bg/11104_live2d_leaves_003.png",
+          "chars/11104/11104_l/bg/11104_live2d_leaves_004.png"
         ],
         "bgLayers": [
           {
@@ -1252,7 +1313,27 @@
         "label": "Unknow",
         "path": "chars/11203/11203_l/11203_L.model3.json",
         "bg": [
-          "chars/11203/11203_l/bg/11203_live2d_bg_001.png"
+          "chars/11203/11203_l/bg/11203_live2d_bg_001.png",
+          "chars/11203/11203_l/bg/11203_live2d_leaves_001.png",
+          "chars/11203/11203_l/bg/11203_live2d_leaves_002.png",
+          "chars/11203/11203_l/bg/11203_live2d_leaves_003.png",
+          "chars/11203/11203_l/bg/11203_live2d_leaves_004.png",
+          "chars/11203/11203_l/bg/11203_live2d_leaves_005.png",
+          "chars/11203/11203_l/bg/11203_live2d_leaves_006.png",
+          "chars/11203/11203_l/bg/11203_live2d_leaves_007.png",
+          "chars/11203/11203_l/bg/11203_live2d_leaves_008.png",
+          "chars/11203/11203_l/bg/11203_live2d_leaves_009.png",
+          "chars/11203/11203_l/bg/11203_live2d_leaves_010.png",
+          "chars/11203/11203_l/bg/11203_live2d_leaves_011.png",
+          "chars/11203/11203_l/bg/11203_live2d_leaves_012.png",
+          "chars/11203/11203_l/bg/11203_live2d_leaves_013.png",
+          "chars/11203/11203_l/bg/11203_live2d_leaves_014.png",
+          "chars/11203/11203_l/bg/11203_live2d_stone_001.png",
+          "chars/11203/11203_l/bg/11203_live2d_tree_001.png",
+          "chars/11203/11203_l/bg/11203_live2d_umbrella_001.png",
+          "chars/11203/11203_l/bg/11203_live2d_umbrella_002.png",
+          "chars/11203/11203_l/bg/11203_live2d_umbrella_003.png",
+          "chars/11203/11203_l/bg/11203_live2d_umbrella_004.png"
         ],
         "bgLayers": [
           {
@@ -1484,7 +1565,45 @@
         "label": "Memory Snapshot",
         "path": "chars/11301/11301_lf/11301_F.model3.json",
         "bg": [
-          "chars/11301/11301_lf/bg/live2d_11301_0037_background.png"
+          "chars/11301/11301_lf/bg/live2d_11301_0001_f35.png",
+          "chars/11301/11301_lf/bg/live2d_11301_0002_f34.png",
+          "chars/11301/11301_lf/bg/live2d_11301_0003_f33.png",
+          "chars/11301/11301_lf/bg/live2d_11301_0004_f32.png",
+          "chars/11301/11301_lf/bg/live2d_11301_0005_f31.png",
+          "chars/11301/11301_lf/bg/live2d_11301_0006_f30.png",
+          "chars/11301/11301_lf/bg/live2d_11301_0007_f29.png",
+          "chars/11301/11301_lf/bg/live2d_11301_0008_f28.png",
+          "chars/11301/11301_lf/bg/live2d_11301_0009_f27.png",
+          "chars/11301/11301_lf/bg/live2d_11301_0010_f26.png",
+          "chars/11301/11301_lf/bg/live2d_11301_0011_f25.png",
+          "chars/11301/11301_lf/bg/live2d_11301_0012_f24.png",
+          "chars/11301/11301_lf/bg/live2d_11301_0013_f23.png",
+          "chars/11301/11301_lf/bg/live2d_11301_0014_f22.png",
+          "chars/11301/11301_lf/bg/live2d_11301_0015_f21.png",
+          "chars/11301/11301_lf/bg/live2d_11301_0016_f20.png",
+          "chars/11301/11301_lf/bg/live2d_11301_0017_f19.png",
+          "chars/11301/11301_lf/bg/live2d_11301_0019_f17.png",
+          "chars/11301/11301_lf/bg/live2d_11301_0020_f16.png",
+          "chars/11301/11301_lf/bg/live2d_11301_0021_f15.png",
+          "chars/11301/11301_lf/bg/live2d_11301_0022_f14.png",
+          "chars/11301/11301_lf/bg/live2d_11301_0023_f13.png",
+          "chars/11301/11301_lf/bg/live2d_11301_0024_f12.png",
+          "chars/11301/11301_lf/bg/live2d_11301_0025_f11.png",
+          "chars/11301/11301_lf/bg/live2d_11301_0026_f10.png",
+          "chars/11301/11301_lf/bg/live2d_11301_0027_f9.png",
+          "chars/11301/11301_lf/bg/live2d_11301_0028_f8.png",
+          "chars/11301/11301_lf/bg/live2d_11301_0029_f7.png",
+          "chars/11301/11301_lf/bg/live2d_11301_0030_f6.png",
+          "chars/11301/11301_lf/bg/live2d_11301_0031_f5.png",
+          "chars/11301/11301_lf/bg/live2d_11301_0032_f4.png",
+          "chars/11301/11301_lf/bg/live2d_11301_0033_f3.png",
+          "chars/11301/11301_lf/bg/live2d_11301_0034_f2.png",
+          "chars/11301/11301_lf/bg/live2d_11301_0035_f1.png",
+          "chars/11301/11301_lf/bg/live2d_11301_0037_background.png",
+          "chars/11301/11301_lf/bg/live2d_11301_0037_chair.png",
+          "chars/11301/11301_lf/bg/live2d_11301_fg.png",
+          "chars/11301/11301_lf/bg/live2d_11301_fg_huoguocenter.png",
+          "chars/11301/11301_lf/bg/live2d_11301_fg_huoguofg.png"
         ],
         "bgLayers": [
           {
@@ -1889,7 +2008,22 @@
         "name": "11302_l",
         "label": "Awakened",
         "path": "chars/11302/11302_l/11302_L.model3.json",
-        "bg": [],
+        "bg": [
+          "chars/11302/11302_l/bg/fx_live2d_11301_ex_mainwater_01.png",
+          "chars/11302/11302_l/bg/fx_live2d_11301_ex_mainwater_02.png",
+          "chars/11302/11302_l/bg/fx_live2d_11301_ex_sword_1.png",
+          "chars/11302/11302_l/bg/fx_live2d_11301_ex_sword_2.png",
+          "chars/11302/11302_l/bg/fx_live2d_11301_ex_sword_3.png",
+          "chars/11302/11302_l/bg/fx_live2d_11301_ex_sword_4.png",
+          "chars/11302/11302_l/bg/fx_live2d_ex_main_water_par1.png",
+          "chars/11302/11302_l/bg/fx_live2d_ex_main_water_par2.png",
+          "chars/11302/11302_l/bg/fx_live2d_ex_main_water_par3.png",
+          "chars/11302/11302_l/bg/fx_live2d_ex_main_water_par4.png",
+          "chars/11302/11302_l/bg/fx_live2d_ex_main_water_par5.png",
+          "chars/11302/11302_l/bg/fx_live2d_ex_water_di_01.png",
+          "chars/11302/11302_l/bg/fx_live2d_ex_water_di_02.png",
+          "chars/11302/11302_l/bg/shimiao_TX2.png"
+        ],
         "bgLayers": [
           {
             "file": "fx_live2d_ex_main_water_par2",
@@ -2038,7 +2172,63 @@
         "label": "Unknow",
         "path": "chars/11303/11303_l/11303_L_a.model3.json",
         "bg": [
-          "chars/11303/11303_l/bg/11303_live2d_bg_001.png"
+          "chars/11303/11303_l/bg/11303_live2d_bg_001.png",
+          "chars/11303/11303_l/bg/11303_live2d_chili_001.png",
+          "chars/11303/11303_l/bg/11303_live2d_chili_002.png",
+          "chars/11303/11303_l/bg/11303_live2d_chili_003.png",
+          "chars/11303/11303_l/bg/11303_live2d_chili_004.png",
+          "chars/11303/11303_l/bg/11303_live2d_chili_005.png",
+          "chars/11303/11303_l/bg/11303_live2d_chili_006.png",
+          "chars/11303/11303_l/bg/11303_live2d_chili_007.png",
+          "chars/11303/11303_l/bg/11303_live2d_chili_008.png",
+          "chars/11303/11303_l/bg/11303_live2d_chili_009.png",
+          "chars/11303/11303_l/bg/11303_live2d_chili_010.png",
+          "chars/11303/11303_l/bg/11303_live2d_chili_011.png",
+          "chars/11303/11303_l/bg/11303_live2d_chili_012.png",
+          "chars/11303/11303_l/bg/11303_live2d_chili_013.png",
+          "chars/11303/11303_l/bg/11303_live2d_chili_014.png",
+          "chars/11303/11303_l/bg/11303_live2d_chili_015.png",
+          "chars/11303/11303_l/bg/11303_live2d_chili_016.png",
+          "chars/11303/11303_l/bg/11303_live2d_chili_017.png",
+          "chars/11303/11303_l/bg/11303_live2d_chili_018.png",
+          "chars/11303/11303_l/bg/11303_live2d_chili_019.png",
+          "chars/11303/11303_l/bg/11303_live2d_chili_020.png",
+          "chars/11303/11303_l/bg/11303_live2d_chili_021.png",
+          "chars/11303/11303_l/bg/11303_live2d_chili_022.png",
+          "chars/11303/11303_l/bg/11303_live2d_chili_023.png",
+          "chars/11303/11303_l/bg/11303_live2d_chili_024.png",
+          "chars/11303/11303_l/bg/11303_live2d_chili_025.png",
+          "chars/11303/11303_l/bg/11303_live2d_chili_026.png",
+          "chars/11303/11303_l/bg/11303_live2d_chili_027.png",
+          "chars/11303/11303_l/bg/11303_live2d_chili_028.png",
+          "chars/11303/11303_l/bg/11303_live2d_chili_029.png",
+          "chars/11303/11303_l/bg/11303_live2d_chili_030.png",
+          "chars/11303/11303_l/bg/11303_live2d_chili_031.png",
+          "chars/11303/11303_l/bg/11303_live2d_chili_032.png",
+          "chars/11303/11303_l/bg/11303_live2d_chili_033.png",
+          "chars/11303/11303_l/bg/11303_live2d_chili_034.png",
+          "chars/11303/11303_l/bg/11303_live2d_chili_035.png",
+          "chars/11303/11303_l/bg/11303_live2d_chili_036.png",
+          "chars/11303/11303_l/bg/11303_live2d_chili_037.png",
+          "chars/11303/11303_l/bg/11303_live2d_chili_038.png",
+          "chars/11303/11303_l/bg/11303_live2d_chili_039.png",
+          "chars/11303/11303_l/bg/11303_live2d_chili_040.png",
+          "chars/11303/11303_l/bg/11303_live2d_chili_041.png",
+          "chars/11303/11303_l/bg/11303_live2d_chili_042.png",
+          "chars/11303/11303_l/bg/11303_live2d_chili_043.png",
+          "chars/11303/11303_l/bg/11303_live2d_chili_044.png",
+          "chars/11303/11303_l/bg/11303_live2d_chili_045.png",
+          "chars/11303/11303_l/bg/11303_live2d_chili_046.png",
+          "chars/11303/11303_l/bg/11303_live2d_chili_047.png",
+          "chars/11303/11303_l/bg/11303_live2d_chili_048.png",
+          "chars/11303/11303_l/bg/11303_live2d_chili_049.png",
+          "chars/11303/11303_l/bg/11303_live2d_chili_050.png",
+          "chars/11303/11303_l/bg/11303_live2d_light_001.png",
+          "chars/11303/11303_l/bg/11303_live2d_light_002.png",
+          "chars/11303/11303_l/bg/11303_live2d_piaodai_001.png",
+          "chars/11303/11303_l/bg/11303_live2d_piaodai_002.png",
+          "chars/11303/11303_l/bg/11303_live2d_piaodai_003.png",
+          "chars/11303/11303_l/bg/11303_live2d_piaodai_004.png"
         ],
         "bgLayers": [
           {
@@ -2632,7 +2822,9 @@
         "bg": [
           "chars/11401/11401_lf/bg/11401_live2d_BG_001.png",
           "chars/11401/11401_lf/bg/11401_live2d_BG_002.png",
-          "chars/11401/11401_lf/bg/11401_live2d_BG_003.png"
+          "chars/11401/11401_lf/bg/11401_live2d_BG_003.png",
+          "chars/11401/11401_lf/bg/11401_live2d_BG_004.png",
+          "chars/11401/11401_lf/bg/11401_live2d_FG_001.png"
         ],
         "bgLayers": [
           {
@@ -2647,8 +2839,8 @@
           },
           {
             "file": "11401_live2d_BG_004",
-            "x": 0,
-            "y": 0,
+            "x": -3.33,
+            "y": -3.8409e-8,
             "sx": 4.6147027,
             "sy": 4.6147027,
             "w": 576,
@@ -2698,10 +2890,11 @@
         "label": "Awakened",
         "path": "chars/11402/11402_l/11402_L.model3.json",
         "bg": [
-          "chars/11402/11402_l/bg/fx_live2d_11401_bg_1.png",
-          "chars/11402/11402_l/bg/fx_live2d_11401_bg_2.png",
           "chars/11402/11402_l/bg/fx_live2d_11401_bg_3.png",
-          "chars/11402/11402_l/bg/fx_live2d_11401_bg_smoke1.png"
+          "chars/11402/11402_l/bg/fx_live2d_11401_ol_zidan_1.png",
+          "chars/11402/11402_l/bg/fx_live2d_11401_ol_zidan_2.png",
+          "chars/11402/11402_l/bg/fx_live2d_11401_ol_zidan_3.png",
+          "chars/11402/11402_l/bg/fx_live2d_11401_ol_zidan_4.png"
         ],
         "bgLayers": [
           {
@@ -2773,8 +2966,7 @@
         "label": "Memory Snapshot",
         "path": "chars/11501/11501_lf/11501_F_a.model3.json",
         "bg": [
-          "chars/11501/11501_lf/bg/huochuiBG_A.png",
-          "chars/11501/11501_lf/bg/huochuiBG_B.png"
+          "chars/11501/11501_lf/bg/huochuiBG_A.png"
         ],
         "bgLayers": [
           {
@@ -2800,7 +2992,12 @@
         "label": "Awakened",
         "path": "chars/11502/11502_l/11502_L.model3.json",
         "bg": [
-          "chars/11502/11502_l/bg/11502_live2d_BG_001.png"
+          "chars/11502/11502_l/bg/11502_live2d_BG_001.png",
+          "chars/11502/11502_l/bg/11502_live2d_BG_002.png",
+          "chars/11502/11502_l/bg/11502_live2d_BG_003.png",
+          "chars/11502/11502_l/bg/11502_live2d_sword_001.png",
+          "chars/11502/11502_l/bg/11502_live2d_sword_002.png",
+          "chars/11502/11502_l/bg/11502_live2d_sword_003.png"
         ],
         "bgLayers": [
           {
@@ -2882,6 +3079,7 @@
         "label": "Memory Snapshot",
         "path": "chars/11601/11601_lf/11601_F.model3.json",
         "bg": [
+          "chars/11601/11601_lf/bg/11601_live2d_BG_02.png",
           "chars/11601/11601_lf/bg/11601_live2d_BG_03.png"
         ],
         "bgLayers": [
@@ -2917,7 +3115,18 @@
         "name": "11602_l",
         "label": "Awakened",
         "path": "chars/11602/11602_l/11602_L.model3.json",
-        "bg": [],
+        "bg": [
+          "chars/11602/11602_l/bg/live2d_11602_shugan_01.png",
+          "chars/11602/11602_l/bg/live2d_11602_shugan_02.png",
+          "chars/11602/11602_l/bg/live2d_11602_shugan_03.png",
+          "chars/11602/11602_l/bg/live2d_11602_stone_01.png",
+          "chars/11602/11602_l/bg/live2d_11602_stone_02.png",
+          "chars/11602/11602_l/bg/live2d_11602_stone_03.png",
+          "chars/11602/11602_l/bg/live2d_11602_stone_04.png",
+          "chars/11602/11602_l/bg/live2d_11602_stone_05.png",
+          "chars/11602/11602_l/bg/live2d_11602_stone_06.png",
+          "chars/11602/11602_l/bg/live2d_11602_stone_07.png"
+        ],
         "bgLayers": [
           {
             "file": "live2d_11602_stone_02",
@@ -3026,7 +3235,8 @@
         "label": "Unknow",
         "path": "chars/11603/11603_l/11603_L.model3.json",
         "bg": [
-          "chars/11603/11603_l/bg/11103_live2d_bg_001.png"
+          "chars/11603/11603_l/bg/11103_live2d_bg_001.png",
+          "chars/11603/11603_l/bg/11103_live2d_pillow_001.png"
         ],
         "bgLayers": [
           {
@@ -3094,7 +3304,15 @@
         "label": "Awakened",
         "path": "chars/11702/11702_l/11702_L.model3.json",
         "bg": [
-          "chars/11702/11702_l/bg/live2d_11702_bg_001.png"
+          "chars/11702/11702_l/bg/live2d_11702_ball_001.png",
+          "chars/11702/11702_l/bg/live2d_11702_bg_001.png",
+          "chars/11702/11702_l/bg/live2d_11702_cloud_001.png",
+          "chars/11702/11702_l/bg/live2d_11702_cloud_002.png",
+          "chars/11702/11702_l/bg/live2d_11702_cloud_003.png",
+          "chars/11702/11702_l/bg/live2d_11702_cloud_004.png",
+          "chars/11702/11702_l/bg/live2d_11702_mountain_001.png",
+          "chars/11702/11702_l/bg/live2d_11702_mountain_002.png",
+          "chars/11702/11702_l/bg/live2d_11702_yin_001.png"
         ],
         "bgLayers": [
           {
@@ -3256,7 +3474,12 @@
         "label": "Memory Snapshot",
         "path": "chars/11801/11801_lf/11801_F.model3.json",
         "bg": [
-          "chars/11801/11801_lf/bg/11801_live2d_BG_01.png"
+          "chars/11801/11801_lf/bg/11801_live2d_BG_002.png",
+          "chars/11801/11801_lf/bg/11801_live2d_BG_01.png",
+          "chars/11801/11801_lf/bg/11801_live2d_paper_001.png",
+          "chars/11801/11801_lf/bg/11801_live2d_paper_002.png",
+          "chars/11801/11801_lf/bg/11801_live2d_paper_003.png",
+          "chars/11801/11801_lf/bg/11801_live2d_paper_004.png"
         ],
         "bgLayers": [
           {
@@ -3332,7 +3555,9 @@
         "label": "Awakened",
         "path": "chars/11802/11802_l/11802_L.model3.json",
         "bg": [
-          "chars/11802/11802_l/bg/fx_live2d_11801_ex_bg_01.png"
+          "chars/11802/11802_l/bg/fx_live2d_11801_ex_bg_01.png",
+          "chars/11802/11802_l/bg/fx_live2d_11801_ex_bg_021.png",
+          "chars/11802/11802_l/bg/fx_live2d_11801_ex_bg_022.png"
         ],
         "bgLayers": [
           {
@@ -3384,9 +3609,10 @@
         "label": "Memory Snapshot",
         "path": "chars/11901/11901_lf/11901_F_a.model3.json",
         "bg": [
-          "chars/11901/11901_lf/bg/11901_live2d_BG_001.png",
-          "chars/11901/11901_lf/bg/11901_live2d_BG_002.png",
-          "chars/11901/11901_lf/bg/11901_live2d_BG_003.png"
+          "chars/11901/11901_lf/bg/11901_live2d_BG_003.png",
+          "chars/11901/11901_lf/bg/11901_live2d_plant_001.png",
+          "chars/11901/11901_lf/bg/11901_live2d_sofa_001.png",
+          "chars/11901/11901_lf/bg/11901_live2d_sofa_002.png"
         ],
         "bgLayers": [
           {
@@ -3441,7 +3667,11 @@
         "name": "11902_l",
         "label": "Awakened",
         "path": "chars/11902/11902_l/11902_L.model3.json",
-        "bg": [],
+        "bg": [
+          "chars/11902/11902_l/bg/live2d_11901_ex_001.png",
+          "chars/11902/11902_l/bg/live2d_11901_ex_002.png",
+          "chars/11902/11902_l/bg/live2d_11901_ex_003.png"
+        ],
         "bgLayers": [
           {
             "file": "live2d_11901_ex_001",
@@ -3481,7 +3711,14 @@
         "path": "chars/11903/11903_l/11903_L.model3.json",
         "bg": [
           "chars/11903/11903_l/bg/11903_live2d_bg_001.png",
-          "chars/11903/11903_l/bg/11903_live2d_bg_002.png"
+          "chars/11903/11903_l/bg/11903_live2d_bg_002.png",
+          "chars/11903/11903_l/bg/11903_live2d_desk_001.png",
+          "chars/11903/11903_l/bg/11903_live2d_disc_001.png",
+          "chars/11903/11903_l/bg/11903_live2d_leaves_001.png",
+          "chars/11903/11903_l/bg/11903_live2d_leaves_002.png",
+          "chars/11903/11903_l/bg/11903_live2d_leaves_003.png",
+          "chars/11903/11903_l/bg/11903_live2d_tree_001.png",
+          "chars/11903/11903_l/bg/11903_live2d_trumpet_001.png"
         ],
         "bgLayers": [
           {
@@ -3618,7 +3855,14 @@
         "name": "12002_l",
         "label": "Awakened",
         "path": "chars/12002/12002_l/12002_L.model3.json",
-        "bg": [],
+        "bg": [
+          "chars/12002/12002_l/bg/live2d_12002_branches_001.png",
+          "chars/12002/12002_l/bg/live2d_12002_branches_002.png",
+          "chars/12002/12002_l/bg/live2d_12002_branches_003.png",
+          "chars/12002/12002_l/bg/live2d_12002_leaves_001.png",
+          "chars/12002/12002_l/bg/live2d_12002_leaves_002.png",
+          "chars/12002/12002_l/bg/live2d_12002_leaves_003.png"
+        ],
         "bgLayers": [
           {
             "file": "live2d_12002_branches_001",
@@ -3699,7 +3943,12 @@
         "label": "Memory Snapshot",
         "path": "chars/12301/12301_lf/12301_F.model3.json",
         "bg": [
-          "chars/12301/12301_lf/bg/12301_live2d_BG_001.png"
+          "chars/12301/12301_lf/bg/12301_live2d_BG_001.png",
+          "chars/12301/12301_lf/bg/12301_live2d_leaves_001.png",
+          "chars/12301/12301_lf/bg/12301_live2d_leaves_002.png",
+          "chars/12301/12301_lf/bg/12301_live2d_leaves_003.png",
+          "chars/12301/12301_lf/bg/12301_live2d_leaves_004.png",
+          "chars/12301/12301_lf/bg/12301_live2d_leaves_005.png"
         ],
         "bgLayers": [
           {
@@ -3774,7 +4023,9 @@
         "name": "12302_l",
         "label": "Awakened",
         "path": "chars/12302/12302_l/12302_L.model3.json",
-        "bg": [],
+        "bg": [
+          "chars/12302/12302_l/bg/fx_12301_live2d_09.png"
+        ],
         "bgLayers": [
           {
             "file": "fx_12301_live2d_09",
@@ -3794,7 +4045,18 @@
         "path": "chars/12303/12303_l/12303_L.model3.json",
         "bg": [
           "chars/12303/12303_l/bg/12303_live2d_bg_001.png",
-          "chars/12303/12303_l/bg/fx_12303_live2d_bg_01.png"
+          "chars/12303/12303_l/bg/12303_live2d_bg_002.png",
+          "chars/12303/12303_l/bg/12303_live2d_bg_003.png",
+          "chars/12303/12303_l/bg/12303_live2d_bg_004.png",
+          "chars/12303/12303_l/bg/12303_live2d_bg_005.png",
+          "chars/12303/12303_l/bg/12303_live2d_bg_006.png",
+          "chars/12303/12303_l/bg/12303_live2d_bg_007.png",
+          "chars/12303/12303_l/bg/12303_live2d_bg_008.png",
+          "chars/12303/12303_l/bg/12303_live2d_bg_009.png",
+          "chars/12303/12303_l/bg/12303_live2d_bg_010.png",
+          "chars/12303/12303_l/bg/12303_live2d_bg_011.png",
+          "chars/12303/12303_l/bg/12303_live2d_bg_012.png",
+          "chars/12303/12303_l/bg/12303_live2d_bg_013.png"
         ],
         "bgLayers": [
           {
@@ -3956,8 +4218,10 @@
         "label": "Memory Snapshot",
         "path": "chars/12501/12501_lf/12501_F_a.model3.json",
         "bg": [
-          "chars/12501/12501_lf/bg/12501_live2d_BG_001.png",
-          "chars/12501/12501_lf/bg/12501_live2d_BG_002.png"
+          "chars/12501/12501_lf/bg/12501_live2d_BG_002.png",
+          "chars/12501/12501_lf/bg/12501_live2d_MG_002.png",
+          "chars/12501/12501_lf/bg/12501_live2d_flower_001.png",
+          "chars/12501/12501_lf/bg/12501_live2d_flower_002.png"
         ],
         "bgLayers": [
           {
@@ -4012,7 +4276,13 @@
         "name": "12502_l",
         "label": "Awakened",
         "path": "chars/12502/12502_l/12502_L.model3.json",
-        "bg": [],
+        "bg": [
+          "chars/12502/12502_l/bg/live2d_12502_house_001.png",
+          "chars/12502/12502_l/bg/live2d_12502_ice_001.png",
+          "chars/12502/12502_l/bg/live2d_12502_ice_002.png",
+          "chars/12502/12502_l/bg/live2d_12502_leaves_001.png",
+          "chars/12502/12502_l/bg/live2d_12502_leaves_002.png"
+        ],
         "bgLayers": [
           {
             "file": "live2d_12502_leaves_001",
@@ -4073,7 +4343,9 @@
         "bg": [
           "chars/12503/12503_l/bg/12503_live2d_bg_01.png",
           "chars/12503/12503_l/bg/12503_live2d_bg_02.png",
-          "chars/12503/12503_l/bg/12503_live2d_bg_03.png"
+          "chars/12503/12503_l/bg/12503_live2d_bg_03.png",
+          "chars/12503/12503_l/bg/fx_12503_live2d_snow_03.png",
+          "chars/12503/12503_l/bg/fx_12503_live2d_snow_04.png"
         ],
         "bgLayers": [
           {
@@ -4170,7 +4442,12 @@
         "name": "12602_l",
         "label": "Awakened",
         "path": "chars/12602/12602_l/12602_L.model3.json",
-        "bg": [],
+        "bg": [
+          "chars/12602/12602_l/bg/live2d_12602_card_001.png",
+          "chars/12602/12602_l/bg/live2d_12602_card_002.png",
+          "chars/12602/12602_l/bg/live2d_12602_card_003.png",
+          "chars/12602/12602_l/bg/live2d_12602_card_004.png"
+        ],
         "bgLayers": [
           {
             "file": "live2d_12602_card_002",
@@ -4232,7 +4509,13 @@
         "path": "chars/12701/12701_lf/12701_F.model3.json",
         "bg": [
           "chars/12701/12701_lf/bg/12701_live2d_BG_001.png",
-          "chars/12701/12701_lf/bg/12701_live2d_BG_002.png"
+          "chars/12701/12701_lf/bg/12701_live2d_BG_002.png",
+          "chars/12701/12701_lf/bg/12701_live2d_bandage_001.png",
+          "chars/12701/12701_lf/bg/12701_live2d_curtain_001.png",
+          "chars/12701/12701_lf/bg/12701_live2d_curtain_002.png",
+          "chars/12701/12701_lf/bg/12701_live2d_curtain_003.png",
+          "chars/12701/12701_lf/bg/12701_live2d_dress_001.png",
+          "chars/12701/12701_lf/bg/12701_live2d_leaves_001.png"
         ],
         "bgLayers": [
           {
@@ -4327,7 +4610,30 @@
         "name": "12702_l",
         "label": "Awakened",
         "path": "chars/12702/12702_l/12702_L.model3.json",
-        "bg": [],
+        "bg": [
+          "chars/12702/12702_l/bg/fx_live2d_12702_lang_001.png",
+          "chars/12702/12702_l/bg/fx_live2d_12702_lang_002.png",
+          "chars/12702/12702_l/bg/live2d_12701_dragon_001.png",
+          "chars/12702/12702_l/bg/live2d_12701_dragon_002.png",
+          "chars/12702/12702_l/bg/live2d_12702_rock_001.png",
+          "chars/12702/12702_l/bg/live2d_12702_rock_002.png",
+          "chars/12702/12702_l/bg/live2d_12702_rock_003.png",
+          "chars/12702/12702_l/bg/live2d_12702_rock_004.png",
+          "chars/12702/12702_l/bg/live2d_12702_stone_001.png",
+          "chars/12702/12702_l/bg/live2d_12702_stone_002.png",
+          "chars/12702/12702_l/bg/live2d_12702_stone_003.png",
+          "chars/12702/12702_l/bg/live2d_12702_stone_004.png",
+          "chars/12702/12702_l/bg/live2d_12702_stone_005.png",
+          "chars/12702/12702_l/bg/live2d_12702_stone_006.png",
+          "chars/12702/12702_l/bg/live2d_12702_stone_007.png",
+          "chars/12702/12702_l/bg/live2d_12702_stone_008.png",
+          "chars/12702/12702_l/bg/live2d_12702_stone_009.png",
+          "chars/12702/12702_l/bg/live2d_12702_stone_010.png",
+          "chars/12702/12702_l/bg/live2d_12702_stone_011.png",
+          "chars/12702/12702_l/bg/live2d_12702_stone_012.png",
+          "chars/12702/12702_l/bg/live2d_12702_stone_013.png",
+          "chars/12702/12702_l/bg/live2d_12702_stone_014.png"
+        ],
         "bgLayers": [
           {
             "file": "live2d_12702_rock_003",
@@ -4556,7 +4862,11 @@
         "label": "Unknow",
         "path": "chars/12703/12703_l/12703_L.model3.json",
         "bg": [
-          "chars/12703/12703_l/bg/live2d_12703_bg_01.png"
+          "chars/12703/12703_l/bg/live2d_12703_bg_01.png",
+          "chars/12703/12703_l/bg/live2d_12703_bg_02.png",
+          "chars/12703/12703_l/bg/live2d_12703_bg_03.png",
+          "chars/12703/12703_l/bg/live2d_12703_bg_04.png",
+          "chars/12703/12703_l/bg/live2d_12703_bg_05.png"
         ],
         "bgLayers": [
           {
@@ -4627,22 +4937,7 @@
         "name": "13001_lf",
         "label": "Memory Snapshot",
         "path": "chars/13001/13001_lf/13001_F_a.model3.json",
-        "bg": [
-          "chars/13001/13001_lf/bg/13001_live2d_BG_001.png",
-          "chars/13001/13001_lf/bg/13001_live2d_BG_002.png"
-        ],
-        "bgLayers": [
-          {
-            "file": "13001_live2d_BG_002",
-            "x": 0,
-            "y": 0,
-            "sx": 1,
-            "sy": 1,
-            "w": 2400,
-            "h": 1700,
-            "fg": false
-          }
-        ]
+        "bg": []
       },
       {
         "name": "13001_lt",
@@ -4654,7 +4949,12 @@
         "name": "13002_l",
         "label": "Awakened",
         "path": "chars/13002/13002_l/13002_L.model3.json",
-        "bg": [],
+        "bg": [
+          "chars/13002/13002_l/bg/live2d_13002_ex_gate_001.png",
+          "chars/13002/13002_l/bg/live2d_13002_ex_house_001.png",
+          "chars/13002/13002_l/bg/live2d_13002_ex_leaves_001.png",
+          "chars/13002/13002_l/bg/live2d_13002_ex_leaves_002.png"
+        ],
         "bgLayers": [
           {
             "file": "live2d_13002_ex_leaves_001",
@@ -4715,9 +5015,8 @@
         "label": "Memory Snapshot",
         "path": "chars/13201/13201_lf/13201_F_a.model3.json",
         "bg": [
-          "chars/13201/13201_lf/bg/13201_live2d_BG_001.png",
-          "chars/13201/13201_lf/bg/13201_live2d_BG_002.png",
-          "chars/13201/13201_lf/bg/13201_live2d_BG_003.png"
+          "chars/13201/13201_lf/bg/13201_live2d_003.png",
+          "chars/13201/13201_lf/bg/13201_live2d_BG_002.png"
         ],
         "bgLayers": [
           {
@@ -4759,7 +5058,10 @@
         "label": "Unknow",
         "path": "chars/13203/13203_l/13203_L.model3.json",
         "bg": [
-          "chars/13203/13203_l/bg/live2d_13203_bg_01.png"
+          "chars/13203/13203_l/bg/live2d_13203_bg_01.png",
+          "chars/13203/13203_l/bg/live2d_13203_bg_02.png",
+          "chars/13203/13203_l/bg/live2d_13203_bg_03.png",
+          "chars/13203/13203_l/bg/live2d_13203_bg_04.png"
         ],
         "bgLayers": [
           {
@@ -4809,7 +5111,11 @@
         "label": "Unknow",
         "path": "chars/13204/13204_l/13204_L.model3.json",
         "bg": [
-          "chars/13204/13204_l/bg/13204_live2d_bg_001.png"
+          "chars/13204/13204_l/bg/13204_live2d_bg_001.png",
+          "chars/13204/13204_l/bg/13204_live2d_bg_002.png",
+          "chars/13204/13204_l/bg/13204_live2d_bg_003.png",
+          "chars/13204/13204_l/bg/13204_live2d_fg_001.png",
+          "chars/13204/13204_l/bg/13204_live2d_fg_002.png"
         ],
         "bgLayers": [
           {
@@ -4874,7 +5180,12 @@
         "name": "13301_l",
         "label": "Default",
         "path": "chars/13301/13301_l/13301_L.model3.json",
-        "bg": [],
+        "bg": [
+          "chars/13301/13301_l/bg/13301_live2d_weapon_01.png",
+          "chars/13301/13301_l/bg/13301_live2d_weapon_02.png",
+          "chars/13301/13301_l/bg/13301_live2d_weapon_03.png",
+          "chars/13301/13301_l/bg/13301_live2d_weapon_04.png"
+        ],
         "bgLayers": [
           {
             "file": "13301_live2d_weapon_01",
@@ -4926,8 +5237,15 @@
           "chars/13301/13301_lf/bg/13301_live2d_BG_001.png",
           "chars/13301/13301_lf/bg/13301_live2d_BG_002.png",
           "chars/13301/13301_lf/bg/13301_live2d_BG_003.png",
+          "chars/13301/13301_lf/bg/13301_live2d_BG_004.png",
+          "chars/13301/13301_lf/bg/13301_live2d_BG_005.png",
           "chars/13301/13301_lf/bg/13301_live2d_BG_006.png",
-          "chars/13301/13301_lf/bg/13301_live2d_BG_008.png"
+          "chars/13301/13301_lf/bg/13301_live2d_BG_007.png",
+          "chars/13301/13301_lf/bg/13301_live2d_FG_001.png",
+          "chars/13301/13301_lf/bg/13301_live2d_fengche_002.png",
+          "chars/13301/13301_lf/bg/13301_live2d_fengche_003.png",
+          "chars/13301/13301_lf/bg/13301_live2d_fengche_007.png",
+          "chars/13301/13301_lf/bg/13301_live2d_fengche_008.png"
         ],
         "bgLayers": [
           {
@@ -5083,7 +5401,38 @@
         "label": "Awakened",
         "path": "chars/13302/13302_l/13302_L.model3.json",
         "bg": [
-          "chars/13302/13302_l/bg/live2d_13302_bg_002.png"
+          "chars/13302/13302_l/bg/live2d_13302_bg_001.png",
+          "chars/13302/13302_l/bg/live2d_13302_bg_002.png",
+          "chars/13302/13302_l/bg/live2d_13302_branch_001.png",
+          "chars/13302/13302_l/bg/live2d_13302_branch_002.png",
+          "chars/13302/13302_l/bg/live2d_13302_branch_003.png",
+          "chars/13302/13302_l/bg/live2d_13302_fengshan_001.png",
+          "chars/13302/13302_l/bg/live2d_13302_fengshan_002.png",
+          "chars/13302/13302_l/bg/live2d_13302_fengshan_003.png",
+          "chars/13302/13302_l/bg/live2d_13302_fengshan_004.png",
+          "chars/13302/13302_l/bg/live2d_13302_fg_001.png",
+          "chars/13302/13302_l/bg/live2d_13302_leaf_001.png",
+          "chars/13302/13302_l/bg/live2d_13302_leaf_002.png",
+          "chars/13302/13302_l/bg/live2d_13302_leaf_003.png",
+          "chars/13302/13302_l/bg/live2d_13302_leaf_004.png",
+          "chars/13302/13302_l/bg/live2d_13302_leaf_005.png",
+          "chars/13302/13302_l/bg/live2d_13302_leaf_006.png",
+          "chars/13302/13302_l/bg/live2d_13302_leaf_007.png",
+          "chars/13302/13302_l/bg/live2d_13302_leaf_008.png",
+          "chars/13302/13302_l/bg/live2d_13302_leaf_009.png",
+          "chars/13302/13302_l/bg/live2d_13302_leaf_010.png",
+          "chars/13302/13302_l/bg/live2d_13302_leaf_011.png",
+          "chars/13302/13302_l/bg/live2d_13302_leaf_012.png",
+          "chars/13302/13302_l/bg/live2d_13302_leaf_013.png",
+          "chars/13302/13302_l/bg/live2d_13302_leaf_014.png",
+          "chars/13302/13302_l/bg/live2d_13302_leaf_015.png",
+          "chars/13302/13302_l/bg/live2d_13302_leaf_016.png",
+          "chars/13302/13302_l/bg/live2d_13302_leaf_017.png",
+          "chars/13302/13302_l/bg/live2d_13302_leaf_018.png",
+          "chars/13302/13302_l/bg/live2d_13302_leaf_019.png",
+          "chars/13302/13302_l/bg/live2d_13302_leaf_020.png",
+          "chars/13302/13302_l/bg/live2d_13302_leaf_021.png",
+          "chars/13302/13302_l/bg/live2d_13302_leaf_022.png"
         ],
         "bgLayers": [
           {
@@ -5414,7 +5763,16 @@
         "path": "chars/13303/13303_l/13303_L.model3.json",
         "bg": [
           "chars/13303/13303_l/bg/13303_live2d_bg_001.png",
-          "chars/13303/13303_l/bg/13303_live2d_bg_002.png"
+          "chars/13303/13303_l/bg/13303_live2d_bg_002.png",
+          "chars/13303/13303_l/bg/13303_live2d_box_001.png",
+          "chars/13303/13303_l/bg/13303_live2d_curtain_001.png",
+          "chars/13303/13303_l/bg/13303_live2d_curtain_002.png",
+          "chars/13303/13303_l/bg/13303_live2d_leaves_001.png",
+          "chars/13303/13303_l/bg/13303_live2d_leaves_002.png",
+          "chars/13303/13303_l/bg/13303_live2d_shoes_001.png",
+          "chars/13303/13303_l/bg/13303_live2d_umbrella_001.png",
+          "chars/13303/13303_l/bg/13303_live2d_umbrella_002.png",
+          "chars/13303/13303_l/bg/13303_live2d_umbrella_003.png"
         ],
         "bgLayers": [
           {
@@ -5547,7 +5905,20 @@
         "path": "chars/13401/13401_lf/13401_F_a.model3.json",
         "bg": [
           "chars/13401/13401_lf/bg/13401_live2d_BG_001.png",
-          "chars/13401/13401_lf/bg/13401_live2d_BG_002.png"
+          "chars/13401/13401_lf/bg/13401_live2d_BG_002.png",
+          "chars/13401/13401_lf/bg/13401_live2d_fg_001.png",
+          "chars/13401/13401_lf/bg/13401_live2d_house_001.png",
+          "chars/13401/13401_lf/bg/13401_live2d_snow_001.png",
+          "chars/13401/13401_lf/bg/13401_live2d_tree_003.png",
+          "chars/13401/13401_lf/bg/13401_live2d_tree_003_a.png",
+          "chars/13401/13401_lf/bg/13401_live2d_tree_003_b.png",
+          "chars/13401/13401_lf/bg/13401_live2d_tree_003_c.png",
+          "chars/13401/13401_lf/bg/13401_live2d_tree_003_d.png",
+          "chars/13401/13401_lf/bg/13401_live2d_tree_003_e.png",
+          "chars/13401/13401_lf/bg/13401_live2d_tree_003_f.png",
+          "chars/13401/13401_lf/bg/13401_live2d_tree_004.png",
+          "chars/13401/13401_lf/bg/13401_live2d_tree_005.png",
+          "chars/13401/13401_lf/bg/13401_live2d_tree_006.png"
         ],
         "bgLayers": [
           {
@@ -5713,7 +6084,26 @@
         "label": "Awakened",
         "path": "chars/13402/13402_l/13402_L.model3.json",
         "bg": [
-          "chars/13402/13402_l/bg/live2d_13402_bg_001.png"
+          "chars/13402/13402_l/bg/live2d_13402_bg_001.png",
+          "chars/13402/13402_l/bg/live2d_13402_rock_001.png",
+          "chars/13402/13402_l/bg/live2d_13402_rock_002.png",
+          "chars/13402/13402_l/bg/live2d_13402_rock_003.png",
+          "chars/13402/13402_l/bg/live2d_13402_rock_004.png",
+          "chars/13402/13402_l/bg/live2d_13402_rock_005.png",
+          "chars/13402/13402_l/bg/live2d_13402_rock_006.png",
+          "chars/13402/13402_l/bg/live2d_13402_rock_007.png",
+          "chars/13402/13402_l/bg/live2d_13402_rock_008.png",
+          "chars/13402/13402_l/bg/live2d_13402_rock_009.png",
+          "chars/13402/13402_l/bg/live2d_13402_rock_010.png",
+          "chars/13402/13402_l/bg/live2d_13402_rock_011.png",
+          "chars/13402/13402_l/bg/live2d_13402_rock_012.png",
+          "chars/13402/13402_l/bg/live2d_13402_snow_001.png",
+          "chars/13402/13402_l/bg/live2d_13402_snow_002.png",
+          "chars/13402/13402_l/bg/live2d_13402_snow_003.png",
+          "chars/13402/13402_l/bg/live2d_13402_snow_004.png",
+          "chars/13402/13402_l/bg/live2d_13402_snow_005.png",
+          "chars/13402/13402_l/bg/live2d_13402_snow_006.png",
+          "chars/13402/13402_l/bg/live2d_13402_snow_007.png"
         ],
         "bgLayers": [
           {
@@ -5923,7 +6313,9 @@
         "label": "Unknow",
         "path": "chars/13403/13403_l/13403_L.model3.json",
         "bg": [
-          "chars/13403/13403_l/bg/13403_live2d_bg_001.png"
+          "chars/13403/13403_l/bg/13403_live2d_bg_001.png",
+          "chars/13403/13403_l/bg/13403_live2d_box_001.png",
+          "chars/13403/13403_l/bg/13403_live2d_mg_001.png"
         ],
         "bgLayers": [
           {
@@ -5975,8 +6367,8 @@
         "label": "Memory Snapshot",
         "path": "chars/13501/13501_lf/13501_F_a.model3.json",
         "bg": [
-          "chars/13501/13501_lf/bg/13501_live2d_BG_001.png",
-          "chars/13501/13501_lf/bg/13501_live2d_BG_002.png"
+          "chars/13501/13501_lf/bg/13501_live2d_BG_002.png",
+          "chars/13501/13501_lf/bg/fx_13501_live2d_flash_01.png"
         ],
         "bgLayers": [
           {
@@ -6011,7 +6403,24 @@
         "name": "13502_l",
         "label": "Awakened",
         "path": "chars/13502/13502_l/13502_L.model3.json",
-        "bg": [],
+        "bg": [
+          "chars/13502/13502_l/bg/live2d_13502_ex_house_001.png",
+          "chars/13502/13502_l/bg/live2d_13502_ex_house_002.png",
+          "chars/13502/13502_l/bg/live2d_13502_ex_house_003.png",
+          "chars/13502/13502_l/bg/live2d_13502_ex_house_004.png",
+          "chars/13502/13502_l/bg/live2d_13502_ex_smoke_001.png",
+          "chars/13502/13502_l/bg/live2d_13502_ex_smoke_002.png",
+          "chars/13502/13502_l/bg/live2d_13502_ex_smoke_003.png",
+          "chars/13502/13502_l/bg/live2d_13502_ex_smoke_004.png",
+          "chars/13502/13502_l/bg/live2d_13502_ex_smoke_005.png",
+          "chars/13502/13502_l/bg/live2d_13502_ex_smoke_006.png",
+          "chars/13502/13502_l/bg/live2d_13502_ex_tree_001.png",
+          "chars/13502/13502_l/bg/live2d_13502_ex_tree_002.png",
+          "chars/13502/13502_l/bg/live2d_13502_ex_tree_003.png",
+          "chars/13502/13502_l/bg/live2d_13502_ex_tree_004.png",
+          "chars/13502/13502_l/bg/live2d_13502_ex_tree_005.png",
+          "chars/13502/13502_l/bg/live2d_13502_ex_tree_006.png"
+        ],
         "bgLayers": [
           {
             "file": "live2d_13502_ex_smoke_001",
@@ -6180,7 +6589,10 @@
         "label": "Unknow",
         "path": "chars/13503/13503_l/13503_L.model3.json",
         "bg": [
+          "chars/13503/13503_l/bg/live2d_13503_bg_01.png",
           "chars/13503/13503_l/bg/live2d_13503_bg_02.png",
+          "chars/13503/13503_l/bg/live2d_13503_bg_03.png",
+          "chars/13503/13503_l/bg/live2d_13503_bg_04.png",
           "chars/13503/13503_l/bg/live2d_13503_bg_05.png"
         ],
         "bgLayers": [
@@ -6257,6 +6669,7 @@
           "chars/14001/14001_lf/bg/14001_live2d_Full_BG_002.png",
           "chars/14001/14001_lf/bg/14001_live2d_Full_BG_003.png",
           "chars/14001/14001_lf/bg/14001_live2d_Full_BG_004.png",
+          "chars/14001/14001_lf/bg/14001_live2d_Full_BG_005.png",
           "chars/14001/14001_lf/bg/14001_live2d_Full_BG_006.png"
         ],
         "bgLayers": [
@@ -6332,7 +6745,14 @@
         "name": "14002_l",
         "label": "Awakened",
         "path": "chars/14002/14002_l/14002_L.model3.json",
-        "bg": [],
+        "bg": [
+          "chars/14002/14002_l/bg/14002_live2d_chair_001.png",
+          "chars/14002/14002_l/bg/14002_live2d_gear_001.png",
+          "chars/14002/14002_l/bg/14002_live2d_gear_002.png",
+          "chars/14002/14002_l/bg/14002_live2d_paper_001.png",
+          "chars/14002/14002_l/bg/14002_live2d_paper_002.png",
+          "chars/14002/14002_l/bg/14002_live2d_rocket_001.png"
+        ],
         "bgLayers": [
           {
             "file": "14002_live2d_chair_001",
@@ -6414,7 +6834,9 @@
         "path": "chars/14101/14101_lf/14101_F_a.model3.json",
         "bg": [
           "chars/14101/14101_lf/bg/14101_live2d_BG_001.png",
-          "chars/14101/14101_lf/bg/14101_live2d_BG_005.png"
+          "chars/14101/14101_lf/bg/14101_live2d_BG_002.png",
+          "chars/14101/14101_lf/bg/14101_live2d_BG_003.png",
+          "chars/14101/14101_lf/bg/14101_live2d_BG_004.png"
         ],
         "bgLayers": [
           {
@@ -6469,7 +6891,26 @@
         "name": "14102_l",
         "label": "Awakened",
         "path": "chars/14102/14102_l/14102_L.model3.json",
-        "bg": [],
+        "bg": [
+          "chars/14102/14102_l/bg/live2d_14102_cloud_001.png",
+          "chars/14102/14102_l/bg/live2d_14102_cloud_002.png",
+          "chars/14102/14102_l/bg/live2d_14102_cloud_003.png",
+          "chars/14102/14102_l/bg/live2d_14102_dragon_001.png",
+          "chars/14102/14102_l/bg/live2d_14102_dragon_002.png",
+          "chars/14102/14102_l/bg/live2d_14102_dragon_003.png",
+          "chars/14102/14102_l/bg/live2d_14102_dragon_004.png",
+          "chars/14102/14102_l/bg/live2d_14102_dragon_005.png",
+          "chars/14102/14102_l/bg/live2d_14102_dragon_006.png",
+          "chars/14102/14102_l/bg/live2d_14102_dragon_007.png",
+          "chars/14102/14102_l/bg/live2d_14102_dragon_008.png",
+          "chars/14102/14102_l/bg/live2d_14102_dragon_010.png",
+          "chars/14102/14102_l/bg/live2d_14102_dragon_011.png",
+          "chars/14102/14102_l/bg/live2d_14102_dragon_012.png",
+          "chars/14102/14102_l/bg/live2d_14102_dragon_013.png",
+          "chars/14102/14102_l/bg/live2d_14102_painting_001.png",
+          "chars/14102/14102_l/bg/live2d_14102_painting_002.png",
+          "chars/14102/14102_l/bg/live2d_14102_painting_003.png"
+        ],
         "bgLayers": [
           {
             "file": "live2d_14102_painting_002",
@@ -6657,7 +7098,28 @@
         "name": "14103_l",
         "label": "Unknow",
         "path": "chars/14103/14103_l/14103_L.model3.json",
-        "bg": [],
+        "bg": [
+          "chars/14103/14103_l/bg/14103_live2d_card_001.png",
+          "chars/14103/14103_l/bg/14103_live2d_card_002.png",
+          "chars/14103/14103_l/bg/14103_live2d_card_003.png",
+          "chars/14103/14103_l/bg/14103_live2d_card_004.png",
+          "chars/14103/14103_l/bg/14103_live2d_card_005.png",
+          "chars/14103/14103_l/bg/14103_live2d_card_006.png",
+          "chars/14103/14103_l/bg/14103_live2d_card_007.png",
+          "chars/14103/14103_l/bg/14103_live2d_card_008.png",
+          "chars/14103/14103_l/bg/14103_live2d_card_009.png",
+          "chars/14103/14103_l/bg/14103_live2d_card_010.png",
+          "chars/14103/14103_l/bg/14103_live2d_card_011.png",
+          "chars/14103/14103_l/bg/14103_live2d_door_001.png",
+          "chars/14103/14103_l/bg/14103_live2d_floor_001.png",
+          "chars/14103/14103_l/bg/14103_live2d_mushroom_001.png",
+          "chars/14103/14103_l/bg/14103_live2d_mushroom_002.png",
+          "chars/14103/14103_l/bg/14103_live2d_qizi_001.png",
+          "chars/14103/14103_l/bg/14103_live2d_soldier_001.png",
+          "chars/14103/14103_l/bg/14103_live2d_soldier_002.png",
+          "chars/14103/14103_l/bg/14103_live2d_soldier_003.png",
+          "chars/14103/14103_l/bg/14103_live2d_soldier_004.png"
+        ],
         "bgLayers": [
           {
             "file": "14103_live2d_floor_001",
@@ -6879,7 +7341,10 @@
         "path": "chars/14201/14201_lf/14201_F.model3.json",
         "bg": [
           "chars/14201/14201_lf/bg/14201_live2d_BG_001.png",
-          "chars/14201/14201_lf/bg/14201_live2d_BG_002.png"
+          "chars/14201/14201_lf/bg/14201_live2d_BG_002.png",
+          "chars/14201/14201_lf/bg/14201_live2d_leaves_001.png",
+          "chars/14201/14201_lf/bg/14201_live2d_leaves_002.png",
+          "chars/14201/14201_lf/bg/14201_live2d_ludeng_001.png"
         ],
         "bgLayers": [
           {
@@ -6944,7 +7409,14 @@
         "name": "14202_l",
         "label": "Awakened",
         "path": "chars/14202/14202_l/14202_L.model3.json",
-        "bg": [],
+        "bg": [
+          "chars/14202/14202_l/bg/live2d_14202_rock_001.png",
+          "chars/14202/14202_l/bg/live2d_14202_rock_002.png",
+          "chars/14202/14202_l/bg/live2d_14202_rock_003.png",
+          "chars/14202/14202_l/bg/live2d_14202_rock_004.png",
+          "chars/14202/14202_l/bg/live2d_14202_rock_005.png",
+          "chars/14202/14202_l/bg/live2d_14202_rock_006.png"
+        ],
         "bgLayers": [
           {
             "file": "live2d_14202_rock_001",
@@ -7007,6 +7479,136 @@
             "fg": false
           }
         ]
+      },
+      {
+        "name": "14203_l",
+        "label": "Unknow",
+        "path": "chars/14203/14203_l/14203_L.model3.json",
+        "bg": [
+          "chars/14203/14203_l/bg/live2d_14203_ex_bg_02.png",
+          "chars/14203/14203_l/bg/live2d_14203_ex_bg_03.png",
+          "chars/14203/14203_l/bg/live2d_14203_ex_bg_04.png",
+          "chars/14203/14203_l/bg/live2d_14203_ex_bg_05.png",
+          "chars/14203/14203_l/bg/live2d_14203_ex_bg_06.png",
+          "chars/14203/14203_l/bg/live2d_14203_ex_bg_07.png",
+          "chars/14203/14203_l/bg/live2d_14203_ex_bg_08.png",
+          "chars/14203/14203_l/bg/live2d_14203_ex_bg_09.png",
+          "chars/14203/14203_l/bg/live2d_14203_ex_hailang_01.png",
+          "chars/14203/14203_l/bg/live2d_14203_ex_hailang_02.png",
+          "chars/14203/14203_l/bg/live2d_14203_ex_hailang_03.png"
+        ],
+        "bgLayers": [
+          {
+            "file": "live2d_14203_ex_hailang_03",
+            "x": 5.4489994,
+            "y": -4.789,
+            "sx": 1,
+            "sy": 1,
+            "w": 668,
+            "h": 868,
+            "fg": false
+          },
+          {
+            "file": "live2d_14203_ex_hailang_02",
+            "x": 1.8069999,
+            "y": -7.9220004,
+            "sx": 1,
+            "sy": 1,
+            "w": 728,
+            "h": 320,
+            "fg": false
+          },
+          {
+            "file": "live2d_14203_ex_hailang_01",
+            "x": 2.8979998,
+            "y": -5.103,
+            "sx": 1,
+            "sy": 1,
+            "w": 1020,
+            "h": 900,
+            "fg": false
+          },
+          {
+            "file": "live2d_14203_ex_bg_08",
+            "x": 0.87,
+            "y": -1.16,
+            "sx": 1,
+            "sy": 1,
+            "w": 1620,
+            "h": 1688,
+            "fg": false
+          },
+          {
+            "file": "live2d_14203_ex_bg_03",
+            "x": -6.334,
+            "y": -2.008,
+            "sx": 1,
+            "sy": 1,
+            "w": 356,
+            "h": 624,
+            "fg": false
+          },
+          {
+            "file": "live2d_14203_ex_bg_04",
+            "x": 5.3559995,
+            "y": 1.997,
+            "sx": 1,
+            "sy": 1,
+            "w": 308,
+            "h": 288,
+            "fg": false
+          },
+          {
+            "file": "live2d_14203_ex_bg_05",
+            "x": 1.6899999,
+            "y": 3.1559997,
+            "sx": 1,
+            "sy": 1,
+            "w": 512,
+            "h": 396,
+            "fg": false
+          },
+          {
+            "file": "live2d_14203_ex_bg_06",
+            "x": 1.021,
+            "y": 6.514,
+            "sx": 1,
+            "sy": 1,
+            "w": 688,
+            "h": 560,
+            "fg": false
+          },
+          {
+            "file": "live2d_14203_ex_bg_07",
+            "x": 5.347,
+            "y": 6.564,
+            "sx": 1,
+            "sy": 1,
+            "w": 404,
+            "h": 564,
+            "fg": false
+          },
+          {
+            "file": "live2d_14203_ex_bg_02",
+            "x": -1.56,
+            "y": 0.52000004,
+            "sx": 1,
+            "sy": 1,
+            "w": 1400,
+            "h": 1576,
+            "fg": false
+          },
+          {
+            "file": "live2d_14203_ex_bg_09",
+            "x": -5.55,
+            "y": -6.11,
+            "sx": 1,
+            "sy": 1,
+            "w": 292,
+            "h": 244,
+            "fg": false
+          }
+        ]
       }
     ]
   },
@@ -7025,8 +7627,6 @@
         "label": "Memory Snapshot",
         "path": "chars/14301/14301_lf/14301_F_a.model3.json",
         "bg": [
-          "chars/14301/14301_lf/bg/14301_live2d_BG_001.png",
-          "chars/14301/14301_lf/bg/14301_live2d_BG_002.png",
           "chars/14301/14301_lf/bg/14301_live2d_BG_003.png"
         ],
         "bgLayers": [
@@ -7053,7 +7653,57 @@
         "label": "Awakened",
         "path": "chars/14302/14302_l/14302_L.model3.json",
         "bg": [
-          "chars/14302/14302_l/bg/live2d_14302_ex_bg_001.png"
+          "chars/14302/14302_l/bg/live2d_14302_ex_bg_001.png",
+          "chars/14302/14302_l/bg/live2d_14302_ex_wood_001.png",
+          "chars/14302/14302_l/bg/live2d_14302_ex_wood_002.png",
+          "chars/14302/14302_l/bg/live2d_14302_ex_wood_003.png",
+          "chars/14302/14302_l/bg/live2d_14302_ex_wood_004.png",
+          "chars/14302/14302_l/bg/live2d_14302_ex_wood_005.png",
+          "chars/14302/14302_l/bg/live2d_14302_ex_wood_006.png",
+          "chars/14302/14302_l/bg/live2d_14302_ex_wood_007.png",
+          "chars/14302/14302_l/bg/live2d_14302_ex_wood_008.png",
+          "chars/14302/14302_l/bg/live2d_14302_ex_wood_009.png",
+          "chars/14302/14302_l/bg/live2d_14302_ex_wood_010.png",
+          "chars/14302/14302_l/bg/live2d_14302_ex_wood_011.png",
+          "chars/14302/14302_l/bg/live2d_14302_ex_wood_012.png",
+          "chars/14302/14302_l/bg/live2d_14302_ex_wood_013.png",
+          "chars/14302/14302_l/bg/live2d_14302_ex_wood_014.png",
+          "chars/14302/14302_l/bg/live2d_14302_ex_wood_015.png",
+          "chars/14302/14302_l/bg/live2d_14302_ex_wood_chip_001.png",
+          "chars/14302/14302_l/bg/live2d_14302_ex_wood_chip_002.png",
+          "chars/14302/14302_l/bg/live2d_14302_ex_wood_chip_003.png",
+          "chars/14302/14302_l/bg/live2d_14302_ex_wood_chip_004.png",
+          "chars/14302/14302_l/bg/live2d_14302_ex_wood_chip_005.png",
+          "chars/14302/14302_l/bg/live2d_14302_ex_wood_chip_007.png",
+          "chars/14302/14302_l/bg/live2d_14302_ex_wood_chip_008.png",
+          "chars/14302/14302_l/bg/live2d_14302_ex_wood_chip_009.png",
+          "chars/14302/14302_l/bg/live2d_14302_ex_wood_chip_010.png",
+          "chars/14302/14302_l/bg/live2d_14302_ex_wood_chip_014.png",
+          "chars/14302/14302_l/bg/live2d_14302_ex_wood_chip_015.png",
+          "chars/14302/14302_l/bg/live2d_14302_ex_wood_chip_016.png",
+          "chars/14302/14302_l/bg/live2d_14302_ex_wood_chip_017.png",
+          "chars/14302/14302_l/bg/live2d_14302_ex_wood_chip_018.png",
+          "chars/14302/14302_l/bg/live2d_14302_ex_wood_chip_019.png",
+          "chars/14302/14302_l/bg/live2d_14302_ex_wood_chip_020.png",
+          "chars/14302/14302_l/bg/live2d_14302_ex_wood_chip_021.png",
+          "chars/14302/14302_l/bg/live2d_14302_ex_wood_chip_022.png",
+          "chars/14302/14302_l/bg/live2d_14302_ex_wood_chip_023.png",
+          "chars/14302/14302_l/bg/live2d_14302_ex_wood_chip_024.png",
+          "chars/14302/14302_l/bg/live2d_14302_ex_wood_chip_025.png",
+          "chars/14302/14302_l/bg/live2d_14302_ex_wood_chip_026.png",
+          "chars/14302/14302_l/bg/live2d_14302_ex_wood_chip_027.png",
+          "chars/14302/14302_l/bg/live2d_14302_ex_wood_chip_028.png",
+          "chars/14302/14302_l/bg/live2d_14302_ex_wood_chip_029.png",
+          "chars/14302/14302_l/bg/live2d_14302_ex_wood_chip_030.png",
+          "chars/14302/14302_l/bg/live2d_14302_ex_wood_chip_031.png",
+          "chars/14302/14302_l/bg/live2d_14302_ex_wood_chip_032.png",
+          "chars/14302/14302_l/bg/live2d_14302_ex_wood_chip_033.png",
+          "chars/14302/14302_l/bg/live2d_14302_ex_wood_chip_034.png",
+          "chars/14302/14302_l/bg/live2d_14302_ex_wood_chip_035.png",
+          "chars/14302/14302_l/bg/live2d_14302_ex_wood_chip_036.png",
+          "chars/14302/14302_l/bg/live2d_14302_ex_wood_chip_037.png",
+          "chars/14302/14302_l/bg/live2d_14302_ex_wood_chip_038.png",
+          "chars/14302/14302_l/bg/live2d_14302_ex_wood_chip_039.png"
         ],
         "bgLayers": [
           {
@@ -7586,7 +8236,16 @@
         "path": "chars/14401/14401_lf/14401_F_a.model3.json",
         "bg": [
           "chars/14401/14401_lf/bg/14401_live2d_Full_BG_001_a.png",
-          "chars/14401/14401_lf/bg/14401_live2d_Full_BG_005_a.png"
+          "chars/14401/14401_lf/bg/14401_live2d_Full_BG_005_a.png",
+          "chars/14401/14401_lf/bg/14401_live2d_Full_BG_006_a.png",
+          "chars/14401/14401_lf/bg/14401_live2d_Full_BG_007_a.png",
+          "chars/14401/14401_lf/bg/14401_live2d_Full_BG_008_a.png",
+          "chars/14401/14401_lf/bg/14401_live2d_Full_BG_009_a.png",
+          "chars/14401/14401_lf/bg/14401_live2d_Full_BG_010_a.png",
+          "chars/14401/14401_lf/bg/14401_live2d_Full_BG_012_a.png",
+          "chars/14401/14401_lf/bg/14401_live2d_Full_BG_013_a.png",
+          "chars/14401/14401_lf/bg/14401_live2d_Full_BG_014_a.png",
+          "chars/14401/14401_lf/bg/14401_live2d_Full_BG_016_a.png"
         ],
         "bgLayers": [
           {
@@ -7713,7 +8372,17 @@
         "path": "chars/14402/14402_l/14402_L.model3.json",
         "bg": [
           "chars/14402/14402_l/bg/live2d_14402_ex_bg_001.png",
-          "chars/14402/14402_l/bg/live2d_14402_ex_bg_007.png"
+          "chars/14402/14402_l/bg/live2d_14402_ex_bg_002.png",
+          "chars/14402/14402_l/bg/live2d_14402_ex_bg_003.png",
+          "chars/14402/14402_l/bg/live2d_14402_ex_bg_004.png",
+          "chars/14402/14402_l/bg/live2d_14402_ex_bg_005.png",
+          "chars/14402/14402_l/bg/live2d_14402_ex_bg_006.png",
+          "chars/14402/14402_l/bg/live2d_14402_ex_bg_007.png",
+          "chars/14402/14402_l/bg/live2d_14402_ex_bg_009.png",
+          "chars/14402/14402_l/bg/live2d_14402_ex_bg_012.png",
+          "chars/14402/14402_l/bg/live2d_14402_ex_bg_016.png",
+          "chars/14402/14402_l/bg/live2d_14402_ex_bg_017.png",
+          "chars/14402/14402_l/bg/live2d_14402_ex_bg_018.png"
         ],
         "bgLayers": [
           {
@@ -7878,8 +8547,7 @@
           "chars/14501/14501_lf/bg/14501_live2d_Full_BG_001.png",
           "chars/14501/14501_lf/bg/14501_live2d_Full_BG_003.png",
           "chars/14501/14501_lf/bg/14501_live2d_Full_BG_005.png",
-          "chars/14501/14501_lf/bg/14501_live2d_Full_BG_006.png",
-          "chars/14501/14501_lf/bg/14501_live2d_Full_BG_007.png"
+          "chars/14501/14501_lf/bg/14501_live2d_Full_BG_006.png"
         ],
         "bgLayers": [
           {
@@ -7935,7 +8603,20 @@
         "label": "Awakened",
         "path": "chars/14502/14502_l/14502_L.model3.json",
         "bg": [
-          "chars/14502/14502_l/bg/14502_live2d_BG_001.png"
+          "chars/14502/14502_l/bg/14502_live2d_BG_001.png",
+          "chars/14502/14502_l/bg/14502_live2d_ball_001.png",
+          "chars/14502/14502_l/bg/14502_live2d_ball_002.png",
+          "chars/14502/14502_l/bg/14502_live2d_kuwu_001.png",
+          "chars/14502/14502_l/bg/14502_live2d_kuwu_002.png",
+          "chars/14502/14502_l/bg/14502_live2d_kuwu_003.png",
+          "chars/14502/14502_l/bg/14502_live2d_kuwu_004.png",
+          "chars/14502/14502_l/bg/14502_live2d_kuwu_005.png",
+          "chars/14502/14502_l/bg/14502_live2d_kuwu_006.png",
+          "chars/14502/14502_l/bg/14502_live2d_stone_001.png",
+          "chars/14502/14502_l/bg/14502_live2d_stone_002.png",
+          "chars/14502/14502_l/bg/14502_live2d_tree_001.png",
+          "chars/14502/14502_l/bg/14502_live2d_tree_002.png",
+          "chars/14502/14502_l/bg/14502_live2d_tree_003.png"
         ],
         "bgLayers": [
           {
@@ -8118,8 +8799,7 @@
         "path": "chars/14701/14701_lf/14701_F_a.model3.json",
         "bg": [
           "chars/14701/14701_lf/bg/14701_live2d_BG_001_a.png",
-          "chars/14701/14701_lf/bg/14701_live2d_BG_001_b.png",
-          "chars/14701/14701_lf/bg/14701_live2d_BG_002.png"
+          "chars/14701/14701_lf/bg/14701_live2d_BG_001_b.png"
         ],
         "bgLayers": [
           {
@@ -8155,9 +8835,16 @@
         "label": "Awakened",
         "path": "chars/14702/14702_l/14702_L.model3.json",
         "bg": [
-          "chars/14702/14702_l/bg/fx_live2d_14702_ex_bg_036.png",
-          "chars/14702/14702_l/bg/fx_live2d_14702_ex_bg_037.png",
-          "chars/14702/14702_l/bg/fx_live2d_14702_ex_bg_060.png"
+          "chars/14702/14702_l/bg/live2d_14702_ex_bg_001.png",
+          "chars/14702/14702_l/bg/live2d_14702_ex_bg_002.png",
+          "chars/14702/14702_l/bg/live2d_14702_ex_bg_003.png",
+          "chars/14702/14702_l/bg/live2d_14702_ex_bg_004.png",
+          "chars/14702/14702_l/bg/live2d_14702_ex_bg_005.png",
+          "chars/14702/14702_l/bg/live2d_14702_ex_bg_039.png",
+          "chars/14702/14702_l/bg/live2d_14702_ex_bg_058.png",
+          "chars/14702/14702_l/bg/live2d_14702_ex_bg_059.png",
+          "chars/14702/14702_l/bg/live2d_14702_ex_bg_060.png",
+          "chars/14702/14702_l/bg/live2d_14702_ex_bg_061.png"
         ],
         "bgLayers": [
           {
@@ -8267,8 +8954,14 @@
         "label": "Unknow",
         "path": "chars/14703/14703_l/14703_L.model3.json",
         "bg": [
+          "chars/14703/14703_l/bg/live2d_14703_bg_01.png",
           "chars/14703/14703_l/bg/live2d_14703_bg_02.png",
-          "chars/14703/14703_l/bg/live2d_14703_bg_04.png"
+          "chars/14703/14703_l/bg/live2d_14703_bg_03.png",
+          "chars/14703/14703_l/bg/live2d_14703_bg_04.png",
+          "chars/14703/14703_l/bg/live2d_14703_bg_05.png",
+          "chars/14703/14703_l/bg/live2d_14703_bg_06.png",
+          "chars/14703/14703_l/bg/live2d_14703_bg_07.png",
+          "chars/14703/14703_l/bg/live2d_14703_bg_08.png"
         ],
         "bgLayers": [
           {
@@ -8371,7 +9064,6 @@
         "path": "chars/14901/14901_lf/14901_F_a.model3.json",
         "bg": [
           "chars/14901/14901_lf/bg/14901_live2d_BG_001.png",
-          "chars/14901/14901_lf/bg/14901_live2d_BG_002.png",
           "chars/14901/14901_lf/bg/14901_live2d_BG_003.png",
           "chars/14901/14901_lf/bg/14901_live2d_BG_004.png"
         ],
@@ -8419,7 +9111,31 @@
         "label": "Awakened",
         "path": "chars/14902/14902_l/14902_L.model3.json",
         "bg": [
-          "chars/14902/14902_l/bg/live2d_14902_ex_bg_001.png"
+          "chars/14902/14902_l/bg/live2d_14902_ex_bg_001.png",
+          "chars/14902/14902_l/bg/live2d_14902_ex_bg_002.png",
+          "chars/14902/14902_l/bg/live2d_14902_ex_fg_001.png",
+          "chars/14902/14902_l/bg/live2d_14902_ex_fg_002.png",
+          "chars/14902/14902_l/bg/live2d_14902_ex_fg_003.png",
+          "chars/14902/14902_l/bg/live2d_14902_ex_stone_001.png",
+          "chars/14902/14902_l/bg/live2d_14902_ex_stone_002.png",
+          "chars/14902/14902_l/bg/live2d_14902_ex_stone_003.png",
+          "chars/14902/14902_l/bg/live2d_14902_ex_stone_004.png",
+          "chars/14902/14902_l/bg/live2d_14902_ex_stone_005.png",
+          "chars/14902/14902_l/bg/live2d_14902_ex_stone_006.png",
+          "chars/14902/14902_l/bg/live2d_14902_ex_stone_007.png",
+          "chars/14902/14902_l/bg/live2d_14902_ex_stone_008.png",
+          "chars/14902/14902_l/bg/live2d_14902_ex_stone_009.png",
+          "chars/14902/14902_l/bg/live2d_14902_ex_stone_010.png",
+          "chars/14902/14902_l/bg/live2d_14902_ex_stone_011.png",
+          "chars/14902/14902_l/bg/live2d_14902_ex_stone_012.png",
+          "chars/14902/14902_l/bg/live2d_14902_ex_stone_013.png",
+          "chars/14902/14902_l/bg/live2d_14902_ex_stone_014.png",
+          "chars/14902/14902_l/bg/live2d_14902_ex_stone_015.png",
+          "chars/14902/14902_l/bg/live2d_14902_ex_stone_016.png",
+          "chars/14902/14902_l/bg/live2d_14902_ex_stone_017.png",
+          "chars/14902/14902_l/bg/live2d_14902_ex_stone_018.png",
+          "chars/14902/14902_l/bg/live2d_14902_ex_stone_019.png",
+          "chars/14902/14902_l/bg/live2d_14902_ex_stone_020.png"
         ],
         "bgLayers": [
           {
@@ -8680,7 +9396,12 @@
         "path": "chars/14903/14903_l/14903_L.model3.json",
         "bg": [
           "chars/14903/14903_l/bg/14903_live2d_bg_001.png",
-          "chars/14903/14903_l/bg/14903_live2d_bg_002.png"
+          "chars/14903/14903_l/bg/14903_live2d_bg_002.png",
+          "chars/14903/14903_l/bg/14903_live2d_huapeng_001.png",
+          "chars/14903/14903_l/bg/14903_live2d_huapeng_002.png",
+          "chars/14903/14903_l/bg/14903_live2d_leaves_001.png",
+          "chars/14903/14903_l/bg/14903_live2d_leaves_002.png",
+          "chars/14903/14903_l/bg/14903_live2d_lianzi_001.png"
         ],
         "bgLayers": [
           {
@@ -8772,8 +9493,7 @@
         "label": "Memory Snapshot",
         "path": "chars/15001/15001_lf/15001_F_a.model3.json",
         "bg": [
-          "chars/15001/15001_lf/bg/15001_live2d_BG_001.png",
-          "chars/15001/15001_lf/bg/15001_live2d_BG_002.png"
+          "chars/15001/15001_lf/bg/15001_live2d_BG_001.png"
         ],
         "bgLayers": [
           {
@@ -8800,7 +9520,9 @@
         "path": "chars/15002/15002_l/15002_L.model3.json",
         "bg": [
           "chars/15002/15002_l/bg/live2d_15002_ex_bg_001.png",
-          "chars/15002/15002_l/bg/live2d_15002_ex_bg_002.png"
+          "chars/15002/15002_l/bg/live2d_15002_ex_bg_002.png",
+          "chars/15002/15002_l/bg/live2d_15002_ex_stone_001.png",
+          "chars/15002/15002_l/bg/live2d_15002_ex_stone_002.png"
         ],
         "bgLayers": [
           {
@@ -8863,7 +9585,12 @@
         "path": "chars/15501/15501_lf/15501_F_a.model3.json",
         "bg": [
           "chars/15501/15501_lf/bg/15501_live2d_BG_001.png",
-          "chars/15501/15501_lf/bg/15501_live2d_BG_002.png"
+          "chars/15501/15501_lf/bg/15501_live2d_stone_001.png",
+          "chars/15501/15501_lf/bg/15501_live2d_stone_002.png",
+          "chars/15501/15501_lf/bg/15501_live2d_stone_003.png",
+          "chars/15501/15501_lf/bg/15501_live2d_stone_004.png",
+          "chars/15501/15501_lf/bg/15501_live2d_water_001.png",
+          "chars/15501/15501_lf/bg/15501_live2d_water_002.png"
         ],
         "bgLayers": [
           {
@@ -8949,12 +9676,20 @@
         "label": "Awakened",
         "path": "chars/15502/15502_l/15502_L.model3.json",
         "bg": [
-          "chars/15502/15502_l/bg/fx_live2d_15502_ex_bg_010.png",
-          "chars/15502/15502_l/bg/fx_live2d_15502_ex_bg_011.png",
-          "chars/15502/15502_l/bg/fx_live2d_15502_ex_bg_014.png",
-          "chars/15502/15502_l/bg/fx_live2d_15502_ex_bg_019.png",
-          "chars/15502/15502_l/bg/fx_live2d_15502_ex_bg_042.png",
-          "chars/15502/15502_l/bg/live2d_15502_ex_bg_001.png"
+          "chars/15502/15502_l/bg/live2d_15502_ex_bg_001.png",
+          "chars/15502/15502_l/bg/live2d_15502_ex_bg_002.png",
+          "chars/15502/15502_l/bg/live2d_15502_ex_bg_003.png",
+          "chars/15502/15502_l/bg/live2d_15502_ex_bg_004.png",
+          "chars/15502/15502_l/bg/live2d_15502_ex_bg_005.png",
+          "chars/15502/15502_l/bg/live2d_15502_ex_bg_006.png",
+          "chars/15502/15502_l/bg/live2d_15502_ex_bg_007.png",
+          "chars/15502/15502_l/bg/live2d_15502_ex_bg_008.png",
+          "chars/15502/15502_l/bg/live2d_15502_ex_bg_009.png",
+          "chars/15502/15502_l/bg/live2d_15502_ex_bg_010.png",
+          "chars/15502/15502_l/bg/live2d_15502_ex_bg_011.png",
+          "chars/15502/15502_l/bg/live2d_15502_ex_bg_012.png",
+          "chars/15502/15502_l/bg/live2d_15502_ex_bg_013.png",
+          "chars/15502/15502_l/bg/live2d_15502_ex_bg_014.png"
         ],
         "bgLayers": [
           {
@@ -9116,8 +9851,9 @@
         "label": "Memory Snapshot",
         "path": "chars/15601/15601_lf/15601_F_a.model3.json",
         "bg": [
-          "chars/15601/15601_lf/bg/15601_live2d_BG_001.png",
-          "chars/15601/15601_lf/bg/15601_live2d_BG_002.png"
+          "chars/15601/15601_lf/bg/15601_live2d_BG_002.png",
+          "chars/15601/15601_lf/bg/15601_live2d_FG_001.png",
+          "chars/15601/15601_lf/bg/15601_live2d_curtain_001.png"
         ],
         "bgLayers": [
           {
@@ -9163,7 +9899,10 @@
         "label": "Awakened",
         "path": "chars/15602/15602_l/15602_L.model3.json",
         "bg": [
+          "chars/15602/15602_l/bg/fx_live2d_15602_ex_wenli_005.png",
+          "chars/15602/15602_l/bg/fx_live2d_15602_ex_wenli_006.png",
           "chars/15602/15602_l/bg/live2d_15602_ex_bg_001.png",
+          "chars/15602/15602_l/bg/live2d_15602_ex_bg_002.png",
           "chars/15602/15602_l/bg/live2d_15602_ex_bg_003.png"
         ],
         "bgLayers": [
@@ -9235,7 +9974,10 @@
         "path": "chars/15603/15603_l/15603_L.model3.json",
         "bg": [
           "chars/15603/15603_l/bg/145603_live2d_bg_01.png",
-          "chars/15603/15603_l/bg/145603_live2d_bg_03.png"
+          "chars/15603/15603_l/bg/145603_live2d_bg_02.png",
+          "chars/15603/15603_l/bg/145603_live2d_bg_03.png",
+          "chars/15603/15603_l/bg/145603_live2d_bg_04.png",
+          "chars/15603/15603_l/bg/145603_live2d_bg_05.png"
         ],
         "bgLayers": [
           {
@@ -9307,8 +10049,18 @@
         "label": "Memory Snapshot",
         "path": "chars/15801/15801_lf/15801_F_a.model3.json",
         "bg": [
-          "chars/15801/15801_lf/bg/15801_live2d_BG_001.png",
-          "chars/15801/15801_lf/bg/15801_live2d_BG_002.png"
+          "chars/15801/15801_lf/bg/15801_live2d_BG_002.png",
+          "chars/15801/15801_lf/bg/15801_live2d_FG_001_a.png",
+          "chars/15801/15801_lf/bg/15801_live2d_FG_001_b.png",
+          "chars/15801/15801_lf/bg/15801_live2d_FG_001_c.png",
+          "chars/15801/15801_lf/bg/15801_live2d_FG_001_d.png",
+          "chars/15801/15801_lf/bg/15801_live2d_FG_001_e.png",
+          "chars/15801/15801_lf/bg/15801_live2d_FG_002.png",
+          "chars/15801/15801_lf/bg/15801_live2d_leaves_001.png",
+          "chars/15801/15801_lf/bg/15801_live2d_leaves_002.png",
+          "chars/15801/15801_lf/bg/15801_live2d_leaves_003.png",
+          "chars/15801/15801_lf/bg/15801_live2d_leaves_004.png",
+          "chars/15801/15801_lf/bg/15801_live2d_leaves_005.png"
         ],
         "bgLayers": [
           {
@@ -9532,7 +10284,9 @@
         "path": "chars/15901/15901_lf/15901_F_a.model3.json",
         "bg": [
           "chars/15901/15901_lf/bg/15901_live2d_BG_001.png",
-          "chars/15901/15901_lf/bg/15901_live2d_BG_002.png"
+          "chars/15901/15901_lf/bg/15901_live2d_BG_002.png",
+          "chars/15901/15901_lf/bg/15901_live2d_leaves_001.png",
+          "chars/15901/15901_lf/bg/15901_live2d_leaves_002.png"
         ],
         "bgLayers": [
           {
@@ -9588,7 +10342,16 @@
         "label": "Awakened",
         "path": "chars/15902/15902_l/15902_L.model3.json",
         "bg": [
-          "chars/15902/15902_l/bg/15902_live2d_BG_001.png"
+          "chars/15902/15902_l/bg/15902_live2d_BG_001.png",
+          "chars/15902/15902_l/bg/15902_live2d_aixin_001.png",
+          "chars/15902/15902_l/bg/15902_live2d_branch_001.png",
+          "chars/15902/15902_l/bg/15902_live2d_branch_002.png",
+          "chars/15902/15902_l/bg/15902_live2d_flower_001.png",
+          "chars/15902/15902_l/bg/15902_live2d_flower_002.png",
+          "chars/15902/15902_l/bg/15902_live2d_leaves_001.png",
+          "chars/15902/15902_l/bg/15902_live2d_leaves_002.png",
+          "chars/15902/15902_l/bg/15902_live2d_leaves_003.png",
+          "chars/15902/15902_l/bg/15902_live2d_stone_001.png"
         ],
         "bgLayers": [
           {
@@ -9710,10 +10473,16 @@
         "label": "Memory Snapshot",
         "path": "chars/16001/16001_lf/16001_F_a.model3.json",
         "bg": [
-          "chars/16001/16001_lf/bg/16001_live2d_BG_001.png",
-          "chars/16001/16001_lf/bg/16001_live2d_BG_002.png",
           "chars/16001/16001_lf/bg/16001_live2d_BG_003.png",
-          "chars/16001/16001_lf/bg/16001_live2d_BG_004.png"
+          "chars/16001/16001_lf/bg/16001_live2d_BG_004.png",
+          "chars/16001/16001_lf/bg/16001_live2d_bolang_002.png",
+          "chars/16001/16001_lf/bg/16001_live2d_bolang_003.png",
+          "chars/16001/16001_lf/bg/16001_live2d_bolang_004.png",
+          "chars/16001/16001_lf/bg/16001_live2d_bolang_005.png",
+          "chars/16001/16001_lf/bg/16001_live2d_bolang_006.png",
+          "chars/16001/16001_lf/bg/16001_live2d_tree_001.png",
+          "chars/16001/16001_lf/bg/16001_live2d_tree_002.png",
+          "chars/16001/16001_lf/bg/16001_live2d_tree_003.png"
         ],
         "bgLayers": [
           {
@@ -9829,7 +10598,20 @@
         "label": "Awakened",
         "path": "chars/16002/16002_l/16002_L.model3.json",
         "bg": [
-          "chars/16002/16002_l/bg/16002_live2d_bg_01.png"
+          "chars/16002/16002_l/bg/16002_live2d_bg_01.png",
+          "chars/16002/16002_l/bg/16002_live2d_bg_02.png",
+          "chars/16002/16002_l/bg/16002_live2d_bg_03.png",
+          "chars/16002/16002_l/bg/16002_live2d_bg_04.png",
+          "chars/16002/16002_l/bg/16002_live2d_leaf_01.png",
+          "chars/16002/16002_l/bg/16002_live2d_leaf_02.png",
+          "chars/16002/16002_l/bg/16002_live2d_leaf_03.png",
+          "chars/16002/16002_l/bg/16002_live2d_paopao_01.png",
+          "chars/16002/16002_l/bg/16002_live2d_paopao_03.png",
+          "chars/16002/16002_l/bg/16002_live2d_paopao_04.png",
+          "chars/16002/16002_l/bg/16002_live2d_paopao_05.png",
+          "chars/16002/16002_l/bg/16002_live2d_paopao_06.png",
+          "chars/16002/16002_l/bg/16002_live2d_paopao_07.png",
+          "chars/16002/16002_l/bg/16002_live2d_paopao_09.png"
         ],
         "bgLayers": [
           {
@@ -9987,6 +10769,126 @@
     ]
   },
   {
+    "id": "813301",
+    "name": "#813",
+    "variants": [
+      {
+        "name": "813301_l",
+        "label": "Unknow",
+        "path": "chars/813301/813301_l/813301_L.model3.json",
+        "bg": []
+      },
+      {
+        "name": "813401_l",
+        "label": "Unknow",
+        "path": "chars/813401/813401_l/813401_L.model3.json",
+        "bg": []
+      }
+    ]
+  },
+  {
+    "id": "910201",
+    "name": "#910",
+    "variants": [
+      {
+        "name": "910201_l",
+        "label": "Unknow",
+        "path": "chars/910201/910201_l/910201_L.model3.json",
+        "bg": []
+      },
+      {
+        "name": "910202_l",
+        "label": "Unknow",
+        "path": "chars/910202/910202_l/910202_L.model3.json",
+        "bg": []
+      }
+    ]
+  },
+  {
+    "id": "913101",
+    "name": "#913",
+    "variants": [
+      {
+        "name": "913101_l",
+        "label": "Unknow",
+        "path": "chars/913101/913101_l/913101_L.model3.json",
+        "bg": []
+      },
+      {
+        "name": "913301_l",
+        "label": "Unknow",
+        "path": "chars/913301/913301_l/913301_L.model3.json",
+        "bg": []
+      }
+    ]
+  },
+  {
+    "id": "915901",
+    "name": "#915",
+    "variants": [
+      {
+        "name": "915901_l",
+        "label": "Unknow",
+        "path": "chars/915901/915901_l/915901_L.model3.json",
+        "bg": []
+      }
+    ]
+  },
+  {
+    "id": "916402",
+    "name": "#916",
+    "variants": [
+      {
+        "name": "916402_l",
+        "label": "Unknow",
+        "path": "chars/916402/916402_l/916402_L.model3.json",
+        "bg": []
+      }
+    ]
+  },
+  {
+    "id": "917201",
+    "name": "#917",
+    "variants": [
+      {
+        "name": "917201_l",
+        "label": "Unknow",
+        "path": "chars/917201/917201_l/917201_L.model3.json",
+        "bg": []
+      },
+      {
+        "name": "917202_l",
+        "label": "Unknow",
+        "path": "chars/917202/917202_l/917202_L.model3.json",
+        "bg": []
+      },
+      {
+        "name": "917301_l",
+        "label": "Unknow",
+        "path": "chars/917301/917301_l/917301_L.model3.json",
+        "bg": []
+      },
+      {
+        "name": "917302_l",
+        "label": "Unknow",
+        "path": "chars/917302/917302_l/917302_L.model3.json",
+        "bg": []
+      },
+      {
+        "name": "917401_l",
+        "label": "Unknow",
+        "path": "chars/917401/917401_l/917401_L.model3.json",
+        "bg": []
+      },
+      {
+        "name": "917402_l",
+        "label": "Unknow",
+        "path": "chars/917402/917402_l/917402_L.model3.json",
+        "bg": []
+      }
+    ]
+  },
+  {
     "id": "4004",
     "name": "Wisteria Dream",
     "variants": [
@@ -10021,7 +10923,8 @@
         "label": "Disc",
         "path": "chars/4005/4005_l/4005_F.model3.json",
         "bg": [
-          "chars/4005/4005_l/bg/4005_disc_l2d_bg_001.png"
+          "chars/4005/4005_l/bg/4005_disc_l2d_bg_001.png",
+          "chars/4005/4005_l/bg/4005_disc_l2d_flower_001.png"
         ],
         "bgLayers": [
           {
@@ -10057,7 +10960,11 @@
         "label": "Disc",
         "path": "chars/4006/4006_l/4006_F.model3.json",
         "bg": [
-          "chars/4006/4006_l/bg/4006_disc_l2d_main_bg_001.png"
+          "chars/4006/4006_l/bg/4006_disc_l2d_main_bg_001.png",
+          "chars/4006/4006_l/bg/4006_disc_l2d_main_bg_003.png",
+          "chars/4006/4006_l/bg/4006_disc_l2d_main_bg_004.png",
+          "chars/4006/4006_l/bg/4006_disc_l2d_main_bg_005.png",
+          "chars/4006/4006_l/bg/4006_disc_l2d_main_bg_006.png"
         ],
         "bgLayers": [
           {
@@ -10124,7 +11031,12 @@
         "path": "chars/4007/4007_l/4007_F.model3.json",
         "bg": [
           "chars/4007/4007_l/bg/4007_disc_l2d_bg_001.png",
-          "chars/4007/4007_l/bg/4007_disc_l2d_bg_002.png"
+          "chars/4007/4007_l/bg/4007_disc_l2d_bg_002.png",
+          "chars/4007/4007_l/bg/fx_4007_disc_l2d_shuiliu_004.png",
+          "chars/4007/4007_l/bg/fx_4007_disc_l2d_shuiliu_005.png",
+          "chars/4007/4007_l/bg/fx_4007_disc_l2d_shuiliu_006.png",
+          "chars/4007/4007_l/bg/fx_4007_disc_l2d_shuiliu_007.png",
+          "chars/4007/4007_l/bg/fx_4007_disc_l2d_shuiliu_008.png"
         ],
         "bgLayers": [
           {
@@ -10221,7 +11133,10 @@
         "path": "chars/4008/4008_l/4008_F.model3.json",
         "bg": [
           "chars/4008/4008_l/bg/4008_disc_l2d_bg_001.png",
-          "chars/4008/4008_l/bg/4008_disc_l2d_bg_002.png"
+          "chars/4008/4008_l/bg/4008_disc_l2d_bg_002.png",
+          "chars/4008/4008_l/bg/4008_disc_l2d_leaves_001.png",
+          "chars/4008/4008_l/bg/4008_disc_l2d_leaves_002.png",
+          "chars/4008/4008_l/bg/4008_disc_l2d_leaves_003.png"
         ],
         "bgLayers": [
           {
@@ -10287,7 +11202,14 @@
         "label": "Disc",
         "path": "chars/4015/4015_l/4015_F.model3.json",
         "bg": [
-          "chars/4015/4015_l/bg/4015_disc_l2d_bg_001.png"
+          "chars/4015/4015_l/bg/4015_disc_l2d_bg_001.png",
+          "chars/4015/4015_l/bg/4015_disc_l2d_deer_001.png",
+          "chars/4015/4015_l/bg/4015_disc_l2d_deer_002.png",
+          "chars/4015/4015_l/bg/4015_disc_l2d_deer_005.png",
+          "chars/4015/4015_l/bg/4015_disc_l2d_deer_006.png",
+          "chars/4015/4015_l/bg/4015_disc_l2d_leaves_001.png",
+          "chars/4015/4015_l/bg/4015_disc_l2d_leaves_002.png",
+          "chars/4015/4015_l/bg/4015_disc_l2d_leaves_003.png"
         ],
         "bgLayers": [
           {
@@ -10386,7 +11308,22 @@
           "chars/4016/4016_l/bg/4016_disc_l2d_bg_001.png",
           "chars/4016/4016_l/bg/4016_disc_l2d_bg_002.png",
           "chars/4016/4016_l/bg/4016_disc_l2d_bg_003.png",
-          "chars/4016/4016_l/bg/4016_disc_l2d_bg_004.png"
+          "chars/4016/4016_l/bg/4016_disc_l2d_bg_004.png",
+          "chars/4016/4016_l/bg/4016_disc_l2d_grass_001.png",
+          "chars/4016/4016_l/bg/4016_disc_l2d_grass_002.png",
+          "chars/4016/4016_l/bg/4016_disc_l2d_grass_003.png",
+          "chars/4016/4016_l/bg/4016_disc_l2d_grass_004.png",
+          "chars/4016/4016_l/bg/4016_disc_l2d_grass_005.png",
+          "chars/4016/4016_l/bg/4016_disc_l2d_grass_006.png",
+          "chars/4016/4016_l/bg/4016_disc_l2d_grass_007.png",
+          "chars/4016/4016_l/bg/4016_disc_l2d_grass_008.png",
+          "chars/4016/4016_l/bg/4016_disc_l2d_grass_009.png",
+          "chars/4016/4016_l/bg/4016_disc_l2d_grass_010.png",
+          "chars/4016/4016_l/bg/4016_disc_l2d_grass_011.png",
+          "chars/4016/4016_l/bg/4016_disc_l2d_grass_012.png",
+          "chars/4016/4016_l/bg/4016_disc_l2d_grass_013.png",
+          "chars/4016/4016_l/bg/4016_disc_l2d_grass_014.png",
+          "chars/4016/4016_l/bg/4016_disc_l2d_leaves_001.png"
         ],
         "bgLayers": [
           {
@@ -10593,8 +11530,10 @@
         "path": "chars/4017/4017_l/4017_F.model3.json",
         "bg": [
           "chars/4017/4017_l/bg/4017_disc_l2d_bg_001.png",
+          "chars/4017/4017_l/bg/4017_disc_l2d_bg_002.png",
           "chars/4017/4017_l/bg/4017_disc_l2d_bg_003.png",
-          "chars/4017/4017_l/bg/4017_disc_l2d_bg_004.png"
+          "chars/4017/4017_l/bg/4017_disc_l2d_bg_004.png",
+          "chars/4017/4017_l/bg/4017_disc_l2d_fg_001.png"
         ],
         "bgLayers": [
           {
@@ -10662,7 +11601,16 @@
         "bg": [
           "chars/4026/4026_l/bg/4026_disc_l2d_bg_01.png",
           "chars/4026/4026_l/bg/4026_disc_l2d_bg_02.png",
-          "chars/4026/4026_l/bg/4026_disc_l2d_bg_05.png"
+          "chars/4026/4026_l/bg/4026_disc_l2d_bg_03.png",
+          "chars/4026/4026_l/bg/4026_disc_l2d_bg_04.png",
+          "chars/4026/4026_l/bg/4026_disc_l2d_bg_05.png",
+          "chars/4026/4026_l/bg/4026_disc_l2d_bg_06.png",
+          "chars/4026/4026_l/bg/4026_disc_l2d_bg_07.png",
+          "chars/4026/4026_l/bg/4026_disc_l2d_bg_08.png",
+          "chars/4026/4026_l/bg/4026_disc_l2d_bg_09.png",
+          "chars/4026/4026_l/bg/4026_disc_l2d_bg_10.png",
+          "chars/4026/4026_l/bg/4026_disc_l2d_bg_11.png",
+          "chars/4026/4026_l/bg/fx_4026_disc_l2d_03.png"
         ],
         "bgLayers": [
           {
@@ -10810,7 +11758,18 @@
         "bg": [
           "chars/4027/4027_l/bg/4027_disc_l2d_bg_01.png",
           "chars/4027/4027_l/bg/4027_disc_l2d_bg_02.png",
-          "chars/4027/4027_l/bg/4027_disc_l2d_bg_03.png"
+          "chars/4027/4027_l/bg/4027_disc_l2d_bg_03.png",
+          "chars/4027/4027_l/bg/4027_disc_l2d_denglong_01.png",
+          "chars/4027/4027_l/bg/4027_disc_l2d_denglong_02.png",
+          "chars/4027/4027_l/bg/4027_disc_l2d_fg_01.png",
+          "chars/4027/4027_l/bg/4027_disc_l2d_fg_02.png",
+          "chars/4027/4027_l/bg/4027_disc_l2d_fg_03.png",
+          "chars/4027/4027_l/bg/4027_disc_l2d_fg_04.png",
+          "chars/4027/4027_l/bg/4027_disc_l2d_fg_05.png",
+          "chars/4027/4027_l/bg/4027_disc_l2d_fg_06.png",
+          "chars/4027/4027_l/bg/4027_disc_l2d_painting_01.png",
+          "chars/4027/4027_l/bg/4027_disc_l2d_painting_02.png",
+          "chars/4027/4027_l/bg/4027_disc_l2d_painting_03.png"
         ],
         "bgLayers": [
           {
@@ -11022,7 +11981,8 @@
         "label": "Disc",
         "path": "chars/4029/4029_l/4029_F.model3.json",
         "bg": [
-          "chars/4029/4029_l/bg/4029_disc_l2d_bg_001.png"
+          "chars/4029/4029_l/bg/4029_disc_l2d_bg_001.png",
+          "chars/4029/4029_l/bg/4029_disc_l2d_fg_001.png"
         ],
         "bgLayers": [
           {
@@ -11121,7 +12081,59 @@
         "label": "Disc",
         "path": "chars/4038/4038_l/4038_F .model3.json",
         "bg": [
-          "chars/4038/4038_l/bg/4038_disc_main_bg_01.png"
+          "chars/4038/4038_l/bg/4038_disc_main_bg_01.png",
+          "chars/4038/4038_l/bg/4038_disc_main_fg_01.png",
+          "chars/4038/4038_l/bg/4038_disc_main_fg_02.png",
+          "chars/4038/4038_l/bg/4038_disc_main_fg_03.png",
+          "chars/4038/4038_l/bg/4038_disc_main_fg_04.png",
+          "chars/4038/4038_l/bg/4038_disc_main_fg_05.png",
+          "chars/4038/4038_l/bg/4038_disc_main_fg_06.png",
+          "chars/4038/4038_l/bg/4038_disc_main_fg_07.png",
+          "chars/4038/4038_l/bg/4038_disc_main_fg_08.png",
+          "chars/4038/4038_l/bg/4038_disc_main_fg_09.png",
+          "chars/4038/4038_l/bg/4038_disc_main_fg_10.png",
+          "chars/4038/4038_l/bg/4038_disc_main_pao_001.png",
+          "chars/4038/4038_l/bg/4038_disc_main_pao_002.png",
+          "chars/4038/4038_l/bg/4038_disc_main_pao_003.png",
+          "chars/4038/4038_l/bg/4038_disc_main_pao_004.png",
+          "chars/4038/4038_l/bg/4038_disc_main_pao_005.png",
+          "chars/4038/4038_l/bg/4038_disc_main_pao_006.png",
+          "chars/4038/4038_l/bg/4038_disc_main_pao_007.png",
+          "chars/4038/4038_l/bg/4038_disc_main_pao_008.png",
+          "chars/4038/4038_l/bg/4038_disc_main_pao_009.png",
+          "chars/4038/4038_l/bg/4038_disc_main_pao_010.png",
+          "chars/4038/4038_l/bg/4038_disc_main_pao_011.png",
+          "chars/4038/4038_l/bg/4038_disc_main_pao_012.png",
+          "chars/4038/4038_l/bg/4038_disc_main_pao_013.png",
+          "chars/4038/4038_l/bg/4038_disc_main_pao_014.png",
+          "chars/4038/4038_l/bg/4038_disc_main_pao_015.png",
+          "chars/4038/4038_l/bg/4038_disc_main_pao_016.png",
+          "chars/4038/4038_l/bg/4038_disc_main_pao_017.png",
+          "chars/4038/4038_l/bg/4038_disc_main_pao_018.png",
+          "chars/4038/4038_l/bg/4038_disc_main_pao_019.png",
+          "chars/4038/4038_l/bg/4038_disc_main_pao_020.png",
+          "chars/4038/4038_l/bg/4038_disc_main_pao_021.png",
+          "chars/4038/4038_l/bg/4038_disc_main_pao_022.png",
+          "chars/4038/4038_l/bg/4038_disc_main_pao_023.png",
+          "chars/4038/4038_l/bg/4038_disc_main_pao_024.png",
+          "chars/4038/4038_l/bg/4038_disc_main_pao_025.png",
+          "chars/4038/4038_l/bg/4038_disc_main_pao_026.png",
+          "chars/4038/4038_l/bg/4038_disc_main_pao_027.png",
+          "chars/4038/4038_l/bg/4038_disc_main_pao_028.png",
+          "chars/4038/4038_l/bg/4038_disc_main_pao_029.png",
+          "chars/4038/4038_l/bg/4038_disc_main_pao_030.png",
+          "chars/4038/4038_l/bg/4038_disc_main_pao_031.png",
+          "chars/4038/4038_l/bg/4038_disc_main_pao_032.png",
+          "chars/4038/4038_l/bg/4038_disc_main_pao_033.png",
+          "chars/4038/4038_l/bg/4038_disc_main_pao_034.png",
+          "chars/4038/4038_l/bg/4038_disc_main_pao_035.png",
+          "chars/4038/4038_l/bg/4038_disc_main_pao_036.png",
+          "chars/4038/4038_l/bg/4038_disc_main_pao_037.png",
+          "chars/4038/4038_l/bg/4038_disc_main_pao_038.png",
+          "chars/4038/4038_l/bg/4038_disc_main_pao_039.png",
+          "chars/4038/4038_l/bg/4038_disc_main_pao_040.png",
+          "chars/4038/4038_l/bg/4038_disc_main_pao_041.png",
+          "chars/4038/4038_l/bg/4038_disc_main_pao_042.png"
         ],
         "bgLayers": [
           {
@@ -11667,7 +12679,16 @@
         "label": "Disc",
         "path": "chars/4044/4044_l/4044_F.model3.json",
         "bg": [
-          "chars/4044/4044_l/bg/4044_disc_l2d_bg_001.png"
+          "chars/4044/4044_l/bg/4044_disc_l2d_bg_001.png",
+          "chars/4044/4044_l/bg/4044_disc_l2d_bird_001.png",
+          "chars/4044/4044_l/bg/4044_disc_l2d_bird_002.png",
+          "chars/4044/4044_l/bg/4044_disc_l2d_bird_003.png",
+          "chars/4044/4044_l/bg/4044_disc_l2d_curtain_001.png",
+          "chars/4044/4044_l/bg/4044_disc_l2d_fg_001.png",
+          "chars/4044/4044_l/bg/4044_disc_l2d_fg_002.png",
+          "chars/4044/4044_l/bg/4044_disc_l2d_fg_003.png",
+          "chars/4044/4044_l/bg/4044_disc_l2d_fg_004.png",
+          "chars/4044/4044_l/bg/4044_disc_l2d_fg_005.png"
         ],
         "bgLayers": [
           {
@@ -11809,9 +12830,9 @@
         "label": "Disc",
         "path": "chars/4048/4048_l/4048_F.model3.json",
         "bg": [
-          "chars/4048/4048_l/bg/4048_disc_l2d_bg_01.png",
           "chars/4048/4048_l/bg/4048_disc_main_bg_01.png",
-          "chars/4048/4048_l/bg/4048_disc_main_bg_02.png"
+          "chars/4048/4048_l/bg/4048_disc_main_bg_02.png",
+          "chars/4048/4048_l/bg/4048_disc_main_bg_03.png"
         ],
         "bgLayers": [
           {
@@ -11860,7 +12881,9 @@
           "chars/4051/4051_l/bg/4051_disc_l2d_bg_01.png",
           "chars/4051/4051_l/bg/4051_disc_l2d_bg_02.png",
           "chars/4051/4051_l/bg/4051_disc_l2d_bg_03.png",
-          "chars/4051/4051_l/bg/4051_disc_l2d_bg_04.png"
+          "chars/4051/4051_l/bg/4051_disc_l2d_bg_04.png",
+          "chars/4051/4051_l/bg/4051_disc_l2d_bg_05.png",
+          "chars/4051/4051_l/bg/4051_disc_l2d_bg_06.png"
         ],
         "bgLayers": [
           {
@@ -11936,7 +12959,24 @@
         "label": "Disc",
         "path": "chars/4054/4054_l/4054_F.model3.json",
         "bg": [
-          "chars/4054/4054_l/bg/4054_disc_l2d_bg_001.png"
+          "chars/4054/4054_l/bg/4054_disc_l2d_bg_001.png",
+          "chars/4054/4054_l/bg/4054_disc_l2d_fg_001.png",
+          "chars/4054/4054_l/bg/4054_disc_l2d_light_001.png",
+          "chars/4054/4054_l/bg/4054_disc_l2d_light_002.png",
+          "chars/4054/4054_l/bg/4054_disc_l2d_light_003.png",
+          "chars/4054/4054_l/bg/4054_disc_l2d_sugar_001.png",
+          "chars/4054/4054_l/bg/4054_disc_l2d_sugar_002.png",
+          "chars/4054/4054_l/bg/fx_4054_disc_l2d_paopao_003.png",
+          "chars/4054/4054_l/bg/fx_4054_disc_l2d_paopao_004.png",
+          "chars/4054/4054_l/bg/fx_4054_disc_l2d_paopao_005.png",
+          "chars/4054/4054_l/bg/fx_4054_disc_l2d_paopao_006.png",
+          "chars/4054/4054_l/bg/fx_4054_disc_l2d_paopao_007.png",
+          "chars/4054/4054_l/bg/fx_4054_disc_l2d_paopao_008.png",
+          "chars/4054/4054_l/bg/fx_4054_disc_l2d_paopao_009.png",
+          "chars/4054/4054_l/bg/fx_4054_disc_l2d_paopao_010.png",
+          "chars/4054/4054_l/bg/fx_4054_disc_l2d_paopao_011.png",
+          "chars/4054/4054_l/bg/fx_4054_disc_l2d_paopao_012.png",
+          "chars/4054/4054_l/bg/fx_4054_disc_l2d_paopao_013.png"
         ],
         "bgLayers": [
           {
@@ -12133,8 +13173,37 @@
         "path": "chars/4055/4055_l/4055_F.model3.json",
         "bg": [
           "chars/4055/4055_l/bg/4055_disc_l2d_bg_001.png",
+          "chars/4055/4055_l/bg/4055_disc_l2d_bg_002.png",
+          "chars/4055/4055_l/bg/4055_disc_l2d_bg_003.png",
+          "chars/4055/4055_l/bg/4055_disc_l2d_bg_004.png",
+          "chars/4055/4055_l/bg/4055_disc_l2d_bg_005.png",
           "chars/4055/4055_l/bg/4055_disc_l2d_bg_006.png",
-          "chars/4055/4055_l/bg/4055_disc_l2d_bg_007.png"
+          "chars/4055/4055_l/bg/4055_disc_l2d_bg_007.png",
+          "chars/4055/4055_l/bg/4055_disc_l2d_bg_008.png",
+          "chars/4055/4055_l/bg/4055_disc_l2d_bg_009.png",
+          "chars/4055/4055_l/bg/4055_disc_l2d_bg_010.png",
+          "chars/4055/4055_l/bg/4055_disc_l2d_bg_011.png",
+          "chars/4055/4055_l/bg/4055_disc_l2d_bg_012.png",
+          "chars/4055/4055_l/bg/4055_disc_l2d_bg_013.png",
+          "chars/4055/4055_l/bg/4055_disc_l2d_bg_015.png",
+          "chars/4055/4055_l/bg/4055_disc_l2d_bg_016.png",
+          "chars/4055/4055_l/bg/4055_disc_l2d_bg_017.png",
+          "chars/4055/4055_l/bg/4055_disc_l2d_bg_018.png",
+          "chars/4055/4055_l/bg/4055_disc_l2d_bg_020.png",
+          "chars/4055/4055_l/bg/4055_disc_l2d_bg_021.png",
+          "chars/4055/4055_l/bg/4055_disc_l2d_hua_01.png",
+          "chars/4055/4055_l/bg/4055_disc_l2d_hua_02.png",
+          "chars/4055/4055_l/bg/4055_disc_l2d_pao_01.png",
+          "chars/4055/4055_l/bg/4055_disc_l2d_pao_02.png",
+          "chars/4055/4055_l/bg/4055_disc_l2d_pao_03.png",
+          "chars/4055/4055_l/bg/4055_disc_l2d_pao_04.png",
+          "chars/4055/4055_l/bg/4055_disc_l2d_pao_05.png",
+          "chars/4055/4055_l/bg/4055_disc_l2d_pao_06.png",
+          "chars/4055/4055_l/bg/4055_disc_l2d_pao_07.png",
+          "chars/4055/4055_l/bg/4055_disc_l2d_pao_08.png",
+          "chars/4055/4055_l/bg/4055_disc_l2d_pao_09.png",
+          "chars/4055/4055_l/bg/4055_disc_l2d_pao_10.png",
+          "chars/4055/4055_l/bg/4055_disc_l2d_pao_11.png"
         ],
         "bgLayers": [
           {

@@ -23,7 +23,7 @@ function parseArgs() {
   };
   return {
     modelsFile: get('--models', path.resolve('data/models.json')),
-    layersDir: get('--layers', path.resolve('/tmp/opencode/bglayers')),
+    layersDir: get('--layers', path.resolve('.dump_tmp/bglayers')),
   };
 }
 
@@ -68,9 +68,15 @@ function main() {
       const prefab = variantToPrefab(variant.path);
       // Combine ----bg---- and ----bg_effect---- from the same prefab into
       // one composition (bg_effect holds foreground objects like houses).
+      // Every prefab root is present in the dump (extractBgLayers.mjs keeps
+      // 0-layer roots too), so an exact name match always resolves: a variant
+      // whose own root has no sprite layers simply gets no background.
       const matching = comps.filter((c) => c.prefab && c.prefab === prefab);
       let comps2 = matching;
       if (!comps2.length) {
+        // Fall back only when the variant's own prefab root is genuinely
+        // absent from the dump and the bundle carries exactly one composed
+        // scene (e.g. a bundle that was not fully exported).
         const withLayers = comps.filter((c) => (c.layers || []).some((l) => l.texture));
         if (withLayers.length === 1) comps2 = withLayers;
       }

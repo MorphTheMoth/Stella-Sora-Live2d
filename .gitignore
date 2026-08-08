@@ -1,8 +1,0 @@
-node_modules/
-.dump_tmp/
-srpg-kr.github.io/
-tyrant-viewer/
-
-# Generated Live2D models (~940MB). Rebuild with: bash scripts/dump.sh
-# To deploy on GitHub Pages, track this with git-lfs (see README).
-chars/

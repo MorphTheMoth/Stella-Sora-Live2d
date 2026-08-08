@@ -421,7 +421,19 @@ function addMotionControls(section) {
     });
   };
 
-  groupSel.addEventListener('change', fillMotions);
+  const startCurrent = () => {
+    const group = groupSel.value;
+    const idx = parseInt(motionSel.value, 10);
+    if (group == null || Number.isNaN(idx)) return;
+    state.model.motion(group, idx, 3).then((ok) => {
+      els.status.textContent = ok ? '' : 'Motion failed to start';
+    });
+  };
+
+  groupSel.addEventListener('change', () => {
+    fillMotions();
+    startCurrent();
+  });
   fillMotions();
 
   const btnRow = document.createElement('div');
@@ -433,14 +445,7 @@ function addMotionControls(section) {
   stopBtn.type = 'button';
   stopBtn.textContent = 'Stop';
 
-  startBtn.addEventListener('click', () => {
-    const group = groupSel.value;
-    const idx = parseInt(motionSel.value, 10);
-    if (group == null || Number.isNaN(idx)) return;
-    state.model.motion(group, idx, 3).then((ok) => {
-      els.status.textContent = ok ? '' : 'Motion failed to start';
-    });
-  });
+  startBtn.addEventListener('click', startCurrent);
   stopBtn.addEventListener('click', () => {
     state.model.stopMotions();
   });
@@ -448,6 +453,9 @@ function addMotionControls(section) {
   btnRow.appendChild(startBtn);
   btnRow.appendChild(stopBtn);
   section.appendChild(btnRow);
+
+  // Auto-start the preselected motion group once the panel is built.
+  startCurrent();
 }
 
 function addExpressionControls(section) {
@@ -569,14 +577,20 @@ function buildOptionsPanel() {
   const motionSection = addSection('Motions');
   addMotionControls(motionSection);
 
-  const exprSection = addSection('Expressions');
-  addExpressionControls(exprSection);
+  const expressionManager = state.model.internalModel.motionManager.expressionManager;
+  if (expressionManager && (expressionManager.definitions || []).length) {
+    const exprSection = addSection('Expressions');
+    addExpressionControls(exprSection);
+  }
 
   const blinkSection = addSection('Auto Blink');
   addEyeBlinkControl(blinkSection);
 
-  const bgSection = addSection('Background');
-  addBackgroundControls(bgSection);
+  const { layers, singles } = getVariantBgs(state.currentPath);
+  if (layers.length || singles.length) {
+    const bgSection = addSection('Background');
+    addBackgroundControls(bgSection);
+  }
 
   const paramsSection = addSection('Parameters');
   addParameterControls(paramsSection);

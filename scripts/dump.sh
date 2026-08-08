@@ -107,16 +107,82 @@ if [[ ${#FAILED[@]} -gt 0 ]]; then
   echo "Failed bundles: ${FAILED[*]}" >&2
 fi
 
-# Generate manifest
+# Background layer composition: for every bundle, dump the scene graph
+# (gameobject/transform/sprite/spriteRenderer) so extractBgLayers.mjs can
+# reconstruct the layered `----bg----` / `----bg_effect----` /
+# `----fg_effect----` / model-subtree sprite stack for each variant.
+BGDIR="$TMP/bglayers"
+TEXDIR="$TMP/bgtex"
+mkdir -p "$BGDIR" "$TEXDIR"
+BG_FAILED=()
+for bundle in "${BUNDLES[@]}"; do
+  base="$(basename "$bundle" .unity3d)"
+  echo "=== $base (bg) ==="
+  out_bg="$BGDIR/$base"
+  out_tex="$TEXDIR/$base"
+  mkdir -p "$out_bg" "$out_tex"
+
+  # Scene-graph dump for the composition extractor
+  if ! DOTNET_ROLL_FORWARD=Major dotnet "$CLI" "$bundle" -m dump \
+      -t gameobject,transform,sprite,spriteRenderer \
+      -f assetName_pathID --load-all -o "$out_bg" >/dev/null 2>&1; then
+    echo "  bg dump FAILED"; BG_FAILED+=("$base"); continue
+  fi
+
+  # Composition: which sprites, at what world position/scale, in which order
+  node "$SCRIPT_DIR/extractBgLayers.mjs" \
+    --dump "$out_bg" \
+    --out "$out_bg/compositions.json" || echo "  extract FAILED"
+
+  # Export every texture as PNG so copyBgTextures.mjs can stage the layers
+  if ! DOTNET_ROLL_FORWARD=Major dotnet "$CLI" "$bundle" -m export \
+      -t texture2d -o "$out_tex" --image-format png >/dev/null 2>&1; then
+    echo "  texture export FAILED"
+  fi
+done
+
+if [[ ${#BG_FAILED[@]} -gt 0 ]]; then
+  echo "Failed bg dumps: ${BG_FAILED[*]}" >&2
+fi
+
+# Generate a fresh manifest from the staged chars/ output.  The first pass
+# runs before bg textures are copied in, so run it again at the end once the
+# variant bg/ folders exist (see below) so the standalone `bg` list and the
+# merged `bgLayers` both end up in data/models.json.
 node "$SCRIPT_DIR/generateManifest.mjs" \
   --chars "$TMP/chars" \
   --out "$ROOT/data/models.json" \
   --names "$ROOT/data/characterid.json" \
   --disc-names "$ROOT/data/discid.json" || true
 
+# Merge the per-bundle compositions into models.json as bgLayers
+node "$SCRIPT_DIR/mergeBgLayers.mjs" \
+  --models "$ROOT/data/models.json" \
+  --layers "$BGDIR" || true
+
+# Stage the referenced bg PNGs into each variant's bg/ folder
+node "$SCRIPT_DIR/copyBgTextures.mjs" \
+  --models "$ROOT/data/models.json" \
+  --tex "$TEXDIR" \
+  --chars "$TMP/chars" || true
+
+# Regenerate the manifest now that bg/ folders are populated (so each
+# variant's standalone `bg` list is present), then re-merge bgLayers on top.
+node "$SCRIPT_DIR/generateManifest.mjs" \
+  --chars "$TMP/chars" \
+  --out "$ROOT/data/models.json" \
+  --names "$ROOT/data/characterid.json" \
+  --disc-names "$ROOT/data/discid.json" || true
+
+node "$SCRIPT_DIR/mergeBgLayers.mjs" \
+  --models "$ROOT/data/models.json" \
+  --layers "$BGDIR" || true
+
 echo ""
 echo "Done. Normalized models in:"
 echo "  $TMP/chars"
+echo "Bg compositions in:"
+echo "  $TMP/bglayers"
 echo "Manifest written to:"
 echo "  $ROOT/data/models.json"
 echo ""
