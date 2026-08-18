@@ -7,12 +7,15 @@
 # `chars/<skinId>/<variant>/` folder layout.
 #
 # Usage:
-#   bash scripts/dump.sh [--game DIR] [--all]
+#   bash scripts/dump.sh [--game DIR] [--all] [--skin CharacterSkin.json]
 #
 #   --game DIR   game install dir (default: resolved symlink of
 #                "../Link to YostarGames/StellaSora_EN")
 #   --all        also dump npc_l2d_* and disc_l2d_* bundles
 #                (default: only char_l2d_*)
+#   --skin FILE  datamine CharacterSkin.json; if given, data/charbg.json is
+#                regenerated and the CharBg main-menu backdrops are staged
+#                into bg/charbg/ from the game's image-*.unity3d bundles
 #
 # Prereqs:
 #   - dotnet with .NET 9+ (uses DOTNET_ROLL_FORWARD=Major)
@@ -23,6 +26,7 @@ set -euo pipefail
 GAME=""
 CLI="${ASSETSTUDIO_CLI:-/home/morph/ssassets/assetStudioMod/AssetStudioModCLI.dll}"
 ALL=0
+SKIN=""
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
 TMP="$ROOT/.dump_tmp"
@@ -32,6 +36,7 @@ while [[ $# -gt 0 ]]; do
     --game) GAME="$2"; shift 2 ;;
     --cli)  CLI="$2"; shift 2 ;;
     --all)  ALL=1; shift ;;
+    --skin) SKIN="$2"; shift 2 ;;
     *) echo "unknown arg: $1"; exit 1 ;;
   esac
 done
@@ -153,7 +158,9 @@ node "$SCRIPT_DIR/generateManifest.mjs" \
   --chars "$TMP/chars" \
   --out "$ROOT/data/models.json" \
   --names "$ROOT/data/characterid.json" \
-  --disc-names "$ROOT/data/discid.json" || true
+  --disc-names "$ROOT/data/discid.json" \
+  --charbg "$ROOT/data/charbg.json" \
+  --offset "$ROOT/data/offset.json" || true
 
 # Merge the per-bundle compositions into models.json as bgLayers
 node "$SCRIPT_DIR/mergeBgLayers.mjs" \
@@ -172,11 +179,60 @@ node "$SCRIPT_DIR/generateManifest.mjs" \
   --chars "$TMP/chars" \
   --out "$ROOT/data/models.json" \
   --names "$ROOT/data/characterid.json" \
-  --disc-names "$ROOT/data/discid.json" || true
+  --disc-names "$ROOT/data/discid.json" \
+  --charbg "$ROOT/data/charbg.json" \
+  --offset "$ROOT/data/offset.json" || true
 
 node "$SCRIPT_DIR/mergeBgLayers.mjs" \
   --models "$ROOT/data/models.json" \
   --layers "$BGDIR" || true
+
+# --- Main-menu backdrops (Image/CharBg) -------------------------------------
+# The game draws CharacterSkin.Bg (Image/CharBg/<name>.png) on the
+# customized_bg SpriteRenderer behind the L2D in the main menu.  Those images
+# live in the game's image-*.unity3d bundles.  Stage them into bg/charbg/ and,
+# when a datamine CharacterSkin.json is supplied, rebuild data/charbg.json.
+if [[ -n "$SKIN" ]]; then
+  CHARBG_DIR="$ROOT/bg/charbg"
+  mkdir -p "$CHARBG_DIR" "$TMP/charbg"
+  echo "=== charbg (main-menu backdrops) ==="
+  for f in "$INSTALL_RESOURCE"/image-*.unity3d; do
+    [[ -f "$f" ]] || continue
+    base="$(basename "$f" .unity3d)"
+    out="$TMP/charbg/$base"
+    mkdir -p "$out"
+    DOTNET_ROLL_FORWARD=Major dotnet "$CLI" "$f" -m export -t tex2d \
+      --filter-by-container CharBg -o "$out" --image-format png >/dev/null 2>&1 || true
+  done
+  find "$TMP/charbg" -name "*.png" -exec cp {} "$CHARBG_DIR" \; 2>/dev/null || true
+  node "$SCRIPT_DIR/generateCharBg.mjs" \
+    --skin "$SKIN" \
+    --bg "$CHARBG_DIR" \
+    --out "$ROOT/data/charbg.json" || true
+fi
+
+# --- MainView L2D offsets (Actor2DOffsetData) --------------------------------
+# Each skin's CharacterSkin.Offset (Actor2D/Character/<skin>/<skin>.asset) lives
+# in the char_2d_<skin>.unity3d bundles.  We keep the MainView (panel 10) Set 2
+# offset (the Normal/half-body framing) per skin as data/offset.json.
+OFFDIR="$TMP/offsets"
+mkdir -p "$OFFDIR"
+echo "=== offsets (MainView L2D) ==="
+for dir in "$INSTALL_RESOURCE" "$PERSISTENT"; do
+  [[ -d "$dir" ]] || continue
+  for f in "$dir"/char_2d_*.unity3d; do
+    [[ -f "$f" ]] || continue
+    base="$(basename "$f" .unity3d)"
+    id="${base#char_2d_}"
+    out="$OFFDIR/$id"
+    mkdir -p "$out"
+    DOTNET_ROLL_FORWARD=Major dotnet "$CLI" "$f" -m export -t monoBehaviour \
+      --filter-by-name "$id" -o "$out" >/dev/null 2>&1 || true
+  done
+done
+node "$SCRIPT_DIR/generateOffset.mjs" \
+  --src "$OFFDIR" \
+  --out "$ROOT/data/offset.json" || true
 
 echo ""
 echo "Done. Normalized models in:"

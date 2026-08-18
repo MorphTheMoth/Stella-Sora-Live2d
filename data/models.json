@@ -7,7 +7,13 @@
         "name": "10301_l",
         "label": "Default",
         "path": "chars/10301/10301_l/10301_L.model3.json",
-        "bg": []
+        "bg": [],
+        "charBg": "bg/charbg/ttc_parkbase_daylight.png",
+        "offset": {
+          "s": 0.96653855,
+          "x": 0.0049987896,
+          "y": -5.3952394
+        }
       },
       {
         "name": "10301_lf",
@@ -44,6 +50,12 @@
           "chars/10302/10302_l/bg/fx_live2d_10301_ex_bg_02.png",
           "chars/10302/10302_l/bg/fx_live2d_10301_ex_bg_04.png"
         ],
+        "charBg": "bg/charbg/ttc_parkbase_daylight.png",
+        "offset": {
+          "s": 0.79,
+          "x": -0.46914673,
+          "y": 0.2911679
+        },
         "bgLayers": [
           {
             "file": "fx_live2d_10301_ex_bg_01",
@@ -79,7 +91,7 @@
       },
       {
         "name": "10303_l",
-        "label": "Unknow",
+        "label": "Unknown",
         "path": "chars/10303/10303_l/10303_L_a.model3.json",
         "bg": [
           "chars/10303/10303_l/bg/live2d_10303_ex_bg_01.png",
@@ -143,7 +155,7 @@
       },
       {
         "name": "10304_l",
-        "label": "Unknow",
+        "label": "Unknown",
         "path": "chars/10304/10304_l/10304_L.model3.json",
         "bg": [
           "chars/10304/10304_l/bg/live2d_10304_ex_bg_01.png",
@@ -292,7 +304,13 @@
         "name": "10701_l",
         "label": "Default",
         "path": "chars/10701/10701_l/10701_L.model3.json",
-        "bg": []
+        "bg": [],
+        "charBg": "bg/charbg/guard_outside_daylight.png",
+        "offset": {
+          "s": 1,
+          "x": -0.3258911,
+          "y": -4.5135803
+        }
       },
       {
         "name": "10701_lf",
@@ -437,6 +455,12 @@
         "bg": [
           "chars/10702/10702_l/bg/fx_live2d_10701_ex_electromobile.png"
         ],
+        "charBg": "bg/charbg/guard_outside_daylight.png",
+        "offset": {
+          "s": 0.77044034,
+          "x": -0.26850703,
+          "y": -0.042894293
+        },
         "bgLayers": [
           {
             "file": "fx_live2d_10701_ex_electromobile",
@@ -452,7 +476,7 @@
       },
       {
         "name": "10703_l",
-        "label": "Unknow",
+        "label": "Unknown",
         "path": "chars/10703/10703_l/10703_L_a.model3.json",
         "bg": [
           "chars/10703/10703_l/bg/10703_live2d_bg_001.png",
@@ -568,7 +592,13 @@
         "name": "10801_l",
         "label": "Default",
         "path": "chars/10801/10801_l/10801_L.model3.json",
-        "bg": []
+        "bg": [],
+        "charBg": "bg/charbg/tower_intel.png",
+        "offset": {
+          "s": 1.04,
+          "x": -0.30959472,
+          "y": -5.9098964
+        }
       },
       {
         "name": "10801_lf",
@@ -622,7 +652,13 @@
         "name": "10802_l",
         "label": "Awakened",
         "path": "chars/10802/10802_l/10802_L.model3.json",
-        "bg": []
+        "bg": [],
+        "charBg": "bg/charbg/tower_intel.png",
+        "offset": {
+          "s": 0.70983243,
+          "x": 0.14470764,
+          "y": -0.86707574
+        }
       }
     ]
   },
@@ -634,7 +670,13 @@
         "name": "11001_l",
         "label": "Default",
         "path": "chars/11001/11001_l/11001_L.model3.json",
-        "bg": []
+        "bg": [],
+        "charBg": "bg/charbg/uniseed_greenhouse_outside.png",
+        "offset": {
+          "s": 1,
+          "x": -0.060693353,
+          "y": -5.7323647
+        }
       },
       {
         "name": "11001_lf",
@@ -821,6 +863,12 @@
           "chars/11002/11002_l/bg/live2d_11002_ex_lang_006.png",
           "chars/11002/11002_l/bg/live2d_11002_ex_tree_001.png"
         ],
+        "charBg": "bg/charbg/uniseed_greenhouse_outside.png",
+        "offset": {
+          "s": 0.82452774,
+          "x": -0.11822264,
+          "y": -1.064581
+        },
         "bgLayers": [
           {
             "file": "live2d_11002_ex_lang_006",
@@ -934,7 +982,13 @@
         "name": "11101_l",
         "label": "Default",
         "path": "chars/11101/11101_l/11101_L.model3.json",
-        "bg": []
+        "bg": [],
+        "charBg": "bg/charbg/ttc_parkbase_daylight.png",
+        "offset": {
+          "s": 1,
+          "x": 0.36065063,
+          "y": -4.900969
+        }
       },
       {
         "name": "11101_lf",
@@ -1041,6 +1095,12 @@
           "chars/11102/11102_l/bg/fx_live2d_11101_main_bg_06.png",
           "chars/11102/11102_l/bg/fx_live2d_11101_main_bg_07.png"
         ],
+        "charBg": "bg/charbg/ttc_parkbase_daylight.png",
+        "offset": {
+          "s": 0.74,
+          "x": -0.54206055,
+          "y": 0.08418242
+        },
         "bgLayers": [
           {
             "file": "fx_live2d_11101_env_bg_ex",
@@ -1116,7 +1176,7 @@
       },
       {
         "name": "11103_l",
-        "label": "Unknow",
+        "label": "Unknown",
         "path": "chars/11103/11103_l/11103_L.model3.json",
         "bg": [
           "chars/11103/11103_l/bg/11103_live2d_bg_001.png",
@@ -1191,7 +1251,7 @@
       },
       {
         "name": "11104_l",
-        "label": "Unknow",
+        "label": "Unknown",
         "path": "chars/11104/11104_l/11104_L.model3.json",
         "bg": [
           "chars/11104/11104_l/bg/11104_live2d_bg_001.png",
@@ -1263,7 +1323,13 @@
         "name": "11201_l",
         "label": "Default",
         "path": "chars/11201/11201_l/11201_L.model3.json",
-        "bg": []
+        "bg": [],
+        "charBg": "bg/charbg/ttc_parkbase_daylight.png",
+        "offset": {
+          "s": 0.98,
+          "x": -0.21902466,
+          "y": -5.04224
+        }
       },
       {
         "name": "11201_lf",
@@ -1306,11 +1372,17 @@
         "name": "11202_l",
         "label": "Awakened",
         "path": "chars/11202/11202_l/11202_L.model3.json",
-        "bg": []
+        "bg": [],
+        "charBg": "bg/charbg/ttc_parkbase_daylight.png",
+        "offset": {
+          "s": 0.77044034,
+          "x": -0.6168518,
+          "y": 0.47363707
+        }
       },
       {
         "name": "11203_l",
-        "label": "Unknow",
+        "label": "Unknown",
         "path": "chars/11203/11203_l/11203_L.model3.json",
         "bg": [
           "chars/11203/11203_l/bg/11203_live2d_bg_001.png",
@@ -1558,7 +1630,13 @@
         "name": "11301_l",
         "label": "Default",
         "path": "chars/11301/11301_l/11301_L.model3.json",
-        "bg": []
+        "bg": [],
+        "charBg": "bg/charbg/agency_daylight.png",
+        "offset": {
+          "s": 0.88,
+          "x": -0.34218383,
+          "y": -4.6276393
+        }
       },
       {
         "name": "11301_lf",
@@ -2024,6 +2102,12 @@
           "chars/11302/11302_l/bg/fx_live2d_ex_water_di_02.png",
           "chars/11302/11302_l/bg/shimiao_TX2.png"
         ],
+        "charBg": "bg/charbg/agency_daylight.png",
+        "offset": {
+          "s": 0.839831,
+          "x": -0.16077515,
+          "y": -1.3939638
+        },
         "bgLayers": [
           {
             "file": "fx_live2d_ex_main_water_par2",
@@ -2169,7 +2253,7 @@
       },
       {
         "name": "11303_l",
-        "label": "Unknow",
+        "label": "Unknown",
         "path": "chars/11303/11303_l/11303_L_a.model3.json",
         "bg": [
           "chars/11303/11303_l/bg/11303_live2d_bg_001.png",
@@ -2813,7 +2897,13 @@
         "name": "11401_l",
         "label": "Default",
         "path": "chars/11401/11401_l/11401_L.model3.json",
-        "bg": []
+        "bg": [],
+        "charBg": "bg/charbg/tower_inside_arcade.png",
+        "offset": {
+          "s": 0.92,
+          "x": -0.6803784,
+          "y": -4.297058
+        }
       },
       {
         "name": "11401_lf",
@@ -2896,6 +2986,12 @@
           "chars/11402/11402_l/bg/fx_live2d_11401_ol_zidan_3.png",
           "chars/11402/11402_l/bg/fx_live2d_11401_ol_zidan_4.png"
         ],
+        "charBg": "bg/charbg/tower_inside_arcade.png",
+        "offset": {
+          "s": 0.90104777,
+          "x": -0.82005984,
+          "y": -0.2625257
+        },
         "bgLayers": [
           {
             "file": "fx_live2d_11401_ol_zidan_2",
@@ -2959,7 +3055,13 @@
         "name": "11501_l",
         "label": "Default",
         "path": "chars/11501/11501_l/11501_L.model3.json",
-        "bg": []
+        "bg": [],
+        "charBg": "bg/charbg/wog_academy_office.png",
+        "offset": {
+          "s": 0.9435309,
+          "x": 0.16813886,
+          "y": -1.5564268
+        }
       },
       {
         "name": "11501_lf",
@@ -2999,6 +3101,12 @@
           "chars/11502/11502_l/bg/11502_live2d_sword_002.png",
           "chars/11502/11502_l/bg/11502_live2d_sword_003.png"
         ],
+        "charBg": "bg/charbg/city_street_night.png",
+        "offset": {
+          "s": 0.87044024,
+          "x": 0.023803722,
+          "y": -0.8341722
+        },
         "bgLayers": [
           {
             "file": "11502_live2d_BG_001",
@@ -3072,7 +3180,13 @@
         "name": "11601_l",
         "label": "Default",
         "path": "chars/11601/11601_l/11601_L.model3.json",
-        "bg": []
+        "bg": [],
+        "charBg": "bg/charbg/uniseed_corridor.png",
+        "offset": {
+          "s": 0.9,
+          "x": 0.11406006,
+          "y": -3.8795407
+        }
       },
       {
         "name": "11601_lf",
@@ -3127,6 +3241,12 @@
           "chars/11602/11602_l/bg/live2d_11602_stone_06.png",
           "chars/11602/11602_l/bg/live2d_11602_stone_07.png"
         ],
+        "charBg": "bg/charbg/uniseed_corridor.png",
+        "offset": {
+          "s": 0.71568495,
+          "x": 1.0996888,
+          "y": 0.5201239
+        },
         "bgLayers": [
           {
             "file": "live2d_11602_stone_02",
@@ -3232,7 +3352,7 @@
       },
       {
         "name": "11603_l",
-        "label": "Unknow",
+        "label": "Unknown",
         "path": "chars/11603/11603_l/11603_L.model3.json",
         "bg": [
           "chars/11603/11603_l/bg/11103_live2d_bg_001.png",
@@ -3271,7 +3391,13 @@
         "name": "11701_l",
         "label": "Default",
         "path": "chars/11701/11701_l/11701_L.model3.json",
-        "bg": []
+        "bg": [],
+        "charBg": "bg/charbg/phoenix_street.png",
+        "offset": {
+          "s": 0.86,
+          "x": -0.27809206,
+          "y": -4.7377205
+        }
       },
       {
         "name": "11701_lf",
@@ -3314,6 +3440,12 @@
           "chars/11702/11702_l/bg/live2d_11702_mountain_002.png",
           "chars/11702/11702_l/bg/live2d_11702_yin_001.png"
         ],
+        "charBg": "bg/charbg/phoenix_street.png",
+        "offset": {
+          "s": 0.90104777,
+          "x": -0.12422243,
+          "y": 0.2165069
+        },
         "bgLayers": [
           {
             "file": "live2d_11702_cloud_001",
@@ -3467,7 +3599,13 @@
         "name": "11801_l",
         "label": "Default",
         "path": "chars/11801/11801_l/11801_L.model3.json",
-        "bg": []
+        "bg": [],
+        "charBg": "bg/charbg/ward_inside_daylight.png",
+        "offset": {
+          "s": 1.25,
+          "x": 0.5540124,
+          "y": -3.7966213
+        }
       },
       {
         "name": "11801_lf",
@@ -3559,6 +3697,12 @@
           "chars/11802/11802_l/bg/fx_live2d_11801_ex_bg_021.png",
           "chars/11802/11802_l/bg/fx_live2d_11801_ex_bg_022.png"
         ],
+        "charBg": "bg/charbg/ward_inside_daylight.png",
+        "offset": {
+          "s": 0.8469602,
+          "x": -0.9331701,
+          "y": -0.37806186
+        },
         "bgLayers": [
           {
             "file": "fx_live2d_11801_ex_bg_01",
@@ -3602,7 +3746,13 @@
         "name": "11901_l",
         "label": "Default",
         "path": "chars/11901/11901_l/11901_L.model3.json",
-        "bg": []
+        "bg": [],
+        "charBg": "bg/charbg/tanikaze_outside.png",
+        "offset": {
+          "s": 1,
+          "x": 0.17887819,
+          "y": -5.475173
+        }
       },
       {
         "name": "11901_lf",
@@ -3672,6 +3822,12 @@
           "chars/11902/11902_l/bg/live2d_11901_ex_002.png",
           "chars/11902/11902_l/bg/live2d_11901_ex_003.png"
         ],
+        "charBg": "bg/charbg/tanikaze_outside.png",
+        "offset": {
+          "s": 0.8,
+          "x": -0.030905765,
+          "y": -1.0037147
+        },
         "bgLayers": [
           {
             "file": "live2d_11901_ex_001",
@@ -3707,7 +3863,7 @@
       },
       {
         "name": "11903_l",
-        "label": "Unknow",
+        "label": "Unknown",
         "path": "chars/11903/11903_l/11903_L.model3.json",
         "bg": [
           "chars/11903/11903_l/bg/11903_live2d_bg_001.png",
@@ -3823,7 +3979,13 @@
         "name": "12001_l",
         "label": "Default",
         "path": "chars/12001/12001_l/12001_L.model3.json",
-        "bg": []
+        "bg": [],
+        "charBg": "bg/charbg/wog_academy_office.png",
+        "offset": {
+          "s": 1.230449,
+          "x": -2.2205482,
+          "y": -4.1253686
+        }
       },
       {
         "name": "12001_lf",
@@ -3863,6 +4025,12 @@
           "chars/12002/12002_l/bg/live2d_12002_leaves_002.png",
           "chars/12002/12002_l/bg/live2d_12002_leaves_003.png"
         ],
+        "charBg": "bg/charbg/wog_academy_office.png",
+        "offset": {
+          "s": 0.7412338,
+          "x": -0.52467895,
+          "y": -0.49001634
+        },
         "bgLayers": [
           {
             "file": "live2d_12002_branches_001",
@@ -3936,7 +4104,13 @@
         "name": "12301_l",
         "label": "Default",
         "path": "chars/12301/12301_l/12301_L.model3.json",
-        "bg": []
+        "bg": [],
+        "charBg": "bg/charbg/field_town_daylight.png",
+        "offset": {
+          "s": 0.829,
+          "x": 0.4725403,
+          "y": -3.4089186
+        }
       },
       {
         "name": "12301_lf",
@@ -4026,6 +4200,12 @@
         "bg": [
           "chars/12302/12302_l/bg/fx_12301_live2d_09.png"
         ],
+        "charBg": "bg/charbg/field_town_daylight.png",
+        "offset": {
+          "s": 0.7357445,
+          "x": -0.0715393,
+          "y": -0.45540062
+        },
         "bgLayers": [
           {
             "file": "fx_12301_live2d_09",
@@ -4041,7 +4221,7 @@
       },
       {
         "name": "12303_l",
-        "label": "Unknow",
+        "label": "Unknown",
         "path": "chars/12303/12303_l/12303_L.model3.json",
         "bg": [
           "chars/12303/12303_l/bg/12303_live2d_bg_001.png",
@@ -4211,7 +4391,13 @@
         "name": "12501_l",
         "label": "Default",
         "path": "chars/12501/12501_l/12501_L.model3.json",
-        "bg": []
+        "bg": [],
+        "charBg": "bg/charbg/posthouse.png",
+        "offset": {
+          "s": 0.949,
+          "x": -1.8583007,
+          "y": -4.26227
+        }
       },
       {
         "name": "12501_lf",
@@ -4283,6 +4469,7 @@
           "chars/12502/12502_l/bg/live2d_12502_leaves_001.png",
           "chars/12502/12502_l/bg/live2d_12502_leaves_002.png"
         ],
+        "charBg": "bg/charbg/posthouse.png",
         "bgLayers": [
           {
             "file": "live2d_12502_leaves_001",
@@ -4338,7 +4525,7 @@
       },
       {
         "name": "12503_l",
-        "label": "Unknow",
+        "label": "Unknown",
         "path": "chars/12503/12503_l/12503_L_a.model3.json",
         "bg": [
           "chars/12503/12503_l/bg/12503_live2d_bg_01.png",
@@ -4410,7 +4597,13 @@
         "name": "12601_l",
         "label": "Default",
         "path": "chars/12601/12601_l/12601_L.model3.json",
-        "bg": []
+        "bg": [],
+        "charBg": "bg/charbg/city_street_night.png",
+        "offset": {
+          "s": 1.122238,
+          "x": 0.034851063,
+          "y": -5.7883162
+        }
       },
       {
         "name": "12601_lf",
@@ -4448,6 +4641,12 @@
           "chars/12602/12602_l/bg/live2d_12602_card_003.png",
           "chars/12602/12602_l/bg/live2d_12602_card_004.png"
         ],
+        "charBg": "bg/charbg/city_street_night.png",
+        "offset": {
+          "s": 0.87299806,
+          "x": -0.1581128,
+          "y": -1.3746594
+        },
         "bgLayers": [
           {
             "file": "live2d_12602_card_002",
@@ -4501,7 +4700,13 @@
         "name": "12701_l",
         "label": "Default",
         "path": "chars/12701/12701_l/12701_L.model3.json",
-        "bg": []
+        "bg": [],
+        "charBg": "bg/charbg/posthouse.png",
+        "offset": {
+          "s": 0.95,
+          "x": 0.45624635,
+          "y": -4.6276407
+        }
       },
       {
         "name": "12701_lf",
@@ -4634,6 +4839,12 @@
           "chars/12702/12702_l/bg/live2d_12702_stone_013.png",
           "chars/12702/12702_l/bg/live2d_12702_stone_014.png"
         ],
+        "charBg": "bg/charbg/posthouse.png",
+        "offset": {
+          "s": 0.87507355,
+          "x": -0.28948364,
+          "y": 0.23434478
+        },
         "bgLayers": [
           {
             "file": "live2d_12702_rock_003",
@@ -4859,7 +5070,7 @@
       },
       {
         "name": "12703_l",
-        "label": "Unknow",
+        "label": "Unknown",
         "path": "chars/12703/12703_l/12703_L.model3.json",
         "bg": [
           "chars/12703/12703_l/bg/live2d_12703_bg_01.png",
@@ -4931,7 +5142,13 @@
         "name": "13001_l",
         "label": "Default",
         "path": "chars/13001/13001_l/13001_L.model3.json",
-        "bg": []
+        "bg": [],
+        "charBg": "bg/charbg/posthouse.png",
+        "offset": {
+          "s": 0.87,
+          "x": 0.26828617,
+          "y": -4.058867
+        }
       },
       {
         "name": "13001_lf",
@@ -4955,6 +5172,12 @@
           "chars/13002/13002_l/bg/live2d_13002_ex_leaves_001.png",
           "chars/13002/13002_l/bg/live2d_13002_ex_leaves_002.png"
         ],
+        "charBg": "bg/charbg/posthouse.png",
+        "offset": {
+          "s": 1.0277618,
+          "x": -0.21364135,
+          "y": -1.0752283
+        },
         "bgLayers": [
           {
             "file": "live2d_13002_ex_leaves_001",
@@ -5008,7 +5231,13 @@
         "name": "13201_l",
         "label": "Default",
         "path": "chars/13201/13201_l/13201_L.model3.json",
-        "bg": []
+        "bg": [],
+        "charBg": "bg/charbg/ttc_harbour_house.png",
+        "offset": {
+          "s": 1.05,
+          "x": -0.24441773,
+          "y": -5.800844
+        }
       },
       {
         "name": "13201_lf",
@@ -5051,11 +5280,17 @@
         "name": "13202_l",
         "label": "Awakened",
         "path": "chars/13202/13202_l/13202_L_a.model3.json",
-        "bg": []
+        "bg": [],
+        "charBg": "bg/charbg/ttc_harbour_house.png",
+        "offset": {
+          "s": 0.8010474,
+          "x": -0.39753357,
+          "y": -1.5581125
+        }
       },
       {
         "name": "13203_l",
-        "label": "Unknow",
+        "label": "Unknown",
         "path": "chars/13203/13203_l/13203_L.model3.json",
         "bg": [
           "chars/13203/13203_l/bg/live2d_13203_bg_01.png",
@@ -5108,7 +5343,7 @@
       },
       {
         "name": "13204_l",
-        "label": "Unknow",
+        "label": "Unknown",
         "path": "chars/13204/13204_l/13204_L.model3.json",
         "bg": [
           "chars/13204/13204_l/bg/13204_live2d_bg_001.png",
@@ -5186,6 +5421,12 @@
           "chars/13301/13301_l/bg/13301_live2d_weapon_03.png",
           "chars/13301/13301_l/bg/13301_live2d_weapon_04.png"
         ],
+        "charBg": "bg/charbg/traveller_camp_a_daylight.png",
+        "offset": {
+          "s": 1,
+          "x": 0.7996875,
+          "y": -4.587685
+        },
         "bgLayers": [
           {
             "file": "13301_live2d_weapon_01",
@@ -5434,6 +5675,7 @@
           "chars/13302/13302_l/bg/live2d_13302_leaf_021.png",
           "chars/13302/13302_l/bg/live2d_13302_leaf_022.png"
         ],
+        "charBg": "bg/charbg/traveller_camp_a_daylight.png",
         "bgLayers": [
           {
             "file": "live2d_13302_bg_001",
@@ -5759,7 +6001,7 @@
       },
       {
         "name": "13303_l",
-        "label": "Unknow",
+        "label": "Unknown",
         "path": "chars/13303/13303_l/13303_L.model3.json",
         "bg": [
           "chars/13303/13303_l/bg/13303_live2d_bg_001.png",
@@ -5897,7 +6139,13 @@
         "name": "13401_l",
         "label": "Default",
         "path": "chars/13401/13401_l/13401_L.model3.json",
-        "bg": []
+        "bg": [],
+        "charBg": "bg/charbg/ruin_travellers_home_dorm.png",
+        "offset": {
+          "s": 1.08,
+          "x": 0.19553345,
+          "y": -4.294296
+        }
       },
       {
         "name": "13401_lf",
@@ -6105,6 +6353,12 @@
           "chars/13402/13402_l/bg/live2d_13402_snow_006.png",
           "chars/13402/13402_l/bg/live2d_13402_snow_007.png"
         ],
+        "charBg": "bg/charbg/ruin_travellers_home_dorm.png",
+        "offset": {
+          "s": 1,
+          "x": -1.020089,
+          "y": -0.17920472
+        },
         "bgLayers": [
           {
             "file": "live2d_13402_bg_001",
@@ -6310,7 +6564,7 @@
       },
       {
         "name": "13403_l",
-        "label": "Unknow",
+        "label": "Unknown",
         "path": "chars/13403/13403_l/13403_L.model3.json",
         "bg": [
           "chars/13403/13403_l/bg/13403_live2d_bg_001.png",
@@ -6360,7 +6614,13 @@
         "name": "13501_l",
         "label": "Default",
         "path": "chars/13501/13501_l/13501_L.model3.json",
-        "bg": []
+        "bg": [],
+        "charBg": "bg/charbg/flavio_city_street.png",
+        "offset": {
+          "s": 1.05,
+          "x": -0.61919075,
+          "y": -5.6216044
+        }
       },
       {
         "name": "13501_lf",
@@ -6421,6 +6681,12 @@
           "chars/13502/13502_l/bg/live2d_13502_ex_tree_005.png",
           "chars/13502/13502_l/bg/live2d_13502_ex_tree_006.png"
         ],
+        "charBg": "bg/charbg/flavio_city_street.png",
+        "offset": {
+          "s": 1,
+          "x": 1.0200878,
+          "y": -0.6065393
+        },
         "bgLayers": [
           {
             "file": "live2d_13502_ex_smoke_001",
@@ -6586,7 +6852,7 @@
       },
       {
         "name": "13503_l",
-        "label": "Unknow",
+        "label": "Unknown",
         "path": "chars/13503/13503_l/13503_L.model3.json",
         "bg": [
           "chars/13503/13503_l/bg/live2d_13503_bg_01.png",
@@ -6647,6 +6913,290 @@
             "fg": false
           }
         ]
+      },
+      {
+        "name": "13504_l",
+        "label": "Unknown",
+        "path": "chars/13504/13504_l/13504_L.model3.json",
+        "bg": [
+          "chars/13504/13504_l/bg/13504_live2d_ball_001.png",
+          "chars/13504/13504_l/bg/13504_live2d_ball_002.png",
+          "chars/13504/13504_l/bg/13504_live2d_ball_003.png",
+          "chars/13504/13504_l/bg/13504_live2d_ball_004.png",
+          "chars/13504/13504_l/bg/13504_live2d_ball_005.png",
+          "chars/13504/13504_l/bg/13504_live2d_bg_001.png",
+          "chars/13504/13504_l/bg/13504_live2d_bg_002.png",
+          "chars/13504/13504_l/bg/13504_live2d_bg_003.png",
+          "chars/13504/13504_l/bg/13504_live2d_box_001.png",
+          "chars/13504/13504_l/bg/13504_live2d_leaves_001.png",
+          "chars/13504/13504_l/bg/13504_live2d_leaves_002.png",
+          "chars/13504/13504_l/bg/13504_live2d_leaves_003.png",
+          "chars/13504/13504_l/bg/13504_live2d_leaves_004.png",
+          "chars/13504/13504_l/bg/13504_live2d_leaves_005.png",
+          "chars/13504/13504_l/bg/13504_live2d_leaves_006.png",
+          "chars/13504/13504_l/bg/13504_live2d_leaves_007.png",
+          "chars/13504/13504_l/bg/13504_live2d_leaves_008.png",
+          "chars/13504/13504_l/bg/13504_live2d_leaves_009.png",
+          "chars/13504/13504_l/bg/13504_live2d_leaves_010.png",
+          "chars/13504/13504_l/bg/13504_live2d_leaves_011.png",
+          "chars/13504/13504_l/bg/13504_live2d_leaves_012.png",
+          "chars/13504/13504_l/bg/13504_live2d_leaves_013.png",
+          "chars/13504/13504_l/bg/13504_live2d_leaves_014.png",
+          "chars/13504/13504_l/bg/13504_live2d_tent_001.png",
+          "chars/13504/13504_l/bg/13504_live2d_tent_002.png"
+        ],
+        "bgLayers": [
+          {
+            "file": "13504_live2d_bg_001",
+            "x": 0.44000003,
+            "y": -2.6799996,
+            "sx": 1,
+            "sy": 1,
+            "w": 1636,
+            "h": 1244,
+            "fg": false
+          },
+          {
+            "file": "13504_live2d_ball_001",
+            "x": -6.652,
+            "y": -2.68,
+            "sx": 1,
+            "sy": 1,
+            "w": 44,
+            "h": 48,
+            "fg": false
+          },
+          {
+            "file": "13504_live2d_ball_002",
+            "x": -5.011,
+            "y": -4.701,
+            "sx": 1,
+            "sy": 1,
+            "w": 56,
+            "h": 56,
+            "fg": false
+          },
+          {
+            "file": "13504_live2d_ball_003",
+            "x": -3.08,
+            "y": -7.771,
+            "sx": 1,
+            "sy": 1,
+            "w": 72,
+            "h": 76,
+            "fg": false
+          },
+          {
+            "file": "13504_live2d_ball_004",
+            "x": 5.5232,
+            "y": 0.2295,
+            "sx": 1,
+            "sy": 1,
+            "w": 44,
+            "h": 44,
+            "fg": false
+          },
+          {
+            "file": "13504_live2d_ball_005",
+            "x": 6.395,
+            "y": -1.3983,
+            "sx": 1,
+            "sy": 1,
+            "w": 48,
+            "h": 44,
+            "fg": false
+          },
+          {
+            "file": "13504_live2d_leaves_001",
+            "x": -2.78,
+            "y": 5.17,
+            "sx": 1,
+            "sy": 1,
+            "w": 760,
+            "h": 384,
+            "fg": false
+          },
+          {
+            "file": "13504_live2d_leaves_002",
+            "x": -7.064,
+            "y": 5.196,
+            "sx": 1,
+            "sy": 1,
+            "w": 328,
+            "h": 240,
+            "fg": false
+          },
+          {
+            "file": "13504_live2d_leaves_003",
+            "x": -4.818,
+            "y": 4.998,
+            "sx": 1,
+            "sy": 1,
+            "w": 292,
+            "h": 292,
+            "fg": false
+          },
+          {
+            "file": "13504_live2d_leaves_004",
+            "x": -5.656,
+            "y": 4.42,
+            "sx": 1,
+            "sy": 1,
+            "w": 220,
+            "h": 180,
+            "fg": false
+          },
+          {
+            "file": "13504_live2d_bg_002",
+            "x": 1.1,
+            "y": 0.5400001,
+            "sx": 1,
+            "sy": 1,
+            "w": 1560,
+            "h": 1888,
+            "fg": false
+          },
+          {
+            "file": "13504_live2d_tent_001",
+            "x": -0.94000006,
+            "y": 2.82,
+            "sx": 1,
+            "sy": 1,
+            "w": 1684,
+            "h": 1152,
+            "fg": false
+          },
+          {
+            "file": "13504_live2d_leaves_006",
+            "x": -5.04,
+            "y": 2.9719994,
+            "sx": 1,
+            "sy": 1,
+            "w": 312,
+            "h": 228,
+            "fg": false
+          },
+          {
+            "file": "13504_live2d_box_001",
+            "x": 2.12,
+            "y": 1.19,
+            "sx": 1,
+            "sy": 1,
+            "w": 348,
+            "h": 308,
+            "fg": false
+          },
+          {
+            "file": "13504_live2d_leaves_007",
+            "x": -5.73,
+            "y": 2.37,
+            "sx": 1,
+            "sy": 1,
+            "w": 424,
+            "h": 356,
+            "fg": false
+          },
+          {
+            "file": "13504_live2d_leaves_005",
+            "x": 2.14,
+            "y": 1.8299999,
+            "sx": 1,
+            "sy": 1,
+            "w": 480,
+            "h": 376,
+            "fg": false
+          },
+          {
+            "file": "13504_live2d_leaves_008",
+            "x": -7.1589994,
+            "y": 2.225,
+            "sx": 1,
+            "sy": 1,
+            "w": 256,
+            "h": 272,
+            "fg": false
+          },
+          {
+            "file": "13504_live2d_leaves_009",
+            "x": -4.6120005,
+            "y": 4.44,
+            "sx": 1,
+            "sy": 1,
+            "w": 280,
+            "h": 132,
+            "fg": false
+          },
+          {
+            "file": "13504_live2d_bg_003",
+            "x": 2.6599998,
+            "y": -0.22000001,
+            "sx": 1,
+            "sy": 1,
+            "w": 1076,
+            "h": 896,
+            "fg": false
+          },
+          {
+            "file": "13504_live2d_leaves_010",
+            "x": -6.729,
+            "y": 3.731,
+            "sx": 1,
+            "sy": 1,
+            "w": 172,
+            "h": 124,
+            "fg": false
+          },
+          {
+            "file": "13504_live2d_leaves_011",
+            "x": -4.566,
+            "y": 3.8310006,
+            "sx": 1,
+            "sy": 1,
+            "w": 388,
+            "h": 196,
+            "fg": false
+          },
+          {
+            "file": "13504_live2d_leaves_012",
+            "x": -5.761,
+            "y": 2.81,
+            "sx": 1,
+            "sy": 1,
+            "w": 404,
+            "h": 324,
+            "fg": false
+          },
+          {
+            "file": "13504_live2d_leaves_013",
+            "x": -8.36,
+            "y": -0.46599993,
+            "sx": 1,
+            "sy": 1,
+            "w": 104,
+            "h": 128,
+            "fg": false
+          },
+          {
+            "file": "13504_live2d_leaves_014",
+            "x": -7.838,
+            "y": 0.342,
+            "sx": 1,
+            "sy": 1,
+            "w": 164,
+            "h": 220,
+            "fg": false
+          },
+          {
+            "file": "13504_live2d_tent_002",
+            "x": -0.48499998,
+            "y": 5.8839993,
+            "sx": 1,
+            "sy": 1,
+            "w": 116,
+            "h": 180,
+            "fg": false
+          }
+        ]
       }
     ]
   },
@@ -6658,7 +7208,13 @@
         "name": "14001_l",
         "label": "Default",
         "path": "chars/14001/14001_l/14001_L.model3.json",
-        "bg": []
+        "bg": [],
+        "charBg": "bg/charbg/neo_grace_tent.png",
+        "offset": {
+          "s": 0.8860132,
+          "x": -0.29714963,
+          "y": -2.8583043
+        }
       },
       {
         "name": "14001_lf",
@@ -6753,6 +7309,12 @@
           "chars/14002/14002_l/bg/14002_live2d_paper_002.png",
           "chars/14002/14002_l/bg/14002_live2d_rocket_001.png"
         ],
+        "charBg": "bg/charbg/neo_grace_tent.png",
+        "offset": {
+          "s": 1.0142474,
+          "x": -0.33960205,
+          "y": 0.24055116
+        },
         "bgLayers": [
           {
             "file": "14002_live2d_chair_001",
@@ -6826,7 +7388,13 @@
         "name": "14101_l",
         "label": "Default",
         "path": "chars/14101/14101_l/14101_L.model3.json",
-        "bg": []
+        "bg": [],
+        "charBg": "bg/charbg/phoenix_street.png",
+        "offset": {
+          "s": 1.1139315,
+          "x": -0.5940186,
+          "y": -5.3602896
+        }
       },
       {
         "name": "14101_lf",
@@ -6911,6 +7479,12 @@
           "chars/14102/14102_l/bg/live2d_14102_painting_002.png",
           "chars/14102/14102_l/bg/live2d_14102_painting_003.png"
         ],
+        "charBg": "bg/charbg/phoenix_street.png",
+        "offset": {
+          "s": 0.86582506,
+          "x": -0.31091553,
+          "y": 0.2516925
+        },
         "bgLayers": [
           {
             "file": "live2d_14102_painting_002",
@@ -7096,7 +7670,7 @@
       },
       {
         "name": "14103_l",
-        "label": "Unknow",
+        "label": "Unknown",
         "path": "chars/14103/14103_l/14103_L.model3.json",
         "bg": [
           "chars/14103/14103_l/bg/14103_live2d_card_001.png",
@@ -7333,7 +7907,13 @@
         "name": "14201_l",
         "label": "Default",
         "path": "chars/14201/14201_l/14201_L.model3.json",
-        "bg": []
+        "bg": [],
+        "charBg": "bg/charbg/city_street_daylight.png",
+        "offset": {
+          "s": 1.0256033,
+          "x": 0.15299438,
+          "y": -4.687228
+        }
       },
       {
         "name": "14201_lf",
@@ -7417,6 +7997,12 @@
           "chars/14202/14202_l/bg/live2d_14202_rock_005.png",
           "chars/14202/14202_l/bg/live2d_14202_rock_006.png"
         ],
+        "charBg": "bg/charbg/city_street_daylight.png",
+        "offset": {
+          "s": 1.1217977,
+          "x": 0.6207385,
+          "y": 0.6331274
+        },
         "bgLayers": [
           {
             "file": "live2d_14202_rock_001",
@@ -7482,7 +8068,7 @@
       },
       {
         "name": "14203_l",
-        "label": "Unknow",
+        "label": "Unknown",
         "path": "chars/14203/14203_l/14203_L.model3.json",
         "bg": [
           "chars/14203/14203_l/bg/live2d_14203_ex_bg_02.png",
@@ -7620,7 +8206,13 @@
         "name": "14301_l",
         "label": "Default",
         "path": "chars/14301/14301_l/14301_L.model3.json",
-        "bg": []
+        "bg": [],
+        "charBg": "bg/charbg/north_street_city_daylight.png",
+        "offset": {
+          "s": 1.1400515,
+          "x": -0.78569335,
+          "y": -5.855429
+        }
       },
       {
         "name": "14301_lf",
@@ -7705,6 +8297,12 @@
           "chars/14302/14302_l/bg/live2d_14302_ex_wood_chip_038.png",
           "chars/14302/14302_l/bg/live2d_14302_ex_wood_chip_039.png"
         ],
+        "charBg": "bg/charbg/north_street_city_daylight.png",
+        "offset": {
+          "s": 0.77,
+          "x": -0.35840818,
+          "y": -0.610036
+        },
         "bgLayers": [
           {
             "file": "live2d_14302_ex_bg_001",
@@ -8228,7 +8826,13 @@
         "name": "14401_l",
         "label": "Default",
         "path": "chars/14401/14401_l/14401_L.model3.json",
-        "bg": []
+        "bg": [],
+        "charBg": "bg/charbg/chitose_pavilion_daylight.png",
+        "offset": {
+          "s": 1.0144867,
+          "x": -0.275213,
+          "y": -4.8548307
+        }
       },
       {
         "name": "14401_lf",
@@ -8384,6 +8988,12 @@
           "chars/14402/14402_l/bg/live2d_14402_ex_bg_017.png",
           "chars/14402/14402_l/bg/live2d_14402_ex_bg_018.png"
         ],
+        "charBg": "bg/charbg/chitose_pavilion_daylight.png",
+        "offset": {
+          "s": 0.9403668,
+          "x": -0.68104863,
+          "y": 0.310914
+        },
         "bgLayers": [
           {
             "file": "live2d_14402_ex_bg_001",
@@ -8509,7 +9119,7 @@
       },
       {
         "name": "14403_l",
-        "label": "Unknow",
+        "label": "Unknown",
         "path": "chars/14403/14403_l/14403_L_a.model3.json",
         "bg": [
           "chars/14403/14403_l/bg/14403_live2d_bg_001.png"
@@ -8537,7 +9147,13 @@
         "name": "14501_l",
         "label": "Default",
         "path": "chars/14501/14501_l/14501_L.model3.json",
-        "bg": []
+        "bg": [],
+        "charBg": "bg/charbg/tanikaze_outside.png",
+        "offset": {
+          "s": 0.943007,
+          "x": -0.02829956,
+          "y": -2.1366522
+        }
       },
       {
         "name": "14501_lf",
@@ -8618,6 +9234,12 @@
           "chars/14502/14502_l/bg/14502_live2d_tree_002.png",
           "chars/14502/14502_l/bg/14502_live2d_tree_003.png"
         ],
+        "charBg": "bg/charbg/tanikaze_court_night_snow.png",
+        "offset": {
+          "s": 1.056993,
+          "x": 0.04245117,
+          "y": 1.6980029
+        },
         "bgLayers": [
           {
             "file": "14502_live2d_BG_001",
@@ -8791,7 +9413,13 @@
         "name": "14701_l",
         "label": "Default",
         "path": "chars/14701/14701_l/14701_L.model3.json",
-        "bg": []
+        "bg": [],
+        "charBg": "bg/charbg/flavio_city_street.png",
+        "offset": {
+          "s": 0.95,
+          "x": -0.29768553,
+          "y": -4.131863
+        }
       },
       {
         "name": "14701_lf",
@@ -8846,6 +9474,12 @@
           "chars/14702/14702_l/bg/live2d_14702_ex_bg_060.png",
           "chars/14702/14702_l/bg/live2d_14702_ex_bg_061.png"
         ],
+        "charBg": "bg/charbg/flavio_city_street.png",
+        "offset": {
+          "s": 1.034221,
+          "x": -0.044416502,
+          "y": 0.45896912
+        },
         "bgLayers": [
           {
             "file": "live2d_14702_ex_bg_039",
@@ -8951,7 +9585,7 @@
       },
       {
         "name": "14703_l",
-        "label": "Unknow",
+        "label": "Unknown",
         "path": "chars/14703/14703_l/14703_L.model3.json",
         "bg": [
           "chars/14703/14703_l/bg/live2d_14703_bg_01.png",
@@ -9056,7 +9690,13 @@
         "name": "14901_l",
         "label": "Default",
         "path": "chars/14901/14901_l/14901_L.model3.json",
-        "bg": []
+        "bg": [],
+        "charBg": "bg/charbg/forest_night_2_a.png",
+        "offset": {
+          "s": 1.1047479,
+          "x": 0.43400693,
+          "y": -6.1034627
+        }
       },
       {
         "name": "14901_lf",
@@ -9137,6 +9777,12 @@
           "chars/14902/14902_l/bg/live2d_14902_ex_stone_019.png",
           "chars/14902/14902_l/bg/live2d_14902_ex_stone_020.png"
         ],
+        "charBg": "bg/charbg/forest_night_2_a.png",
+        "offset": {
+          "s": 0.94014394,
+          "x": -0.32693604,
+          "y": 0.5349847
+        },
         "bgLayers": [
           {
             "file": "live2d_14902_ex_bg_001",
@@ -9392,7 +10038,7 @@
       },
       {
         "name": "14903_l",
-        "label": "Unknow",
+        "label": "Unknown",
         "path": "chars/14903/14903_l/14903_L.model3.json",
         "bg": [
           "chars/14903/14903_l/bg/14903_live2d_bg_001.png",
@@ -9486,7 +10132,13 @@
         "name": "15001_l",
         "label": "Default",
         "path": "chars/15001/15001_l/15001_L.model3.json",
-        "bg": []
+        "bg": [],
+        "charBg": "bg/charbg/wog_office.png",
+        "offset": {
+          "s": 0.98,
+          "x": 0.21433228,
+          "y": -5.0130105
+        }
       },
       {
         "name": "15001_lf",
@@ -9524,6 +10176,12 @@
           "chars/15002/15002_l/bg/live2d_15002_ex_stone_001.png",
           "chars/15002/15002_l/bg/live2d_15002_ex_stone_002.png"
         ],
+        "charBg": "bg/charbg/wog_office.png",
+        "offset": {
+          "s": 0.9105502,
+          "x": -0.47377566,
+          "y": 0.26966736
+        },
         "bgLayers": [
           {
             "file": "live2d_15002_ex_bg_002",
@@ -9577,7 +10235,13 @@
         "name": "15501_l",
         "label": "Default",
         "path": "chars/15501/15501_l/15501_L.model3.json",
-        "bg": []
+        "bg": [],
+        "charBg": "bg/charbg/beach_daylight.png",
+        "offset": {
+          "s": 1.1,
+          "x": -0.19531494,
+          "y": -4.656264
+        }
       },
       {
         "name": "15501_lf",
@@ -9691,6 +10355,12 @@
           "chars/15502/15502_l/bg/live2d_15502_ex_bg_013.png",
           "chars/15502/15502_l/bg/live2d_15502_ex_bg_014.png"
         ],
+        "charBg": "bg/charbg/beach_daylight.png",
+        "offset": {
+          "s": 1.0149642,
+          "x": -0.014859625,
+          "y": 0.029721072
+        },
         "bgLayers": [
           {
             "file": "live2d_15502_ex_bg_004",
@@ -9844,7 +10514,13 @@
         "name": "15601_l",
         "label": "Default",
         "path": "chars/15601/15601_l/15601_L.model3.json",
-        "bg": []
+        "bg": [],
+        "charBg": "bg/charbg/ruin_travellers_home_dorm.png",
+        "offset": {
+          "s": 0.810217,
+          "x": 0.45263675,
+          "y": -3.8448272
+        }
       },
       {
         "name": "15601_lf",
@@ -9905,6 +10581,12 @@
           "chars/15602/15602_l/bg/live2d_15602_ex_bg_002.png",
           "chars/15602/15602_l/bg/live2d_15602_ex_bg_003.png"
         ],
+        "charBg": "bg/charbg/ruin_travellers_home_dorm.png",
+        "offset": {
+          "s": 1.0448911,
+          "x": -0.44582152,
+          "y": 0.029721985
+        },
         "bgLayers": [
           {
             "file": "fx_live2d_15602_ex_wenli_006",
@@ -9970,7 +10652,7 @@
       },
       {
         "name": "15603_l",
-        "label": "Unknow",
+        "label": "Unknown",
         "path": "chars/15603/15603_l/15603_L.model3.json",
         "bg": [
           "chars/15603/15603_l/bg/145603_live2d_bg_01.png",
@@ -10035,6 +10717,296 @@
     ]
   },
   {
+    "id": "15701",
+    "name": "Karin",
+    "variants": [
+      {
+        "name": "15701_l",
+        "label": "Default",
+        "path": "chars/15701/15701_l/15701_L.model3.json",
+        "bg": [],
+        "charBg": "bg/charbg/beach_daylight.png",
+        "offset": {
+          "s": 1.0453844,
+          "x": -0.5258423,
+          "y": -4.0264535
+        }
+      },
+      {
+        "name": "15701_lf",
+        "label": "Memory Snapshot",
+        "path": "chars/15701/15701_lf/15701_F.model3.json",
+        "bg": [
+          "chars/15701/15701_lf/bg/15701_live2d_BG_001.png",
+          "chars/15701/15701_lf/bg/15701_live2d_BG_002.png",
+          "chars/15701/15701_lf/bg/15701_live2d_BG_004.png",
+          "chars/15701/15701_lf/bg/15701_live2d_BG_005.png",
+          "chars/15701/15701_lf/bg/15701_live2d_BG_006.png",
+          "chars/15701/15701_lf/bg/15701_live2d_BG_008.png"
+        ],
+        "bgLayers": [
+          {
+            "file": "15701_live2d_BG_001",
+            "x": 29.610003,
+            "y": -50,
+            "sx": 1,
+            "sy": 1,
+            "w": 2400,
+            "h": 1700,
+            "fg": false
+          },
+          {
+            "file": "15701_live2d_BG_004",
+            "x": 0,
+            "y": 0,
+            "sx": 1,
+            "sy": 1,
+            "w": 2400,
+            "h": 1700,
+            "fg": false
+          },
+          {
+            "file": "15701_live2d_BG_005",
+            "x": -0.13,
+            "y": 3.99,
+            "sx": 1.0375,
+            "sy": 1,
+            "w": 2400,
+            "h": 940,
+            "fg": false
+          },
+          {
+            "file": "15701_live2d_BG_006",
+            "x": -8.03,
+            "y": 4.55,
+            "sx": 1,
+            "sy": 1,
+            "w": 800,
+            "h": 796,
+            "fg": true
+          },
+          {
+            "file": "15701_live2d_BG_008",
+            "x": 29.799987363816435,
+            "y": -50,
+            "sx": 1.0380068,
+            "sy": 1.0380068,
+            "w": 2400,
+            "h": 1700,
+            "fg": false
+          },
+          {
+            "file": "15701_live2d_BG_002",
+            "x": 29.8,
+            "y": -50,
+            "sx": 1.0380068,
+            "sy": 1.0380068,
+            "w": 2400,
+            "h": 1700,
+            "fg": false
+          }
+        ]
+      },
+      {
+        "name": "15701_lt",
+        "label": "Talent",
+        "path": "chars/15701/15701_lt/15701_T.model3.json",
+        "bg": []
+      },
+      {
+        "name": "15702_l",
+        "label": "Awakened",
+        "path": "chars/15702/15702_l/15702_L.model3.json",
+        "bg": [
+          "chars/15702/15702_l/bg/15702_live2d_bg_01.png",
+          "chars/15702/15702_l/bg/15702_live2d_bg_02.png",
+          "chars/15702/15702_l/bg/15702_live2d_bg_03.png",
+          "chars/15702/15702_l/bg/15702_live2d_bg_04.png",
+          "chars/15702/15702_l/bg/15702_live2d_bg_05.png",
+          "chars/15702/15702_l/bg/15702_live2d_bg_06.png",
+          "chars/15702/15702_l/bg/15702_live2d_bg_07.png",
+          "chars/15702/15702_l/bg/15702_live2d_bg_09.png",
+          "chars/15702/15702_l/bg/15702_live2d_bg_10.png",
+          "chars/15702/15702_l/bg/15702_live2d_bg_11.png",
+          "chars/15702/15702_l/bg/15702_live2d_bg_12.png",
+          "chars/15702/15702_l/bg/15702_live2d_bg_13.png",
+          "chars/15702/15702_l/bg/15702_live2d_bg_14.png",
+          "chars/15702/15702_l/bg/15702_live2d_bg_15.png",
+          "chars/15702/15702_l/bg/15702_live2d_bg_16.png",
+          "chars/15702/15702_l/bg/15702_live2d_bg_17.png"
+        ],
+        "charBg": "bg/charbg/beach_dusk.png",
+        "offset": {
+          "s": 1.0137361,
+          "x": 0.04092293,
+          "y": -1.2140192
+        },
+        "bgLayers": [
+          {
+            "file": "15702_live2d_bg_01",
+            "x": -0.030000001,
+            "y": 1.29,
+            "sx": 1,
+            "sy": 1,
+            "w": 1772,
+            "h": 1484,
+            "fg": false
+          },
+          {
+            "file": "15702_live2d_bg_02",
+            "x": 0.27000004,
+            "y": -1.22,
+            "sx": 1,
+            "sy": 1,
+            "w": 1740,
+            "h": 1040,
+            "fg": false
+          },
+          {
+            "file": "15702_live2d_bg_03",
+            "x": -5.17,
+            "y": 5.0899997,
+            "sx": 1,
+            "sy": 1,
+            "w": 488,
+            "h": 244,
+            "fg": false
+          },
+          {
+            "file": "15702_live2d_bg_04",
+            "x": -6.2,
+            "y": 2.6699998,
+            "sx": 1,
+            "sy": 1,
+            "w": 440,
+            "h": 212,
+            "fg": false
+          },
+          {
+            "file": "15702_live2d_bg_05",
+            "x": 3.2700002,
+            "y": 6.5400004,
+            "sx": 1,
+            "sy": 1,
+            "w": 356,
+            "h": 352,
+            "fg": false
+          },
+          {
+            "file": "15702_live2d_bg_06",
+            "x": 5.79,
+            "y": 3.98,
+            "sx": 1,
+            "sy": 1,
+            "w": 452,
+            "h": 528,
+            "fg": false
+          },
+          {
+            "file": "15702_live2d_bg_07",
+            "x": 1.07,
+            "y": -3.1899998,
+            "sx": 1,
+            "sy": 1,
+            "w": 1668,
+            "h": 1164,
+            "fg": false
+          },
+          {
+            "file": "15702_live2d_bg_17",
+            "x": -4.05,
+            "y": -3.4299998,
+            "sx": 1,
+            "sy": 1,
+            "w": 1024,
+            "h": 696,
+            "fg": false
+          },
+          {
+            "file": "15702_live2d_bg_13",
+            "x": 1.0400001,
+            "y": -6.75,
+            "sx": 1,
+            "sy": 1,
+            "w": 1376,
+            "h": 636,
+            "fg": false
+          },
+          {
+            "file": "15702_live2d_bg_11",
+            "x": 7.503,
+            "y": 1.9270003,
+            "sx": 1,
+            "sy": 1,
+            "w": 396,
+            "h": 508,
+            "fg": false
+          },
+          {
+            "file": "15702_live2d_bg_09",
+            "x": -3.200003,
+            "y": -5.8199887,
+            "sx": 1,
+            "sy": 1,
+            "w": 1068,
+            "h": 456,
+            "fg": false
+          },
+          {
+            "file": "15702_live2d_bg_16",
+            "x": 7.6100006,
+            "y": -1.6300138,
+            "sx": 1,
+            "sy": 1,
+            "w": 344,
+            "h": 804,
+            "fg": true
+          },
+          {
+            "file": "15702_live2d_bg_10",
+            "x": 1.7700119,
+            "y": 1.2300202,
+            "sx": 1,
+            "sy": 1,
+            "w": 1256,
+            "h": 1336,
+            "fg": true
+          },
+          {
+            "file": "15702_live2d_bg_14",
+            "x": -5.765,
+            "y": -0.834,
+            "sx": 1,
+            "sy": 1,
+            "w": 172,
+            "h": 412,
+            "fg": false
+          },
+          {
+            "file": "15702_live2d_bg_15",
+            "x": -7.471,
+            "y": 1.8320001,
+            "sx": 1,
+            "sy": 1,
+            "w": 308,
+            "h": 884,
+            "fg": false
+          },
+          {
+            "file": "15702_live2d_bg_12",
+            "x": 2.6319962,
+            "y": -2.9700196,
+            "sx": 1,
+            "sy": 1,
+            "w": 292,
+            "h": 236,
+            "fg": true
+          }
+        ]
+      }
+    ]
+  },
+  {
     "id": "15801",
     "name": "Laru",
     "variants": [
@@ -10042,7 +11014,13 @@
         "name": "15801_l",
         "label": "Default",
         "path": "chars/15801/15801_l/15801_L.model3.json",
-        "bg": []
+        "bg": [],
+        "charBg": "bg/charbg/city_park_night_winter.png",
+        "offset": {
+          "s": 0.94,
+          "x": 0.22986214,
+          "y": -2.3606334
+        }
       },
       {
         "name": "15801_lf",
@@ -10203,6 +11181,12 @@
           "chars/15802/15802_l/bg/live2d_15802_ex_bg_005.png",
           "chars/15802/15802_l/bg/live2d_15802_ex_bg_006.png"
         ],
+        "charBg": "bg/charbg/city_park_night_winter.png",
+        "offset": {
+          "s": 0.8698044,
+          "x": 0.45972717,
+          "y": 0.10056519
+        },
         "bgLayers": [
           {
             "file": "live2d_15802_ex_bg_005",
@@ -10276,7 +11260,13 @@
         "name": "15901_l",
         "label": "Default",
         "path": "chars/15901/15901_l/15901_L.model3.json",
-        "bg": []
+        "bg": [],
+        "charBg": "bg/charbg/phoenix_food_street_night.png",
+        "offset": {
+          "s": 1.057,
+          "x": -0.15803225,
+          "y": -5.7896905
+        }
       },
       {
         "name": "15901_lf",
@@ -10353,6 +11343,12 @@
           "chars/15902/15902_l/bg/15902_live2d_leaves_003.png",
           "chars/15902/15902_l/bg/15902_live2d_stone_001.png"
         ],
+        "charBg": "bg/charbg/forest_night_1.png",
+        "offset": {
+          "s": 0.9731398,
+          "x": -0.026676023,
+          "y": -0.24007536
+        },
         "bgLayers": [
           {
             "file": "15902_live2d_leaves_001",
@@ -10466,7 +11462,13 @@
         "name": "16001_l",
         "label": "Default",
         "path": "chars/16001/16001_l/16001_L.model3.json",
-        "bg": []
+        "bg": [],
+        "charBg": "bg/charbg/beach_daylight.png",
+        "offset": {
+          "s": 0.986264,
+          "x": -0.20460819,
+          "y": -4.3513727
+        }
       },
       {
         "name": "16001_lf",
@@ -10613,6 +11615,12 @@
           "chars/16002/16002_l/bg/16002_live2d_paopao_07.png",
           "chars/16002/16002_l/bg/16002_live2d_paopao_09.png"
         ],
+        "charBg": "bg/charbg/beach_daylight.png",
+        "offset": {
+          "s": 1.0740944,
+          "x": -0.06820556,
+          "y": -0.7502374
+        },
         "bgLayers": [
           {
             "file": "16002_live2d_bg_01",
@@ -10774,13 +11782,13 @@
     "variants": [
       {
         "name": "813301_l",
-        "label": "Unknow",
+        "label": "Unknown",
         "path": "chars/813301/813301_l/813301_L.model3.json",
         "bg": []
       },
       {
         "name": "813401_l",
-        "label": "Unknow",
+        "label": "Unknown",
         "path": "chars/813401/813401_l/813401_L.model3.json",
         "bg": []
       }
@@ -10792,13 +11800,13 @@
     "variants": [
       {
         "name": "910201_l",
-        "label": "Unknow",
+        "label": "Unknown",
         "path": "chars/910201/910201_l/910201_L.model3.json",
         "bg": []
       },
       {
         "name": "910202_l",
-        "label": "Unknow",
+        "label": "Unknown",
         "path": "chars/910202/910202_l/910202_L.model3.json",
         "bg": []
       }
@@ -10810,13 +11818,13 @@
     "variants": [
       {
         "name": "913101_l",
-        "label": "Unknow",
+        "label": "Unknown",
         "path": "chars/913101/913101_l/913101_L.model3.json",
         "bg": []
       },
       {
         "name": "913301_l",
-        "label": "Unknow",
+        "label": "Unknown",
         "path": "chars/913301/913301_l/913301_L.model3.json",
         "bg": []
       }
@@ -10828,7 +11836,7 @@
     "variants": [
       {
         "name": "915901_l",
-        "label": "Unknow",
+        "label": "Unknown",
         "path": "chars/915901/915901_l/915901_L.model3.json",
         "bg": []
       }
@@ -10840,7 +11848,7 @@
     "variants": [
       {
         "name": "916402_l",
-        "label": "Unknow",
+        "label": "Unknown",
         "path": "chars/916402/916402_l/916402_L.model3.json",
         "bg": []
       }
@@ -10852,37 +11860,37 @@
     "variants": [
       {
         "name": "917201_l",
-        "label": "Unknow",
+        "label": "Unknown",
         "path": "chars/917201/917201_l/917201_L.model3.json",
         "bg": []
       },
       {
         "name": "917202_l",
-        "label": "Unknow",
+        "label": "Unknown",
         "path": "chars/917202/917202_l/917202_L.model3.json",
         "bg": []
       },
       {
         "name": "917301_l",
-        "label": "Unknow",
+        "label": "Unknown",
         "path": "chars/917301/917301_l/917301_L.model3.json",
         "bg": []
       },
       {
         "name": "917302_l",
-        "label": "Unknow",
+        "label": "Unknown",
         "path": "chars/917302/917302_l/917302_L.model3.json",
         "bg": []
       },
       {
         "name": "917401_l",
-        "label": "Unknow",
+        "label": "Unknown",
         "path": "chars/917401/917401_l/917401_L.model3.json",
         "bg": []
       },
       {
         "name": "917402_l",
-        "label": "Unknow",
+        "label": "Unknown",
         "path": "chars/917402/917402_l/917402_L.model3.json",
         "bg": []
       }
@@ -10898,18 +11906,6 @@
         "path": "chars/4004/4004_l/4004_F.model3.json",
         "bg": [
           "chars/4004/4004_l/bg/4004_disc_l2d_main_bg_001.png"
-        ],
-        "bgLayers": [
-          {
-            "file": "4004_disc_l2d_main_bg_001",
-            "x": 0,
-            "y": 0,
-            "sx": 1,
-            "sy": 1,
-            "w": 2400,
-            "h": 1700,
-            "fg": false
-          }
         ]
       }
     ]
@@ -10925,28 +11921,6 @@
         "bg": [
           "chars/4005/4005_l/bg/4005_disc_l2d_bg_001.png",
           "chars/4005/4005_l/bg/4005_disc_l2d_flower_001.png"
-        ],
-        "bgLayers": [
-          {
-            "file": "4005_disc_l2d_bg_001",
-            "x": 0,
-            "y": 0,
-            "sx": 1,
-            "sy": 1,
-            "w": 2400,
-            "h": 1700,
-            "fg": false
-          },
-          {
-            "file": "4005_disc_l2d_flower_001",
-            "x": 6.033,
-            "y": -2.631,
-            "sx": 1,
-            "sy": 1,
-            "w": 244,
-            "h": 136,
-            "fg": false
-          }
         ]
       }
     ]
@@ -10965,58 +11939,6 @@
           "chars/4006/4006_l/bg/4006_disc_l2d_main_bg_004.png",
           "chars/4006/4006_l/bg/4006_disc_l2d_main_bg_005.png",
           "chars/4006/4006_l/bg/4006_disc_l2d_main_bg_006.png"
-        ],
-        "bgLayers": [
-          {
-            "file": "4006_disc_l2d_main_bg_001",
-            "x": 0,
-            "y": 0,
-            "sx": 1,
-            "sy": 1,
-            "w": 2048,
-            "h": 1451,
-            "fg": false
-          },
-          {
-            "file": "4006_disc_l2d_main_bg_005",
-            "x": -5.24,
-            "y": -2.04,
-            "sx": 1,
-            "sy": 1,
-            "w": 684,
-            "h": 856,
-            "fg": false
-          },
-          {
-            "file": "4006_disc_l2d_main_bg_006",
-            "x": -2.751,
-            "y": 6.09,
-            "sx": 1,
-            "sy": 1,
-            "w": 40,
-            "h": 28,
-            "fg": false
-          },
-          {
-            "file": "4006_disc_l2d_main_bg_004",
-            "x": -3.42,
-            "y": 4.32,
-            "sx": 1,
-            "sy": 1,
-            "w": 728,
-            "h": 508,
-            "fg": false
-          },
-          {
-            "file": "4006_disc_l2d_main_bg_003",
-            "x": -5.34,
-            "y": -2.67,
-            "sx": 1,
-            "sy": 1,
-            "w": 772,
-            "h": 808,
-            "fg": false
-          }
         ]
       }
     ]
@@ -11037,88 +11959,6 @@
           "chars/4007/4007_l/bg/fx_4007_disc_l2d_shuiliu_006.png",
           "chars/4007/4007_l/bg/fx_4007_disc_l2d_shuiliu_007.png",
           "chars/4007/4007_l/bg/fx_4007_disc_l2d_shuiliu_008.png"
-        ],
-        "bgLayers": [
-          {
-            "file": "4007_disc_l2d_bg_001",
-            "x": 0,
-            "y": 0,
-            "sx": 1,
-            "sy": 1,
-            "w": 2048,
-            "h": 1451,
-            "fg": false
-          },
-          {
-            "file": "4007_disc_l2d_bg_002",
-            "x": 0,
-            "y": 0,
-            "sx": 1,
-            "sy": 1,
-            "w": 2048,
-            "h": 1451,
-            "fg": true
-          },
-          {
-            "file": "fx_4007_disc_l2d_shuiliu_004",
-            "x": -7.929,
-            "y": 1.85,
-            "sx": 0.59907496,
-            "sy": 0.59907496,
-            "w": 256,
-            "h": 256,
-            "fg": true
-          },
-          {
-            "file": "fx_4007_disc_l2d_shuiliu_005",
-            "x": -10.08,
-            "y": 1.082,
-            "sx": 0.3819762,
-            "sy": 0.3819762,
-            "w": 256,
-            "h": 256,
-            "fg": true
-          },
-          {
-            "file": "fx_4007_disc_l2d_shuiliu_006",
-            "x": -6.004,
-            "y": -8.244,
-            "sx": 1.0630114,
-            "sy": 0.8343888,
-            "w": 256,
-            "h": 256,
-            "fg": true
-          },
-          {
-            "file": "fx_4007_disc_l2d_shuiliu_007",
-            "x": 6.358,
-            "y": -8.039,
-            "sx": 0.59806013,
-            "sy": 0.59806013,
-            "w": 256,
-            "h": 256,
-            "fg": true
-          },
-          {
-            "file": "fx_4007_disc_l2d_shuiliu_008",
-            "x": -5.664,
-            "y": -5.877,
-            "sx": 0.3636,
-            "sy": 0.3636,
-            "w": 256,
-            "h": 256,
-            "fg": true
-          },
-          {
-            "file": "fx_4007_disc_l2d_shuiliu_008",
-            "x": 2.233,
-            "y": -8.031,
-            "sx": 0.28004107,
-            "sy": 0.28004107,
-            "w": 256,
-            "h": 256,
-            "fg": true
-          }
         ]
       }
     ]
@@ -11137,58 +11977,6 @@
           "chars/4008/4008_l/bg/4008_disc_l2d_leaves_001.png",
           "chars/4008/4008_l/bg/4008_disc_l2d_leaves_002.png",
           "chars/4008/4008_l/bg/4008_disc_l2d_leaves_003.png"
-        ],
-        "bgLayers": [
-          {
-            "file": "4008_disc_l2d_bg_001",
-            "x": 0,
-            "y": 0,
-            "sx": 1,
-            "sy": 1,
-            "w": 2400,
-            "h": 1700,
-            "fg": false
-          },
-          {
-            "file": "4008_disc_l2d_bg_002",
-            "x": -5.1,
-            "y": -0.62,
-            "sx": 1,
-            "sy": 1,
-            "w": 1380,
-            "h": 1576,
-            "fg": false
-          },
-          {
-            "file": "4008_disc_l2d_leaves_001",
-            "x": -11.42,
-            "y": -0.02,
-            "sx": 1,
-            "sy": 1,
-            "w": 116,
-            "h": 252,
-            "fg": true
-          },
-          {
-            "file": "4008_disc_l2d_leaves_002",
-            "x": -8.789,
-            "y": -6.238,
-            "sx": 1,
-            "sy": 1,
-            "w": 640,
-            "h": 452,
-            "fg": true
-          },
-          {
-            "file": "4008_disc_l2d_leaves_003",
-            "x": 4.16,
-            "y": -7.461,
-            "sx": 1,
-            "sy": 1,
-            "w": 868,
-            "h": 212,
-            "fg": true
-          }
         ]
       }
     ]
@@ -11210,88 +11998,6 @@
           "chars/4015/4015_l/bg/4015_disc_l2d_leaves_001.png",
           "chars/4015/4015_l/bg/4015_disc_l2d_leaves_002.png",
           "chars/4015/4015_l/bg/4015_disc_l2d_leaves_003.png"
-        ],
-        "bgLayers": [
-          {
-            "file": "4015_disc_l2d_bg_001",
-            "x": 0,
-            "y": 0,
-            "sx": 1,
-            "sy": 1,
-            "w": 2400,
-            "h": 1700,
-            "fg": false
-          },
-          {
-            "file": "4015_disc_l2d_leaves_001",
-            "x": -7.04,
-            "y": 5.86,
-            "sx": 1,
-            "sy": 1,
-            "w": 996,
-            "h": 528,
-            "fg": false
-          },
-          {
-            "file": "4015_disc_l2d_leaves_002",
-            "x": -2.18,
-            "y": -6.905,
-            "sx": 1,
-            "sy": 1,
-            "w": 976,
-            "h": 324,
-            "fg": false
-          },
-          {
-            "file": "4015_disc_l2d_leaves_003",
-            "x": -9.68,
-            "y": -2.15,
-            "sx": 1,
-            "sy": 1,
-            "w": 464,
-            "h": 1120,
-            "fg": false
-          },
-          {
-            "file": "4015_disc_l2d_deer_006",
-            "x": 5.088,
-            "y": 0.796,
-            "sx": 1,
-            "sy": 1,
-            "w": 176,
-            "h": 236,
-            "fg": false
-          },
-          {
-            "file": "4015_disc_l2d_deer_001",
-            "x": -8.962,
-            "y": -4.846,
-            "sx": 1,
-            "sy": 1,
-            "w": 608,
-            "h": 732,
-            "fg": false
-          },
-          {
-            "file": "4015_disc_l2d_deer_005",
-            "x": -2.98,
-            "y": 0,
-            "sx": 1,
-            "sy": 1,
-            "w": 1572,
-            "h": 1700,
-            "fg": false
-          },
-          {
-            "file": "4015_disc_l2d_deer_002",
-            "x": -6.866,
-            "y": -1.564,
-            "sx": 1,
-            "sy": 1,
-            "w": 544,
-            "h": 516,
-            "fg": true
-          }
         ]
       }
     ]
@@ -11324,198 +12030,6 @@
           "chars/4016/4016_l/bg/4016_disc_l2d_grass_013.png",
           "chars/4016/4016_l/bg/4016_disc_l2d_grass_014.png",
           "chars/4016/4016_l/bg/4016_disc_l2d_leaves_001.png"
-        ],
-        "bgLayers": [
-          {
-            "file": "4016_disc_l2d_bg_001",
-            "x": 0,
-            "y": 0,
-            "sx": 1,
-            "sy": 1,
-            "w": 2400,
-            "h": 1700,
-            "fg": false
-          },
-          {
-            "file": "4016_disc_l2d_bg_002",
-            "x": 0,
-            "y": 0,
-            "sx": 1,
-            "sy": 1,
-            "w": 2400,
-            "h": 1700,
-            "fg": false
-          },
-          {
-            "file": "4016_disc_l2d_grass_001",
-            "x": -10.539999,
-            "y": -4.5499997,
-            "sx": 1,
-            "sy": 1,
-            "w": 136,
-            "h": 148,
-            "fg": true
-          },
-          {
-            "file": "4016_disc_l2d_grass_002",
-            "x": -7.7299995,
-            "y": -6.5059996,
-            "sx": 1,
-            "sy": 1,
-            "w": 468,
-            "h": 400,
-            "fg": true
-          },
-          {
-            "file": "4016_disc_l2d_grass_003",
-            "x": -3.0679998,
-            "y": -6.2519994,
-            "sx": 1,
-            "sy": 1,
-            "w": 976,
-            "h": 360,
-            "fg": true
-          },
-          {
-            "file": "4016_disc_l2d_grass_004",
-            "x": 2.7819998,
-            "y": -7.171999,
-            "sx": 1,
-            "sy": 1,
-            "w": 188,
-            "h": 128,
-            "fg": true
-          },
-          {
-            "file": "4016_disc_l2d_grass_005",
-            "x": -0.077999994,
-            "y": -7.733,
-            "sx": 1,
-            "sy": 1,
-            "w": 488,
-            "h": 156,
-            "fg": true
-          },
-          {
-            "file": "4016_disc_l2d_grass_011",
-            "x": -10.971,
-            "y": -5.73,
-            "sx": 1,
-            "sy": 1,
-            "w": 208,
-            "h": 260,
-            "fg": true
-          },
-          {
-            "file": "4016_disc_l2d_grass_012",
-            "x": -11.181,
-            "y": -7.397,
-            "sx": 1,
-            "sy": 1,
-            "w": 164,
-            "h": 180,
-            "fg": true
-          },
-          {
-            "file": "4016_disc_l2d_grass_013",
-            "x": -9.894,
-            "y": -7.694,
-            "sx": 1,
-            "sy": 1,
-            "w": 204,
-            "h": 164,
-            "fg": true
-          },
-          {
-            "file": "4016_disc_l2d_grass_014",
-            "x": -4.282,
-            "y": -6.842,
-            "sx": 1,
-            "sy": 1,
-            "w": 220,
-            "h": 168,
-            "fg": true
-          },
-          {
-            "file": "4016_disc_l2d_bg_003",
-            "x": 0,
-            "y": 0,
-            "sx": 1,
-            "sy": 1,
-            "w": 2400,
-            "h": 1700,
-            "fg": false
-          },
-          {
-            "file": "4016_disc_l2d_grass_006",
-            "x": 7.61,
-            "y": -6.29,
-            "sx": 1,
-            "sy": 1,
-            "w": 880,
-            "h": 444,
-            "fg": false
-          },
-          {
-            "file": "4016_disc_l2d_grass_010",
-            "x": -7.87,
-            "y": -2.14,
-            "sx": 1,
-            "sy": 1,
-            "w": 828,
-            "h": 636,
-            "fg": false
-          },
-          {
-            "file": "4016_disc_l2d_bg_004",
-            "x": 0,
-            "y": -5.6300006,
-            "sx": 1,
-            "sy": 1,
-            "w": 2400,
-            "h": 580,
-            "fg": false
-          },
-          {
-            "file": "4016_disc_l2d_grass_007",
-            "x": 11.322,
-            "y": -3.532,
-            "sx": 1,
-            "sy": 1,
-            "w": 140,
-            "h": 392,
-            "fg": false
-          },
-          {
-            "file": "4016_disc_l2d_grass_008",
-            "x": -11.462,
-            "y": 1.843,
-            "sx": 1,
-            "sy": 1,
-            "w": 108,
-            "h": 232,
-            "fg": false
-          },
-          {
-            "file": "4016_disc_l2d_grass_009",
-            "x": -10.163,
-            "y": -1.36,
-            "sx": 1,
-            "sy": 1,
-            "w": 368,
-            "h": 460,
-            "fg": false
-          },
-          {
-            "file": "4016_disc_l2d_leaves_001",
-            "x": 7.782,
-            "y": 4.835,
-            "sx": 1,
-            "sy": 1,
-            "w": 248,
-            "h": 324,
-            "fg": false
-          }
         ]
       }
     ]
@@ -11534,58 +12048,6 @@
           "chars/4017/4017_l/bg/4017_disc_l2d_bg_003.png",
           "chars/4017/4017_l/bg/4017_disc_l2d_bg_004.png",
           "chars/4017/4017_l/bg/4017_disc_l2d_fg_001.png"
-        ],
-        "bgLayers": [
-          {
-            "file": "4017_disc_l2d_bg_001",
-            "x": 0,
-            "y": 0,
-            "sx": 1,
-            "sy": 1,
-            "w": 2400,
-            "h": 1700,
-            "fg": false
-          },
-          {
-            "file": "4017_disc_l2d_bg_002",
-            "x": -3.55,
-            "y": 1.28,
-            "sx": 1,
-            "sy": 1,
-            "w": 904,
-            "h": 1444,
-            "fg": false
-          },
-          {
-            "file": "4017_disc_l2d_bg_003",
-            "x": 0,
-            "y": -1.72,
-            "sx": 1,
-            "sy": 1,
-            "w": 2400,
-            "h": 1360,
-            "fg": false
-          },
-          {
-            "file": "4017_disc_l2d_bg_004",
-            "x": 0,
-            "y": -2.65,
-            "sx": 1,
-            "sy": 1,
-            "w": 2400,
-            "h": 1172,
-            "fg": false
-          },
-          {
-            "file": "4017_disc_l2d_fg_001",
-            "x": 6.14,
-            "y": -5.58,
-            "sx": 1,
-            "sy": 1,
-            "w": 1176,
-            "h": 588,
-            "fg": true
-          }
         ]
       }
     ]
@@ -11611,138 +12073,6 @@
           "chars/4026/4026_l/bg/4026_disc_l2d_bg_10.png",
           "chars/4026/4026_l/bg/4026_disc_l2d_bg_11.png",
           "chars/4026/4026_l/bg/fx_4026_disc_l2d_03.png"
-        ],
-        "bgLayers": [
-          {
-            "file": "4026_disc_l2d_bg_01",
-            "x": 0,
-            "y": 0,
-            "sx": 1,
-            "sy": 1,
-            "w": 2400,
-            "h": 1700,
-            "fg": false
-          },
-          {
-            "file": "4026_disc_l2d_bg_02",
-            "x": 0,
-            "y": 0,
-            "sx": 1,
-            "sy": 1,
-            "w": 2400,
-            "h": 1700,
-            "fg": true
-          },
-          {
-            "file": "4026_disc_l2d_bg_03",
-            "x": 8.8,
-            "y": -3.96,
-            "sx": 1,
-            "sy": 1,
-            "w": 638,
-            "h": 903,
-            "fg": true
-          },
-          {
-            "file": "4026_disc_l2d_bg_04",
-            "x": -7.59,
-            "y": 1.87,
-            "sx": 1,
-            "sy": 1,
-            "w": 872,
-            "h": 1174,
-            "fg": true
-          },
-          {
-            "file": "4026_disc_l2d_bg_11",
-            "x": -8.76,
-            "y": 4.3100000000000005,
-            "sx": 1,
-            "sy": 1,
-            "w": 440,
-            "h": 686,
-            "fg": true
-          },
-          {
-            "file": "fx_4026_disc_l2d_03",
-            "x": -9.591999999999999,
-            "y": 2.069,
-            "sx": 0.98210895,
-            "sy": 0.98210895,
-            "w": 391,
-            "h": 1078,
-            "fg": true
-          },
-          {
-            "file": "4026_disc_l2d_bg_05",
-            "x": 5.69,
-            "y": 0.02,
-            "sx": 1,
-            "sy": 1,
-            "w": 1099,
-            "h": 1700,
-            "fg": true
-          },
-          {
-            "file": "fx_4026_disc_l2d_03",
-            "x": 9.11,
-            "y": -1.22,
-            "sx": 0.84321916,
-            "sy": 0.84321916,
-            "w": 391,
-            "h": 1078,
-            "fg": true
-          },
-          {
-            "file": "4026_disc_l2d_bg_06",
-            "x": -6.9349998,
-            "y": -3.8755249999999997,
-            "sx": 0.5990749,
-            "sy": 0.5990749,
-            "w": 92,
-            "h": 208,
-            "fg": true
-          },
-          {
-            "file": "4026_disc_l2d_bg_07",
-            "x": -8.5129994,
-            "y": -3.016,
-            "sx": 0.7208668,
-            "sy": 0.7208668,
-            "w": 203,
-            "h": 164,
-            "fg": true
-          },
-          {
-            "file": "4026_disc_l2d_bg_08",
-            "x": 6.98,
-            "y": -2.31,
-            "sx": 0.7208668,
-            "sy": 0.7208668,
-            "w": 105,
-            "h": 123,
-            "fg": true
-          },
-          {
-            "file": "4026_disc_l2d_bg_09",
-            "x": 7.079999900000001,
-            "y": 6.359999999999999,
-            "sx": 0.86107534,
-            "sy": 0.86107534,
-            "w": 115,
-            "h": 131,
-            "fg": true
-          },
-          {
-            "file": "4026_disc_l2d_bg_10",
-            "x": -1.49,
-            "y": 3.976,
-            "sx": 1,
-            "sy": 1,
-            "w": 80,
-            "h": 72,
-            "fg": false
-          }
         ]
       }
     ]
@@ -11770,178 +12100,6 @@
           "chars/4027/4027_l/bg/4027_disc_l2d_painting_01.png",
           "chars/4027/4027_l/bg/4027_disc_l2d_painting_02.png",
           "chars/4027/4027_l/bg/4027_disc_l2d_painting_03.png"
-        ],
-        "bgLayers": [
-          {
-            "file": "4027_disc_l2d_bg_01",
-            "x": 0,
-            "y": 0,
-            "sx": 1,
-            "sy": 1,
-            "w": 2400,
-            "h": 1700,
-            "fg": false
-          },
-          {
-            "file": "4027_disc_l2d_painting_01",
-            "x": -3.304,
-            "y": 7.652,
-            "sx": 1,
-            "sy": 1,
-            "w": 316,
-            "h": 172,
-            "fg": false
-          },
-          {
-            "file": "4027_disc_l2d_painting_02",
-            "x": 0.24,
-            "y": 6.379,
-            "sx": 1,
-            "sy": 1,
-            "w": 400,
-            "h": 428,
-            "fg": false
-          },
-          {
-            "file": "4027_disc_l2d_bg_02",
-            "x": 0,
-            "y": 0,
-            "sx": 1,
-            "sy": 1,
-            "w": 2400,
-            "h": 1700,
-            "fg": false
-          },
-          {
-            "file": "4027_disc_l2d_denglong_01",
-            "x": -7.992,
-            "y": -0.85,
-            "sx": 1,
-            "sy": 1,
-            "w": 584,
-            "h": 692,
-            "fg": false
-          },
-          {
-            "file": "4027_disc_l2d_denglong_02",
-            "x": 3.895,
-            "y": 6.437,
-            "sx": 1,
-            "sy": 1,
-            "w": 268,
-            "h": 368,
-            "fg": false
-          },
-          {
-            "file": "4027_disc_l2d_bg_03",
-            "x": 0,
-            "y": 0,
-            "sx": 1,
-            "sy": 1,
-            "w": 2400,
-            "h": 1700,
-            "fg": false
-          },
-          {
-            "file": "4027_disc_l2d_fg_01",
-            "x": -8.74,
-            "y": 5.01,
-            "sx": 0.7900001,
-            "sy": 0.708,
-            "w": 884,
-            "h": 924,
-            "fg": true
-          },
-          {
-            "file": "4027_disc_l2d_fg_05",
-            "x": -7.21,
-            "y": -5.69,
-            "sx": 1,
-            "sy": 1,
-            "w": 960,
-            "h": 568,
-            "fg": true
-          },
-          {
-            "file": "4027_disc_l2d_fg_06",
-            "x": 8.65,
-            "y": -6.37,
-            "sx": 1,
-            "sy": 1,
-            "w": 672,
-            "h": 432,
-            "fg": true
-          },
-          {
-            "file": "4027_disc_l2d_fg_02",
-            "x": 0.45,
-            "y": -4.61,
-            "sx": 1,
-            "sy": 1,
-            "w": 2048,
-            "h": 719,
-            "fg": true
-          },
-          {
-            "file": "4027_disc_l2d_fg_03",
-            "x": -7.811,
-            "y": 3.39,
-            "sx": 1,
-            "sy": 1,
-            "w": 840,
-            "h": 676,
-            "fg": true
-          },
-          {
-            "file": "4027_disc_l2d_fg_04",
-            "x": -5.557,
-            "y": 7.728,
-            "sx": 1,
-            "sy": 1,
-            "w": 184,
-            "h": 156,
-            "fg": true
-          },
-          {
-            "file": "4027_disc_l2d_painting_03",
-            "x": 7.027,
-            "y": 5.651,
-            "sx": 1,
-            "sy": 1,
-            "w": 476,
-            "h": 572,
-            "fg": false
-          },
-          {
-            "file": "4027_disc_l2d_fg_01",
-            "x": 7.589999,
-            "y": 3.8899999,
-            "sx": 1,
-            "sy": 1,
-            "w": 884,
-            "h": 924,
-            "fg": true
-          },
-          {
-            "file": "4027_disc_l2d_fg_01",
-            "x": -7.229999,
-            "y": -5.6899996,
-            "sx": 1.0819999,
-            "sy": 0.61,
-            "w": 884,
-            "h": 924,
-            "fg": true
-          },
-          {
-            "file": "4027_disc_l2d_fg_01",
-            "x": 8.618,
-            "y": -6.1099997,
-            "sx": 0.545,
-            "sy": 0.735,
-            "w": 884,
-            "h": 924,
-            "fg": true
-          }
         ]
       }
     ]
@@ -11956,18 +12114,6 @@
         "path": "chars/4028/4028_l/4028_F.model3.json",
         "bg": [
           "chars/4028/4028_l/bg/4028_disc_l2d_bg_01.png"
-        ],
-        "bgLayers": [
-          {
-            "file": "4028_disc_l2d_bg_01",
-            "x": 0,
-            "y": 0,
-            "sx": 1,
-            "sy": 1,
-            "w": 2400,
-            "h": 1700,
-            "fg": false
-          }
         ]
       }
     ]
@@ -11983,28 +12129,6 @@
         "bg": [
           "chars/4029/4029_l/bg/4029_disc_l2d_bg_001.png",
           "chars/4029/4029_l/bg/4029_disc_l2d_fg_001.png"
-        ],
-        "bgLayers": [
-          {
-            "file": "4029_disc_l2d_bg_001",
-            "x": 0,
-            "y": 0,
-            "sx": 1,
-            "sy": 1,
-            "w": 2400,
-            "h": 1700,
-            "fg": false
-          },
-          {
-            "file": "4029_disc_l2d_fg_001",
-            "x": 0,
-            "y": 0,
-            "sx": 1,
-            "sy": 1,
-            "w": 2400,
-            "h": 1700,
-            "fg": true
-          }
         ]
       }
     ]
@@ -12019,18 +12143,6 @@
         "path": "chars/4036/4036_l/4036_F.model3.json",
         "bg": [
           "chars/4036/4036_l/bg/4036_disc_l2d_bg_001.png"
-        ],
-        "bgLayers": [
-          {
-            "file": "4036_disc_l2d_bg_001",
-            "x": 0,
-            "y": 0,
-            "sx": 1,
-            "sy": 1,
-            "w": 2400,
-            "h": 1700,
-            "fg": false
-          }
         ]
       }
     ]
@@ -12046,28 +12158,6 @@
         "bg": [
           "chars/4037/4037_l/bg/4037_disc_main_bg_01.png",
           "chars/4037/4037_l/bg/4037_disc_main_bg_02.png"
-        ],
-        "bgLayers": [
-          {
-            "file": "4037_disc_main_bg_01",
-            "x": 0,
-            "y": 0,
-            "sx": 1,
-            "sy": 1,
-            "w": 2400,
-            "h": 1700,
-            "fg": false
-          },
-          {
-            "file": "4037_disc_main_bg_02",
-            "x": 0,
-            "y": 0,
-            "sx": 1,
-            "sy": 1,
-            "w": 2048,
-            "h": 1451,
-            "fg": false
-          }
         ]
       }
     ]
@@ -12134,538 +12224,6 @@
           "chars/4038/4038_l/bg/4038_disc_main_pao_040.png",
           "chars/4038/4038_l/bg/4038_disc_main_pao_041.png",
           "chars/4038/4038_l/bg/4038_disc_main_pao_042.png"
-        ],
-        "bgLayers": [
-          {
-            "file": "4038_disc_main_fg_01",
-            "x": 6.75,
-            "y": 0,
-            "sx": 1,
-            "sy": 1,
-            "w": 1052,
-            "h": 1700,
-            "fg": true
-          },
-          {
-            "file": "4038_disc_main_fg_02",
-            "x": -8.625,
-            "y": -7.046,
-            "sx": 1,
-            "sy": 1,
-            "w": 548,
-            "h": 296,
-            "fg": true
-          },
-          {
-            "file": "4038_disc_main_fg_03",
-            "x": 8.9,
-            "y": -6.584,
-            "sx": 1,
-            "sy": 1,
-            "w": 524,
-            "h": 388,
-            "fg": true
-          },
-          {
-            "file": "4038_disc_main_fg_04",
-            "x": -8.298,
-            "y": -5.523,
-            "sx": 1,
-            "sy": 1,
-            "w": 744,
-            "h": 596,
-            "fg": true
-          },
-          {
-            "file": "4038_disc_main_fg_05",
-            "x": 10.35,
-            "y": -4.51,
-            "sx": 1,
-            "sy": 1,
-            "w": 332,
-            "h": 800,
-            "fg": true
-          },
-          {
-            "file": "4038_disc_main_fg_06",
-            "x": 10.007,
-            "y": -7.062,
-            "sx": 1,
-            "sy": 1,
-            "w": 400,
-            "h": 292,
-            "fg": true
-          },
-          {
-            "file": "4038_disc_main_fg_07",
-            "x": -10.426,
-            "y": -4.078,
-            "sx": 1,
-            "sy": 1,
-            "w": 320,
-            "h": 364,
-            "fg": true
-          },
-          {
-            "file": "4038_disc_main_fg_08",
-            "x": -9.731,
-            "y": -6.653,
-            "sx": 1,
-            "sy": 1,
-            "w": 452,
-            "h": 372,
-            "fg": true
-          },
-          {
-            "file": "4038_disc_main_fg_09",
-            "x": -10.671,
-            "y": 6.876,
-            "sx": 1,
-            "sy": 1,
-            "w": 268,
-            "h": 280,
-            "fg": true
-          },
-          {
-            "file": "4038_disc_main_fg_10",
-            "x": -10.404,
-            "y": 1.026,
-            "sx": 1,
-            "sy": 1,
-            "w": 320,
-            "h": 916,
-            "fg": true
-          },
-          {
-            "file": "4038_disc_main_bg_01",
-            "x": 0,
-            "y": 0,
-            "sx": 1,
-            "sy": 1,
-            "w": 2400,
-            "h": 1700,
-            "fg": false
-          },
-          {
-            "file": "4038_disc_main_pao_001",
-            "x": -5.91,
-            "y": 4.9,
-            "sx": 1,
-            "sy": 1,
-            "w": 84,
-            "h": 80,
-            "fg": true
-          },
-          {
-            "file": "4038_disc_main_pao_002",
-            "x": -7.099,
-            "y": 4.695,
-            "sx": 1,
-            "sy": 1,
-            "w": 180,
-            "h": 160,
-            "fg": true
-          },
-          {
-            "file": "4038_disc_main_pao_003",
-            "x": -6.256,
-            "y": 5.38,
-            "sx": 1,
-            "sy": 1,
-            "w": 44,
-            "h": 36,
-            "fg": true
-          },
-          {
-            "file": "4038_disc_main_pao_004",
-            "x": -9.439,
-            "y": 2.391,
-            "sx": 1,
-            "sy": 1,
-            "w": 124,
-            "h": 108,
-            "fg": true
-          },
-          {
-            "file": "4038_disc_main_pao_005",
-            "x": -10.181,
-            "y": 1.72,
-            "sx": 1,
-            "sy": 1,
-            "w": 40,
-            "h": 32,
-            "fg": true
-          },
-          {
-            "file": "4038_disc_main_pao_006",
-            "x": -8.97,
-            "y": -3.64,
-            "sx": 1,
-            "sy": 1,
-            "w": 56,
-            "h": 56,
-            "fg": true
-          },
-          {
-            "file": "4038_disc_main_pao_007",
-            "x": -8.435,
-            "y": -3.073,
-            "sx": 1,
-            "sy": 1,
-            "w": 36,
-            "h": 24,
-            "fg": true
-          },
-          {
-            "file": "4038_disc_main_pao_008",
-            "x": 10.069,
-            "y": -0.06,
-            "sx": 1,
-            "sy": 1,
-            "w": 140,
-            "h": 92,
-            "fg": true
-          },
-          {
-            "file": "4038_disc_main_pao_009",
-            "x": 9.099,
-            "y": -6.06,
-            "sx": 1,
-            "sy": 1,
-            "w": 136,
-            "h": 164,
-            "fg": true
-          },
-          {
-            "file": "4038_disc_main_pao_010",
-            "x": 8.488,
-            "y": -5.467,
-            "sx": 1,
-            "sy": 1,
-            "w": 72,
-            "h": 76,
-            "fg": true
-          },
-          {
-            "file": "4038_disc_main_pao_011",
-            "x": -10.061,
-            "y": 7.595,
-            "sx": 1,
-            "sy": 1,
-            "w": 32,
-            "h": 32,
-            "fg": true
-          },
-          {
-            "file": "4038_disc_main_pao_012",
-            "x": -8.73,
-            "y": 6.151,
-            "sx": 1,
-            "sy": 1,
-            "w": 48,
-            "h": 48,
-            "fg": true
-          },
-          {
-            "file": "4038_disc_main_pao_013",
-            "x": -8.206,
-            "y": 5.694,
-            "sx": 1,
-            "sy": 1,
-            "w": 32,
-            "h": 24,
-            "fg": true
-          },
-          {
-            "file": "4038_disc_main_pao_014",
-            "x": -8.473,
-            "y": 5.628,
-            "sx": 1,
-            "sy": 1,
-            "w": 40,
-            "h": 36,
-            "fg": true
-          },
-          {
-            "file": "4038_disc_main_pao_015",
-            "x": -7.579,
-            "y": 5.674,
-            "sx": 1,
-            "sy": 1,
-            "w": 28,
-            "h": 24,
-            "fg": true
-          },
-          {
-            "file": "4038_disc_main_pao_016",
-            "x": -7.679,
-            "y": 6.155,
-            "sx": 1,
-            "sy": 1,
-            "w": 20,
-            "h": 16,
-            "fg": true
-          },
-          {
-            "file": "4038_disc_main_pao_017",
-            "x": -7.853,
-            "y": 5.995,
-            "sx": 1,
-            "sy": 1,
-            "w": 12,
-            "h": 12,
-            "fg": true
-          },
-          {
-            "file": "4038_disc_main_pao_018",
-            "x": -9.368,
-            "y": 4.746,
-            "sx": 1,
-            "sy": 1,
-            "w": 32,
-            "h": 36,
-            "fg": true
-          },
-          {
-            "file": "4038_disc_main_pao_019",
-            "x": -6.077,
-            "y": 5.841,
-            "sx": 1,
-            "sy": 1,
-            "w": 24,
-            "h": 24,
-            "fg": true
-          },
-          {
-            "file": "4038_disc_main_pao_020",
-            "x": -8.307,
-            "y": 4.319,
-            "sx": 1,
-            "sy": 1,
-            "w": 24,
-            "h": 24,
-            "fg": true
-          },
-          {
-            "file": "4038_disc_main_pao_021",
-            "x": -10.295,
-            "y": 1.532,
-            "sx": 1,
-            "sy": 1,
-            "w": 16,
-            "h": 16,
-            "fg": true
-          },
-          {
-            "file": "4038_disc_main_pao_022",
-            "x": -10.76,
-            "y": 1.34,
-            "sx": 1,
-            "sy": 1,
-            "w": 32,
-            "h": 24,
-            "fg": true
-          },
-          {
-            "file": "4038_disc_main_pao_023",
-            "x": -8.37,
-            "y": -2.33,
-            "sx": 1,
-            "sy": 1,
-            "w": 28,
-            "h": 20,
-            "fg": true
-          },
-          {
-            "file": "4038_disc_main_pao_024",
-            "x": -9.079,
-            "y": -4.419,
-            "sx": 1,
-            "sy": 1,
-            "w": 24,
-            "h": 28,
-            "fg": true
-          },
-          {
-            "file": "4038_disc_main_pao_025",
-            "x": -8.256,
-            "y": -2.978,
-            "sx": 1,
-            "sy": 1,
-            "w": 16,
-            "h": 16,
-            "fg": true
-          },
-          {
-            "file": "4038_disc_main_pao_026",
-            "x": 3.847,
-            "y": 4.085,
-            "sx": 1,
-            "sy": 1,
-            "w": 28,
-            "h": 36,
-            "fg": true
-          },
-          {
-            "file": "4038_disc_main_pao_027",
-            "x": 5.359,
-            "y": 3.221,
-            "sx": 1,
-            "sy": 1,
-            "w": 24,
-            "h": 24,
-            "fg": true
-          },
-          {
-            "file": "4038_disc_main_pao_028",
-            "x": 5.776,
-            "y": 1.8,
-            "sx": 1,
-            "sy": 1,
-            "w": 44,
-            "h": 36,
-            "fg": true
-          },
-          {
-            "file": "4038_disc_main_pao_029",
-            "x": 6.433,
-            "y": 1.26,
-            "sx": 1,
-            "sy": 1,
-            "w": 32,
-            "h": 28,
-            "fg": true
-          },
-          {
-            "file": "4038_disc_main_pao_030",
-            "x": 6.608,
-            "y": 1.03,
-            "sx": 1,
-            "sy": 1,
-            "w": 16,
-            "h": 12,
-            "fg": true
-          },
-          {
-            "file": "4038_disc_main_pao_031",
-            "x": 9.73,
-            "y": 6.202,
-            "sx": 1,
-            "sy": 1,
-            "w": 28,
-            "h": 28,
-            "fg": true
-          },
-          {
-            "file": "4038_disc_main_pao_032",
-            "x": 8.893,
-            "y": 5.616,
-            "sx": 1,
-            "sy": 1,
-            "w": 28,
-            "h": 24,
-            "fg": true
-          },
-          {
-            "file": "4038_disc_main_pao_033",
-            "x": 8.61,
-            "y": 5.239,
-            "sx": 1,
-            "sy": 1,
-            "w": 20,
-            "h": 32,
-            "fg": true
-          },
-          {
-            "file": "4038_disc_main_pao_034",
-            "x": 10.32,
-            "y": 2.704,
-            "sx": 1,
-            "sy": 1,
-            "w": 32,
-            "h": 28,
-            "fg": true
-          },
-          {
-            "file": "4038_disc_main_pao_035",
-            "x": 8.071,
-            "y": -0.36,
-            "sx": 1,
-            "sy": 1,
-            "w": 20,
-            "h": 28,
-            "fg": true
-          },
-          {
-            "file": "4038_disc_main_pao_036",
-            "x": 11.497,
-            "y": -0.848,
-            "sx": 1,
-            "sy": 1,
-            "w": 20,
-            "h": 24,
-            "fg": true
-          },
-          {
-            "file": "4038_disc_main_pao_037",
-            "x": 10.937,
-            "y": -0.279,
-            "sx": 1,
-            "sy": 1,
-            "w": 24,
-            "h": 20,
-            "fg": true
-          },
-          {
-            "file": "4038_disc_main_pao_038",
-            "x": 9.559,
-            "y": -3.077,
-            "sx": 1,
-            "sy": 1,
-            "w": 36,
-            "h": 44,
-            "fg": true
-          },
-          {
-            "file": "4038_disc_main_pao_039",
-            "x": 4.508,
-            "y": -6.26,
-            "sx": 1,
-            "sy": 1,
-            "w": 48,
-            "h": 76,
-            "fg": true
-          },
-          {
-            "file": "4038_disc_main_pao_040",
-            "x": 4.486,
-            "y": -5.526,
-            "sx": 1,
-            "sy": 1,
-            "w": 28,
-            "h": 36,
-            "fg": true
-          },
-          {
-            "file": "4038_disc_main_pao_041",
-            "x": 4.342,
-            "y": -5.808,
-            "sx": 1,
-            "sy": 1,
-            "w": 16,
-            "h": 16,
-            "fg": true
-          },
-          {
-            "file": "4038_disc_main_pao_042",
-            "x": 5.38,
-            "y": -7.264,
-            "sx": 1,
-            "sy": 1,
-            "w": 32,
-            "h": 32,
-            "fg": true
-          }
         ]
       }
     ]
@@ -12689,108 +12247,6 @@
           "chars/4044/4044_l/bg/4044_disc_l2d_fg_003.png",
           "chars/4044/4044_l/bg/4044_disc_l2d_fg_004.png",
           "chars/4044/4044_l/bg/4044_disc_l2d_fg_005.png"
-        ],
-        "bgLayers": [
-          {
-            "file": "4044_disc_l2d_bg_001",
-            "x": 0,
-            "y": 0,
-            "sx": 1,
-            "sy": 1,
-            "w": 2400,
-            "h": 1700,
-            "fg": false
-          },
-          {
-            "file": "4044_disc_l2d_bird_001",
-            "x": -4.66,
-            "y": 6.21,
-            "sx": 1,
-            "sy": 1,
-            "w": 308,
-            "h": 484,
-            "fg": false
-          },
-          {
-            "file": "4044_disc_l2d_bird_002",
-            "x": -2.22,
-            "y": 6.754999,
-            "sx": 1,
-            "sy": 1,
-            "w": 352,
-            "h": 372,
-            "fg": false
-          },
-          {
-            "file": "4044_disc_l2d_bird_003",
-            "x": 2.917,
-            "y": 5.5059996,
-            "sx": 1,
-            "sy": 1,
-            "w": 448,
-            "h": 624,
-            "fg": false
-          },
-          {
-            "file": "4044_disc_l2d_fg_004",
-            "x": 6.25,
-            "y": 1.14,
-            "sx": 1,
-            "sy": 1,
-            "w": 608,
-            "h": 1384,
-            "fg": false
-          },
-          {
-            "file": "4044_disc_l2d_curtain_001",
-            "x": 0,
-            "y": 0,
-            "sx": 1,
-            "sy": 1,
-            "w": 2400,
-            "h": 1700,
-            "fg": false
-          },
-          {
-            "file": "4044_disc_l2d_fg_005",
-            "x": 6.25,
-            "y": 1.14,
-            "sx": 1,
-            "sy": 1,
-            "w": 608,
-            "h": 1384,
-            "fg": false
-          },
-          {
-            "file": "4044_disc_l2d_fg_002",
-            "x": 4.0709996,
-            "y": -4.7439995,
-            "sx": 1,
-            "sy": 1,
-            "w": 1588,
-            "h": 756,
-            "fg": false
-          },
-          {
-            "file": "4044_disc_l2d_fg_003",
-            "x": -6.7,
-            "y": -4.781,
-            "sx": 1,
-            "sy": 1,
-            "w": 728,
-            "h": 700,
-            "fg": false
-          },
-          {
-            "file": "4044_disc_l2d_fg_001",
-            "x": 0,
-            "y": -5.39,
-            "sx": 1,
-            "sy": 1,
-            "w": 2048,
-            "h": 532,
-            "fg": true
-          }
         ]
       }
     ]
@@ -12805,18 +12261,6 @@
         "path": "chars/4045/4045_l/4045_F.model3.json",
         "bg": [
           "chars/4045/4045_l/bg/4045_disc_l2d_bg_001.png"
-        ],
-        "bgLayers": [
-          {
-            "file": "4045_disc_l2d_bg_001",
-            "x": 0,
-            "y": 0,
-            "sx": 1,
-            "sy": 1,
-            "w": 2048,
-            "h": 1451,
-            "fg": false
-          }
         ]
       }
     ]
@@ -12833,38 +12277,6 @@
           "chars/4048/4048_l/bg/4048_disc_main_bg_01.png",
           "chars/4048/4048_l/bg/4048_disc_main_bg_02.png",
           "chars/4048/4048_l/bg/4048_disc_main_bg_03.png"
-        ],
-        "bgLayers": [
-          {
-            "file": "4048_disc_main_bg_01",
-            "x": 0,
-            "y": 0,
-            "sx": 1,
-            "sy": 1,
-            "w": 2400,
-            "h": 1700,
-            "fg": false
-          },
-          {
-            "file": "4048_disc_main_bg_02",
-            "x": -5.05,
-            "y": 0,
-            "sx": 1,
-            "sy": 1,
-            "w": 1400,
-            "h": 1700,
-            "fg": false
-          },
-          {
-            "file": "4048_disc_main_bg_03",
-            "x": 9.28,
-            "y": 0,
-            "sx": 1,
-            "sy": 1,
-            "w": 560,
-            "h": 1700,
-            "fg": true
-          }
         ]
       }
     ]
@@ -12884,68 +12296,6 @@
           "chars/4051/4051_l/bg/4051_disc_l2d_bg_04.png",
           "chars/4051/4051_l/bg/4051_disc_l2d_bg_05.png",
           "chars/4051/4051_l/bg/4051_disc_l2d_bg_06.png"
-        ],
-        "bgLayers": [
-          {
-            "file": "4051_disc_l2d_bg_02",
-            "x": 0,
-            "y": 0,
-            "sx": 1,
-            "sy": 1,
-            "w": 2400,
-            "h": 1700,
-            "fg": false
-          },
-          {
-            "file": "4051_disc_l2d_bg_04",
-            "x": 0,
-            "y": 0,
-            "sx": 1,
-            "sy": 1,
-            "w": 2400,
-            "h": 1700,
-            "fg": false
-          },
-          {
-            "file": "4051_disc_l2d_bg_01",
-            "x": 0,
-            "y": 0,
-            "sx": 1,
-            "sy": 1,
-            "w": 2400,
-            "h": 1700,
-            "fg": false
-          },
-          {
-            "file": "4051_disc_l2d_bg_05",
-            "x": -11.314,
-            "y": -5.178,
-            "sx": 1,
-            "sy": 1,
-            "w": 136,
-            "h": 267,
-            "fg": false
-          },
-          {
-            "file": "4051_disc_l2d_bg_06",
-            "x": 11.12,
-            "y": -2.52,
-            "sx": 1,
-            "sy": 1,
-            "w": 198,
-            "h": 358,
-            "fg": true
-          },
-          {
-            "file": "4051_disc_l2d_bg_03",
-            "x": 0,
-            "y": 0,
-            "sx": 1,
-            "sy": 1,
-            "w": 2048,
-            "h": 1451,
-            "fg": false
-          }
         ]
       }
     ]
@@ -12977,188 +12327,6 @@
           "chars/4054/4054_l/bg/fx_4054_disc_l2d_paopao_011.png",
           "chars/4054/4054_l/bg/fx_4054_disc_l2d_paopao_012.png",
           "chars/4054/4054_l/bg/fx_4054_disc_l2d_paopao_013.png"
-        ],
-        "bgLayers": [
-          {
-            "file": "4054_disc_l2d_sugar_001",
-            "x": -5.766,
-            "y": -2.615,
-            "sx": 1,
-            "sy": 1,
-            "w": 52,
-            "h": 60,
-            "fg": true
-          },
-          {
-            "file": "4054_disc_l2d_sugar_002",
-            "x": -5.567,
-            "y": -1.818,
-            "sx": 1,
-            "sy": 1,
-            "w": 64,
-            "h": 60,
-            "fg": true
-          },
-          {
-            "file": "4054_disc_l2d_light_001",
-            "x": -4.05,
-            "y": -3.95,
-            "sx": 1,
-            "sy": 1,
-            "w": 820,
-            "h": 912,
-            "fg": true
-          },
-          {
-            "file": "fx_4054_disc_l2d_paopao_003",
-            "x": -10.336,
-            "y": -4.281,
-            "sx": 1,
-            "sy": 1,
-            "w": 161,
-            "h": 156,
-            "fg": true
-          },
-          {
-            "file": "fx_4054_disc_l2d_paopao_004",
-            "x": -10.229,
-            "y": -3.053,
-            "sx": 1,
-            "sy": 1,
-            "w": 99,
-            "h": 114,
-            "fg": true
-          },
-          {
-            "file": "fx_4054_disc_l2d_paopao_005",
-            "x": -10.317,
-            "y": -2.331,
-            "sx": 1,
-            "sy": 1,
-            "w": 40,
-            "h": 46,
-            "fg": true
-          },
-          {
-            "file": "fx_4054_disc_l2d_paopao_006",
-            "x": -11.451,
-            "y": -4.243,
-            "sx": 1,
-            "sy": 1,
-            "w": 22,
-            "h": 25,
-            "fg": true
-          },
-          {
-            "file": "fx_4054_disc_l2d_paopao_007",
-            "x": -8.461,
-            "y": -3.187,
-            "sx": 1,
-            "sy": 1,
-            "w": 34,
-            "h": 29,
-            "fg": true
-          },
-          {
-            "file": "fx_4054_disc_l2d_paopao_008",
-            "x": -8.503,
-            "y": -3.382,
-            "sx": 1,
-            "sy": 1,
-            "w": 19,
-            "h": 18,
-            "fg": true
-          },
-          {
-            "file": "fx_4054_disc_l2d_paopao_009",
-            "x": -8.665,
-            "y": -3.636,
-            "sx": 1,
-            "sy": 1,
-            "w": 42,
-            "h": 37,
-            "fg": true
-          },
-          {
-            "file": "fx_4054_disc_l2d_paopao_010",
-            "x": -8.785,
-            "y": -3.761,
-            "sx": 1,
-            "sy": 1,
-            "w": 14,
-            "h": 14,
-            "fg": true
-          },
-          {
-            "file": "fx_4054_disc_l2d_paopao_011",
-            "x": -8.308,
-            "y": -3.942,
-            "sx": 1,
-            "sy": 1,
-            "w": 42,
-            "h": 32,
-            "fg": true
-          },
-          {
-            "file": "fx_4054_disc_l2d_paopao_012",
-            "x": -8.725,
-            "y": -4.155,
-            "sx": 1,
-            "sy": 1,
-            "w": 30,
-            "h": 30,
-            "fg": true
-          },
-          {
-            "file": "fx_4054_disc_l2d_paopao_013",
-            "x": -8.545,
-            "y": -4.447,
-            "sx": 1,
-            "sy": 1,
-            "w": 63,
-            "h": 36,
-            "fg": true
-          },
-          {
-            "file": "4054_disc_l2d_bg_001",
-            "x": 0,
-            "y": 0,
-            "sx": 1,
-            "sy": 1,
-            "w": 2400,
-            "h": 1700,
-            "fg": false
-          },
-          {
-            "file": "4054_disc_l2d_light_002",
-            "x": -10.773,
-            "y": -3.323,
-            "sx": 1,
-            "sy": 1,
-            "w": 96,
-            "h": 336,
-            "fg": true
-          },
-          {
-            "file": "4054_disc_l2d_light_003",
-            "x": -4.179,
-            "y": -6.212,
-            "sx": 1,
-            "sy": 1,
-            "w": 792,
-            "h": 460,
-            "fg": true
-          },
-          {
-            "file": "4054_disc_l2d_fg_001",
-            "x": 0,
-            "y": 0,
-            "sx": 1,
-            "sy": 1,
-            "w": 2400,
-            "h": 1700,
-            "fg": true
-          }
         ]
       }
     ]
@@ -13204,328 +12372,6 @@
           "chars/4055/4055_l/bg/4055_disc_l2d_pao_09.png",
           "chars/4055/4055_l/bg/4055_disc_l2d_pao_10.png",
           "chars/4055/4055_l/bg/4055_disc_l2d_pao_11.png"
-        ],
-        "bgLayers": [
-          {
-            "file": "4055_disc_l2d_bg_001",
-            "x": 0,
-            "y": 0,
-            "sx": 1,
-            "sy": 1,
-            "w": 2048,
-            "h": 1451,
-            "fg": false
-          },
-          {
-            "file": "4055_disc_l2d_bg_015",
-            "x": -9.050004600000001,
-            "y": 1.4899903999999997,
-            "sx": 1,
-            "sy": 1,
-            "w": 460,
-            "h": 488,
-            "fg": false
-          },
-          {
-            "file": "4055_disc_l2d_bg_016",
-            "x": -6.72000118,
-            "y": -0.9599852,
-            "sx": 1,
-            "sy": 1,
-            "w": 268,
-            "h": 312,
-            "fg": false
-          },
-          {
-            "file": "4055_disc_l2d_bg_017",
-            "x": -8.300003,
-            "y": 5.586997,
-            "sx": 1,
-            "sy": 1,
-            "w": 224,
-            "h": 208,
-            "fg": false
-          },
-          {
-            "file": "4055_disc_l2d_bg_013",
-            "x": -10.394004899999999,
-            "y": -2.3839845,
-            "sx": 1,
-            "sy": 1,
-            "w": 340,
-            "h": 328,
-            "fg": false
-          },
-          {
-            "file": "4055_disc_l2d_bg_020",
-            "x": -10.759992,
-            "y": 1.030023,
-            "sx": 1,
-            "sy": 1,
-            "w": 264,
-            "h": 504,
-            "fg": false
-          },
-          {
-            "file": "4055_disc_l2d_bg_018",
-            "x": -4.820004,
-            "y": -6.1799836,
-            "sx": 1,
-            "sy": 1,
-            "w": 140,
-            "h": 136,
-            "fg": false
-          },
-          {
-            "file": "4055_disc_l2d_bg_011",
-            "x": 7.065988,
-            "y": -7.254986,
-            "sx": 1,
-            "sy": 1,
-            "w": 344,
-            "h": 268,
-            "fg": true
-          },
-          {
-            "file": "4055_disc_l2d_bg_012",
-            "x": -9.230001,
-            "y": -6.090024,
-            "sx": 1,
-            "sy": 1,
-            "w": 552,
-            "h": 456,
-            "fg": true
-          },
-          {
-            "file": "4055_disc_l2d_bg_008",
-            "x": -7.7699976,
-            "y": -5.7399898,
-            "sx": 1,
-            "sy": 1,
-            "w": 572,
-            "h": 568,
-            "fg": true
-          },
-          {
-            "file": "4055_disc_l2d_bg_009",
-            "x": -10.0899885,
-            "y": -3.4600247999999993,
-            "sx": 1,
-            "sy": 1,
-            "w": 392,
-            "h": 312,
-            "fg": true
-          },
-          {
-            "file": "4055_disc_l2d_bg_010",
-            "x": 10.35999796,
-            "y": -6.909984600000001,
-            "sx": 1,
-            "sy": 1,
-            "w": 356,
-            "h": 340,
-            "fg": true
-          },
-          {
-            "file": "4055_disc_l2d_bg_007",
-            "x": 3.7900069,
-            "y": 5.760016,
-            "sx": 1,
-            "sy": 1,
-            "w": 1644,
-            "h": 556,
-            "fg": false
-          },
-          {
-            "file": "4055_disc_l2d_bg_002",
-            "x": 2.7299972,
-            "y": 4.5400085,
-            "sx": 1,
-            "sy": 1,
-            "w": 876,
-            "h": 364,
-            "fg": false
-          },
-          {
-            "file": "4055_disc_l2d_bg_004",
-            "x": -1.6059936,
-            "y": 7.9709806,
-            "sx": 1,
-            "sy": 1,
-            "w": 356,
-            "h": 128,
-            "fg": false
-          },
-          {
-            "file": "4055_disc_l2d_bg_003",
-            "x": 4.7499924,
-            "y": 6.9700103,
-            "sx": 1,
-            "sy": 1,
-            "w": 524,
-            "h": 312,
-            "fg": false
-          },
-          {
-            "file": "4055_disc_l2d_bg_006",
-            "x": 0.84999996,
-            "y": 4.9199767,
-            "sx": 1,
-            "sy": 1,
-            "w": 2236,
-            "h": 724,
-            "fg": false
-          },
-          {
-            "file": "4055_disc_l2d_hua_01",
-            "x": -2.5800126,
-            "y": 4.900003,
-            "sx": 1,
-            "sy": 1,
-            "w": 628,
-            "h": 268,
-            "fg": false
-          },
-          {
-            "file": "4055_disc_l2d_hua_02",
-            "x": 6.7999997,
-            "y": 2.6599853,
-            "sx": 1,
-            "sy": 1,
-            "w": 904,
-            "h": 300,
-            "fg": false
-          },
-          {
-            "file": "4055_disc_l2d_bg_005",
-            "x": 2.4199889,
-            "y": 5.7100034,
-            "sx": 1,
-            "sy": 1,
-            "w": 724,
-            "h": 348,
-            "fg": false
-          },
-          {
-            "file": "4055_disc_l2d_bg_021",
-            "x": -0.0900116,
-            "y": -6.940023,
-            "sx": 1,
-            "sy": 1,
-            "w": 2048,
-            "h": 297,
-            "fg": true
-          },
-          {
-            "file": "4055_disc_l2d_pao_01",
-            "x": -4.502,
-            "y": 4.562,
-            "sx": 1,
-            "sy": 1,
-            "w": 84,
-            "h": 120,
-            "fg": true
-          },
-          {
-            "file": "4055_disc_l2d_pao_02",
-            "x": -5.129,
-            "y": 4.925,
-            "sx": 1,
-            "sy": 1,
-            "w": 48,
-            "h": 116,
-            "fg": true
-          },
-          {
-            "file": "4055_disc_l2d_pao_03",
-            "x": -7.48,
-            "y": -0.179,
-            "sx": 1,
-            "sy": 1,
-            "w": 104,
-            "h": 236,
-            "fg": true
-          },
-          {
-            "file": "4055_disc_l2d_pao_04",
-            "x": -5.08,
-            "y": 0.795,
-            "sx": 1,
-            "sy": 1,
-            "w": 28,
-            "h": 44,
-            "fg": true
-          },
-          {
-            "file": "4055_disc_l2d_pao_05",
-            "x": -6.79,
-            "y": -5.69,
-            "sx": 1,
-            "sy": 1,
-            "w": 144,
-            "h": 420,
-            "fg": true
-          },
-          {
-            "file": "4055_disc_l2d_pao_06",
-            "x": 1.53,
-            "y": 3.18,
-            "sx": 1,
-            "sy": 1,
-            "w": 108,
-            "h": 284,
-            "fg": true
-          },
-          {
-            "file": "4055_disc_l2d_pao_07",
-            "x": 4.21,
-            "y": 0.28,
-            "sx": 1,
-            "sy": 1,
-            "w": 320,
-            "h": 372,
-            "fg": true
-          },
-          {
-            "file": "4055_disc_l2d_pao_08",
-            "x": 5.88,
-            "y": 0.72,
-            "sx": 1,
-            "sy": 1,
-            "w": 424,
-            "h": 276,
-            "fg": true
-          },
-          {
-            "file": "4055_disc_l2d_pao_09",
-            "x": 4.61,
-            "y": -7.71,
-            "sx": 1,
-            "sy": 1,
-            "w": 172,
-            "h": 168,
-            "fg": true
-          },
-          {
-            "file": "4055_disc_l2d_pao_10",
-            "x": 3.124,
-            "y": -5.085,
-            "sx": 1,
-            "sy": 1,
-            "w": 28,
-            "h": 64,
-            "fg": true
-          },
-          {
-            "file": "4055_disc_l2d_pao_11",
-            "x": 8.018,
-            "y": -5.286,
-            "sx": 1,
-            "sy": 1,
-            "w": 48,
-            "h": 80,
-            "fg": true
-          }
         ]
       }
     ]

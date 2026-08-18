@@ -10,7 +10,7 @@
  *
  * Usage:
  *   node scripts/generateManifest.mjs --chars <chars dir> --out <models.json>
- *     [--names <characterid.json>]
+ *     [--names <characterid.json>] [--charbg <charbg.json>]
  */
 
 import fs from 'node:fs';
@@ -27,8 +27,20 @@ function parseArgs() {
     outFile: get('--out', path.resolve('data/models.json')),
     namesFile: get('--names', path.resolve('data/characterid.json')),
     discNamesFile: get('--disc-names', path.resolve('data/discid.json')),
+    charBgFile: get('--charbg', path.resolve('data/charbg.json')),
+    offsetFile: get('--offset', path.resolve('data/offset.json')),
   };
 }
+
+// The game draws the per-character main-menu backdrop (Image/CharBg/<name>.png)
+// on the customized_bg SpriteRenderer behind every non-FullScreen L2D.  Memory
+// The game draws the per-character main-menu backdrop (Image/CharBg/<name>.png)
+// on the customized_bg SpriteRenderer behind the half-body L2D (Normal type).
+// Only the Default and Awakened variants are half-body displays; Memory
+// Snapshot (FullScreen) ships its own ----bg---- scene and Talent has its own
+// panel backdrop, so neither gets the CharBg.
+const CHAR_BG_LABELS = new Set(['Default', 'Awakened']);
+const CHAR_BG_PREFIX = 'bg/charbg/';
 
 function getModelTypeLabel(modelFile) {
   // Mirrors tyrant-viewer generateModels.ts: label from chars [4,7)
@@ -49,7 +61,7 @@ function getModelTypeLabel(modelFile) {
     case '2_L':
       return 'Awakened';
     default:
-      return 'Unknow';
+      return 'Unknown';
   }
 }
 
@@ -69,7 +81,7 @@ function getVariantBgs(variantPath) {
 }
 
 function main() {
-  const { charsDir, outFile, namesFile, discNamesFile } = parseArgs();
+  const { charsDir, outFile, namesFile, discNamesFile, charBgFile, offsetFile } = parseArgs();
   const names = {};
   if (fs.existsSync(namesFile)) {
     Object.assign(names, JSON.parse(fs.readFileSync(namesFile, 'utf8')));
@@ -78,6 +90,20 @@ function main() {
   if (fs.existsSync(discNamesFile)) {
     Object.assign(discNames, JSON.parse(fs.readFileSync(discNamesFile, 'utf8')));
   }
+  const charBg = {};
+  if (fs.existsSync(charBgFile)) {
+    Object.assign(charBg, JSON.parse(fs.readFileSync(charBgFile, 'utf8')));
+  }
+  const charBgOf = (skinId, label) =>
+    charBg[skinId] && CHAR_BG_LABELS.has(label)
+      ? CHAR_BG_PREFIX + charBg[skinId] + '.png'
+      : undefined;
+  const offset = {};
+  if (fs.existsSync(offsetFile)) {
+    Object.assign(offset, JSON.parse(fs.readFileSync(offsetFile, 'utf8')));
+  }
+  const offsetOf = (skinId, label) =>
+    offset[skinId] && CHAR_BG_LABELS.has(label) ? offset[skinId] : undefined;
 
   const characters = [];
   const seen = new Map(); // charId (3 digits) -> index in characters
@@ -113,11 +139,14 @@ function main() {
         const modelFile = files.find((f) => f.endsWith('.model3.json'));
         if (!modelFile) continue;
 
+        const label = getModelTypeLabel(modelFile);
         entry.variants.push({
           name: variant,
-          label: getModelTypeLabel(modelFile),
+          label,
           path: `chars/${skinId}/${variant}/${modelFile}`,
           bg: getVariantBgs(variantPath),
+          charBg: charBgOf(skinId, label),
+          offset: offsetOf(skinId, label),
         });
       }
       continue;
@@ -141,11 +170,14 @@ function main() {
       const modelFile = files.find((f) => f.endsWith('.model3.json'));
       if (!modelFile) continue;
 
+      const label = getModelTypeLabel(modelFile);
       entry.variants.push({
         name: variant,
-        label: getModelTypeLabel(modelFile),
+        label,
         path: `chars/${skinId}/${variant}/${modelFile}`,
         bg: getVariantBgs(variantPath),
+        charBg: charBgOf(skinId, label),
+        offset: offsetOf(skinId, label),
       });
     }
   }

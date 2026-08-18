@@ -23,6 +23,12 @@ const state = {
   fgContainer: null,
   bgTextures: [],
   currentBgKey: null,
+  // Where the rig canvas (the customized_bg backdrop / camera view) sits on
+  // screen.  The character is placed relative to it via its MainView offset,
+  // exactly like the game parents the L2D under actor_offset inside the rig.
+  canvasX: 0,
+  canvasY: 0,
+  canvasScale: 1,
   options: {
     eyeBlink: true,
     angles: { x: 0, y: 0, z: 0 },
@@ -54,24 +60,62 @@ const BODY_ANGLE_PARAMS = ['ParamBodyAngleX', 'ParamBodyAngleY', 'ParamBodyAngle
 // so raw strings never match and writes go to a dead "not exist" buffer.
 const getId = (id) => CubismFramework.getIdManager().getId(id);
 
+function resetCamera() {
+  state.camera.x = 0;
+  state.camera.y = 0;
+  state.camera.scale.set(1);
+}
+
+// The game renders the L2D rig with an ortho camera at CURRENT_CANVAS_FULL_RECT
+// (2160x1080)/PPU 100 = a 21.6 x 10.8 world-unit view; customized_bg (the
+// CharBg, 24 x 17 world units) sits in that same world and fills the view
+// edge-to-edge.  Reproducing that framing keeps the character at the game's
+// relative size instead of zooming it to fill the screen.
+const GAME_CAMERA_VIEW_W = 21.6;
+const GAME_CAMERA_VIEW_H = 10.8;
+
 function fitModelToScreen() {
   const model = state.model;
   const app = state.app;
   const screenWidth = app.renderer.width;
   const screenHeight = app.renderer.height;
-  const offset = 500;
-  const bounds = model.getBounds();
-  const modelWidth = Math.max(bounds.width, 1);
-  const modelHeight = Math.max(bounds.height, 1) + offset;
-  const scaleX = screenWidth / modelWidth;
-  const scaleY = screenHeight / modelHeight;
-  const scale = Math.min(scaleX, scaleY);
-  model.scale.set(scale, scale);
-  model.x = screenWidth / 2;
-  model.y = screenHeight / 2;
-  state.camera.x = 0;
-  state.camera.y = 0;
-  state.camera.scale.set(1);
+  const canvasX = screenWidth / 2;
+  const canvasY = screenHeight / 2;
+  const variant = getVariantInfo(state.currentPath);
+  const pxPerUnit = model.internalModel.width / model.internalModel.coreModel.getCanvasWidth();
+
+  if (variant && variant.charBg) {
+    // Fit the rig camera view (21.6 x 10.8 world units) to the screen.
+    state.canvasScale = Math.max(
+      screenWidth / (GAME_CAMERA_VIEW_W * pxPerUnit),
+      screenHeight / (GAME_CAMERA_VIEW_H * pxPerUnit)
+    );
+  } else {
+    const offset = 500;
+    const bounds = model.getBounds();
+    const modelWidth = Math.max(bounds.width, 1);
+    const modelHeight = Math.max(bounds.height, 1) + offset;
+    const scaleX = screenWidth / modelWidth;
+    const scaleY = screenHeight / modelHeight;
+    state.canvasScale = Math.min(scaleX, scaleY);
+  }
+  state.canvasX = canvasX;
+  state.canvasY = canvasY;
+
+  // The canvas/backdrop stays at the screen center.  The L2D itself is
+  // parented under the rig's actor_offset, which the game drives from the
+  // skin's MainView offset (Actor2DOffsetData panel 10, Set 2): a downward
+  // shift + slight scale that frames the half-body view.
+  model.x = canvasX;
+  model.y = canvasY;
+  model.scale.set(state.canvasScale, state.canvasScale);
+  if (variant && variant.offset) {
+    const o = variant.offset;
+    model.scale.set(state.canvasScale * o.s, state.canvasScale * o.s);
+    model.x = canvasX + o.x * pxPerUnit * state.canvasScale;
+    model.y = canvasY - o.y * pxPerUnit * state.canvasScale;
+  }
+  resetCamera();
 }
 
 /* ---------------- Background (in-bundle l2d scene image) ---------------- */
@@ -117,13 +161,28 @@ function fitBgLayer(sprite, layer) {
   const pxPerUnit = internalW / cw; // model-local px per world unit
   const baseScale = pxPerUnit / 100; // sprite scale at model scale 1
   sprite.anchor.set(0.5);
-  sprite.scale.set(
-    model.scale.x * baseScale * (layer.sx || 1),
-    model.scale.y * baseScale * (layer.sy || 1)
-  );
-  // Model-local offset from pivot (0,0 = canvas top-left, pivot = center).
-  sprite.x = model.x + (layer.x || 0) * pxPerUnit * model.scale.x;
-  sprite.y = model.y - (layer.y || 0) * pxPerUnit * model.scale.y;
+  if (layer.charBg) {
+    // The game's customized_bg is a sibling of the L2D rig (not under
+    // actor_offset), so it stays put at the canvas center and is never
+    // affected by the character's MainView offset.
+    const cs = state.canvasScale;
+    sprite.scale.set(
+      cs * baseScale * (layer.sx || 1),
+      cs * baseScale * (layer.sy || 1)
+    );
+    sprite.x = state.canvasX + (layer.x || 0) * pxPerUnit * cs;
+    sprite.y = state.canvasY - (layer.y || 0) * pxPerUnit * cs;
+  } else {
+    // In-model ----bg----/----fg_effect---- layers live inside the L2D prefab
+    // (under actor_offset), so they transform with the character.
+    sprite.scale.set(
+      model.scale.x * baseScale * (layer.sx || 1),
+      model.scale.y * baseScale * (layer.sy || 1)
+    );
+    // Model-local offset from pivot (0,0 = canvas top-left, pivot = center).
+    sprite.x = model.x + (layer.x || 0) * pxPerUnit * model.scale.x;
+    sprite.y = model.y - (layer.y || 0) * pxPerUnit * model.scale.y;
+  }
 }
 
 // Re-apply transform of every bg/fg layer after the model is fitted/rescaled.
@@ -256,6 +315,14 @@ function getVariantBgs(path) {
   const bgPath = (f) => `chars/${skin}/${variantDir}/bg/${f}`;
   const layers = (variant.bgLayers || []).map((l) => ({ ...l, path: bgPath(l.file + '.png') }));
   const singles = (variant.bg || []).slice();
+  // The game draws each skin's main-menu backdrop (CharacterSkin.Bg ->
+  // Image/CharBg/<name>.png) on the customized_bg SpriteRenderer BEHIND the
+  // L2D (Actor2DManager.GetActor2DParams/SetL2D, panels with PreferActorBg
+  // like MainView). Reproduce it as a full-frame layer at the back of the
+  // stack; it also fills the whole canvas edge-to-edge in-game.
+  if (variant.charBg) {
+    layers.unshift({ x: 0, y: 0, sx: 1, sy: 1, file: 'CharBg', path: variant.charBg, charBg: true });
+  }
   // Variants without a recorded composition fall back to their primary bg
   // file as a standalone full-frame layer centered on the canvas.
   if (!layers.length && singles.length) {
@@ -292,7 +359,9 @@ function addBackgroundControls(section) {
     opt.dataset.path = path;
     sel.appendChild(opt);
   };
-  for (const l of layers) addOption(l.file, l.file, l.path);
+  for (const l of layers) {
+    addOption(l.charBg ? 'Main-menu BG' : l.file, l.file, l.path);
+  }
   for (const p of singles) {
     const name = p.split('/').pop().replace(/\.png$/, '');
     addOption(name, name, p);
@@ -650,6 +719,11 @@ export async function loadModel(path) {
   const app = state.app;
   const camera = state.camera;
   const seq = ++modelLoadSeq;
+
+  // Always reset zoom/pan the moment an entry is picked, so the view never
+  // carries the previous model's camera over (even if the load fails or a
+  // newer entry supersedes it).
+  resetCamera();
 
   state.currentPath = path;
   const { layers } = getVariantBgs(path);
