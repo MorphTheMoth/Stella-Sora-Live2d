@@ -127,9 +127,13 @@ for bundle in "${BUNDLES[@]}"; do
   out_tex="$TEXDIR/$base"
   mkdir -p "$out_bg" "$out_tex"
 
-  # Scene-graph dump for the composition extractor
+  # Scene-graph dump for the composition extractor.  rectTransform is a
+  # distinct Unity class from transform; the prefab roots that host the
+  # ----bg---- composition are RectTransforms in some bundles (e.g. Donna's
+  # dual-model Memory Snapshot), so it must be in the type list or those
+  # layers are silently dropped.
   if ! DOTNET_ROLL_FORWARD=Major dotnet "$CLI" "$bundle" -m dump \
-      -t gameobject,transform,sprite,spriteRenderer \
+      -t gameobject,transform,rectTransform,sprite,spriteRenderer \
       -f assetName_pathID --load-all -o "$out_bg" >/dev/null 2>&1; then
     echo "  bg dump FAILED"; BG_FAILED+=("$base"); continue
   fi

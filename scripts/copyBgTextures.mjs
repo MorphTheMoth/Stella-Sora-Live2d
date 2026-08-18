@@ -11,8 +11,8 @@
  * export tree by filename and copy the first hit into
  * `chars/<skin>/<variant>/bg/<file>.png`, skipping files that already exist.
  *
- * Each variant's `bg/` folder is kept in sync with its `bgLayers`: any PNG
- * there that is not referenced by the current `bgLayers` is removed, so a
+ * Each variant's `bg/` folder is kept in sync with its `bgLayers` (and its
+ * `bg` list): any PNG there that is not referenced by either is removed, so a
  * variant whose composition no longer has a background (e.g. the default
  * variant of a character whose background belongs to the memory-snapshot
  * variant) does not fall back to a stale file.
@@ -77,7 +77,13 @@ function main() {
       const skin = parts[1];
       const variantDir = parts[2];
       const bgDir = path.join(charsDir, skin, variantDir, 'bg');
-      const referenced = new Set((variant.bgLayers || []).map((l) => l.file + '.png'));
+      // Protect both the composed `bgLayers` textures and the files the
+      // manifest advertises in `bg` (a variant can list `bg` files that
+      // predate its `bgLayers` composition, e.g. disc models).
+      const referenced = new Set([
+        ...(variant.bgLayers || []).map((l) => l.file + '.png'),
+        ...(variant.bg || []).map((b) => path.basename(b)),
+      ]);
 
       // Remove stale files: anything in bg/ that is no longer part of this
       // variant's composition.  A variant with no bgLayers gets an empty bg/.

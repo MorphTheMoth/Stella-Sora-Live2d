@@ -9,7 +9,7 @@
  * root.  The dump command (see dump.sh):
  *
  *   dotnet AssetStudioModCLI.dll <bundle> -m dump \
- *     -t gameobject,transform,sprite,spriteRenderer \
+ *     -t gameobject,transform,rectTransform,sprite,spriteRenderer \
  *     -f assetName_pathID --load-all -o <dumpDir>
  *
  * Output (written to --out):
@@ -135,7 +135,7 @@ function parseDump(dumpDir) {
         active: boolVal(byName.get('IsActive') ? byName.get('IsActive').block : []),
         comps: allPathIDs(byName.get('Component') ? byName.get('Component').block : []),
       });
-    } else if (first.startsWith('Transform')) {
+    } else if (first.startsWith('Transform') || first.startsWith('RectTransform')) {
       const goF = byName.get('GameObject');
       const posF = byName.get('LocalPosition');
       const sclF = byName.get('LocalScale');
