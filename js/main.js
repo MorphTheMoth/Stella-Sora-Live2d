@@ -40,6 +40,7 @@ const state = {
 const els = {
   canvas: document.getElementById('main-canvas'),
   list: document.getElementById('entity-list'),
+  filter: document.getElementById('entity-filter'),
   openBtn: document.getElementById('entity-list_open'),
   closeBtn: document.getElementById('entity-list_close'),
   wrapper: document.getElementById('entity-list_wrapper'),
@@ -465,6 +466,7 @@ function addMotionControls(section) {
     opt.textContent = g;
     groupSel.appendChild(opt);
   }
+  if (groups.includes('idle')) groupSel.value = 'idle';
   groupRow.appendChild(groupLab);
   groupRow.appendChild(groupSel);
   section.appendChild(groupRow);
@@ -779,7 +781,7 @@ export async function loadModel(path) {
 }
 
 function setActiveButton(activeBtn) {
-  document.querySelectorAll('.character-variation_button.active').forEach((b) => b.classList.remove('active'));
+  document.querySelectorAll('.character-variation_button.active, .character-name.active').forEach((b) => b.classList.remove('active'));
   if (activeBtn) activeBtn.classList.add('active');
 }
 
@@ -793,46 +795,104 @@ function addListSection(title) {
 function addListItem(item) {
   const li = document.createElement('li');
   li.className = 'entity-block';
+  const isDisc = /^\d{4}$/.test(item.id);
 
   const name = document.createElement('span');
-  name.className = 'character-name';
-  name.textContent = item.name;
-  name.addEventListener('click', () => {
-    const variants = li.querySelector('.character-variation');
-    const collapsed = variants.style.display === 'none';
-    variants.style.display = collapsed ? '' : 'none';
-    li.classList.toggle('collapsed', !collapsed);
-  });
+  name.className = 'character-name' + (isDisc ? ' is-disc' : '');
+  const shownId = isDisc ? item.id : item.id.slice(0, -2);
+  const idSpan = document.createElement('span');
+  idSpan.className = 'character-id';
+  idSpan.textContent = shownId + ' ';
+  name.appendChild(idSpan);
+  name.appendChild(document.createTextNode(item.name === '#' + shownId ? '' : item.name));
   li.appendChild(name);
-
-  const variants = document.createElement('ul');
-  variants.className = 'character-variation';
-
-  for (const variant of item.variants) {
-    const li2 = document.createElement('li');
-    const btn = document.createElement('button');
-    btn.type = 'button';
-    btn.className = 'character-variation_button' + (variant.label === 'Disc' ? ' is-disc' : '');
-    btn.textContent = variant.label;
-    btn.title = variant.path;
-    btn.addEventListener('click', (e) => {
-      setActiveButton(e.target);
+  let firstBtn = null;
+  if (isDisc) {
+    // Discs have a single L2D; the title loads it directly.
+    const variant = item.variants[0];
+    name.addEventListener('click', () => {
+      setActiveButton(name);
       loadModel(resolveUrl(variant.path));
     });
-    li2.appendChild(btn);
-    variants.appendChild(li2);
+  } else {
+    const variants = document.createElement('ul');
+    variants.className = 'character-variation';
+    variants.style.display = 'none';
+    li.classList.add('collapsed');
+
+    for (const variant of item.variants) {
+      const li2 = document.createElement('li');
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'character-variation_button' + (variant.label === 'Disc' ? ' is-disc' : '');
+      btn.textContent = variant.label;
+      btn.title = variant.path;
+      btn.addEventListener('click', (e) => {
+        setActiveButton(e.target);
+        loadModel(resolveUrl(variant.path));
+      });
+      if (!firstBtn) firstBtn = btn;
+      li2.appendChild(btn);
+      variants.appendChild(li2);
+    }
+    li.appendChild(variants);
+
+    name.addEventListener('click', () => {
+      const opening = variants.style.display === 'none';
+      if (!opening) {
+        variants.style.display = 'none';
+        li.classList.add('collapsed');
+        return;
+      }
+      // Keep the clicked name in place: record its position inside the
+      // scrollable content before the DOM changes, then restore that same
+      // visual position afterwards (content above shrinks as others fold).
+      const scrollEl = li.closest('.panel-body');
+      const contentPos = () =>
+        name.getBoundingClientRect().top - scrollEl.getBoundingClientRect().top + scrollEl.scrollTop;
+      const posBefore = contentPos();
+      const scrollTopBefore = scrollEl.scrollTop;
+      document.querySelectorAll('.entity-block').forEach((other) => {
+        if (other === li) return;
+        const v = other.querySelector('.character-variation');
+        if (v && v.style.display !== 'none') {
+          v.style.display = 'none';
+          other.classList.add('collapsed');
+        }
+      });
+      variants.style.display = '';
+      li.classList.remove('collapsed');
+      scrollEl.scrollTop = scrollTopBefore + contentPos() - posBefore;
+      // Opening a character loads its first L2D by default.
+      if (firstBtn) {
+        setActiveButton(firstBtn);
+        loadModel(resolveUrl(firstBtn.title));
+      }
+    });
   }
-  li.appendChild(variants);
   els.list.appendChild(li);
+}
+
+// Entries whose shown id (group id, last 2 digits cut for chars/NPCs) starts
+// with any hide-token are filtered out of the list.
+function getHideTokens() {
+  return els.filter.value.trim().split(/[\s,]+/).filter(Boolean);
+}
+
+function isHidden(item, tokens) {
+  if (!tokens.length) return false;
+  const shownId = /^\d{4}$/.test(item.id) ? item.id : item.id.slice(0, -2);
+  return tokens.some((t) => shownId.startsWith(t));
 }
 
 function createCharactersList() {
   const list = els.list;
   list.innerHTML = '';
   const isDisc = (item) => /^\d{4}$/.test(item.id);
+  const tokens = getHideTokens();
 
-  const chars = state.models.filter((item) => !isDisc(item));
-  const discs = state.models.filter((item) => isDisc(item));
+  const chars = state.models.filter((item) => !isDisc(item) && !isHidden(item, tokens));
+  const discs = state.models.filter((item) => isDisc(item) && !isHidden(item, tokens));
 
   addListSection('Trekkers (' + chars.length + ')');
   for (const item of chars) addListItem(item);
@@ -1008,6 +1068,7 @@ async function init() {
   const res = await fetch(resolveUrl('data/models.json'));
   state.models = await res.json();
   els.title.textContent = 'Stella Sora L2D (' + state.models.length + ' trekkers)';
+  els.filter.addEventListener('input', createCharactersList);
   createCharactersList();
 
   handleResize();

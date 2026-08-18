@@ -16,6 +16,16 @@
 #   --skin FILE  datamine CharacterSkin.json; if given, data/charbg.json is
 #                regenerated and the CharBg main-menu backdrops are staged
 #                into bg/charbg/ from the game's image-*.unity3d bundles
+#   --board-npc FILE
+#                datamine language/en_US/BoardNPC.json; fallback names for
+#                NPCs that characterid.json doesn't cover
+#   --skin-names FILE
+#                datamine language/en_US/CharacterSkin.json; labels the extra
+#                skin variants that don't match Default/Awakened/Talent/Memory
+#                Snapshot (shown as "Unknown" otherwise)
+#   --char-names FILE
+#                datamine language/en_US/Character.json; authoritative
+#                character names, rebuilt into data/characterid.json
 #
 # Prereqs:
 #   - dotnet with .NET 9+ (uses DOTNET_ROLL_FORWARD=Major)
@@ -27,6 +37,9 @@ GAME=""
 CLI="${ASSETSTUDIO_CLI:-/home/morph/ssassets/assetStudioMod/AssetStudioModCLI.dll}"
 ALL=0
 SKIN=""
+BOARD_NPC=""
+SKIN_NAMES=""
+CHAR_NAMES=""
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
 TMP="$ROOT/.dump_tmp"
@@ -37,6 +50,9 @@ while [[ $# -gt 0 ]]; do
     --cli)  CLI="$2"; shift 2 ;;
     --all)  ALL=1; shift ;;
     --skin) SKIN="$2"; shift 2 ;;
+    --board-npc) BOARD_NPC="$2"; shift 2 ;;
+    --skin-names) SKIN_NAMES="$2"; shift 2 ;;
+    --char-names) CHAR_NAMES="$2"; shift 2 ;;
     *) echo "unknown arg: $1"; exit 1 ;;
   esac
 done
@@ -158,13 +174,21 @@ fi
 # runs before bg textures are copied in, so run it again at the end once the
 # variant bg/ folders exist (see below) so the standalone `bg` list and the
 # merged `bgLayers` both end up in data/models.json.
+if [[ -n "$CHAR_NAMES" ]]; then
+  node "$SCRIPT_DIR/generateCharNames.mjs" \
+    --lang "$CHAR_NAMES" \
+    --current "$ROOT/data/characterid.json" \
+    --out "$ROOT/data/characterid.json" || true
+fi
 node "$SCRIPT_DIR/generateManifest.mjs" \
   --chars "$TMP/chars" \
   --out "$ROOT/data/models.json" \
   --names "$ROOT/data/characterid.json" \
   --disc-names "$ROOT/data/discid.json" \
   --charbg "$ROOT/data/charbg.json" \
-  --offset "$ROOT/data/offset.json" || true
+  --offset "$ROOT/data/offset.json" \
+  --board-npc "$BOARD_NPC" \
+  --skin-names "$SKIN_NAMES" || true
 
 # Merge the per-bundle compositions into models.json as bgLayers
 node "$SCRIPT_DIR/mergeBgLayers.mjs" \
@@ -185,7 +209,9 @@ node "$SCRIPT_DIR/generateManifest.mjs" \
   --names "$ROOT/data/characterid.json" \
   --disc-names "$ROOT/data/discid.json" \
   --charbg "$ROOT/data/charbg.json" \
-  --offset "$ROOT/data/offset.json" || true
+  --offset "$ROOT/data/offset.json" \
+  --board-npc "$BOARD_NPC" \
+  --skin-names "$SKIN_NAMES" || true
 
 node "$SCRIPT_DIR/mergeBgLayers.mjs" \
   --models "$ROOT/data/models.json" \

@@ -183,9 +183,23 @@
   /* Selection list */
   #entity-list { list-style: none; }
 
+  .entity-filter {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 5px 8px;
+    margin-bottom: 4px;
+    background: var(--card);
+    color: var(--text);
+    border: 1px solid var(--border);
+    font-family: inherit;
+    font-size: 12px;
+  }
+  .entity-filter:focus { outline: none; border-color: var(--accent); }
+
   .character-name {
     display: block;
     width: 100%;
+    box-sizing: border-box;
     text-align: left;
     padding: 5px 8px;
     font-size: 13px;
@@ -194,10 +208,17 @@
     cursor: pointer;
     border-bottom: 1px solid var(--border);
     user-select: none;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
   .character-name:hover { color: var(--accent); }
-  .character-name::before { content: '▾ '; color: var(--text-faint); }
-  .entity-block.collapsed .character-name::before { content: '▸ '; }
+  .character-name .character-id {
+    color: var(--text-faint);
+    font-weight: normal;
+    font-size: 11px;
+  }
+  .character-name.is-disc.active { color: #b8a25a; }
 
   .entity-section {
     padding: 6px 8px 4px;
@@ -218,6 +239,7 @@
   .character-variation_button {
     display: block;
     width: 100%;
+    box-sizing: border-box;
     text-align: left;
     padding: 3px 8px;
     margin: 1px 0;
@@ -227,6 +249,9 @@
     color: var(--text-dim);
     font-size: 12px;
     cursor: pointer;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
   .character-variation_button:hover {
     background: var(--card);
@@ -382,6 +407,8 @@
       <button id="entity-list_close" class="panel_close" type="button">✕</button>
     </div>
     <div class="panel-body">
+      <input id="entity-filter" class="entity-filter" type="text"
+             value="8133 8134" title="Hide entries whose id starts with any of these (space/comma separated)" placeholder="Hide ids…">
       <ul id="entity-list"></ul>
     </div>
   </div>

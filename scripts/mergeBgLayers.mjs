@@ -101,9 +101,12 @@ function main() {
         sy: l.scaleY || 1,
         w: l.texW,
         h: l.texH,
-        // ----fg_effect---- and model-subtree layers render in front of the
-        // character; everything else renders behind it.
-        fg: (l.group || '----bg----') === '----fg_effect----' || (l.group || '') === '----live2d_modle----',
+        // A layer draws in front of the character only when its Unity
+        // sortOrder >= 1 (Actor2DManager sets CubismRenderController
+        // SortingOrder = 1).  The ----fg_effect----/----live2d_modle---- group
+        // names do NOT decide front/behind: many such objects sit at negative
+        // sorting orders and render behind the character in-game.
+        fg: l.sortOrder >= 1,
       }));
       added++;
     }

@@ -29,7 +29,39 @@ function parseArgs() {
     discNamesFile: get('--disc-names', path.resolve('data/discid.json')),
     charBgFile: get('--charbg', path.resolve('data/charbg.json')),
     offsetFile: get('--offset', path.resolve('data/offset.json')),
+    boardNpcFile: get('--board-npc', ''),
+    skinNamesFile: get('--skin-names', ''),
   };
+}
+
+// BoardNPC.json (datamine language table) names NPCs that characterid.json
+// doesn't cover.  Each key is "BoardNPC.<id>.<n>", where n=1 holds the NPC
+// name and n=2 a board/role label; <id> is the NPC's 4-digit id (or a
+// skin-level id).  Build <id> -> name for the n=1 entries only.
+function loadBoardNpcNames(file) {
+  if (!file || !fs.existsSync(file)) return {};
+  const names = {};
+  const data = JSON.parse(fs.readFileSync(file, 'utf8'));
+  for (const key of Object.keys(data)) {
+    const m = key.match(/^BoardNPC\.(\d+)\.1$/);
+    if (m) names[m[1]] = data[key];
+  }
+  return names;
+}
+
+// CharacterSkin.json (datamine language table) names each character skin
+// ("CharacterSkin.<skinId>.1").  Used to label the extra skin variants that
+// don't fit the Default/Awakened/Talent/Memory-Snapshot pattern (currently
+// shown as "Unknown"), e.g. 14403 -> "When Morning Glories Bloom, Her Eyes Open".
+function loadSkinNames(file) {
+  if (!file || !fs.existsSync(file)) return {};
+  const names = {};
+  const data = JSON.parse(fs.readFileSync(file, 'utf8'));
+  for (const key of Object.keys(data)) {
+    const m = key.match(/^CharacterSkin\.(\d+)\.1$/);
+    if (m) names[m[1]] = data[key];
+  }
+  return names;
 }
 
 // The game draws the per-character main-menu backdrop (Image/CharBg/<name>.png)
@@ -81,11 +113,13 @@ function getVariantBgs(variantPath) {
 }
 
 function main() {
-  const { charsDir, outFile, namesFile, discNamesFile, charBgFile, offsetFile } = parseArgs();
+  const { charsDir, outFile, namesFile, discNamesFile, charBgFile, offsetFile, boardNpcFile, skinNamesFile } = parseArgs();
   const names = {};
   if (fs.existsSync(namesFile)) {
     Object.assign(names, JSON.parse(fs.readFileSync(namesFile, 'utf8')));
   }
+  const boardNpc = loadBoardNpcNames(boardNpcFile);
+  const skinNames = loadSkinNames(skinNamesFile);
   const discNames = {};
   if (fs.existsSync(discNamesFile)) {
     Object.assign(discNames, JSON.parse(fs.readFileSync(discNamesFile, 'utf8')));
@@ -139,7 +173,8 @@ function main() {
         const modelFile = files.find((f) => f.endsWith('.model3.json'));
         if (!modelFile) continue;
 
-        const label = getModelTypeLabel(modelFile);
+        let label = getModelTypeLabel(modelFile);
+        if (label === 'Unknown' && skinNames[skinId]) label = skinNames[skinId];
         entry.variants.push({
           name: variant,
           label,
@@ -152,10 +187,13 @@ function main() {
       continue;
     }
 
-    const charId = skinId.slice(0, 3);
+    // 5-digit skin ids: char (3) + skin variant (2).  6-digit ids are NPC
+    // skins: npc (4) + skin variant (2) — grouping by 3 digits would wrongly
+    // merge distinct NPCs that share a 3-digit prefix (e.g. 813301/813401).
+    const charId = skinId.length >= 6 ? skinId.slice(0, 4) : skinId.slice(0, 3);
     let idx = seen.get(charId);
     if (idx === undefined) {
-      const name = names[charId] || `#${charId}`;
+      const name = names[charId] || boardNpc[skinId] || boardNpc[charId] || `#${charId}`;
       idx = characters.length;
       seen.set(charId, idx);
       characters.push({ id: skinId, name, variants: [] });
@@ -170,7 +208,8 @@ function main() {
       const modelFile = files.find((f) => f.endsWith('.model3.json'));
       if (!modelFile) continue;
 
-      const label = getModelTypeLabel(modelFile);
+      let label = getModelTypeLabel(modelFile);
+      if (label === 'Unknown' && skinNames[skinId]) label = skinNames[skinId];
       entry.variants.push({
         name: variant,
         label,

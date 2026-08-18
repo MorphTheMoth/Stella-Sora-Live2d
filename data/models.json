@@ -75,7 +75,7 @@
             "sy": 1,
             "w": 784,
             "h": 1072,
-            "fg": true
+            "fg": false
           },
           {
             "file": "fx_live2d_10301_ex_bg_04",
@@ -85,13 +85,13 @@
             "sy": 1,
             "w": 396,
             "h": 300,
-            "fg": true
+            "fg": false
           }
         ]
       },
       {
         "name": "10303_l",
-        "label": "Unknown",
+        "label": "Playful Innocence",
         "path": "chars/10303/10303_l/10303_L_a.model3.json",
         "bg": [
           "chars/10303/10303_l/bg/live2d_10303_ex_bg_01.png",
@@ -139,7 +139,7 @@
             "sy": 1,
             "w": 420,
             "h": 684,
-            "fg": true
+            "fg": false
           },
           {
             "file": "live2d_10303_ex_bg_05",
@@ -149,13 +149,13 @@
             "sy": 1,
             "w": 1644,
             "h": 1152,
-            "fg": true
+            "fg": false
           }
         ]
       },
       {
         "name": "10304_l",
-        "label": "Unknown",
+        "label": "Ease Into an Unhurried Summer",
         "path": "chars/10304/10304_l/10304_L.model3.json",
         "bg": [
           "chars/10304/10304_l/bg/live2d_10304_ex_bg_01.png",
@@ -280,7 +280,7 @@
             "sy": 1,
             "w": 92,
             "h": 152,
-            "fg": true
+            "fg": false
           },
           {
             "file": "live2d_10304_ex_bg_10",
@@ -290,7 +290,7 @@
             "sy": 1,
             "w": 76,
             "h": 112,
-            "fg": true
+            "fg": false
           }
         ]
       }
@@ -438,7 +438,7 @@
             "sy": 1,
             "w": 2320,
             "h": 540,
-            "fg": true
+            "fg": false
           }
         ]
       },
@@ -476,7 +476,7 @@
       },
       {
         "name": "10703_l",
-        "label": "Unknown",
+        "label": "This Is My Justice!",
         "path": "chars/10703/10703_l/10703_L_a.model3.json",
         "bg": [
           "chars/10703/10703_l/bg/10703_live2d_bg_001.png",
@@ -638,7 +638,7 @@
             "sy": 1,
             "w": 248,
             "h": 948,
-            "fg": true
+            "fg": false
           }
         ]
       },
@@ -878,7 +878,7 @@
             "sy": 1.0442,
             "w": 452,
             "h": 712,
-            "fg": true
+            "fg": false
           },
           {
             "file": "live2d_11002_ex_lang_003",
@@ -918,7 +918,7 @@
             "sy": 1,
             "w": 468,
             "h": 488,
-            "fg": true
+            "fg": false
           },
           {
             "file": "live2d_11002_ex_lang_004",
@@ -928,7 +928,7 @@
             "sy": 1,
             "w": 324,
             "h": 556,
-            "fg": true
+            "fg": false
           },
           {
             "file": "live2d_11002_ex_tree_001",
@@ -958,7 +958,7 @@
             "sy": 1,
             "w": 1088,
             "h": 1652,
-            "fg": true
+            "fg": false
           },
           {
             "file": "live2d_11002_ex_daoguang_001",
@@ -1072,7 +1072,7 @@
             "sy": 1,
             "w": 156,
             "h": 244,
-            "fg": true
+            "fg": false
           }
         ]
       },
@@ -1110,7 +1110,7 @@
             "sy": 1,
             "w": 1388,
             "h": 1516,
-            "fg": true
+            "fg": false
           },
           {
             "file": "fx_live2d_11101_env_ol_table",
@@ -1120,7 +1120,7 @@
             "sy": 1,
             "w": 1080,
             "h": 380,
-            "fg": true
+            "fg": false
           },
           {
             "file": "fx_live2d_11101_env_ol_bag",
@@ -1130,7 +1130,7 @@
             "sy": 1,
             "w": 440,
             "h": 344,
-            "fg": true
+            "fg": false
           },
           {
             "file": "fx_live2d_11101_env_ol_ex1",
@@ -1140,7 +1140,7 @@
             "sy": 1,
             "w": 760,
             "h": 420,
-            "fg": true
+            "fg": false
           },
           {
             "file": "fx_live2d_11101_env_ol_bag_ol",
@@ -1150,7 +1150,7 @@
             "sy": 1,
             "w": 408,
             "h": 296,
-            "fg": true
+            "fg": false
           },
           {
             "file": "fx_live2d_11101_main_bg_06",
@@ -1170,13 +1170,13 @@
             "sy": 1,
             "w": 816,
             "h": 644,
-            "fg": false
+            "fg": true
           }
         ]
       },
       {
         "name": "11103_l",
-        "label": "Unknown",
+        "label": "The 1/365th of You",
         "path": "chars/11103/11103_l/11103_L.model3.json",
         "bg": [
           "chars/11103/11103_l/bg/11103_live2d_bg_001.png",
@@ -1251,7 +1251,7 @@
       },
       {
         "name": "11104_l",
-        "label": "Unknown",
+        "label": "Drifting Together on Gentle Waves",
         "path": "chars/11104/11104_l/11104_L.model3.json",
         "bg": [
           "chars/11104/11104_l/bg/11104_live2d_bg_001.png",
@@ -1299,7 +1299,7 @@
             "sy": 1,
             "w": 852,
             "h": 432,
-            "fg": true
+            "fg": false
           },
           {
             "file": "11104_live2d_leaves_002",
@@ -1309,7 +1309,7 @@
             "sy": 1,
             "w": 116,
             "h": 136,
-            "fg": true
+            "fg": false
           }
         ]
       }
@@ -1382,7 +1382,7 @@
       },
       {
         "name": "11203_l",
-        "label": "Unknown",
+        "label": "Lingering Sunlight",
         "path": "chars/11203/11203_l/11203_L.model3.json",
         "bg": [
           "chars/11203/11203_l/bg/11203_live2d_bg_001.png",
@@ -1416,7 +1416,7 @@
             "sy": 1,
             "w": 168,
             "h": 192,
-            "fg": true
+            "fg": false
           },
           {
             "file": "11203_live2d_leaves_013",
@@ -1426,7 +1426,7 @@
             "sy": 1,
             "w": 212,
             "h": 272,
-            "fg": true
+            "fg": false
           },
           {
             "file": "11203_live2d_tree_001",
@@ -1436,7 +1436,7 @@
             "sy": 1,
             "w": 704,
             "h": 1320,
-            "fg": true
+            "fg": false
           },
           {
             "file": "11203_live2d_leaves_014",
@@ -1446,7 +1446,7 @@
             "sy": 1,
             "w": 392,
             "h": 460,
-            "fg": true
+            "fg": false
           },
           {
             "file": "11203_live2d_leaves_011",
@@ -1456,7 +1456,7 @@
             "sy": 1,
             "w": 436,
             "h": 512,
-            "fg": true
+            "fg": false
           },
           {
             "file": "11203_live2d_leaves_010",
@@ -1466,7 +1466,7 @@
             "sy": 1,
             "w": 384,
             "h": 392,
-            "fg": true
+            "fg": false
           },
           {
             "file": "11203_live2d_leaves_001",
@@ -1476,7 +1476,7 @@
             "sy": 1,
             "w": 208,
             "h": 304,
-            "fg": true
+            "fg": false
           },
           {
             "file": "11203_live2d_leaves_002",
@@ -1486,7 +1486,7 @@
             "sy": 1,
             "w": 508,
             "h": 580,
-            "fg": true
+            "fg": false
           },
           {
             "file": "11203_live2d_leaves_003",
@@ -1496,7 +1496,7 @@
             "sy": 1,
             "w": 484,
             "h": 520,
-            "fg": true
+            "fg": false
           },
           {
             "file": "11203_live2d_leaves_004",
@@ -1506,7 +1506,7 @@
             "sy": 1,
             "w": 736,
             "h": 264,
-            "fg": true
+            "fg": false
           },
           {
             "file": "11203_live2d_leaves_009",
@@ -1516,7 +1516,7 @@
             "sy": 1,
             "w": 376,
             "h": 292,
-            "fg": true
+            "fg": false
           },
           {
             "file": "11203_live2d_leaves_008",
@@ -1526,7 +1526,7 @@
             "sy": 1,
             "w": 228,
             "h": 200,
-            "fg": true
+            "fg": false
           },
           {
             "file": "11203_live2d_leaves_007",
@@ -1536,7 +1536,7 @@
             "sy": 1,
             "w": 260,
             "h": 244,
-            "fg": true
+            "fg": false
           },
           {
             "file": "11203_live2d_leaves_006",
@@ -1546,7 +1546,7 @@
             "sy": 1,
             "w": 500,
             "h": 368,
-            "fg": true
+            "fg": false
           },
           {
             "file": "11203_live2d_leaves_005",
@@ -1556,7 +1556,7 @@
             "sy": 1,
             "w": 324,
             "h": 144,
-            "fg": true
+            "fg": false
           },
           {
             "file": "11203_live2d_bg_001",
@@ -1616,7 +1616,7 @@
             "sy": 1,
             "w": 256,
             "h": 136,
-            "fg": true
+            "fg": false
           }
         ]
       }
@@ -1692,7 +1692,7 @@
             "sy": 1,
             "w": 1328,
             "h": 1208,
-            "fg": true
+            "fg": false
           },
           {
             "file": "live2d_11301_0035_f1",
@@ -1702,7 +1702,7 @@
             "sy": 1,
             "w": 92,
             "h": 60,
-            "fg": true
+            "fg": false
           },
           {
             "file": "live2d_11301_0034_f2",
@@ -1712,7 +1712,7 @@
             "sy": 1,
             "w": 116,
             "h": 84,
-            "fg": true
+            "fg": false
           },
           {
             "file": "live2d_11301_0033_f3",
@@ -1722,7 +1722,7 @@
             "sy": 1,
             "w": 112,
             "h": 76,
-            "fg": true
+            "fg": false
           },
           {
             "file": "live2d_11301_0032_f4",
@@ -1732,7 +1732,7 @@
             "sy": 1,
             "w": 112,
             "h": 72,
-            "fg": true
+            "fg": false
           },
           {
             "file": "live2d_11301_0031_f5",
@@ -1742,7 +1742,7 @@
             "sy": 1,
             "w": 108,
             "h": 64,
-            "fg": true
+            "fg": false
           },
           {
             "file": "live2d_11301_0030_f6",
@@ -1752,7 +1752,7 @@
             "sy": 1,
             "w": 104,
             "h": 64,
-            "fg": true
+            "fg": false
           },
           {
             "file": "live2d_11301_0029_f7",
@@ -1762,7 +1762,7 @@
             "sy": 1,
             "w": 104,
             "h": 84,
-            "fg": true
+            "fg": false
           },
           {
             "file": "live2d_11301_0028_f8",
@@ -1772,7 +1772,7 @@
             "sy": 1,
             "w": 84,
             "h": 76,
-            "fg": true
+            "fg": false
           },
           {
             "file": "live2d_11301_0027_f9",
@@ -1782,7 +1782,7 @@
             "sy": 1,
             "w": 96,
             "h": 88,
-            "fg": true
+            "fg": false
           },
           {
             "file": "live2d_11301_0026_f10",
@@ -1792,7 +1792,7 @@
             "sy": 1,
             "w": 100,
             "h": 84,
-            "fg": true
+            "fg": false
           },
           {
             "file": "live2d_11301_0025_f11",
@@ -1802,7 +1802,7 @@
             "sy": 1,
             "w": 204,
             "h": 148,
-            "fg": true
+            "fg": false
           },
           {
             "file": "live2d_11301_0024_f12",
@@ -1812,7 +1812,7 @@
             "sy": 1,
             "w": 56,
             "h": 40,
-            "fg": true
+            "fg": false
           },
           {
             "file": "live2d_11301_0023_f13",
@@ -1822,7 +1822,7 @@
             "sy": 1,
             "w": 60,
             "h": 56,
-            "fg": true
+            "fg": false
           },
           {
             "file": "live2d_11301_0022_f14",
@@ -1832,7 +1832,7 @@
             "sy": 1,
             "w": 196,
             "h": 84,
-            "fg": true
+            "fg": false
           },
           {
             "file": "live2d_11301_0021_f15",
@@ -1842,7 +1842,7 @@
             "sy": 1,
             "w": 80,
             "h": 48,
-            "fg": true
+            "fg": false
           },
           {
             "file": "live2d_11301_0020_f16",
@@ -1852,7 +1852,7 @@
             "sy": 1,
             "w": 60,
             "h": 44,
-            "fg": true
+            "fg": false
           },
           {
             "file": "live2d_11301_0019_f17",
@@ -1862,7 +1862,7 @@
             "sy": 1,
             "w": 72,
             "h": 48,
-            "fg": true
+            "fg": false
           },
           {
             "file": "live2d_11301_fg_huoguocenter",
@@ -1872,7 +1872,7 @@
             "sy": 1,
             "w": 296,
             "h": 432,
-            "fg": true
+            "fg": false
           },
           {
             "file": "live2d_11301_0017_f19",
@@ -1882,7 +1882,7 @@
             "sy": 1,
             "w": 92,
             "h": 64,
-            "fg": true
+            "fg": false
           },
           {
             "file": "live2d_11301_0016_f20",
@@ -1892,7 +1892,7 @@
             "sy": 1,
             "w": 112,
             "h": 72,
-            "fg": true
+            "fg": false
           },
           {
             "file": "live2d_11301_0015_f21",
@@ -1902,7 +1902,7 @@
             "sy": 1,
             "w": 120,
             "h": 76,
-            "fg": true
+            "fg": false
           },
           {
             "file": "live2d_11301_0014_f22",
@@ -1912,7 +1912,7 @@
             "sy": 1,
             "w": 60,
             "h": 100,
-            "fg": true
+            "fg": false
           },
           {
             "file": "live2d_11301_0013_f23",
@@ -1922,7 +1922,7 @@
             "sy": 1,
             "w": 148,
             "h": 116,
-            "fg": true
+            "fg": false
           },
           {
             "file": "live2d_11301_0012_f24",
@@ -1932,7 +1932,7 @@
             "sy": 1,
             "w": 104,
             "h": 64,
-            "fg": true
+            "fg": false
           },
           {
             "file": "live2d_11301_0011_f25",
@@ -1942,7 +1942,7 @@
             "sy": 1,
             "w": 120,
             "h": 80,
-            "fg": true
+            "fg": false
           },
           {
             "file": "live2d_11301_0010_f26",
@@ -1952,7 +1952,7 @@
             "sy": 1,
             "w": 104,
             "h": 64,
-            "fg": true
+            "fg": false
           },
           {
             "file": "live2d_11301_0009_f27",
@@ -1962,7 +1962,7 @@
             "sy": 1,
             "w": 80,
             "h": 80,
-            "fg": true
+            "fg": false
           },
           {
             "file": "live2d_11301_0008_f28",
@@ -1972,7 +1972,7 @@
             "sy": 1,
             "w": 32,
             "h": 28,
-            "fg": true
+            "fg": false
           },
           {
             "file": "live2d_11301_0007_f29",
@@ -1982,7 +1982,7 @@
             "sy": 1,
             "w": 76,
             "h": 40,
-            "fg": true
+            "fg": false
           },
           {
             "file": "live2d_11301_0006_f30",
@@ -1992,7 +1992,7 @@
             "sy": 1,
             "w": 104,
             "h": 72,
-            "fg": true
+            "fg": false
           },
           {
             "file": "live2d_11301_0005_f31",
@@ -2002,7 +2002,7 @@
             "sy": 1,
             "w": 120,
             "h": 84,
-            "fg": true
+            "fg": false
           },
           {
             "file": "live2d_11301_0004_f32",
@@ -2012,7 +2012,7 @@
             "sy": 1,
             "w": 76,
             "h": 44,
-            "fg": true
+            "fg": false
           },
           {
             "file": "live2d_11301_0003_f33",
@@ -2022,7 +2022,7 @@
             "sy": 1,
             "w": 100,
             "h": 88,
-            "fg": true
+            "fg": false
           },
           {
             "file": "live2d_11301_0002_f34",
@@ -2032,7 +2032,7 @@
             "sy": 1,
             "w": 136,
             "h": 76,
-            "fg": true
+            "fg": false
           },
           {
             "file": "live2d_11301_0001_f35",
@@ -2042,7 +2042,7 @@
             "sy": 1,
             "w": 360,
             "h": 248,
-            "fg": true
+            "fg": false
           },
           {
             "file": "live2d_11301_fg_huoguofg",
@@ -2052,7 +2052,7 @@
             "sy": 1,
             "w": 568,
             "h": 552,
-            "fg": true
+            "fg": false
           },
           {
             "file": "live2d_11301_0037_background",
@@ -2117,7 +2117,7 @@
             "sy": 1,
             "w": 204,
             "h": 152,
-            "fg": true
+            "fg": false
           },
           {
             "file": "fx_live2d_ex_main_water_par4",
@@ -2127,7 +2127,7 @@
             "sy": 1,
             "w": 280,
             "h": 292,
-            "fg": true
+            "fg": false
           },
           {
             "file": "fx_live2d_ex_main_water_par5",
@@ -2137,7 +2137,7 @@
             "sy": 1,
             "w": 208,
             "h": 352,
-            "fg": true
+            "fg": false
           },
           {
             "file": "shimiao_TX2",
@@ -2157,7 +2157,7 @@
             "sy": 1,
             "w": 740,
             "h": 160,
-            "fg": true
+            "fg": false
           },
           {
             "file": "fx_live2d_11301_ex_sword_2",
@@ -2167,7 +2167,7 @@
             "sy": 1,
             "w": 620,
             "h": 124,
-            "fg": true
+            "fg": false
           },
           {
             "file": "fx_live2d_11301_ex_sword_3",
@@ -2177,7 +2177,7 @@
             "sy": 1,
             "w": 340,
             "h": 100,
-            "fg": true
+            "fg": false
           },
           {
             "file": "fx_live2d_11301_ex_sword_4",
@@ -2187,7 +2187,7 @@
             "sy": 1,
             "w": 192,
             "h": 80,
-            "fg": true
+            "fg": false
           },
           {
             "file": "fx_live2d_11301_ex_mainwater_01",
@@ -2217,7 +2217,7 @@
             "sy": 1,
             "w": 1006,
             "h": 637,
-            "fg": true
+            "fg": false
           },
           {
             "file": "fx_live2d_ex_water_di_01",
@@ -2227,7 +2227,7 @@
             "sy": 1,
             "w": 704,
             "h": 504,
-            "fg": true
+            "fg": false
           },
           {
             "file": "fx_live2d_ex_main_water_par3",
@@ -2253,7 +2253,7 @@
       },
       {
         "name": "11303_l",
-        "label": "Unknown",
+        "label": "Feeling Spicy? Take the Heat!",
         "path": "chars/11303/11303_l/11303_L_a.model3.json",
         "bg": [
           "chars/11303/11303_l/bg/11303_live2d_bg_001.png",
@@ -2403,7 +2403,7 @@
             "sy": 0.333,
             "w": 488,
             "h": 520,
-            "fg": false
+            "fg": true
           },
           {
             "file": "11303_live2d_chili_031",
@@ -2413,7 +2413,7 @@
             "sy": 0.333,
             "w": 204,
             "h": 456,
-            "fg": false
+            "fg": true
           },
           {
             "file": "11303_live2d_chili_034",
@@ -2423,7 +2423,7 @@
             "sy": 0.333,
             "w": 316,
             "h": 288,
-            "fg": false
+            "fg": true
           },
           {
             "file": "11303_live2d_chili_036",
@@ -2433,7 +2433,7 @@
             "sy": 0.333,
             "w": 244,
             "h": 376,
-            "fg": false
+            "fg": true
           },
           {
             "file": "11303_live2d_chili_038",
@@ -2443,7 +2443,7 @@
             "sy": 0.333,
             "w": 312,
             "h": 212,
-            "fg": false
+            "fg": true
           },
           {
             "file": "11303_live2d_chili_040",
@@ -2453,7 +2453,7 @@
             "sy": 0.333,
             "w": 240,
             "h": 216,
-            "fg": false
+            "fg": true
           },
           {
             "file": "11303_live2d_chili_042",
@@ -2463,7 +2463,7 @@
             "sy": 0.333,
             "w": 180,
             "h": 208,
-            "fg": false
+            "fg": true
           },
           {
             "file": "11303_live2d_chili_044",
@@ -2473,7 +2473,7 @@
             "sy": 0.333,
             "w": 184,
             "h": 216,
-            "fg": false
+            "fg": true
           },
           {
             "file": "11303_live2d_chili_046",
@@ -2483,7 +2483,7 @@
             "sy": 0.333,
             "w": 220,
             "h": 224,
-            "fg": false
+            "fg": true
           },
           {
             "file": "11303_live2d_chili_048",
@@ -2493,7 +2493,7 @@
             "sy": 0.333,
             "w": 124,
             "h": 212,
-            "fg": false
+            "fg": true
           },
           {
             "file": "11303_live2d_chili_050",
@@ -2503,7 +2503,7 @@
             "sy": 0.333,
             "w": 180,
             "h": 124,
-            "fg": false
+            "fg": true
           },
           {
             "file": "11303_live2d_chili_003",
@@ -2603,7 +2603,7 @@
             "sy": 0.333,
             "w": 312,
             "h": 212,
-            "fg": false
+            "fg": true
           },
           {
             "file": "11303_live2d_chili_043",
@@ -2613,7 +2613,7 @@
             "sy": 0.333,
             "w": 184,
             "h": 216,
-            "fg": false
+            "fg": true
           },
           {
             "file": "11303_live2d_chili_049",
@@ -2623,7 +2623,7 @@
             "sy": 0.333,
             "w": 180,
             "h": 124,
-            "fg": false
+            "fg": true
           },
           {
             "file": "11303_live2d_chili_018",
@@ -2653,7 +2653,7 @@
             "sy": 0.333,
             "w": 352,
             "h": 340,
-            "fg": false
+            "fg": true
           },
           {
             "file": "11303_live2d_chili_030",
@@ -2663,7 +2663,7 @@
             "sy": 0.333,
             "w": 204,
             "h": 456,
-            "fg": false
+            "fg": true
           },
           {
             "file": "11303_live2d_chili_033",
@@ -2673,7 +2673,7 @@
             "sy": 0.333,
             "w": 316,
             "h": 288,
-            "fg": false
+            "fg": true
           },
           {
             "file": "11303_live2d_chili_039",
@@ -2683,7 +2683,7 @@
             "sy": 0.333,
             "w": 240,
             "h": 216,
-            "fg": false
+            "fg": true
           },
           {
             "file": "11303_live2d_chili_045",
@@ -2693,7 +2693,7 @@
             "sy": 0.333,
             "w": 220,
             "h": 224,
-            "fg": false
+            "fg": true
           },
           {
             "file": "11303_live2d_chili_014",
@@ -2733,7 +2733,7 @@
             "sy": 0.333,
             "w": 196,
             "h": 168,
-            "fg": false
+            "fg": true
           },
           {
             "file": "11303_live2d_chili_035",
@@ -2743,7 +2743,7 @@
             "sy": 0.333,
             "w": 244,
             "h": 376,
-            "fg": false
+            "fg": true
           },
           {
             "file": "11303_live2d_chili_041",
@@ -2753,7 +2753,7 @@
             "sy": 0.333,
             "w": 180,
             "h": 208,
-            "fg": false
+            "fg": true
           },
           {
             "file": "11303_live2d_chili_047",
@@ -2763,7 +2763,7 @@
             "sy": 0.333,
             "w": 124,
             "h": 212,
-            "fg": false
+            "fg": true
           },
           {
             "file": "11303_live2d_chili_016",
@@ -2965,7 +2965,7 @@
             "sy": 1,
             "w": 1108,
             "h": 300,
-            "fg": true
+            "fg": false
           }
         ]
       },
@@ -3011,7 +3011,7 @@
             "sy": 1,
             "w": 240,
             "h": 212,
-            "fg": true
+            "fg": false
           },
           {
             "file": "fx_live2d_11401_ol_zidan_4",
@@ -3021,7 +3021,7 @@
             "sy": 1,
             "w": 168,
             "h": 556,
-            "fg": true
+            "fg": false
           },
           {
             "file": "fx_live2d_11401_ol_zidan_3",
@@ -3031,7 +3031,7 @@
             "sy": 1,
             "w": 308,
             "h": 312,
-            "fg": true
+            "fg": false
           },
           {
             "file": "fx_live2d_11401_bg_3",
@@ -3156,7 +3156,7 @@
             "sy": 1,
             "w": 264,
             "h": 456,
-            "fg": true
+            "fg": false
           },
           {
             "file": "11502_live2d_sword_001",
@@ -3166,7 +3166,7 @@
             "sy": 1,
             "w": 276,
             "h": 232,
-            "fg": false
+            "fg": true
           }
         ]
       }
@@ -3352,7 +3352,7 @@
       },
       {
         "name": "11603_l",
-        "label": "Unknown",
+        "label": "Resting in the Lush Greenhouse",
         "path": "chars/11603/11603_l/11603_L.model3.json",
         "bg": [
           "chars/11603/11603_l/bg/11103_live2d_bg_001.png",
@@ -3678,7 +3678,7 @@
             "sy": 1,
             "w": 624,
             "h": 1700,
-            "fg": true
+            "fg": false
           }
         ]
       },
@@ -3722,7 +3722,7 @@
             "sy": 1,
             "w": 688,
             "h": 976,
-            "fg": true
+            "fg": false
           },
           {
             "file": "fx_live2d_11801_ex_bg_021",
@@ -3732,7 +3732,7 @@
             "sy": 1,
             "w": 516,
             "h": 976,
-            "fg": true
+            "fg": false
           }
         ]
       }
@@ -3863,7 +3863,7 @@
       },
       {
         "name": "11903_l",
-        "label": "Unknown",
+        "label": "When Distant Winds Rise",
         "path": "chars/11903/11903_l/11903_L.model3.json",
         "bg": [
           "chars/11903/11903_l/bg/11903_live2d_bg_001.png",
@@ -3885,7 +3885,7 @@
             "sy": 1,
             "w": 2048,
             "h": 2048,
-            "fg": true
+            "fg": false
           },
           {
             "file": "11903_live2d_bg_002",
@@ -4143,7 +4143,7 @@
             "sy": 1,
             "w": 1440,
             "h": 852,
-            "fg": true
+            "fg": false
           },
           {
             "file": "12301_live2d_leaves_004",
@@ -4153,7 +4153,7 @@
             "sy": 1,
             "w": 620,
             "h": 548,
-            "fg": true
+            "fg": false
           },
           {
             "file": "12301_live2d_leaves_001",
@@ -4183,7 +4183,7 @@
             "sy": 1,
             "w": 584,
             "h": 848,
-            "fg": true
+            "fg": false
           }
         ]
       },
@@ -4221,7 +4221,7 @@
       },
       {
         "name": "12303_l",
-        "label": "Unknown",
+        "label": "Princess of the Wondrous Wilds",
         "path": "chars/12303/12303_l/12303_L.model3.json",
         "bg": [
           "chars/12303/12303_l/bg/12303_live2d_bg_001.png",
@@ -4525,7 +4525,7 @@
       },
       {
         "name": "12503_l",
-        "label": "Unknown",
+        "label": "The Gift of Falling Snow",
         "path": "chars/12503/12503_l/12503_L_a.model3.json",
         "bg": [
           "chars/12503/12503_l/bg/12503_live2d_bg_01.png",
@@ -4563,7 +4563,7 @@
             "sy": 1,
             "w": 1468,
             "h": 2048,
-            "fg": true
+            "fg": false
           },
           {
             "file": "fx_12503_live2d_snow_03",
@@ -4573,7 +4573,7 @@
             "sy": 0.7,
             "w": 512,
             "h": 512,
-            "fg": true
+            "fg": false
           },
           {
             "file": "fx_12503_live2d_snow_04",
@@ -4583,7 +4583,7 @@
             "sy": 0.4,
             "w": 512,
             "h": 512,
-            "fg": true
+            "fg": false
           }
         ]
       }
@@ -4676,7 +4676,7 @@
             "sy": 1,
             "w": 364,
             "h": 516,
-            "fg": true
+            "fg": false
           },
           {
             "file": "live2d_12602_card_004",
@@ -4854,7 +4854,7 @@
             "sy": 1,
             "w": 512,
             "h": 248,
-            "fg": true
+            "fg": false
           },
           {
             "file": "live2d_12702_rock_004",
@@ -4864,7 +4864,7 @@
             "sy": 1,
             "w": 612,
             "h": 708,
-            "fg": true
+            "fg": false
           },
           {
             "file": "live2d_12702_rock_002",
@@ -4874,7 +4874,7 @@
             "sy": 1,
             "w": 352,
             "h": 476,
-            "fg": true
+            "fg": false
           },
           {
             "file": "live2d_12702_rock_001",
@@ -4934,7 +4934,7 @@
             "sy": 1,
             "w": 32,
             "h": 64,
-            "fg": true
+            "fg": false
           },
           {
             "file": "live2d_12702_stone_002",
@@ -4944,7 +4944,7 @@
             "sy": 1,
             "w": 32,
             "h": 32,
-            "fg": true
+            "fg": false
           },
           {
             "file": "live2d_12702_stone_003",
@@ -4954,7 +4954,7 @@
             "sy": 1,
             "w": 44,
             "h": 60,
-            "fg": true
+            "fg": false
           },
           {
             "file": "live2d_12702_stone_004",
@@ -4964,7 +4964,7 @@
             "sy": 1,
             "w": 32,
             "h": 36,
-            "fg": true
+            "fg": false
           },
           {
             "file": "live2d_12702_stone_005",
@@ -4974,7 +4974,7 @@
             "sy": 1,
             "w": 64,
             "h": 128,
-            "fg": true
+            "fg": false
           },
           {
             "file": "live2d_12702_stone_006",
@@ -4984,7 +4984,7 @@
             "sy": 1,
             "w": 60,
             "h": 56,
-            "fg": true
+            "fg": false
           },
           {
             "file": "live2d_12702_stone_007",
@@ -4994,7 +4994,7 @@
             "sy": 1,
             "w": 40,
             "h": 36,
-            "fg": true
+            "fg": false
           },
           {
             "file": "live2d_12702_stone_008",
@@ -5004,7 +5004,7 @@
             "sy": 1,
             "w": 76,
             "h": 76,
-            "fg": true
+            "fg": false
           },
           {
             "file": "live2d_12702_stone_009",
@@ -5014,7 +5014,7 @@
             "sy": 1,
             "w": 48,
             "h": 44,
-            "fg": true
+            "fg": false
           },
           {
             "file": "live2d_12702_stone_010",
@@ -5024,7 +5024,7 @@
             "sy": 1,
             "w": 32,
             "h": 52,
-            "fg": true
+            "fg": false
           },
           {
             "file": "live2d_12702_stone_011",
@@ -5034,7 +5034,7 @@
             "sy": 1,
             "w": 20,
             "h": 20,
-            "fg": true
+            "fg": false
           },
           {
             "file": "live2d_12702_stone_012",
@@ -5044,7 +5044,7 @@
             "sy": 1,
             "w": 88,
             "h": 108,
-            "fg": true
+            "fg": false
           },
           {
             "file": "live2d_12702_stone_013",
@@ -5054,7 +5054,7 @@
             "sy": 1,
             "w": 32,
             "h": 40,
-            "fg": true
+            "fg": false
           },
           {
             "file": "live2d_12702_stone_014",
@@ -5064,13 +5064,13 @@
             "sy": 1,
             "w": 64,
             "h": 88,
-            "fg": true
+            "fg": false
           }
         ]
       },
       {
         "name": "12703_l",
-        "label": "Unknown",
+        "label": "Rookie Hero Reporting In",
         "path": "chars/12703/12703_l/12703_L.model3.json",
         "bg": [
           "chars/12703/12703_l/bg/live2d_12703_bg_01.png",
@@ -5304,7 +5304,7 @@
       },
       {
         "name": "13203_l",
-        "label": "Unknown",
+        "label": "Tipsy Daydream",
         "path": "chars/13203/13203_l/13203_L.model3.json",
         "bg": [
           "chars/13203/13203_l/bg/live2d_13203_bg_01.png",
@@ -5341,7 +5341,7 @@
             "sy": 1,
             "w": 408,
             "h": 492,
-            "fg": true
+            "fg": false
           },
           {
             "file": "live2d_13203_bg_03",
@@ -5351,13 +5351,13 @@
             "sy": 1,
             "w": 272,
             "h": 284,
-            "fg": true
+            "fg": false
           }
         ]
       },
       {
         "name": "13204_l",
-        "label": "Unknown",
+        "label": "Rippling Void of the Darkest Heartbreak",
         "path": "chars/13204/13204_l/13204_L.model3.json",
         "bg": [
           "chars/13204/13204_l/bg/13204_live2d_bg_001.png",
@@ -5395,7 +5395,7 @@
             "sy": 1,
             "w": 644,
             "h": 396,
-            "fg": true
+            "fg": false
           },
           {
             "file": "13204_live2d_bg_003",
@@ -5415,7 +5415,7 @@
             "sy": 1,
             "w": 696,
             "h": 348,
-            "fg": true
+            "fg": false
           }
         ]
       }
@@ -5571,7 +5571,7 @@
             "sy": 1,
             "w": 820,
             "h": 680,
-            "fg": true
+            "fg": false
           },
           {
             "file": "13301_live2d_BG_007",
@@ -5591,7 +5591,7 @@
             "sy": 0.2,
             "w": 1544,
             "h": 1544,
-            "fg": true
+            "fg": false
           },
           {
             "file": "13301_live2d_fengche_003",
@@ -5601,7 +5601,7 @@
             "sy": 0.2,
             "w": 780,
             "h": 780,
-            "fg": true
+            "fg": false
           },
           {
             "file": "13301_live2d_fengche_007",
@@ -5621,7 +5621,7 @@
             "sy": 0.24109207,
             "w": 1544,
             "h": 1544,
-            "fg": true
+            "fg": false
           },
           {
             "file": "13301_live2d_fengche_008",
@@ -5641,7 +5641,7 @@
             "sy": 0.24109207,
             "w": 780,
             "h": 780,
-            "fg": true
+            "fg": false
           }
         ]
       },
@@ -6015,7 +6015,7 @@
       },
       {
         "name": "13303_l",
-        "label": "Unknown",
+        "label": "A Dip of Fresh Summer",
         "path": "chars/13303/13303_l/13303_L.model3.json",
         "bg": [
           "chars/13303/13303_l/bg/13303_live2d_bg_001.png",
@@ -6109,7 +6109,7 @@
             "sy": 1,
             "w": 284,
             "h": 248,
-            "fg": true
+            "fg": false
           },
           {
             "file": "13303_live2d_shoes_001",
@@ -6139,7 +6139,7 @@
             "sy": 1,
             "w": 824,
             "h": 716,
-            "fg": true
+            "fg": false
           }
         ]
       }
@@ -6562,7 +6562,7 @@
             "sy": 1,
             "w": 36,
             "h": 48,
-            "fg": true
+            "fg": false
           },
           {
             "file": "live2d_13402_snow_002",
@@ -6572,13 +6572,13 @@
             "sy": 1,
             "w": 104,
             "h": 128,
-            "fg": true
+            "fg": false
           }
         ]
       },
       {
         "name": "13403_l",
-        "label": "Unknown",
+        "label": "Probation Period Cleared!",
         "path": "chars/13403/13403_l/13403_L.model3.json",
         "bg": [
           "chars/13403/13403_l/bg/13403_live2d_bg_001.png",
@@ -6614,7 +6614,7 @@
             "sy": 1,
             "w": 500,
             "h": 408,
-            "fg": true
+            "fg": false
           }
         ]
       }
@@ -6663,7 +6663,7 @@
             "sy": 1,
             "w": 8,
             "h": 8,
-            "fg": true
+            "fg": false
           }
         ]
       },
@@ -6866,7 +6866,7 @@
       },
       {
         "name": "13503_l",
-        "label": "Unknown",
+        "label": "Cocoa Night Sweetheart",
         "path": "chars/13503/13503_l/13503_L.model3.json",
         "bg": [
           "chars/13503/13503_l/bg/live2d_13503_bg_01.png",
@@ -6930,7 +6930,7 @@
       },
       {
         "name": "13504_l",
-        "label": "Unknown",
+        "label": "Carefree in the Golden Glow",
         "path": "chars/13504/13504_l/13504_L.model3.json",
         "bg": [
           "chars/13504/13504_l/bg/13504_live2d_ball_001.png",
@@ -7271,7 +7271,7 @@
             "sy": 0.33555478,
             "w": 2048,
             "h": 977.00006,
-            "fg": true
+            "fg": false
           },
           {
             "file": "14001_live2d_Full_BG_004",
@@ -7281,7 +7281,7 @@
             "sy": 0.33555478,
             "w": 2048,
             "h": 1714,
-            "fg": true
+            "fg": false
           },
           {
             "file": "14001_live2d_Full_BG_006",
@@ -7301,7 +7301,7 @@
             "sy": 1,
             "w": 884,
             "h": 872,
-            "fg": true
+            "fg": false
           }
         ]
       },
@@ -7368,7 +7368,7 @@
             "sy": 1,
             "w": 160,
             "h": 176,
-            "fg": true
+            "fg": false
           },
           {
             "file": "14002_live2d_paper_002",
@@ -7378,7 +7378,7 @@
             "sy": 1,
             "w": 152,
             "h": 308,
-            "fg": true
+            "fg": false
           },
           {
             "file": "14002_live2d_rocket_001",
@@ -7388,7 +7388,7 @@
             "sy": 1,
             "w": 456,
             "h": 348,
-            "fg": true
+            "fg": false
           }
         ]
       }
@@ -7678,13 +7678,13 @@
             "sy": 1,
             "w": 252,
             "h": 368,
-            "fg": false
+            "fg": true
           }
         ]
       },
       {
         "name": "14103_l",
-        "label": "Unknown",
+        "label": "Crimson Reflection of Queen of Hearts",
         "path": "chars/14103/14103_l/14103_L.model3.json",
         "bg": [
           "chars/14103/14103_l/bg/14103_live2d_card_001.png",
@@ -8082,7 +8082,7 @@
       },
       {
         "name": "14203_l",
-        "label": "Unknown",
+        "label": "A Taste of Summer All to Herself",
         "path": "chars/14203/14203_l/14203_L.model3.json",
         "bg": [
           "chars/14203/14203_l/bg/live2d_14203_ex_bg_02.png",
@@ -8336,7 +8336,7 @@
             "sy": 1,
             "w": 204,
             "h": 248,
-            "fg": true
+            "fg": false
           },
           {
             "file": "live2d_14302_ex_wood_002",
@@ -8346,7 +8346,7 @@
             "sy": 1,
             "w": 72,
             "h": 76,
-            "fg": true
+            "fg": false
           },
           {
             "file": "live2d_14302_ex_wood_003",
@@ -8356,7 +8356,7 @@
             "sy": 1,
             "w": 48,
             "h": 48,
-            "fg": true
+            "fg": false
           },
           {
             "file": "live2d_14302_ex_wood_004",
@@ -8366,7 +8366,7 @@
             "sy": 1,
             "w": 64,
             "h": 72,
-            "fg": true
+            "fg": false
           },
           {
             "file": "live2d_14302_ex_wood_005",
@@ -8376,7 +8376,7 @@
             "sy": 1,
             "w": 220,
             "h": 308,
-            "fg": true
+            "fg": false
           },
           {
             "file": "live2d_14302_ex_wood_006",
@@ -8386,7 +8386,7 @@
             "sy": 1,
             "w": 80,
             "h": 60,
-            "fg": true
+            "fg": false
           },
           {
             "file": "live2d_14302_ex_wood_007",
@@ -8396,7 +8396,7 @@
             "sy": 1,
             "w": 124,
             "h": 100,
-            "fg": true
+            "fg": false
           },
           {
             "file": "live2d_14302_ex_wood_008",
@@ -8406,7 +8406,7 @@
             "sy": 1,
             "w": 128,
             "h": 124,
-            "fg": true
+            "fg": false
           },
           {
             "file": "live2d_14302_ex_wood_009",
@@ -8416,7 +8416,7 @@
             "sy": 1,
             "w": 228,
             "h": 272,
-            "fg": true
+            "fg": false
           },
           {
             "file": "live2d_14302_ex_wood_010",
@@ -8426,7 +8426,7 @@
             "sy": 1,
             "w": 112,
             "h": 112,
-            "fg": true
+            "fg": false
           },
           {
             "file": "live2d_14302_ex_wood_011",
@@ -8436,7 +8436,7 @@
             "sy": 1,
             "w": 264,
             "h": 364,
-            "fg": true
+            "fg": false
           },
           {
             "file": "live2d_14302_ex_wood_012",
@@ -8446,7 +8446,7 @@
             "sy": 1,
             "w": 220,
             "h": 340,
-            "fg": true
+            "fg": false
           },
           {
             "file": "live2d_14302_ex_wood_013",
@@ -8456,7 +8456,7 @@
             "sy": 1,
             "w": 184,
             "h": 224,
-            "fg": true
+            "fg": false
           },
           {
             "file": "live2d_14302_ex_wood_014",
@@ -8466,7 +8466,7 @@
             "sy": 1,
             "w": 112,
             "h": 96,
-            "fg": true
+            "fg": false
           },
           {
             "file": "live2d_14302_ex_wood_015",
@@ -8476,7 +8476,7 @@
             "sy": 1,
             "w": 188,
             "h": 176,
-            "fg": true
+            "fg": false
           },
           {
             "file": "live2d_14302_ex_wood_chip_001",
@@ -8486,7 +8486,7 @@
             "sy": 1,
             "w": 28,
             "h": 16,
-            "fg": true
+            "fg": false
           },
           {
             "file": "live2d_14302_ex_wood_chip_002",
@@ -8496,7 +8496,7 @@
             "sy": 1,
             "w": 20,
             "h": 28,
-            "fg": true
+            "fg": false
           },
           {
             "file": "live2d_14302_ex_wood_chip_003",
@@ -8506,7 +8506,7 @@
             "sy": 1,
             "w": 20,
             "h": 32,
-            "fg": true
+            "fg": false
           },
           {
             "file": "live2d_14302_ex_wood_chip_004",
@@ -8516,7 +8516,7 @@
             "sy": 1,
             "w": 60,
             "h": 32,
-            "fg": true
+            "fg": false
           },
           {
             "file": "live2d_14302_ex_wood_chip_005",
@@ -8526,7 +8526,7 @@
             "sy": 1,
             "w": 52,
             "h": 72,
-            "fg": true
+            "fg": false
           },
           {
             "file": "live2d_14302_ex_wood_chip_007",
@@ -8536,7 +8536,7 @@
             "sy": 1,
             "w": 44,
             "h": 80,
-            "fg": true
+            "fg": false
           },
           {
             "file": "live2d_14302_ex_wood_chip_008",
@@ -8546,7 +8546,7 @@
             "sy": 1,
             "w": 44,
             "h": 32,
-            "fg": true
+            "fg": false
           },
           {
             "file": "live2d_14302_ex_wood_chip_009",
@@ -8556,7 +8556,7 @@
             "sy": 1,
             "w": 12,
             "h": 12,
-            "fg": true
+            "fg": false
           },
           {
             "file": "live2d_14302_ex_wood_chip_010",
@@ -8566,7 +8566,7 @@
             "sy": 1,
             "w": 12,
             "h": 20,
-            "fg": true
+            "fg": false
           },
           {
             "file": "live2d_14302_ex_wood_chip_014",
@@ -8576,7 +8576,7 @@
             "sy": 1,
             "w": 16,
             "h": 12,
-            "fg": true
+            "fg": false
           },
           {
             "file": "live2d_14302_ex_wood_chip_015",
@@ -8586,7 +8586,7 @@
             "sy": 1,
             "w": 16,
             "h": 28,
-            "fg": true
+            "fg": false
           },
           {
             "file": "live2d_14302_ex_wood_chip_016",
@@ -8596,7 +8596,7 @@
             "sy": 1,
             "w": 8,
             "h": 36,
-            "fg": true
+            "fg": false
           },
           {
             "file": "live2d_14302_ex_wood_chip_017",
@@ -8606,7 +8606,7 @@
             "sy": 1,
             "w": 16,
             "h": 24,
-            "fg": true
+            "fg": false
           },
           {
             "file": "live2d_14302_ex_wood_chip_018",
@@ -8616,7 +8616,7 @@
             "sy": 1,
             "w": 12,
             "h": 16,
-            "fg": true
+            "fg": false
           },
           {
             "file": "live2d_14302_ex_wood_chip_019",
@@ -8626,7 +8626,7 @@
             "sy": 1,
             "w": 8,
             "h": 16,
-            "fg": true
+            "fg": false
           },
           {
             "file": "live2d_14302_ex_wood_chip_020",
@@ -8636,7 +8636,7 @@
             "sy": 1,
             "w": 28,
             "h": 24,
-            "fg": true
+            "fg": false
           },
           {
             "file": "live2d_14302_ex_wood_chip_021",
@@ -8646,7 +8646,7 @@
             "sy": 1,
             "w": 16,
             "h": 20,
-            "fg": true
+            "fg": false
           },
           {
             "file": "live2d_14302_ex_wood_chip_039",
@@ -8656,7 +8656,7 @@
             "sy": 1,
             "w": 64,
             "h": 92,
-            "fg": true
+            "fg": false
           },
           {
             "file": "live2d_14302_ex_wood_chip_022",
@@ -8666,7 +8666,7 @@
             "sy": 1,
             "w": 32,
             "h": 40,
-            "fg": true
+            "fg": false
           },
           {
             "file": "live2d_14302_ex_wood_chip_023",
@@ -8676,7 +8676,7 @@
             "sy": 1,
             "w": 32,
             "h": 20,
-            "fg": true
+            "fg": false
           },
           {
             "file": "live2d_14302_ex_wood_chip_024",
@@ -8686,7 +8686,7 @@
             "sy": 1,
             "w": 16,
             "h": 8,
-            "fg": true
+            "fg": false
           },
           {
             "file": "live2d_14302_ex_wood_chip_025",
@@ -8696,7 +8696,7 @@
             "sy": 1,
             "w": 12,
             "h": 8,
-            "fg": true
+            "fg": false
           },
           {
             "file": "live2d_14302_ex_wood_chip_026",
@@ -8706,7 +8706,7 @@
             "sy": 1,
             "w": 48,
             "h": 76,
-            "fg": true
+            "fg": false
           },
           {
             "file": "live2d_14302_ex_wood_chip_027",
@@ -8716,7 +8716,7 @@
             "sy": 1,
             "w": 20,
             "h": 28,
-            "fg": true
+            "fg": false
           },
           {
             "file": "live2d_14302_ex_wood_chip_028",
@@ -8726,7 +8726,7 @@
             "sy": 1,
             "w": 16,
             "h": 24,
-            "fg": true
+            "fg": false
           },
           {
             "file": "live2d_14302_ex_wood_chip_029",
@@ -8736,7 +8736,7 @@
             "sy": 1,
             "w": 4,
             "h": 8,
-            "fg": true
+            "fg": false
           },
           {
             "file": "live2d_14302_ex_wood_chip_030",
@@ -8746,7 +8746,7 @@
             "sy": 1,
             "w": 8,
             "h": 8,
-            "fg": true
+            "fg": false
           },
           {
             "file": "live2d_14302_ex_wood_chip_031",
@@ -8756,7 +8756,7 @@
             "sy": 1,
             "w": 8,
             "h": 12,
-            "fg": true
+            "fg": false
           },
           {
             "file": "live2d_14302_ex_wood_chip_032",
@@ -8766,7 +8766,7 @@
             "sy": 1,
             "w": 8,
             "h": 12,
-            "fg": true
+            "fg": false
           },
           {
             "file": "live2d_14302_ex_wood_chip_033",
@@ -8776,7 +8776,7 @@
             "sy": 1,
             "w": 16,
             "h": 32,
-            "fg": true
+            "fg": false
           },
           {
             "file": "live2d_14302_ex_wood_chip_034",
@@ -8786,7 +8786,7 @@
             "sy": 1,
             "w": 44,
             "h": 64,
-            "fg": true
+            "fg": false
           },
           {
             "file": "live2d_14302_ex_wood_chip_035",
@@ -8796,7 +8796,7 @@
             "sy": 1,
             "w": 20,
             "h": 16,
-            "fg": true
+            "fg": false
           },
           {
             "file": "live2d_14302_ex_wood_chip_036",
@@ -8806,7 +8806,7 @@
             "sy": 1,
             "w": 24,
             "h": 20,
-            "fg": true
+            "fg": false
           },
           {
             "file": "live2d_14302_ex_wood_chip_037",
@@ -8816,7 +8816,7 @@
             "sy": 1,
             "w": 24,
             "h": 40,
-            "fg": true
+            "fg": false
           },
           {
             "file": "live2d_14302_ex_wood_chip_038",
@@ -8826,7 +8826,7 @@
             "sy": 1,
             "w": 104,
             "h": 120,
-            "fg": true
+            "fg": false
           }
         ]
       }
@@ -9077,7 +9077,7 @@
             "sy": 1,
             "w": 1156,
             "h": 668,
-            "fg": true
+            "fg": false
           },
           {
             "file": "live2d_14402_ex_bg_006",
@@ -9087,7 +9087,7 @@
             "sy": 1,
             "w": 504,
             "h": 1004,
-            "fg": true
+            "fg": false
           },
           {
             "file": "live2d_14402_ex_bg_002",
@@ -9107,7 +9107,7 @@
             "sy": 1,
             "w": 504,
             "h": 364,
-            "fg": true
+            "fg": false
           },
           {
             "file": "live2d_14402_ex_bg_016",
@@ -9133,7 +9133,7 @@
       },
       {
         "name": "14403_l",
-        "label": "Unknown",
+        "label": "When Morning Glories Bloom, Her Eyes Open",
         "path": "chars/14403/14403_l/14403_L_a.model3.json",
         "bg": [
           "chars/14403/14403_l/bg/14403_live2d_bg_001.png"
@@ -9599,7 +9599,7 @@
       },
       {
         "name": "14703_l",
-        "label": "Unknown",
+        "label": "Mellow Bass Echo",
         "path": "chars/14703/14703_l/14703_L.model3.json",
         "bg": [
           "chars/14703/14703_l/bg/live2d_14703_bg_01.png",
@@ -9816,7 +9816,7 @@
             "sy": 1,
             "w": 1220,
             "h": 396,
-            "fg": true
+            "fg": false
           },
           {
             "file": "live2d_14902_ex_fg_001",
@@ -9826,7 +9826,7 @@
             "sy": 1,
             "w": 268,
             "h": 624,
-            "fg": true
+            "fg": false
           },
           {
             "file": "live2d_14902_ex_stone_005",
@@ -9856,7 +9856,7 @@
             "sy": 1,
             "w": 196,
             "h": 176,
-            "fg": true
+            "fg": false
           },
           {
             "file": "live2d_14902_ex_fg_002",
@@ -9866,7 +9866,7 @@
             "sy": 1,
             "w": 176,
             "h": 280,
-            "fg": true
+            "fg": false
           },
           {
             "file": "live2d_14902_ex_fg_003",
@@ -9876,7 +9876,7 @@
             "sy": 1,
             "w": 64,
             "h": 104,
-            "fg": true
+            "fg": false
           },
           {
             "file": "live2d_14902_ex_stone_003",
@@ -9916,7 +9916,7 @@
             "sy": 1,
             "w": 136,
             "h": 220,
-            "fg": true
+            "fg": false
           },
           {
             "file": "live2d_14902_ex_stone_009",
@@ -9926,7 +9926,7 @@
             "sy": 1,
             "w": 84,
             "h": 120,
-            "fg": true
+            "fg": false
           },
           {
             "file": "live2d_14902_ex_stone_010",
@@ -9936,7 +9936,7 @@
             "sy": 1,
             "w": 68,
             "h": 92,
-            "fg": true
+            "fg": false
           },
           {
             "file": "live2d_14902_ex_stone_011",
@@ -9946,7 +9946,7 @@
             "sy": 1,
             "w": 32,
             "h": 32,
-            "fg": true
+            "fg": false
           },
           {
             "file": "live2d_14902_ex_stone_013",
@@ -9956,7 +9956,7 @@
             "sy": 1,
             "w": 52,
             "h": 56,
-            "fg": true
+            "fg": false
           },
           {
             "file": "live2d_14902_ex_stone_014",
@@ -9966,7 +9966,7 @@
             "sy": 1,
             "w": 24,
             "h": 24,
-            "fg": true
+            "fg": false
           },
           {
             "file": "live2d_14902_ex_stone_015",
@@ -9976,7 +9976,7 @@
             "sy": 1,
             "w": 60,
             "h": 80,
-            "fg": true
+            "fg": false
           },
           {
             "file": "live2d_14902_ex_stone_016",
@@ -9986,7 +9986,7 @@
             "sy": 1,
             "w": 68,
             "h": 76,
-            "fg": true
+            "fg": false
           },
           {
             "file": "live2d_14902_ex_stone_017",
@@ -9996,7 +9996,7 @@
             "sy": 1,
             "w": 20,
             "h": 20,
-            "fg": true
+            "fg": false
           },
           {
             "file": "live2d_14902_ex_stone_018",
@@ -10006,7 +10006,7 @@
             "sy": 1,
             "w": 24,
             "h": 20,
-            "fg": true
+            "fg": false
           },
           {
             "file": "live2d_14902_ex_stone_019",
@@ -10016,7 +10016,7 @@
             "sy": 1,
             "w": 44,
             "h": 68,
-            "fg": true
+            "fg": false
           },
           {
             "file": "live2d_14902_ex_stone_020",
@@ -10026,7 +10026,7 @@
             "sy": 1,
             "w": 20,
             "h": 20,
-            "fg": true
+            "fg": false
           },
           {
             "file": "live2d_14902_ex_stone_012",
@@ -10036,7 +10036,7 @@
             "sy": 1,
             "w": 116,
             "h": 164,
-            "fg": true
+            "fg": false
           },
           {
             "file": "live2d_14902_ex_stone_001",
@@ -10046,13 +10046,13 @@
             "sy": 1,
             "w": 132,
             "h": 148,
-            "fg": true
+            "fg": false
           }
         ]
       },
       {
         "name": "14903_l",
-        "label": "Unknown",
+        "label": "Promise Beyond the Thaw",
         "path": "chars/14903/14903_l/14903_L.model3.json",
         "bg": [
           "chars/14903/14903_l/bg/14903_live2d_bg_001.png",
@@ -10102,7 +10102,7 @@
             "sy": 1,
             "w": 252,
             "h": 224,
-            "fg": true
+            "fg": false
           },
           {
             "file": "14903_live2d_leaves_001",
@@ -10122,7 +10122,7 @@
             "sy": 1,
             "w": 520,
             "h": 564,
-            "fg": true
+            "fg": false
           },
           {
             "file": "14903_live2d_bg_002",
@@ -10132,7 +10132,7 @@
             "sy": 1,
             "w": 2048,
             "h": 2048,
-            "fg": true
+            "fg": false
           }
         ]
       }
@@ -10309,7 +10309,7 @@
             "sy": 1,
             "w": 416,
             "h": 180,
-            "fg": true
+            "fg": false
           },
           {
             "file": "15501_live2d_stone_001",
@@ -10319,7 +10319,7 @@
             "sy": 1,
             "w": 188,
             "h": 196,
-            "fg": true
+            "fg": false
           },
           {
             "file": "15501_live2d_stone_002",
@@ -10329,7 +10329,7 @@
             "sy": 1,
             "w": 628,
             "h": 144,
-            "fg": true
+            "fg": false
           },
           {
             "file": "15501_live2d_stone_003",
@@ -10339,7 +10339,7 @@
             "sy": 1,
             "w": 396,
             "h": 280,
-            "fg": true
+            "fg": false
           }
         ]
       },
@@ -10384,7 +10384,7 @@
             "sy": 1,
             "w": 384,
             "h": 260,
-            "fg": true
+            "fg": false
           },
           {
             "file": "live2d_15502_ex_bg_002",
@@ -10454,7 +10454,7 @@
             "sy": 1,
             "w": 212,
             "h": 256,
-            "fg": true
+            "fg": false
           },
           {
             "file": "live2d_15502_ex_bg_012",
@@ -10464,7 +10464,7 @@
             "sy": 1,
             "w": 340,
             "h": 296,
-            "fg": true
+            "fg": false
           },
           {
             "file": "live2d_15502_ex_bg_013",
@@ -10474,7 +10474,7 @@
             "sy": 1,
             "w": 128,
             "h": 108,
-            "fg": true
+            "fg": false
           },
           {
             "file": "live2d_15502_ex_bg_003",
@@ -10564,7 +10564,7 @@
             "sy": 1,
             "w": 564,
             "h": 1700,
-            "fg": true
+            "fg": false
           },
           {
             "file": "15601_live2d_FG_001",
@@ -10574,7 +10574,7 @@
             "sy": 1,
             "w": 436,
             "h": 460,
-            "fg": true
+            "fg": false
           }
         ]
       },
@@ -10610,7 +10610,7 @@
             "sy": 0.86013037,
             "w": 512,
             "h": 128,
-            "fg": true
+            "fg": false
           },
           {
             "file": "fx_live2d_15602_ex_wenli_006",
@@ -10620,7 +10620,7 @@
             "sy": 0.80691415,
             "w": 512,
             "h": 128,
-            "fg": true
+            "fg": false
           },
           {
             "file": "live2d_15602_ex_bg_001",
@@ -10666,7 +10666,7 @@
       },
       {
         "name": "15603_l",
-        "label": "Unknown",
+        "label": "Quirky Tea Party",
         "path": "chars/15603/15603_l/15603_L.model3.json",
         "bg": [
           "chars/15603/15603_l/bg/145603_live2d_bg_01.png",
@@ -10797,7 +10797,7 @@
             "sy": 1,
             "w": 800,
             "h": 796,
-            "fg": true
+            "fg": false
           },
           {
             "file": "15701_live2d_BG_008",
@@ -10974,7 +10974,7 @@
             "sy": 1,
             "w": 344,
             "h": 804,
-            "fg": true
+            "fg": false
           },
           {
             "file": "15702_live2d_bg_10",
@@ -10984,7 +10984,7 @@
             "sy": 1,
             "w": 1256,
             "h": 1336,
-            "fg": true
+            "fg": false
           },
           {
             "file": "15702_live2d_bg_14",
@@ -11014,7 +11014,7 @@
             "sy": 1,
             "w": 292,
             "h": 236,
-            "fg": true
+            "fg": false
           }
         ]
       }
@@ -11022,7 +11022,7 @@
   },
   {
     "id": "15801",
-    "name": "Laru",
+    "name": "Snowish Laru",
     "variants": [
       {
         "name": "15801_l",
@@ -11063,7 +11063,7 @@
             "sy": 1,
             "w": 2400,
             "h": 1700,
-            "fg": true
+            "fg": false
           },
           {
             "file": "15801_live2d_BG_002",
@@ -11083,7 +11083,7 @@
             "sy": 1,
             "w": 112,
             "h": 320,
-            "fg": true
+            "fg": false
           },
           {
             "file": "15801_live2d_leaves_002",
@@ -11093,7 +11093,7 @@
             "sy": 1,
             "w": 536,
             "h": 336,
-            "fg": true
+            "fg": false
           },
           {
             "file": "15801_live2d_leaves_003",
@@ -11103,7 +11103,7 @@
             "sy": 1,
             "w": 192,
             "h": 348,
-            "fg": true
+            "fg": false
           },
           {
             "file": "15801_live2d_leaves_004",
@@ -11113,7 +11113,7 @@
             "sy": 1,
             "w": 368,
             "h": 272,
-            "fg": true
+            "fg": false
           },
           {
             "file": "15801_live2d_leaves_005",
@@ -11123,7 +11123,7 @@
             "sy": 1,
             "w": 1032,
             "h": 348,
-            "fg": true
+            "fg": false
           },
           {
             "file": "15801_live2d_FG_001_a",
@@ -11133,7 +11133,7 @@
             "sy": 1,
             "w": 784,
             "h": 572,
-            "fg": true
+            "fg": false
           },
           {
             "file": "15801_live2d_FG_001_b",
@@ -11143,7 +11143,7 @@
             "sy": 1,
             "w": 796,
             "h": 340,
-            "fg": true
+            "fg": false
           },
           {
             "file": "15801_live2d_FG_001_c",
@@ -11153,7 +11153,7 @@
             "sy": 1,
             "w": 332,
             "h": 880,
-            "fg": true
+            "fg": false
           },
           {
             "file": "15801_live2d_FG_001_d",
@@ -11163,7 +11163,7 @@
             "sy": 1,
             "w": 528,
             "h": 84,
-            "fg": true
+            "fg": false
           },
           {
             "file": "15801_live2d_FG_001_e",
@@ -11173,7 +11173,7 @@
             "sy": 1,
             "w": 408,
             "h": 468,
-            "fg": true
+            "fg": false
           }
         ]
       },
@@ -11240,7 +11240,7 @@
             "sy": 1,
             "w": 1121,
             "h": 635,
-            "fg": true
+            "fg": false
           },
           {
             "file": "live2d_15802_ex_bg_002",
@@ -11268,7 +11268,7 @@
   },
   {
     "id": "15901",
-    "name": "Coronis",
+    "name": "Springseek Coronis",
     "variants": [
       {
         "name": "15901_l",
@@ -11442,7 +11442,7 @@
             "sy": 1,
             "w": 56,
             "h": 56,
-            "fg": true
+            "fg": false
           },
           {
             "file": "15902_live2d_aixin_001",
@@ -11452,7 +11452,7 @@
             "sy": 1,
             "w": 236,
             "h": 220,
-            "fg": true
+            "fg": false
           },
           {
             "file": "15902_live2d_flower_001",
@@ -11470,7 +11470,7 @@
   },
   {
     "id": "16001",
-    "name": "Willow",
+    "name": "Suntide Willow",
     "variants": [
       {
         "name": "16001_l",
@@ -11599,7 +11599,7 @@
             "sy": 1,
             "w": 2400,
             "h": 920,
-            "fg": true
+            "fg": false
           }
         ]
       },
@@ -11694,7 +11694,7 @@
             "sy": 1,
             "w": 528,
             "h": 524,
-            "fg": true
+            "fg": false
           },
           {
             "file": "16002_live2d_paopao_03",
@@ -11704,7 +11704,7 @@
             "sy": 1,
             "w": 176,
             "h": 176,
-            "fg": true
+            "fg": false
           },
           {
             "file": "16002_live2d_paopao_04",
@@ -11714,7 +11714,7 @@
             "sy": 1,
             "w": 268,
             "h": 268,
-            "fg": true
+            "fg": false
           },
           {
             "file": "16002_live2d_paopao_05",
@@ -11724,7 +11724,7 @@
             "sy": 1,
             "w": 392,
             "h": 360,
-            "fg": true
+            "fg": false
           },
           {
             "file": "16002_live2d_paopao_06",
@@ -11734,7 +11734,7 @@
             "sy": 1,
             "w": 176,
             "h": 176,
-            "fg": true
+            "fg": false
           },
           {
             "file": "16002_live2d_paopao_07",
@@ -11744,7 +11744,7 @@
             "sy": 1,
             "w": 92,
             "h": 96,
-            "fg": true
+            "fg": false
           },
           {
             "file": "16002_live2d_paopao_09",
@@ -11754,7 +11754,7 @@
             "sy": 1,
             "w": 236,
             "h": 244,
-            "fg": true
+            "fg": false
           },
           {
             "file": "16002_live2d_paopao_07",
@@ -11764,7 +11764,7 @@
             "sy": 1,
             "w": 92,
             "h": 96,
-            "fg": true
+            "fg": false
           },
           {
             "file": "16002_live2d_leaf_01",
@@ -11792,14 +11792,20 @@
   },
   {
     "id": "813301",
-    "name": "#813",
+    "name": "Nazuka",
     "variants": [
       {
         "name": "813301_l",
         "label": "Unknown",
         "path": "chars/813301/813301_l/813301_L.model3.json",
         "bg": []
-      },
+      }
+    ]
+  },
+  {
+    "id": "813401",
+    "name": "Fuyuka",
+    "variants": [
       {
         "name": "813401_l",
         "label": "Unknown",
@@ -11810,7 +11816,7 @@
   },
   {
     "id": "910201",
-    "name": "#910",
+    "name": "Willow",
     "variants": [
       {
         "name": "910201_l",
@@ -11828,14 +11834,20 @@
   },
   {
     "id": "913101",
-    "name": "#913",
+    "name": "Bloc",
     "variants": [
       {
         "name": "913101_l",
         "label": "Unknown",
         "path": "chars/913101/913101_l/913101_L.model3.json",
         "bg": []
-      },
+      }
+    ]
+  },
+  {
+    "id": "913301",
+    "name": "Portia",
+    "variants": [
       {
         "name": "913301_l",
         "label": "Unknown",
@@ -11846,7 +11858,7 @@
   },
   {
     "id": "915901",
-    "name": "#915",
+    "name": "Horizon",
     "variants": [
       {
         "name": "915901_l",
@@ -11858,7 +11870,7 @@
   },
   {
     "id": "916402",
-    "name": "#916",
+    "name": "Iori",
     "variants": [
       {
         "name": "916402_l",
@@ -11870,7 +11882,7 @@
   },
   {
     "id": "917201",
-    "name": "#917",
+    "name": "Beatrixa",
     "variants": [
       {
         "name": "917201_l",
@@ -11883,7 +11895,13 @@
         "label": "Unknown",
         "path": "chars/917202/917202_l/917202_L.model3.json",
         "bg": []
-      },
+      }
+    ]
+  },
+  {
+    "id": "917301",
+    "name": "Bernina",
+    "variants": [
       {
         "name": "917301_l",
         "label": "Unknown",
@@ -11895,7 +11913,13 @@
         "label": "Unknown",
         "path": "chars/917302/917302_l/917302_L.model3.json",
         "bg": []
-      },
+      }
+    ]
+  },
+  {
+    "id": "917401",
+    "name": "Virigia",
+    "variants": [
       {
         "name": "917401_l",
         "label": "Unknown",
@@ -12079,7 +12103,7 @@
             "sy": 1,
             "w": 2048,
             "h": 1451,
-            "fg": true
+            "fg": false
           },
           {
             "file": "fx_4007_disc_l2d_shuiliu_004",
@@ -12089,7 +12113,7 @@
             "sy": 0.59907496,
             "w": 256,
             "h": 256,
-            "fg": true
+            "fg": false
           },
           {
             "file": "fx_4007_disc_l2d_shuiliu_005",
@@ -12099,7 +12123,7 @@
             "sy": 0.3819762,
             "w": 256,
             "h": 256,
-            "fg": true
+            "fg": false
           },
           {
             "file": "fx_4007_disc_l2d_shuiliu_006",
@@ -12109,7 +12133,7 @@
             "sy": 0.8343888,
             "w": 256,
             "h": 256,
-            "fg": true
+            "fg": false
           },
           {
             "file": "fx_4007_disc_l2d_shuiliu_007",
@@ -12119,7 +12143,7 @@
             "sy": 0.59806013,
             "w": 256,
             "h": 256,
-            "fg": true
+            "fg": false
           },
           {
             "file": "fx_4007_disc_l2d_shuiliu_008",
@@ -12129,7 +12153,7 @@
             "sy": 0.3636,
             "w": 256,
             "h": 256,
-            "fg": true
+            "fg": false
           },
           {
             "file": "fx_4007_disc_l2d_shuiliu_008",
@@ -12139,7 +12163,7 @@
             "sy": 0.28004107,
             "w": 256,
             "h": 256,
-            "fg": true
+            "fg": false
           }
         ]
       }
@@ -12189,7 +12213,7 @@
             "sy": 1,
             "w": 116,
             "h": 252,
-            "fg": true
+            "fg": false
           },
           {
             "file": "4008_disc_l2d_leaves_002",
@@ -12199,7 +12223,7 @@
             "sy": 1,
             "w": 640,
             "h": 452,
-            "fg": true
+            "fg": false
           },
           {
             "file": "4008_disc_l2d_leaves_003",
@@ -12209,7 +12233,7 @@
             "sy": 1,
             "w": 868,
             "h": 212,
-            "fg": true
+            "fg": false
           }
         ]
       }
@@ -12312,7 +12336,7 @@
             "sy": 1,
             "w": 544,
             "h": 516,
-            "fg": true
+            "fg": false
           }
         ]
       }
@@ -12376,7 +12400,7 @@
             "sy": 1,
             "w": 136,
             "h": 148,
-            "fg": true
+            "fg": false
           },
           {
             "file": "4016_disc_l2d_grass_002",
@@ -12386,7 +12410,7 @@
             "sy": 1,
             "w": 468,
             "h": 400,
-            "fg": true
+            "fg": false
           },
           {
             "file": "4016_disc_l2d_grass_003",
@@ -12396,7 +12420,7 @@
             "sy": 1,
             "w": 976,
             "h": 360,
-            "fg": true
+            "fg": false
           },
           {
             "file": "4016_disc_l2d_grass_004",
@@ -12406,7 +12430,7 @@
             "sy": 1,
             "w": 188,
             "h": 128,
-            "fg": true
+            "fg": false
           },
           {
             "file": "4016_disc_l2d_grass_005",
@@ -12416,7 +12440,7 @@
             "sy": 1,
             "w": 488,
             "h": 156,
-            "fg": true
+            "fg": false
           },
           {
             "file": "4016_disc_l2d_grass_011",
@@ -12426,7 +12450,7 @@
             "sy": 1,
             "w": 208,
             "h": 260,
-            "fg": true
+            "fg": false
           },
           {
             "file": "4016_disc_l2d_grass_012",
@@ -12436,7 +12460,7 @@
             "sy": 1,
             "w": 164,
             "h": 180,
-            "fg": true
+            "fg": false
           },
           {
             "file": "4016_disc_l2d_grass_013",
@@ -12446,7 +12470,7 @@
             "sy": 1,
             "w": 204,
             "h": 164,
-            "fg": true
+            "fg": false
           },
           {
             "file": "4016_disc_l2d_grass_014",
@@ -12456,7 +12480,7 @@
             "sy": 1,
             "w": 220,
             "h": 168,
-            "fg": true
+            "fg": false
           },
           {
             "file": "4016_disc_l2d_bg_003",
@@ -12606,7 +12630,7 @@
             "sy": 1,
             "w": 1176,
             "h": 588,
-            "fg": true
+            "fg": false
           }
         ]
       }
@@ -12653,7 +12677,7 @@
             "sy": 1,
             "w": 2400,
             "h": 1700,
-            "fg": true
+            "fg": false
           },
           {
             "file": "4026_disc_l2d_bg_03",
@@ -12663,7 +12687,7 @@
             "sy": 1,
             "w": 638,
             "h": 903,
-            "fg": true
+            "fg": false
           },
           {
             "file": "4026_disc_l2d_bg_04",
@@ -12673,7 +12697,7 @@
             "sy": 1,
             "w": 872,
             "h": 1174,
-            "fg": true
+            "fg": false
           },
           {
             "file": "4026_disc_l2d_bg_11",
@@ -12683,7 +12707,7 @@
             "sy": 1,
             "w": 440,
             "h": 686,
-            "fg": true
+            "fg": false
           },
           {
             "file": "fx_4026_disc_l2d_03",
@@ -12693,7 +12717,7 @@
             "sy": 0.98210895,
             "w": 391,
             "h": 1078,
-            "fg": true
+            "fg": false
           },
           {
             "file": "4026_disc_l2d_bg_05",
@@ -12703,7 +12727,7 @@
             "sy": 1,
             "w": 1099,
             "h": 1700,
-            "fg": true
+            "fg": false
           },
           {
             "file": "fx_4026_disc_l2d_03",
@@ -12713,7 +12737,7 @@
             "sy": 0.84321916,
             "w": 391,
             "h": 1078,
-            "fg": true
+            "fg": false
           },
           {
             "file": "4026_disc_l2d_bg_06",
@@ -12723,7 +12747,7 @@
             "sy": 0.5990749,
             "w": 92,
             "h": 208,
-            "fg": true
+            "fg": false
           },
           {
             "file": "4026_disc_l2d_bg_07",
@@ -12733,7 +12757,7 @@
             "sy": 0.7208668,
             "w": 203,
             "h": 164,
-            "fg": true
+            "fg": false
           },
           {
             "file": "4026_disc_l2d_bg_08",
@@ -12743,7 +12767,7 @@
             "sy": 0.7208668,
             "w": 105,
             "h": 123,
-            "fg": true
+            "fg": false
           },
           {
             "file": "4026_disc_l2d_bg_09",
@@ -12753,7 +12777,7 @@
             "sy": 0.86107534,
             "w": 115,
             "h": 131,
-            "fg": true
+            "fg": false
           },
           {
             "file": "4026_disc_l2d_bg_10",
@@ -12763,7 +12787,7 @@
             "sy": 1,
             "w": 80,
             "h": 72,
-            "fg": false
+            "fg": true
           }
         ]
       }
@@ -12872,7 +12896,7 @@
             "sy": 0.708,
             "w": 884,
             "h": 924,
-            "fg": true
+            "fg": false
           },
           {
             "file": "4027_disc_l2d_fg_05",
@@ -12882,7 +12906,7 @@
             "sy": 1,
             "w": 960,
             "h": 568,
-            "fg": true
+            "fg": false
           },
           {
             "file": "4027_disc_l2d_fg_06",
@@ -12892,7 +12916,7 @@
             "sy": 1,
             "w": 672,
             "h": 432,
-            "fg": true
+            "fg": false
           },
           {
             "file": "4027_disc_l2d_fg_02",
@@ -12902,7 +12926,7 @@
             "sy": 1,
             "w": 2048,
             "h": 719,
-            "fg": true
+            "fg": false
           },
           {
             "file": "4027_disc_l2d_fg_03",
@@ -12912,7 +12936,7 @@
             "sy": 1,
             "w": 840,
             "h": 676,
-            "fg": true
+            "fg": false
           },
           {
             "file": "4027_disc_l2d_fg_04",
@@ -12922,7 +12946,7 @@
             "sy": 1,
             "w": 184,
             "h": 156,
-            "fg": true
+            "fg": false
           },
           {
             "file": "4027_disc_l2d_painting_03",
@@ -12942,7 +12966,7 @@
             "sy": 1,
             "w": 884,
             "h": 924,
-            "fg": true
+            "fg": false
           },
           {
             "file": "4027_disc_l2d_fg_01",
@@ -12952,7 +12976,7 @@
             "sy": 0.61,
             "w": 884,
             "h": 924,
-            "fg": true
+            "fg": false
           },
           {
             "file": "4027_disc_l2d_fg_01",
@@ -12962,7 +12986,7 @@
             "sy": 0.735,
             "w": 884,
             "h": 924,
-            "fg": true
+            "fg": false
           }
         ]
       }
@@ -13025,7 +13049,7 @@
             "sy": 1,
             "w": 2400,
             "h": 1700,
-            "fg": true
+            "fg": false
           }
         ]
       }
@@ -13166,7 +13190,7 @@
             "sy": 1,
             "w": 1052,
             "h": 1700,
-            "fg": true
+            "fg": false
           },
           {
             "file": "4038_disc_main_fg_02",
@@ -13176,7 +13200,7 @@
             "sy": 1,
             "w": 548,
             "h": 296,
-            "fg": true
+            "fg": false
           },
           {
             "file": "4038_disc_main_fg_03",
@@ -13186,7 +13210,7 @@
             "sy": 1,
             "w": 524,
             "h": 388,
-            "fg": true
+            "fg": false
           },
           {
             "file": "4038_disc_main_fg_04",
@@ -13196,7 +13220,7 @@
             "sy": 1,
             "w": 744,
             "h": 596,
-            "fg": true
+            "fg": false
           },
           {
             "file": "4038_disc_main_fg_05",
@@ -13206,7 +13230,7 @@
             "sy": 1,
             "w": 332,
             "h": 800,
-            "fg": true
+            "fg": false
           },
           {
             "file": "4038_disc_main_fg_06",
@@ -13216,7 +13240,7 @@
             "sy": 1,
             "w": 400,
             "h": 292,
-            "fg": true
+            "fg": false
           },
           {
             "file": "4038_disc_main_fg_07",
@@ -13226,7 +13250,7 @@
             "sy": 1,
             "w": 320,
             "h": 364,
-            "fg": true
+            "fg": false
           },
           {
             "file": "4038_disc_main_fg_08",
@@ -13236,7 +13260,7 @@
             "sy": 1,
             "w": 452,
             "h": 372,
-            "fg": true
+            "fg": false
           },
           {
             "file": "4038_disc_main_fg_09",
@@ -13246,7 +13270,7 @@
             "sy": 1,
             "w": 268,
             "h": 280,
-            "fg": true
+            "fg": false
           },
           {
             "file": "4038_disc_main_fg_10",
@@ -13256,7 +13280,7 @@
             "sy": 1,
             "w": 320,
             "h": 916,
-            "fg": true
+            "fg": false
           },
           {
             "file": "4038_disc_main_bg_01",
@@ -13276,7 +13300,7 @@
             "sy": 1,
             "w": 84,
             "h": 80,
-            "fg": true
+            "fg": false
           },
           {
             "file": "4038_disc_main_pao_002",
@@ -13286,7 +13310,7 @@
             "sy": 1,
             "w": 180,
             "h": 160,
-            "fg": true
+            "fg": false
           },
           {
             "file": "4038_disc_main_pao_003",
@@ -13296,7 +13320,7 @@
             "sy": 1,
             "w": 44,
             "h": 36,
-            "fg": true
+            "fg": false
           },
           {
             "file": "4038_disc_main_pao_004",
@@ -13306,7 +13330,7 @@
             "sy": 1,
             "w": 124,
             "h": 108,
-            "fg": true
+            "fg": false
           },
           {
             "file": "4038_disc_main_pao_005",
@@ -13316,7 +13340,7 @@
             "sy": 1,
             "w": 40,
             "h": 32,
-            "fg": true
+            "fg": false
           },
           {
             "file": "4038_disc_main_pao_006",
@@ -13326,7 +13350,7 @@
             "sy": 1,
             "w": 56,
             "h": 56,
-            "fg": true
+            "fg": false
           },
           {
             "file": "4038_disc_main_pao_007",
@@ -13336,7 +13360,7 @@
             "sy": 1,
             "w": 36,
             "h": 24,
-            "fg": true
+            "fg": false
           },
           {
             "file": "4038_disc_main_pao_008",
@@ -13346,7 +13370,7 @@
             "sy": 1,
             "w": 140,
             "h": 92,
-            "fg": true
+            "fg": false
           },
           {
             "file": "4038_disc_main_pao_009",
@@ -13356,7 +13380,7 @@
             "sy": 1,
             "w": 136,
             "h": 164,
-            "fg": true
+            "fg": false
           },
           {
             "file": "4038_disc_main_pao_010",
@@ -13366,7 +13390,7 @@
             "sy": 1,
             "w": 72,
             "h": 76,
-            "fg": true
+            "fg": false
           },
           {
             "file": "4038_disc_main_pao_011",
@@ -13376,7 +13400,7 @@
             "sy": 1,
             "w": 32,
             "h": 32,
-            "fg": true
+            "fg": false
           },
           {
             "file": "4038_disc_main_pao_012",
@@ -13386,7 +13410,7 @@
             "sy": 1,
             "w": 48,
             "h": 48,
-            "fg": true
+            "fg": false
           },
           {
             "file": "4038_disc_main_pao_013",
@@ -13396,7 +13420,7 @@
             "sy": 1,
             "w": 32,
             "h": 24,
-            "fg": true
+            "fg": false
           },
           {
             "file": "4038_disc_main_pao_014",
@@ -13406,7 +13430,7 @@
             "sy": 1,
             "w": 40,
             "h": 36,
-            "fg": true
+            "fg": false
           },
           {
             "file": "4038_disc_main_pao_015",
@@ -13416,7 +13440,7 @@
             "sy": 1,
             "w": 28,
             "h": 24,
-            "fg": true
+            "fg": false
           },
           {
             "file": "4038_disc_main_pao_016",
@@ -13426,7 +13450,7 @@
             "sy": 1,
             "w": 20,
             "h": 16,
-            "fg": true
+            "fg": false
           },
           {
             "file": "4038_disc_main_pao_017",
@@ -13436,7 +13460,7 @@
             "sy": 1,
             "w": 12,
             "h": 12,
-            "fg": true
+            "fg": false
           },
           {
             "file": "4038_disc_main_pao_018",
@@ -13446,7 +13470,7 @@
             "sy": 1,
             "w": 32,
             "h": 36,
-            "fg": true
+            "fg": false
           },
           {
             "file": "4038_disc_main_pao_019",
@@ -13456,7 +13480,7 @@
             "sy": 1,
             "w": 24,
             "h": 24,
-            "fg": true
+            "fg": false
           },
           {
             "file": "4038_disc_main_pao_020",
@@ -13466,7 +13490,7 @@
             "sy": 1,
             "w": 24,
             "h": 24,
-            "fg": true
+            "fg": false
           },
           {
             "file": "4038_disc_main_pao_021",
@@ -13476,7 +13500,7 @@
             "sy": 1,
             "w": 16,
             "h": 16,
-            "fg": true
+            "fg": false
           },
           {
             "file": "4038_disc_main_pao_022",
@@ -13486,7 +13510,7 @@
             "sy": 1,
             "w": 32,
             "h": 24,
-            "fg": true
+            "fg": false
           },
           {
             "file": "4038_disc_main_pao_023",
@@ -13496,7 +13520,7 @@
             "sy": 1,
             "w": 28,
             "h": 20,
-            "fg": true
+            "fg": false
           },
           {
             "file": "4038_disc_main_pao_024",
@@ -13506,7 +13530,7 @@
             "sy": 1,
             "w": 24,
             "h": 28,
-            "fg": true
+            "fg": false
           },
           {
             "file": "4038_disc_main_pao_025",
@@ -13516,7 +13540,7 @@
             "sy": 1,
             "w": 16,
             "h": 16,
-            "fg": true
+            "fg": false
           },
           {
             "file": "4038_disc_main_pao_026",
@@ -13526,7 +13550,7 @@
             "sy": 1,
             "w": 28,
             "h": 36,
-            "fg": true
+            "fg": false
           },
           {
             "file": "4038_disc_main_pao_027",
@@ -13536,7 +13560,7 @@
             "sy": 1,
             "w": 24,
             "h": 24,
-            "fg": true
+            "fg": false
           },
           {
             "file": "4038_disc_main_pao_028",
@@ -13546,7 +13570,7 @@
             "sy": 1,
             "w": 44,
             "h": 36,
-            "fg": true
+            "fg": false
           },
           {
             "file": "4038_disc_main_pao_029",
@@ -13556,7 +13580,7 @@
             "sy": 1,
             "w": 32,
             "h": 28,
-            "fg": true
+            "fg": false
           },
           {
             "file": "4038_disc_main_pao_030",
@@ -13566,7 +13590,7 @@
             "sy": 1,
             "w": 16,
             "h": 12,
-            "fg": true
+            "fg": false
           },
           {
             "file": "4038_disc_main_pao_031",
@@ -13576,7 +13600,7 @@
             "sy": 1,
             "w": 28,
             "h": 28,
-            "fg": true
+            "fg": false
           },
           {
             "file": "4038_disc_main_pao_032",
@@ -13586,7 +13610,7 @@
             "sy": 1,
             "w": 28,
             "h": 24,
-            "fg": true
+            "fg": false
           },
           {
             "file": "4038_disc_main_pao_033",
@@ -13596,7 +13620,7 @@
             "sy": 1,
             "w": 20,
             "h": 32,
-            "fg": true
+            "fg": false
           },
           {
             "file": "4038_disc_main_pao_034",
@@ -13606,7 +13630,7 @@
             "sy": 1,
             "w": 32,
             "h": 28,
-            "fg": true
+            "fg": false
           },
           {
             "file": "4038_disc_main_pao_035",
@@ -13616,7 +13640,7 @@
             "sy": 1,
             "w": 20,
             "h": 28,
-            "fg": true
+            "fg": false
           },
           {
             "file": "4038_disc_main_pao_036",
@@ -13626,7 +13650,7 @@
             "sy": 1,
             "w": 20,
             "h": 24,
-            "fg": true
+            "fg": false
           },
           {
             "file": "4038_disc_main_pao_037",
@@ -13636,7 +13660,7 @@
             "sy": 1,
             "w": 24,
             "h": 20,
-            "fg": true
+            "fg": false
           },
           {
             "file": "4038_disc_main_pao_038",
@@ -13646,7 +13670,7 @@
             "sy": 1,
             "w": 36,
             "h": 44,
-            "fg": true
+            "fg": false
           },
           {
             "file": "4038_disc_main_pao_039",
@@ -13656,7 +13680,7 @@
             "sy": 1,
             "w": 48,
             "h": 76,
-            "fg": true
+            "fg": false
           },
           {
             "file": "4038_disc_main_pao_040",
@@ -13666,7 +13690,7 @@
             "sy": 1,
             "w": 28,
             "h": 36,
-            "fg": true
+            "fg": false
           },
           {
             "file": "4038_disc_main_pao_041",
@@ -13676,7 +13700,7 @@
             "sy": 1,
             "w": 16,
             "h": 16,
-            "fg": true
+            "fg": false
           },
           {
             "file": "4038_disc_main_pao_042",
@@ -13686,7 +13710,7 @@
             "sy": 1,
             "w": 32,
             "h": 32,
-            "fg": true
+            "fg": false
           }
         ]
       }
@@ -13811,7 +13835,7 @@
             "sy": 1,
             "w": 2048,
             "h": 532,
-            "fg": true
+            "fg": false
           }
         ]
       }
@@ -13885,7 +13909,7 @@
             "sy": 1,
             "w": 560,
             "h": 1700,
-            "fg": true
+            "fg": false
           }
         ]
       }
@@ -13956,7 +13980,7 @@
             "sy": 1,
             "w": 198,
             "h": 358,
-            "fg": true
+            "fg": false
           },
           {
             "file": "4051_disc_l2d_bg_03",
@@ -14009,7 +14033,7 @@
             "sy": 1,
             "w": 52,
             "h": 60,
-            "fg": true
+            "fg": false
           },
           {
             "file": "4054_disc_l2d_sugar_002",
@@ -14019,7 +14043,7 @@
             "sy": 1,
             "w": 64,
             "h": 60,
-            "fg": true
+            "fg": false
           },
           {
             "file": "4054_disc_l2d_light_001",
@@ -14029,7 +14053,7 @@
             "sy": 1,
             "w": 820,
             "h": 912,
-            "fg": true
+            "fg": false
           },
           {
             "file": "fx_4054_disc_l2d_paopao_003",
@@ -14039,7 +14063,7 @@
             "sy": 1,
             "w": 161,
             "h": 156,
-            "fg": true
+            "fg": false
           },
           {
             "file": "fx_4054_disc_l2d_paopao_004",
@@ -14049,7 +14073,7 @@
             "sy": 1,
             "w": 99,
             "h": 114,
-            "fg": true
+            "fg": false
           },
           {
             "file": "fx_4054_disc_l2d_paopao_005",
@@ -14059,7 +14083,7 @@
             "sy": 1,
             "w": 40,
             "h": 46,
-            "fg": true
+            "fg": false
           },
           {
             "file": "fx_4054_disc_l2d_paopao_006",
@@ -14069,7 +14093,7 @@
             "sy": 1,
             "w": 22,
             "h": 25,
-            "fg": true
+            "fg": false
           },
           {
             "file": "fx_4054_disc_l2d_paopao_007",
@@ -14079,7 +14103,7 @@
             "sy": 1,
             "w": 34,
             "h": 29,
-            "fg": true
+            "fg": false
           },
           {
             "file": "fx_4054_disc_l2d_paopao_008",
@@ -14089,7 +14113,7 @@
             "sy": 1,
             "w": 19,
             "h": 18,
-            "fg": true
+            "fg": false
           },
           {
             "file": "fx_4054_disc_l2d_paopao_009",
@@ -14099,7 +14123,7 @@
             "sy": 1,
             "w": 42,
             "h": 37,
-            "fg": true
+            "fg": false
           },
           {
             "file": "fx_4054_disc_l2d_paopao_010",
@@ -14109,7 +14133,7 @@
             "sy": 1,
             "w": 14,
             "h": 14,
-            "fg": true
+            "fg": false
           },
           {
             "file": "fx_4054_disc_l2d_paopao_011",
@@ -14119,7 +14143,7 @@
             "sy": 1,
             "w": 42,
             "h": 32,
-            "fg": true
+            "fg": false
           },
           {
             "file": "fx_4054_disc_l2d_paopao_012",
@@ -14129,7 +14153,7 @@
             "sy": 1,
             "w": 30,
             "h": 30,
-            "fg": true
+            "fg": false
           },
           {
             "file": "fx_4054_disc_l2d_paopao_013",
@@ -14139,7 +14163,7 @@
             "sy": 1,
             "w": 63,
             "h": 36,
-            "fg": true
+            "fg": false
           },
           {
             "file": "4054_disc_l2d_bg_001",
@@ -14159,7 +14183,7 @@
             "sy": 1,
             "w": 96,
             "h": 336,
-            "fg": true
+            "fg": false
           },
           {
             "file": "4054_disc_l2d_light_003",
@@ -14169,7 +14193,7 @@
             "sy": 1,
             "w": 792,
             "h": 460,
-            "fg": true
+            "fg": false
           },
           {
             "file": "4054_disc_l2d_fg_001",
@@ -14306,7 +14330,7 @@
             "sy": 1,
             "w": 344,
             "h": 268,
-            "fg": true
+            "fg": false
           },
           {
             "file": "4055_disc_l2d_bg_012",
@@ -14316,7 +14340,7 @@
             "sy": 1,
             "w": 552,
             "h": 456,
-            "fg": true
+            "fg": false
           },
           {
             "file": "4055_disc_l2d_bg_008",
@@ -14326,7 +14350,7 @@
             "sy": 1,
             "w": 572,
             "h": 568,
-            "fg": true
+            "fg": false
           },
           {
             "file": "4055_disc_l2d_bg_009",
@@ -14336,7 +14360,7 @@
             "sy": 1,
             "w": 392,
             "h": 312,
-            "fg": true
+            "fg": false
           },
           {
             "file": "4055_disc_l2d_bg_010",
@@ -14346,7 +14370,7 @@
             "sy": 1,
             "w": 356,
             "h": 340,
-            "fg": true
+            "fg": false
           },
           {
             "file": "4055_disc_l2d_bg_007",
@@ -14436,7 +14460,7 @@
             "sy": 1,
             "w": 2048,
             "h": 297,
-            "fg": true
+            "fg": false
           },
           {
             "file": "4055_disc_l2d_pao_01",
@@ -14446,7 +14470,7 @@
             "sy": 1,
             "w": 84,
             "h": 120,
-            "fg": true
+            "fg": false
           },
           {
             "file": "4055_disc_l2d_pao_02",
@@ -14456,7 +14480,7 @@
             "sy": 1,
             "w": 48,
             "h": 116,
-            "fg": true
+            "fg": false
           },
           {
             "file": "4055_disc_l2d_pao_03",
@@ -14466,7 +14490,7 @@
             "sy": 1,
             "w": 104,
             "h": 236,
-            "fg": true
+            "fg": false
           },
           {
             "file": "4055_disc_l2d_pao_04",
@@ -14476,7 +14500,7 @@
             "sy": 1,
             "w": 28,
             "h": 44,
-            "fg": true
+            "fg": false
           },
           {
             "file": "4055_disc_l2d_pao_05",
@@ -14486,7 +14510,7 @@
             "sy": 1,
             "w": 144,
             "h": 420,
-            "fg": true
+            "fg": false
           },
           {
             "file": "4055_disc_l2d_pao_06",
@@ -14496,7 +14520,7 @@
             "sy": 1,
             "w": 108,
             "h": 284,
-            "fg": true
+            "fg": false
           },
           {
             "file": "4055_disc_l2d_pao_07",
@@ -14506,7 +14530,7 @@
             "sy": 1,
             "w": 320,
             "h": 372,
-            "fg": true
+            "fg": false
           },
           {
             "file": "4055_disc_l2d_pao_08",
@@ -14516,7 +14540,7 @@
             "sy": 1,
             "w": 424,
             "h": 276,
-            "fg": true
+            "fg": false
           },
           {
             "file": "4055_disc_l2d_pao_09",
@@ -14526,7 +14550,7 @@
             "sy": 1,
             "w": 172,
             "h": 168,
-            "fg": true
+            "fg": false
           },
           {
             "file": "4055_disc_l2d_pao_10",
@@ -14536,7 +14560,7 @@
             "sy": 1,
             "w": 28,
             "h": 64,
-            "fg": true
+            "fg": false
           },
           {
             "file": "4055_disc_l2d_pao_11",
@@ -14546,7 +14570,7 @@
             "sy": 1,
             "w": 48,
             "h": 80,
-            "fg": true
+            "fg": false
           }
         ]
       }
