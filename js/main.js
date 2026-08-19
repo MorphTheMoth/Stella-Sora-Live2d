@@ -1,4 +1,4 @@
-import { Application, Container, Sprite, Assets, extensions } from './pixi.min.mjs';
+import { Application, Container, Sprite, Graphics, Assets, extensions } from './pixi.min.mjs';
 import { Live2DModel, Live2DPlugin, configureCubismSDK, CubismFramework } from './cubism.es.js';
 
 extensions.add(Live2DPlugin);
@@ -30,6 +30,7 @@ const state = {
   parallaxItem: null,
   parallaxScene: null,
   parallaxFit: 1,
+  parallaxMask: true,
   // Where the rig canvas (the customized_bg backdrop / camera view) sits on
   // screen.  The character is placed relative to it via its MainView offset,
   // exactly like the game parents the L2D under actor_offset inside the rig.
@@ -375,22 +376,36 @@ async function loadParallax(item) {
   state.parallaxItem = item;
   state.parallaxScene = scene;
 
-  // Fit the mask window (or the whole canvas for discs without one) to the
-  // screen; the mask window is centred on the canvas, so the screen edge
-  // already clips the overlay spill-over exactly like the game's Mask.
+  // Fit the full canvas to the screen (the card art + title fill the canvas;
+  // the mask window only clips the inner parallax layers, so fitting just the
+  // mask would crop the title/frame that overhang it).
   const canvasW = scene.canvasW || 1080;
   const canvasH = scene.canvasH || 1080;
   const mask = scene.mask || null;
-  const fitW = mask ? mask.w : canvasW;
-  const fitH = mask ? mask.h : canvasH;
   const screenW = state.app.renderer.width;
   const screenH = state.app.renderer.height;
-  const fit = Math.min(screenW / fitW, screenH / fitH);
+  const fit = Math.min(screenW / canvasW, screenH / canvasH);
 
   const container = state.parallaxContainer;
   container.position.set(screenW / 2, screenH / 2);
   container.visible = true;
   state.parallaxFit = fit;
+
+  // One shared mask for the clipped overlay layers: a square window centred on
+  // the canvas (the game's Mask component).  Layers with clip:false (title,
+  // frame) render unmasked on top.  In Pixi v8 the mask must be part of the
+  // display tree to render, so it is added to the container (behind everything).
+  const maskGraphic = new Graphics();
+  maskGraphic.eventMode = 'none';
+  if (mask) {
+    maskGraphic.rect(
+      (mask.x - mask.w / 2) * fit,
+      (mask.y - mask.h / 2) * fit,
+      mask.w * fit,
+      mask.h * fit
+    ).fill(0xffffff);
+    container.addChildAt(maskGraphic, 0);
+  }
 
   const loaded = [];
   for (const l of layers) {
@@ -406,6 +421,7 @@ async function loadParallax(item) {
       sprite.scale.set((fit * l.w) / texture.width, (fit * l.h) / texture.height);
       sprite.x = l.x * fit;
       sprite.y = l.y * fit;
+      if (l.clip && mask) sprite.mask = maskGraphic;
       container.addChild(sprite);
       loaded.push({ sprite, baseX: sprite.x, baseY: sprite.y, depth: l.depth || 0 });
     } catch (e) {

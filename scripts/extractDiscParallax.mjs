@@ -307,9 +307,13 @@ function worldTransform(tid, trs) {
   return { x, y, sx, sy };
 }
 
-// Accumulate a RectTransform's anchored position + scale from the canvas root
-// (all anchors are centre (0.5,0.5) in this prefab, so children stack additively).
-function anchoredTransform(tid, trs) {
+// Accumulate a RectTransform's anchored position from the canvas root.  All
+// anchors are centre (0.5,0.5), so children stack additively.  The layers'
+// local `scale` is NOT applied here: it is a gyroscope parallax "depth" scale
+// (e.g. the card backdrop is 5x, the title 0.57x) that the game overrides at
+// runtime so every layer sits at its natural sizeDelta on the card.  Applying
+// it to the layout makes the backgrounds enormous and the watermarks tiny.
+function anchoredPosition(tid, trs) {
   const path = [];
   let cur = tid;
   const seen = new Set();
@@ -319,15 +323,13 @@ function anchoredTransform(tid, trs) {
     const t = trs.get(cur);
     cur = t ? t.father : null;
   }
-  let x = 0, y = 0, sx = 1, sy = 1;
+  let x = 0, y = 0;
   for (const pid of path.reverse()) {
     const t = trs.get(pid);
-    x += t.apx * sx;
-    y += t.apy * sy;
-    sx *= t.sx;
-    sy *= t.sy;
+    x += t.apx;
+    y += t.apy;
   }
-  return { x, y, sx, sy };
+  return { x, y };
 }
 
 // Collect the overlay (UI Image) layers of the <id>_G root, in Unity's render
@@ -357,7 +359,7 @@ function collectOverlay(gos, trs, srs, crs, images, followers, masks) {
     // Only layers that actually draw something: an Image with a real sprite.
     const spriteId = images.get(gid);
     if (active && spriteId) {
-      const at = anchoredTransform(tid, trs);
+      const at = anchoredPosition(tid, trs);
       // Determine whether this node is under a Mask (its ancestors are clipped).
       let underMask = false;
       let cur = t.father;
@@ -374,8 +376,7 @@ function collectOverlay(gos, trs, srs, crs, images, followers, masks) {
         name: go.name,
         z: t.z,
         x: at.x, y: at.y,
-        w: t.sdx * t.sx,
-        h: t.sdy * t.sy,
+        w: t.sdx, h: t.sdy,
         clip: underMask,
         follower: followers.get(gid),
         sprite: spriteId,
