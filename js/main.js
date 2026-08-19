@@ -391,19 +391,28 @@ async function loadParallax(item) {
   container.visible = true;
   state.parallaxFit = fit;
 
-  // One shared mask for the clipped overlay layers: a square window centred on
-  // the canvas (the game's Mask component).  Layers with clip:false (title,
-  // frame) render unmasked on top.  In Pixi v8 the mask must be part of the
-  // display tree to render, so it is added to the container (behind everything).
-  // The mask can be toggled off via the options panel (state.parallaxMask).
+  // One shared mask for the clipped overlay layers: a rounded-rectangle window
+  // centred on the canvas (the game's Mask component).  The mask is nudged 1px
+  // higher and 1px smaller, with 4px of corner rounding, to sit neatly inside
+  // the frame border.  Everything (card backdrop, glints and the watermarks) is
+  // clipped to it, so no layer spills outside the mask — only the frame border
+  // (which draws behind at the back) remains unmasked.  In Pixi v8 the mask must
+  // be part of the display tree to render, so it is added to the container
+  // (behind everything).  The mask can be toggled off via the options panel
+  // (state.parallaxMask).
   const maskGraphic = new Graphics();
   maskGraphic.eventMode = 'none';
   if (mask && state.parallaxMask) {
-    maskGraphic.rect(
-      (mask.x - mask.w / 2) * fit,
-      (mask.y - mask.h / 2) * fit,
-      mask.w * fit,
-      mask.h * fit
+    const corner = 5;
+    const mw = mask.w - 1; // 1px smaller
+    const mh = mask.h - 1;
+    const my = mask.y + 2; // 1px higher
+    maskGraphic.roundRect(
+      (mask.x - mw / 2) * fit,
+      (my - mh / 2) * fit,
+      mw * fit,
+      mh * fit,
+      corner * fit
     ).fill(0xffffff);
     container.addChildAt(maskGraphic, 0);
   }
@@ -422,7 +431,9 @@ async function loadParallax(item) {
       sprite.scale.set((fit * l.w) / texture.width, (fit * l.h) / texture.height);
       sprite.x = l.x * fit;
       sprite.y = l.y * fit;
-      if (l.clip && mask && state.parallaxMask) sprite.mask = maskGraphic;
+      // Every layer sits behind the mask (clipped to the rounded window) except
+      // the frame border, which draws at the back as the card's edge.
+      if (l.file !== 'frame' && mask && state.parallaxMask) sprite.mask = maskGraphic;
       container.addChild(sprite);
       loaded.push({ sprite, baseX: sprite.x, baseY: sprite.y, depth: l.depth || 0 });
     } catch (e) {

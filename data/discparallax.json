@@ -1093,6 +1093,16 @@
     },
     "layers": [
       {
+        "file": "frame",
+        "path": "chars/4001/4001_p/overlays/frame.png",
+        "x": 0,
+        "y": 12,
+        "w": 752,
+        "h": 768,
+        "clip": false,
+        "depth": 1
+      },
+      {
         "file": "gyro_bg",
         "path": "chars/4001/4001_p/overlays/gyro_bg.png",
         "x": 0,
@@ -1183,16 +1193,6 @@
         "depth": 1
       },
       {
-        "file": "frame",
-        "path": "chars/4001/4001_p/overlays/frame.png",
-        "x": 0,
-        "y": 12,
-        "w": 752,
-        "h": 768,
-        "clip": false,
-        "depth": 1
-      },
-      {
         "file": "gyro_8",
         "path": "chars/4001/4001_p/overlays/gyro_8.png",
         "x": 0,
@@ -1243,6 +1243,16 @@
     },
     "layers": [
       {
+        "file": "frame",
+        "path": "chars/4002/4002_p/overlays/frame.png",
+        "x": 0,
+        "y": 12,
+        "w": 752,
+        "h": 768,
+        "clip": false,
+        "depth": 1
+      },
+      {
         "file": "gyro_bg",
         "path": "chars/4002/4002_p/overlays/gyro_bg.png",
         "x": -200,
@@ -1280,16 +1290,6 @@
         "w": 956,
         "h": 608,
         "clip": true,
-        "depth": 1
-      },
-      {
-        "file": "frame",
-        "path": "chars/4002/4002_p/overlays/frame.png",
-        "x": 0,
-        "y": 12,
-        "w": 752,
-        "h": 768,
-        "clip": false,
         "depth": 1
       },
       {
@@ -1342,6 +1342,16 @@
       "ymax": -0.21
     },
     "layers": [
+      {
+        "file": "frame",
+        "path": "chars/4003/4003_p/overlays/frame.png",
+        "x": 0,
+        "y": 12,
+        "w": 752,
+        "h": 768,
+        "clip": false,
+        "depth": 1
+      },
       {
         "file": "gyro_bg",
         "path": "chars/4003/4003_p/overlays/gyro_bg.png",
@@ -1423,16 +1433,6 @@
         "depth": 1
       },
       {
-        "file": "frame",
-        "path": "chars/4003/4003_p/overlays/frame.png",
-        "x": 0,
-        "y": 12,
-        "w": 752,
-        "h": 768,
-        "clip": false,
-        "depth": 1
-      },
-      {
         "file": "gyro_title",
         "path": "chars/4003/4003_p/overlays/gyro_title.png",
         "x": 85,
@@ -1463,6 +1463,16 @@
     },
     "layers": [
       {
+        "file": "frame",
+        "path": "chars/4004/4004_p/overlays/frame.png",
+        "x": 0,
+        "y": 12,
+        "w": 752,
+        "h": 768,
+        "clip": false,
+        "depth": 1
+      },
+      {
         "file": "gyro_bg",
         "path": "chars/4004/4004_p/overlays/gyro_bg.png",
         "x": 0,
@@ -1490,16 +1500,6 @@
         "w": 1004,
         "h": 800,
         "clip": true,
-        "depth": 1
-      },
-      {
-        "file": "frame",
-        "path": "chars/4004/4004_p/overlays/frame.png",
-        "x": 0,
-        "y": 12,
-        "w": 752,
-        "h": 768,
-        "clip": false,
         "depth": 1
       },
       {
@@ -1542,6 +1542,16 @@
       "ymax": -0.21
     },
     "layers": [
+      {
+        "file": "frame",
+        "path": "chars/4005/4005_p/overlays/frame.png",
+        "x": 0,
+        "y": 12,
+        "w": 752,
+        "h": 768,
+        "clip": false,
+        "depth": 1
+      },
       {
         "file": "gyro_bg",
         "path": "chars/4005/4005_p/overlays/gyro_bg.png",
@@ -1603,16 +1613,6 @@
         "depth": 1
       },
       {
-        "file": "frame",
-        "path": "chars/4005/4005_p/overlays/frame.png",
-        "x": 0,
-        "y": 12,
-        "w": 752,
-        "h": 768,
-        "clip": false,
-        "depth": 1
-      },
-      {
         "file": "gyro_title",
         "path": "chars/4005/4005_p/overlays/gyro_title.png",
         "x": 0,
@@ -1652,6 +1652,16 @@
       "ymax": -0.21
     },
     "layers": [
+      {
+        "file": "frame",
+        "path": "chars/4006/4006_p/overlays/frame.png",
+        "x": 0,
+        "y": 12,
+        "w": 752,
+        "h": 768,
+        "clip": false,
+        "depth": 1
+      },
       {
         "file": "gyro_bg",
         "path": "chars/4006/4006_p/overlays/gyro_bg.png",
@@ -1730,16 +1740,6 @@
         "w": 400,
         "h": 640,
         "clip": true,
-        "depth": 1
-      },
-      {
-        "file": "frame",
-        "path": "chars/4006/4006_p/overlays/frame.png",
-        "x": 0,
-        "y": 12,
-        "w": 752,
-        "h": 768,
-        "clip": false,
         "depth": 1
       },
       {
@@ -1832,6 +1832,16 @@
       "ymax": -0.21
     },
     "layers": [
+      {
+        "file": "frame",
+        "path": "chars/4007/4007_p/overlays/frame.png",
+        "x": 0,
+        "y": 12,
+        "w": 752,
+        "h": 768,
+        "clip": false,
+        "depth": 1
+      },
       {
         "file": "gyro_bg",
         "path": "chars/4007/4007_p/overlays/gyro_bg.png",
@@ -1933,16 +1943,6 @@
         "depth": 1
       },
       {
-        "file": "frame",
-        "path": "chars/4007/4007_p/overlays/frame.png",
-        "x": 0,
-        "y": 12,
-        "w": 752,
-        "h": 768,
-        "clip": false,
-        "depth": 1
-      },
-      {
         "file": "gyro_05",
         "path": "chars/4007/4007_p/overlays/gyro_05.png",
         "x": 11,
@@ -2012,6 +2012,16 @@
       "ymax": -0.21
     },
     "layers": [
+      {
+        "file": "frame",
+        "path": "chars/4008/4008_p/overlays/frame.png",
+        "x": 0,
+        "y": 12,
+        "w": 752,
+        "h": 768,
+        "clip": false,
+        "depth": 1
+      },
       {
         "file": "gyro_bg",
         "path": "chars/4008/4008_p/overlays/gyro_bg.png",
@@ -2123,16 +2133,6 @@
         "depth": 1
       },
       {
-        "file": "frame",
-        "path": "chars/4008/4008_p/overlays/frame.png",
-        "x": 0,
-        "y": 12,
-        "w": 752,
-        "h": 768,
-        "clip": false,
-        "depth": 1
-      },
-      {
         "file": "gyro_title02",
         "path": "chars/4008/4008_p/overlays/gyro_title02.png",
         "x": -1,
@@ -2172,6 +2172,16 @@
       "ymax": -0.21
     },
     "layers": [
+      {
+        "file": "frame",
+        "path": "chars/4009/4009_p/overlays/frame.png",
+        "x": 0,
+        "y": 12,
+        "w": 752,
+        "h": 768,
+        "clip": false,
+        "depth": 1
+      },
       {
         "file": "gyro_bg",
         "path": "chars/4009/4009_p/overlays/gyro_bg.png",
@@ -2223,16 +2233,6 @@
         "depth": 1
       },
       {
-        "file": "frame",
-        "path": "chars/4009/4009_p/overlays/frame.png",
-        "x": 0,
-        "y": 12,
-        "w": 752,
-        "h": 768,
-        "clip": false,
-        "depth": 1
-      },
-      {
         "file": "gyro_flower",
         "path": "chars/4009/4009_p/overlays/gyro_flower.png",
         "x": 150,
@@ -2262,6 +2262,16 @@
       "ymax": -0.21
     },
     "layers": [
+      {
+        "file": "frame",
+        "path": "chars/4010/4010_p/overlays/frame.png",
+        "x": 0,
+        "y": 12,
+        "w": 752,
+        "h": 768,
+        "clip": false,
+        "depth": 1
+      },
       {
         "file": "gyro_4010_bg",
         "path": "chars/4010/4010_p/overlays/gyro_4010_bg.png",
@@ -2310,16 +2320,6 @@
         "w": 244,
         "h": 188,
         "clip": true,
-        "depth": 1
-      },
-      {
-        "file": "frame",
-        "path": "chars/4010/4010_p/overlays/frame.png",
-        "x": 0,
-        "y": 12,
-        "w": 752,
-        "h": 768,
-        "clip": false,
         "depth": 1
       },
       {
@@ -2373,6 +2373,16 @@
     },
     "layers": [
       {
+        "file": "frame",
+        "path": "chars/4011/4011_p/overlays/frame.png",
+        "x": 0,
+        "y": 12,
+        "w": 752,
+        "h": 768,
+        "clip": false,
+        "depth": 1
+      },
+      {
         "file": "gyro_bg",
         "path": "chars/4011/4011_p/overlays/gyro_bg.png",
         "x": 0,
@@ -2390,16 +2400,6 @@
         "w": 1076,
         "h": 764,
         "clip": true,
-        "depth": 1
-      },
-      {
-        "file": "frame",
-        "path": "chars/4011/4011_p/overlays/frame.png",
-        "x": 0,
-        "y": 12,
-        "w": 752,
-        "h": 768,
-        "clip": false,
         "depth": 1
       },
       {
@@ -2442,6 +2442,16 @@
       "ymax": -0.21
     },
     "layers": [
+      {
+        "file": "frame",
+        "path": "chars/4012/4012_p/overlays/frame.png",
+        "x": 0,
+        "y": 12,
+        "w": 752,
+        "h": 768,
+        "clip": false,
+        "depth": 1
+      },
       {
         "file": "gyro_4012_a4",
         "path": "chars/4012/4012_p/overlays/gyro_4012_a4.png",
@@ -2523,16 +2533,6 @@
         "depth": 1
       },
       {
-        "file": "frame",
-        "path": "chars/4012/4012_p/overlays/frame.png",
-        "x": 0,
-        "y": 12,
-        "w": 752,
-        "h": 768,
-        "clip": false,
-        "depth": 1
-      },
-      {
         "file": "gyro_title2",
         "path": "chars/4012/4012_p/overlays/gyro_title2.png",
         "x": 263.8,
@@ -2573,6 +2573,16 @@
     },
     "layers": [
       {
+        "file": "frame",
+        "path": "chars/4013/4013_p/overlays/frame.png",
+        "x": 0,
+        "y": 12,
+        "w": 752,
+        "h": 768,
+        "clip": false,
+        "depth": 1
+      },
+      {
         "file": "gyro_4013_bg",
         "path": "chars/4013/4013_p/overlays/gyro_4013_bg.png",
         "x": 0,
@@ -2610,16 +2620,6 @@
         "w": 1076,
         "h": 764,
         "clip": true,
-        "depth": 1
-      },
-      {
-        "file": "frame",
-        "path": "chars/4013/4013_p/overlays/frame.png",
-        "x": 0,
-        "y": 12,
-        "w": 752,
-        "h": 768,
-        "clip": false,
         "depth": 1
       },
       {
@@ -2662,6 +2662,16 @@
       "ymax": -0.21
     },
     "layers": [
+      {
+        "file": "frame",
+        "path": "chars/4014/4014_p/overlays/frame.png",
+        "x": 0,
+        "y": 12,
+        "w": 752,
+        "h": 768,
+        "clip": false,
+        "depth": 1
+      },
       {
         "file": "gyro_4014_tree",
         "path": "chars/4014/4014_p/overlays/gyro_4014_tree.png",
@@ -2723,16 +2733,6 @@
         "depth": 1
       },
       {
-        "file": "frame",
-        "path": "chars/4014/4014_p/overlays/frame.png",
-        "x": 0,
-        "y": 12,
-        "w": 752,
-        "h": 768,
-        "clip": false,
-        "depth": 1
-      },
-      {
         "file": "gyro_4014_title",
         "path": "chars/4014/4014_p/overlays/gyro_4014_title.png",
         "x": -851,
@@ -2762,6 +2762,16 @@
       "ymax": -0.21
     },
     "layers": [
+      {
+        "file": "frame",
+        "path": "chars/4015/4015_p/overlays/frame.png",
+        "x": 0,
+        "y": 12,
+        "w": 752,
+        "h": 768,
+        "clip": false,
+        "depth": 1
+      },
       {
         "file": "gyro_4015_bg",
         "path": "chars/4015/4015_p/overlays/gyro_4015_bg.png",
@@ -2823,16 +2833,6 @@
         "depth": 1
       },
       {
-        "file": "frame",
-        "path": "chars/4015/4015_p/overlays/frame.png",
-        "x": 0,
-        "y": 12,
-        "w": 752,
-        "h": 768,
-        "clip": false,
-        "depth": 1
-      },
-      {
         "file": "gyro_4015_Foreground",
         "path": "chars/4015/4015_p/overlays/gyro_4015_Foreground.png",
         "x": 2,
@@ -2872,6 +2872,16 @@
       "ymax": -0.21
     },
     "layers": [
+      {
+        "file": "frame",
+        "path": "chars/4016/4016_p/overlays/frame.png",
+        "x": 0,
+        "y": 12,
+        "w": 752,
+        "h": 768,
+        "clip": false,
+        "depth": 1
+      },
       {
         "file": "gyro_bg",
         "path": "chars/4016/4016_p/overlays/gyro_bg.png",
@@ -2943,16 +2953,6 @@
         "depth": 1
       },
       {
-        "file": "frame",
-        "path": "chars/4016/4016_p/overlays/frame.png",
-        "x": 0,
-        "y": 12,
-        "w": 752,
-        "h": 768,
-        "clip": false,
-        "depth": 1
-      },
-      {
         "file": "gyro_title",
         "path": "chars/4016/4016_p/overlays/gyro_title.png",
         "x": 156,
@@ -2982,6 +2982,16 @@
       "ymax": -0.21
     },
     "layers": [
+      {
+        "file": "frame",
+        "path": "chars/4017/4017_p/overlays/frame.png",
+        "x": 0,
+        "y": 12,
+        "w": 752,
+        "h": 768,
+        "clip": false,
+        "depth": 1
+      },
       {
         "file": "gyro_bg",
         "path": "chars/4017/4017_p/overlays/gyro_bg.png",
@@ -3063,16 +3073,6 @@
         "depth": 1
       },
       {
-        "file": "frame",
-        "path": "chars/4017/4017_p/overlays/frame.png",
-        "x": 0,
-        "y": 12,
-        "w": 752,
-        "h": 768,
-        "clip": false,
-        "depth": 1
-      },
-      {
         "file": "gyro_title",
         "path": "chars/4017/4017_p/overlays/gyro_title.png",
         "x": 185,
@@ -3102,6 +3102,16 @@
       "ymax": -0.21
     },
     "layers": [
+      {
+        "file": "frame",
+        "path": "chars/4018/4018_p/overlays/frame.png",
+        "x": 0,
+        "y": 12,
+        "w": 752,
+        "h": 768,
+        "clip": false,
+        "depth": 1
+      },
       {
         "file": "gyro_4018_bg",
         "path": "chars/4018/4018_p/overlays/gyro_4018_bg.png",
@@ -3183,16 +3193,6 @@
         "depth": 1
       },
       {
-        "file": "frame",
-        "path": "chars/4018/4018_p/overlays/frame.png",
-        "x": 0,
-        "y": 12,
-        "w": 752,
-        "h": 768,
-        "clip": false,
-        "depth": 1
-      },
-      {
         "file": "gyro_4018_title",
         "path": "chars/4018/4018_p/overlays/gyro_4018_title.png",
         "x": 0,
@@ -3222,6 +3222,16 @@
       "ymax": -0.21
     },
     "layers": [
+      {
+        "file": "frame",
+        "path": "chars/4019/4019_p/overlays/frame.png",
+        "x": 0,
+        "y": 12,
+        "w": 752,
+        "h": 768,
+        "clip": false,
+        "depth": 1
+      },
       {
         "file": "gyro_4019_bg",
         "path": "chars/4019/4019_p/overlays/gyro_4019_bg.png",
@@ -3303,16 +3313,6 @@
         "depth": 1
       },
       {
-        "file": "frame",
-        "path": "chars/4019/4019_p/overlays/frame.png",
-        "x": 0,
-        "y": 12,
-        "w": 752,
-        "h": 768,
-        "clip": false,
-        "depth": 1
-      },
-      {
         "file": "gyro_4019_title1",
         "path": "chars/4019/4019_p/overlays/gyro_4019_title1.png",
         "x": 260,
@@ -3372,6 +3372,16 @@
       "ymax": -0.21
     },
     "layers": [
+      {
+        "file": "frame",
+        "path": "chars/4020/4020_p/overlays/frame.png",
+        "x": 0,
+        "y": 12,
+        "w": 752,
+        "h": 768,
+        "clip": false,
+        "depth": 1
+      },
       {
         "file": "gyro_4020_bg",
         "path": "chars/4020/4020_p/overlays/gyro_4020_bg.png",
@@ -3453,16 +3463,6 @@
         "depth": 1
       },
       {
-        "file": "frame",
-        "path": "chars/4020/4020_p/overlays/frame.png",
-        "x": 0,
-        "y": 12,
-        "w": 752,
-        "h": 768,
-        "clip": false,
-        "depth": 1
-      },
-      {
         "file": "gyro_4020_bg2a",
         "path": "chars/4020/4020_p/overlays/gyro_4020_bg2a.png",
         "x": 87,
@@ -3512,6 +3512,16 @@
       "ymax": -0.21
     },
     "layers": [
+      {
+        "file": "frame",
+        "path": "chars/4021/4021_p/overlays/frame.png",
+        "x": 0,
+        "y": 12,
+        "w": 752,
+        "h": 768,
+        "clip": false,
+        "depth": 1
+      },
       {
         "file": "gyro_4021_bg1",
         "path": "chars/4021/4021_p/overlays/gyro_4021_bg1.png",
@@ -3563,16 +3573,6 @@
         "depth": 1
       },
       {
-        "file": "frame",
-        "path": "chars/4021/4021_p/overlays/frame.png",
-        "x": 0,
-        "y": 12,
-        "w": 752,
-        "h": 768,
-        "clip": false,
-        "depth": 1
-      },
-      {
         "file": "gyro_title01",
         "path": "chars/4021/4021_p/overlays/gyro_title01.png",
         "x": -275,
@@ -3613,6 +3613,16 @@
     },
     "layers": [
       {
+        "file": "frame",
+        "path": "chars/4022/4022_p/overlays/frame.png",
+        "x": 0,
+        "y": 12,
+        "w": 752,
+        "h": 768,
+        "clip": false,
+        "depth": 1
+      },
+      {
         "file": "gyro_4022_bg",
         "path": "chars/4022/4022_p/overlays/gyro_4022_bg.png",
         "x": 0,
@@ -3640,16 +3650,6 @@
         "w": 1004,
         "h": 680,
         "clip": true,
-        "depth": 1
-      },
-      {
-        "file": "frame",
-        "path": "chars/4022/4022_p/overlays/frame.png",
-        "x": 0,
-        "y": 12,
-        "w": 752,
-        "h": 768,
-        "clip": false,
         "depth": 1
       },
       {
@@ -3692,6 +3692,16 @@
       "ymax": -0.21
     },
     "layers": [
+      {
+        "file": "frame",
+        "path": "chars/4023/4023_p/overlays/frame.png",
+        "x": 0,
+        "y": 12,
+        "w": 752,
+        "h": 768,
+        "clip": false,
+        "depth": 1
+      },
       {
         "file": "gyro_4023_Bg",
         "path": "chars/4023/4023_p/overlays/gyro_4023_Bg.png",
@@ -3863,16 +3873,6 @@
         "depth": 1
       },
       {
-        "file": "frame",
-        "path": "chars/4023/4023_p/overlays/frame.png",
-        "x": 0,
-        "y": 12,
-        "w": 752,
-        "h": 768,
-        "clip": false,
-        "depth": 1
-      },
-      {
         "file": "gyro_4023_Skateboard",
         "path": "chars/4023/4023_p/overlays/gyro_4023_Skateboard.png",
         "x": -538,
@@ -3922,6 +3922,16 @@
       "ymax": -0.21
     },
     "layers": [
+      {
+        "file": "frame",
+        "path": "chars/4024/4024_p/overlays/frame.png",
+        "x": 0,
+        "y": 12,
+        "w": 752,
+        "h": 768,
+        "clip": false,
+        "depth": 1
+      },
       {
         "file": "gyro_4024_Bg",
         "path": "chars/4024/4024_p/overlays/gyro_4024_Bg.png",
@@ -3993,16 +4003,6 @@
         "depth": 1
       },
       {
-        "file": "frame",
-        "path": "chars/4024/4024_p/overlays/frame.png",
-        "x": 0,
-        "y": 12,
-        "w": 752,
-        "h": 768,
-        "clip": false,
-        "depth": 1
-      },
-      {
         "file": "gyro_4024_Title_Down",
         "path": "chars/4024/4024_p/overlays/gyro_4024_Title_Down.png",
         "x": 248,
@@ -4043,6 +4043,16 @@
     },
     "layers": [
       {
+        "file": "frame",
+        "path": "chars/4026/4026_p/overlays/frame.png",
+        "x": 0,
+        "y": 10,
+        "w": 752,
+        "h": 768,
+        "clip": false,
+        "depth": 1
+      },
+      {
         "file": "gyro_4026_bg",
         "path": "chars/4026/4026_p/overlays/gyro_4026_bg.png",
         "x": 0,
@@ -4070,16 +4080,6 @@
         "w": 1076,
         "h": 784,
         "clip": true,
-        "depth": 1
-      },
-      {
-        "file": "frame",
-        "path": "chars/4026/4026_p/overlays/frame.png",
-        "x": 0,
-        "y": 10,
-        "w": 752,
-        "h": 768,
-        "clip": false,
         "depth": 1
       },
       {
@@ -4112,6 +4112,16 @@
       "ymax": -0.21
     },
     "layers": [
+      {
+        "file": "frame",
+        "path": "chars/4027/4027_p/overlays/frame.png",
+        "x": 0,
+        "y": 12,
+        "w": 752,
+        "h": 768,
+        "clip": false,
+        "depth": 1
+      },
       {
         "file": "gyro_4027_bg",
         "path": "chars/4027/4027_p/overlays/gyro_4027_bg.png",
@@ -4163,16 +4173,6 @@
         "depth": 1
       },
       {
-        "file": "frame",
-        "path": "chars/4027/4027_p/overlays/frame.png",
-        "x": 0,
-        "y": 12,
-        "w": 752,
-        "h": 768,
-        "clip": false,
-        "depth": 1
-      },
-      {
         "file": "gyro_4027_fg1",
         "path": "chars/4027/4027_p/overlays/gyro_4027_fg1.png",
         "x": 0,
@@ -4212,6 +4212,16 @@
       "ymax": -0.21
     },
     "layers": [
+      {
+        "file": "frame",
+        "path": "chars/4028/4028_p/overlays/frame.png",
+        "x": 0,
+        "y": 12,
+        "w": 752,
+        "h": 768,
+        "clip": false,
+        "depth": 1
+      },
       {
         "file": "gyro_4028_bg",
         "path": "chars/4028/4028_p/overlays/gyro_4028_bg.png",
@@ -4283,16 +4293,6 @@
         "depth": 1
       },
       {
-        "file": "frame",
-        "path": "chars/4028/4028_p/overlays/frame.png",
-        "x": 0,
-        "y": 12,
-        "w": 752,
-        "h": 768,
-        "clip": false,
-        "depth": 1
-      },
-      {
         "file": "gyro_4028_title3",
         "path": "chars/4028/4028_p/overlays/gyro_4028_title3.png",
         "x": 0,
@@ -4322,6 +4322,16 @@
       "ymax": -0.21
     },
     "layers": [
+      {
+        "file": "frame",
+        "path": "chars/4029/4029_p/overlays/frame.png",
+        "x": 0,
+        "y": 10,
+        "w": 752,
+        "h": 768,
+        "clip": false,
+        "depth": 1
+      },
       {
         "file": "gyro_4029_bg",
         "path": "chars/4029/4029_p/overlays/gyro_4029_bg.png",
@@ -4383,16 +4393,6 @@
         "depth": 1
       },
       {
-        "file": "frame",
-        "path": "chars/4029/4029_p/overlays/frame.png",
-        "x": 0,
-        "y": 10,
-        "w": 752,
-        "h": 768,
-        "clip": false,
-        "depth": 1
-      },
-      {
         "file": "gyro_4029_title1",
         "path": "chars/4029/4029_p/overlays/gyro_4029_title1.png",
         "x": 0,
@@ -4433,6 +4433,16 @@
     },
     "layers": [
       {
+        "file": "frame",
+        "path": "chars/4030/4030_p/overlays/frame.png",
+        "x": 0,
+        "y": 12,
+        "w": 752,
+        "h": 768,
+        "clip": false,
+        "depth": 1
+      },
+      {
         "file": "gyro_4030_bg",
         "path": "chars/4030/4030_p/overlays/gyro_4030_bg.png",
         "x": 0,
@@ -4450,16 +4460,6 @@
         "w": 1104,
         "h": 744,
         "clip": true,
-        "depth": 1
-      },
-      {
-        "file": "frame",
-        "path": "chars/4030/4030_p/overlays/frame.png",
-        "x": 0,
-        "y": 12,
-        "w": 752,
-        "h": 768,
-        "clip": false,
         "depth": 1
       },
       {
@@ -4492,6 +4492,16 @@
       "ymax": -0.21
     },
     "layers": [
+      {
+        "file": "frame",
+        "path": "chars/4031/4031_p/overlays/frame.png",
+        "x": 0,
+        "y": 10,
+        "w": 752,
+        "h": 768,
+        "clip": false,
+        "depth": 1
+      },
       {
         "file": "gyro_4031_bg",
         "path": "chars/4031/4031_p/overlays/gyro_4031_bg.png",
@@ -4530,16 +4540,6 @@
         "w": 1140,
         "h": 820,
         "clip": true,
-        "depth": 1
-      },
-      {
-        "file": "frame",
-        "path": "chars/4031/4031_p/overlays/frame.png",
-        "x": 0,
-        "y": 10,
-        "w": 752,
-        "h": 768,
-        "clip": false,
         "depth": 1
       },
       {
@@ -4603,6 +4603,16 @@
     },
     "layers": [
       {
+        "file": "frame",
+        "path": "chars/4032/4032_p/overlays/frame.png",
+        "x": 0,
+        "y": 12,
+        "w": 752,
+        "h": 768,
+        "clip": false,
+        "depth": 1
+      },
+      {
         "file": "gyro_4032_bg",
         "path": "chars/4032/4032_p/overlays/gyro_4032_bg.png",
         "x": 0,
@@ -4620,16 +4630,6 @@
         "w": 1100,
         "h": 780,
         "clip": true,
-        "depth": 1
-      },
-      {
-        "file": "frame",
-        "path": "chars/4032/4032_p/overlays/frame.png",
-        "x": 0,
-        "y": 12,
-        "w": 752,
-        "h": 768,
-        "clip": false,
         "depth": 1
       },
       {
@@ -4672,6 +4672,16 @@
       "ymax": -0.21
     },
     "layers": [
+      {
+        "file": "frame",
+        "path": "chars/4033/4033_p/overlays/frame.png",
+        "x": 0,
+        "y": 10,
+        "w": 752,
+        "h": 768,
+        "clip": false,
+        "depth": 1
+      },
       {
         "file": "gyro_4033_bg",
         "path": "chars/4033/4033_p/overlays/gyro_4033_bg.png",
@@ -4743,16 +4753,6 @@
         "depth": 1
       },
       {
-        "file": "frame",
-        "path": "chars/4033/4033_p/overlays/frame.png",
-        "x": 0,
-        "y": 10,
-        "w": 752,
-        "h": 768,
-        "clip": false,
-        "depth": 1
-      },
-      {
         "file": "gyro_4033_title",
         "path": "chars/4033/4033_p/overlays/gyro_4033_title.png",
         "x": -89.3,
@@ -4782,6 +4782,16 @@
       "ymax": -0.21
     },
     "layers": [
+      {
+        "file": "frame",
+        "path": "chars/4036/4036_p/overlays/frame.png",
+        "x": 0,
+        "y": 12,
+        "w": 752,
+        "h": 768,
+        "clip": false,
+        "depth": 1
+      },
       {
         "file": "gyro_4036_bg",
         "path": "chars/4036/4036_p/overlays/gyro_4036_bg.png",
@@ -4933,16 +4943,6 @@
         "depth": 1
       },
       {
-        "file": "frame",
-        "path": "chars/4036/4036_p/overlays/frame.png",
-        "x": 0,
-        "y": 12,
-        "w": 752,
-        "h": 768,
-        "clip": false,
-        "depth": 1
-      },
-      {
         "file": "gyro_4036_Title_Up",
         "path": "chars/4036/4036_p/overlays/gyro_4036_Title_Up.png",
         "x": 0,
@@ -4982,6 +4982,16 @@
       "ymax": -0.21
     },
     "layers": [
+      {
+        "file": "frame",
+        "path": "chars/4037/4037_p/overlays/frame.png",
+        "x": 0,
+        "y": 12,
+        "w": 752,
+        "h": 768,
+        "clip": false,
+        "depth": 1
+      },
       {
         "file": "gyro_4037_bg",
         "path": "chars/4037/4037_p/overlays/gyro_4037_bg.png",
@@ -5073,16 +5083,6 @@
         "depth": 1
       },
       {
-        "file": "frame",
-        "path": "chars/4037/4037_p/overlays/frame.png",
-        "x": 0,
-        "y": 12,
-        "w": 752,
-        "h": 768,
-        "clip": false,
-        "depth": 1
-      },
-      {
         "file": "gyro_4037_title",
         "path": "chars/4037/4037_p/overlays/gyro_4037_title.png",
         "x": 0,
@@ -5112,6 +5112,16 @@
       "ymax": -0.21
     },
     "layers": [
+      {
+        "file": "frame",
+        "path": "chars/4038/4038_p/overlays/frame.png",
+        "x": 0,
+        "y": 12,
+        "w": 752,
+        "h": 768,
+        "clip": false,
+        "depth": 1
+      },
       {
         "file": "gyro_4038_Bg",
         "path": "chars/4038/4038_p/overlays/gyro_4038_Bg.png",
@@ -5183,16 +5193,6 @@
         "depth": 1
       },
       {
-        "file": "frame",
-        "path": "chars/4038/4038_p/overlays/frame.png",
-        "x": 0,
-        "y": 12,
-        "w": 752,
-        "h": 768,
-        "clip": false,
-        "depth": 1
-      },
-      {
         "file": "gyro_4038_Title",
         "path": "chars/4038/4038_p/overlays/gyro_4038_Title.png",
         "x": -60,
@@ -5222,6 +5222,16 @@
       "ymax": -0.21
     },
     "layers": [
+      {
+        "file": "frame",
+        "path": "chars/4039/4039_p/overlays/frame.png",
+        "x": 0,
+        "y": 12,
+        "w": 752,
+        "h": 768,
+        "clip": false,
+        "depth": 1
+      },
       {
         "file": "gyro_4039_bg",
         "path": "chars/4039/4039_p/overlays/gyro_4039_bg.png",
@@ -5273,16 +5283,6 @@
         "depth": 1
       },
       {
-        "file": "frame",
-        "path": "chars/4039/4039_p/overlays/frame.png",
-        "x": 0,
-        "y": 12,
-        "w": 752,
-        "h": 768,
-        "clip": false,
-        "depth": 1
-      },
-      {
         "file": "gyro_4039_wave",
         "path": "chars/4039/4039_p/overlays/gyro_4039_wave.png",
         "x": 0,
@@ -5322,6 +5322,16 @@
       "ymax": -0.21
     },
     "layers": [
+      {
+        "file": "frame",
+        "path": "chars/4040/4040_p/overlays/frame.png",
+        "x": 0,
+        "y": 12,
+        "w": 752,
+        "h": 768,
+        "clip": false,
+        "depth": 1
+      },
       {
         "file": "gyro_4040_bg",
         "path": "chars/4040/4040_p/overlays/gyro_4040_bg.png",
@@ -5383,16 +5393,6 @@
         "depth": 1
       },
       {
-        "file": "frame",
-        "path": "chars/4040/4040_p/overlays/frame.png",
-        "x": 0,
-        "y": 12,
-        "w": 752,
-        "h": 768,
-        "clip": false,
-        "depth": 1
-      },
-      {
         "file": "gyro_4040_title2",
         "path": "chars/4040/4040_p/overlays/gyro_4040_title2.png",
         "x": -255.5,
@@ -5432,6 +5432,16 @@
       "ymax": -0.21
     },
     "layers": [
+      {
+        "file": "frame",
+        "path": "chars/4041/4041_p/overlays/frame.png",
+        "x": 0,
+        "y": 12,
+        "w": 752,
+        "h": 768,
+        "clip": false,
+        "depth": 1
+      },
       {
         "file": "gyro_4041_sky",
         "path": "chars/4041/4041_p/overlays/gyro_4041_sky.png",
@@ -5513,16 +5523,6 @@
         "depth": 1
       },
       {
-        "file": "frame",
-        "path": "chars/4041/4041_p/overlays/frame.png",
-        "x": 0,
-        "y": 12,
-        "w": 752,
-        "h": 768,
-        "clip": false,
-        "depth": 1
-      },
-      {
         "file": "gyro_4041_sled",
         "path": "chars/4041/4041_p/overlays/gyro_4041_sled.png",
         "x": -205.2,
@@ -5562,6 +5562,16 @@
       "ymax": -0.21
     },
     "layers": [
+      {
+        "file": "frame",
+        "path": "chars/4042/4042_p/overlays/frame.png",
+        "x": 0,
+        "y": 12,
+        "w": 752,
+        "h": 768,
+        "clip": false,
+        "depth": 1
+      },
       {
         "file": "gyro_4042_bg",
         "path": "chars/4042/4042_p/overlays/gyro_4042_bg.png",
@@ -5613,16 +5623,6 @@
         "depth": 1
       },
       {
-        "file": "frame",
-        "path": "chars/4042/4042_p/overlays/frame.png",
-        "x": 0,
-        "y": 12,
-        "w": 752,
-        "h": 768,
-        "clip": false,
-        "depth": 1
-      },
-      {
         "file": "gyro_4042_subtitle",
         "path": "chars/4042/4042_p/overlays/gyro_4042_subtitle.png",
         "x": -261.9,
@@ -5662,6 +5662,16 @@
       "ymax": -0.21
     },
     "layers": [
+      {
+        "file": "frame",
+        "path": "chars/4043/4043_p/overlays/frame.png",
+        "x": 0,
+        "y": 12,
+        "w": 752,
+        "h": 768,
+        "clip": false,
+        "depth": 1
+      },
       {
         "file": "gyro_4043_actor5",
         "path": "chars/4043/4043_p/overlays/gyro_4043_actor5.png",
@@ -5753,16 +5763,6 @@
         "depth": 1
       },
       {
-        "file": "frame",
-        "path": "chars/4043/4043_p/overlays/frame.png",
-        "x": 0,
-        "y": 12,
-        "w": 752,
-        "h": 768,
-        "clip": false,
-        "depth": 1
-      },
-      {
         "file": "gyro_4043_title_frame",
         "path": "chars/4043/4043_p/overlays/gyro_4043_title_frame.png",
         "x": 0.9,
@@ -5802,6 +5802,16 @@
       "ymax": -0.21
     },
     "layers": [
+      {
+        "file": "frame",
+        "path": "chars/4044/4044_p/overlays/frame.png",
+        "x": 0,
+        "y": 12,
+        "w": 752,
+        "h": 768,
+        "clip": false,
+        "depth": 1
+      },
       {
         "file": "gyro_4044_ceiling",
         "path": "chars/4044/4044_p/overlays/gyro_4044_ceiling.png",
@@ -5893,16 +5903,6 @@
         "depth": 1
       },
       {
-        "file": "frame",
-        "path": "chars/4044/4044_p/overlays/frame.png",
-        "x": 0,
-        "y": 12,
-        "w": 752,
-        "h": 768,
-        "clip": false,
-        "depth": 1
-      },
-      {
         "file": "gyro_4044_subtitle",
         "path": "chars/4044/4044_p/overlays/gyro_4044_subtitle.png",
         "x": -205.2,
@@ -5942,6 +5942,16 @@
       "ymax": -0.21
     },
     "layers": [
+      {
+        "file": "frame",
+        "path": "chars/4045/4045_p/overlays/frame.png",
+        "x": 0,
+        "y": 12,
+        "w": 752,
+        "h": 768,
+        "clip": false,
+        "depth": 1
+      },
       {
         "file": "gyro_4045_bg",
         "path": "chars/4045/4045_p/overlays/gyro_4045_bg.png",
@@ -6043,16 +6053,6 @@
         "depth": 1
       },
       {
-        "file": "frame",
-        "path": "chars/4045/4045_p/overlays/frame.png",
-        "x": 0,
-        "y": 12,
-        "w": 752,
-        "h": 768,
-        "clip": false,
-        "depth": 1
-      },
-      {
         "file": "gyro_4045_ephemeral",
         "path": "chars/4045/4045_p/overlays/gyro_4045_ephemeral.png",
         "x": 3.4,
@@ -6113,6 +6113,16 @@
     },
     "layers": [
       {
+        "file": "frame",
+        "path": "chars/4046/4046_p/overlays/frame.png",
+        "x": 0,
+        "y": 12,
+        "w": 752,
+        "h": 768,
+        "clip": false,
+        "depth": 1
+      },
+      {
         "file": "gyro_4046_snow",
         "path": "chars/4046/4046_p/overlays/gyro_4046_snow.png",
         "x": -12.6,
@@ -6130,16 +6140,6 @@
         "w": 1412.41,
         "h": 1000,
         "clip": true,
-        "depth": 1
-      },
-      {
-        "file": "frame",
-        "path": "chars/4046/4046_p/overlays/frame.png",
-        "x": 0,
-        "y": 12,
-        "w": 752,
-        "h": 768,
-        "clip": false,
         "depth": 1
       },
       {
@@ -6192,6 +6192,16 @@
       "ymax": -0.21
     },
     "layers": [
+      {
+        "file": "frame",
+        "path": "chars/4047/4047_p/overlays/frame.png",
+        "x": 0,
+        "y": 12,
+        "w": 752,
+        "h": 768,
+        "clip": false,
+        "depth": 1
+      },
       {
         "file": "gyro_4047_bg",
         "path": "chars/4047/4047_p/overlays/gyro_4047_bg.png",
@@ -6263,16 +6273,6 @@
         "depth": 1
       },
       {
-        "file": "frame",
-        "path": "chars/4047/4047_p/overlays/frame.png",
-        "x": 0,
-        "y": 12,
-        "w": 752,
-        "h": 768,
-        "clip": false,
-        "depth": 1
-      },
-      {
         "file": "gyro_4047_righttitle",
         "path": "chars/4047/4047_p/overlays/gyro_4047_righttitle.png",
         "x": 226.9,
@@ -6322,6 +6322,16 @@
       "ymax": -0.21
     },
     "layers": [
+      {
+        "file": "frame",
+        "path": "chars/4048/4048_p/overlays/frame.png",
+        "x": 0,
+        "y": 12,
+        "w": 752,
+        "h": 768,
+        "clip": false,
+        "depth": 1
+      },
       {
         "file": "gyro_4048_bg",
         "path": "chars/4048/4048_p/overlays/gyro_4048_bg.png",
@@ -6503,16 +6513,6 @@
         "depth": 1
       },
       {
-        "file": "frame",
-        "path": "chars/4048/4048_p/overlays/frame.png",
-        "x": 0,
-        "y": 12,
-        "w": 752,
-        "h": 768,
-        "clip": false,
-        "depth": 1
-      },
-      {
         "file": "gyro_4048_subtitle",
         "path": "chars/4048/4048_p/overlays/gyro_4048_subtitle.png",
         "x": -161,
@@ -6552,6 +6552,16 @@
       "ymax": -0.21
     },
     "layers": [
+      {
+        "file": "frame",
+        "path": "chars/4049/4049_p/overlays/frame.png",
+        "x": 0,
+        "y": 12,
+        "w": 752,
+        "h": 768,
+        "clip": false,
+        "depth": 1
+      },
       {
         "file": "gyro_4049_bg",
         "path": "chars/4049/4049_p/overlays/gyro_4049_bg.png",
@@ -6733,16 +6743,6 @@
         "depth": 1
       },
       {
-        "file": "frame",
-        "path": "chars/4049/4049_p/overlays/frame.png",
-        "x": 0,
-        "y": 12,
-        "w": 752,
-        "h": 768,
-        "clip": false,
-        "depth": 1
-      },
-      {
         "file": "gyro_4049_sub",
         "path": "chars/4049/4049_p/overlays/gyro_4049_sub.png",
         "x": -235.6,
@@ -6782,6 +6782,16 @@
       "ymax": -0.21
     },
     "layers": [
+      {
+        "file": "frame",
+        "path": "chars/4050/4050_p/overlays/frame.png",
+        "x": 0,
+        "y": 12,
+        "w": 752,
+        "h": 768,
+        "clip": false,
+        "depth": 1
+      },
       {
         "file": "gyro_4050_bg",
         "path": "chars/4050/4050_p/overlays/gyro_4050_bg.png",
@@ -6963,16 +6973,6 @@
         "depth": 1
       },
       {
-        "file": "frame",
-        "path": "chars/4050/4050_p/overlays/frame.png",
-        "x": 0,
-        "y": 12,
-        "w": 752,
-        "h": 768,
-        "clip": false,
-        "depth": 1
-      },
-      {
         "file": "gyro_4050_sub",
         "path": "chars/4050/4050_p/overlays/gyro_4050_sub.png",
         "x": 256.6,
@@ -7012,6 +7012,16 @@
       "ymax": -0.21
     },
     "layers": [
+      {
+        "file": "frame",
+        "path": "chars/4051/4051_p/overlays/frame.png",
+        "x": 0,
+        "y": 12,
+        "w": 752,
+        "h": 768,
+        "clip": false,
+        "depth": 1
+      },
       {
         "file": "gyro_4051_bg",
         "path": "chars/4051/4051_p/overlays/gyro_4051_bg.png",
@@ -7113,16 +7123,6 @@
         "depth": 1
       },
       {
-        "file": "frame",
-        "path": "chars/4051/4051_p/overlays/frame.png",
-        "x": 0,
-        "y": 12,
-        "w": 752,
-        "h": 768,
-        "clip": false,
-        "depth": 1
-      },
-      {
         "file": "gyro_4051_sub",
         "path": "chars/4051/4051_p/overlays/gyro_4051_sub.png",
         "x": -213.2,
@@ -7162,6 +7162,16 @@
       "ymax": -0.21
     },
     "layers": [
+      {
+        "file": "frame",
+        "path": "chars/4052/4052_p/overlays/frame.png",
+        "x": 0,
+        "y": 12,
+        "w": 752,
+        "h": 768,
+        "clip": false,
+        "depth": 1
+      },
       {
         "file": "gyro_4052_sky",
         "path": "chars/4052/4052_p/overlays/gyro_4052_sky.png",
@@ -7373,16 +7383,6 @@
         "depth": 1
       },
       {
-        "file": "frame",
-        "path": "chars/4052/4052_p/overlays/frame.png",
-        "x": 0,
-        "y": 12,
-        "w": 752,
-        "h": 768,
-        "clip": false,
-        "depth": 1
-      },
-      {
         "file": "gyro_4052_sub",
         "path": "chars/4052/4052_p/overlays/gyro_4052_sub.png",
         "x": -214.46,
@@ -7423,6 +7423,16 @@
     },
     "layers": [
       {
+        "file": "frame",
+        "path": "chars/4053/4053_p/overlays/frame.png",
+        "x": 0,
+        "y": 12,
+        "w": 752,
+        "h": 768,
+        "clip": false,
+        "depth": 1
+      },
+      {
         "file": "gyro_4053_bg",
         "path": "chars/4053/4053_p/overlays/gyro_4053_bg.png",
         "x": -31.2,
@@ -7440,16 +7450,6 @@
         "w": 660,
         "h": 780,
         "clip": true,
-        "depth": 1
-      },
-      {
-        "file": "frame",
-        "path": "chars/4053/4053_p/overlays/frame.png",
-        "x": 0,
-        "y": 12,
-        "w": 752,
-        "h": 768,
-        "clip": false,
         "depth": 1
       },
       {
@@ -7502,6 +7502,16 @@
       "ymax": -0.21
     },
     "layers": [
+      {
+        "file": "frame",
+        "path": "chars/4054/4054_p/overlays/frame.png",
+        "x": 0,
+        "y": 12,
+        "w": 752,
+        "h": 768,
+        "clip": false,
+        "depth": 1
+      },
       {
         "file": "gyro_4054_bg",
         "path": "chars/4054/4054_p/overlays/gyro_4054_bg.png",
@@ -7623,16 +7633,6 @@
         "depth": 1
       },
       {
-        "file": "frame",
-        "path": "chars/4054/4054_p/overlays/frame.png",
-        "x": 0,
-        "y": 12,
-        "w": 752,
-        "h": 768,
-        "clip": false,
-        "depth": 1
-      },
-      {
         "file": "gyro_4054_round",
         "path": "chars/4054/4054_p/overlays/gyro_4054_round.png",
         "x": 24.4,
@@ -7702,6 +7702,16 @@
       "ymax": -0.21
     },
     "layers": [
+      {
+        "file": "frame",
+        "path": "chars/4055/4055_p/overlays/frame.png",
+        "x": 0,
+        "y": 12,
+        "w": 752,
+        "h": 768,
+        "clip": false,
+        "depth": 1
+      },
       {
         "file": "gyro_4055_bg",
         "path": "chars/4055/4055_p/overlays/gyro_4055_bg.png",
@@ -7793,16 +7803,6 @@
         "depth": 1
       },
       {
-        "file": "frame",
-        "path": "chars/4055/4055_p/overlays/frame.png",
-        "x": 0,
-        "y": 12,
-        "w": 752,
-        "h": 768,
-        "clip": false,
-        "depth": 1
-      },
-      {
         "file": "gyro_4055_title",
         "path": "chars/4055/4055_p/overlays/gyro_4055_title.png",
         "x": -104.6,
@@ -7852,6 +7852,16 @@
       "ymax": -0.21
     },
     "layers": [
+      {
+        "file": "frame",
+        "path": "chars/4056/4056_p/overlays/frame.png",
+        "x": 0,
+        "y": 12,
+        "w": 752,
+        "h": 768,
+        "clip": false,
+        "depth": 1
+      },
       {
         "file": "gyro_4056_bg",
         "path": "chars/4056/4056_p/overlays/gyro_4056_bg.png",
@@ -7910,16 +7920,6 @@
         "w": 500,
         "h": 928,
         "clip": true,
-        "depth": 1
-      },
-      {
-        "file": "frame",
-        "path": "chars/4056/4056_p/overlays/frame.png",
-        "x": 0,
-        "y": 12,
-        "w": 752,
-        "h": 768,
-        "clip": false,
         "depth": 1
       },
       {

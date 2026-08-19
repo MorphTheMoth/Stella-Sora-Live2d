@@ -276,6 +276,10 @@ function parseBehaviours(imgDir) {
 const CANVAS = 1080;
 const PX_PER_WORLD = CANVAS / (2 * 100 * Math.tan(Math.PI / 6)); // 9.3528
 
+// The disc card's outer border ("frame") is a shared sprite in the disc_common
+// bundle; this is its constant pathID across all discs.
+const FRAME_SPRITE_ID = '-8539956293099782948';
+
 // Map a world position/size to canvas pixels (y-up world -> y-down canvas).
 function worldToCanvas(wx, wy, ww, wh) {
   return {
@@ -408,6 +412,10 @@ function collectOverlay(gos, trs, srs, crs, images, followers, masks) {
 
   // Sort back-to-front: higher z = farther from the camera = drawn first.
   layers.sort((a, b) => (b.z - a.z) || 0);
+  // The frame (card border) is drawn at the very back (unmasked) so the card
+  // content drawn on top covers its opaque centre, leaving only its outer ring.
+  const frameIdx = layers.findIndex((l) => l.sprite === FRAME_SPRITE_ID);
+  if (frameIdx > 0) layers.unshift(layers.splice(frameIdx, 1)[0]);
   return layers;
 }
 
@@ -435,7 +443,6 @@ function main() {
   // disc_common bundle, so its sprite never appears in a disc's own sprite dump
   // (AssetStudio drops the name-colliding "frame" sprite there).  Recover it
   // from the shared frame.png so it can be added back to every disc's overlay.
-  const FRAME_SPRITE_ID = '-8539956293099782948';
   const framePng = listFiles(frameDir).find((f) => f.split(/[\\/]/).pop() === 'frame.png');
 
   const bundles = fs.existsSync(dumpDir) ? fs.readdirSync(dumpDir) : [];
@@ -472,7 +479,12 @@ function main() {
           y: Math.round(-l.y * 100) / 100,
           w: Math.round(l.w * 100) / 100,
           h: Math.round(l.h * 100) / 100,
-          clip: l.clip,
+          // The frame is the card's outer border: a fully-opaque 752x768 image
+          // slightly larger than the mask window.  It is placed at the BACK of
+          // the stack (unmasked) so the opaque card content drawn on top covers
+          // its centre, leaving only the outer ring (the border around the card)
+          // visible.  It is re-ordered to the back after the z-sort below.
+          clip: false,
           depth: 1,
         });
         continue;
