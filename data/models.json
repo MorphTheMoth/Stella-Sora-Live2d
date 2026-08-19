@@ -11935,8 +11935,7904 @@
     ]
   },
   {
+    "id": "1001",
+    "name": "Crisp Morning",
+    "kind": "parallax",
+    "parallax": {
+      "canvasW": 1080,
+      "canvasH": 1080,
+      "mask": null,
+      "parallax": {
+        "ax": 5,
+        "ay": -25,
+        "xmin": -0.99,
+        "xmax": 0.99,
+        "ymin": -0.99,
+        "ymax": -0.21
+      },
+      "layers": [
+        {
+          "file": "1001_B",
+          "path": "chars/1001/1001_p/overlays/1001_B.png",
+          "x": 0,
+          "y": 0,
+          "w": 1080,
+          "h": 1080,
+          "clip": false,
+          "depth": 0
+        }
+      ]
+    }
+  },
+  {
+    "id": "1002",
+    "name": "Sunny Breeze",
+    "kind": "parallax",
+    "parallax": {
+      "canvasW": 1080,
+      "canvasH": 1080,
+      "mask": null,
+      "parallax": {
+        "ax": 5,
+        "ay": -25,
+        "xmin": -0.99,
+        "xmax": 0.99,
+        "ymin": -0.99,
+        "ymax": -0.21
+      },
+      "layers": [
+        {
+          "file": "1002_B",
+          "path": "chars/1002/1002_p/overlays/1002_B.png",
+          "x": 0,
+          "y": 0,
+          "w": 1080,
+          "h": 1080,
+          "clip": false,
+          "depth": 0
+        }
+      ]
+    }
+  },
+  {
+    "id": "1003",
+    "name": "Indigo Sunset",
+    "kind": "parallax",
+    "parallax": {
+      "canvasW": 1080,
+      "canvasH": 1080,
+      "mask": null,
+      "parallax": {
+        "ax": 5,
+        "ay": -25,
+        "xmin": -0.99,
+        "xmax": 0.99,
+        "ymin": -0.99,
+        "ymax": -0.21
+      },
+      "layers": [
+        {
+          "file": "1003_B",
+          "path": "chars/1003/1003_p/overlays/1003_B.png",
+          "x": 0,
+          "y": 0,
+          "w": 1080,
+          "h": 1080,
+          "clip": false,
+          "depth": 0
+        }
+      ]
+    }
+  },
+  {
+    "id": "1004",
+    "name": "Pink Dream",
+    "kind": "parallax",
+    "parallax": {
+      "canvasW": 1080,
+      "canvasH": 1080,
+      "mask": null,
+      "parallax": {
+        "ax": 5,
+        "ay": -25,
+        "xmin": -0.99,
+        "xmax": 0.99,
+        "ymin": -0.99,
+        "ymax": -0.21
+      },
+      "layers": [
+        {
+          "file": "1004_B",
+          "path": "chars/1004/1004_p/overlays/1004_B.png",
+          "x": 0,
+          "y": 0,
+          "w": 1080,
+          "h": 1080,
+          "clip": false,
+          "depth": 0
+        }
+      ]
+    }
+  },
+  {
+    "id": "1005",
+    "name": "Lonely Dunes",
+    "kind": "parallax",
+    "parallax": {
+      "canvasW": 1080,
+      "canvasH": 1080,
+      "mask": null,
+      "parallax": {
+        "ax": 5,
+        "ay": -25,
+        "xmin": -0.99,
+        "xmax": 0.99,
+        "ymin": -0.99,
+        "ymax": -0.21
+      },
+      "layers": [
+        {
+          "file": "1005_B",
+          "path": "chars/1005/1005_p/overlays/1005_B.png",
+          "x": 0,
+          "y": 0,
+          "w": 1080,
+          "h": 1080,
+          "clip": false,
+          "depth": 0
+        }
+      ]
+    }
+  },
+  {
+    "id": "1006",
+    "name": "Sweet Creek",
+    "kind": "parallax",
+    "parallax": {
+      "canvasW": 1080,
+      "canvasH": 1080,
+      "mask": null,
+      "parallax": {
+        "ax": 5,
+        "ay": -25,
+        "xmin": -0.99,
+        "xmax": 0.99,
+        "ymin": -0.99,
+        "ymax": -0.21
+      },
+      "layers": [
+        {
+          "file": "1006_B",
+          "path": "chars/1006/1006_p/overlays/1006_B.png",
+          "x": 0,
+          "y": 0,
+          "w": 1080,
+          "h": 1080,
+          "clip": false,
+          "depth": 0
+        }
+      ]
+    }
+  },
+  {
+    "id": "1007",
+    "name": "Starlit Hope",
+    "kind": "parallax",
+    "parallax": {
+      "canvasW": 1080,
+      "canvasH": 1080,
+      "mask": null,
+      "parallax": {
+        "ax": 5,
+        "ay": -25,
+        "xmin": -0.99,
+        "xmax": 0.99,
+        "ymin": -0.99,
+        "ymax": -0.21
+      },
+      "layers": [
+        {
+          "file": "1007_B",
+          "path": "chars/1007/1007_p/overlays/1007_B.png",
+          "x": 0,
+          "y": 0,
+          "w": 1080,
+          "h": 1080,
+          "clip": false,
+          "depth": 0
+        }
+      ]
+    }
+  },
+  {
+    "id": "1008",
+    "name": "Homeward Path",
+    "kind": "parallax",
+    "parallax": {
+      "canvasW": 1080,
+      "canvasH": 1080,
+      "mask": null,
+      "parallax": {
+        "ax": 5,
+        "ay": -25,
+        "xmin": -0.99,
+        "xmax": 0.99,
+        "ymin": -0.99,
+        "ymax": -0.21
+      },
+      "layers": [
+        {
+          "file": "1008_B",
+          "path": "chars/1008/1008_p/overlays/1008_B.png",
+          "x": 0,
+          "y": 0,
+          "w": 1080,
+          "h": 1080,
+          "clip": false,
+          "depth": 0
+        }
+      ]
+    }
+  },
+  {
+    "id": "2001",
+    "name": "Grand Feast",
+    "kind": "parallax",
+    "parallax": {
+      "canvasW": 1080,
+      "canvasH": 1080,
+      "mask": null,
+      "parallax": {
+        "ax": 5,
+        "ay": -25,
+        "xmin": -0.99,
+        "xmax": 0.99,
+        "ymin": -0.99,
+        "ymax": -0.21
+      },
+      "layers": [
+        {
+          "file": "2001_B",
+          "path": "chars/2001/2001_p/overlays/2001_B.png",
+          "x": 0,
+          "y": 0,
+          "w": 1080,
+          "h": 1080,
+          "clip": false,
+          "depth": 0
+        }
+      ]
+    }
+  },
+  {
+    "id": "2002",
+    "name": "Whoopla",
+    "kind": "parallax",
+    "parallax": {
+      "canvasW": 1080,
+      "canvasH": 1080,
+      "mask": null,
+      "parallax": {
+        "ax": 5,
+        "ay": -25,
+        "xmin": -0.99,
+        "xmax": 0.99,
+        "ymin": -0.99,
+        "ymax": -0.21
+      },
+      "layers": [
+        {
+          "file": "2002_B",
+          "path": "chars/2002/2002_p/overlays/2002_B.png",
+          "x": 0,
+          "y": 0,
+          "w": 1080,
+          "h": 1080,
+          "clip": false,
+          "depth": 0
+        }
+      ]
+    }
+  },
+  {
+    "id": "2003",
+    "name": "Elysium",
+    "kind": "parallax",
+    "parallax": {
+      "canvasW": 1080,
+      "canvasH": 1080,
+      "mask": null,
+      "parallax": {
+        "ax": 5,
+        "ay": -25,
+        "xmin": -0.99,
+        "xmax": 0.99,
+        "ymin": -0.99,
+        "ymax": -0.21
+      },
+      "layers": [
+        {
+          "file": "2003_B",
+          "path": "chars/2003/2003_p/overlays/2003_B.png",
+          "x": 0,
+          "y": 0,
+          "w": 1080,
+          "h": 1080,
+          "clip": false,
+          "depth": 0
+        }
+      ]
+    }
+  },
+  {
+    "id": "2005",
+    "name": "Flare Frenzy",
+    "kind": "parallax",
+    "parallax": {
+      "canvasW": 1080,
+      "canvasH": 1080,
+      "mask": null,
+      "parallax": {
+        "ax": 5,
+        "ay": -25,
+        "xmin": -0.99,
+        "xmax": 0.99,
+        "ymin": -0.99,
+        "ymax": -0.21
+      },
+      "layers": [
+        {
+          "file": "2005_B",
+          "path": "chars/2005/2005_p/overlays/2005_B.png",
+          "x": 0,
+          "y": 0,
+          "w": 1080,
+          "h": 1080,
+          "clip": false,
+          "depth": 0
+        }
+      ]
+    }
+  },
+  {
+    "id": "2006",
+    "name": "Auspicious Glow",
+    "kind": "parallax",
+    "parallax": {
+      "canvasW": 1080,
+      "canvasH": 1080,
+      "mask": null,
+      "parallax": {
+        "ax": 5,
+        "ay": -25,
+        "xmin": -0.99,
+        "xmax": 0.99,
+        "ymin": -0.99,
+        "ymax": -0.21
+      },
+      "layers": [
+        {
+          "file": "2006_B",
+          "path": "chars/2006/2006_p/overlays/2006_B.png",
+          "x": 0,
+          "y": 0,
+          "w": 1080,
+          "h": 1080,
+          "clip": false,
+          "depth": 0
+        }
+      ]
+    }
+  },
+  {
+    "id": "2007",
+    "name": "Brave the Wind",
+    "kind": "parallax",
+    "parallax": {
+      "canvasW": 1080,
+      "canvasH": 1080,
+      "mask": null,
+      "parallax": {
+        "ax": 5,
+        "ay": -25,
+        "xmin": -0.99,
+        "xmax": 0.99,
+        "ymin": -0.99,
+        "ymax": -0.21
+      },
+      "layers": [
+        {
+          "file": "2007_B",
+          "path": "chars/2007/2007_p/overlays/2007_B.png",
+          "x": 0,
+          "y": 0,
+          "w": 1080,
+          "h": 1080,
+          "clip": false,
+          "depth": 0
+        }
+      ]
+    }
+  },
+  {
+    "id": "2008",
+    "name": "Bubbles",
+    "kind": "parallax",
+    "parallax": {
+      "canvasW": 1080,
+      "canvasH": 1080,
+      "mask": null,
+      "parallax": {
+        "ax": 5,
+        "ay": -25,
+        "xmin": -0.99,
+        "xmax": 0.99,
+        "ymin": -0.99,
+        "ymax": -0.21
+      },
+      "layers": [
+        {
+          "file": "2008_B",
+          "path": "chars/2008/2008_p/overlays/2008_B.png",
+          "x": 0,
+          "y": 0,
+          "w": 1080,
+          "h": 1080,
+          "clip": false,
+          "depth": 0
+        }
+      ]
+    }
+  },
+  {
+    "id": "2009",
+    "name": "Eclipse",
+    "kind": "parallax",
+    "parallax": {
+      "canvasW": 1080,
+      "canvasH": 1080,
+      "mask": null,
+      "parallax": {
+        "ax": 5,
+        "ay": -25,
+        "xmin": -0.99,
+        "xmax": 0.99,
+        "ymin": -0.99,
+        "ymax": -0.21
+      },
+      "layers": [
+        {
+          "file": "2009_B",
+          "path": "chars/2009/2009_p/overlays/2009_B.png",
+          "x": 0,
+          "y": 0,
+          "w": 1080,
+          "h": 1080,
+          "clip": false,
+          "depth": 0
+        }
+      ]
+    }
+  },
+  {
+    "id": "2010",
+    "name": "Fortitude",
+    "kind": "parallax",
+    "parallax": {
+      "canvasW": 1080,
+      "canvasH": 1080,
+      "mask": null,
+      "parallax": {
+        "ax": 5,
+        "ay": -25,
+        "xmin": -0.99,
+        "xmax": 0.99,
+        "ymin": -0.99,
+        "ymax": -0.21
+      },
+      "layers": [
+        {
+          "file": "2010_B",
+          "path": "chars/2010/2010_p/overlays/2010_B.png",
+          "x": 0,
+          "y": 0,
+          "w": 1080,
+          "h": 1080,
+          "clip": false,
+          "depth": 0
+        }
+      ]
+    }
+  },
+  {
+    "id": "3001",
+    "name": "Zesty Curiosity",
+    "kind": "parallax",
+    "parallax": {
+      "canvasW": 1080,
+      "canvasH": 1080,
+      "mask": null,
+      "parallax": {
+        "ax": 5,
+        "ay": -25,
+        "xmin": -0.99,
+        "xmax": 0.99,
+        "ymin": -0.99,
+        "ymax": -0.21
+      },
+      "layers": [
+        {
+          "file": "3001_B",
+          "path": "chars/3001/3001_p/overlays/3001_B.png",
+          "x": 0,
+          "y": 0,
+          "w": 1080,
+          "h": 1080,
+          "clip": false,
+          "depth": 0
+        }
+      ]
+    }
+  },
+  {
+    "id": "3002",
+    "name": "Seasonal Waves",
+    "kind": "parallax",
+    "parallax": {
+      "canvasW": 1080,
+      "canvasH": 1080,
+      "mask": null,
+      "parallax": {
+        "ax": 5,
+        "ay": -25,
+        "xmin": -0.99,
+        "xmax": 0.99,
+        "ymin": -0.99,
+        "ymax": -0.21
+      },
+      "layers": [
+        {
+          "file": "3002_B",
+          "path": "chars/3002/3002_p/overlays/3002_B.png",
+          "x": 0,
+          "y": 0,
+          "w": 1080,
+          "h": 1080,
+          "clip": false,
+          "depth": 0
+        }
+      ]
+    }
+  },
+  {
+    "id": "3003",
+    "name": "Scorching Night's End",
+    "kind": "parallax",
+    "parallax": {
+      "canvasW": 1080,
+      "canvasH": 1080,
+      "mask": null,
+      "parallax": {
+        "ax": 5,
+        "ay": -25,
+        "xmin": -0.99,
+        "xmax": 0.99,
+        "ymin": -0.99,
+        "ymax": -0.21
+      },
+      "layers": [
+        {
+          "file": "3003_B",
+          "path": "chars/3003/3003_p/overlays/3003_B.png",
+          "x": 0,
+          "y": 0,
+          "w": 1080,
+          "h": 1080,
+          "clip": false,
+          "depth": 0
+        }
+      ]
+    }
+  },
+  {
+    "id": "3004",
+    "name": "Twin Moon Mischief",
+    "kind": "parallax",
+    "parallax": {
+      "canvasW": 1080,
+      "canvasH": 1080,
+      "mask": null,
+      "parallax": {
+        "ax": 5,
+        "ay": -25,
+        "xmin": -0.99,
+        "xmax": 0.99,
+        "ymin": -0.99,
+        "ymax": -0.21
+      },
+      "layers": [
+        {
+          "file": "3004_B",
+          "path": "chars/3004/3004_p/overlays/3004_B.png",
+          "x": 0,
+          "y": 0,
+          "w": 1080,
+          "h": 1080,
+          "clip": false,
+          "depth": 0
+        }
+      ]
+    }
+  },
+  {
+    "id": "3005",
+    "name": "★Bam Bam Girl★",
+    "kind": "parallax",
+    "parallax": {
+      "canvasW": 1080,
+      "canvasH": 1080,
+      "mask": null,
+      "parallax": {
+        "ax": 5,
+        "ay": -25,
+        "xmin": -0.99,
+        "xmax": 0.99,
+        "ymin": -0.99,
+        "ymax": -0.21
+      },
+      "layers": [
+        {
+          "file": "3005_B",
+          "path": "chars/3005/3005_p/overlays/3005_B.png",
+          "x": 0,
+          "y": 0,
+          "w": 1080,
+          "h": 1080,
+          "clip": false,
+          "depth": 0
+        }
+      ]
+    }
+  },
+  {
+    "id": "3006",
+    "name": "Good Night",
+    "kind": "parallax",
+    "parallax": {
+      "canvasW": 1080,
+      "canvasH": 1080,
+      "mask": null,
+      "parallax": {
+        "ax": 5,
+        "ay": -25,
+        "xmin": -0.99,
+        "xmax": 0.99,
+        "ymin": -0.99,
+        "ymax": -0.21
+      },
+      "layers": [
+        {
+          "file": "3006_B",
+          "path": "chars/3006/3006_p/overlays/3006_B.png",
+          "x": 0,
+          "y": 0,
+          "w": 1080,
+          "h": 1080,
+          "clip": false,
+          "depth": 0
+        }
+      ]
+    }
+  },
+  {
+    "id": "3007",
+    "name": "Emerald Dream",
+    "kind": "parallax",
+    "parallax": {
+      "canvasW": 1080,
+      "canvasH": 1080,
+      "mask": null,
+      "parallax": {
+        "ax": 5,
+        "ay": -25,
+        "xmin": -0.99,
+        "xmax": 0.99,
+        "ymin": -0.99,
+        "ymax": -0.21
+      },
+      "layers": [
+        {
+          "file": "3007_B",
+          "path": "chars/3007/3007_p/overlays/3007_B.png",
+          "x": 0,
+          "y": 0,
+          "w": 1080,
+          "h": 1080,
+          "clip": false,
+          "depth": 0
+        }
+      ]
+    }
+  },
+  {
+    "id": "3008",
+    "name": "Tranquil Retreat",
+    "kind": "parallax",
+    "parallax": {
+      "canvasW": 1080,
+      "canvasH": 1080,
+      "mask": null,
+      "parallax": {
+        "ax": 5,
+        "ay": -25,
+        "xmin": -0.99,
+        "xmax": 0.99,
+        "ymin": -0.99,
+        "ymax": -0.21
+      },
+      "layers": [
+        {
+          "file": "3008_B",
+          "path": "chars/3008/3008_p/overlays/3008_B.png",
+          "x": 0,
+          "y": 0,
+          "w": 1080,
+          "h": 1080,
+          "clip": false,
+          "depth": 0
+        }
+      ]
+    }
+  },
+  {
+    "id": "3009",
+    "name": "Rainy Tune",
+    "kind": "parallax",
+    "parallax": {
+      "canvasW": 1080,
+      "canvasH": 1080,
+      "mask": null,
+      "parallax": {
+        "ax": 5,
+        "ay": -25,
+        "xmin": -0.99,
+        "xmax": 0.99,
+        "ymin": -0.99,
+        "ymax": -0.21
+      },
+      "layers": [
+        {
+          "file": "3009_B",
+          "path": "chars/3009/3009_p/overlays/3009_B.png",
+          "x": 0,
+          "y": 0,
+          "w": 1080,
+          "h": 1080,
+          "clip": false,
+          "depth": 0
+        }
+      ]
+    }
+  },
+  {
+    "id": "3010",
+    "name": "Steam Syndrome",
+    "kind": "parallax",
+    "parallax": {
+      "canvasW": 1080,
+      "canvasH": 1080,
+      "mask": null,
+      "parallax": {
+        "ax": 5,
+        "ay": -25,
+        "xmin": -0.99,
+        "xmax": 0.99,
+        "ymin": -0.99,
+        "ymax": -0.21
+      },
+      "layers": [
+        {
+          "file": "3010_B",
+          "path": "chars/3010/3010_p/overlays/3010_B.png",
+          "x": 0,
+          "y": 0,
+          "w": 1080,
+          "h": 1080,
+          "clip": false,
+          "depth": 0
+        }
+      ]
+    }
+  },
+  {
+    "id": "3011",
+    "name": "Meow Rhythm",
+    "kind": "parallax",
+    "parallax": {
+      "canvasW": 1080,
+      "canvasH": 1080,
+      "mask": null,
+      "parallax": {
+        "ax": 5,
+        "ay": -25,
+        "xmin": -0.99,
+        "xmax": 0.99,
+        "ymin": -0.99,
+        "ymax": -0.21
+      },
+      "layers": [
+        {
+          "file": "3011_B",
+          "path": "chars/3011/3011_p/overlays/3011_B.png",
+          "x": 0,
+          "y": 0,
+          "w": 1080,
+          "h": 1080,
+          "clip": false,
+          "depth": 0
+        }
+      ]
+    }
+  },
+  {
+    "id": "3012",
+    "name": "Starry Night Ode",
+    "kind": "parallax",
+    "parallax": {
+      "canvasW": 1080,
+      "canvasH": 1080,
+      "mask": null,
+      "parallax": {
+        "ax": 5,
+        "ay": -25,
+        "xmin": -0.99,
+        "xmax": 0.99,
+        "ymin": -0.99,
+        "ymax": -0.21
+      },
+      "layers": [
+        {
+          "file": "3012_B",
+          "path": "chars/3012/3012_p/overlays/3012_B.png",
+          "x": 0,
+          "y": 0,
+          "w": 1080,
+          "h": 1080,
+          "clip": false,
+          "depth": 0
+        }
+      ]
+    }
+  },
+  {
+    "id": "3013",
+    "name": "Leaf Her to Me",
+    "kind": "parallax",
+    "parallax": {
+      "canvasW": 1080,
+      "canvasH": 1080,
+      "mask": null,
+      "parallax": {
+        "ax": 5,
+        "ay": -25,
+        "xmin": -0.99,
+        "xmax": 0.99,
+        "ymin": -0.99,
+        "ymax": -0.21
+      },
+      "layers": [
+        {
+          "file": "3013_B",
+          "path": "chars/3013/3013_p/overlays/3013_B.png",
+          "x": 0,
+          "y": 0,
+          "w": 1080,
+          "h": 1080,
+          "clip": false,
+          "depth": 0
+        }
+      ]
+    }
+  },
+  {
+    "id": "3014",
+    "name": "The Knight's Smith",
+    "kind": "parallax",
+    "parallax": {
+      "canvasW": 1080,
+      "canvasH": 1080,
+      "mask": null,
+      "parallax": {
+        "ax": 5,
+        "ay": -25,
+        "xmin": -0.99,
+        "xmax": 0.99,
+        "ymin": -0.99,
+        "ymax": -0.21
+      },
+      "layers": [
+        {
+          "file": "3014_B",
+          "path": "chars/3014/3014_p/overlays/3014_B.png",
+          "x": 0,
+          "y": 0,
+          "w": 1080,
+          "h": 1080,
+          "clip": false,
+          "depth": 0
+        }
+      ]
+    }
+  },
+  {
+    "id": "3015",
+    "name": "Unknown Fragrance",
+    "kind": "parallax",
+    "parallax": {
+      "canvasW": 1080,
+      "canvasH": 1080,
+      "mask": null,
+      "parallax": {
+        "ax": 5,
+        "ay": -25,
+        "xmin": -0.99,
+        "xmax": 0.99,
+        "ymin": -0.99,
+        "ymax": -0.21
+      },
+      "layers": [
+        {
+          "file": "3015_B",
+          "path": "chars/3015/3015_p/overlays/3015_B.png",
+          "x": 0,
+          "y": 0,
+          "w": 1080,
+          "h": 1080,
+          "clip": false,
+          "depth": 0
+        }
+      ]
+    }
+  },
+  {
+    "id": "3016",
+    "name": "Cage of Roses",
+    "kind": "parallax",
+    "parallax": {
+      "canvasW": 1080,
+      "canvasH": 1080,
+      "mask": null,
+      "parallax": {
+        "ax": 5,
+        "ay": -25,
+        "xmin": -0.99,
+        "xmax": 0.99,
+        "ymin": -0.99,
+        "ymax": -0.21
+      },
+      "layers": [
+        {
+          "file": "3016_B",
+          "path": "chars/3016/3016_p/overlays/3016_B.png",
+          "x": 0,
+          "y": 0,
+          "w": 1080,
+          "h": 1080,
+          "clip": false,
+          "depth": 0
+        }
+      ]
+    }
+  },
+  {
+    "id": "3017",
+    "name": "★Rolling Life★",
+    "kind": "parallax",
+    "parallax": {
+      "canvasW": 1080,
+      "canvasH": 1080,
+      "mask": null,
+      "parallax": {
+        "ax": 5,
+        "ay": -25,
+        "xmin": -0.99,
+        "xmax": 0.99,
+        "ymin": -0.99,
+        "ymax": -0.21
+      },
+      "layers": [
+        {
+          "file": "3017_B",
+          "path": "chars/3017/3017_p/overlays/3017_B.png",
+          "x": 0,
+          "y": 0,
+          "w": 1080,
+          "h": 1080,
+          "clip": false,
+          "depth": 0
+        }
+      ]
+    }
+  },
+  {
+    "id": "3018",
+    "name": "Soda Shopping",
+    "kind": "parallax",
+    "parallax": {
+      "canvasW": 1080,
+      "canvasH": 1080,
+      "mask": null,
+      "parallax": {
+        "ax": 5,
+        "ay": -25,
+        "xmin": -0.99,
+        "xmax": 0.99,
+        "ymin": -0.99,
+        "ymax": -0.21
+      },
+      "layers": [
+        {
+          "file": "3018_B",
+          "path": "chars/3018/3018_p/overlays/3018_B.png",
+          "x": 0,
+          "y": 0,
+          "w": 1080,
+          "h": 1080,
+          "clip": false,
+          "depth": 0
+        }
+      ]
+    }
+  },
+  {
+    "id": "3019",
+    "name": "Delusion",
+    "kind": "parallax",
+    "parallax": {
+      "canvasW": 1080,
+      "canvasH": 1080,
+      "mask": null,
+      "parallax": {
+        "ax": 5,
+        "ay": -25,
+        "xmin": -0.99,
+        "xmax": 0.99,
+        "ymin": -0.99,
+        "ymax": -0.21
+      },
+      "layers": [
+        {
+          "file": "3019_B",
+          "path": "chars/3019/3019_p/overlays/3019_B.png",
+          "x": 0,
+          "y": 0,
+          "w": 1080,
+          "h": 1080,
+          "clip": false,
+          "depth": 0
+        }
+      ]
+    }
+  },
+  {
+    "id": "3020",
+    "name": "The Shining",
+    "kind": "parallax",
+    "parallax": {
+      "canvasW": 1080,
+      "canvasH": 1080,
+      "mask": null,
+      "parallax": {
+        "ax": 5,
+        "ay": -25,
+        "xmin": -0.99,
+        "xmax": 0.99,
+        "ymin": -0.99,
+        "ymax": -0.21
+      },
+      "layers": [
+        {
+          "file": "3020_B",
+          "path": "chars/3020/3020_p/overlays/3020_B.png",
+          "x": 0,
+          "y": 0,
+          "w": 1080,
+          "h": 1080,
+          "clip": false,
+          "depth": 0
+        }
+      ]
+    }
+  },
+  {
+    "id": "3021",
+    "name": "Miraculous Anthem",
+    "kind": "parallax",
+    "parallax": {
+      "canvasW": 1080,
+      "canvasH": 1080,
+      "mask": null,
+      "parallax": {
+        "ax": 5,
+        "ay": -25,
+        "xmin": -0.99,
+        "xmax": 0.99,
+        "ymin": -0.99,
+        "ymax": -0.21
+      },
+      "layers": [
+        {
+          "file": "3021_B",
+          "path": "chars/3021/3021_p/overlays/3021_B.png",
+          "x": 0,
+          "y": 0,
+          "w": 1080,
+          "h": 1080,
+          "clip": false,
+          "depth": 0
+        }
+      ]
+    }
+  },
+  {
+    "id": "3022",
+    "name": "Love River's Curse",
+    "kind": "parallax",
+    "parallax": {
+      "canvasW": 1080,
+      "canvasH": 1080,
+      "mask": null,
+      "parallax": {
+        "ax": 5,
+        "ay": -25,
+        "xmin": -0.99,
+        "xmax": 0.99,
+        "ymin": -0.99,
+        "ymax": -0.21
+      },
+      "layers": [
+        {
+          "file": "3022_B",
+          "path": "chars/3022/3022_p/overlays/3022_B.png",
+          "x": 0,
+          "y": 0,
+          "w": 1080,
+          "h": 1080,
+          "clip": false,
+          "depth": 0
+        }
+      ]
+    }
+  },
+  {
+    "id": "3023",
+    "name": "Pure White",
+    "kind": "parallax",
+    "parallax": {
+      "canvasW": 1080,
+      "canvasH": 1080,
+      "mask": null,
+      "parallax": {
+        "ax": 5,
+        "ay": -25,
+        "xmin": -0.99,
+        "xmax": 0.99,
+        "ymin": -0.99,
+        "ymax": -0.21
+      },
+      "layers": [
+        {
+          "file": "3023_B",
+          "path": "chars/3023/3023_p/overlays/3023_B.png",
+          "x": 0,
+          "y": 0,
+          "w": 1080,
+          "h": 1080,
+          "clip": false,
+          "depth": 0
+        }
+      ]
+    }
+  },
+  {
+    "id": "3024",
+    "name": "Holiday Bubble",
+    "kind": "parallax",
+    "parallax": {
+      "canvasW": 1080,
+      "canvasH": 1080,
+      "mask": null,
+      "parallax": {
+        "ax": 5,
+        "ay": -25,
+        "xmin": -0.99,
+        "xmax": 0.99,
+        "ymin": -0.99,
+        "ymax": -0.21
+      },
+      "layers": [
+        {
+          "file": "3024_B",
+          "path": "chars/3024/3024_p/overlays/3024_B.png",
+          "x": 0,
+          "y": 0,
+          "w": 1080,
+          "h": 1080,
+          "clip": false,
+          "depth": 0
+        }
+      ]
+    }
+  },
+  {
+    "id": "3025",
+    "name": "Sweet Invitation",
+    "kind": "parallax",
+    "parallax": {
+      "canvasW": 1080,
+      "canvasH": 1080,
+      "mask": null,
+      "parallax": {
+        "ax": 5,
+        "ay": -25,
+        "xmin": -0.99,
+        "xmax": 0.99,
+        "ymin": -0.99,
+        "ymax": -0.21
+      },
+      "layers": [
+        {
+          "file": "3025_B",
+          "path": "chars/3025/3025_p/overlays/3025_B.png",
+          "x": 0,
+          "y": 0,
+          "w": 1080,
+          "h": 1080,
+          "clip": false,
+          "depth": 0
+        }
+      ]
+    }
+  },
+  {
+    "id": "3026",
+    "name": "Vent It Out ♥",
+    "kind": "parallax",
+    "parallax": {
+      "canvasW": 1080,
+      "canvasH": 1080,
+      "mask": null,
+      "parallax": {
+        "ax": 5,
+        "ay": -25,
+        "xmin": -0.99,
+        "xmax": 0.99,
+        "ymin": -0.99,
+        "ymax": -0.21
+      },
+      "layers": [
+        {
+          "file": "3026_B",
+          "path": "chars/3026/3026_p/overlays/3026_B.png",
+          "x": 0,
+          "y": 0,
+          "w": 1080,
+          "h": 1080,
+          "clip": false,
+          "depth": 0
+        }
+      ]
+    }
+  },
+  {
+    "id": "4001",
+    "name": "Meowing Cat God",
+    "kind": "parallax",
+    "parallax": {
+      "canvasW": 1080,
+      "canvasH": 1080,
+      "mask": {
+        "w": 712,
+        "h": 712,
+        "x": 0,
+        "y": 0
+      },
+      "parallax": {
+        "ax": 5,
+        "ay": -25,
+        "xmin": -0.99,
+        "xmax": 0.99,
+        "ymin": -0.99,
+        "ymax": -0.21
+      },
+      "layers": [
+        {
+          "file": "gyro_bg",
+          "path": "chars/4001/4001_p/overlays/gyro_bg.png",
+          "x": 0,
+          "y": -45,
+          "w": 5380,
+          "h": 3820,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_3",
+          "path": "chars/4001/4001_p/overlays/gyro_3.png",
+          "x": 11,
+          "y": 600,
+          "w": 3873.6,
+          "h": 2059.2,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_1",
+          "path": "chars/4001/4001_p/overlays/gyro_1.png",
+          "x": -824.6,
+          "y": 452.8,
+          "w": 380,
+          "h": 1090,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_2a",
+          "path": "chars/4001/4001_p/overlays/gyro_2a.png",
+          "x": -75,
+          "y": -365,
+          "w": 2150.4,
+          "h": 1429.68,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_5",
+          "path": "chars/4001/4001_p/overlays/gyro_5.png",
+          "x": -545,
+          "y": 506.3,
+          "w": 780,
+          "h": 960,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_2",
+          "path": "chars/4001/4001_p/overlays/gyro_2.png",
+          "x": 0,
+          "y": 0,
+          "w": 1883,
+          "h": 1316,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4",
+          "path": "chars/4001/4001_p/overlays/gyro_4.png",
+          "x": 36,
+          "y": 260,
+          "w": 1398.8,
+          "h": 530.4,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_6",
+          "path": "chars/4001/4001_p/overlays/gyro_6.png",
+          "x": 270,
+          "y": 56.1,
+          "w": 759.2,
+          "h": 910,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_7",
+          "path": "chars/4001/4001_p/overlays/gyro_7.png",
+          "x": 0,
+          "y": 0,
+          "w": 1291.2,
+          "h": 916.8,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_8",
+          "path": "chars/4001/4001_p/overlays/gyro_8.png",
+          "x": 0,
+          "y": 0,
+          "w": 1022.2,
+          "h": 725.8,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_9",
+          "path": "chars/4001/4001_p/overlays/gyro_9.png",
+          "x": 0,
+          "y": 230,
+          "w": 807,
+          "h": 237,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_title",
+          "path": "chars/4001/4001_p/overlays/gyro_title.png",
+          "x": 0,
+          "y": 0,
+          "w": 555.84,
+          "h": 550.08,
+          "clip": false,
+          "depth": 1
+        }
+      ]
+    }
+  },
+  {
+    "id": "4002",
+    "name": "Sky, Flowers, Poem",
+    "kind": "parallax",
+    "parallax": {
+      "canvasW": 1080,
+      "canvasH": 1080,
+      "mask": {
+        "w": 712,
+        "h": 712,
+        "x": 0,
+        "y": 0
+      },
+      "parallax": {
+        "ax": 5,
+        "ay": -20,
+        "xmin": -0.99,
+        "xmax": 0.99,
+        "ymin": -0.99,
+        "ymax": -0.21
+      },
+      "layers": [
+        {
+          "file": "gyro_bg",
+          "path": "chars/4002/4002_p/overlays/gyro_bg.png",
+          "x": -200,
+          "y": 60,
+          "w": 5487.6,
+          "h": 3876,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_1",
+          "path": "chars/4002/4002_p/overlays/gyro_1.png",
+          "x": 216,
+          "y": -137,
+          "w": 708,
+          "h": 1110,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_2",
+          "path": "chars/4002/4002_p/overlays/gyro_2.png",
+          "x": -40,
+          "y": 145,
+          "w": 1137.6,
+          "h": 691.2,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_3",
+          "path": "chars/4002/4002_p/overlays/gyro_3.png",
+          "x": -90,
+          "y": 122,
+          "w": 1099.4,
+          "h": 699.2,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_5",
+          "path": "chars/4002/4002_p/overlays/gyro_5.png",
+          "x": -70.45,
+          "y": 56.45,
+          "w": 1576,
+          "h": 776,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4",
+          "path": "chars/4002/4002_p/overlays/gyro_4.png",
+          "x": -28,
+          "y": 50,
+          "w": 1040,
+          "h": 780,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_title",
+          "path": "chars/4002/4002_p/overlays/gyro_title.png",
+          "x": 0,
+          "y": 0,
+          "w": 523.92,
+          "h": 529.84,
+          "clip": false,
+          "depth": 1
+        }
+      ]
+    }
+  },
+  {
+    "id": "4003",
+    "name": "Seed Alike",
+    "kind": "parallax",
+    "parallax": {
+      "canvasW": 1080,
+      "canvasH": 1080,
+      "mask": {
+        "w": 712,
+        "h": 712,
+        "x": 0,
+        "y": 0
+      },
+      "parallax": {
+        "ax": 5,
+        "ay": -20,
+        "xmin": -0.99,
+        "xmax": 0.99,
+        "ymin": -0.99,
+        "ymax": -0.21
+      },
+      "layers": [
+        {
+          "file": "gyro_bg",
+          "path": "chars/4003/4003_p/overlays/gyro_bg.png",
+          "x": 0,
+          "y": -40,
+          "w": 5380,
+          "h": 3820,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_02",
+          "path": "chars/4003/4003_p/overlays/gyro_02.png",
+          "x": -638.9,
+          "y": -187.2,
+          "w": 966,
+          "h": 1453.6,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_01",
+          "path": "chars/4003/4003_p/overlays/gyro_01.png",
+          "x": 42,
+          "y": -20,
+          "w": 2152,
+          "h": 1528,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_06",
+          "path": "chars/4003/4003_p/overlays/gyro_06.png",
+          "x": 108,
+          "y": -30,
+          "w": 1494,
+          "h": 1146,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_07",
+          "path": "chars/4003/4003_p/overlays/gyro_07.png",
+          "x": 284,
+          "y": -35,
+          "w": 774,
+          "h": 576,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_03",
+          "path": "chars/4003/4003_p/overlays/gyro_03.png",
+          "x": -306,
+          "y": -135,
+          "w": 678.96,
+          "h": 672,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_04",
+          "path": "chars/4003/4003_p/overlays/gyro_04.png",
+          "x": -227,
+          "y": 228,
+          "w": 744,
+          "h": 408,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_05",
+          "path": "chars/4003/4003_p/overlays/gyro_05.png",
+          "x": 7.3,
+          "y": 217.9,
+          "w": 216,
+          "h": 139.2,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_title",
+          "path": "chars/4003/4003_p/overlays/gyro_title.png",
+          "x": 85,
+          "y": 0,
+          "w": 334.08,
+          "h": 512.64,
+          "clip": false,
+          "depth": 1
+        }
+      ]
+    }
+  },
+  {
     "id": "4004",
     "name": "Wisteria Dream",
+    "kind": "parallax",
+    "parallax": {
+      "canvasW": 1080,
+      "canvasH": 1080,
+      "mask": {
+        "w": 712,
+        "h": 712,
+        "x": 0,
+        "y": 0
+      },
+      "parallax": {
+        "ax": 5,
+        "ay": -20,
+        "xmin": -0.99,
+        "xmax": 0.99,
+        "ymin": -0.99,
+        "ymax": -0.21
+      },
+      "layers": [
+        {
+          "file": "gyro_bg",
+          "path": "chars/4004/4004_p/overlays/gyro_bg.png",
+          "x": 0,
+          "y": 0,
+          "w": 3658.4,
+          "h": 2597.6,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_01",
+          "path": "chars/4004/4004_p/overlays/gyro_01.png",
+          "x": 42,
+          "y": -280,
+          "w": 2044.4,
+          "h": 957.6,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_02",
+          "path": "chars/4004/4004_p/overlays/gyro_02.png",
+          "x": 82,
+          "y": 0,
+          "w": 1506,
+          "h": 1200,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_03",
+          "path": "chars/4004/4004_p/overlays/gyro_03.png",
+          "x": -103,
+          "y": 11,
+          "w": 844,
+          "h": 628,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_titie",
+          "path": "chars/4004/4004_p/overlays/gyro_titie.png",
+          "x": 0,
+          "y": -212,
+          "w": 411.84,
+          "h": 118.08,
+          "clip": false,
+          "depth": 1
+        }
+      ]
+    }
+  },
+  {
+    "id": "4005",
+    "name": "Sunlit Blossom",
+    "kind": "parallax",
+    "parallax": {
+      "canvasW": 1080,
+      "canvasH": 1080,
+      "mask": {
+        "w": 712,
+        "h": 712,
+        "x": 0,
+        "y": 0
+      },
+      "parallax": {
+        "ax": 5,
+        "ay": -20,
+        "xmin": -0.99,
+        "xmax": 0.99,
+        "ymin": -0.99,
+        "ymax": -0.21
+      },
+      "layers": [
+        {
+          "file": "gyro_bg",
+          "path": "chars/4005/4005_p/overlays/gyro_bg.png",
+          "x": 0,
+          "y": 0,
+          "w": 3658.4,
+          "h": 2597.6,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_01",
+          "path": "chars/4005/4005_p/overlays/gyro_01.png",
+          "x": 42,
+          "y": 7,
+          "w": 1203.2,
+          "h": 1171.2,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_02",
+          "path": "chars/4005/4005_p/overlays/gyro_02.png",
+          "x": 554,
+          "y": 8,
+          "w": 504,
+          "h": 1146,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_03",
+          "path": "chars/4005/4005_p/overlays/gyro_03.png",
+          "x": -65,
+          "y": 0,
+          "w": 1646.28,
+          "h": 1168.92,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_05",
+          "path": "chars/4005/4005_p/overlays/gyro_05.png",
+          "x": -296,
+          "y": 123,
+          "w": 700.8,
+          "h": 672,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_fx01",
+          "path": "chars/4005/4005_p/overlays/gyro_fx01.png",
+          "x": 54.8,
+          "y": -8.5,
+          "w": 1209.6,
+          "h": 916.8,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_title",
+          "path": "chars/4005/4005_p/overlays/gyro_title.png",
+          "x": 0,
+          "y": 0,
+          "w": 780,
+          "h": 764,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_fx02",
+          "path": "chars/4005/4005_p/overlays/gyro_fx02.png",
+          "x": -65,
+          "y": 0,
+          "w": 1076,
+          "h": 764,
+          "clip": true,
+          "depth": 1
+        }
+      ]
+    }
+  },
+  {
+    "id": "4006",
+    "name": "Witch's Swing",
+    "kind": "parallax",
+    "parallax": {
+      "canvasW": 1080,
+      "canvasH": 1080,
+      "mask": {
+        "w": 712,
+        "h": 712,
+        "x": 0,
+        "y": 0
+      },
+      "parallax": {
+        "ax": 5,
+        "ay": -20,
+        "xmin": -0.99,
+        "xmax": 0.99,
+        "ymin": -0.99,
+        "ymax": -0.21
+      },
+      "layers": [
+        {
+          "file": "gyro_bg",
+          "path": "chars/4006/4006_p/overlays/gyro_bg.png",
+          "x": 0,
+          "y": -30,
+          "w": 5380,
+          "h": 3820,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_07",
+          "path": "chars/4006/4006_p/overlays/gyro_07.png",
+          "x": -1350,
+          "y": -530,
+          "w": 436.8,
+          "h": 716.8,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_book1",
+          "path": "chars/4006/4006_p/overlays/gyro_book1.png",
+          "x": -474,
+          "y": 1003,
+          "w": 108,
+          "h": 84,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_01",
+          "path": "chars/4006/4006_p/overlays/gyro_01.png",
+          "x": -345,
+          "y": 90,
+          "w": 2424,
+          "h": 2292,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_02",
+          "path": "chars/4006/4006_p/overlays/gyro_02.png",
+          "x": 0,
+          "y": 1000,
+          "w": 680,
+          "h": 680,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_book2",
+          "path": "chars/4006/4006_p/overlays/gyro_book2.png",
+          "x": -130,
+          "y": 572,
+          "w": 136.8,
+          "h": 205.2,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_04",
+          "path": "chars/4006/4006_p/overlays/gyro_04.png",
+          "x": 400,
+          "y": 276,
+          "w": 331.2,
+          "h": 439.2,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_03",
+          "path": "chars/4006/4006_p/overlays/gyro_03.png",
+          "x": -63,
+          "y": -65,
+          "w": 600,
+          "h": 960,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_fx02",
+          "path": "chars/4006/4006_p/overlays/gyro_fx02.png",
+          "x": -198,
+          "y": -1530,
+          "w": 192,
+          "h": 188,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_05",
+          "path": "chars/4006/4006_p/overlays/gyro_05.png",
+          "x": -4.5,
+          "y": 146.5,
+          "w": 1068,
+          "h": 616,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_fx01",
+          "path": "chars/4006/4006_p/overlays/gyro_fx01.png",
+          "x": 480,
+          "y": 235,
+          "w": 368,
+          "h": 276,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_06",
+          "path": "chars/4006/4006_p/overlays/gyro_06.png",
+          "x": 13.5,
+          "y": 32.5,
+          "w": 1048,
+          "h": 764,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_star",
+          "path": "chars/4006/4006_p/overlays/gyro_star.png",
+          "x": -83.3,
+          "y": -205.78,
+          "w": 128,
+          "h": 128,
+          "clip": false,
+          "depth": 1
+        },
+        {
+          "file": "gyro_book3",
+          "path": "chars/4006/4006_p/overlays/gyro_book3.png",
+          "x": 335,
+          "y": -104,
+          "w": 206.4,
+          "h": 172.8,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_title",
+          "path": "chars/4006/4006_p/overlays/gyro_title.png",
+          "x": 0,
+          "y": -189,
+          "w": 561.6,
+          "h": 195.84,
+          "clip": false,
+          "depth": 1
+        }
+      ]
+    }
+  },
+  {
+    "id": "4007",
+    "name": "Midnight Mayhem",
+    "kind": "parallax",
+    "parallax": {
+      "canvasW": 1080,
+      "canvasH": 1080,
+      "mask": {
+        "w": 712,
+        "h": 712,
+        "x": 0,
+        "y": 0
+      },
+      "parallax": {
+        "ax": 5,
+        "ay": -20,
+        "xmin": -0.99,
+        "xmax": 0.99,
+        "ymin": -0.99,
+        "ymax": -0.21
+      },
+      "layers": [
+        {
+          "file": "gyro_bg",
+          "path": "chars/4007/4007_p/overlays/gyro_bg.png",
+          "x": 0,
+          "y": -30,
+          "w": 5380,
+          "h": 3820,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_01",
+          "path": "chars/4007/4007_p/overlays/gyro_01.png",
+          "x": -1113,
+          "y": -788,
+          "w": 268.8,
+          "h": 268.8,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_02",
+          "path": "chars/4007/4007_p/overlays/gyro_02.png",
+          "x": -1146,
+          "y": -27,
+          "w": 742.4,
+          "h": 1024,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_03",
+          "path": "chars/4007/4007_p/overlays/gyro_03.png",
+          "x": -969,
+          "y": 274,
+          "w": 1314.4,
+          "h": 1240,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_04",
+          "path": "chars/4007/4007_p/overlays/gyro_04.png",
+          "x": 936,
+          "y": -262,
+          "w": 1171.6,
+          "h": 1276,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_05_add",
+          "path": "chars/4007/4007_p/overlays/gyro_05_add.png",
+          "x": -27,
+          "y": 25,
+          "w": 2421,
+          "h": 1719,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_06",
+          "path": "chars/4007/4007_p/overlays/gyro_06.png",
+          "x": 46,
+          "y": -105,
+          "w": 1618.8,
+          "h": 1299.6,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_07",
+          "path": "chars/4007/4007_p/overlays/gyro_07.png",
+          "x": 0,
+          "y": 75,
+          "w": 1345,
+          "h": 955,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_09",
+          "path": "chars/4007/4007_p/overlays/gyro_09.png",
+          "x": 11.5,
+          "y": 155,
+          "w": 1372.8,
+          "h": 748.8,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_10",
+          "path": "chars/4007/4007_p/overlays/gyro_10.png",
+          "x": -3.8,
+          "y": 129,
+          "w": 1183.6,
+          "h": 633.6,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_05",
+          "path": "chars/4007/4007_p/overlays/gyro_05.png",
+          "x": 58.5,
+          "y": 25,
+          "w": 692,
+          "h": 764,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_06_add",
+          "path": "chars/4007/4007_p/overlays/gyro_06_add.png",
+          "x": -9.86,
+          "y": -32.23,
+          "w": 1076,
+          "h": 764,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_06_add",
+          "path": "chars/4007/4007_p/overlays/gyro_06_add.png",
+          "x": -9.86,
+          "y": -32.23,
+          "w": 1076,
+          "h": 764,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_08",
+          "path": "chars/4007/4007_p/overlays/gyro_08.png",
+          "x": 0,
+          "y": 19,
+          "w": 1076,
+          "h": 764,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_title",
+          "path": "chars/4007/4007_p/overlays/gyro_title.png",
+          "x": 0,
+          "y": 200,
+          "w": 466.56,
+          "h": 120.96,
+          "clip": false,
+          "depth": 1
+        }
+      ]
+    }
+  },
+  {
+    "id": "4008",
+    "name": "Soaring Blue",
+    "kind": "parallax",
+    "parallax": {
+      "canvasW": 1080,
+      "canvasH": 1080,
+      "mask": {
+        "w": 712,
+        "h": 712,
+        "x": 0,
+        "y": 0
+      },
+      "parallax": {
+        "ax": 5,
+        "ay": -20,
+        "xmin": -0.99,
+        "xmax": 0.99,
+        "ymin": -0.99,
+        "ymax": -0.21
+      },
+      "layers": [
+        {
+          "file": "gyro_bg",
+          "path": "chars/4008/4008_p/overlays/gyro_bg.png",
+          "x": 0,
+          "y": -30,
+          "w": 5380,
+          "h": 3820,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_01",
+          "path": "chars/4008/4008_p/overlays/gyro_01.png",
+          "x": -900,
+          "y": 209,
+          "w": 2232,
+          "h": 2548.8,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_05",
+          "path": "chars/4008/4008_p/overlays/gyro_05.png",
+          "x": -14,
+          "y": -26,
+          "w": 2152,
+          "h": 1528,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_fx02",
+          "path": "chars/4008/4008_p/overlays/gyro_fx02.png",
+          "x": 6,
+          "y": 44,
+          "w": 2120,
+          "h": 1384,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_02",
+          "path": "chars/4008/4008_p/overlays/gyro_02.png",
+          "x": -677,
+          "y": 891.13,
+          "w": 2191.2,
+          "h": 1011.2,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_07",
+          "path": "chars/4008/4008_p/overlays/gyro_07.png",
+          "x": 1493,
+          "y": -1102,
+          "w": 2287.8,
+          "h": 1746.6,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_03",
+          "path": "chars/4008/4008_p/overlays/gyro_03.png",
+          "x": -34.5,
+          "y": 363,
+          "w": 2520,
+          "h": 1209.6,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_06",
+          "path": "chars/4008/4008_p/overlays/gyro_06.png",
+          "x": 488,
+          "y": 48,
+          "w": 1478.4,
+          "h": 1228.8,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_08",
+          "path": "chars/4008/4008_p/overlays/gyro_08.png",
+          "x": -62,
+          "y": -27,
+          "w": 1648.8,
+          "h": 1368,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_04",
+          "path": "chars/4008/4008_p/overlays/gyro_04.png",
+          "x": 0,
+          "y": 43,
+          "w": 1958.32,
+          "h": 1390.48,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_fx01",
+          "path": "chars/4008/4008_p/overlays/gyro_fx01.png",
+          "x": -33,
+          "y": 84,
+          "w": 1458,
+          "h": 828,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_title02",
+          "path": "chars/4008/4008_p/overlays/gyro_title02.png",
+          "x": -1,
+          "y": 8,
+          "w": 573,
+          "h": 669,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_title01",
+          "path": "chars/4008/4008_p/overlays/gyro_title01.png",
+          "x": 0,
+          "y": 0,
+          "w": 534,
+          "h": 537,
+          "clip": false,
+          "depth": 1
+        }
+      ]
+    }
+  },
+  {
+    "id": "4009",
+    "name": "New Star Prelude",
+    "kind": "parallax",
+    "parallax": {
+      "canvasW": 1080,
+      "canvasH": 1080,
+      "mask": {
+        "w": 712,
+        "h": 712,
+        "x": 0,
+        "y": 0
+      },
+      "parallax": {
+        "ax": 5,
+        "ay": -20,
+        "xmin": -0.99,
+        "xmax": 0.99,
+        "ymin": -0.99,
+        "ymax": -0.21
+      },
+      "layers": [
+        {
+          "file": "gyro_bg",
+          "path": "chars/4009/4009_p/overlays/gyro_bg.png",
+          "x": 0,
+          "y": -30,
+          "w": 5380,
+          "h": 3800,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_photo",
+          "path": "chars/4009/4009_p/overlays/gyro_photo.png",
+          "x": 0,
+          "y": -46.79,
+          "w": 2400.4,
+          "h": 1944.8,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_flower",
+          "path": "chars/4009/4009_p/overlays/gyro_flower.png",
+          "x": -776.9,
+          "y": 71.5,
+          "w": 96,
+          "h": 126,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_star",
+          "path": "chars/4009/4009_p/overlays/gyro_star.png",
+          "x": 0,
+          "y": 100,
+          "w": 1761.2,
+          "h": 1094.8,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_sunshine",
+          "path": "chars/4009/4009_p/overlays/gyro_sunshine.png",
+          "x": 450,
+          "y": -390,
+          "w": 727.2,
+          "h": 511.2,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_flower",
+          "path": "chars/4009/4009_p/overlays/gyro_flower.png",
+          "x": 150,
+          "y": 205,
+          "w": 64,
+          "h": 84,
+          "clip": false,
+          "depth": 1
+        }
+      ]
+    }
+  },
+  {
+    "id": "4010",
+    "name": "Prayer Beneath Light",
+    "kind": "parallax",
+    "parallax": {
+      "canvasW": 1080,
+      "canvasH": 1080,
+      "mask": {
+        "w": 712,
+        "h": 712,
+        "x": 0,
+        "y": 0
+      },
+      "parallax": {
+        "ax": 5,
+        "ay": -20,
+        "xmin": -0.99,
+        "xmax": 0.99,
+        "ymin": -0.99,
+        "ymax": -0.21
+      },
+      "layers": [
+        {
+          "file": "gyro_4010_bg",
+          "path": "chars/4010/4010_p/overlays/gyro_4010_bg.png",
+          "x": 0,
+          "y": 0,
+          "w": 5353.92,
+          "h": 3837.6,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4010_Pigeon4",
+          "path": "chars/4010/4010_p/overlays/gyro_4010_Pigeon4.png",
+          "x": -717.3,
+          "y": -760.08,
+          "w": 1128,
+          "h": 612,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4010_actor1",
+          "path": "chars/4010/4010_p/overlays/gyro_4010_actor1.png",
+          "x": 64,
+          "y": 34,
+          "w": 1187.2,
+          "h": 1400,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4010_Pigeon3",
+          "path": "chars/4010/4010_p/overlays/gyro_4010_Pigeon3.png",
+          "x": 12.7,
+          "y": -11.3,
+          "w": 1500,
+          "h": 474,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4010_Pigeon2",
+          "path": "chars/4010/4010_p/overlays/gyro_4010_Pigeon2.png",
+          "x": 430,
+          "y": 129.8,
+          "w": 268.4,
+          "h": 206.8,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4010_title1",
+          "path": "chars/4010/4010_p/overlays/gyro_4010_title1.png",
+          "x": -323.8,
+          "y": 0,
+          "w": 24,
+          "h": 128,
+          "clip": false,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4010_Pigeon1",
+          "path": "chars/4010/4010_p/overlays/gyro_4010_Pigeon1.png",
+          "x": -8,
+          "y": 228,
+          "w": 1066.8,
+          "h": 315,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4010_title2",
+          "path": "chars/4010/4010_p/overlays/gyro_4010_title2.png",
+          "x": 0,
+          "y": 252,
+          "w": 558.48,
+          "h": 78,
+          "clip": false,
+          "depth": 1
+        }
+      ]
+    }
+  },
+  {
+    "id": "4011",
+    "name": "Summer Afternoon Rain",
+    "kind": "parallax",
+    "parallax": {
+      "canvasW": 1080,
+      "canvasH": 1080,
+      "mask": {
+        "w": 712,
+        "h": 712,
+        "x": 0,
+        "y": 0
+      },
+      "parallax": {
+        "ax": 5,
+        "ay": -20,
+        "xmin": -0.99,
+        "xmax": 0.99,
+        "ymin": -0.99,
+        "ymax": -0.21
+      },
+      "layers": [
+        {
+          "file": "gyro_bg",
+          "path": "chars/4011/4011_p/overlays/gyro_bg.png",
+          "x": 0,
+          "y": -10,
+          "w": 5358.48,
+          "h": 3804.72,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_01",
+          "path": "chars/4011/4011_p/overlays/gyro_01.png",
+          "x": 105,
+          "y": 42,
+          "w": 2474.8,
+          "h": 1757.2,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_02",
+          "path": "chars/4011/4011_p/overlays/gyro_02.png",
+          "x": 1,
+          "y": -1,
+          "w": 725.8,
+          "h": 722,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_title",
+          "path": "chars/4011/4011_p/overlays/gyro_title.png",
+          "x": 0,
+          "y": -242,
+          "w": 355.68,
+          "h": 102.96,
+          "clip": false,
+          "depth": 1
+        }
+      ]
+    }
+  },
+  {
+    "id": "4012",
+    "name": "Those with Ambition",
+    "kind": "parallax",
+    "parallax": {
+      "canvasW": 1080,
+      "canvasH": 1080,
+      "mask": {
+        "w": 712,
+        "h": 712,
+        "x": 0,
+        "y": 0
+      },
+      "parallax": {
+        "ax": 5,
+        "ay": -20,
+        "xmin": -0.99,
+        "xmax": 0.99,
+        "ymin": -0.99,
+        "ymax": -0.21
+      },
+      "layers": [
+        {
+          "file": "gyro_4012_a4",
+          "path": "chars/4012/4012_p/overlays/gyro_4012_a4.png",
+          "x": 1227,
+          "y": -621,
+          "w": 464,
+          "h": 720,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4012_a5",
+          "path": "chars/4012/4012_p/overlays/gyro_4012_a5.png",
+          "x": -609,
+          "y": -128,
+          "w": 435.2,
+          "h": 640,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4012_a3",
+          "path": "chars/4012/4012_p/overlays/gyro_4012_a3.png",
+          "x": 735.6,
+          "y": -352.1,
+          "w": 492,
+          "h": 816,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4012_a6",
+          "path": "chars/4012/4012_p/overlays/gyro_4012_a6.png",
+          "x": -622,
+          "y": 13.2,
+          "w": 480,
+          "h": 830,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4012_a2",
+          "path": "chars/4012/4012_p/overlays/gyro_4012_a2.png",
+          "x": -73.98,
+          "y": 125.8,
+          "w": 883.2,
+          "h": 1352.4,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4012_grass02",
+          "path": "chars/4012/4012_p/overlays/gyro_4012_grass02.png",
+          "x": 722,
+          "y": -135.6,
+          "w": 270,
+          "h": 390,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4012_a1",
+          "path": "chars/4012/4012_p/overlays/gyro_4012_a1.png",
+          "x": 422,
+          "y": 50,
+          "w": 1094.8,
+          "h": 1108.4,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4012_grass03",
+          "path": "chars/4012/4012_p/overlays/gyro_4012_grass03.png",
+          "x": -362,
+          "y": 332,
+          "w": 470.4,
+          "h": 393.6,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_title2",
+          "path": "chars/4012/4012_p/overlays/gyro_title2.png",
+          "x": 263.8,
+          "y": 302,
+          "w": 140,
+          "h": 32,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_title",
+          "path": "chars/4012/4012_p/overlays/gyro_title.png",
+          "x": -95,
+          "y": 212,
+          "w": 364.8,
+          "h": 80,
+          "clip": false,
+          "depth": 1
+        }
+      ]
+    }
+  },
+  {
+    "id": "4013",
+    "name": "Voyage Blueprint",
+    "kind": "parallax",
+    "parallax": {
+      "canvasW": 1080,
+      "canvasH": 1080,
+      "mask": {
+        "w": 712,
+        "h": 712,
+        "x": 0,
+        "y": 0
+      },
+      "parallax": {
+        "ax": 5,
+        "ay": -20,
+        "xmin": -0.99,
+        "xmax": 0.99,
+        "ymin": -0.99,
+        "ymax": -0.21
+      },
+      "layers": [
+        {
+          "file": "gyro_4013_bg",
+          "path": "chars/4013/4013_p/overlays/gyro_4013_bg.png",
+          "x": 0,
+          "y": 0,
+          "w": 5337.36,
+          "h": 3780,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4013_actor",
+          "path": "chars/4013/4013_p/overlays/gyro_4013_actor.png",
+          "x": -485,
+          "y": 158,
+          "w": 918,
+          "h": 1242,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4013_fx",
+          "path": "chars/4013/4013_p/overlays/gyro_4013_fx.png",
+          "x": -6,
+          "y": -8,
+          "w": 1720.8,
+          "h": 1000.8,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4013_paper",
+          "path": "chars/4013/4013_p/overlays/gyro_4013_paper.png",
+          "x": 0,
+          "y": 10.41,
+          "w": 1291.2,
+          "h": 916.8,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4013_title2",
+          "path": "chars/4013/4013_p/overlays/gyro_4013_title2.png",
+          "x": 268,
+          "y": 268,
+          "w": 43.68,
+          "h": 43.68,
+          "clip": false,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4013_title1",
+          "path": "chars/4013/4013_p/overlays/gyro_4013_title1.png",
+          "x": -115.7,
+          "y": -251.9,
+          "w": 340.08,
+          "h": 84.24,
+          "clip": false,
+          "depth": 1
+        }
+      ]
+    }
+  },
+  {
+    "id": "4014",
+    "name": "Sweet Times",
+    "kind": "parallax",
+    "parallax": {
+      "canvasW": 1080,
+      "canvasH": 1080,
+      "mask": {
+        "w": 712,
+        "h": 712,
+        "x": 0,
+        "y": 0
+      },
+      "parallax": {
+        "ax": 5,
+        "ay": -20,
+        "xmin": -0.99,
+        "xmax": 0.99,
+        "ymin": -0.99,
+        "ymax": -0.21
+      },
+      "layers": [
+        {
+          "file": "gyro_4014_tree",
+          "path": "chars/4014/4014_p/overlays/gyro_4014_tree.png",
+          "x": -2.49,
+          "y": 71.6,
+          "w": 5343.8,
+          "h": 3887.82,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4014_actor2",
+          "path": "chars/4014/4014_p/overlays/gyro_4014_actor2.png",
+          "x": 697,
+          "y": 306.6,
+          "w": 954.6,
+          "h": 1420.8,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4014_title",
+          "path": "chars/4014/4014_p/overlays/gyro_4014_title.png",
+          "x": -6.7,
+          "y": -484.8,
+          "w": 1370.04,
+          "h": 405.72,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4014_actor1",
+          "path": "chars/4014/4014_p/overlays/gyro_4014_actor1.png",
+          "x": -330.8,
+          "y": 242.1,
+          "w": 1472.64,
+          "h": 1123.2,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4014_sparkle",
+          "path": "chars/4014/4014_p/overlays/gyro_4014_sparkle.png",
+          "x": -437.2,
+          "y": -233.1,
+          "w": 297.6,
+          "h": 312,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4014_grass",
+          "path": "chars/4014/4014_p/overlays/gyro_4014_grass.png",
+          "x": -80,
+          "y": 229.2,
+          "w": 1838.32,
+          "h": 452.4,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4014_title",
+          "path": "chars/4014/4014_p/overlays/gyro_4014_title.png",
+          "x": -851,
+          "y": 0,
+          "w": 932,
+          "h": 276,
+          "clip": false,
+          "depth": 1
+        }
+      ]
+    }
+  },
+  {
+    "id": "4015",
+    "name": "Deer's Song",
+    "kind": "parallax",
+    "parallax": {
+      "canvasW": 1080,
+      "canvasH": 1080,
+      "mask": {
+        "w": 712,
+        "h": 712,
+        "x": 0,
+        "y": 0
+      },
+      "parallax": {
+        "ax": 5,
+        "ay": -20,
+        "xmin": -0.99,
+        "xmax": 0.99,
+        "ymin": -0.99,
+        "ymax": -0.21
+      },
+      "layers": [
+        {
+          "file": "gyro_4015_bg",
+          "path": "chars/4015/4015_p/overlays/gyro_4015_bg.png",
+          "x": 0,
+          "y": -30,
+          "w": 5380,
+          "h": 3800,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4015_plant",
+          "path": "chars/4015/4015_p/overlays/gyro_4015_plant.png",
+          "x": -1645,
+          "y": 516,
+          "w": 704,
+          "h": 1459.2,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4015_deer2",
+          "path": "chars/4015/4015_p/overlays/gyro_4015_deer2.png",
+          "x": -347.9,
+          "y": -21,
+          "w": 2419.2,
+          "h": 2560,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4015_role",
+          "path": "chars/4015/4015_p/overlays/gyro_4015_role.png",
+          "x": -6.2,
+          "y": 133.34,
+          "w": 1582.4,
+          "h": 1625.4,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4015_deer1",
+          "path": "chars/4015/4015_p/overlays/gyro_4015_deer1.png",
+          "x": -442.5,
+          "y": 253.4,
+          "w": 427.2,
+          "h": 542.4,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4015_Butterfly",
+          "path": "chars/4015/4015_p/overlays/gyro_4015_Butterfly.png",
+          "x": -16.2,
+          "y": 45.1,
+          "w": 1096.2,
+          "h": 659.4,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4015_Foreground",
+          "path": "chars/4015/4015_p/overlays/gyro_4015_Foreground.png",
+          "x": 2,
+          "y": 0,
+          "w": 1015.74,
+          "h": 721.22,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4015_title",
+          "path": "chars/4015/4015_p/overlays/gyro_4015_title.png",
+          "x": 0,
+          "y": 0,
+          "w": 548.24,
+          "h": 542.08,
+          "clip": false,
+          "depth": 1
+        }
+      ]
+    }
+  },
+  {
+    "id": "4016",
+    "name": "Chronicles of Spring",
+    "kind": "parallax",
+    "parallax": {
+      "canvasW": 1080,
+      "canvasH": 1080,
+      "mask": {
+        "w": 712,
+        "h": 712,
+        "x": 0,
+        "y": 0
+      },
+      "parallax": {
+        "ax": 5,
+        "ay": -20,
+        "xmin": -0.99,
+        "xmax": 0.99,
+        "ymin": -0.99,
+        "ymax": -0.21
+      },
+      "layers": [
+        {
+          "file": "gyro_bg",
+          "path": "chars/4016/4016_p/overlays/gyro_bg.png",
+          "x": 0,
+          "y": -30,
+          "w": 5380,
+          "h": 3800,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_01",
+          "path": "chars/4016/4016_p/overlays/gyro_01.png",
+          "x": -21.6,
+          "y": -58.5,
+          "w": 2528.6,
+          "h": 1786,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_03",
+          "path": "chars/4016/4016_p/overlays/gyro_03.png",
+          "x": 4.3,
+          "y": -528.8,
+          "w": 968,
+          "h": 352,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_02",
+          "path": "chars/4016/4016_p/overlays/gyro_02.png",
+          "x": 4.09,
+          "y": 127.5,
+          "w": 1807.68,
+          "h": 1162.56,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_04",
+          "path": "chars/4016/4016_p/overlays/gyro_04.png",
+          "x": 303.9,
+          "y": 104.2,
+          "w": 260,
+          "h": 369.2,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_06",
+          "path": "chars/4016/4016_p/overlays/gyro_06.png",
+          "x": -612.6,
+          "y": -257,
+          "w": 249.6,
+          "h": 275.6,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_05",
+          "path": "chars/4016/4016_p/overlays/gyro_05.png",
+          "x": 447.8,
+          "y": -249.3,
+          "w": 87.4,
+          "h": 315.4,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_title",
+          "path": "chars/4016/4016_p/overlays/gyro_title.png",
+          "x": 156,
+          "y": -252,
+          "w": 278.46,
+          "h": 104.52,
+          "clip": false,
+          "depth": 1
+        }
+      ]
+    }
+  },
+  {
+    "id": "4017",
+    "name": "Fireworks",
+    "kind": "parallax",
+    "parallax": {
+      "canvasW": 1080,
+      "canvasH": 1080,
+      "mask": {
+        "w": 712,
+        "h": 712,
+        "x": 0,
+        "y": 0
+      },
+      "parallax": {
+        "ax": 5,
+        "ay": -20,
+        "xmin": -0.99,
+        "xmax": 0.99,
+        "ymin": -0.99,
+        "ymax": -0.21
+      },
+      "layers": [
+        {
+          "file": "gyro_bg",
+          "path": "chars/4017/4017_p/overlays/gyro_bg.png",
+          "x": 0,
+          "y": -30,
+          "w": 5380,
+          "h": 3800,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_01",
+          "path": "chars/4017/4017_p/overlays/gyro_01.png",
+          "x": 69.8,
+          "y": 24.4,
+          "w": 4368,
+          "h": 3158.4,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_02",
+          "path": "chars/4017/4017_p/overlays/gyro_02.png",
+          "x": -11.1,
+          "y": 205.01,
+          "w": 2259.6,
+          "h": 1293.6,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_07",
+          "path": "chars/4017/4017_p/overlays/gyro_07.png",
+          "x": 102.1,
+          "y": -12.8,
+          "w": 1635.4,
+          "h": 1258,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_03",
+          "path": "chars/4017/4017_p/overlays/gyro_03.png",
+          "x": 2,
+          "y": 241.7,
+          "w": 1958.32,
+          "h": 1055.6,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_04",
+          "path": "chars/4017/4017_p/overlays/gyro_04.png",
+          "x": 128,
+          "y": 134.82,
+          "w": 1240,
+          "h": 936.2,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_06",
+          "path": "chars/4017/4017_p/overlays/gyro_06.png",
+          "x": 30.4,
+          "y": 21.65,
+          "w": 1284.4,
+          "h": 941.2,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_05",
+          "path": "chars/4017/4017_p/overlays/gyro_05.png",
+          "x": 191.3,
+          "y": 292.8,
+          "w": 513.52,
+          "h": 246.96,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_title",
+          "path": "chars/4017/4017_p/overlays/gyro_title.png",
+          "x": 185,
+          "y": -202,
+          "w": 180.96,
+          "h": 174.72,
+          "clip": false,
+          "depth": 1
+        }
+      ]
+    }
+  },
+  {
+    "id": "4018",
+    "name": "Lemon & Black Tea",
+    "kind": "parallax",
+    "parallax": {
+      "canvasW": 1080,
+      "canvasH": 1080,
+      "mask": {
+        "w": 712,
+        "h": 712,
+        "x": 0,
+        "y": 0
+      },
+      "parallax": {
+        "ax": 5,
+        "ay": -20,
+        "xmin": -0.99,
+        "xmax": 0.99,
+        "ymin": -0.99,
+        "ymax": -0.21
+      },
+      "layers": [
+        {
+          "file": "gyro_4018_bg",
+          "path": "chars/4018/4018_p/overlays/gyro_4018_bg.png",
+          "x": 0,
+          "y": 0,
+          "w": 5337.36,
+          "h": 3780,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4018_plantsR",
+          "path": "chars/4018/4018_p/overlays/gyro_4018_plantsR.png",
+          "x": 770,
+          "y": -648,
+          "w": 479.4,
+          "h": 601.6,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4018_lightM",
+          "path": "chars/4018/4018_p/overlays/gyro_4018_lightM.png",
+          "x": -289.2,
+          "y": -618.04,
+          "w": 414,
+          "h": 598,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4018_plantsL",
+          "path": "chars/4018/4018_p/overlays/gyro_4018_plantsL.png",
+          "x": -945.47,
+          "y": -345.4,
+          "w": 396,
+          "h": 589.6,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4018_lightR",
+          "path": "chars/4018/4018_p/overlays/gyro_4018_lightR.png",
+          "x": 644.9,
+          "y": -340.7,
+          "w": 403.2,
+          "h": 729.6,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4018_lightL",
+          "path": "chars/4018/4018_p/overlays/gyro_4018_lightL.png",
+          "x": -541.3,
+          "y": 265.8,
+          "w": 405.6,
+          "h": 468,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4018_plantsFR",
+          "path": "chars/4018/4018_p/overlays/gyro_4018_plantsFR.png",
+          "x": 422.9,
+          "y": 339.9,
+          "w": 379.6,
+          "h": 353.6,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4018_plantsFL",
+          "path": "chars/4018/4018_p/overlays/gyro_4018_plantsFL.png",
+          "x": -440.2,
+          "y": 450.2,
+          "w": 317.2,
+          "h": 124.8,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4018_title",
+          "path": "chars/4018/4018_p/overlays/gyro_4018_title.png",
+          "x": 0,
+          "y": 0,
+          "w": 567.84,
+          "h": 555.36,
+          "clip": false,
+          "depth": 1
+        }
+      ]
+    }
+  },
+  {
+    "id": "4019",
+    "name": "One Shot, One Down",
+    "kind": "parallax",
+    "parallax": {
+      "canvasW": 1080,
+      "canvasH": 1080,
+      "mask": {
+        "w": 712,
+        "h": 712,
+        "x": 0,
+        "y": 0
+      },
+      "parallax": {
+        "ax": 5,
+        "ay": -20,
+        "xmin": -0.99,
+        "xmax": 0.99,
+        "ymin": -0.99,
+        "ymax": -0.21
+      },
+      "layers": [
+        {
+          "file": "gyro_4019_bg",
+          "path": "chars/4019/4019_p/overlays/gyro_4019_bg.png",
+          "x": 0,
+          "y": 0,
+          "w": 5380,
+          "h": 3820,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4019_balustrade",
+          "path": "chars/4019/4019_p/overlays/gyro_4019_balustrade.png",
+          "x": 344.2,
+          "y": 1059.5,
+          "w": 3374.4,
+          "h": 888,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4019_actor2",
+          "path": "chars/4019/4019_p/overlays/gyro_4019_actor2.png",
+          "x": -300,
+          "y": 205,
+          "w": 1531.2,
+          "h": 1491.6,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4019_actor1",
+          "path": "chars/4019/4019_p/overlays/gyro_4019_actor1.png",
+          "x": 560,
+          "y": 152,
+          "w": 1534.4,
+          "h": 1758.4,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4019_foreground1",
+          "path": "chars/4019/4019_p/overlays/gyro_4019_foreground1.png",
+          "x": -190,
+          "y": 504.7,
+          "w": 710.4,
+          "h": 222,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4019_foreground",
+          "path": "chars/4019/4019_p/overlays/gyro_4019_foreground.png",
+          "x": 0,
+          "y": 0,
+          "w": 2108.96,
+          "h": 1497.44,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4019_fx1",
+          "path": "chars/4019/4019_p/overlays/gyro_4019_fx1.png",
+          "x": 136.4,
+          "y": 23.26,
+          "w": 2034,
+          "h": 1656,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4019_fx2",
+          "path": "chars/4019/4019_p/overlays/gyro_4019_fx2.png",
+          "x": 15,
+          "y": -60.01,
+          "w": 1291.2,
+          "h": 1056,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4019_title1",
+          "path": "chars/4019/4019_p/overlays/gyro_4019_title1.png",
+          "x": 260,
+          "y": 285,
+          "w": 62.4,
+          "h": 18.72,
+          "clip": false,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4019_title2",
+          "path": "chars/4019/4019_p/overlays/gyro_4019_title2.png",
+          "x": -200,
+          "y": 285,
+          "w": 184.08,
+          "h": 21.84,
+          "clip": false,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4019_title3",
+          "path": "chars/4019/4019_p/overlays/gyro_4019_title3.png",
+          "x": 169,
+          "y": -232,
+          "w": 152.88,
+          "h": 81.12,
+          "clip": false,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4019_title4",
+          "path": "chars/4019/4019_p/overlays/gyro_4019_title4.png",
+          "x": -37,
+          "y": -206,
+          "w": 262.08,
+          "h": 162.24,
+          "clip": false,
+          "depth": 1
+        }
+      ]
+    }
+  },
+  {
+    "id": "4020",
+    "name": "Sparkling Moment",
+    "kind": "parallax",
+    "parallax": {
+      "canvasW": 1080,
+      "canvasH": 1080,
+      "mask": {
+        "w": 712,
+        "h": 712,
+        "x": 0,
+        "y": 0
+      },
+      "parallax": {
+        "ax": 5,
+        "ay": -20,
+        "xmin": -0.99,
+        "xmax": 0.99,
+        "ymin": -0.99,
+        "ymax": -0.21
+      },
+      "layers": [
+        {
+          "file": "gyro_4020_bg",
+          "path": "chars/4020/4020_p/overlays/gyro_4020_bg.png",
+          "x": 0,
+          "y": 0,
+          "w": 5335,
+          "h": 3686,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4020_bg2",
+          "path": "chars/4020/4020_p/overlays/gyro_4020_bg2.png",
+          "x": 305,
+          "y": 42.35,
+          "w": 2005.6,
+          "h": 2599.6,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4020_bg3",
+          "path": "chars/4020/4020_p/overlays/gyro_4020_bg3.png",
+          "x": 1901,
+          "y": 356,
+          "w": 2114.6,
+          "h": 1435.6,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4020_ground",
+          "path": "chars/4020/4020_p/overlays/gyro_4020_ground.png",
+          "x": 0,
+          "y": 353.33,
+          "w": 3012.8,
+          "h": 2080,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4020_actor2",
+          "path": "chars/4020/4020_p/overlays/gyro_4020_actor2.png",
+          "x": 447.4,
+          "y": 155.8,
+          "w": 594,
+          "h": 1036.2,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4020_letter2",
+          "path": "chars/4020/4020_p/overlays/gyro_4020_letter2.png",
+          "x": 244.8,
+          "y": -114.5,
+          "w": 1724.8,
+          "h": 1223.2,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4020_letter1",
+          "path": "chars/4020/4020_p/overlays/gyro_4020_letter1.png",
+          "x": -565,
+          "y": -160,
+          "w": 194.4,
+          "h": 331.2,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4020_actor1",
+          "path": "chars/4020/4020_p/overlays/gyro_4020_actor1.png",
+          "x": -20.7,
+          "y": 167.78,
+          "w": 1310.4,
+          "h": 977.6,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4020_bg2a",
+          "path": "chars/4020/4020_p/overlays/gyro_4020_bg2a.png",
+          "x": -697.8,
+          "y": 101.52,
+          "w": 243.2,
+          "h": 576,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4020_title1",
+          "path": "chars/4020/4020_p/overlays/gyro_4020_title1.png",
+          "x": -235,
+          "y": -275,
+          "w": 99.84,
+          "h": 43.68,
+          "clip": false,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4020_title2",
+          "path": "chars/4020/4020_p/overlays/gyro_4020_title2.png",
+          "x": 148,
+          "y": 238,
+          "w": 296.4,
+          "h": 134.16,
+          "clip": false,
+          "depth": 1
+        }
+      ]
+    }
+  },
+  {
+    "id": "4021",
+    "name": "United by Fate",
+    "kind": "parallax",
+    "parallax": {
+      "canvasW": 1080,
+      "canvasH": 1080,
+      "mask": {
+        "w": 712,
+        "h": 712,
+        "x": 0,
+        "y": 0
+      },
+      "parallax": {
+        "ax": 5,
+        "ay": -20,
+        "xmin": -0.99,
+        "xmax": 0.99,
+        "ymin": -0.99,
+        "ymax": -0.21
+      },
+      "layers": [
+        {
+          "file": "gyro_4021_bg1",
+          "path": "chars/4021/4021_p/overlays/gyro_4021_bg1.png",
+          "x": 0,
+          "y": -724.5,
+          "w": 5380,
+          "h": 2260,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4021_actor2",
+          "path": "chars/4021/4021_p/overlays/gyro_4021_actor2.png",
+          "x": 730,
+          "y": 390,
+          "w": 2059.2,
+          "h": 1785.6,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4021_light",
+          "path": "chars/4021/4021_p/overlays/gyro_4021_light.png",
+          "x": 0,
+          "y": -1100,
+          "w": 3012.8,
+          "h": 1859.2,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4021_actor1",
+          "path": "chars/4021/4021_p/overlays/gyro_4021_actor1.png",
+          "x": -195,
+          "y": 70,
+          "w": 1751.2,
+          "h": 1645.6,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4021_shoe",
+          "path": "chars/4021/4021_p/overlays/gyro_4021_shoe.png",
+          "x": 0,
+          "y": 504.3,
+          "w": 1183.6,
+          "h": 338.8,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_title01",
+          "path": "chars/4021/4021_p/overlays/gyro_title01.png",
+          "x": -275,
+          "y": 300,
+          "w": 108,
+          "h": 36,
+          "clip": false,
+          "depth": 1
+        },
+        {
+          "file": "gyro_title02",
+          "path": "chars/4021/4021_p/overlays/gyro_title02.png",
+          "x": 125,
+          "y": -200,
+          "w": 216,
+          "h": 123,
+          "clip": false,
+          "depth": 1
+        }
+      ]
+    }
+  },
+  {
+    "id": "4022",
+    "name": "The Meow",
+    "kind": "parallax",
+    "parallax": {
+      "canvasW": 1080,
+      "canvasH": 1080,
+      "mask": {
+        "w": 712,
+        "h": 712,
+        "x": 0,
+        "y": 0
+      },
+      "parallax": {
+        "ax": 5,
+        "ay": -20,
+        "xmin": -0.99,
+        "xmax": 0.99,
+        "ymin": -0.99,
+        "ymax": -0.21
+      },
+      "layers": [
+        {
+          "file": "gyro_4022_bg",
+          "path": "chars/4022/4022_p/overlays/gyro_4022_bg.png",
+          "x": 0,
+          "y": 0,
+          "w": 5335,
+          "h": 3686,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4022_fg",
+          "path": "chars/4022/4022_p/overlays/gyro_4022_fg.png",
+          "x": 0,
+          "y": 0,
+          "w": 3812.4,
+          "h": 2700,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4022_fx",
+          "path": "chars/4022/4022_p/overlays/gyro_4022_fx.png",
+          "x": -110,
+          "y": 0,
+          "w": 2811.2,
+          "h": 1904,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4022_title1",
+          "path": "chars/4022/4022_p/overlays/gyro_4022_title1.png",
+          "x": 265,
+          "y": 265,
+          "w": 116,
+          "h": 116,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4022_title2",
+          "path": "chars/4022/4022_p/overlays/gyro_4022_title2.png",
+          "x": -160,
+          "y": -220,
+          "w": 237.12,
+          "h": 127.92,
+          "clip": false,
+          "depth": 1
+        }
+      ]
+    }
+  },
+  {
+    "id": "4023",
+    "name": "Colors Pierce the Grey",
+    "kind": "parallax",
+    "parallax": {
+      "canvasW": 1080,
+      "canvasH": 1080,
+      "mask": {
+        "w": 712,
+        "h": 712,
+        "x": 0,
+        "y": 0
+      },
+      "parallax": {
+        "ax": 5,
+        "ay": -20,
+        "xmin": -0.99,
+        "xmax": 0.99,
+        "ymin": -0.99,
+        "ymax": -0.21
+      },
+      "layers": [
+        {
+          "file": "gyro_4023_Bg",
+          "path": "chars/4023/4023_p/overlays/gyro_4023_Bg.png",
+          "x": 0,
+          "y": 0,
+          "w": 5365.6,
+          "h": 3800,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4023_Mountain",
+          "path": "chars/4023/4023_p/overlays/gyro_4023_Mountain.png",
+          "x": 1685,
+          "y": -825,
+          "w": 1072,
+          "h": 96,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4023_Sea",
+          "path": "chars/4023/4023_p/overlays/gyro_4023_Sea.png",
+          "x": 850,
+          "y": 10,
+          "w": 2099.2,
+          "h": 1804.8,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4023_Bird",
+          "path": "chars/4023/4023_p/overlays/gyro_4023_Bird.png",
+          "x": 895,
+          "y": -1035,
+          "w": 606,
+          "h": 96,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4023_Ground",
+          "path": "chars/4023/4023_p/overlays/gyro_4023_Ground.png",
+          "x": 0,
+          "y": -417,
+          "w": 2400.4,
+          "h": 1271.6,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4023_House",
+          "path": "chars/4023/4023_p/overlays/gyro_4023_House.png",
+          "x": -530,
+          "y": -200,
+          "w": 562.5,
+          "h": 398.25,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4023_Sign",
+          "path": "chars/4023/4023_p/overlays/gyro_4023_Sign.png",
+          "x": -1055,
+          "y": 100,
+          "w": 354,
+          "h": 468,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4023_SwimRing",
+          "path": "chars/4023/4023_p/overlays/gyro_4023_SwimRing.png",
+          "x": 875,
+          "y": -230,
+          "w": 296,
+          "h": 216,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4023_Flag",
+          "path": "chars/4023/4023_p/overlays/gyro_4023_Flag.png",
+          "x": 240,
+          "y": -300,
+          "w": 488,
+          "h": 344,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4023_bucket_02",
+          "path": "chars/4023/4023_p/overlays/gyro_4023_bucket_02.png",
+          "x": -90,
+          "y": 100,
+          "w": 168,
+          "h": 184,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4023_Npc_02",
+          "path": "chars/4023/4023_p/overlays/gyro_4023_Npc_02.png",
+          "x": -600,
+          "y": -165,
+          "w": 104,
+          "h": 136,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4023_MiNieWa",
+          "path": "chars/4023/4023_p/overlays/gyro_4023_MiNieWa.png",
+          "x": -470,
+          "y": -450,
+          "w": 228,
+          "h": 258,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4023_ManYue",
+          "path": "chars/4023/4023_p/overlays/gyro_4023_ManYue.png",
+          "x": -45,
+          "y": -200,
+          "w": 246,
+          "h": 552,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4023_Sofa",
+          "path": "chars/4023/4023_p/overlays/gyro_4023_Sofa.png",
+          "x": -540,
+          "y": -150,
+          "w": 822,
+          "h": 510.4,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4023_Wall",
+          "path": "chars/4023/4023_p/overlays/gyro_4023_Wall.png",
+          "x": -200,
+          "y": 323.61,
+          "w": 1200,
+          "h": 520,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4023_Npc_01",
+          "path": "chars/4023/4023_p/overlays/gyro_4023_Npc_01.png",
+          "x": -469,
+          "y": 294,
+          "w": 537.2,
+          "h": 558,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4023_XinYue",
+          "path": "chars/4023/4023_p/overlays/gyro_4023_XinYue.png",
+          "x": 325,
+          "y": 480,
+          "w": 720,
+          "h": 1092,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4023_Skateboard",
+          "path": "chars/4023/4023_p/overlays/gyro_4023_Skateboard.png",
+          "x": -914.6,
+          "y": -257.2,
+          "w": 215.29,
+          "h": 187.06,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4023_bucket_01",
+          "path": "chars/4023/4023_p/overlays/gyro_4023_bucket_01.png",
+          "x": 79.65,
+          "y": -148.4,
+          "w": 148.24,
+          "h": 120,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4023_Title",
+          "path": "chars/4023/4023_p/overlays/gyro_4023_Title.png",
+          "x": -140,
+          "y": -220,
+          "w": 432,
+          "h": 296,
+          "clip": false,
+          "depth": 1
+        }
+      ]
+    }
+  },
+  {
+    "id": "4024",
+    "name": "One, Two, Three, Jump!",
+    "kind": "parallax",
+    "parallax": {
+      "canvasW": 1080,
+      "canvasH": 1080,
+      "mask": {
+        "w": 712,
+        "h": 712,
+        "x": 0,
+        "y": 0
+      },
+      "parallax": {
+        "ax": 5,
+        "ay": -20,
+        "xmin": -0.99,
+        "xmax": 0.99,
+        "ymin": -0.99,
+        "ymax": -0.21
+      },
+      "layers": [
+        {
+          "file": "gyro_4024_Bg",
+          "path": "chars/4024/4024_p/overlays/gyro_4024_Bg.png",
+          "x": 0,
+          "y": 0,
+          "w": 5367.17,
+          "h": 3800,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4024_YuanWei",
+          "path": "chars/4024/4024_p/overlays/gyro_4024_YuanWei.png",
+          "x": -130,
+          "y": -590,
+          "w": 264,
+          "h": 276,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4024_HuPo",
+          "path": "chars/4024/4024_p/overlays/gyro_4024_HuPo.png",
+          "x": -915,
+          "y": -40,
+          "w": 996.4,
+          "h": 1166,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4024_Ground",
+          "path": "chars/4024/4024_p/overlays/gyro_4024_Ground.png",
+          "x": -680,
+          "y": 100,
+          "w": 1780.8,
+          "h": 1208.4,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4024_ChenSha",
+          "path": "chars/4024/4024_p/overlays/gyro_4024_ChenSha.png",
+          "x": 190,
+          "y": 5,
+          "w": 1095,
+          "h": 1375,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4024_Eff",
+          "path": "chars/4024/4024_p/overlays/gyro_4024_Eff.png",
+          "x": -30,
+          "y": 195,
+          "w": 1336,
+          "h": 1272.07,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4024_RainBow",
+          "path": "chars/4024/4024_p/overlays/gyro_4024_RainBow.png",
+          "x": 440,
+          "y": -415,
+          "w": 668,
+          "h": 508,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4024_Title_Down",
+          "path": "chars/4024/4024_p/overlays/gyro_4024_Title_Down.png",
+          "x": 248,
+          "y": 330,
+          "w": 150,
+          "h": 21,
+          "clip": false,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4024_Title_Up",
+          "path": "chars/4024/4024_p/overlays/gyro_4024_Title_Up.png",
+          "x": -125,
+          "y": -195,
+          "w": 293.8,
+          "h": 153.4,
+          "clip": false,
+          "depth": 1
+        }
+      ]
+    }
+  },
+  {
+    "id": "4026",
+    "name": "Sword Against Stream",
+    "kind": "parallax",
+    "parallax": {
+      "canvasW": 1080,
+      "canvasH": 1080,
+      "mask": {
+        "w": 712,
+        "h": 712,
+        "x": 0,
+        "y": 0
+      },
+      "parallax": {
+        "ax": 5,
+        "ay": -20,
+        "xmin": -0.99,
+        "xmax": 0.99,
+        "ymin": -0.99,
+        "ymax": -0.21
+      },
+      "layers": [
+        {
+          "file": "gyro_4026_bg",
+          "path": "chars/4026/4026_p/overlays/gyro_4026_bg.png",
+          "x": 0,
+          "y": -10,
+          "w": 5354.4,
+          "h": 3802.4,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4026_umbrella",
+          "path": "chars/4026/4026_p/overlays/gyro_4026_umbrella.png",
+          "x": 855,
+          "y": 390,
+          "w": 660,
+          "h": 924,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4026_snake",
+          "path": "chars/4026/4026_p/overlays/gyro_4026_snake.png",
+          "x": 0,
+          "y": -65,
+          "w": 1667.8,
+          "h": 1215.2,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4026_title",
+          "path": "chars/4026/4026_p/overlays/gyro_4026_title.png",
+          "x": -85,
+          "y": 229,
+          "w": 427.44,
+          "h": 137.28,
+          "clip": false,
+          "depth": 1
+        }
+      ]
+    }
+  },
+  {
+    "id": "4027",
+    "name": "Mystic Brushstrokes",
+    "kind": "parallax",
+    "parallax": {
+      "canvasW": 1080,
+      "canvasH": 1080,
+      "mask": {
+        "w": 712,
+        "h": 712,
+        "x": 0,
+        "y": 0
+      },
+      "parallax": {
+        "ax": 5,
+        "ay": -20,
+        "xmin": -0.99,
+        "xmax": 0.99,
+        "ymin": -0.99,
+        "ymax": -0.21
+      },
+      "layers": [
+        {
+          "file": "gyro_4027_bg",
+          "path": "chars/4027/4027_p/overlays/gyro_4027_bg.png",
+          "x": 0,
+          "y": 0,
+          "w": 5380.8,
+          "h": 3815.2,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4027_bg1",
+          "path": "chars/4027/4027_p/overlays/gyro_4027_bg1.png",
+          "x": 0,
+          "y": 0,
+          "w": 3256.8,
+          "h": 2309.2,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4027_actor",
+          "path": "chars/4027/4027_p/overlays/gyro_4027_actor.png",
+          "x": 50,
+          "y": 90,
+          "w": 2144,
+          "h": 1222.4,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4027_fg2",
+          "path": "chars/4027/4027_p/overlays/gyro_4027_fg2.png",
+          "x": -20,
+          "y": 150,
+          "w": 1274,
+          "h": 1008.8,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4027_fg",
+          "path": "chars/4027/4027_p/overlays/gyro_4027_fg.png",
+          "x": -30,
+          "y": 12,
+          "w": 1396,
+          "h": 1100,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4027_fg1",
+          "path": "chars/4027/4027_p/overlays/gyro_4027_fg1.png",
+          "x": 0,
+          "y": 0,
+          "w": 717.12,
+          "h": 722.88,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4027_title",
+          "path": "chars/4027/4027_p/overlays/gyro_4027_title.png",
+          "x": 0,
+          "y": 0,
+          "w": 602.68,
+          "h": 602.68,
+          "clip": false,
+          "depth": 1
+        }
+      ]
+    }
+  },
+  {
+    "id": "4028",
+    "name": "Daylight Garden",
+    "kind": "parallax",
+    "parallax": {
+      "canvasW": 1080,
+      "canvasH": 1080,
+      "mask": {
+        "w": 712,
+        "h": 712,
+        "x": 0,
+        "y": 0
+      },
+      "parallax": {
+        "ax": 5,
+        "ay": -20,
+        "xmin": -0.99,
+        "xmax": 0.99,
+        "ymin": -0.99,
+        "ymax": -0.21
+      },
+      "layers": [
+        {
+          "file": "gyro_4028_bg",
+          "path": "chars/4028/4028_p/overlays/gyro_4028_bg.png",
+          "x": 0,
+          "y": 0,
+          "w": 5380.8,
+          "h": 3815.2,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4028_title1",
+          "path": "chars/4028/4028_p/overlays/gyro_4028_title1.png",
+          "x": 875.6,
+          "y": -1101.6,
+          "w": 1008,
+          "h": 294,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4028_bg1",
+          "path": "chars/4028/4028_p/overlays/gyro_4028_bg1.png",
+          "x": 0,
+          "y": 0,
+          "w": 3256.8,
+          "h": 2309.2,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4028_title2",
+          "path": "chars/4028/4028_p/overlays/gyro_4028_title2.png",
+          "x": 0,
+          "y": -428,
+          "w": 1300,
+          "h": 462.8,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4028_actor",
+          "path": "chars/4028/4028_p/overlays/gyro_4028_actor.png",
+          "x": -76,
+          "y": 88,
+          "w": 1747.2,
+          "h": 1138.8,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4028_fx",
+          "path": "chars/4028/4028_p/overlays/gyro_4028_fx.png",
+          "x": 0,
+          "y": 0,
+          "w": 1500.4,
+          "h": 1082.4,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4028_petal",
+          "path": "chars/4028/4028_p/overlays/gyro_4028_petal.png",
+          "x": -55,
+          "y": 348,
+          "w": 830.72,
+          "h": 168.96,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4028_title3",
+          "path": "chars/4028/4028_p/overlays/gyro_4028_title3.png",
+          "x": 0,
+          "y": 280,
+          "w": 609.28,
+          "h": 33.28,
+          "clip": false,
+          "depth": 1
+        }
+      ]
+    }
+  },
+  {
+    "id": "4029",
+    "name": "The Cat's Treasure",
+    "kind": "parallax",
+    "parallax": {
+      "canvasW": 1080,
+      "canvasH": 1080,
+      "mask": {
+        "w": 712,
+        "h": 712,
+        "x": 0,
+        "y": 0
+      },
+      "parallax": {
+        "ax": 5,
+        "ay": -20,
+        "xmin": -0.99,
+        "xmax": 0.99,
+        "ymin": -0.99,
+        "ymax": -0.21
+      },
+      "layers": [
+        {
+          "file": "gyro_4029_bg",
+          "path": "chars/4029/4029_p/overlays/gyro_4029_bg.png",
+          "x": 0,
+          "y": 40,
+          "w": 5354.4,
+          "h": 3802.4,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4029_fx",
+          "path": "chars/4029/4029_p/overlays/gyro_4029_fx.png",
+          "x": -221,
+          "y": -1175.34,
+          "w": 924,
+          "h": 600,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4029_claw2",
+          "path": "chars/4029/4029_p/overlays/gyro_4029_claw2.png",
+          "x": -1084,
+          "y": -1200,
+          "w": 499.2,
+          "h": 912,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4029_mid",
+          "path": "chars/4029/4029_p/overlays/gyro_4029_mid.png",
+          "x": 323,
+          "y": 700,
+          "w": 2460,
+          "h": 804,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4029_claw1",
+          "path": "chars/4029/4029_p/overlays/gyro_4029_claw1.png",
+          "x": -924,
+          "y": -910.5,
+          "w": 836,
+          "h": 748,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4029_fg",
+          "path": "chars/4029/4029_p/overlays/gyro_4029_fg.png",
+          "x": -740,
+          "y": 150,
+          "w": 1490.4,
+          "h": 529.2,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4029_title1",
+          "path": "chars/4029/4029_p/overlays/gyro_4029_title1.png",
+          "x": 0,
+          "y": 213,
+          "w": 486.72,
+          "h": 156,
+          "clip": false,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4029_title2",
+          "path": "chars/4029/4029_p/overlays/gyro_4029_title2.png",
+          "x": 246,
+          "y": -266,
+          "w": 90.48,
+          "h": 59.28,
+          "clip": false,
+          "depth": 1
+        }
+      ]
+    }
+  },
+  {
+    "id": "4030",
+    "name": "A Moment in the Afternoon",
+    "kind": "parallax",
+    "parallax": {
+      "canvasW": 1080,
+      "canvasH": 1080,
+      "mask": {
+        "w": 712,
+        "h": 712,
+        "x": 0,
+        "y": 0
+      },
+      "parallax": {
+        "ax": 5,
+        "ay": -20,
+        "xmin": -0.99,
+        "xmax": 0.99,
+        "ymin": -0.99,
+        "ymax": -0.21
+      },
+      "layers": [
+        {
+          "file": "gyro_4030_bg",
+          "path": "chars/4030/4030_p/overlays/gyro_4030_bg.png",
+          "x": 0,
+          "y": 12,
+          "w": 3808.8,
+          "h": 2704.8,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4030_actor",
+          "path": "chars/4030/4030_p/overlays/gyro_4030_actor.png",
+          "x": 0,
+          "y": 50,
+          "w": 1821.6,
+          "h": 1227.6,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4030_title",
+          "path": "chars/4030/4030_p/overlays/gyro_4030_title.png",
+          "x": 0,
+          "y": 0,
+          "w": 577.2,
+          "h": 592.8,
+          "clip": false,
+          "depth": 1
+        }
+      ]
+    }
+  },
+  {
+    "id": "4031",
+    "name": "The Clash of Blade and Axe",
+    "kind": "parallax",
+    "parallax": {
+      "canvasW": 1080,
+      "canvasH": 1080,
+      "mask": {
+        "w": 712,
+        "h": 712,
+        "x": 0,
+        "y": 0
+      },
+      "parallax": {
+        "ax": 5,
+        "ay": -20,
+        "xmin": -0.99,
+        "xmax": 0.99,
+        "ymin": -0.99,
+        "ymax": -0.21
+      },
+      "layers": [
+        {
+          "file": "gyro_4031_bg",
+          "path": "chars/4031/4031_p/overlays/gyro_4031_bg.png",
+          "x": 0,
+          "y": -10,
+          "w": 5354.4,
+          "h": 3802.4,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4031_actor1",
+          "path": "chars/4031/4031_p/overlays/gyro_4031_actor1.png",
+          "x": 92.4,
+          "y": 23,
+          "w": 1290,
+          "h": 1685.6,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4031_actor2",
+          "path": "chars/4031/4031_p/overlays/gyro_4031_actor2.png",
+          "x": -218,
+          "y": 0,
+          "w": 1421.36,
+          "h": 1709.12,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4031_fg",
+          "path": "chars/4031/4031_p/overlays/gyro_4031_fg.png",
+          "x": 0,
+          "y": 0,
+          "w": 1482,
+          "h": 1066,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4031_fx1",
+          "path": "chars/4031/4031_p/overlays/gyro_4031_fx1.png",
+          "x": 113.47,
+          "y": -141.78,
+          "w": 856,
+          "h": 484,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4031_fx2",
+          "path": "chars/4031/4031_p/overlays/gyro_4031_fx2.png",
+          "x": -102.46,
+          "y": -436,
+          "w": 820,
+          "h": 484,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4031_title2",
+          "path": "chars/4031/4031_p/overlays/gyro_4031_title2.png",
+          "x": 305,
+          "y": -305,
+          "w": 68,
+          "h": 84,
+          "clip": false,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4031_title1",
+          "path": "chars/4031/4031_p/overlays/gyro_4031_title1.png",
+          "x": 0,
+          "y": 230,
+          "w": 561.6,
+          "h": 168.48,
+          "clip": false,
+          "depth": 1
+        }
+      ]
+    }
+  },
+  {
+    "id": "4032",
+    "name": "Dream Factory of ☆Truth",
+    "kind": "parallax",
+    "parallax": {
+      "canvasW": 1080,
+      "canvasH": 1080,
+      "mask": {
+        "w": 712,
+        "h": 712,
+        "x": 0,
+        "y": 0
+      },
+      "parallax": {
+        "ax": 5,
+        "ay": -20,
+        "xmin": -0.99,
+        "xmax": 0.99,
+        "ymin": -0.99,
+        "ymax": -0.21
+      },
+      "layers": [
+        {
+          "file": "gyro_4032_bg",
+          "path": "chars/4032/4032_p/overlays/gyro_4032_bg.png",
+          "x": 0,
+          "y": 12,
+          "w": 3795,
+          "h": 2691,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4032_fg",
+          "path": "chars/4032/4032_p/overlays/gyro_4032_fg.png",
+          "x": 0,
+          "y": 12,
+          "w": 2090,
+          "h": 1560,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4032_title2",
+          "path": "chars/4032/4032_p/overlays/gyro_4032_title2.png",
+          "x": -35,
+          "y": -295,
+          "w": 520.96,
+          "h": 17.6,
+          "clip": false,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4032_title1",
+          "path": "chars/4032/4032_p/overlays/gyro_4032_title1.png",
+          "x": 0,
+          "y": 230,
+          "w": 524.16,
+          "h": 115.44,
+          "clip": false,
+          "depth": 1
+        }
+      ]
+    }
+  },
+  {
+    "id": "4033",
+    "name": "Dancing with the Bones",
+    "kind": "parallax",
+    "parallax": {
+      "canvasW": 1080,
+      "canvasH": 1080,
+      "mask": {
+        "w": 712,
+        "h": 712,
+        "x": 0,
+        "y": 0
+      },
+      "parallax": {
+        "ax": 5,
+        "ay": -20,
+        "xmin": -0.99,
+        "xmax": 0.99,
+        "ymin": -0.99,
+        "ymax": -0.21
+      },
+      "layers": [
+        {
+          "file": "gyro_4033_bg",
+          "path": "chars/4033/4033_p/overlays/gyro_4033_bg.png",
+          "x": 0,
+          "y": 6.01,
+          "w": 3621,
+          "h": 2507.12,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4033_sparkle",
+          "path": "chars/4033/4033_p/overlays/gyro_4033_sparkle.png",
+          "x": 891.3,
+          "y": -159.1,
+          "w": 1638,
+          "h": 1332.47,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4033_ball_upright",
+          "path": "chars/4033/4033_p/overlays/gyro_4033_ball_upright.png",
+          "x": 121.9,
+          "y": -597.4,
+          "w": 296.8,
+          "h": 196,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4033_ball_upleft",
+          "path": "chars/4033/4033_p/overlays/gyro_4033_ball_upleft.png",
+          "x": -533.2,
+          "y": -386.7,
+          "w": 387.2,
+          "h": 255.2,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4033_birdfront",
+          "path": "chars/4033/4033_p/overlays/gyro_4033_birdfront.png",
+          "x": 351.4,
+          "y": 302.6,
+          "w": 450.56,
+          "h": 281.6,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4033_rope",
+          "path": "chars/4033/4033_p/overlays/gyro_4033_rope.png",
+          "x": 415.5,
+          "y": 158.4,
+          "w": 243.2,
+          "h": 396,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4033_light",
+          "path": "chars/4033/4033_p/overlays/gyro_4033_light.png",
+          "x": 282.58,
+          "y": 193.92,
+          "w": 212.4,
+          "h": 104.4,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4033_title",
+          "path": "chars/4033/4033_p/overlays/gyro_4033_title.png",
+          "x": -89.3,
+          "y": -194.7,
+          "w": 377.6,
+          "h": 143.96,
+          "clip": false,
+          "depth": 1
+        }
+      ]
+    }
+  },
+  {
+    "id": "4036",
+    "name": "The Lost Pilgrim",
+    "kind": "parallax",
+    "parallax": {
+      "canvasW": 1080,
+      "canvasH": 1080,
+      "mask": {
+        "w": 712,
+        "h": 712,
+        "x": 0,
+        "y": 0
+      },
+      "parallax": {
+        "ax": 5,
+        "ay": -20,
+        "xmin": -0.99,
+        "xmax": 0.99,
+        "ymin": -0.99,
+        "ymax": -0.21
+      },
+      "layers": [
+        {
+          "file": "gyro_4036_bg",
+          "path": "chars/4036/4036_p/overlays/gyro_4036_bg.png",
+          "x": 0,
+          "y": 0,
+          "w": 6918.8,
+          "h": 4900,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4036_Tomb",
+          "path": "chars/4036/4036_p/overlays/gyro_4036_Tomb.png",
+          "x": 0,
+          "y": 510,
+          "w": 4236,
+          "h": 1692,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4036_IronMaiden_Back",
+          "path": "chars/4036/4036_p/overlays/gyro_4036_IronMaiden_Back.png",
+          "x": 0,
+          "y": 10,
+          "w": 2930.4,
+          "h": 2200,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4036_Chain_Back_01",
+          "path": "chars/4036/4036_p/overlays/gyro_4036_Chain_Back_01.png",
+          "x": -870,
+          "y": -370,
+          "w": 248,
+          "h": 568,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4036_Chain_Front_01",
+          "path": "chars/4036/4036_p/overlays/gyro_4036_Chain_Front_01.png",
+          "x": -475,
+          "y": 475.6,
+          "w": 820.8,
+          "h": 264,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4036_IronMaiden_Front",
+          "path": "chars/4036/4036_p/overlays/gyro_4036_IronMaiden_Front.png",
+          "x": 0,
+          "y": -525,
+          "w": 2329.8,
+          "h": 1346.92,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4036_Chain_Front_02",
+          "path": "chars/4036/4036_p/overlays/gyro_4036_Chain_Front_02.png",
+          "x": 590,
+          "y": -195,
+          "w": 618.8,
+          "h": 497.2,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4036_Chain_Back_02",
+          "path": "chars/4036/4036_p/overlays/gyro_4036_Chain_Back_02.png",
+          "x": -550,
+          "y": -480,
+          "w": 720,
+          "h": 880,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4036_GeBin_Hair",
+          "path": "chars/4036/4036_p/overlays/gyro_4036_GeBin_Hair.png",
+          "x": -10,
+          "y": 275,
+          "w": 1082.4,
+          "h": 1174.8,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4036_GeBin",
+          "path": "chars/4036/4036_p/overlays/gyro_4036_GeBin.png",
+          "x": 0,
+          "y": 175,
+          "w": 834,
+          "h": 1158,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4036_Chain_Back_04",
+          "path": "chars/4036/4036_p/overlays/gyro_4036_Chain_Back_04.png",
+          "x": 500,
+          "y": -560,
+          "w": 800,
+          "h": 720,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4036_Chain_Back_03",
+          "path": "chars/4036/4036_p/overlays/gyro_4036_Chain_Back_03.png",
+          "x": -299,
+          "y": 245.6,
+          "w": 180,
+          "h": 240,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4036_Point",
+          "path": "chars/4036/4036_p/overlays/gyro_4036_Point.png",
+          "x": -35,
+          "y": -435,
+          "w": 2312,
+          "h": 684,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4036_Eff",
+          "path": "chars/4036/4036_p/overlays/gyro_4036_Eff.png",
+          "x": 0,
+          "y": -95,
+          "w": 3960,
+          "h": 2616,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4036_Chain_Front_03",
+          "path": "chars/4036/4036_p/overlays/gyro_4036_Chain_Front_03.png",
+          "x": 210,
+          "y": 260,
+          "w": 596,
+          "h": 384,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4036_Title_Up",
+          "path": "chars/4036/4036_p/overlays/gyro_4036_Title_Up.png",
+          "x": 0,
+          "y": -280,
+          "w": 567.92,
+          "h": 32.24,
+          "clip": false,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4036_Title_Down",
+          "path": "chars/4036/4036_p/overlays/gyro_4036_Title_Down.png",
+          "x": 0,
+          "y": 210,
+          "w": 475.2,
+          "h": 123.2,
+          "clip": false,
+          "depth": 1
+        }
+      ]
+    }
+  },
+  {
+    "id": "4037",
+    "name": "Claw the Claw",
+    "kind": "parallax",
+    "parallax": {
+      "canvasW": 1080,
+      "canvasH": 1080,
+      "mask": {
+        "w": 712,
+        "h": 712,
+        "x": 0,
+        "y": 0
+      },
+      "parallax": {
+        "ax": 3,
+        "ay": -10,
+        "xmin": -0.99,
+        "xmax": 0.99,
+        "ymin": -0.99,
+        "ymax": -0.21
+      },
+      "layers": [
+        {
+          "file": "gyro_4037_bg",
+          "path": "chars/4037/4037_p/overlays/gyro_4037_bg.png",
+          "x": -5.78,
+          "y": -136.5,
+          "w": 4943.45,
+          "h": 3500,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4037_penguin",
+          "path": "chars/4037/4037_p/overlays/gyro_4037_penguin.png",
+          "x": 139.5,
+          "y": 460.8,
+          "w": 2498.4,
+          "h": 1564.89,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4037_actor1",
+          "path": "chars/4037/4037_p/overlays/gyro_4037_actor1.png",
+          "x": 49.3,
+          "y": -247.6,
+          "w": 1583.6,
+          "h": 1635.4,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4037_glass2",
+          "path": "chars/4037/4037_p/overlays/gyro_4037_glass2.png",
+          "x": -417.4,
+          "y": -229.5,
+          "w": 449.28,
+          "h": 673.92,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4037_star",
+          "path": "chars/4037/4037_p/overlays/gyro_4037_star.png",
+          "x": 64.3,
+          "y": -196.6,
+          "w": 1036,
+          "h": 532,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4037_glass",
+          "path": "chars/4037/4037_p/overlays/gyro_4037_glass.png",
+          "x": -63.95,
+          "y": -1.7,
+          "w": 2005.63,
+          "h": 1420,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4037_actor3",
+          "path": "chars/4037/4037_p/overlays/gyro_4037_actor3.png",
+          "x": -487.9,
+          "y": -246.9,
+          "w": 510.6,
+          "h": 381.8,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4037_actor4",
+          "path": "chars/4037/4037_p/overlays/gyro_4037_actor4.png",
+          "x": 503,
+          "y": 14.1,
+          "w": 478.8,
+          "h": 319.2,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4037_actor2",
+          "path": "chars/4037/4037_p/overlays/gyro_4037_actor2.png",
+          "x": -453.6,
+          "y": 124.1,
+          "w": 347.44,
+          "h": 368.08,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4037_title",
+          "path": "chars/4037/4037_p/overlays/gyro_4037_title.png",
+          "x": 0,
+          "y": 196.9,
+          "w": 535.8,
+          "h": 171,
+          "clip": false,
+          "depth": 1
+        }
+      ]
+    }
+  },
+  {
+    "id": "4038",
+    "name": "Ripples of Nostalgia",
+    "kind": "parallax",
+    "parallax": {
+      "canvasW": 1080,
+      "canvasH": 1080,
+      "mask": {
+        "w": 712,
+        "h": 712,
+        "x": 0,
+        "y": 0
+      },
+      "parallax": {
+        "ax": 5,
+        "ay": -20,
+        "xmin": -0.99,
+        "xmax": 0.99,
+        "ymin": -0.99,
+        "ymax": -0.21
+      },
+      "layers": [
+        {
+          "file": "gyro_4038_Bg",
+          "path": "chars/4038/4038_p/overlays/gyro_4038_Bg.png",
+          "x": 0,
+          "y": 0,
+          "w": 5365.6,
+          "h": 3800,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4038_Xiya",
+          "path": "chars/4038/4038_p/overlays/gyro_4038_Xiya.png",
+          "x": -25,
+          "y": -105,
+          "w": 2652,
+          "h": 2184,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4038_Plant_02",
+          "path": "chars/4038/4038_p/overlays/gyro_4038_Plant_02.png",
+          "x": 0,
+          "y": 0,
+          "w": 3812.4,
+          "h": 2700,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4038_Fish",
+          "path": "chars/4038/4038_p/overlays/gyro_4038_Fish.png",
+          "x": -75,
+          "y": -850,
+          "w": 1933.8,
+          "h": 1650,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4038_Plant_01",
+          "path": "chars/4038/4038_p/overlays/gyro_4038_Plant_01.png",
+          "x": -775,
+          "y": 0,
+          "w": 376,
+          "h": 1104,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4038_Purple",
+          "path": "chars/4038/4038_p/overlays/gyro_4038_Purple.png",
+          "x": 0,
+          "y": 0,
+          "w": 2004,
+          "h": 1500,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4038_Light",
+          "path": "chars/4038/4038_p/overlays/gyro_4038_Light.png",
+          "x": 0,
+          "y": 0,
+          "w": 1412.41,
+          "h": 1000,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4038_Title",
+          "path": "chars/4038/4038_p/overlays/gyro_4038_Title.png",
+          "x": -60,
+          "y": 185,
+          "w": 434,
+          "h": 212.8,
+          "clip": false,
+          "depth": 1
+        }
+      ]
+    }
+  },
+  {
+    "id": "4039",
+    "name": "Summer Sanctuary",
+    "kind": "parallax",
+    "parallax": {
+      "canvasW": 1080,
+      "canvasH": 1080,
+      "mask": {
+        "w": 712,
+        "h": 712,
+        "x": 0,
+        "y": 0
+      },
+      "parallax": {
+        "ax": 3,
+        "ay": -15,
+        "xmin": -0.99,
+        "xmax": 0.99,
+        "ymin": -0.99,
+        "ymax": -0.21
+      },
+      "layers": [
+        {
+          "file": "gyro_4039_bg",
+          "path": "chars/4039/4039_p/overlays/gyro_4039_bg.png",
+          "x": 122.6,
+          "y": 51.4,
+          "w": 4956.39,
+          "h": 3514,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4039_actor3",
+          "path": "chars/4039/4039_p/overlays/gyro_4039_actor3.png",
+          "x": -1368.05,
+          "y": 622,
+          "w": 638.4,
+          "h": 795.2,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4039_pavilion",
+          "path": "chars/4039/4039_p/overlays/gyro_4039_pavilion.png",
+          "x": 74,
+          "y": 3.78,
+          "w": 3540.28,
+          "h": 2510,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4039_actor2",
+          "path": "chars/4039/4039_p/overlays/gyro_4039_actor2.png",
+          "x": -511.4,
+          "y": 368.9,
+          "w": 360,
+          "h": 870,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4039_actor1",
+          "path": "chars/4039/4039_p/overlays/gyro_4039_actor1.png",
+          "x": 128.2,
+          "y": 128.7,
+          "w": 725.8,
+          "h": 695.4,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4039_wave",
+          "path": "chars/4039/4039_p/overlays/gyro_4039_wave.png",
+          "x": 0,
+          "y": 292.2,
+          "w": 223.6,
+          "h": 26,
+          "clip": false,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4039_title",
+          "path": "chars/4039/4039_p/overlays/gyro_4039_title.png",
+          "x": -134.1,
+          "y": -203.18,
+          "w": 280.44,
+          "h": 145.92,
+          "clip": false,
+          "depth": 1
+        }
+      ]
+    }
+  },
+  {
+    "id": "4040",
+    "name": "Fist of Courage",
+    "kind": "parallax",
+    "parallax": {
+      "canvasW": 1080,
+      "canvasH": 1080,
+      "mask": {
+        "w": 712,
+        "h": 712,
+        "x": 0,
+        "y": 0
+      },
+      "parallax": {
+        "ax": 5,
+        "ay": -15,
+        "xmin": -0.99,
+        "xmax": 0.99,
+        "ymin": -0.99,
+        "ymax": -0.21
+      },
+      "layers": [
+        {
+          "file": "gyro_4040_bg",
+          "path": "chars/4040/4040_p/overlays/gyro_4040_bg.png",
+          "x": 122.6,
+          "y": 17.2,
+          "w": 5168.8,
+          "h": 3664.6,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4040_actor2",
+          "path": "chars/4040/4040_p/overlays/gyro_4040_actor2.png",
+          "x": 776.56,
+          "y": -392.4,
+          "w": 644.8,
+          "h": 644.8,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4040_effect_back",
+          "path": "chars/4040/4040_p/overlays/gyro_4040_effect_back.png",
+          "x": 220.6,
+          "y": -515.7,
+          "w": 2920,
+          "h": 1420.08,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4040_actor1",
+          "path": "chars/4040/4040_p/overlays/gyro_4040_actor1.png",
+          "x": -22.1,
+          "y": 112.6,
+          "w": 2124,
+          "h": 1464.4,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4040_effect_front",
+          "path": "chars/4040/4040_p/overlays/gyro_4040_effect_front.png",
+          "x": -288,
+          "y": 84.9,
+          "w": 888,
+          "h": 980,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4040_spark",
+          "path": "chars/4040/4040_p/overlays/gyro_4040_spark.png",
+          "x": 7.79,
+          "y": -9,
+          "w": 1120,
+          "h": 904.53,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4040_title2",
+          "path": "chars/4040/4040_p/overlays/gyro_4040_title2.png",
+          "x": -255.5,
+          "y": 269.9,
+          "w": 59.8,
+          "h": 44.2,
+          "clip": false,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4040_title1",
+          "path": "chars/4040/4040_p/overlays/gyro_4040_title1.png",
+          "x": 143.4,
+          "y": -220.5,
+          "w": 237.6,
+          "h": 81.6,
+          "clip": false,
+          "depth": 1
+        }
+      ]
+    }
+  },
+  {
+    "id": "4041",
+    "name": "A Gift for the Journey",
+    "kind": "parallax",
+    "parallax": {
+      "canvasW": 1080,
+      "canvasH": 1080,
+      "mask": {
+        "w": 712,
+        "h": 712,
+        "x": 0,
+        "y": 0
+      },
+      "parallax": {
+        "ax": 5,
+        "ay": -20,
+        "xmin": -0.99,
+        "xmax": 0.99,
+        "ymin": -0.99,
+        "ymax": -0.21
+      },
+      "layers": [
+        {
+          "file": "gyro_4041_sky",
+          "path": "chars/4041/4041_p/overlays/gyro_4041_sky.png",
+          "x": 122.6,
+          "y": 51.4,
+          "w": 5649.65,
+          "h": 4000,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4041_tower",
+          "path": "chars/4041/4041_p/overlays/gyro_4041_tower.png",
+          "x": 673.3,
+          "y": -44.1,
+          "w": 690,
+          "h": 1738.8,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4041_rope2",
+          "path": "chars/4041/4041_p/overlays/gyro_4041_rope2.png",
+          "x": 106,
+          "y": 362.1,
+          "w": 686.4,
+          "h": 64,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4041_charactor1",
+          "path": "chars/4041/4041_p/overlays/gyro_4041_charactor1.png",
+          "x": 1.4,
+          "y": 148.2,
+          "w": 2541.6,
+          "h": 1670.41,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4041_snow1",
+          "path": "chars/4041/4041_p/overlays/gyro_4041_snow1.png",
+          "x": -162.5,
+          "y": 223.6,
+          "w": 1835.84,
+          "h": 1097.2,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4041_charactor2",
+          "path": "chars/4041/4041_p/overlays/gyro_4041_charactor2.png",
+          "x": 58.7,
+          "y": 483.5,
+          "w": 358.8,
+          "h": 286,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4041_rope1",
+          "path": "chars/4041/4041_p/overlays/gyro_4041_rope1.png",
+          "x": 248,
+          "y": 224.9,
+          "w": 72,
+          "h": 50.4,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4041_charactor3",
+          "path": "chars/4041/4041_p/overlays/gyro_4041_charactor3.png",
+          "x": 373.86,
+          "y": 195,
+          "w": 475.2,
+          "h": 646.8,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4041_sled",
+          "path": "chars/4041/4041_p/overlays/gyro_4041_sled.png",
+          "x": -205.2,
+          "y": 279.1,
+          "w": 189.8,
+          "h": 54.6,
+          "clip": false,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4041_title",
+          "path": "chars/4041/4041_p/overlays/gyro_4041_title.png",
+          "x": 7.06,
+          "y": -233.58,
+          "w": 426.36,
+          "h": 54.72,
+          "clip": false,
+          "depth": 1
+        }
+      ]
+    }
+  },
+  {
+    "id": "4042",
+    "name": "Wine Warm, Lamps Alight",
+    "kind": "parallax",
+    "parallax": {
+      "canvasW": 1080,
+      "canvasH": 1080,
+      "mask": {
+        "w": 712,
+        "h": 712,
+        "x": 0,
+        "y": 0
+      },
+      "parallax": {
+        "ax": 5,
+        "ay": -5,
+        "xmin": -0.99,
+        "xmax": 0.99,
+        "ymin": -0.99,
+        "ymax": -0.21
+      },
+      "layers": [
+        {
+          "file": "gyro_4042_bg",
+          "path": "chars/4042/4042_p/overlays/gyro_4042_bg.png",
+          "x": 46.7,
+          "y": 1.97,
+          "w": 5649.65,
+          "h": 4000,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4042_curtain2",
+          "path": "chars/4042/4042_p/overlays/gyro_4042_curtain2.png",
+          "x": 7.68,
+          "y": -950.9,
+          "w": 2589.44,
+          "h": 2283.84,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4042_actor",
+          "path": "chars/4042/4042_p/overlays/gyro_4042_actor.png",
+          "x": 3.1,
+          "y": 2.65,
+          "w": 2337.54,
+          "h": 1655,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4042_steam",
+          "path": "chars/4042/4042_p/overlays/gyro_4042_steam.png",
+          "x": 105.4,
+          "y": 105.1,
+          "w": 452,
+          "h": 266.4,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4042_lantern",
+          "path": "chars/4042/4042_p/overlays/gyro_4042_lantern.png",
+          "x": -353,
+          "y": -358.6,
+          "w": 228,
+          "h": 342.22,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4042_subtitle",
+          "path": "chars/4042/4042_p/overlays/gyro_4042_subtitle.png",
+          "x": -261.9,
+          "y": 274.5,
+          "w": 49.4,
+          "h": 41.6,
+          "clip": false,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4042_title",
+          "path": "chars/4042/4042_p/overlays/gyro_4042_title.png",
+          "x": 199.4,
+          "y": -166.4,
+          "w": 134.52,
+          "h": 186.96,
+          "clip": false,
+          "depth": 1
+        }
+      ]
+    }
+  },
+  {
+    "id": "4043",
+    "name": "The Bud of Change",
+    "kind": "parallax",
+    "parallax": {
+      "canvasW": 1080,
+      "canvasH": 1080,
+      "mask": {
+        "w": 712,
+        "h": 712,
+        "x": 0,
+        "y": 0
+      },
+      "parallax": {
+        "ax": 3,
+        "ay": -5,
+        "xmin": -0.99,
+        "xmax": 0.99,
+        "ymin": -0.99,
+        "ymax": -0.21
+      },
+      "layers": [
+        {
+          "file": "gyro_4043_actor5",
+          "path": "chars/4043/4043_p/overlays/gyro_4043_actor5.png",
+          "x": -1177.6,
+          "y": 233,
+          "w": 470.4,
+          "h": 616,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4043_actor6",
+          "path": "chars/4043/4043_p/overlays/gyro_4043_actor6.png",
+          "x": -1133.5,
+          "y": 402.6,
+          "w": 336,
+          "h": 347.2,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4043_actor2",
+          "path": "chars/4043/4043_p/overlays/gyro_4043_actor2.png",
+          "x": -987,
+          "y": 746.4,
+          "w": 1383.2,
+          "h": 988,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4043_actor3",
+          "path": "chars/4043/4043_p/overlays/gyro_4043_actor3.png",
+          "x": 771.2,
+          "y": 768.5,
+          "w": 1360,
+          "h": 970,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4043_actor4",
+          "path": "chars/4043/4043_p/overlays/gyro_4043_actor4.png",
+          "x": 352.3,
+          "y": 909.5,
+          "w": 592.2,
+          "h": 648.6,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4043_actor1",
+          "path": "chars/4043/4043_p/overlays/gyro_4043_actor1.png",
+          "x": -642.1,
+          "y": 1136.3,
+          "w": 1334,
+          "h": 1729.6,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4043_light",
+          "path": "chars/4043/4043_p/overlays/gyro_4043_light.png",
+          "x": 978.4,
+          "y": 266,
+          "w": 1496,
+          "h": 888,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4043_leaves",
+          "path": "chars/4043/4043_p/overlays/gyro_4043_leaves.png",
+          "x": 436.6,
+          "y": 643.8,
+          "w": 430,
+          "h": 520,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4043_particle",
+          "path": "chars/4043/4043_p/overlays/gyro_4043_particle.png",
+          "x": 369.4,
+          "y": 216.4,
+          "w": 1152,
+          "h": 1074,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4043_title_frame",
+          "path": "chars/4043/4043_p/overlays/gyro_4043_title_frame.png",
+          "x": 0.9,
+          "y": 2.74,
+          "w": 594.72,
+          "h": 604.8,
+          "clip": false,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4043_title",
+          "path": "chars/4043/4043_p/overlays/gyro_4043_title.png",
+          "x": -151,
+          "y": -219.7,
+          "w": 224,
+          "h": 98.56,
+          "clip": false,
+          "depth": 1
+        }
+      ]
+    }
+  },
+  {
+    "id": "4044",
+    "name": "Veiled Dawn of Spring",
+    "kind": "parallax",
+    "parallax": {
+      "canvasW": 1080,
+      "canvasH": 1080,
+      "mask": {
+        "w": 712,
+        "h": 712,
+        "x": 0,
+        "y": 0
+      },
+      "parallax": {
+        "ax": 5,
+        "ay": -15,
+        "xmin": -0.99,
+        "xmax": 0.99,
+        "ymin": -0.99,
+        "ymax": -0.21
+      },
+      "layers": [
+        {
+          "file": "gyro_4044_ceiling",
+          "path": "chars/4044/4044_p/overlays/gyro_4044_ceiling.png",
+          "x": -12.6,
+          "y": 1.97,
+          "w": 5084.69,
+          "h": 3600,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4044_balls",
+          "path": "chars/4044/4044_p/overlays/gyro_4044_balls.png",
+          "x": -174,
+          "y": -1216.56,
+          "w": 1587.6,
+          "h": 1566,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4044_partition",
+          "path": "chars/4044/4044_p/overlays/gyro_4044_partition.png",
+          "x": 16.6,
+          "y": -98.3,
+          "w": 3813.52,
+          "h": 2700,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4044_drip",
+          "path": "chars/4044/4044_p/overlays/gyro_4044_drip.png",
+          "x": 587,
+          "y": -150.8,
+          "w": 646.2,
+          "h": 1467,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4044_box",
+          "path": "chars/4044/4044_p/overlays/gyro_4044_box.png",
+          "x": -556.9,
+          "y": 468.9,
+          "w": 620.6,
+          "h": 597.4,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4044_bed",
+          "path": "chars/4044/4044_p/overlays/gyro_4044_bed.png",
+          "x": 213.7,
+          "y": 377,
+          "w": 1357.2,
+          "h": 643.8,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4044_particle",
+          "path": "chars/4044/4044_p/overlays/gyro_4044_particle.png",
+          "x": -81.8,
+          "y": 224.8,
+          "w": 1806,
+          "h": 1476.19,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4044_actor1",
+          "path": "chars/4044/4044_p/overlays/gyro_4044_actor1.png",
+          "x": 32.7,
+          "y": 95.2,
+          "w": 778.68,
+          "h": 782.8,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4044_front",
+          "path": "chars/4044/4044_p/overlays/gyro_4044_front.png",
+          "x": 9.2,
+          "y": 335.9,
+          "w": 1270.8,
+          "h": 331.35,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4044_subtitle",
+          "path": "chars/4044/4044_p/overlays/gyro_4044_subtitle.png",
+          "x": -205.2,
+          "y": 285.9,
+          "w": 174.2,
+          "h": 31.2,
+          "clip": false,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4044_title",
+          "path": "chars/4044/4044_p/overlays/gyro_4044_title.png",
+          "x": -135.4,
+          "y": -215.5,
+          "w": 264.48,
+          "h": 109.44,
+          "clip": false,
+          "depth": 1
+        }
+      ]
+    }
+  },
+  {
+    "id": "4045",
+    "name": "Petals of Blooming Mirage",
+    "kind": "parallax",
+    "parallax": {
+      "canvasW": 1080,
+      "canvasH": 1080,
+      "mask": {
+        "w": 712,
+        "h": 712,
+        "x": 0,
+        "y": 0
+      },
+      "parallax": {
+        "ax": 5,
+        "ay": -10,
+        "xmin": -0.99,
+        "xmax": 0.99,
+        "ymin": -0.99,
+        "ymax": -0.21
+      },
+      "layers": [
+        {
+          "file": "gyro_4045_bg",
+          "path": "chars/4045/4045_p/overlays/gyro_4045_bg.png",
+          "x": -351.8,
+          "y": -28.3,
+          "w": 5649.65,
+          "h": 4000,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4045_back_lily",
+          "path": "chars/4045/4045_p/overlays/gyro_4045_back_lily.png",
+          "x": 44.9,
+          "y": 624.4,
+          "w": 3671.2,
+          "h": 1717.29,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4045_smoke",
+          "path": "chars/4045/4045_p/overlays/gyro_4045_smoke.png",
+          "x": 87,
+          "y": -401,
+          "w": 1200,
+          "h": 352.8,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4045_actor1",
+          "path": "chars/4045/4045_p/overlays/gyro_4045_actor1.png",
+          "x": 3.1,
+          "y": 128,
+          "w": 2175.44,
+          "h": 1410.64,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4045_L-1",
+          "path": "chars/4045/4045_p/overlays/gyro_4045_L-1.png",
+          "x": -446.4,
+          "y": -417.3,
+          "w": 186,
+          "h": 235.6,
+          "clip": false,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4045_O",
+          "path": "chars/4045/4045_p/overlays/gyro_4045_O.png",
+          "x": -235.9,
+          "y": 495.8,
+          "w": 148.8,
+          "h": 211.2,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4045_petal",
+          "path": "chars/4045/4045_p/overlays/gyro_4045_petal.png",
+          "x": -1,
+          "y": -35.9,
+          "w": 1232,
+          "h": 874.18,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4045_L-2",
+          "path": "chars/4045/4045_p/overlays/gyro_4045_L-2.png",
+          "x": -183.9,
+          "y": -444.6,
+          "w": 110,
+          "h": 140.8,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4045_front_lily",
+          "path": "chars/4045/4045_p/overlays/gyro_4045_front_lily.png",
+          "x": -34.7,
+          "y": 354.5,
+          "w": 1200.2,
+          "h": 214.49,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4045_I-1",
+          "path": "chars/4045/4045_p/overlays/gyro_4045_I-1.png",
+          "x": -340.8,
+          "y": 241,
+          "w": 180,
+          "h": 190.8,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4045_ephemeral",
+          "path": "chars/4045/4045_p/overlays/gyro_4045_ephemeral.png",
+          "x": 3.4,
+          "y": -329.3,
+          "w": 627.84,
+          "h": 20.16,
+          "clip": false,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4045_N",
+          "path": "chars/4045/4045_p/overlays/gyro_4045_N.png",
+          "x": 146.1,
+          "y": 230.7,
+          "w": 109.88,
+          "h": 112.56,
+          "clip": false,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4045_UN",
+          "path": "chars/4045/4045_p/overlays/gyro_4045_UN.png",
+          "x": 239.3,
+          "y": -217.82,
+          "w": 156.8,
+          "h": 131.6,
+          "clip": false,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4045_I",
+          "path": "chars/4045/4045_p/overlays/gyro_4045_I.png",
+          "x": -240.2,
+          "y": -235.3,
+          "w": 114.24,
+          "h": 123.2,
+          "clip": false,
+          "depth": 1
+        }
+      ]
+    }
+  },
+  {
+    "id": "4046",
+    "name": "Dawn After Winter",
+    "kind": "parallax",
+    "parallax": {
+      "canvasW": 1080,
+      "canvasH": 1080,
+      "mask": {
+        "w": 712,
+        "h": 712,
+        "x": 0,
+        "y": 0
+      },
+      "parallax": {
+        "ax": 3,
+        "ay": -10,
+        "xmin": -0.99,
+        "xmax": 0.99,
+        "ymin": -0.99,
+        "ymax": -0.21
+      },
+      "layers": [
+        {
+          "file": "gyro_4046_snow",
+          "path": "chars/4046/4046_p/overlays/gyro_4046_snow.png",
+          "x": -12.6,
+          "y": 27.06,
+          "w": 4943.45,
+          "h": 3500,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4046_actor1",
+          "path": "chars/4046/4046_p/overlays/gyro_4046_actor1.png",
+          "x": 1,
+          "y": 0.27,
+          "w": 1638.4,
+          "h": 1160,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4046_rough",
+          "path": "chars/4046/4046_p/overlays/gyro_4046_rough.png",
+          "x": 206.6,
+          "y": -220.5,
+          "w": 500.4,
+          "h": 352.8,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4046_subtitle",
+          "path": "chars/4046/4046_p/overlays/gyro_4046_subtitle.png",
+          "x": -257.2,
+          "y": 275.8,
+          "w": 98.8,
+          "h": 59.8,
+          "clip": false,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4046_title",
+          "path": "chars/4046/4046_p/overlays/gyro_4046_title.png",
+          "x": 112.4,
+          "y": -215.5,
+          "w": 326.04,
+          "h": 111.72,
+          "clip": false,
+          "depth": 1
+        }
+      ]
+    }
+  },
+  {
+    "id": "4047",
+    "name": "Delivered by the Breeze",
+    "kind": "parallax",
+    "parallax": {
+      "canvasW": 1080,
+      "canvasH": 1080,
+      "mask": {
+        "w": 712,
+        "h": 712,
+        "x": 0,
+        "y": 0
+      },
+      "parallax": {
+        "ax": 3,
+        "ay": -8,
+        "xmin": -0.99,
+        "xmax": 0.99,
+        "ymin": -0.99,
+        "ymax": -0.21
+      },
+      "layers": [
+        {
+          "file": "gyro_4047_bg",
+          "path": "chars/4047/4047_p/overlays/gyro_4047_bg.png",
+          "x": -94.9,
+          "y": 1.3,
+          "w": 5155.31,
+          "h": 3650,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4047_particles",
+          "path": "chars/4047/4047_p/overlays/gyro_4047_particles.png",
+          "x": 12.4,
+          "y": 129.33,
+          "w": 2201.37,
+          "h": 1464,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4047_letter2",
+          "path": "chars/4047/4047_p/overlays/gyro_4047_letter2.png",
+          "x": 415.8,
+          "y": 733.9,
+          "w": 474,
+          "h": 309.6,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4047_letter3",
+          "path": "chars/4047/4047_p/overlays/gyro_4047_letter3.png",
+          "x": -553,
+          "y": -328,
+          "w": 1274.4,
+          "h": 1013.2,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4047_letter4",
+          "path": "chars/4047/4047_p/overlays/gyro_4047_letter4.png",
+          "x": 536.1,
+          "y": 435.8,
+          "w": 384,
+          "h": 339.84,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4047_letter1",
+          "path": "chars/4047/4047_p/overlays/gyro_4047_letter1.png",
+          "x": 505.6,
+          "y": -321.6,
+          "w": 156,
+          "h": 268.8,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4047_windbell",
+          "path": "chars/4047/4047_p/overlays/gyro_4047_windbell.png",
+          "x": -505.3,
+          "y": -200.4,
+          "w": 255.6,
+          "h": 424.8,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4047_righttitle",
+          "path": "chars/4047/4047_p/overlays/gyro_4047_righttitle.png",
+          "x": 226.9,
+          "y": -283,
+          "w": 249,
+          "h": 144,
+          "clip": false,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4047_lefttitle",
+          "path": "chars/4047/4047_p/overlays/gyro_4047_lefttitle.png",
+          "x": -217.8,
+          "y": -274,
+          "w": 145.6,
+          "h": 39,
+          "clip": false,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4047_title",
+          "path": "chars/4047/4047_p/overlays/gyro_4047_title.png",
+          "x": -109.8,
+          "y": 210.6,
+          "w": 296.4,
+          "h": 123.12,
+          "clip": false,
+          "depth": 1
+        }
+      ]
+    }
+  },
+  {
+    "id": "4048",
+    "name": "Snowy Night Surprise",
+    "kind": "parallax",
+    "parallax": {
+      "canvasW": 1080,
+      "canvasH": 1080,
+      "mask": {
+        "w": 712,
+        "h": 712,
+        "x": 0,
+        "y": 0
+      },
+      "parallax": {
+        "ax": 3,
+        "ay": -15,
+        "xmin": -0.99,
+        "xmax": 0.99,
+        "ymin": -0.99,
+        "ymax": -0.21
+      },
+      "layers": [
+        {
+          "file": "gyro_4048_bg",
+          "path": "chars/4048/4048_p/overlays/gyro_4048_bg.png",
+          "x": 111.2,
+          "y": 14.6,
+          "w": 4802.21,
+          "h": 3400,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4048_snow",
+          "path": "chars/4048/4048_p/overlays/gyro_4048_snow.png",
+          "x": -287,
+          "y": -513.1,
+          "w": 3944,
+          "h": 1556.03,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4048_sledge",
+          "path": "chars/4048/4048_p/overlays/gyro_4048_sledge.png",
+          "x": 257.9,
+          "y": 448.6,
+          "w": 2480.4,
+          "h": 1470.32,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4048_window1",
+          "path": "chars/4048/4048_p/overlays/gyro_4048_window1.png",
+          "x": -762.7,
+          "y": -306.5,
+          "w": 1849.2,
+          "h": 3148.91,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4048_window2",
+          "path": "chars/4048/4048_p/overlays/gyro_4048_window2.png",
+          "x": 1306,
+          "y": 5.6,
+          "w": 852.8,
+          "h": 2911.6,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4048_actor1",
+          "path": "chars/4048/4048_p/overlays/gyro_4048_actor1.png",
+          "x": 229.48,
+          "y": 2.89,
+          "w": 1880,
+          "h": 1880,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4048_box",
+          "path": "chars/4048/4048_p/overlays/gyro_4048_box.png",
+          "x": -141.2,
+          "y": 508.3,
+          "w": 806.2,
+          "h": 551,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4048_ribbon3",
+          "path": "chars/4048/4048_p/overlays/gyro_4048_ribbon3.png",
+          "x": -310.2,
+          "y": 651.9,
+          "w": 252,
+          "h": 230.4,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4048_ribbon1",
+          "path": "chars/4048/4048_p/overlays/gyro_4048_ribbon1.png",
+          "x": -523.5,
+          "y": 197.2,
+          "w": 829.4,
+          "h": 609,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4048_ribbon2",
+          "path": "chars/4048/4048_p/overlays/gyro_4048_ribbon2.png",
+          "x": -510.4,
+          "y": 339,
+          "w": 783,
+          "h": 214.6,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4048_ribbon5",
+          "path": "chars/4048/4048_p/overlays/gyro_4048_ribbon5.png",
+          "x": 134.6,
+          "y": 604.7,
+          "w": 544,
+          "h": 201.6,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4048_actor3",
+          "path": "chars/4048/4048_p/overlays/gyro_4048_actor3.png",
+          "x": -458.47,
+          "y": -89,
+          "w": 352.8,
+          "h": 448.56,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4048_ribbon4",
+          "path": "chars/4048/4048_p/overlays/gyro_4048_ribbon4.png",
+          "x": 401.1,
+          "y": 110.26,
+          "w": 941.2,
+          "h": 634.4,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4048_actor4",
+          "path": "chars/4048/4048_p/overlays/gyro_4048_actor4.png",
+          "x": -106.2,
+          "y": 401.3,
+          "w": 220.8,
+          "h": 348.4,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4048_paper2",
+          "path": "chars/4048/4048_p/overlays/gyro_4048_paper2.png",
+          "x": 53.75,
+          "y": 126.36,
+          "w": 1232.65,
+          "h": 768,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4048_paper1",
+          "path": "chars/4048/4048_p/overlays/gyro_4048_paper1.png",
+          "x": 10.53,
+          "y": -15.28,
+          "w": 1412.41,
+          "h": 1000,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4048_actor5",
+          "path": "chars/4048/4048_p/overlays/gyro_4048_actor5.png",
+          "x": -374.63,
+          "y": 345.48,
+          "w": 228,
+          "h": 216,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4048_actor2",
+          "path": "chars/4048/4048_p/overlays/gyro_4048_actor2.png",
+          "x": 312.7,
+          "y": 127.7,
+          "w": 474.76,
+          "h": 496.13,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4048_subtitle",
+          "path": "chars/4048/4048_p/overlays/gyro_4048_subtitle.png",
+          "x": -161,
+          "y": 286.4,
+          "w": 265.2,
+          "h": 26,
+          "clip": false,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4048_title",
+          "path": "chars/4048/4048_p/overlays/gyro_4048_title.png",
+          "x": 174.4,
+          "y": -198.8,
+          "w": 202.4,
+          "h": 138.6,
+          "clip": false,
+          "depth": 1
+        }
+      ]
+    }
+  },
+  {
+    "id": "4049",
+    "name": "Traces of Starlight",
+    "kind": "parallax",
+    "parallax": {
+      "canvasW": 1080,
+      "canvasH": 1080,
+      "mask": {
+        "w": 712,
+        "h": 712,
+        "x": 0,
+        "y": 0
+      },
+      "parallax": {
+        "ax": 5,
+        "ay": -10,
+        "xmin": -0.99,
+        "xmax": 0.99,
+        "ymin": -0.99,
+        "ymax": -0.21
+      },
+      "layers": [
+        {
+          "file": "gyro_4049_bg",
+          "path": "chars/4049/4049_p/overlays/gyro_4049_bg.png",
+          "x": -94.9,
+          "y": 238.2,
+          "w": 6355.86,
+          "h": 4500,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4049_cloud3",
+          "path": "chars/4049/4049_p/overlays/gyro_4049_cloud3.png",
+          "x": -15.6,
+          "y": -294.5,
+          "w": 4800.8,
+          "h": 2779.88,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4049_field",
+          "path": "chars/4049/4049_p/overlays/gyro_4049_field.png",
+          "x": -37.2,
+          "y": 848.1,
+          "w": 3953.6,
+          "h": 1729.15,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4049_cloud2",
+          "path": "chars/4049/4049_p/overlays/gyro_4049_cloud2.png",
+          "x": -1526.5,
+          "y": -845.9,
+          "w": 1900,
+          "h": 1596,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4049_redbg",
+          "path": "chars/4049/4049_p/overlays/gyro_4049_redbg.png",
+          "x": -496.4,
+          "y": 345,
+          "w": 2690,
+          "h": 2500.86,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4049_stair",
+          "path": "chars/4049/4049_p/overlays/gyro_4049_stair.png",
+          "x": 183.6,
+          "y": 35.6,
+          "w": 3546.4,
+          "h": 3001.07,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4049_tower",
+          "path": "chars/4049/4049_p/overlays/gyro_4049_tower.png",
+          "x": -6.2,
+          "y": 183.3,
+          "w": 893.2,
+          "h": 2900,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4049_star",
+          "path": "chars/4049/4049_p/overlays/gyro_4049_star.png",
+          "x": 4.9,
+          "y": -552.2,
+          "w": 777.6,
+          "h": 1209.6,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4049_starlight",
+          "path": "chars/4049/4049_p/overlays/gyro_4049_starlight.png",
+          "x": 7.5,
+          "y": -266.6,
+          "w": 852,
+          "h": 1398,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4049_stair1",
+          "path": "chars/4049/4049_p/overlays/gyro_4049_stair1.png",
+          "x": 132.9,
+          "y": 974.9,
+          "w": 1487.2,
+          "h": 429.2,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4049_actor1",
+          "path": "chars/4049/4049_p/overlays/gyro_4049_actor1.png",
+          "x": -727.8,
+          "y": -169.2,
+          "w": 767.6,
+          "h": 912,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4049_halo",
+          "path": "chars/4049/4049_p/overlays/gyro_4049_halo.png",
+          "x": -1.9,
+          "y": -310,
+          "w": 1846.8,
+          "h": 1603.6,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4049_wind",
+          "path": "chars/4049/4049_p/overlays/gyro_4049_wind.png",
+          "x": 3.32,
+          "y": -66.5,
+          "w": 2824.83,
+          "h": 2000,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4049_cloud1",
+          "path": "chars/4049/4049_p/overlays/gyro_4049_cloud1.png",
+          "x": -140.1,
+          "y": 774.8,
+          "w": 2587.2,
+          "h": 502.79,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4049_actor2",
+          "path": "chars/4049/4049_p/overlays/gyro_4049_actor2.png",
+          "x": 431.3,
+          "y": 24.1,
+          "w": 678.4,
+          "h": 940.8,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4049_actor5",
+          "path": "chars/4049/4049_p/overlays/gyro_4049_actor5.png",
+          "x": -469.7,
+          "y": 249.5,
+          "w": 456,
+          "h": 570,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4049_actor3",
+          "path": "chars/4049/4049_p/overlays/gyro_4049_actor3.png",
+          "x": 141.6,
+          "y": 180.3,
+          "w": 398.4,
+          "h": 926.4,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4049_actor4",
+          "path": "chars/4049/4049_p/overlays/gyro_4049_actor4.png",
+          "x": -198.3,
+          "y": 204.2,
+          "w": 501.6,
+          "h": 761.2,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4049_sub",
+          "path": "chars/4049/4049_p/overlays/gyro_4049_sub.png",
+          "x": -235.6,
+          "y": 311.4,
+          "w": 201.6,
+          "h": 70.4,
+          "clip": false,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4049_title",
+          "path": "chars/4049/4049_p/overlays/gyro_4049_title.png",
+          "x": 159.4,
+          "y": -200.82,
+          "w": 223.44,
+          "h": 145.92,
+          "clip": false,
+          "depth": 1
+        }
+      ]
+    }
+  },
+  {
+    "id": "4050",
+    "name": "Phantom of the Banquet",
+    "kind": "parallax",
+    "parallax": {
+      "canvasW": 1080,
+      "canvasH": 1080,
+      "mask": {
+        "w": 712,
+        "h": 712,
+        "x": 0,
+        "y": 0
+      },
+      "parallax": {
+        "ax": 8,
+        "ay": -10,
+        "xmin": -0.99,
+        "xmax": 0.99,
+        "ymin": -0.99,
+        "ymax": -0.21
+      },
+      "layers": [
+        {
+          "file": "gyro_4050_bg",
+          "path": "chars/4050/4050_p/overlays/gyro_4050_bg.png",
+          "x": -193.9,
+          "y": 28.8,
+          "w": 5991.13,
+          "h": 4499.2,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4050_hotel",
+          "path": "chars/4050/4050_p/overlays/gyro_4050_hotel.png",
+          "x": -1272.6,
+          "y": -61.9,
+          "w": 3584.25,
+          "h": 3776,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4050_spark3",
+          "path": "chars/4050/4050_p/overlays/gyro_4050_spark3.png",
+          "x": -1459.2,
+          "y": -12,
+          "w": 1000,
+          "h": 590,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4050_shadow",
+          "path": "chars/4050/4050_p/overlays/gyro_4050_shadow.png",
+          "x": -1490.14,
+          "y": -516,
+          "w": 592.8,
+          "h": 468,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4050_roundlight",
+          "path": "chars/4050/4050_p/overlays/gyro_4050_roundlight.png",
+          "x": -1434.4,
+          "y": -499,
+          "w": 640,
+          "h": 670,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4050_spark2",
+          "path": "chars/4050/4050_p/overlays/gyro_4050_spark2.png",
+          "x": -1090,
+          "y": 369.7,
+          "w": 1539,
+          "h": 1152,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4050_chandelier3",
+          "path": "chars/4050/4050_p/overlays/gyro_4050_chandelier3.png",
+          "x": -1193.1,
+          "y": 365.5,
+          "w": 404.8,
+          "h": 404.8,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4050_spark1",
+          "path": "chars/4050/4050_p/overlays/gyro_4050_spark1.png",
+          "x": -910,
+          "y": 492,
+          "w": 1568,
+          "h": 1328,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4050_light",
+          "path": "chars/4050/4050_p/overlays/gyro_4050_light.png",
+          "x": -707.9,
+          "y": -45.7,
+          "w": 1568,
+          "h": 1326.08,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4050_boss",
+          "path": "chars/4050/4050_p/overlays/gyro_4050_boss.png",
+          "x": -610.57,
+          "y": 230.2,
+          "w": 651.2,
+          "h": 744.15,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4050_actor2",
+          "path": "chars/4050/4050_p/overlays/gyro_4050_actor2.png",
+          "x": 469.5,
+          "y": 359.3,
+          "w": 1612.8,
+          "h": 1814.4,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4050_actor1",
+          "path": "chars/4050/4050_p/overlays/gyro_4050_actor1.png",
+          "x": -77.6,
+          "y": 20.9,
+          "w": 1982.4,
+          "h": 1734.6,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4050_lily2",
+          "path": "chars/4050/4050_p/overlays/gyro_4050_lily2.png",
+          "x": 265.6,
+          "y": 411.1,
+          "w": 571.2,
+          "h": 556.8,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4050_chandelier2",
+          "path": "chars/4050/4050_p/overlays/gyro_4050_chandelier2.png",
+          "x": -730.6,
+          "y": 163.3,
+          "w": 374.4,
+          "h": 390,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4050_chandelier2-fx",
+          "path": "chars/4050/4050_p/overlays/gyro_4050_chandelier2-fx.png",
+          "x": -739.5,
+          "y": 155.8,
+          "w": 317.2,
+          "h": 317.2,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4050_lily1",
+          "path": "chars/4050/4050_p/overlays/gyro_4050_lily1.png",
+          "x": 71.8,
+          "y": 424.5,
+          "w": 988,
+          "h": 280,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4050_chandelier1",
+          "path": "chars/4050/4050_p/overlays/gyro_4050_chandelier1.png",
+          "x": -175.5,
+          "y": -393.6,
+          "w": 319.92,
+          "h": 288.96,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4050_chandelier1-fx",
+          "path": "chars/4050/4050_p/overlays/gyro_4050_chandelier1-fx.png",
+          "x": -179.15,
+          "y": -406.2,
+          "w": 261.44,
+          "h": 277.2,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4050_sub",
+          "path": "chars/4050/4050_p/overlays/gyro_4050_sub.png",
+          "x": 256.6,
+          "y": -291.5,
+          "w": 132,
+          "h": 75,
+          "clip": false,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4050_title",
+          "path": "chars/4050/4050_p/overlays/gyro_4050_title.png",
+          "x": -98.44,
+          "y": 210.6,
+          "w": 326.16,
+          "h": 116.64,
+          "clip": false,
+          "depth": 1
+        }
+      ]
+    }
+  },
+  {
+    "id": "4051",
+    "name": "Stellar Destination",
+    "kind": "parallax",
+    "parallax": {
+      "canvasW": 1080,
+      "canvasH": 1080,
+      "mask": {
+        "w": 712,
+        "h": 712,
+        "x": 0,
+        "y": 0
+      },
+      "parallax": {
+        "ax": 5,
+        "ay": -10,
+        "xmin": -0.99,
+        "xmax": 0.99,
+        "ymin": -0.99,
+        "ymax": -0.21
+      },
+      "layers": [
+        {
+          "file": "gyro_4051_bg",
+          "path": "chars/4051/4051_p/overlays/gyro_4051_bg.png",
+          "x": -41.3,
+          "y": -13.7,
+          "w": 5017.6,
+          "h": 3871,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4051_fx2",
+          "path": "chars/4051/4051_p/overlays/gyro_4051_fx2.png",
+          "x": -715.1,
+          "y": -1059.2,
+          "w": 1088,
+          "h": 1281.6,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4051_monster2",
+          "path": "chars/4051/4051_p/overlays/gyro_4051_monster2.png",
+          "x": -814,
+          "y": -1313,
+          "w": 840,
+          "h": 756,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4051_star",
+          "path": "chars/4051/4051_p/overlays/gyro_4051_star.png",
+          "x": -337,
+          "y": 233.2,
+          "w": 332.8,
+          "h": 322.4,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4051_particle",
+          "path": "chars/4051/4051_p/overlays/gyro_4051_particle.png",
+          "x": -61.3,
+          "y": -103.8,
+          "w": 3082,
+          "h": 2200.14,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4051_monster1",
+          "path": "chars/4051/4051_p/overlays/gyro_4051_monster1.png",
+          "x": 957.7,
+          "y": 547.3,
+          "w": 752.4,
+          "h": 802.22,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4051_light1",
+          "path": "chars/4051/4051_p/overlays/gyro_4051_light1.png",
+          "x": 265.5,
+          "y": -986.9,
+          "w": 840,
+          "h": 264,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4051_fx1",
+          "path": "chars/4051/4051_p/overlays/gyro_4051_fx1.png",
+          "x": -78.5,
+          "y": -77,
+          "w": 1977.38,
+          "h": 1500,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4051_light3",
+          "path": "chars/4051/4051_p/overlays/gyro_4051_light3.png",
+          "x": -69,
+          "y": -78.5,
+          "w": 1977.38,
+          "h": 1400,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4051_light2",
+          "path": "chars/4051/4051_p/overlays/gyro_4051_light2.png",
+          "x": 17.7,
+          "y": 298.7,
+          "w": 1694.4,
+          "h": 708.07,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4051_sub",
+          "path": "chars/4051/4051_p/overlays/gyro_4051_sub.png",
+          "x": -213.2,
+          "y": 286.3,
+          "w": 176.4,
+          "h": 47.6,
+          "clip": false,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4051_title",
+          "path": "chars/4051/4051_p/overlays/gyro_4051_title.png",
+          "x": 112.3,
+          "y": -175.9,
+          "w": 284.96,
+          "h": 189.28,
+          "clip": false,
+          "depth": 1
+        }
+      ]
+    }
+  },
+  {
+    "id": "4052",
+    "name": "Touch of Miracle",
+    "kind": "parallax",
+    "parallax": {
+      "canvasW": 1080,
+      "canvasH": 1080,
+      "mask": {
+        "w": 712,
+        "h": 712,
+        "x": 0,
+        "y": 0
+      },
+      "parallax": {
+        "ax": 5,
+        "ay": -10,
+        "xmin": -0.99,
+        "xmax": 0.99,
+        "ymin": -0.99,
+        "ymax": -0.21
+      },
+      "layers": [
+        {
+          "file": "gyro_4052_sky",
+          "path": "chars/4052/4052_p/overlays/gyro_4052_sky.png",
+          "x": 131.43,
+          "y": -10.7,
+          "w": 4943.45,
+          "h": 4100,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4052_star3",
+          "path": "chars/4052/4052_p/overlays/gyro_4052_star3.png",
+          "x": 330.8,
+          "y": 27,
+          "w": 3672,
+          "h": 3001.43,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4052_moon",
+          "path": "chars/4052/4052_p/overlays/gyro_4052_moon.png",
+          "x": 1669,
+          "y": -1211,
+          "w": 504,
+          "h": 528,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4052_gear10",
+          "path": "chars/4052/4052_p/overlays/gyro_4052_gear10.png",
+          "x": -1201,
+          "y": 385,
+          "w": 1512,
+          "h": 2340,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4052_circle",
+          "path": "chars/4052/4052_p/overlays/gyro_4052_circle.png",
+          "x": -1516.1,
+          "y": -1057.3,
+          "w": 744,
+          "h": 1164,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4052_gear7",
+          "path": "chars/4052/4052_p/overlays/gyro_4052_gear7.png",
+          "x": 58.2,
+          "y": -379.5,
+          "w": 1111.8,
+          "h": 1040.4,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4052_gear6",
+          "path": "chars/4052/4052_p/overlays/gyro_4052_gear6.png",
+          "x": 1392.1,
+          "y": -858.7,
+          "w": 946.4,
+          "h": 1289.6,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4052_gear4",
+          "path": "chars/4052/4052_p/overlays/gyro_4052_gear4.png",
+          "x": -1107,
+          "y": 1095.6,
+          "w": 1248,
+          "h": 456,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4052_gear5",
+          "path": "chars/4052/4052_p/overlays/gyro_4052_gear5.png",
+          "x": 642.3,
+          "y": -672,
+          "w": 1016.4,
+          "h": 730.8,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4052_gear3",
+          "path": "chars/4052/4052_p/overlays/gyro_4052_gear3.png",
+          "x": -1159.4,
+          "y": 736,
+          "w": 220,
+          "h": 870,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4052_gear2",
+          "path": "chars/4052/4052_p/overlays/gyro_4052_gear2.png",
+          "x": -941.8,
+          "y": 553.5,
+          "w": 696.8,
+          "h": 696.8,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4052_star2",
+          "path": "chars/4052/4052_p/overlays/gyro_4052_star2.png",
+          "x": 69.2,
+          "y": 188.1,
+          "w": 2413.4,
+          "h": 1310.4,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4052_gear1",
+          "path": "chars/4052/4052_p/overlays/gyro_4052_gear1.png",
+          "x": -754.4,
+          "y": 70,
+          "w": 696,
+          "h": 664,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4052_actor5",
+          "path": "chars/4052/4052_p/overlays/gyro_4052_actor5.png",
+          "x": 345.1,
+          "y": -379.4,
+          "w": 352,
+          "h": 364.8,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4052_actor4",
+          "path": "chars/4052/4052_p/overlays/gyro_4052_actor4.png",
+          "x": 726.9,
+          "y": -82.3,
+          "w": 371.2,
+          "h": 364.8,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4052_actor3",
+          "path": "chars/4052/4052_p/overlays/gyro_4052_actor3.png",
+          "x": 72,
+          "y": -107.6,
+          "w": 476,
+          "h": 683.2,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4052_actor2",
+          "path": "chars/4052/4052_p/overlays/gyro_4052_actor2.png",
+          "x": 386.9,
+          "y": -157.1,
+          "w": 435,
+          "h": 390,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4052_light",
+          "path": "chars/4052/4052_p/overlays/gyro_4052_light.png",
+          "x": 153.3,
+          "y": 52.1,
+          "w": 1176.56,
+          "h": 964,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4052_star1",
+          "path": "chars/4052/4052_p/overlays/gyro_4052_star1.png",
+          "x": -117.8,
+          "y": 79,
+          "w": 180,
+          "h": 208,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4052_actor1",
+          "path": "chars/4052/4052_p/overlays/gyro_4052_actor1.png",
+          "x": 322.7,
+          "y": -6.3,
+          "w": 902,
+          "h": 567.6,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4052_rabbit",
+          "path": "chars/4052/4052_p/overlays/gyro_4052_rabbit.png",
+          "x": -299.4,
+          "y": 131,
+          "w": 774.4,
+          "h": 818.4,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4052_sub",
+          "path": "chars/4052/4052_p/overlays/gyro_4052_sub.png",
+          "x": -214.46,
+          "y": -298.9,
+          "w": 215.6,
+          "h": 70,
+          "clip": false,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4052_title",
+          "path": "chars/4052/4052_p/overlays/gyro_4052_title.png",
+          "x": 142.8,
+          "y": 196.46,
+          "w": 230.28,
+          "h": 143.64,
+          "clip": false,
+          "depth": 1
+        }
+      ]
+    }
+  },
+  {
+    "id": "4053",
+    "name": "Joyful Gathering",
+    "kind": "parallax",
+    "parallax": {
+      "canvasW": 1080,
+      "canvasH": 1080,
+      "mask": {
+        "w": 712,
+        "h": 712,
+        "x": 0,
+        "y": 0
+      },
+      "parallax": {
+        "ax": 5,
+        "ay": -8,
+        "xmin": -0.99,
+        "xmax": 0.99,
+        "ymin": -0.99,
+        "ymax": -0.21
+      },
+      "layers": [
+        {
+          "file": "gyro_4053_bg",
+          "path": "chars/4053/4053_p/overlays/gyro_4053_bg.png",
+          "x": -31.2,
+          "y": -161.6,
+          "w": 4519.72,
+          "h": 5406.9,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4053_actor1",
+          "path": "chars/4053/4053_p/overlays/gyro_4053_actor1.png",
+          "x": -231.3,
+          "y": 909,
+          "w": 1452,
+          "h": 1763.67,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4053_label",
+          "path": "chars/4053/4053_p/overlays/gyro_4053_label.png",
+          "x": 192.8,
+          "y": -272.6,
+          "w": 159.6,
+          "h": 44.8,
+          "clip": false,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4053_barrel",
+          "path": "chars/4053/4053_p/overlays/gyro_4053_barrel.png",
+          "x": -236.6,
+          "y": 253.4,
+          "w": 101.4,
+          "h": 96.2,
+          "clip": false,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4053_title",
+          "path": "chars/4053/4053_p/overlays/gyro_4053_title.png",
+          "x": 66.5,
+          "y": -189.3,
+          "w": 367.2,
+          "h": 141.6,
+          "clip": false,
+          "depth": 1
+        }
+      ]
+    }
+  },
+  {
+    "id": "4054",
+    "name": "Little Paradise",
+    "kind": "parallax",
+    "parallax": {
+      "canvasW": 1080,
+      "canvasH": 1080,
+      "mask": {
+        "w": 712,
+        "h": 712,
+        "x": 0,
+        "y": 0
+      },
+      "parallax": {
+        "ax": 5,
+        "ay": -10,
+        "xmin": -0.99,
+        "xmax": 0.99,
+        "ymin": -0.99,
+        "ymax": -0.21
+      },
+      "layers": [
+        {
+          "file": "gyro_4054_bg",
+          "path": "chars/4054/4054_p/overlays/gyro_4054_bg.png",
+          "x": -4.7,
+          "y": -277.4,
+          "w": 4519.72,
+          "h": 3200,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4054_arm",
+          "path": "chars/4054/4054_p/overlays/gyro_4054_arm.png",
+          "x": -224.64,
+          "y": 308.48,
+          "w": 1680,
+          "h": 640,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4054_light4",
+          "path": "chars/4054/4054_p/overlays/gyro_4054_light4.png",
+          "x": -463.5,
+          "y": -993.8,
+          "w": 192,
+          "h": 768,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4054_light3",
+          "path": "chars/4054/4054_p/overlays/gyro_4054_light3.png",
+          "x": -142.1,
+          "y": -1021,
+          "w": 707.2,
+          "h": 707.2,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4054_light1",
+          "path": "chars/4054/4054_p/overlays/gyro_4054_light1.png",
+          "x": -539.9,
+          "y": -804.5,
+          "w": 184,
+          "h": 904.8,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4054_actor",
+          "path": "chars/4054/4054_p/overlays/gyro_4054_actor.png",
+          "x": 50.6,
+          "y": 73.4,
+          "w": 2682.8,
+          "h": 1763.21,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4054_light5",
+          "path": "chars/4054/4054_p/overlays/gyro_4054_light5.png",
+          "x": 220.3,
+          "y": -1017.1,
+          "w": 308,
+          "h": 193.6,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4054_spark",
+          "path": "chars/4054/4054_p/overlays/gyro_4054_spark.png",
+          "x": 359.8,
+          "y": 188.3,
+          "w": 388.8,
+          "h": 225.6,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4054_light2",
+          "path": "chars/4054/4054_p/overlays/gyro_4054_light2.png",
+          "x": -572.3,
+          "y": -812,
+          "w": 230.4,
+          "h": 412.8,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4054_crystalball",
+          "path": "chars/4054/4054_p/overlays/gyro_4054_crystalball.png",
+          "x": -317.2,
+          "y": 388.3,
+          "w": 941.93,
+          "h": 1051.2,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4054_tube",
+          "path": "chars/4054/4054_p/overlays/gyro_4054_tube.png",
+          "x": -735.5,
+          "y": -223.8,
+          "w": 903,
+          "h": 1744,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4054_jar",
+          "path": "chars/4054/4054_p/overlays/gyro_4054_jar.png",
+          "x": -838.1,
+          "y": 303.5,
+          "w": 428.4,
+          "h": 537.2,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4054_round",
+          "path": "chars/4054/4054_p/overlays/gyro_4054_round.png",
+          "x": 24.4,
+          "y": 78.6,
+          "w": 1059.5,
+          "h": 567,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4054_text",
+          "path": "chars/4054/4054_p/overlays/gyro_4054_text.png",
+          "x": 122.1,
+          "y": 301,
+          "w": 154,
+          "h": 27.75,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4054_star",
+          "path": "chars/4054/4054_p/overlays/gyro_4054_star.png",
+          "x": 8.3,
+          "y": 4.24,
+          "w": 609.28,
+          "h": 604.16,
+          "clip": false,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4054_gear",
+          "path": "chars/4054/4054_p/overlays/gyro_4054_gear.png",
+          "x": 233.15,
+          "y": 216.3,
+          "w": 124,
+          "h": 128.96,
+          "clip": false,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4054_title",
+          "path": "chars/4054/4054_p/overlays/gyro_4054_title.png",
+          "x": -49.2,
+          "y": -160.6,
+          "w": 414.72,
+          "h": 209.52,
+          "clip": false,
+          "depth": 1
+        }
+      ]
+    }
+  },
+  {
+    "id": "4055",
+    "name": "Fleeting Glimmers",
+    "kind": "parallax",
+    "parallax": {
+      "canvasW": 1080,
+      "canvasH": 1080,
+      "mask": {
+        "w": 712,
+        "h": 712,
+        "x": 0,
+        "y": 0
+      },
+      "parallax": {
+        "ax": 3,
+        "ay": -8,
+        "xmin": -0.99,
+        "xmax": 0.99,
+        "ymin": -0.99,
+        "ymax": -0.21
+      },
+      "layers": [
+        {
+          "file": "gyro_4055_bg",
+          "path": "chars/4055/4055_p/overlays/gyro_4055_bg.png",
+          "x": 34.4,
+          "y": 82.8,
+          "w": 4802.21,
+          "h": 4624,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4055_flower3",
+          "path": "chars/4055/4055_p/overlays/gyro_4055_flower3.png",
+          "x": -222.4,
+          "y": 191.5,
+          "w": 4068,
+          "h": 2649.76,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4055_actor",
+          "path": "chars/4055/4055_p/overlays/gyro_4055_actor.png",
+          "x": -44.9,
+          "y": 429.4,
+          "w": 3200,
+          "h": 2608.55,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4055_flower2",
+          "path": "chars/4055/4055_p/overlays/gyro_4055_flower2.png",
+          "x": -421.3,
+          "y": 695.7,
+          "w": 2048,
+          "h": 528,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4055_fish",
+          "path": "chars/4055/4055_p/overlays/gyro_4055_fish.png",
+          "x": 121.3,
+          "y": -43.4,
+          "w": 1548.8,
+          "h": 748.8,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4055_flower1",
+          "path": "chars/4055/4055_p/overlays/gyro_4055_flower1.png",
+          "x": -71.7,
+          "y": 190.2,
+          "w": 1849.2,
+          "h": 1108.8,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4055_waterweed",
+          "path": "chars/4055/4055_p/overlays/gyro_4055_waterweed.png",
+          "x": 105.9,
+          "y": 471.9,
+          "w": 2261.45,
+          "h": 627.2,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4055_bubble2",
+          "path": "chars/4055/4055_p/overlays/gyro_4055_bubble2.png",
+          "x": 35.6,
+          "y": 159.2,
+          "w": 1643.2,
+          "h": 1030.21,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4055_bubble1",
+          "path": "chars/4055/4055_p/overlays/gyro_4055_bubble1.png",
+          "x": 126.3,
+          "y": 22.6,
+          "w": 1104.54,
+          "h": 672,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4055_title",
+          "path": "chars/4055/4055_p/overlays/gyro_4055_title.png",
+          "x": -104.6,
+          "y": 263.9,
+          "w": 462,
+          "h": 190.4,
+          "clip": false,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4055_sub1",
+          "path": "chars/4055/4055_p/overlays/gyro_4055_sub1.png",
+          "x": 244.2,
+          "y": 282.9,
+          "w": 122.2,
+          "h": 57.2,
+          "clip": false,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4055_sub2",
+          "path": "chars/4055/4055_p/overlays/gyro_4055_sub2.png",
+          "x": 237.9,
+          "y": -239.6,
+          "w": 52,
+          "h": 54.6,
+          "clip": false,
+          "depth": 1
+        }
+      ]
+    }
+  },
+  {
+    "id": "4056",
+    "name": "Dappled Sunlight",
+    "kind": "parallax",
+    "parallax": {
+      "canvasW": 1080,
+      "canvasH": 1080,
+      "mask": {
+        "w": 712,
+        "h": 712,
+        "x": 0,
+        "y": 0
+      },
+      "parallax": {
+        "ax": 8,
+        "ay": -10,
+        "xmin": -0.99,
+        "xmax": 0.99,
+        "ymin": -0.99,
+        "ymax": -0.21
+      },
+      "layers": [
+        {
+          "file": "gyro_4056_bg",
+          "path": "chars/4056/4056_p/overlays/gyro_4056_bg.png",
+          "x": -5.6,
+          "y": 252.8,
+          "w": 4237.24,
+          "h": 4600,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4056_title1",
+          "path": "chars/4056/4056_p/overlays/gyro_4056_title1.png",
+          "x": -495.5,
+          "y": -956.7,
+          "w": 1774.8,
+          "h": 684.4,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4056_actor01",
+          "path": "chars/4056/4056_p/overlays/gyro_4056_actor01.png",
+          "x": 138.89,
+          "y": 69.3,
+          "w": 1456,
+          "h": 1825.6,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4056_particle",
+          "path": "chars/4056/4056_p/overlays/gyro_4056_particle.png",
+          "x": 440.6,
+          "y": -450.9,
+          "w": 540,
+          "h": 650,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4056_waterfall",
+          "path": "chars/4056/4056_p/overlays/gyro_4056_waterfall.png",
+          "x": -618.3,
+          "y": -64.73,
+          "w": 804,
+          "h": 1785.6,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4056_tree",
+          "path": "chars/4056/4056_p/overlays/gyro_4056_tree.png",
+          "x": 514.1,
+          "y": -55.6,
+          "w": 525,
+          "h": 974.4,
+          "clip": true,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4056_sub",
+          "path": "chars/4056/4056_p/overlays/gyro_4056_sub.png",
+          "x": 179.9,
+          "y": 289.39,
+          "w": 163.8,
+          "h": 41.6,
+          "clip": false,
+          "depth": 1
+        },
+        {
+          "file": "gyro_4056_title2",
+          "path": "chars/4056/4056_p/overlays/gyro_4056_title2.png",
+          "x": 146.9,
+          "y": 211.8,
+          "w": 244.8,
+          "h": 84,
+          "clip": false,
+          "depth": 1
+        }
+      ]
+    }
+  },
+  {
+    "id": "4004l2d",
+    "name": "Wisteria Dream l2d",
+    "kind": "discl2d",
     "variants": [
       {
         "name": "4004_l",
@@ -11961,8 +19857,9 @@
     ]
   },
   {
-    "id": "4005",
-    "name": "Sunlit Blossom",
+    "id": "4005l2d",
+    "name": "Sunlit Blossom l2d",
+    "kind": "discl2d",
     "variants": [
       {
         "name": "4005_l",
@@ -11998,8 +19895,9 @@
     ]
   },
   {
-    "id": "4006",
-    "name": "Witch's Swing",
+    "id": "4006l2d",
+    "name": "Witch's Swing l2d",
+    "kind": "discl2d",
     "variants": [
       {
         "name": "4006_l",
@@ -12068,8 +19966,9 @@
     ]
   },
   {
-    "id": "4007",
-    "name": "Midnight Mayhem",
+    "id": "4007l2d",
+    "name": "Midnight Mayhem l2d",
+    "kind": "discl2d",
     "variants": [
       {
         "name": "4007_l",
@@ -12170,8 +20069,9 @@
     ]
   },
   {
-    "id": "4008",
-    "name": "Soaring Blue",
+    "id": "4008l2d",
+    "name": "Soaring Blue l2d",
+    "kind": "discl2d",
     "variants": [
       {
         "name": "4008_l",
@@ -12240,8 +20140,9 @@
     ]
   },
   {
-    "id": "4015",
-    "name": "Deer's Song",
+    "id": "4015l2d",
+    "name": "Deer's Song l2d",
+    "kind": "discl2d",
     "variants": [
       {
         "name": "4015_l",
@@ -12343,8 +20244,9 @@
     ]
   },
   {
-    "id": "4016",
-    "name": "Chronicles of Spring",
+    "id": "4016l2d",
+    "name": "Chronicles of Spring l2d",
+    "kind": "discl2d",
     "variants": [
       {
         "name": "4016_l",
@@ -12567,8 +20469,9 @@
     ]
   },
   {
-    "id": "4017",
-    "name": "Fireworks",
+    "id": "4017l2d",
+    "name": "Fireworks l2d",
+    "kind": "discl2d",
     "variants": [
       {
         "name": "4017_l",
@@ -12637,8 +20540,9 @@
     ]
   },
   {
-    "id": "4026",
-    "name": "Sword Against Stream",
+    "id": "4026l2d",
+    "name": "Sword Against Stream l2d",
+    "kind": "discl2d",
     "variants": [
       {
         "name": "4026_l",
@@ -12794,8 +20698,9 @@
     ]
   },
   {
-    "id": "4027",
-    "name": "Mystic Brushstrokes",
+    "id": "4027l2d",
+    "name": "Mystic Brushstrokes l2d",
+    "kind": "discl2d",
     "variants": [
       {
         "name": "4027_l",
@@ -12993,8 +20898,9 @@
     ]
   },
   {
-    "id": "4028",
-    "name": "Daylight Garden",
+    "id": "4028l2d",
+    "name": "Daylight Garden l2d",
+    "kind": "discl2d",
     "variants": [
       {
         "name": "4028_l",
@@ -13019,8 +20925,9 @@
     ]
   },
   {
-    "id": "4029",
-    "name": "The Cat's Treasure",
+    "id": "4029l2d",
+    "name": "The Cat's Treasure l2d",
+    "kind": "discl2d",
     "variants": [
       {
         "name": "4029_l",
@@ -13056,8 +20963,9 @@
     ]
   },
   {
-    "id": "4036",
-    "name": "The Lost Pilgrim",
+    "id": "4036l2d",
+    "name": "The Lost Pilgrim l2d",
+    "kind": "discl2d",
     "variants": [
       {
         "name": "4036_l",
@@ -13082,8 +20990,9 @@
     ]
   },
   {
-    "id": "4037",
-    "name": "Claw the Claw",
+    "id": "4037l2d",
+    "name": "Claw the Claw l2d",
+    "kind": "discl2d",
     "variants": [
       {
         "name": "4037_l",
@@ -13119,8 +21028,9 @@
     ]
   },
   {
-    "id": "4038",
-    "name": "Ripples of Nostalgia",
+    "id": "4038l2d",
+    "name": "Ripples of Nostalgia l2d",
+    "kind": "discl2d",
     "variants": [
       {
         "name": "4038_l",
@@ -13717,8 +21627,9 @@
     ]
   },
   {
-    "id": "4044",
-    "name": "Veiled Dawn of Spring",
+    "id": "4044l2d",
+    "name": "Veiled Dawn of Spring l2d",
+    "kind": "discl2d",
     "variants": [
       {
         "name": "4044_l",
@@ -13842,8 +21753,9 @@
     ]
   },
   {
-    "id": "4045",
-    "name": "Petals of Blooming Mirage",
+    "id": "4045l2d",
+    "name": "Petals of Blooming Mirage l2d",
+    "kind": "discl2d",
     "variants": [
       {
         "name": "4045_l",
@@ -13868,8 +21780,9 @@
     ]
   },
   {
-    "id": "4048",
-    "name": "Snowy Night Surprise",
+    "id": "4048l2d",
+    "name": "Snowy Night Surprise l2d",
+    "kind": "discl2d",
     "variants": [
       {
         "name": "4048_l",
@@ -13916,8 +21829,9 @@
     ]
   },
   {
-    "id": "4051",
-    "name": "Stellar Destination",
+    "id": "4051l2d",
+    "name": "Stellar Destination l2d",
+    "kind": "discl2d",
     "variants": [
       {
         "name": "4051_l",
@@ -13997,8 +21911,9 @@
     ]
   },
   {
-    "id": "4054",
-    "name": "Little Paradise",
+    "id": "4054l2d",
+    "name": "Little Paradise l2d",
+    "kind": "discl2d",
     "variants": [
       {
         "name": "4054_l",
@@ -14210,8 +22125,9 @@
     ]
   },
   {
-    "id": "4055",
-    "name": "Fleeting Glimmers",
+    "id": "4055l2d",
+    "name": "Fleeting Glimmers l2d",
+    "kind": "discl2d",
     "variants": [
       {
         "name": "4055_l",

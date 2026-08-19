@@ -23,6 +23,13 @@ const state = {
   fgContainer: null,
   bgTextures: [],
   currentBgKey: null,
+  // Disc parallax (image-only) scene state.
+  parallaxContainer: null,
+  parallaxLayers: [],
+  parallaxActive: false,
+  parallaxItem: null,
+  parallaxScene: null,
+  parallaxFit: 1,
   // Where the rig canvas (the customized_bg backdrop / camera view) sits on
   // screen.  The character is placed relative to it via its MainView offset,
   // exactly like the game parents the L2D under actor_offset inside the rig.
@@ -145,6 +152,14 @@ function createBackgroundContainer() {
   fg.interactive = false;
   state.fgContainer = fg;
   state.camera.addChild(fg);
+
+  // Disc parallax (image-only) scene container.
+  const parallax = new Container();
+  parallax.eventMode = 'none';
+  parallax.interactive = false;
+  parallax.visible = false;
+  state.parallaxContainer = parallax;
+  state.camera.addChild(parallax);
 }
 
 function bgTextureValid(tex) {
@@ -301,11 +316,135 @@ function getParamValue(id) {
 
 function getVariantInfo(path) {
   for (const item of state.models) {
+    if (!item.variants) continue;
     for (const variant of item.variants) {
       if (resolveUrl(variant.path) === resolveUrl(path)) return variant;
     }
   }
   return null;
+}
+
+/* ---------------- Disc parallax (image-only scene) ---------------- */
+
+// A disc's non-L2D entry is a parallax scene replicating the game's card
+// prefab: the gyroscope overlay group (opaque card backdrop + sparkle/glow
+// layers + title) clipped to a Mask window, laid out in the 1080x1080 logical
+// canvas.  The whole overlay group shifts together by (ax, ay) * normalized
+// drag when the user drags with the left mouse button.  Layers with depth 0
+// (the <id>_B fallback for discs without an overlay scene) stay put.
+
+function clearParallax() {
+  const c = state.parallaxContainer;
+  if (!c) return;
+  while (c.children.length) c.removeChildAt(0);
+  state.parallaxLayers = [];
+  state.parallaxActive = false;
+  state.parallaxItem = null;
+  state.parallaxScene = null;
+  state.parallaxFit = 1;
+}
+
+// Render a parallax scene centred on the screen, fitted to the mask window.
+async function loadParallax(item) {
+  const seq = ++modelLoadSeq;
+  resetCamera();
+  state.currentPath = item.id + 'p';
+
+  // Tear down any live model and parallax scene.
+  if (state.model) {
+    const currentModel = state.model;
+    if (state._overrideHandler && currentModel.internalModel) {
+      currentModel.internalModel.off('beforeModelUpdate', state._overrideHandler);
+    }
+    state._overrideHandler = null;
+    clearBackground();
+    state.camera.removeChild(currentModel);
+    currentModel.destroy({ children: true, texture: true, baseTexture: true });
+    state.model = null;
+  }
+  clearBackground();
+  clearParallax();
+  clearElement(els.optionsContent);
+  els.status.textContent = 'Loading ' + item.name + ' ...';
+  await new Promise((r) => requestAnimationFrame(r));
+  if (seq !== modelLoadSeq) return;
+
+  const scene = item.parallax || {};
+  const layers = scene.layers || [];
+  if (!layers.length) { els.status.textContent = ''; return; }
+  state.parallaxItem = item;
+  state.parallaxScene = scene;
+
+  // Fit the mask window (or the whole canvas for discs without one) to the
+  // screen; the mask window is centred on the canvas, so the screen edge
+  // already clips the overlay spill-over exactly like the game's Mask.
+  const canvasW = scene.canvasW || 1080;
+  const canvasH = scene.canvasH || 1080;
+  const mask = scene.mask || null;
+  const fitW = mask ? mask.w : canvasW;
+  const fitH = mask ? mask.h : canvasH;
+  const screenW = state.app.renderer.width;
+  const screenH = state.app.renderer.height;
+  const fit = Math.min(screenW / fitW, screenH / fitH);
+
+  const container = state.parallaxContainer;
+  container.position.set(screenW / 2, screenH / 2);
+  container.visible = true;
+  state.parallaxFit = fit;
+
+  const loaded = [];
+  for (const l of layers) {
+    if (seq !== modelLoadSeq) return;
+    try {
+      const texture = await Assets.load(resolveUrl(l.path));
+      if (seq !== modelLoadSeq) return;
+      const sprite = new Sprite(texture);
+      sprite.anchor.set(0.5);
+      sprite.eventMode = 'none';
+      sprite.interactive = false;
+      // Texture is stretched to the layer's display size (canvas px) * fit.
+      sprite.scale.set((fit * l.w) / texture.width, (fit * l.h) / texture.height);
+      sprite.x = l.x * fit;
+      sprite.y = l.y * fit;
+      container.addChild(sprite);
+      loaded.push({ sprite, baseX: sprite.x, baseY: sprite.y, depth: l.depth || 0 });
+    } catch (e) {
+      console.error('Failed to load parallax layer', l.path, e);
+    }
+  }
+  state.parallaxLayers = loaded;
+  state.parallaxActive = true;
+  els.status.textContent = '';
+}
+
+// Shift each parallax layer by its depth relative to a drag delta (in screen
+// px), scaled by the scene's gyroscope factors so the overlay group slides as
+// a unit.  depth 0 layers (the base) stay put.
+function applyParallaxOffset(dx, dy) {
+  if (!state.parallaxActive) return;
+  const p = (state.parallaxScene && state.parallaxScene.parallax) || { ax: 5, ay: -25 };
+  const ax = p.ax || 0;
+  const ay = p.ay || 0;
+  const screenW = state.app.renderer.width;
+  const screenH = state.app.renderer.height;
+  const fit = state.parallaxFit || 1;
+  // Normalise the drag to the full screen; the game's gyroscope offset is tiny
+  // (ax/ay canvas px), so amplify it ~3x for a visible tilt in the viewer.
+  const nx = dx / Math.max(screenW, 1);
+  const ny = dy / Math.max(screenH, 1);
+  const amp = 3;
+  for (const pl of state.parallaxLayers) {
+    pl.sprite.x = pl.baseX + nx * ax * fit * amp * pl.depth;
+    pl.sprite.y = pl.baseY + ny * ay * fit * amp * pl.depth;
+  }
+}
+
+function resetParallax() {
+  if (!state.parallaxActive) return;
+  for (const pl of state.parallaxLayers) {
+    pl.sprite.x = pl.baseX;
+    pl.sprite.y = pl.baseY;
+  }
 }
 
 function getVariantBgs(path) {
@@ -635,6 +774,17 @@ function addParameterControls(section) {
 function buildOptionsPanel() {
   clearElement(els.optionsContent);
 
+  if (!state.model) {
+    const section = addSection('Disc');
+    const row = document.createElement('div');
+    row.className = 'opt-row';
+    row.textContent = 'Parallax scene — drag to shift layers.';
+    row.style.color = 'var(--text-faint)';
+    row.style.fontSize = '11px';
+    section.appendChild(row);
+    return;
+  }
+
   const angleSection = addSection('Angle');
   addAngleRow(angleSection, 'Angle X', 'x', 'ParamAngleX', state.options.angles);
   addAngleRow(angleSection, 'Angle Y', 'y', 'ParamAngleY', state.options.angles);
@@ -733,6 +883,7 @@ export async function loadModel(path) {
   state.options.overrides.clear();
   state.options.angles = { x: 0, y: 0, z: 0 };
   state.options.bodyAngles = { x: 0, y: 0, z: 0 };
+  clearParallax();
 
   if (state.model) {
     const currentModel = state.model;
@@ -795,11 +946,11 @@ function addListSection(title) {
 function addListItem(item) {
   const li = document.createElement('li');
   li.className = 'entity-block';
-  const isDisc = /^\d{4}$/.test(item.id);
+  const isDisc = item.kind === 'parallax' || item.kind === 'discl2d';
 
   const name = document.createElement('span');
   name.className = 'character-name' + (isDisc ? ' is-disc' : '');
-  const shownId = isDisc ? item.id : item.id.slice(0, -2);
+  const shownId = isDisc ? item.id.replace(/l2d$/, '') : item.id.slice(0, -2);
   const idSpan = document.createElement('span');
   idSpan.className = 'character-id';
   idSpan.textContent = shownId + ' ';
@@ -807,8 +958,14 @@ function addListItem(item) {
   name.appendChild(document.createTextNode(item.name === '#' + shownId ? '' : item.name));
   li.appendChild(name);
   let firstBtn = null;
-  if (isDisc) {
-    // Discs have a single L2D; the title loads it directly.
+  if (item.kind === 'parallax') {
+    // Image-only parallax scene.
+    name.addEventListener('click', () => {
+      setActiveButton(name);
+      loadParallax(item);
+    });
+  } else if (item.kind === 'discl2d') {
+    // The disc's Live2D, as a separate entry.
     const variant = item.variants[0];
     name.addEventListener('click', () => {
       setActiveButton(name);
@@ -881,18 +1038,19 @@ function getHideTokens() {
 
 function isHidden(item, tokens) {
   if (!tokens.length) return false;
-  const shownId = /^\d{4}$/.test(item.id) ? item.id : item.id.slice(0, -2);
+  const isDisc = item.kind === 'parallax' || item.kind === 'discl2d';
+  const shownId = isDisc ? item.id.replace(/l2d$/, '') : item.id.slice(0, -2);
   return tokens.some((t) => shownId.startsWith(t));
 }
 
 function createCharactersList() {
   const list = els.list;
   list.innerHTML = '';
-  const isDisc = (item) => /^\d{4}$/.test(item.id);
+  const isDiscEntry = (item) => item.kind === 'parallax' || item.kind === 'discl2d';
   const tokens = getHideTokens();
 
-  const chars = state.models.filter((item) => !isDisc(item) && !isHidden(item, tokens));
-  const discs = state.models.filter((item) => isDisc(item) && !isHidden(item, tokens));
+  const chars = state.models.filter((item) => !isDiscEntry(item) && !isHidden(item, tokens));
+  const discs = state.models.filter((item) => isDiscEntry(item) && !isHidden(item, tokens));
 
   addListSection('Trekkers (' + chars.length + ')');
   for (const item of chars) addListItem(item);
@@ -909,6 +1067,8 @@ function enableDrag() {
   let dragging = false;
   let lastX = 0;
   let lastY = 0;
+  let startX = 0;
+  let startY = 0;
 
   app.stage.eventMode = 'static';
   app.stage.hitArea = app.renderer.screen;
@@ -918,15 +1078,25 @@ function enableDrag() {
     dragging = true;
     lastX = e.global.x;
     lastY = e.global.y;
+    startX = e.global.x;
+    startY = e.global.y;
   });
   app.stage.on('pointermove', (e) => {
     if (!dragging) return;
-    camera.x += e.global.x - lastX;
-    camera.y += e.global.y - lastY;
-    lastX = e.global.x;
-    lastY = e.global.y;
+    if (state.parallaxActive) {
+      // Parallax scene: shift each layer by its depth relative to drag start.
+      applyParallaxOffset(e.global.x - startX, e.global.y - startY);
+    } else {
+      camera.x += e.global.x - lastX;
+      camera.y += e.global.y - lastY;
+      lastX = e.global.x;
+      lastY = e.global.y;
+    }
   });
-  const stop = () => { dragging = false; };
+  const stop = () => {
+    dragging = false;
+    resetParallax();
+  };
   app.stage.on('pointerup', stop);
   app.stage.on('pointerupoutside', stop);
 }
@@ -1002,6 +1172,8 @@ function handleResize() {
     if (state.model) {
       fitModelToScreen();
       fitBackground();
+    } else if (state.parallaxItem) {
+      loadParallax(state.parallaxItem);
     }
   };
   new ResizeObserver(onResize).observe(els.canvas);
@@ -1018,14 +1190,19 @@ function handleContextLost() {
       state.model.destroy({ children: true, texture: true, baseTexture: true });
       state.model = null;
     }
+    clearParallax();
   });
   canvas.addEventListener('webglcontextrestored', () => {
     // The Cubism renderer needs fresh GL objects after a restore; simply
-    // re-create the current model from scratch.
+    // re-create the current model (or parallax scene) from scratch.
     if (state.currentPath) {
       const p = state.currentPath;
       state.currentPath = null;
-      setTimeout(() => loadModel(p), 100);
+      if (p.endsWith('p') && state.parallaxItem) {
+        setTimeout(() => loadParallax(state.parallaxItem), 100);
+      } else {
+        setTimeout(() => loadModel(p), 100);
+      }
     } else {
       els.status.textContent = '';
     }

@@ -241,6 +241,67 @@ if [[ -n "$SKIN" ]]; then
     --out "$ROOT/data/charbg.json" || true
 fi
 
+# --- Disc parallax scenes (all disc_XXXX bundles) ----------------------------
+# Every disc (1xxx/2xxx/3xxx/4xxx) has a static "parallax" card composition in
+# its plain disc_XXXX bundle: the main SpriteRenderer art + the gyroscope Image
+# overlays + the <id>_B full-card image.  These are the disc's non-L2D entries
+# in the viewer (rendered with a mouse-drag parallax effect).  The disc's
+# Live2D (disc_l2d_XXXX) is extracted separately by the Live2D step above.
+DISC_OV="$TMP/discoverlays"
+mkdir -p "$DISC_OV"/{dump,img,tex,texpng}
+echo "=== disc parallax scenes ==="
+for f in "$INSTALL_RESOURCE"/disc_[0-9][0-9][0-9][0-9].unity3d; do
+  [[ -f "$f" ]] || continue
+  base="$(basename "$f" .unity3d)"   # e.g. disc_4004
+  id="${base#disc_}"                 # 4004
+  out_dump="$DISC_OV/dump/$base"
+  out_img="$DISC_OV/img/$base"
+  out_tex="$DISC_OV/tex/$base"
+  out_png="$DISC_OV/texpng/$base"
+  mkdir -p "$out_dump" "$out_img" "$out_tex" "$out_png"
+
+  # Scene graph (GameObject/Transform/RectTransform/SpriteRenderer)
+  DOTNET_ROLL_FORWARD=Major dotnet "$CLI" "$f" -m dump \
+    -t gameobject,transform,rectTransform,spriteRenderer \
+    -f assetName_pathID --load-all -o "$out_dump" >/dev/null 2>&1 || true
+
+  # Sprite assets (rect/pivot/texture refs).  Dumped separately: the combined
+  # dump above only exports the uniquely-named <id>_B sprite, but the overlay
+  # and main-art pieces are named generically (e.g. "1", "2a") or collide with
+  # GameObject names, so a combined dump drops them.
+  DOTNET_ROLL_FORWARD=Major dotnet "$CLI" "$f" -m dump \
+    -t sprite -f assetName_pathID --load-all -o "$DISC_OV/sprite/$base" >/dev/null 2>&1 || true
+
+  # All monoBehaviour components: Image (which overlay GO uses which sprite),
+  # plus the parallax setup itself — GyroscopeFollower (per-layer gyroscope
+  # factors), Mask (the overlay clip window) and AvgL2DUseGyroscope (target
+  # range) — which were missing from the old Image-only export.
+  DOTNET_ROLL_FORWARD=Major dotnet "$CLI" "$f" -m export \
+    -t monoBehaviour -o "$out_img" >/dev/null 2>&1 || true
+
+  # Texture2D pathID -> name mapping
+  DOTNET_ROLL_FORWARD=Major dotnet "$CLI" "$f" -m dump \
+    -t texture2d -f assetName_pathID --load-all -o "$out_tex" >/dev/null 2>&1 || true
+
+  # Texture PNGs
+  DOTNET_ROLL_FORWARD=Major dotnet "$CLI" "$f" -m export \
+    -t texture2d -o "$out_png" --image-format png >/dev/null 2>&1 || true
+done
+node "$SCRIPT_DIR/extractDiscParallax.mjs" \
+  --dump "$DISC_OV/dump" \
+  --sprite "$DISC_OV/sprite" \
+  --img "$DISC_OV/img" \
+  --tex "$DISC_OV/tex" \
+  --texpng "$DISC_OV/texpng" \
+  --out "$ROOT/data/discparallax.json" \
+  --chars "$TMP/chars" || true
+# Rebuild the Discs section: every disc as a parallax entry + a "[title] l2d"
+# entry for the discs that have a Live2D.
+node "$SCRIPT_DIR/generateDiscs.mjs" \
+  --models "$ROOT/data/models.json" \
+  --parallax "$ROOT/data/discparallax.json" \
+  --disc-names "$ROOT/data/discid.json" || true
+
 # --- MainView L2D offsets (Actor2DOffsetData) --------------------------------
 # Each skin's CharacterSkin.Offset (Actor2D/Character/<skin>/<skin>.asset) lives
 # in the char_2d_<skin>.unity3d bundles.  We keep the MainView (panel 10) Set 2
