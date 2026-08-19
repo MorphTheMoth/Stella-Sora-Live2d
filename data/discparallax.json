@@ -1100,57 +1100,63 @@
         "w": 752,
         "h": 768,
         "clip": false,
-        "depth": 1
+        "z": 0,
+        "depth": 0
       },
       {
         "file": "gyro_bg",
         "path": "chars/4001/4001_p/overlays/gyro_bg.png",
         "x": 0,
-        "y": -45,
+        "y": -9,
         "w": 1076,
         "h": 764,
         "clip": true,
-        "depth": 1
+        "z": 2500,
+        "depth": 2500
       },
       {
         "file": "gyro_3",
         "path": "chars/4001/4001_p/overlays/gyro_3.png",
-        "x": 11,
-        "y": 600,
+        "x": 3.06,
+        "y": 166.67,
         "w": 1076,
         "h": 572,
         "clip": true,
-        "depth": 1
+        "z": 2500,
+        "depth": 2500
       },
       {
         "file": "gyro_1",
         "path": "chars/4001/4001_p/overlays/gyro_1.png",
-        "x": -824.6,
-        "y": 452.8,
+        "x": -329.84,
+        "y": 181.12,
         "w": 152,
         "h": 436,
         "clip": true,
-        "depth": 1
+        "z": 1500,
+        "depth": 1500
       },
       {
         "file": "gyro_2a",
         "path": "chars/4001/4001_p/overlays/gyro_2a.png",
-        "x": -75,
-        "y": -365,
+        "x": -26.79,
+        "y": -113.35,
         "w": 768,
         "h": 444,
         "clip": true,
-        "depth": 1
+        "z": 1500,
+        "depth": 1500
       },
       {
         "file": "gyro_5",
         "path": "chars/4001/4001_p/overlays/gyro_5.png",
-        "x": -545,
-        "y": 506.3,
+        "x": -218,
+        "y": 202.52,
         "w": 312,
         "h": 384,
         "clip": true,
-        "depth": 1
+        "z": 1200,
+        "depth": 1200
       },
       {
         "file": "gyro_2",
@@ -1160,27 +1166,30 @@
         "w": 1076,
         "h": 752,
         "clip": true,
-        "depth": 1
+        "z": 600,
+        "depth": 600
       },
       {
         "file": "gyro_4",
         "path": "chars/4001/4001_p/overlays/gyro_4.png",
-        "x": 36,
-        "y": 260,
+        "x": 27.69,
+        "y": 200,
         "w": 1076,
         "h": 408,
         "clip": true,
-        "depth": 1
+        "z": 320,
+        "depth": 320
       },
       {
         "file": "gyro_6",
         "path": "chars/4001/4001_p/overlays/gyro_6.png",
-        "x": 270,
-        "y": 56.1,
+        "x": 207.69,
+        "y": 43.15,
         "w": 584,
         "h": 700,
         "clip": true,
-        "depth": 1
+        "z": 300,
+        "depth": 300
       },
       {
         "file": "gyro_7",
@@ -1190,7 +1199,8 @@
         "w": 1076,
         "h": 764,
         "clip": true,
-        "depth": 1
+        "z": 200,
+        "depth": 200
       },
       {
         "file": "gyro_8",
@@ -1200,17 +1210,19 @@
         "w": 1076,
         "h": 764,
         "clip": true,
-        "depth": 1
+        "z": 0,
+        "depth": 0
       },
       {
         "file": "gyro_9",
         "path": "chars/4001/4001_p/overlays/gyro_9.png",
         "x": 0,
-        "y": 230,
+        "y": 306.67,
         "w": 1076,
         "h": 316,
         "clip": true,
-        "depth": 1
+        "z": -50,
+        "depth": -50
       },
       {
         "file": "gyro_title",
@@ -1220,7 +1232,8 @@
         "w": 772,
         "h": 764,
         "clip": false,
-        "depth": 1
+        "z": -200,
+        "depth": -200
       }
     ]
   },
@@ -1250,57 +1263,63 @@
         "w": 752,
         "h": 768,
         "clip": false,
-        "depth": 1
+        "z": 0,
+        "depth": 0
       },
       {
         "file": "gyro_bg",
         "path": "chars/4002/4002_p/overlays/gyro_bg.png",
-        "x": -200,
-        "y": 60,
+        "x": -39.22,
+        "y": 11.76,
         "w": 1076,
         "h": 760,
         "clip": true,
-        "depth": 1
+        "z": 2500,
+        "depth": 2500
       },
       {
         "file": "gyro_1",
         "path": "chars/4002/4002_p/overlays/gyro_1.png",
-        "x": 216,
-        "y": -137,
+        "x": 144,
+        "y": -91.33,
         "w": 472,
         "h": 740,
         "clip": true,
-        "depth": 1
+        "z": 500,
+        "depth": 500
       },
       {
         "file": "gyro_2",
         "path": "chars/4002/4002_p/overlays/gyro_2.png",
-        "x": -40,
-        "y": 145,
+        "x": -33.33,
+        "y": 120.83,
         "w": 948,
         "h": 576,
         "clip": true,
-        "depth": 1
+        "z": 250,
+        "depth": 250
       },
       {
         "file": "gyro_3",
         "path": "chars/4002/4002_p/overlays/gyro_3.png",
-        "x": -90,
-        "y": 122,
+        "x": -78.26,
+        "y": 106.09,
         "w": 956,
         "h": 608,
         "clip": true,
-        "depth": 1
+        "z": 100,
+        "depth": 100
       },
       {
         "file": "gyro_5",
         "path": "chars/4002/4002_p/overlays/gyro_5.png",
-        "x": -73,
-        "y": 65,
+        "x": -61.26,
+        "y": 49.09,
         "w": 1576,
         "h": 776,
         "clip": true,
-        "depth": 1
+        "z": 100,
+        "depth": 100
       },
       {
         "file": "gyro_4",
@@ -1310,7 +1329,8 @@
         "w": 1040,
         "h": 780,
         "clip": true,
-        "depth": 1
+        "z": -50,
+        "depth": -50
       },
       {
         "file": "gyro_title",
@@ -1320,7 +1340,8 @@
         "w": 708,
         "h": 716,
         "clip": false,
-        "depth": 1
+        "z": -200,
+        "depth": -200
       }
     ]
   },
@@ -1350,97 +1371,107 @@
         "w": 752,
         "h": 768,
         "clip": false,
-        "depth": 1
+        "z": 0,
+        "depth": 0
       },
       {
         "file": "gyro_bg",
         "path": "chars/4003/4003_p/overlays/gyro_bg.png",
         "x": 0,
-        "y": -40,
+        "y": -8,
         "w": 1076,
         "h": 764,
         "clip": true,
-        "depth": 1
+        "z": 3000,
+        "depth": 3000
       },
       {
         "file": "gyro_02",
         "path": "chars/4003/4003_p/overlays/gyro_02.png",
-        "x": -638.9,
-        "y": -187.2,
+        "x": -277.78,
+        "y": -81.39,
         "w": 420,
         "h": 632,
         "clip": true,
-        "depth": 1
+        "z": 980,
+        "depth": 980
       },
       {
         "file": "gyro_01",
         "path": "chars/4003/4003_p/overlays/gyro_01.png",
-        "x": 42,
-        "y": -20,
+        "x": 21,
+        "y": -10,
         "w": 1076,
         "h": 764,
         "clip": true,
-        "depth": 1
+        "z": 800,
+        "depth": 800
       },
       {
         "file": "gyro_06",
         "path": "chars/4003/4003_p/overlays/gyro_06.png",
-        "x": 108,
-        "y": -30,
+        "x": 72,
+        "y": -20,
         "w": 996,
         "h": 764,
         "clip": true,
-        "depth": 1
+        "z": 500,
+        "depth": 500
       },
       {
         "file": "gyro_07",
         "path": "chars/4003/4003_p/overlays/gyro_07.png",
-        "x": 284,
-        "y": -35,
+        "x": 189.33,
+        "y": -23.33,
         "w": 516,
         "h": 384,
         "clip": true,
-        "depth": 1
+        "z": 500,
+        "depth": 500
       },
       {
         "file": "gyro_03",
         "path": "chars/4003/4003_p/overlays/gyro_03.png",
-        "x": -306,
-        "y": -135,
+        "x": -248.78,
+        "y": -112.5,
         "w": 552,
         "h": 560,
         "clip": true,
-        "depth": 1
+        "z": 300,
+        "depth": 300
       },
       {
         "file": "gyro_04",
         "path": "chars/4003/4003_p/overlays/gyro_04.png",
-        "x": -227,
-        "y": 228,
+        "x": -189.17,
+        "y": 190,
         "w": 620,
         "h": 340,
         "clip": true,
-        "depth": 1
+        "z": 150,
+        "depth": 150
       },
       {
         "file": "gyro_05",
         "path": "chars/4003/4003_p/overlays/gyro_05.png",
         "x": 7.3,
-        "y": 217.9,
+        "y": 181.58,
         "w": 216,
         "h": 116,
         "clip": true,
-        "depth": 1
+        "z": 100,
+        "depth": 100
       },
       {
         "file": "gyro_title",
         "path": "chars/4003/4003_p/overlays/gyro_title.png",
-        "x": 85,
+        "x": 118.06,
         "y": 0,
         "w": 464,
         "h": 712,
         "clip": false,
-        "depth": 1
+        "z": -200,
+        "depth": -200
       }
     ]
   },
@@ -1470,7 +1501,8 @@
         "w": 752,
         "h": 768,
         "clip": false,
-        "depth": 1
+        "z": 0,
+        "depth": 0
       },
       {
         "file": "gyro_bg",
@@ -1480,27 +1512,30 @@
         "w": 1076,
         "h": 764,
         "clip": true,
-        "depth": 1
+        "z": 1900,
+        "depth": 1900
       },
       {
         "file": "gyro_01",
         "path": "chars/4004/4004_p/overlays/gyro_01.png",
-        "x": 42,
-        "y": -280,
+        "x": 22.11,
+        "y": -147.37,
         "w": 1076,
         "h": 504,
         "clip": true,
-        "depth": 1
+        "z": 800,
+        "depth": 800
       },
       {
         "file": "gyro_02",
         "path": "chars/4004/4004_p/overlays/gyro_02.png",
-        "x": 82,
+        "x": 54.67,
         "y": 0,
         "w": 1004,
         "h": 800,
         "clip": true,
-        "depth": 1
+        "z": 500,
+        "depth": 500
       },
       {
         "file": "gyro_03",
@@ -1510,17 +1545,19 @@
         "w": 844,
         "h": 628,
         "clip": true,
-        "depth": 1
+        "z": 0,
+        "depth": 0
       },
       {
         "file": "gyro_titie",
         "path": "chars/4004/4004_p/overlays/gyro_titie.png",
         "x": 0,
-        "y": -212,
+        "y": -294.44,
         "w": 572,
         "h": 164,
         "clip": false,
-        "depth": 1
+        "z": -200,
+        "depth": -200
       }
     ]
   },
@@ -1550,7 +1587,8 @@
         "w": 752,
         "h": 768,
         "clip": false,
-        "depth": 1
+        "z": 0,
+        "depth": 0
       },
       {
         "file": "gyro_bg",
@@ -1560,57 +1598,74 @@
         "w": 1076,
         "h": 764,
         "clip": true,
-        "depth": 1
+        "z": 1900,
+        "depth": 1900
       },
       {
         "file": "gyro_01",
         "path": "chars/4005/4005_p/overlays/gyro_01.png",
-        "x": 42,
-        "y": 7,
+        "x": 26.25,
+        "y": 4.38,
         "w": 752,
         "h": 732,
         "clip": true,
-        "depth": 1
+        "z": 600,
+        "depth": 600
       },
       {
         "file": "gyro_02",
         "path": "chars/4005/4005_p/overlays/gyro_02.png",
-        "x": 554,
-        "y": 8,
+        "x": 369.33,
+        "y": 5.33,
         "w": 336,
         "h": 764,
         "clip": true,
-        "depth": 1
+        "z": 500,
+        "depth": 500
       },
       {
         "file": "gyro_03",
         "path": "chars/4005/4005_p/overlays/gyro_03.png",
-        "x": -65,
+        "x": -42.48,
         "y": 0,
         "w": 1076,
         "h": 764,
         "clip": true,
-        "depth": 1
+        "z": 450,
+        "depth": 450
+      },
+      {
+        "file": "gyro_fx02",
+        "path": "chars/4005/4005_p/overlays/gyro_fx02.png",
+        "x": -42.48,
+        "y": 0,
+        "w": 1076,
+        "h": 764,
+        "clip": true,
+        "z": 450,
+        "depth": 450
       },
       {
         "file": "gyro_05",
         "path": "chars/4005/4005_p/overlays/gyro_05.png",
-        "x": -296,
-        "y": 123,
+        "x": -246.67,
+        "y": 102.5,
         "w": 584,
         "h": 560,
         "clip": true,
-        "depth": 1
+        "z": 200,
+        "depth": 200
       },
       {
         "file": "gyro_fx01",
         "path": "chars/4005/4005_p/overlays/gyro_fx01.png",
-        "x": 54.8,
-        "y": -8.5,
+        "x": 45.67,
+        "y": -7.08,
         "w": 1008,
         "h": 764,
         "clip": true,
-        "depth": 1
+        "z": 200,
+        "depth": 200
       },
       {
         "file": "gyro_title",
@@ -1620,17 +1675,8 @@
         "w": 780,
         "h": 764,
         "clip": true,
-        "depth": 1
-      },
-      {
-        "file": "gyro_fx02",
-        "path": "chars/4005/4005_p/overlays/gyro_fx02.png",
-        "x": -65,
-        "y": 0,
-        "w": 1076,
-        "h": 764,
-        "clip": true,
-        "depth": 1
+        "z": 0,
+        "depth": 0
       }
     ]
   },
@@ -1660,157 +1706,173 @@
         "w": 752,
         "h": 768,
         "clip": false,
-        "depth": 1
+        "z": 0,
+        "depth": 0
       },
       {
         "file": "gyro_bg",
         "path": "chars/4006/4006_p/overlays/gyro_bg.png",
         "x": 0,
-        "y": -30,
+        "y": -6,
         "w": 1076,
         "h": 764,
         "clip": true,
-        "depth": 1
+        "z": 3000,
+        "depth": 3000
       },
       {
         "file": "gyro_07",
         "path": "chars/4006/4006_p/overlays/gyro_07.png",
-        "x": -1350,
-        "y": -530,
+        "x": -482.14,
+        "y": -189.29,
         "w": 156,
         "h": 256,
         "clip": true,
-        "depth": 1
+        "z": 2000,
+        "depth": 2000
       },
       {
         "file": "gyro_book1",
         "path": "chars/4006/4006_p/overlays/gyro_book1.png",
-        "x": -474,
-        "y": 1003,
+        "x": -158,
+        "y": 334.33,
         "w": 36,
         "h": 28,
         "clip": true,
-        "depth": 1
+        "z": 2000,
+        "depth": 2000
       },
       {
         "file": "gyro_01",
         "path": "chars/4006/4006_p/overlays/gyro_01.png",
-        "x": -345,
-        "y": 90,
+        "x": -115,
+        "y": 30,
         "w": 808,
         "h": 764,
         "clip": true,
-        "depth": 1
+        "z": 1400,
+        "depth": 1400
+      },
+      {
+        "file": "gyro_fx02",
+        "path": "chars/4006/4006_p/overlays/gyro_fx02.png",
+        "x": -66,
+        "y": -510,
+        "w": 192,
+        "h": 188,
+        "clip": true,
+        "z": 1400,
+        "depth": 1400
       },
       {
         "file": "gyro_02",
         "path": "chars/4006/4006_p/overlays/gyro_02.png",
         "x": 0,
-        "y": 1000,
+        "y": 500,
         "w": 340,
         "h": 340,
         "clip": true,
-        "depth": 1
+        "z": 1200,
+        "depth": 1200
       },
       {
         "file": "gyro_book2",
         "path": "chars/4006/4006_p/overlays/gyro_book2.png",
-        "x": -130,
-        "y": 572,
+        "x": -68.42,
+        "y": 301.05,
         "w": 72,
         "h": 108,
         "clip": true,
-        "depth": 1
+        "z": 1000,
+        "depth": 1000
       },
       {
         "file": "gyro_04",
         "path": "chars/4006/4006_p/overlays/gyro_04.png",
-        "x": 400,
-        "y": 276,
+        "x": 222.22,
+        "y": 153.33,
         "w": 184,
         "h": 244,
         "clip": true,
-        "depth": 1
+        "z": 800,
+        "depth": 800
       },
       {
         "file": "gyro_03",
         "path": "chars/4006/4006_p/overlays/gyro_03.png",
-        "x": -63,
-        "y": -65,
+        "x": -42,
+        "y": -43.33,
         "w": 400,
         "h": 640,
         "clip": true,
-        "depth": 1
-      },
-      {
-        "file": "gyro_fx02",
-        "path": "chars/4006/4006_p/overlays/gyro_fx02.png",
-        "x": -296,
-        "y": -450,
-        "w": 192,
-        "h": 188,
-        "clip": true,
-        "depth": 1
+        "z": 500,
+        "depth": 500
       },
       {
         "file": "gyro_05",
         "path": "chars/4006/4006_p/overlays/gyro_05.png",
-        "x": -24,
-        "y": 76,
+        "x": -3,
+        "y": 97.67,
         "w": 1068,
         "h": 616,
         "clip": true,
-        "depth": 1
+        "z": 500,
+        "depth": 500
       },
       {
         "file": "gyro_fx01",
         "path": "chars/4006/4006_p/overlays/gyro_fx01.png",
-        "x": 299,
-        "y": 135,
+        "x": 320,
+        "y": 156.67,
         "w": 368,
         "h": 276,
         "clip": true,
-        "depth": 1
+        "z": 500,
+        "depth": 500
       },
       {
         "file": "gyro_06",
         "path": "chars/4006/4006_p/overlays/gyro_06.png",
-        "x": -12,
-        "y": 0,
+        "x": 9,
+        "y": 21.67,
         "w": 1048,
         "h": 764,
         "clip": true,
-        "depth": 1
-      },
-      {
-        "file": "gyro_star",
-        "path": "chars/4006/4006_p/overlays/gyro_star.png",
-        "x": -115.7,
-        "y": -212.3,
-        "w": 128,
-        "h": 128,
-        "clip": false,
-        "depth": 1
+        "z": 500,
+        "depth": 500
       },
       {
         "file": "gyro_book3",
         "path": "chars/4006/4006_p/overlays/gyro_book3.png",
-        "x": 335,
-        "y": -104,
+        "x": 279.17,
+        "y": -86.67,
         "w": 172,
         "h": 144,
         "clip": true,
-        "depth": 1
+        "z": -150,
+        "depth": -150
       },
       {
         "file": "gyro_title",
         "path": "chars/4006/4006_p/overlays/gyro_title.png",
         "x": 0,
-        "y": -189,
+        "y": -262.5,
         "w": 780,
         "h": 272,
         "clip": false,
-        "depth": 1
+        "z": -200,
+        "depth": -200
+      },
+      {
+        "file": "gyro_star",
+        "path": "chars/4006/4006_p/overlays/gyro_star.png",
+        "x": -115.7,
+        "y": -285.8,
+        "w": 128,
+        "h": 128,
+        "clip": false,
+        "z": -200,
+        "depth": -200
       }
     ]
   },
@@ -1840,137 +1902,151 @@
         "w": 752,
         "h": 768,
         "clip": false,
-        "depth": 1
+        "z": 0,
+        "depth": 0
       },
       {
         "file": "gyro_bg",
         "path": "chars/4007/4007_p/overlays/gyro_bg.png",
         "x": 0,
-        "y": -30,
+        "y": -6,
         "w": 1076,
         "h": 764,
         "clip": true,
-        "depth": 1
+        "z": 3000,
+        "depth": 3000
       },
       {
         "file": "gyro_01",
         "path": "chars/4007/4007_p/overlays/gyro_01.png",
-        "x": -1113,
-        "y": -788,
+        "x": -265,
+        "y": -187.62,
         "w": 64,
         "h": 64,
         "clip": true,
-        "depth": 1
+        "z": 2500,
+        "depth": 2500
       },
       {
         "file": "gyro_02",
         "path": "chars/4007/4007_p/overlays/gyro_02.png",
-        "x": -1146,
-        "y": -27,
+        "x": -358.12,
+        "y": -8.44,
         "w": 232,
         "h": 320,
         "clip": true,
-        "depth": 1
+        "z": 2200,
+        "depth": 2200
       },
       {
         "file": "gyro_03",
         "path": "chars/4007/4007_p/overlays/gyro_03.png",
-        "x": -969,
-        "y": 274,
+        "x": -312.58,
+        "y": 88.39,
         "w": 424,
         "h": 400,
         "clip": true,
-        "depth": 1
+        "z": 2000,
+        "depth": 2000
       },
       {
         "file": "gyro_04",
         "path": "chars/4007/4007_p/overlays/gyro_04.png",
-        "x": 936,
-        "y": -262,
+        "x": 322.76,
+        "y": -90.34,
         "w": 404,
         "h": 440,
         "clip": true,
-        "depth": 1
+        "z": 1800,
+        "depth": 1800
       },
       {
         "file": "gyro_05_add",
         "path": "chars/4007/4007_p/overlays/gyro_05_add.png",
-        "x": -27,
-        "y": 25,
+        "x": -12,
+        "y": 11.11,
         "w": 1076,
         "h": 764,
         "clip": true,
-        "depth": 1
+        "z": 1000,
+        "depth": 1000
+      },
+      {
+        "file": "gyro_05",
+        "path": "chars/4007/4007_p/overlays/gyro_05.png",
+        "x": 26,
+        "y": 11.11,
+        "w": 692,
+        "h": 764,
+        "clip": true,
+        "z": 1000,
+        "depth": 1000
       },
       {
         "file": "gyro_06",
         "path": "chars/4007/4007_p/overlays/gyro_06.png",
-        "x": 46,
-        "y": -105,
+        "x": 24.21,
+        "y": -55.26,
         "w": 852,
         "h": 684,
         "clip": true,
-        "depth": 1
+        "z": 800,
+        "depth": 800
+      },
+      {
+        "file": "gyro_06_add",
+        "path": "chars/4007/4007_p/overlays/gyro_06_add.png",
+        "x": -5.19,
+        "y": -16.96,
+        "w": 1076,
+        "h": 764,
+        "clip": true,
+        "z": 800,
+        "depth": 800
+      },
+      {
+        "file": "gyro_06_add",
+        "path": "chars/4007/4007_p/overlays/gyro_06_add.png",
+        "x": -5.19,
+        "y": -16.96,
+        "w": 1076,
+        "h": 764,
+        "clip": true,
+        "z": 800,
+        "depth": 800
       },
       {
         "file": "gyro_07",
         "path": "chars/4007/4007_p/overlays/gyro_07.png",
         "x": 0,
-        "y": 75,
+        "y": 60,
         "w": 1076,
         "h": 764,
         "clip": true,
-        "depth": 1
+        "z": 400,
+        "depth": 400
       },
       {
         "file": "gyro_09",
         "path": "chars/4007/4007_p/overlays/gyro_09.png",
-        "x": 11.5,
-        "y": 155,
+        "x": 8.85,
+        "y": 119.23,
         "w": 1056,
         "h": 576,
         "clip": true,
-        "depth": 1
+        "z": 400,
+        "depth": 400
       },
       {
         "file": "gyro_10",
         "path": "chars/4007/4007_p/overlays/gyro_10.png",
-        "x": -3.8,
-        "y": 129,
+        "x": -3.45,
+        "y": 117.27,
         "w": 1076,
         "h": 576,
         "clip": true,
-        "depth": 1
-      },
-      {
-        "file": "gyro_05",
-        "path": "chars/4007/4007_p/overlays/gyro_05.png",
-        "x": 11,
-        "y": 25,
-        "w": 692,
-        "h": 764,
-        "clip": true,
-        "depth": 1
-      },
-      {
-        "file": "gyro_06_add",
-        "path": "chars/4007/4007_p/overlays/gyro_06_add.png",
-        "x": 16.6,
-        "y": -66.7,
-        "w": 1076,
-        "h": 764,
-        "clip": true,
-        "depth": 1
-      },
-      {
-        "file": "gyro_06_add",
-        "path": "chars/4007/4007_p/overlays/gyro_06_add.png",
-        "x": 16.6,
-        "y": -66.7,
-        "w": 1076,
-        "h": 764,
-        "clip": true,
-        "depth": 1
+        "z": 150,
+        "depth": 150
       },
       {
         "file": "gyro_08",
@@ -1980,17 +2056,19 @@
         "w": 1076,
         "h": 764,
         "clip": true,
-        "depth": 1
+        "z": 0,
+        "depth": 0
       },
       {
         "file": "gyro_title",
         "path": "chars/4007/4007_p/overlays/gyro_title.png",
         "x": 0,
-        "y": 200,
+        "y": 277.78,
         "w": 648,
         "h": 168,
         "clip": false,
-        "depth": 1
+        "z": -200,
+        "depth": -200
       }
     ]
   },
@@ -2020,127 +2098,140 @@
         "w": 752,
         "h": 768,
         "clip": false,
-        "depth": 1
+        "z": 0,
+        "depth": 0
       },
       {
         "file": "gyro_bg",
         "path": "chars/4008/4008_p/overlays/gyro_bg.png",
         "x": 0,
-        "y": -30,
+        "y": -6,
         "w": 1076,
         "h": 764,
         "clip": true,
-        "depth": 1
+        "z": 3000,
+        "depth": 3000
       },
       {
         "file": "gyro_01",
         "path": "chars/4008/4008_p/overlays/gyro_01.png",
-        "x": -900,
-        "y": 209,
+        "x": -250,
+        "y": 58.06,
         "w": 620,
         "h": 708,
         "clip": true,
-        "depth": 1
+        "z": 2500,
+        "depth": 2500
       },
       {
         "file": "gyro_05",
         "path": "chars/4008/4008_p/overlays/gyro_05.png",
-        "x": -14,
-        "y": -26,
+        "x": -7,
+        "y": -13,
         "w": 1076,
         "h": 764,
         "clip": true,
-        "depth": 1
+        "z": 2500,
+        "depth": 2500
       },
       {
         "file": "gyro_fx02",
         "path": "chars/4008/4008_p/overlays/gyro_fx02.png",
-        "x": 6,
-        "y": 44,
+        "x": 3,
+        "y": 22,
         "w": 1060,
         "h": 692,
         "clip": true,
-        "depth": 1
+        "z": 2500,
+        "depth": 2500
       },
       {
         "file": "gyro_02",
         "path": "chars/4008/4008_p/overlays/gyro_02.png",
-        "x": -677,
-        "y": 891.13,
+        "x": -205.15,
+        "y": 278.48,
         "w": 664,
         "h": 316,
         "clip": true,
-        "depth": 1
+        "z": 2000,
+        "depth": 2000
       },
       {
         "file": "gyro_07",
         "path": "chars/4008/4008_p/overlays/gyro_07.png",
-        "x": 1493,
-        "y": -1102,
+        "x": 728.29,
+        "y": -537.56,
         "w": 1116,
         "h": 852,
         "clip": true,
-        "depth": 1
+        "z": 1500,
+        "depth": 1500
       },
       {
         "file": "gyro_03",
         "path": "chars/4008/4008_p/overlays/gyro_03.png",
-        "x": -34.5,
-        "y": 363,
+        "x": -12.32,
+        "y": 129.64,
         "w": 900,
         "h": 432,
         "clip": true,
-        "depth": 1
+        "z": 1200,
+        "depth": 1200
       },
       {
         "file": "gyro_06",
         "path": "chars/4008/4008_p/overlays/gyro_06.png",
-        "x": 488,
-        "y": 48,
+        "x": 203.33,
+        "y": 20,
         "w": 616,
         "h": 512,
         "clip": true,
-        "depth": 1
+        "z": 1200,
+        "depth": 1200
       },
       {
         "file": "gyro_08",
         "path": "chars/4008/4008_p/overlays/gyro_08.png",
-        "x": -62,
-        "y": -27,
+        "x": -34.44,
+        "y": -15,
         "w": 916,
         "h": 760,
         "clip": true,
-        "depth": 1
+        "z": 1000,
+        "depth": 1000
       },
       {
         "file": "gyro_04",
         "path": "chars/4008/4008_p/overlays/gyro_04.png",
         "x": 0,
-        "y": 43,
+        "y": 23.63,
         "w": 1076,
         "h": 764,
         "clip": true,
-        "depth": 1
+        "z": 800,
+        "depth": 800
       },
       {
         "file": "gyro_fx01",
         "path": "chars/4008/4008_p/overlays/gyro_fx01.png",
-        "x": -33,
-        "y": 84,
+        "x": -22,
+        "y": 56,
         "w": 972,
         "h": 552,
         "clip": true,
-        "depth": 1
+        "z": 500,
+        "depth": 500
       },
       {
         "file": "gyro_title02",
         "path": "chars/4008/4008_p/overlays/gyro_title02.png",
-        "x": -1,
-        "y": 8,
+        "x": -1.33,
+        "y": 10.67,
         "w": 764,
         "h": 892,
         "clip": true,
-        "depth": 1
+        "z": -200,
+        "depth": -200
       },
       {
         "file": "gyro_title01",
@@ -2150,7 +2241,8 @@
         "w": 712,
         "h": 716,
         "clip": false,
-        "depth": 1
+        "z": -200,
+        "depth": -200
       }
     ]
   },
@@ -2180,57 +2272,63 @@
         "w": 752,
         "h": 768,
         "clip": false,
-        "depth": 1
+        "z": 0,
+        "depth": 0
       },
       {
         "file": "gyro_bg",
         "path": "chars/4009/4009_p/overlays/gyro_bg.png",
         "x": 0,
-        "y": -30,
+        "y": -6,
         "w": 1076,
         "h": 760,
         "clip": true,
-        "depth": 1
+        "z": 3000,
+        "depth": 3000
       },
       {
         "file": "gyro_photo",
         "path": "chars/4009/4009_p/overlays/gyro_photo.png",
         "x": 0,
-        "y": -46.79,
+        "y": -27.52,
         "w": 1412,
         "h": 1144,
         "clip": true,
-        "depth": 1
+        "z": 1200,
+        "depth": 1200
       },
       {
         "file": "gyro_flower",
         "path": "chars/4009/4009_p/overlays/gyro_flower.png",
-        "x": -776.9,
-        "y": 71.5,
+        "x": -517.93,
+        "y": 47.67,
         "w": 64,
         "h": 84,
         "clip": true,
-        "depth": 1
+        "z": 800,
+        "depth": 800
       },
       {
         "file": "gyro_star",
         "path": "chars/4009/4009_p/overlays/gyro_star.png",
         "x": 0,
-        "y": 100,
+        "y": 58.82,
         "w": 1036,
         "h": 644,
         "clip": true,
-        "depth": 1
+        "z": 700,
+        "depth": 700
       },
       {
         "file": "gyro_sunshine",
         "path": "chars/4009/4009_p/overlays/gyro_sunshine.png",
-        "x": 450,
-        "y": -390,
+        "x": 250,
+        "y": -216.67,
         "w": 404,
         "h": 284,
         "clip": true,
-        "depth": 1
+        "z": 500,
+        "depth": 500
       },
       {
         "file": "gyro_flower",
@@ -2240,7 +2338,8 @@
         "w": 64,
         "h": 84,
         "clip": false,
-        "depth": 1
+        "z": 0,
+        "depth": 0
       }
     ]
   },
@@ -2270,7 +2369,8 @@
         "w": 752,
         "h": 768,
         "clip": false,
-        "depth": 1
+        "z": 0,
+        "depth": 0
       },
       {
         "file": "gyro_4010_bg",
@@ -2280,47 +2380,52 @@
         "w": 1144,
         "h": 820,
         "clip": true,
-        "depth": 1
+        "z": 3000,
+        "depth": 3000
       },
       {
         "file": "gyro_4010_Pigeon4",
         "path": "chars/4010/4010_p/overlays/gyro_4010_Pigeon4.png",
-        "x": -717.3,
-        "y": -760.08,
+        "x": -239.1,
+        "y": -253.36,
         "w": 376,
         "h": 204,
         "clip": true,
-        "depth": 1
+        "z": 1500,
+        "depth": 1500
       },
       {
         "file": "gyro_4010_actor1",
         "path": "chars/4010/4010_p/overlays/gyro_4010_actor1.png",
-        "x": 64,
-        "y": 34,
+        "x": 45.71,
+        "y": 24.29,
         "w": 848,
         "h": 1000,
         "clip": true,
-        "depth": 1
+        "z": 600,
+        "depth": 600
       },
       {
         "file": "gyro_4010_Pigeon3",
         "path": "chars/4010/4010_p/overlays/gyro_4010_Pigeon3.png",
-        "x": 12.7,
-        "y": -11.3,
+        "x": 8.47,
+        "y": -7.53,
         "w": 1000,
         "h": 316,
         "clip": true,
-        "depth": 1
+        "z": 500,
+        "depth": 500
       },
       {
         "file": "gyro_4010_Pigeon2",
         "path": "chars/4010/4010_p/overlays/gyro_4010_Pigeon2.png",
-        "x": 430,
-        "y": 129.8,
+        "x": 390.91,
+        "y": 118,
         "w": 244,
         "h": 188,
         "clip": true,
-        "depth": 1
+        "z": 200,
+        "depth": 200
       },
       {
         "file": "gyro_4010_title1",
@@ -2330,27 +2435,30 @@
         "w": 24,
         "h": 128,
         "clip": false,
-        "depth": 1
+        "z": 0,
+        "depth": 0
       },
       {
         "file": "gyro_4010_Pigeon1",
         "path": "chars/4010/4010_p/overlays/gyro_4010_Pigeon1.png",
-        "x": -8,
-        "y": 228,
+        "x": -7.62,
+        "y": 217.14,
         "w": 1016,
         "h": 300,
         "clip": true,
-        "depth": 1
+        "z": -50,
+        "depth": -50
       },
       {
         "file": "gyro_4010_title2",
         "path": "chars/4010/4010_p/overlays/gyro_4010_title2.png",
         "x": 0,
-        "y": 252,
+        "y": 323.08,
         "w": 716,
         "h": 100,
         "clip": false,
-        "depth": 1
+        "z": -120,
+        "depth": -120
       }
     ]
   },
@@ -2380,47 +2488,52 @@
         "w": 752,
         "h": 768,
         "clip": false,
-        "depth": 1
+        "z": 0,
+        "depth": 0
       },
       {
         "file": "gyro_bg",
         "path": "chars/4011/4011_p/overlays/gyro_bg.png",
         "x": 0,
-        "y": -10,
+        "y": -2.01,
         "w": 1076,
         "h": 764,
         "clip": true,
-        "depth": 1
+        "z": 3000,
+        "depth": 3000
       },
       {
         "file": "gyro_01",
         "path": "chars/4011/4011_p/overlays/gyro_01.png",
-        "x": 105,
-        "y": 42,
+        "x": 45.65,
+        "y": 18.26,
         "w": 1076,
         "h": 764,
         "clip": true,
-        "depth": 1
+        "z": 1000,
+        "depth": 1000
       },
       {
         "file": "gyro_02",
         "path": "chars/4011/4011_p/overlays/gyro_02.png",
-        "x": 1,
-        "y": -1,
+        "x": 1.05,
+        "y": -1.05,
         "w": 764,
         "h": 760,
         "clip": true,
-        "depth": 1
+        "z": 0,
+        "depth": 0
       },
       {
         "file": "gyro_title",
         "path": "chars/4011/4011_p/overlays/gyro_title.png",
         "x": 0,
-        "y": -242,
+        "y": -310.26,
         "w": 456,
         "h": 132,
         "clip": false,
-        "depth": 1
+        "z": -120,
+        "depth": -120
       }
     ]
   },
@@ -2450,87 +2563,96 @@
         "w": 752,
         "h": 768,
         "clip": false,
-        "depth": 1
+        "z": 0,
+        "depth": 0
       },
       {
         "file": "gyro_4012_a4",
         "path": "chars/4012/4012_p/overlays/gyro_4012_a4.png",
-        "x": 1227,
-        "y": -621,
+        "x": 306.75,
+        "y": -155.25,
         "w": 116,
         "h": 180,
         "clip": true,
-        "depth": 1
+        "z": 2179,
+        "depth": 2179
       },
       {
         "file": "gyro_4012_a5",
         "path": "chars/4012/4012_p/overlays/gyro_4012_a5.png",
-        "x": -609,
-        "y": -128,
+        "x": -190.31,
+        "y": -40,
         "w": 136,
         "h": 200,
         "clip": true,
-        "depth": 1
+        "z": 1500,
+        "depth": 1500
       },
       {
         "file": "gyro_4012_a3",
         "path": "chars/4012/4012_p/overlays/gyro_4012_a3.png",
-        "x": 735.6,
-        "y": -352.1,
+        "x": 245.2,
+        "y": -117.37,
         "w": 164,
         "h": 272,
         "clip": true,
-        "depth": 1
+        "z": 1200,
+        "depth": 1200
       },
       {
         "file": "gyro_4012_a6",
         "path": "chars/4012/4012_p/overlays/gyro_4012_a6.png",
-        "x": -622,
-        "y": 13.2,
+        "x": -248.8,
+        "y": 5.28,
         "w": 192,
         "h": 332,
         "clip": true,
-        "depth": 1
+        "z": 1179,
+        "depth": 1179
       },
       {
         "file": "gyro_4012_a2",
         "path": "chars/4012/4012_p/overlays/gyro_4012_a2.png",
-        "x": -73.98,
-        "y": 125.8,
+        "x": -32.17,
+        "y": 54.7,
         "w": 384,
         "h": 588,
         "clip": true,
-        "depth": 1
+        "z": 1000,
+        "depth": 1000
       },
       {
         "file": "gyro_4012_grass02",
         "path": "chars/4012/4012_p/overlays/gyro_4012_grass02.png",
-        "x": 722,
-        "y": -135.6,
+        "x": 288.8,
+        "y": -54.24,
         "w": 108,
         "h": 156,
         "clip": true,
-        "depth": 1
+        "z": 500,
+        "depth": 500
       },
       {
         "file": "gyro_4012_a1",
         "path": "chars/4012/4012_p/overlays/gyro_4012_a1.png",
-        "x": 422,
-        "y": 50,
+        "x": 248.24,
+        "y": 29.41,
         "w": 644,
         "h": 652,
         "clip": true,
-        "depth": 1
+        "z": 500,
+        "depth": 500
       },
       {
         "file": "gyro_4012_grass03",
         "path": "chars/4012/4012_p/overlays/gyro_4012_grass03.png",
-        "x": -362,
-        "y": 332,
+        "x": -301.67,
+        "y": 276.67,
         "w": 392,
         "h": 328,
         "clip": true,
-        "depth": 1
+        "z": 300,
+        "depth": 300
       },
       {
         "file": "gyro_title2",
@@ -2540,17 +2662,19 @@
         "w": 140,
         "h": 32,
         "clip": true,
-        "depth": 1
+        "z": 0,
+        "depth": 0
       },
       {
         "file": "gyro_title",
         "path": "chars/4012/4012_p/overlays/gyro_title.png",
-        "x": -95,
-        "y": 212,
+        "x": -118.75,
+        "y": 265,
         "w": 456,
         "h": 100,
         "clip": false,
-        "depth": 1
+        "z": -200,
+        "depth": -200
       }
     ]
   },
@@ -2580,7 +2704,8 @@
         "w": 752,
         "h": 768,
         "clip": false,
-        "depth": 1
+        "z": 0,
+        "depth": 0
       },
       {
         "file": "gyro_4013_bg",
@@ -2590,57 +2715,63 @@
         "w": 1412,
         "h": 1000,
         "clip": true,
-        "depth": 1
+        "z": 3000,
+        "depth": 3000
       },
       {
         "file": "gyro_4013_actor",
         "path": "chars/4013/4013_p/overlays/gyro_4013_actor.png",
-        "x": -485,
-        "y": 158,
+        "x": -323.33,
+        "y": 105.33,
         "w": 612,
         "h": 828,
         "clip": true,
-        "depth": 1
+        "z": 800,
+        "depth": 800
       },
       {
         "file": "gyro_4013_fx",
         "path": "chars/4013/4013_p/overlays/gyro_4013_fx.png",
-        "x": -6,
-        "y": -8,
+        "x": -3.33,
+        "y": -4.44,
         "w": 956,
         "h": 556,
         "clip": true,
-        "depth": 1
+        "z": 600,
+        "depth": 600
       },
       {
         "file": "gyro_4013_paper",
         "path": "chars/4013/4013_p/overlays/gyro_4013_paper.png",
         "x": 0,
-        "y": 10.41,
+        "y": 8.68,
         "w": 1076,
         "h": 764,
         "clip": true,
-        "depth": 1
+        "z": 250,
+        "depth": 250
       },
       {
         "file": "gyro_4013_title2",
         "path": "chars/4013/4013_p/overlays/gyro_4013_title2.png",
-        "x": 268,
-        "y": 268,
+        "x": 343.59,
+        "y": 343.59,
         "w": 56,
         "h": 56,
         "clip": false,
-        "depth": 1
+        "z": -100,
+        "depth": -100
       },
       {
         "file": "gyro_4013_title1",
         "path": "chars/4013/4013_p/overlays/gyro_4013_title1.png",
-        "x": -115.7,
-        "y": -251.9,
+        "x": -148.33,
+        "y": -322.95,
         "w": 436,
         "h": 108,
         "clip": false,
-        "depth": 1
+        "z": -150,
+        "depth": -150
       }
     ]
   },
@@ -2670,67 +2801,74 @@
         "w": 752,
         "h": 768,
         "clip": false,
-        "depth": 1
+        "z": 0,
+        "depth": 0
       },
       {
         "file": "gyro_4014_tree",
         "path": "chars/4014/4014_p/overlays/gyro_4014_tree.png",
-        "x": -2.49,
-        "y": 71.6,
+        "x": -0.72,
+        "y": 20.63,
         "w": 1540,
         "h": 1120.41,
         "clip": true,
-        "depth": 1
+        "z": 3000,
+        "depth": 3000
       },
       {
         "file": "gyro_4014_actor2",
         "path": "chars/4014/4014_p/overlays/gyro_4014_actor2.png",
-        "x": 697,
-        "y": 306.6,
+        "x": 376.76,
+        "y": 165.73,
         "w": 516,
         "h": 768,
         "clip": true,
-        "depth": 1
+        "z": 1400,
+        "depth": 1400
       },
       {
         "file": "gyro_4014_title",
         "path": "chars/4014/4014_p/overlays/gyro_4014_title.png",
-        "x": -6.7,
-        "y": -484.8,
+        "x": -4.56,
+        "y": -329.8,
         "w": 932,
         "h": 276,
         "clip": true,
-        "depth": 1
+        "z": 1000,
+        "depth": 1000
       },
       {
         "file": "gyro_4014_actor1",
         "path": "chars/4014/4014_p/overlays/gyro_4014_actor1.png",
-        "x": -330.8,
-        "y": 242.1,
+        "x": -212.05,
+        "y": 155.19,
         "w": 944,
         "h": 720,
         "clip": true,
-        "depth": 1
+        "z": 900,
+        "depth": 900
       },
       {
         "file": "gyro_4014_sparkle",
         "path": "chars/4014/4014_p/overlays/gyro_4014_sparkle.png",
-        "x": -437.2,
-        "y": -233.1,
+        "x": -364.33,
+        "y": -194.25,
         "w": 248,
         "h": 260,
         "clip": true,
-        "depth": 1
+        "z": 300,
+        "depth": 300
       },
       {
         "file": "gyro_4014_grass",
         "path": "chars/4014/4014_p/overlays/gyro_4014_grass.png",
-        "x": -80,
-        "y": 229.2,
+        "x": -61.54,
+        "y": 176.31,
         "w": 1414.1,
         "h": 348,
         "clip": true,
-        "depth": 1
+        "z": 200,
+        "depth": 200
       },
       {
         "file": "gyro_4014_title",
@@ -2740,7 +2878,8 @@
         "w": 932,
         "h": 276,
         "clip": false,
-        "depth": 1
+        "z": 0,
+        "depth": 0
       }
     ]
   },
@@ -2770,77 +2909,85 @@
         "w": 752,
         "h": 768,
         "clip": false,
-        "depth": 1
+        "z": 0,
+        "depth": 0
       },
       {
         "file": "gyro_4015_bg",
         "path": "chars/4015/4015_p/overlays/gyro_4015_bg.png",
         "x": 0,
-        "y": -30,
+        "y": -6,
         "w": 1076,
         "h": 760,
         "clip": true,
-        "depth": 1
+        "z": 3000,
+        "depth": 3000
       },
       {
         "file": "gyro_4015_plant",
         "path": "chars/4015/4015_p/overlays/gyro_4015_plant.png",
-        "x": -1645,
-        "y": 516,
+        "x": -514.06,
+        "y": 161.25,
         "w": 220,
         "h": 456,
         "clip": true,
-        "depth": 1
+        "z": 2200,
+        "depth": 2200
       },
       {
         "file": "gyro_4015_deer2",
         "path": "chars/4015/4015_p/overlays/gyro_4015_deer2.png",
-        "x": -347.9,
-        "y": -21,
+        "x": -108.72,
+        "y": -6.56,
         "w": 756,
         "h": 800,
         "clip": true,
-        "depth": 1
+        "z": 2200,
+        "depth": 2200
       },
       {
         "file": "gyro_4015_role",
         "path": "chars/4015/4015_p/overlays/gyro_4015_role.png",
-        "x": -6.2,
-        "y": 133.34,
+        "x": -2.88,
+        "y": 62.02,
         "w": 736,
         "h": 756,
         "clip": true,
-        "depth": 1
+        "z": 1200,
+        "depth": 1200
       },
       {
         "file": "gyro_4015_deer1",
         "path": "chars/4015/4015_p/overlays/gyro_4015_deer1.png",
-        "x": -442.5,
-        "y": 253.4,
+        "x": -368.75,
+        "y": 211.17,
         "w": 356,
         "h": 452,
         "clip": true,
-        "depth": 1
+        "z": 300,
+        "depth": 300
       },
       {
         "file": "gyro_4015_Butterfly",
         "path": "chars/4015/4015_p/overlays/gyro_4015_Butterfly.png",
-        "x": -16.2,
-        "y": 45.1,
+        "x": -15.43,
+        "y": 42.95,
         "w": 1044,
         "h": 628,
         "clip": true,
-        "depth": 1
+        "z": 100,
+        "depth": 100
       },
       {
         "file": "gyro_4015_Foreground",
         "path": "chars/4015/4015_p/overlays/gyro_4015_Foreground.png",
-        "x": 2,
+        "x": 2.12,
         "y": 0,
         "w": 1076,
         "h": 764,
         "clip": true,
-        "depth": 1
+        "z": 0,
+        "depth": 0
       },
       {
         "file": "gyro_4015_title",
@@ -2850,7 +2997,8 @@
         "w": 712,
         "h": 704,
         "clip": false,
-        "depth": 1
+        "z": -150,
+        "depth": -150
       }
     ]
   },
@@ -2880,87 +3028,96 @@
         "w": 752,
         "h": 768,
         "clip": false,
-        "depth": 1
+        "z": 0,
+        "depth": 0
       },
       {
         "file": "gyro_bg",
         "path": "chars/4016/4016_p/overlays/gyro_bg.png",
         "x": 0,
-        "y": -30,
+        "y": -6,
         "w": 1076,
         "h": 760,
         "clip": true,
-        "depth": 1
+        "z": 3000,
+        "depth": 3000
       },
       {
         "file": "gyro_01",
         "path": "chars/4016/4016_p/overlays/gyro_01.png",
-        "x": -21.6,
-        "y": -58.5,
+        "x": -9.19,
+        "y": -24.89,
         "w": 1076,
         "h": 760,
         "clip": true,
-        "depth": 1
+        "z": 1200,
+        "depth": 1200
       },
       {
         "file": "gyro_03",
         "path": "chars/4016/4016_p/overlays/gyro_03.png",
-        "x": 4.3,
-        "y": -528.8,
+        "x": 1.95,
+        "y": -240.36,
         "w": 440,
         "h": 160,
         "clip": true,
-        "depth": 1
+        "z": 1000,
+        "depth": 1000
       },
       {
         "file": "gyro_02",
         "path": "chars/4016/4016_p/overlays/gyro_02.png",
-        "x": 4.09,
-        "y": 127.5,
+        "x": 2.43,
+        "y": 75.89,
         "w": 1076,
         "h": 692,
         "clip": true,
-        "depth": 1
+        "z": 700,
+        "depth": 700
       },
       {
         "file": "gyro_04",
         "path": "chars/4016/4016_p/overlays/gyro_04.png",
-        "x": 303.9,
-        "y": 104.2,
+        "x": 233.77,
+        "y": 80.15,
         "w": 200,
         "h": 284,
         "clip": true,
-        "depth": 1
+        "z": 400,
+        "depth": 400
       },
       {
         "file": "gyro_06",
         "path": "chars/4016/4016_p/overlays/gyro_06.png",
-        "x": -612.6,
-        "y": -257,
+        "x": -471.23,
+        "y": -197.69,
         "w": 192,
         "h": 212,
         "clip": true,
-        "depth": 1
+        "z": 400,
+        "depth": 400
       },
       {
         "file": "gyro_05",
         "path": "chars/4016/4016_p/overlays/gyro_05.png",
-        "x": 447.8,
-        "y": -249.3,
+        "x": 471.37,
+        "y": -262.42,
         "w": 92,
         "h": 332,
         "clip": true,
-        "depth": 1
+        "z": 150,
+        "depth": 150
       },
       {
         "file": "gyro_title",
         "path": "chars/4016/4016_p/overlays/gyro_title.png",
-        "x": 156,
-        "y": -252,
+        "x": 200,
+        "y": -323.08,
         "w": 357,
         "h": 134,
         "clip": false,
-        "depth": 1
+        "z": -120,
+        "depth": -120
       }
     ]
   },
@@ -2990,97 +3147,107 @@
         "w": 752,
         "h": 768,
         "clip": false,
-        "depth": 1
+        "z": 0,
+        "depth": 0
       },
       {
         "file": "gyro_bg",
         "path": "chars/4017/4017_p/overlays/gyro_bg.png",
         "x": 0,
-        "y": -30,
+        "y": -6,
         "w": 1076,
         "h": 760,
         "clip": true,
-        "depth": 1
+        "z": 3000,
+        "depth": 3000
       },
       {
         "file": "gyro_01",
         "path": "chars/4017/4017_p/overlays/gyro_01.png",
-        "x": 69.8,
-        "y": 24.4,
+        "x": 16.62,
+        "y": 5.81,
         "w": 1040,
         "h": 752,
         "clip": true,
-        "depth": 1
+        "z": 2500,
+        "depth": 2500
       },
       {
         "file": "gyro_02",
         "path": "chars/4017/4017_p/overlays/gyro_02.png",
-        "x": -11.1,
-        "y": 205.01,
+        "x": -5.29,
+        "y": 97.62,
         "w": 1076,
         "h": 616,
         "clip": true,
-        "depth": 1
+        "z": 1000,
+        "depth": 1000
       },
       {
         "file": "gyro_07",
         "path": "chars/4017/4017_p/overlays/gyro_07.png",
-        "x": 102.1,
-        "y": -12.8,
+        "x": 55.19,
+        "y": -6.92,
         "w": 884,
         "h": 680,
         "clip": true,
-        "depth": 1
+        "z": 1000,
+        "depth": 1000
       },
       {
         "file": "gyro_03",
         "path": "chars/4017/4017_p/overlays/gyro_03.png",
-        "x": 2,
-        "y": 241.7,
+        "x": 1.1,
+        "y": 132.8,
         "w": 1076,
         "h": 580,
         "clip": true,
-        "depth": 1
+        "z": 800,
+        "depth": 800
       },
       {
         "file": "gyro_04",
         "path": "chars/4017/4017_p/overlays/gyro_04.png",
-        "x": 128,
-        "y": 134.82,
+        "x": 82.58,
+        "y": 86.98,
         "w": 800,
         "h": 604,
         "clip": true,
-        "depth": 1
+        "z": 500,
+        "depth": 500
       },
       {
         "file": "gyro_06",
         "path": "chars/4017/4017_p/overlays/gyro_06.png",
-        "x": 30.4,
-        "y": 21.65,
+        "x": 23.38,
+        "y": 16.65,
         "w": 988,
         "h": 724,
         "clip": true,
-        "depth": 1
+        "z": 300,
+        "depth": 300
       },
       {
         "file": "gyro_05",
         "path": "chars/4017/4017_p/overlays/gyro_05.png",
-        "x": 191.3,
-        "y": 292.8,
+        "x": 195.2,
+        "y": 298.78,
         "w": 524,
         "h": 252,
         "clip": true,
-        "depth": 1
+        "z": 100,
+        "depth": 100
       },
       {
         "file": "gyro_title",
         "path": "chars/4017/4017_p/overlays/gyro_title.png",
-        "x": 185,
-        "y": -202,
+        "x": 237.18,
+        "y": -258.97,
         "w": 232,
         "h": 224,
         "clip": false,
-        "depth": 1
+        "z": -120,
+        "depth": -120
       }
     ]
   },
@@ -3110,7 +3277,8 @@
         "w": 752,
         "h": 768,
         "clip": false,
-        "depth": 1
+        "z": 0,
+        "depth": 0
       },
       {
         "file": "gyro_4018_bg",
@@ -3120,77 +3288,85 @@
         "w": 1412,
         "h": 1000,
         "clip": true,
-        "depth": 1
+        "z": 3000,
+        "depth": 3000
       },
       {
         "file": "gyro_4018_plantsR",
         "path": "chars/4018/4018_p/overlays/gyro_4018_plantsR.png",
-        "x": 770,
-        "y": -648,
+        "x": 327.66,
+        "y": -275.74,
         "w": 204,
         "h": 256,
         "clip": true,
-        "depth": 1
+        "z": 1200,
+        "depth": 1200
       },
       {
         "file": "gyro_4018_lightM",
         "path": "chars/4018/4018_p/overlays/gyro_4018_lightM.png",
-        "x": -289.2,
-        "y": -618.04,
+        "x": -125.74,
+        "y": -268.71,
         "w": 180,
         "h": 260,
         "clip": true,
-        "depth": 1
+        "z": 1100,
+        "depth": 1100
       },
       {
         "file": "gyro_4018_plantsL",
         "path": "chars/4018/4018_p/overlays/gyro_4018_plantsL.png",
-        "x": -945.47,
-        "y": -345.4,
+        "x": -429.76,
+        "y": -157,
         "w": 180,
         "h": 268,
         "clip": true,
-        "depth": 1
+        "z": 1000,
+        "depth": 1000
       },
       {
         "file": "gyro_4018_lightR",
         "path": "chars/4018/4018_p/overlays/gyro_4018_lightR.png",
-        "x": 644.9,
-        "y": -340.7,
+        "x": 403.06,
+        "y": -212.94,
         "w": 252,
         "h": 456,
         "clip": true,
-        "depth": 1
+        "z": 600,
+        "depth": 600
       },
       {
         "file": "gyro_4018_lightL",
         "path": "chars/4018/4018_p/overlays/gyro_4018_lightL.png",
-        "x": -541.3,
-        "y": 265.8,
+        "x": -416.38,
+        "y": 204.46,
         "w": 312,
         "h": 360,
         "clip": true,
-        "depth": 1
+        "z": 500,
+        "depth": 500
       },
       {
         "file": "gyro_4018_plantsFR",
         "path": "chars/4018/4018_p/overlays/gyro_4018_plantsFR.png",
-        "x": 422.9,
-        "y": 339.9,
+        "x": 325.31,
+        "y": 261.46,
         "w": 292,
         "h": 272,
         "clip": true,
-        "depth": 1
+        "z": 300,
+        "depth": 300
       },
       {
         "file": "gyro_4018_plantsFL",
         "path": "chars/4018/4018_p/overlays/gyro_4018_plantsFL.png",
-        "x": -440.2,
-        "y": 450.2,
+        "x": -338.62,
+        "y": 346.31,
         "w": 244,
         "h": 96,
         "clip": true,
-        "depth": 1
+        "z": 300,
+        "depth": 300
       },
       {
         "file": "gyro_4018_title",
@@ -3200,7 +3376,8 @@
         "w": 728,
         "h": 712,
         "clip": false,
-        "depth": 1
+        "z": -150,
+        "depth": -150
       }
     ]
   },
@@ -3230,7 +3407,8 @@
         "w": 752,
         "h": 768,
         "clip": false,
-        "depth": 1
+        "z": 0,
+        "depth": 0
       },
       {
         "file": "gyro_4019_bg",
@@ -3240,47 +3418,52 @@
         "w": 1076,
         "h": 764,
         "clip": true,
-        "depth": 1
+        "z": 3000,
+        "depth": 3000
       },
       {
         "file": "gyro_4019_balustrade",
         "path": "chars/4019/4019_p/overlays/gyro_4019_balustrade.png",
-        "x": 344.2,
-        "y": 1059.5,
+        "x": 93.03,
+        "y": 286.35,
         "w": 912,
         "h": 240,
         "clip": true,
-        "depth": 1
+        "z": 2500,
+        "depth": 2500
       },
       {
         "file": "gyro_4019_actor2",
         "path": "chars/4019/4019_p/overlays/gyro_4019_actor2.png",
-        "x": -300,
-        "y": 205,
+        "x": -90.91,
+        "y": 62.12,
         "w": 464,
         "h": 452,
         "clip": true,
-        "depth": 1
+        "z": 2000,
+        "depth": 2000
       },
       {
         "file": "gyro_4019_actor1",
         "path": "chars/4019/4019_p/overlays/gyro_4019_actor1.png",
-        "x": 560,
-        "y": 152,
+        "x": 200,
+        "y": 54.29,
         "w": 548,
         "h": 628,
         "clip": true,
-        "depth": 1
+        "z": 1500,
+        "depth": 1500
       },
       {
         "file": "gyro_4019_foreground1",
         "path": "chars/4019/4019_p/overlays/gyro_4019_foreground1.png",
-        "x": -190,
-        "y": 504.7,
+        "x": -102.7,
+        "y": 272.81,
         "w": 384,
         "h": 120,
         "clip": true,
-        "depth": 1
+        "z": 1000,
+        "depth": 1000
       },
       {
         "file": "gyro_4019_foreground",
@@ -3290,67 +3473,74 @@
         "w": 1076,
         "h": 764,
         "clip": true,
-        "depth": 1
+        "z": 800,
+        "depth": 800
       },
       {
         "file": "gyro_4019_fx1",
         "path": "chars/4019/4019_p/overlays/gyro_4019_fx1.png",
-        "x": 136.4,
-        "y": 23.26,
+        "x": 90.93,
+        "y": 15.51,
         "w": 1356,
         "h": 1104,
         "clip": true,
-        "depth": 1
+        "z": 500,
+        "depth": 500
       },
       {
         "file": "gyro_4019_fx2",
         "path": "chars/4019/4019_p/overlays/gyro_4019_fx2.png",
-        "x": 15,
-        "y": -60.01,
+        "x": 12.5,
+        "y": -50.01,
         "w": 1076,
         "h": 880,
         "clip": true,
-        "depth": 1
+        "z": 200,
+        "depth": 200
       },
       {
         "file": "gyro_4019_title1",
         "path": "chars/4019/4019_p/overlays/gyro_4019_title1.png",
-        "x": 260,
-        "y": 285,
+        "x": 333.33,
+        "y": 365.38,
         "w": 80,
         "h": 24,
         "clip": false,
-        "depth": 1
+        "z": -120,
+        "depth": -120
       },
       {
         "file": "gyro_4019_title2",
         "path": "chars/4019/4019_p/overlays/gyro_4019_title2.png",
-        "x": -200,
-        "y": 285,
+        "x": -256.41,
+        "y": 365.38,
         "w": 236,
         "h": 28,
         "clip": false,
-        "depth": 1
+        "z": -120,
+        "depth": -120
       },
       {
         "file": "gyro_4019_title3",
         "path": "chars/4019/4019_p/overlays/gyro_4019_title3.png",
-        "x": 169,
-        "y": -232,
+        "x": 216.67,
+        "y": -297.44,
         "w": 196,
         "h": 104,
         "clip": false,
-        "depth": 1
+        "z": -120,
+        "depth": -120
       },
       {
         "file": "gyro_4019_title4",
         "path": "chars/4019/4019_p/overlays/gyro_4019_title4.png",
-        "x": -37,
-        "y": -206,
+        "x": -47.44,
+        "y": -264.1,
         "w": 336,
         "h": 208,
         "clip": false,
-        "depth": 1
+        "z": -120,
+        "depth": -120
       }
     ]
   },
@@ -3380,7 +3570,8 @@
         "w": 752,
         "h": 768,
         "clip": false,
-        "depth": 1
+        "z": 0,
+        "depth": 0
       },
       {
         "file": "gyro_4020_bg",
@@ -3390,107 +3581,118 @@
         "w": 1100,
         "h": 760,
         "clip": true,
-        "depth": 1
+        "z": 3000,
+        "depth": 3000
       },
       {
         "file": "gyro_4020_bg2",
         "path": "chars/4020/4020_p/overlays/gyro_4020_bg2.png",
-        "x": 305,
-        "y": 42.35,
+        "x": 66.3,
+        "y": 8.73,
         "w": 436,
         "h": 536,
         "clip": true,
-        "depth": 1
+        "z": 3000,
+        "depth": 3000
+      },
+      {
+        "file": "gyro_4020_bg2a",
+        "path": "chars/4020/4020_p/overlays/gyro_4020_bg2a.png",
+        "x": -94.81,
+        "y": 20.93,
+        "w": 152,
+        "h": 576,
+        "clip": true,
+        "z": 3000,
+        "depth": 3000
       },
       {
         "file": "gyro_4020_bg3",
         "path": "chars/4020/4020_p/overlays/gyro_4020_bg3.png",
-        "x": 1901,
-        "y": 356,
+        "x": 391.96,
+        "y": 73.4,
         "w": 436,
         "h": 296,
         "clip": true,
-        "depth": 1
+        "z": 3000,
+        "depth": 3000
       },
       {
         "file": "gyro_4020_ground",
         "path": "chars/4020/4020_p/overlays/gyro_4020_ground.png",
         "x": 0,
-        "y": 353.33,
+        "y": 70.67,
         "w": 1076,
         "h": 416,
         "clip": true,
-        "depth": 1
+        "z": 1200,
+        "depth": 1200
       },
       {
         "file": "gyro_4020_actor2",
         "path": "chars/4020/4020_p/overlays/gyro_4020_actor2.png",
-        "x": 447.4,
-        "y": 155.8,
+        "x": 271.15,
+        "y": 94.42,
         "w": 360,
         "h": 628,
         "clip": true,
-        "depth": 1
+        "z": 980,
+        "depth": 980
       },
       {
         "file": "gyro_4020_letter2",
         "path": "chars/4020/4020_p/overlays/gyro_4020_letter2.png",
-        "x": 244.8,
-        "y": -114.5,
+        "x": 111.27,
+        "y": -52.05,
         "w": 784,
         "h": 556,
         "clip": true,
-        "depth": 1
+        "z": 635.4,
+        "depth": 635.4
       },
       {
         "file": "gyro_4020_letter1",
         "path": "chars/4020/4020_p/overlays/gyro_4020_letter1.png",
-        "x": -565,
-        "y": -160,
+        "x": -313.89,
+        "y": -88.89,
         "w": 108,
         "h": 184,
         "clip": true,
-        "depth": 1
+        "z": 600,
+        "depth": 600
       },
       {
         "file": "gyro_4020_actor1",
         "path": "chars/4020/4020_p/overlays/gyro_4020_actor1.png",
-        "x": -20.7,
-        "y": 167.78,
+        "x": -15.92,
+        "y": 129.06,
         "w": 1008,
         "h": 752,
         "clip": true,
-        "depth": 1
-      },
-      {
-        "file": "gyro_4020_bg2a",
-        "path": "chars/4020/4020_p/overlays/gyro_4020_bg2a.png",
-        "x": 87,
-        "y": 54.55,
-        "w": 152,
-        "h": 576,
-        "clip": true,
-        "depth": 1
+        "z": 500,
+        "depth": 500
       },
       {
         "file": "gyro_4020_title1",
         "path": "chars/4020/4020_p/overlays/gyro_4020_title1.png",
-        "x": -235,
-        "y": -275,
+        "x": -301.28,
+        "y": -352.56,
         "w": 128,
         "h": 56,
         "clip": false,
-        "depth": 1
+        "z": -120,
+        "depth": -120
       },
       {
         "file": "gyro_4020_title2",
         "path": "chars/4020/4020_p/overlays/gyro_4020_title2.png",
-        "x": 148,
-        "y": 238,
+        "x": 189.74,
+        "y": 305.13,
         "w": 380,
         "h": 172,
         "clip": false,
-        "depth": 1
+        "z": -120,
+        "depth": -120
       }
     ]
   },
@@ -3520,57 +3722,63 @@
         "w": 752,
         "h": 768,
         "clip": false,
-        "depth": 1
+        "z": 0,
+        "depth": 0
       },
       {
         "file": "gyro_4021_bg1",
         "path": "chars/4021/4021_p/overlays/gyro_4021_bg1.png",
         "x": 0,
-        "y": -724.5,
+        "y": -144.9,
         "w": 1076,
         "h": 452,
         "clip": true,
-        "depth": 1
+        "z": 3000,
+        "depth": 3000
       },
       {
         "file": "gyro_4021_actor2",
         "path": "chars/4021/4021_p/overlays/gyro_4021_actor2.png",
-        "x": 730,
-        "y": 390,
+        "x": 202.78,
+        "y": 108.33,
         "w": 572,
         "h": 496,
         "clip": true,
-        "depth": 1
+        "z": 2400,
+        "depth": 2400
       },
       {
         "file": "gyro_4021_light",
         "path": "chars/4021/4021_p/overlays/gyro_4021_light.png",
         "x": 0,
-        "y": -1100,
+        "y": -392.86,
         "w": 1076,
         "h": 664,
         "clip": true,
-        "depth": 1
+        "z": 1500,
+        "depth": 1500
       },
       {
         "file": "gyro_4021_actor1",
         "path": "chars/4021/4021_p/overlays/gyro_4021_actor1.png",
-        "x": -195,
-        "y": 70,
+        "x": -88.64,
+        "y": 31.82,
         "w": 796,
         "h": 748,
         "clip": true,
-        "depth": 1
+        "z": 1000,
+        "depth": 1000
       },
       {
         "file": "gyro_4021_shoe",
         "path": "chars/4021/4021_p/overlays/gyro_4021_shoe.png",
         "x": 0,
-        "y": 504.3,
+        "y": 458.45,
         "w": 1076,
         "h": 308,
         "clip": true,
-        "depth": 1
+        "z": 300,
+        "depth": 300
       },
       {
         "file": "gyro_title01",
@@ -3580,17 +3788,19 @@
         "w": 108,
         "h": 36,
         "clip": false,
-        "depth": 1
+        "z": 0,
+        "depth": 0
       },
       {
         "file": "gyro_title02",
         "path": "chars/4021/4021_p/overlays/gyro_title02.png",
-        "x": 125,
-        "y": -200,
+        "x": 166.67,
+        "y": -266.67,
         "w": 288,
         "h": 164,
         "clip": false,
-        "depth": 1
+        "z": -200,
+        "depth": -200
       }
     ]
   },
@@ -3620,7 +3830,8 @@
         "w": 752,
         "h": 768,
         "clip": false,
-        "depth": 1
+        "z": 0,
+        "depth": 0
       },
       {
         "file": "gyro_4022_bg",
@@ -3630,7 +3841,8 @@
         "w": 1100,
         "h": 760,
         "clip": true,
-        "depth": 1
+        "z": 3000,
+        "depth": 3000
       },
       {
         "file": "gyro_4022_fg",
@@ -3640,17 +3852,19 @@
         "w": 1412,
         "h": 1000,
         "clip": true,
-        "depth": 1
+        "z": 2000,
+        "depth": 2000
       },
       {
         "file": "gyro_4022_fx",
         "path": "chars/4022/4022_p/overlays/gyro_4022_fx.png",
-        "x": -110,
+        "x": -39.29,
         "y": 0,
         "w": 1004,
         "h": 680,
         "clip": true,
-        "depth": 1
+        "z": 1500,
+        "depth": 1500
       },
       {
         "file": "gyro_4022_title1",
@@ -3660,17 +3874,19 @@
         "w": 116,
         "h": 116,
         "clip": true,
-        "depth": 1
+        "z": 0,
+        "depth": 0
       },
       {
         "file": "gyro_4022_title2",
         "path": "chars/4022/4022_p/overlays/gyro_4022_title2.png",
-        "x": -160,
-        "y": -220,
+        "x": -205.13,
+        "y": -282.05,
         "w": 304,
         "h": 164,
         "clip": false,
-        "depth": 1
+        "z": -120,
+        "depth": -120
       }
     ]
   },
@@ -3700,7 +3916,8 @@
         "w": 752,
         "h": 768,
         "clip": false,
-        "depth": 1
+        "z": 0,
+        "depth": 0
       },
       {
         "file": "gyro_4023_Bg",
@@ -3710,137 +3927,173 @@
         "w": 1412,
         "h": 1000,
         "clip": true,
-        "depth": 1
+        "z": 3000,
+        "depth": 3000
       },
       {
         "file": "gyro_4023_Mountain",
         "path": "chars/4023/4023_p/overlays/gyro_4023_Mountain.png",
-        "x": 1685,
-        "y": -825,
+        "x": 842.5,
+        "y": -412.5,
         "w": 536,
         "h": 48,
         "clip": true,
-        "depth": 1
+        "z": 2400,
+        "depth": 2400
       },
       {
         "file": "gyro_4023_Sea",
         "path": "chars/4023/4023_p/overlays/gyro_4023_Sea.png",
-        "x": 850,
-        "y": 10,
+        "x": 265.63,
+        "y": 3.12,
         "w": 656,
         "h": 564,
         "clip": true,
-        "depth": 1
+        "z": 2000,
+        "depth": 2000
       },
       {
         "file": "gyro_4023_Bird",
         "path": "chars/4023/4023_p/overlays/gyro_4023_Bird.png",
-        "x": 895,
-        "y": -1035,
+        "x": 596.67,
+        "y": -517.5,
         "w": 404,
         "h": 48,
         "clip": true,
-        "depth": 1
+        "z": 1600,
+        "depth": 1600
       },
       {
         "file": "gyro_4023_Ground",
         "path": "chars/4023/4023_p/overlays/gyro_4023_Ground.png",
         "x": 0,
-        "y": -417,
+        "y": -245.29,
         "w": 1412,
         "h": 748,
         "clip": true,
-        "depth": 1
+        "z": 1000,
+        "depth": 1000
+      },
+      {
+        "file": "gyro_4023_Skateboard",
+        "path": "chars/4023/4023_p/overlays/gyro_4023_Skateboard.png",
+        "x": -609.73,
+        "y": -171.47,
+        "w": 244,
+        "h": 212,
+        "clip": true,
+        "z": 1000,
+        "depth": 1000
+      },
+      {
+        "file": "gyro_4023_bucket_01",
+        "path": "chars/4023/4023_p/overlays/gyro_4023_bucket_01.png",
+        "x": 44.25,
+        "y": -87.29,
+        "w": 140,
+        "h": 120,
+        "clip": true,
+        "z": 1000,
+        "depth": 1000
       },
       {
         "file": "gyro_4023_House",
         "path": "chars/4023/4023_p/overlays/gyro_4023_House.png",
-        "x": -530,
-        "y": -200,
+        "x": -353.33,
+        "y": -88.89,
         "w": 375,
         "h": 177,
         "clip": true,
-        "depth": 1
+        "z": 1000,
+        "depth": 1000
       },
       {
         "file": "gyro_4023_Sign",
         "path": "chars/4023/4023_p/overlays/gyro_4023_Sign.png",
-        "x": -1055,
-        "y": 100,
+        "x": -527.5,
+        "y": 33.33,
         "w": 177,
         "h": 156,
         "clip": true,
-        "depth": 1
+        "z": 1000,
+        "depth": 1000
       },
       {
         "file": "gyro_4023_SwimRing",
         "path": "chars/4023/4023_p/overlays/gyro_4023_SwimRing.png",
-        "x": 875,
-        "y": -230,
+        "x": 437.5,
+        "y": -115,
         "w": 148,
         "h": 108,
         "clip": true,
-        "depth": 1
+        "z": 1000,
+        "depth": 1000
       },
       {
         "file": "gyro_4023_Flag",
         "path": "chars/4023/4023_p/overlays/gyro_4023_Flag.png",
-        "x": 240,
-        "y": -300,
+        "x": 120,
+        "y": -150,
         "w": 244,
         "h": 172,
         "clip": true,
-        "depth": 1
+        "z": 1000,
+        "depth": 1000
       },
       {
         "file": "gyro_4023_bucket_02",
         "path": "chars/4023/4023_p/overlays/gyro_4023_bucket_02.png",
-        "x": -90,
-        "y": 100,
+        "x": -45,
+        "y": 50,
         "w": 84,
         "h": 92,
         "clip": true,
-        "depth": 1
+        "z": 1000,
+        "depth": 1000
       },
       {
         "file": "gyro_4023_Npc_02",
         "path": "chars/4023/4023_p/overlays/gyro_4023_Npc_02.png",
-        "x": -600,
-        "y": -165,
+        "x": -300,
+        "y": -82.5,
         "w": 52,
         "h": 68,
         "clip": true,
-        "depth": 1
+        "z": 1000,
+        "depth": 1000
       },
       {
         "file": "gyro_4023_MiNieWa",
         "path": "chars/4023/4023_p/overlays/gyro_4023_MiNieWa.png",
-        "x": -470,
-        "y": -450,
+        "x": -313.33,
+        "y": -300,
         "w": 152,
         "h": 172,
         "clip": true,
-        "depth": 1
+        "z": 1000,
+        "depth": 1000
       },
       {
         "file": "gyro_4023_ManYue",
         "path": "chars/4023/4023_p/overlays/gyro_4023_ManYue.png",
-        "x": -45,
-        "y": -200,
+        "x": -30,
+        "y": -100,
         "w": 164,
         "h": 276,
         "clip": true,
-        "depth": 1
+        "z": 1000,
+        "depth": 1000
       },
       {
         "file": "gyro_4023_Sofa",
         "path": "chars/4023/4023_p/overlays/gyro_4023_Sofa.png",
-        "x": -540,
-        "y": -150,
+        "x": -360,
+        "y": -68.18,
         "w": 548,
         "h": 232,
         "clip": true,
-        "depth": 1
+        "z": 1000,
+        "depth": 1000
       },
       {
         "file": "gyro_4023_Wall",
@@ -3850,47 +4103,30 @@
         "w": 1200,
         "h": 520,
         "clip": true,
-        "depth": 1
+        "z": 480,
+        "depth": 480
       },
       {
         "file": "gyro_4023_Npc_01",
         "path": "chars/4023/4023_p/overlays/gyro_4023_Npc_01.png",
-        "x": -469,
-        "y": 294,
+        "x": -275.88,
+        "y": 196,
         "w": 316,
         "h": 372,
         "clip": true,
-        "depth": 1
+        "z": 480,
+        "depth": 480
       },
       {
         "file": "gyro_4023_XinYue",
         "path": "chars/4023/4023_p/overlays/gyro_4023_XinYue.png",
-        "x": 325,
-        "y": 480,
+        "x": 216.67,
+        "y": 320,
         "w": 480,
         "h": 728,
         "clip": true,
-        "depth": 1
-      },
-      {
-        "file": "gyro_4023_Skateboard",
-        "path": "chars/4023/4023_p/overlays/gyro_4023_Skateboard.png",
-        "x": -538,
-        "y": -323,
-        "w": 244,
-        "h": 212,
-        "clip": true,
-        "depth": 1
-      },
-      {
-        "file": "gyro_4023_bucket_01",
-        "path": "chars/4023/4023_p/overlays/gyro_4023_bucket_01.png",
-        "x": 46.85,
-        "y": -259,
-        "w": 140,
-        "h": 120,
-        "clip": true,
-        "depth": 1
+        "z": 480,
+        "depth": 480
       },
       {
         "file": "gyro_4023_Title",
@@ -3900,7 +4136,8 @@
         "w": 432,
         "h": 296,
         "clip": false,
-        "depth": 1
+        "z": -150,
+        "depth": -150
       }
     ]
   },
@@ -3930,7 +4167,8 @@
         "w": 752,
         "h": 768,
         "clip": false,
-        "depth": 1
+        "z": 0,
+        "depth": 0
       },
       {
         "file": "gyro_4024_Bg",
@@ -3940,57 +4178,63 @@
         "w": 1412.41,
         "h": 1000,
         "clip": true,
-        "depth": 1
+        "z": 3000,
+        "depth": 3000
       },
       {
         "file": "gyro_4024_YuanWei",
         "path": "chars/4024/4024_p/overlays/gyro_4024_YuanWei.png",
-        "x": -130,
-        "y": -590,
+        "x": -43.33,
+        "y": -196.67,
         "w": 88,
         "h": 92,
         "clip": true,
-        "depth": 1
+        "z": 2400,
+        "depth": 2400
       },
       {
         "file": "gyro_4024_HuPo",
         "path": "chars/4024/4024_p/overlays/gyro_4024_HuPo.png",
-        "x": -915,
-        "y": -40,
+        "x": -345.28,
+        "y": -15.09,
         "w": 376,
         "h": 440,
         "clip": true,
-        "depth": 1
+        "z": 2000,
+        "depth": 2000
       },
       {
         "file": "gyro_4024_Ground",
         "path": "chars/4024/4024_p/overlays/gyro_4024_Ground.png",
-        "x": -680,
-        "y": 100,
+        "x": -256.6,
+        "y": 37.74,
         "w": 672,
         "h": 456,
         "clip": true,
-        "depth": 1
+        "z": 1500,
+        "depth": 1500
       },
       {
         "file": "gyro_4024_ChenSha",
         "path": "chars/4024/4024_p/overlays/gyro_4024_ChenSha.png",
-        "x": 190,
-        "y": 5,
+        "x": 152,
+        "y": 3.64,
         "w": 876,
         "h": 1000,
         "clip": true,
-        "depth": 1
+        "z": 550,
+        "depth": 550
       },
       {
         "file": "gyro_4024_Eff",
         "path": "chars/4024/4024_p/overlays/gyro_4024_Eff.png",
         "x": -30,
-        "y": 195,
+        "y": 130,
         "w": 1336,
         "h": 848.05,
         "clip": true,
-        "depth": 1
+        "z": 500,
+        "depth": 500
       },
       {
         "file": "gyro_4024_RainBow",
@@ -4000,27 +4244,30 @@
         "w": 668,
         "h": 508,
         "clip": true,
-        "depth": 1
+        "z": 480,
+        "depth": 480
       },
       {
         "file": "gyro_4024_Title_Down",
         "path": "chars/4024/4024_p/overlays/gyro_4024_Title_Down.png",
-        "x": 248,
-        "y": 330,
+        "x": 330.67,
+        "y": 440,
         "w": 200,
         "h": 28,
         "clip": false,
-        "depth": 1
+        "z": 0,
+        "depth": 0
       },
       {
         "file": "gyro_4024_Title_Up",
         "path": "chars/4024/4024_p/overlays/gyro_4024_Title_Up.png",
-        "x": -125,
-        "y": -195,
+        "x": -192.31,
+        "y": -300,
         "w": 452,
         "h": 236,
         "clip": false,
-        "depth": 1
+        "z": -200,
+        "depth": -200
       }
     ]
   },
@@ -4050,47 +4297,52 @@
         "w": 752,
         "h": 768,
         "clip": false,
-        "depth": 1
+        "z": 0,
+        "depth": 0
       },
       {
         "file": "gyro_4026_bg",
         "path": "chars/4026/4026_p/overlays/gyro_4026_bg.png",
         "x": 0,
-        "y": -10,
+        "y": -2.06,
         "w": 1104,
         "h": 784,
         "clip": true,
-        "depth": 1
+        "z": 3000,
+        "depth": 3000
       },
       {
         "file": "gyro_4026_umbrella",
         "path": "chars/4026/4026_p/overlays/gyro_4026_umbrella.png",
-        "x": 855,
-        "y": 390,
+        "x": 388.64,
+        "y": 177.27,
         "w": 300,
         "h": 420,
         "clip": true,
-        "depth": 1
+        "z": 1000,
+        "depth": 1000
       },
       {
         "file": "gyro_4026_snake",
         "path": "chars/4026/4026_p/overlays/gyro_4026_snake.png",
         "x": 0,
-        "y": -65,
+        "y": -41.94,
         "w": 1076,
         "h": 784,
         "clip": true,
-        "depth": 1
+        "z": 500,
+        "depth": 500
       },
       {
         "file": "gyro_4026_title",
         "path": "chars/4026/4026_p/overlays/gyro_4026_title.png",
-        "x": -85,
-        "y": 229,
+        "x": -108.97,
+        "y": 293.59,
         "w": 548,
         "h": 176,
         "clip": false,
-        "depth": 1
+        "z": -120,
+        "depth": -120
       }
     ]
   },
@@ -4120,7 +4372,8 @@
         "w": 752,
         "h": 768,
         "clip": false,
-        "depth": 1
+        "z": 0,
+        "depth": 0
       },
       {
         "file": "gyro_4027_bg",
@@ -4130,7 +4383,8 @@
         "w": 1416,
         "h": 1004,
         "clip": true,
-        "depth": 1
+        "z": 3000,
+        "depth": 3000
       },
       {
         "file": "gyro_4027_bg1",
@@ -4140,27 +4394,30 @@
         "w": 1416,
         "h": 1004,
         "clip": true,
-        "depth": 1
+        "z": 1600,
+        "depth": 1600
       },
       {
         "file": "gyro_4027_actor",
         "path": "chars/4027/4027_p/overlays/gyro_4027_actor.png",
-        "x": 50,
-        "y": 90,
+        "x": 31.25,
+        "y": 56.25,
         "w": 1340,
         "h": 764,
         "clip": true,
-        "depth": 1
+        "z": 1000,
+        "depth": 1000
       },
       {
         "file": "gyro_4027_fg2",
         "path": "chars/4027/4027_p/overlays/gyro_4027_fg2.png",
-        "x": -20,
-        "y": 150,
+        "x": -15.38,
+        "y": 115.38,
         "w": 980,
         "h": 776,
         "clip": true,
-        "depth": 1
+        "z": 650,
+        "depth": 650
       },
       {
         "file": "gyro_4027_fg",
@@ -4170,7 +4427,8 @@
         "w": 1396,
         "h": 1100,
         "clip": true,
-        "depth": 1
+        "z": 300,
+        "depth": 300
       },
       {
         "file": "gyro_4027_fg1",
@@ -4180,7 +4438,8 @@
         "w": 996,
         "h": 1004,
         "clip": true,
-        "depth": 1
+        "z": 0,
+        "depth": 0
       },
       {
         "file": "gyro_4027_title",
@@ -4190,7 +4449,8 @@
         "w": 988,
         "h": 988,
         "clip": false,
-        "depth": 1
+        "z": -120,
+        "depth": -120
       }
     ]
   },
@@ -4220,7 +4480,8 @@
         "w": 752,
         "h": 768,
         "clip": false,
-        "depth": 1
+        "z": 0,
+        "depth": 0
       },
       {
         "file": "gyro_4028_bg",
@@ -4230,17 +4491,19 @@
         "w": 1416,
         "h": 1004,
         "clip": true,
-        "depth": 1
+        "z": 3000,
+        "depth": 3000
       },
       {
         "file": "gyro_4028_title1",
         "path": "chars/4028/4028_p/overlays/gyro_4028_title1.png",
-        "x": 875.6,
-        "y": -1101.6,
+        "x": 250.17,
+        "y": -314.74,
         "w": 288,
         "h": 84,
         "clip": true,
-        "depth": 1
+        "z": 2500,
+        "depth": 2500
       },
       {
         "file": "gyro_4028_bg1",
@@ -4250,27 +4513,30 @@
         "w": 1416,
         "h": 1004,
         "clip": true,
-        "depth": 1
+        "z": 1600,
+        "depth": 1600
       },
       {
         "file": "gyro_4028_title2",
         "path": "chars/4028/4028_p/overlays/gyro_4028_title2.png",
         "x": 0,
-        "y": -428,
+        "y": -329.23,
         "w": 1000,
         "h": 356,
         "clip": true,
-        "depth": 1
+        "z": 800,
+        "depth": 800
       },
       {
         "file": "gyro_4028_actor",
         "path": "chars/4028/4028_p/overlays/gyro_4028_actor.png",
-        "x": -76,
-        "y": 88,
+        "x": -58.46,
+        "y": 67.69,
         "w": 1344,
         "h": 876,
         "clip": true,
-        "depth": 1
+        "z": 600,
+        "depth": 600
       },
       {
         "file": "gyro_4028_fx",
@@ -4280,27 +4546,30 @@
         "w": 1364,
         "h": 984,
         "clip": true,
-        "depth": 1
+        "z": 300,
+        "depth": 300
       },
       {
         "file": "gyro_4028_petal",
         "path": "chars/4028/4028_p/overlays/gyro_4028_petal.png",
-        "x": -55,
-        "y": 348,
+        "x": -62.5,
+        "y": 395.45,
         "w": 944,
         "h": 192,
         "clip": true,
-        "depth": 1
+        "z": 100,
+        "depth": 100
       },
       {
         "file": "gyro_4028_title3",
         "path": "chars/4028/4028_p/overlays/gyro_4028_title3.png",
         "x": 0,
-        "y": 280,
+        "y": 437.5,
         "w": 952,
         "h": 52,
         "clip": false,
-        "depth": 1
+        "z": -120,
+        "depth": -120
       }
     ]
   },
@@ -4330,87 +4599,96 @@
         "w": 752,
         "h": 768,
         "clip": false,
-        "depth": 1
+        "z": 0,
+        "depth": 0
       },
       {
         "file": "gyro_4029_bg",
         "path": "chars/4029/4029_p/overlays/gyro_4029_bg.png",
         "x": 0,
-        "y": 40,
+        "y": 8.25,
         "w": 1104,
         "h": 784,
         "clip": true,
-        "depth": 1
+        "z": 3000,
+        "depth": 3000
       },
       {
         "file": "gyro_4029_fx",
         "path": "chars/4029/4029_p/overlays/gyro_4029_fx.png",
-        "x": -221,
-        "y": -1175.34,
+        "x": -73.67,
+        "y": -391.78,
         "w": 308,
         "h": 200,
         "clip": true,
-        "depth": 1
+        "z": 2000,
+        "depth": 2000
       },
       {
         "file": "gyro_4029_claw2",
         "path": "chars/4029/4029_p/overlays/gyro_4029_claw2.png",
-        "x": -1084,
-        "y": -1200,
+        "x": -338.75,
+        "y": -400,
         "w": 156,
         "h": 304,
         "clip": true,
-        "depth": 1
+        "z": 1500,
+        "depth": 1500
       },
       {
         "file": "gyro_4029_mid",
         "path": "chars/4029/4029_p/overlays/gyro_4029_mid.png",
-        "x": 323,
-        "y": 700,
+        "x": 107.67,
+        "y": 233.33,
         "w": 820,
         "h": 268,
         "clip": true,
-        "depth": 1
+        "z": 1500,
+        "depth": 1500
       },
       {
         "file": "gyro_4029_claw1",
         "path": "chars/4029/4029_p/overlays/gyro_4029_claw1.png",
-        "x": -924,
-        "y": -910.5,
+        "x": -420,
+        "y": -413.86,
         "w": 380,
         "h": 340,
         "clip": true,
-        "depth": 1
+        "z": 1000,
+        "depth": 1000
       },
       {
         "file": "gyro_4029_fg",
         "path": "chars/4029/4029_p/overlays/gyro_4029_fg.png",
-        "x": -740,
-        "y": 150,
+        "x": -548.15,
+        "y": 111.11,
         "w": 1104,
         "h": 392,
         "clip": true,
-        "depth": 1
+        "z": 500,
+        "depth": 500
       },
       {
         "file": "gyro_4029_title1",
         "path": "chars/4029/4029_p/overlays/gyro_4029_title1.png",
         "x": 0,
-        "y": 213,
+        "y": 273.08,
         "w": 624,
         "h": 200,
         "clip": false,
-        "depth": 1
+        "z": -120,
+        "depth": -120
       },
       {
         "file": "gyro_4029_title2",
         "path": "chars/4029/4029_p/overlays/gyro_4029_title2.png",
-        "x": 246,
-        "y": -266,
+        "x": 315.38,
+        "y": -341.03,
         "w": 116,
         "h": 76,
         "clip": false,
-        "depth": 1
+        "z": -120,
+        "depth": -120
       }
     ]
   },
@@ -4440,27 +4718,30 @@
         "w": 752,
         "h": 768,
         "clip": false,
-        "depth": 1
+        "z": 0,
+        "depth": 0
       },
       {
         "file": "gyro_4030_bg",
         "path": "chars/4030/4030_p/overlays/gyro_4030_bg.png",
         "x": 0,
-        "y": 12,
+        "y": 3.48,
         "w": 1104,
         "h": 784,
         "clip": true,
-        "depth": 1
+        "z": 2000,
+        "depth": 2000
       },
       {
         "file": "gyro_4030_actor",
         "path": "chars/4030/4030_p/overlays/gyro_4030_actor.png",
         "x": 0,
-        "y": 50,
+        "y": 30.3,
         "w": 1104,
         "h": 744,
         "clip": true,
-        "depth": 1
+        "z": 600,
+        "depth": 600
       },
       {
         "file": "gyro_4030_title",
@@ -4470,7 +4751,8 @@
         "w": 740,
         "h": 760,
         "clip": false,
-        "depth": 1
+        "z": -120,
+        "depth": -120
       }
     ]
   },
@@ -4500,37 +4782,63 @@
         "w": 752,
         "h": 768,
         "clip": false,
-        "depth": 1
+        "z": 0,
+        "depth": 0
       },
       {
         "file": "gyro_4031_bg",
         "path": "chars/4031/4031_p/overlays/gyro_4031_bg.png",
         "x": 0,
-        "y": -10,
+        "y": -2.06,
         "w": 1104,
         "h": 784,
         "clip": true,
-        "depth": 1
+        "z": 3000,
+        "depth": 3000
       },
       {
         "file": "gyro_4031_actor1",
         "path": "chars/4031/4031_p/overlays/gyro_4031_actor1.png",
-        "x": 92.4,
-        "y": 23,
+        "x": 42.98,
+        "y": 10.7,
         "w": 600,
         "h": 784,
         "clip": true,
-        "depth": 1
+        "z": 1002,
+        "depth": 1002
+      },
+      {
+        "file": "gyro_4031_fx1",
+        "path": "chars/4031/4031_p/overlays/gyro_4031_fx1.png",
+        "x": 52.78,
+        "y": -65.94,
+        "w": 856,
+        "h": 484,
+        "clip": true,
+        "z": 1002,
+        "depth": 1002
       },
       {
         "file": "gyro_4031_actor2",
         "path": "chars/4031/4031_p/overlays/gyro_4031_actor2.png",
-        "x": -218,
+        "x": -100,
         "y": 0,
         "w": 652,
         "h": 784,
         "clip": true,
-        "depth": 1
+        "z": 1002,
+        "depth": 1002
+      },
+      {
+        "file": "gyro_4031_fx2",
+        "path": "chars/4031/4031_p/overlays/gyro_4031_fx2.png",
+        "x": -47,
+        "y": -200,
+        "w": 820,
+        "h": 484,
+        "clip": true,
+        "z": 1002,
+        "depth": 1002
       },
       {
         "file": "gyro_4031_fg",
@@ -4540,27 +4848,8 @@
         "w": 1140,
         "h": 820,
         "clip": true,
-        "depth": 1
-      },
-      {
-        "file": "gyro_4031_fx1",
-        "path": "chars/4031/4031_p/overlays/gyro_4031_fx1.png",
-        "x": 102.2,
-        "y": -53.64,
-        "w": 856,
-        "h": 484,
-        "clip": true,
-        "depth": 1
-      },
-      {
-        "file": "gyro_4031_fx2",
-        "path": "chars/4031/4031_p/overlays/gyro_4031_fx2.png",
-        "x": -165,
-        "y": -200,
-        "w": 820,
-        "h": 484,
-        "clip": true,
-        "depth": 1
+        "z": 400,
+        "depth": 400
       },
       {
         "file": "gyro_4031_title2",
@@ -4570,17 +4859,19 @@
         "w": 68,
         "h": 84,
         "clip": false,
-        "depth": 1
+        "z": 0,
+        "depth": 0
       },
       {
         "file": "gyro_4031_title1",
         "path": "chars/4031/4031_p/overlays/gyro_4031_title1.png",
         "x": 0,
-        "y": 230,
+        "y": 294.87,
         "w": 720,
         "h": 216,
         "clip": false,
-        "depth": 1
+        "z": -120,
+        "depth": -120
       }
     ]
   },
@@ -4610,47 +4901,52 @@
         "w": 752,
         "h": 768,
         "clip": false,
-        "depth": 1
+        "z": 0,
+        "depth": 0
       },
       {
         "file": "gyro_4032_bg",
         "path": "chars/4032/4032_p/overlays/gyro_4032_bg.png",
         "x": 0,
-        "y": 12,
+        "y": 3.48,
         "w": 1100,
         "h": 780,
         "clip": true,
-        "depth": 1
+        "z": 2000,
+        "depth": 2000
       },
       {
         "file": "gyro_4032_fg",
         "path": "chars/4032/4032_p/overlays/gyro_4032_fg.png",
         "x": 0,
-        "y": 12,
+        "y": 6,
         "w": 1100,
         "h": 780,
         "clip": true,
-        "depth": 1
+        "z": 800,
+        "depth": 800
       },
       {
         "file": "gyro_4032_title2",
         "path": "chars/4032/4032_p/overlays/gyro_4032_title2.png",
-        "x": -35,
-        "y": -295,
+        "x": -39.77,
+        "y": -335.23,
         "w": 592,
         "h": 20,
         "clip": false,
-        "depth": 1
+        "z": -50,
+        "depth": -50
       },
       {
         "file": "gyro_4032_title1",
         "path": "chars/4032/4032_p/overlays/gyro_4032_title1.png",
         "x": 0,
-        "y": 230,
+        "y": 294.87,
         "w": 672,
         "h": 148,
         "clip": false,
-        "depth": 1
+        "z": -150,
+        "depth": -150
       }
     ]
   },
@@ -4680,87 +4976,96 @@
         "w": 752,
         "h": 768,
         "clip": false,
-        "depth": 1
+        "z": 0,
+        "depth": 0
       },
       {
         "file": "gyro_4033_bg",
         "path": "chars/4033/4033_p/overlays/gyro_4033_bg.png",
         "x": 0,
-        "y": 6.01,
+        "y": 2.48,
         "w": 1496.28,
         "h": 1036,
         "clip": true,
-        "depth": 1
+        "z": 1800,
+        "depth": 1800
       },
       {
         "file": "gyro_4033_sparkle",
         "path": "chars/4033/4033_p/overlays/gyro_4033_sparkle.png",
-        "x": 891.3,
-        "y": -159.1,
+        "x": 594.2,
+        "y": -106.07,
         "w": 1092,
         "h": 888.32,
         "clip": true,
-        "depth": 1
+        "z": 977.61,
+        "depth": 977.61
       },
       {
         "file": "gyro_4033_ball_upright",
         "path": "chars/4033/4033_p/overlays/gyro_4033_ball_upright.png",
-        "x": 121.9,
-        "y": -597.4,
+        "x": 87.07,
+        "y": -426.71,
         "w": 212,
         "h": 140,
         "clip": true,
-        "depth": 1
+        "z": 677.6,
+        "depth": 677.6
       },
       {
         "file": "gyro_4033_ball_upleft",
         "path": "chars/4033/4033_p/overlays/gyro_4033_ball_upleft.png",
-        "x": -533.2,
-        "y": -386.7,
+        "x": -484.73,
+        "y": -351.55,
         "w": 352,
         "h": 232,
         "clip": true,
-        "depth": 1
-      },
-      {
-        "file": "gyro_4033_birdfront",
-        "path": "chars/4033/4033_p/overlays/gyro_4033_birdfront.png",
-        "x": 351.4,
-        "y": 302.6,
-        "w": 512,
-        "h": 320,
-        "clip": true,
-        "depth": 1
-      },
-      {
-        "file": "gyro_4033_rope",
-        "path": "chars/4033/4033_p/overlays/gyro_4033_rope.png",
-        "x": 415.5,
-        "y": 158.4,
-        "w": 304,
-        "h": 396,
-        "clip": true,
-        "depth": 1
+        "z": 300,
+        "depth": 300
       },
       {
         "file": "gyro_4033_light",
         "path": "chars/4033/4033_p/overlays/gyro_4033_light.png",
-        "x": 273.2,
-        "y": 179.1,
+        "x": 356.8,
+        "y": 244.85,
         "w": 236,
         "h": 116,
         "clip": true,
-        "depth": 1
+        "z": 200,
+        "depth": 200
+      },
+      {
+        "file": "gyro_4033_birdfront",
+        "path": "chars/4033/4033_p/overlays/gyro_4033_birdfront.png",
+        "x": 399.32,
+        "y": 343.86,
+        "w": 512,
+        "h": 320,
+        "clip": true,
+        "z": 200,
+        "depth": 200
+      },
+      {
+        "file": "gyro_4033_rope",
+        "path": "chars/4033/4033_p/overlays/gyro_4033_rope.png",
+        "x": 519.38,
+        "y": 158.4,
+        "w": 304,
+        "h": 396,
+        "clip": true,
+        "z": 30,
+        "depth": 30
       },
       {
         "file": "gyro_4033_title",
         "path": "chars/4033/4033_p/overlays/gyro_4033_title.png",
-        "x": -89.3,
-        "y": -194.7,
+        "x": -151.36,
+        "y": -330,
         "w": 640,
         "h": 244,
         "clip": false,
-        "depth": 1
+        "z": -180,
+        "depth": -180
       }
     ]
   },
@@ -4790,7 +5095,8 @@
         "w": 752,
         "h": 768,
         "clip": false,
-        "depth": 1
+        "z": 0,
+        "depth": 0
       },
       {
         "file": "gyro_4036_bg",
@@ -4800,137 +5106,151 @@
         "w": 1412,
         "h": 1000,
         "clip": true,
-        "depth": 1
+        "z": 4000,
+        "depth": 4000
       },
       {
         "file": "gyro_4036_Tomb",
         "path": "chars/4036/4036_p/overlays/gyro_4036_Tomb.png",
         "x": 0,
-        "y": 510,
+        "y": 170,
         "w": 1412,
         "h": 564,
         "clip": true,
-        "depth": 1
+        "z": 2400,
+        "depth": 2400
       },
       {
         "file": "gyro_4036_IronMaiden_Back",
         "path": "chars/4036/4036_p/overlays/gyro_4036_IronMaiden_Back.png",
         "x": 0,
-        "y": 10,
+        "y": 4.55,
         "w": 1332,
         "h": 1000,
         "clip": true,
-        "depth": 1
+        "z": 1500,
+        "depth": 1500
       },
       {
         "file": "gyro_4036_Chain_Back_01",
         "path": "chars/4036/4036_p/overlays/gyro_4036_Chain_Back_01.png",
-        "x": -870,
-        "y": -370,
+        "x": -435,
+        "y": -185,
         "w": 124,
         "h": 284,
         "clip": true,
-        "depth": 1
+        "z": 1200,
+        "depth": 1200
       },
       {
         "file": "gyro_4036_Chain_Front_01",
         "path": "chars/4036/4036_p/overlays/gyro_4036_Chain_Front_01.png",
-        "x": -475,
-        "y": 475.6,
+        "x": -250,
+        "y": 432.36,
         "w": 432,
         "h": 240,
         "clip": true,
-        "depth": 1
+        "z": 1000,
+        "depth": 1000
       },
       {
         "file": "gyro_4036_IronMaiden_Front",
         "path": "chars/4036/4036_p/overlays/gyro_4036_IronMaiden_Front.png",
         "x": 0,
-        "y": -525,
+        "y": -318.18,
         "w": 1412,
         "h": 816.31,
         "clip": true,
-        "depth": 1
+        "z": 1000,
+        "depth": 1000
       },
       {
         "file": "gyro_4036_Chain_Front_02",
         "path": "chars/4036/4036_p/overlays/gyro_4036_Chain_Front_02.png",
-        "x": 590,
-        "y": -195,
+        "x": 347.06,
+        "y": -177.27,
         "w": 364,
         "h": 452,
         "clip": true,
-        "depth": 1
+        "z": 1000,
+        "depth": 1000
       },
       {
         "file": "gyro_4036_Chain_Back_02",
         "path": "chars/4036/4036_p/overlays/gyro_4036_Chain_Back_02.png",
-        "x": -550,
-        "y": -480,
+        "x": -275,
+        "y": -240,
         "w": 360,
         "h": 440,
         "clip": true,
-        "depth": 1
+        "z": 900,
+        "depth": 900
       },
       {
         "file": "gyro_4036_GeBin_Hair",
         "path": "chars/4036/4036_p/overlays/gyro_4036_GeBin_Hair.png",
-        "x": -10,
-        "y": 275,
+        "x": -6.06,
+        "y": 166.67,
         "w": 656,
         "h": 712,
         "clip": true,
-        "depth": 1
+        "z": 800,
+        "depth": 800
       },
       {
         "file": "gyro_4036_GeBin",
         "path": "chars/4036/4036_p/overlays/gyro_4036_GeBin.png",
         "x": 0,
-        "y": 175,
+        "y": 116.67,
         "w": 556,
         "h": 772,
         "clip": true,
-        "depth": 1
+        "z": 800,
+        "depth": 800
       },
       {
         "file": "gyro_4036_Chain_Back_04",
         "path": "chars/4036/4036_p/overlays/gyro_4036_Chain_Back_04.png",
-        "x": 500,
-        "y": -560,
+        "x": 250,
+        "y": -280,
         "w": 400,
         "h": 360,
         "clip": true,
-        "depth": 1
+        "z": 750,
+        "depth": 750
       },
       {
         "file": "gyro_4036_Chain_Back_03",
         "path": "chars/4036/4036_p/overlays/gyro_4036_Chain_Back_03.png",
-        "x": -299,
-        "y": 245.6,
+        "x": -199.33,
+        "y": 163.73,
         "w": 120,
         "h": 160,
         "clip": true,
-        "depth": 1
+        "z": 700,
+        "depth": 700
       },
       {
         "file": "gyro_4036_Point",
         "path": "chars/4036/4036_p/overlays/gyro_4036_Point.png",
-        "x": -35,
-        "y": -435,
+        "x": -17.5,
+        "y": -217.5,
         "w": 1156,
         "h": 342,
         "clip": true,
-        "depth": 1
+        "z": 480,
+        "depth": 480
       },
       {
         "file": "gyro_4036_Eff",
         "path": "chars/4036/4036_p/overlays/gyro_4036_Eff.png",
         "x": 0,
-        "y": -95,
+        "y": -31.67,
         "w": 1320,
         "h": 872,
         "clip": true,
-        "depth": 1
+        "z": 480,
+        "depth": 480
       },
       {
         "file": "gyro_4036_Chain_Front_03",
@@ -4940,27 +5260,30 @@
         "w": 596,
         "h": 384,
         "clip": true,
-        "depth": 1
+        "z": 200,
+        "depth": 200
       },
       {
         "file": "gyro_4036_Title_Up",
         "path": "chars/4036/4036_p/overlays/gyro_4036_Title_Up.png",
         "x": 0,
-        "y": -280,
+        "y": -451.61,
         "w": 916,
         "h": 52,
         "clip": false,
-        "depth": 1
+        "z": -100,
+        "depth": -100
       },
       {
         "file": "gyro_4036_Title_Down",
         "path": "chars/4036/4036_p/overlays/gyro_4036_Title_Down.png",
         "x": 0,
-        "y": 210,
+        "y": 381.82,
         "w": 864,
         "h": 224,
         "clip": false,
-        "depth": 1
+        "z": -200,
+        "depth": -200
       }
     ]
   },
@@ -4990,107 +5313,118 @@
         "w": 752,
         "h": 768,
         "clip": false,
-        "depth": 1
+        "z": 0,
+        "depth": 0
       },
       {
         "file": "gyro_4037_bg",
         "path": "chars/4037/4037_p/overlays/gyro_4037_bg.png",
-        "x": -5.78,
-        "y": -136.5,
+        "x": -1.65,
+        "y": -39,
         "w": 1412.41,
         "h": 1000,
         "clip": true,
-        "depth": 1
+        "z": 3500,
+        "depth": 3500
       },
       {
         "file": "gyro_4037_penguin",
         "path": "chars/4037/4037_p/overlays/gyro_4037_penguin.png",
-        "x": 139.5,
-        "y": 460.8,
+        "x": 77.5,
+        "y": 180.41,
         "w": 1388,
         "h": 612.67,
         "clip": true,
-        "depth": 1
+        "z": 1779.5,
+        "depth": 1779.5
       },
       {
         "file": "gyro_4037_actor1",
         "path": "chars/4037/4037_p/overlays/gyro_4037_actor1.png",
-        "x": 49.3,
-        "y": -247.6,
+        "x": 26.65,
+        "y": -133.84,
         "w": 856,
         "h": 884,
         "clip": true,
-        "depth": 1
+        "z": 1613.9,
+        "depth": 1613.9
       },
       {
         "file": "gyro_4037_glass2",
         "path": "chars/4037/4037_p/overlays/gyro_4037_glass2.png",
-        "x": -417.4,
-        "y": -229.5,
+        "x": -267.56,
+        "y": -147.12,
         "w": 288,
         "h": 432,
         "clip": true,
-        "depth": 1
+        "z": 1041.08,
+        "depth": 1041.08
       },
       {
         "file": "gyro_4037_star",
         "path": "chars/4037/4037_p/overlays/gyro_4037_star.png",
-        "x": 64.3,
-        "y": -196.6,
+        "x": 45.93,
+        "y": -140.43,
         "w": 740,
         "h": 380,
         "clip": true,
-        "depth": 1
+        "z": 1000,
+        "depth": 1000
       },
       {
         "file": "gyro_4037_glass",
         "path": "chars/4037/4037_p/overlays/gyro_4037_glass.png",
-        "x": -63.95,
-        "y": -1.7,
+        "x": -45.04,
+        "y": -1.2,
         "w": 1412.41,
         "h": 1000,
         "clip": true,
-        "depth": 1
+        "z": 800,
+        "depth": 800
       },
       {
         "file": "gyro_4037_actor3",
         "path": "chars/4037/4037_p/overlays/gyro_4037_actor3.png",
-        "x": -487.9,
-        "y": -246.9,
+        "x": -424.26,
+        "y": -214.7,
         "w": 444,
         "h": 332,
         "clip": true,
-        "depth": 1
+        "z": 697.02,
+        "depth": 697.02
       },
       {
         "file": "gyro_4037_actor4",
         "path": "chars/4037/4037_p/overlays/gyro_4037_actor4.png",
-        "x": 503,
-        "y": 14.1,
+        "x": 479.05,
+        "y": 13.43,
         "w": 456,
         "h": 304,
         "clip": true,
-        "depth": 1
+        "z": 474.1,
+        "depth": 474.1
       },
       {
         "file": "gyro_4037_actor2",
         "path": "chars/4037/4037_p/overlays/gyro_4037_actor2.png",
-        "x": -453.6,
-        "y": 124.1,
+        "x": -527.44,
+        "y": 144.3,
         "w": 404,
         "h": 428,
         "clip": true,
-        "depth": 1
+        "z": 260.5,
+        "depth": 260.5
       },
       {
         "file": "gyro_4037_title",
         "path": "chars/4037/4037_p/overlays/gyro_4037_title.png",
         "x": 0,
-        "y": 196.9,
+        "y": 345.44,
         "w": 940,
         "h": 300,
         "clip": false,
-        "depth": 1
+        "z": -180,
+        "depth": -180
       }
     ]
   },
@@ -5120,7 +5454,8 @@
         "w": 752,
         "h": 768,
         "clip": false,
-        "depth": 1
+        "z": 0,
+        "depth": 0
       },
       {
         "file": "gyro_4038_Bg",
@@ -5130,17 +5465,19 @@
         "w": 1412,
         "h": 1000,
         "clip": true,
-        "depth": 1
+        "z": 3000,
+        "depth": 3000
       },
       {
         "file": "gyro_4038_Xiya",
         "path": "chars/4038/4038_p/overlays/gyro_4038_Xiya.png",
-        "x": -25,
-        "y": -105,
+        "x": -9.62,
+        "y": -40.38,
         "w": 1020,
         "h": 840,
         "clip": true,
-        "depth": 1
+        "z": 2400,
+        "depth": 2400
       },
       {
         "file": "gyro_4038_Plant_02",
@@ -5150,27 +5487,30 @@
         "w": 1412,
         "h": 1000,
         "clip": true,
-        "depth": 1
+        "z": 2000,
+        "depth": 2000
       },
       {
         "file": "gyro_4038_Fish",
         "path": "chars/4038/4038_p/overlays/gyro_4038_Fish.png",
-        "x": -75,
-        "y": -850,
+        "x": -45.45,
+        "y": -515.15,
         "w": 1172,
         "h": 1000,
         "clip": true,
-        "depth": 1
+        "z": 1000,
+        "depth": 1000
       },
       {
         "file": "gyro_4038_Plant_01",
         "path": "chars/4038/4038_p/overlays/gyro_4038_Plant_01.png",
-        "x": -775,
+        "x": -387.5,
         "y": 0,
         "w": 188,
         "h": 552,
         "clip": true,
-        "depth": 1
+        "z": 800,
+        "depth": 800
       },
       {
         "file": "gyro_4038_Purple",
@@ -5180,7 +5520,8 @@
         "w": 1336,
         "h": 1000,
         "clip": true,
-        "depth": 1
+        "z": 700,
+        "depth": 700
       },
       {
         "file": "gyro_4038_Light",
@@ -5190,17 +5531,19 @@
         "w": 1412.41,
         "h": 1000,
         "clip": true,
-        "depth": 1
+        "z": 480,
+        "depth": 480
       },
       {
         "file": "gyro_4038_Title",
         "path": "chars/4038/4038_p/overlays/gyro_4038_Title.png",
-        "x": -60,
-        "y": 185,
+        "x": -85.71,
+        "y": 264.29,
         "w": 620,
         "h": 304,
         "clip": false,
-        "depth": 1
+        "z": -150,
+        "depth": -150
       }
     ]
   },
@@ -5230,77 +5573,85 @@
         "w": 752,
         "h": 768,
         "clip": false,
-        "depth": 1
+        "z": 0,
+        "depth": 0
       },
       {
         "file": "gyro_4039_bg",
         "path": "chars/4039/4039_p/overlays/gyro_4039_bg.png",
-        "x": 122.6,
-        "y": 51.4,
+        "x": 35.03,
+        "y": 14.69,
         "w": 1416.11,
         "h": 1004,
         "clip": true,
-        "depth": 1
+        "z": 3000,
+        "depth": 3000
       },
       {
         "file": "gyro_4039_actor3",
         "path": "chars/4039/4039_p/overlays/gyro_4039_actor3.png",
-        "x": -1368.05,
-        "y": 622,
+        "x": -488.59,
+        "y": 222.14,
         "w": 228,
         "h": 284,
         "clip": true,
-        "depth": 1
+        "z": 2300,
+        "depth": 2300
       },
       {
         "file": "gyro_4039_pavilion",
         "path": "chars/4039/4039_p/overlays/gyro_4039_pavilion.png",
-        "x": 74,
-        "y": 3.78,
+        "x": 29.6,
+        "y": 1.51,
         "w": 1416.11,
         "h": 1004,
         "clip": true,
-        "depth": 1
+        "z": 2000,
+        "depth": 2000
       },
       {
         "file": "gyro_4039_actor2",
         "path": "chars/4039/4039_p/overlays/gyro_4039_actor2.png",
-        "x": -511.4,
-        "y": 368.9,
+        "x": -340.93,
+        "y": 245.93,
         "w": 240,
         "h": 580,
         "clip": true,
-        "depth": 1
+        "z": 1000,
+        "depth": 1000
       },
       {
         "file": "gyro_4039_actor1",
         "path": "chars/4039/4039_p/overlays/gyro_4039_actor1.png",
-        "x": 128.2,
-        "y": 128.7,
+        "x": 134.95,
+        "y": 135.47,
         "w": 764,
         "h": 732,
         "clip": true,
-        "depth": 1
+        "z": 260.5,
+        "depth": 260.5
       },
       {
         "file": "gyro_4039_wave",
         "path": "chars/4039/4039_p/overlays/gyro_4039_wave.png",
         "x": 0,
-        "y": 292.2,
+        "y": 449.54,
         "w": 344,
         "h": 40,
         "clip": false,
-        "depth": 1
+        "z": -120,
+        "depth": -120
       },
       {
         "file": "gyro_4039_title",
         "path": "chars/4039/4039_p/overlays/gyro_4039_title.png",
-        "x": -134.1,
-        "y": -203.18,
+        "x": -235.26,
+        "y": -356.46,
         "w": 492,
         "h": 256,
         "clip": false,
-        "depth": 1
+        "z": -200,
+        "depth": -200
       }
     ]
   },
@@ -5330,47 +5681,52 @@
         "w": 752,
         "h": 768,
         "clip": false,
-        "depth": 1
+        "z": 0,
+        "depth": 0
       },
       {
         "file": "gyro_4040_bg",
         "path": "chars/4040/4040_p/overlays/gyro_4040_bg.png",
-        "x": 122.6,
-        "y": 17.2,
+        "x": 33.59,
+        "y": 4.71,
         "w": 1416.11,
         "h": 1004,
         "clip": true,
-        "depth": 1
+        "z": 3000,
+        "depth": 3000
       },
       {
         "file": "gyro_4040_actor2",
         "path": "chars/4040/4040_p/overlays/gyro_4040_actor2.png",
-        "x": 776.56,
-        "y": -392.4,
+        "x": 298.68,
+        "y": -150.92,
         "w": 248,
         "h": 248,
         "clip": true,
-        "depth": 1
+        "z": 2500,
+        "depth": 2500
       },
       {
         "file": "gyro_4040_effect_back",
         "path": "chars/4040/4040_p/overlays/gyro_4040_effect_back.png",
-        "x": 220.6,
-        "y": -515.7,
+        "x": 88.24,
+        "y": -206.28,
         "w": 1168,
         "h": 568.03,
         "clip": true,
-        "depth": 1
+        "z": 1800,
+        "depth": 1800
       },
       {
         "file": "gyro_4040_actor1",
         "path": "chars/4040/4040_p/overlays/gyro_4040_actor1.png",
-        "x": -22.1,
-        "y": 112.6,
+        "x": -14.73,
+        "y": 75.07,
         "w": 1416,
         "h": 976.27,
         "clip": true,
-        "depth": 1
+        "z": 1000,
+        "depth": 1000
       },
       {
         "file": "gyro_4040_effect_front",
@@ -5380,7 +5736,8 @@
         "w": 888,
         "h": 980,
         "clip": true,
-        "depth": 1
+        "z": 500,
+        "depth": 500
       },
       {
         "file": "gyro_4040_spark",
@@ -5390,27 +5747,30 @@
         "w": 1120,
         "h": 904.53,
         "clip": true,
-        "depth": 1
+        "z": 169.03,
+        "depth": 169.03
       },
       {
         "file": "gyro_4040_title2",
         "path": "chars/4040/4040_p/overlays/gyro_4040_title2.png",
-        "x": -255.5,
-        "y": 269.9,
+        "x": -393.08,
+        "y": 415.23,
         "w": 92,
         "h": 68,
         "clip": false,
-        "depth": 1
+        "z": -120,
+        "depth": -120
       },
       {
         "file": "gyro_4040_title1",
         "path": "chars/4040/4040_p/overlays/gyro_4040_title1.png",
-        "x": 143.4,
-        "y": -220.5,
+        "x": 239,
+        "y": -367.5,
         "w": 396,
         "h": 136,
         "clip": false,
-        "depth": 1
+        "z": -200,
+        "depth": -200
       }
     ]
   },
@@ -5440,107 +5800,118 @@
         "w": 752,
         "h": 768,
         "clip": false,
-        "depth": 1
+        "z": 0,
+        "depth": 0
       },
       {
         "file": "gyro_4041_sky",
         "path": "chars/4041/4041_p/overlays/gyro_4041_sky.png",
-        "x": 122.6,
-        "y": 51.4,
+        "x": 30.65,
+        "y": 12.85,
         "w": 1412.41,
         "h": 1000,
         "clip": true,
-        "depth": 1
+        "z": 3000,
+        "depth": 3000
       },
       {
         "file": "gyro_4041_tower",
         "path": "chars/4041/4041_p/overlays/gyro_4041_tower.png",
-        "x": 673.3,
-        "y": -44.1,
+        "x": 292.74,
+        "y": -19.17,
         "w": 300,
         "h": 756,
         "clip": true,
-        "depth": 1
+        "z": 2000,
+        "depth": 2000
       },
       {
         "file": "gyro_4041_rope2",
         "path": "chars/4041/4041_p/overlays/gyro_4041_rope2.png",
-        "x": 106,
-        "y": 362.1,
+        "x": 27.18,
+        "y": 226.31,
         "w": 176,
         "h": 40,
         "clip": true,
-        "depth": 1
+        "z": 1153,
+        "depth": 1153
       },
       {
         "file": "gyro_4041_charactor1",
         "path": "chars/4041/4041_p/overlays/gyro_4041_charactor1.png",
-        "x": 1.4,
-        "y": 148.2,
+        "x": 0.78,
+        "y": 82.33,
         "w": 1412,
         "h": 928,
         "clip": true,
-        "depth": 1
+        "z": 1149,
+        "depth": 1149
       },
       {
         "file": "gyro_4041_snow1",
         "path": "chars/4041/4041_p/overlays/gyro_4041_snow1.png",
-        "x": -162.5,
-        "y": 223.6,
+        "x": -125,
+        "y": 172,
         "w": 1412.18,
         "h": 844,
         "clip": true,
-        "depth": 1
+        "z": 950,
+        "depth": 950
       },
       {
         "file": "gyro_4041_charactor2",
         "path": "chars/4041/4041_p/overlays/gyro_4041_charactor2.png",
-        "x": 58.7,
-        "y": 483.5,
+        "x": 45.15,
+        "y": 371.92,
         "w": 276,
         "h": 220,
         "clip": true,
-        "depth": 1
+        "z": 796.1,
+        "depth": 796.1
       },
       {
         "file": "gyro_4041_rope1",
         "path": "chars/4041/4041_p/overlays/gyro_4041_rope1.png",
         "x": 248,
-        "y": 224.9,
+        "y": 160.64,
         "w": 72,
         "h": 36,
         "clip": true,
-        "depth": 1
+        "z": 501.7,
+        "depth": 501.7
       },
       {
         "file": "gyro_4041_charactor3",
         "path": "chars/4041/4041_p/overlays/gyro_4041_charactor3.png",
-        "x": 373.86,
-        "y": 195,
+        "x": 339.87,
+        "y": 177.27,
         "w": 432,
         "h": 588,
         "clip": true,
-        "depth": 1
+        "z": 424,
+        "depth": 424
       },
       {
         "file": "gyro_4041_sled",
         "path": "chars/4041/4041_p/overlays/gyro_4041_sled.png",
-        "x": -205.2,
-        "y": 279.1,
+        "x": -315.69,
+        "y": 429.38,
         "w": 292,
         "h": 84,
         "clip": false,
-        "depth": 1
+        "z": -120,
+        "depth": -120
       },
       {
         "file": "gyro_4041_title",
         "path": "chars/4041/4041_p/overlays/gyro_4041_title.png",
-        "x": 7.06,
-        "y": -233.58,
+        "x": 12.39,
+        "y": -409.79,
         "w": 748,
         "h": 96,
         "clip": false,
-        "depth": 1
+        "z": -200,
+        "depth": -200
       }
     ]
   },
@@ -5570,77 +5941,85 @@
         "w": 752,
         "h": 768,
         "clip": false,
-        "depth": 1
+        "z": 0,
+        "depth": 0
       },
       {
         "file": "gyro_4042_bg",
         "path": "chars/4042/4042_p/overlays/gyro_4042_bg.png",
-        "x": 46.7,
-        "y": 1.97,
+        "x": 11.68,
+        "y": 0.49,
         "w": 1412.41,
         "h": 1000,
         "clip": true,
-        "depth": 1
+        "z": 3500,
+        "depth": 3500
       },
       {
         "file": "gyro_4042_curtain2",
         "path": "chars/4042/4042_p/overlays/gyro_4042_curtain2.png",
-        "x": 7.68,
-        "y": -950.9,
+        "x": 2.82,
+        "y": -203.18,
         "w": 952,
         "h": 488,
         "clip": true,
-        "depth": 1
+        "z": 2500,
+        "depth": 2500
       },
       {
         "file": "gyro_4042_actor",
         "path": "chars/4042/4042_p/overlays/gyro_4042_actor.png",
-        "x": 3.1,
-        "y": 2.65,
+        "x": 1.87,
+        "y": 1.6,
         "w": 1412.41,
         "h": 1000,
         "clip": true,
-        "depth": 1
+        "z": 1000,
+        "depth": 1000
       },
       {
         "file": "gyro_4042_steam",
         "path": "chars/4042/4042_p/overlays/gyro_4042_steam.png",
         "x": 105.4,
-        "y": 105.1,
+        "y": 116.78,
         "w": 452,
         "h": 296,
         "clip": true,
-        "depth": 1
+        "z": 765.1,
+        "depth": 765.1
       },
       {
         "file": "gyro_4042_lantern",
         "path": "chars/4042/4042_p/overlays/gyro_4042_lantern.png",
         "x": -353,
-        "y": -358.6,
+        "y": -322.74,
         "w": 228,
         "h": 308,
         "clip": true,
-        "depth": 1
+        "z": 400,
+        "depth": 400
       },
       {
         "file": "gyro_4042_subtitle",
         "path": "chars/4042/4042_p/overlays/gyro_4042_subtitle.png",
-        "x": -261.9,
-        "y": 274.5,
+        "x": -402.92,
+        "y": 422.31,
         "w": 76,
         "h": 64,
         "clip": false,
-        "depth": 1
+        "z": -120,
+        "depth": -120
       },
       {
         "file": "gyro_4042_title",
         "path": "chars/4042/4042_p/overlays/gyro_4042_title.png",
-        "x": 199.4,
-        "y": -166.4,
+        "x": 349.82,
+        "y": -291.93,
         "w": 236,
         "h": 328,
         "clip": false,
-        "depth": 1
+        "z": -200,
+        "depth": -200
       }
     ]
   },
@@ -5670,117 +6049,129 @@
         "w": 752,
         "h": 768,
         "clip": false,
-        "depth": 1
+        "z": 0,
+        "depth": 0
       },
       {
         "file": "gyro_4043_actor5",
         "path": "chars/4043/4043_p/overlays/gyro_4043_actor5.png",
-        "x": -1177.6,
-        "y": 233,
+        "x": -420.57,
+        "y": 83.21,
         "w": 168,
         "h": 220,
         "clip": true,
-        "depth": 1
+        "z": 2388,
+        "depth": 2388
       },
       {
         "file": "gyro_4043_actor6",
         "path": "chars/4043/4043_p/overlays/gyro_4043_actor6.png",
-        "x": -1133.5,
-        "y": 402.6,
+        "x": -404.82,
+        "y": 143.79,
         "w": 120,
         "h": 124,
         "clip": true,
-        "depth": 1
+        "z": 2371,
+        "depth": 2371
       },
       {
         "file": "gyro_4043_actor2",
         "path": "chars/4043/4043_p/overlays/gyro_4043_actor2.png",
-        "x": -987,
-        "y": 746.4,
+        "x": -379.62,
+        "y": 287.08,
         "w": 532,
         "h": 380,
         "clip": true,
-        "depth": 1
+        "z": 2139,
+        "depth": 2139
       },
       {
         "file": "gyro_4043_actor3",
         "path": "chars/4043/4043_p/overlays/gyro_4043_actor3.png",
-        "x": 771.2,
-        "y": 768.5,
+        "x": 308.48,
+        "y": 307.4,
         "w": 544,
         "h": 388,
         "clip": true,
-        "depth": 1
+        "z": 2068,
+        "depth": 2068
       },
       {
         "file": "gyro_4043_actor4",
         "path": "chars/4043/4043_p/overlays/gyro_4043_actor4.png",
-        "x": 352.3,
-        "y": 909.5,
+        "x": 149.91,
+        "y": 387.02,
         "w": 252,
         "h": 276,
         "clip": true,
-        "depth": 1
+        "z": 1946,
+        "depth": 1946
       },
       {
         "file": "gyro_4043_actor1",
         "path": "chars/4043/4043_p/overlays/gyro_4043_actor1.png",
-        "x": -642.1,
-        "y": 1136.3,
+        "x": -279.17,
+        "y": 494.04,
         "w": 580,
         "h": 752,
         "clip": true,
-        "depth": 1
+        "z": 1866,
+        "depth": 1866
       },
       {
         "file": "gyro_4043_light",
         "path": "chars/4043/4043_p/overlays/gyro_4043_light.png",
-        "x": 978.4,
-        "y": 266,
+        "x": 489.2,
+        "y": 133,
         "w": 748,
         "h": 444,
         "clip": true,
-        "depth": 1
+        "z": 1637,
+        "depth": 1637
       },
       {
         "file": "gyro_4043_leaves",
         "path": "chars/4043/4043_p/overlays/gyro_4043_leaves.png",
-        "x": 436.6,
-        "y": 643.8,
+        "x": 174.64,
+        "y": 257.52,
         "w": 172,
         "h": 208,
         "clip": true,
-        "depth": 1
+        "z": 1581,
+        "depth": 1581
       },
       {
         "file": "gyro_4043_particle",
         "path": "chars/4043/4043_p/overlays/gyro_4043_particle.png",
-        "x": 369.4,
-        "y": 216.4,
+        "x": 246.27,
+        "y": 144.27,
         "w": 768,
         "h": 716,
         "clip": true,
-        "depth": 1
+        "z": 1000,
+        "depth": 1000
       },
       {
         "file": "gyro_4043_title_frame",
         "path": "chars/4043/4043_p/overlays/gyro_4043_title_frame.png",
-        "x": 0.9,
-        "y": 2.74,
+        "x": 1.43,
+        "y": 4.35,
         "w": 944,
         "h": 960,
         "clip": false,
-        "depth": 1
+        "z": -120,
+        "depth": -120
       },
       {
         "file": "gyro_4043_title",
         "path": "chars/4043/4043_p/overlays/gyro_4043_title.png",
-        "x": -151,
-        "y": -219.7,
+        "x": -269.64,
+        "y": -392.32,
         "w": 400,
         "h": 176,
         "clip": false,
-        "depth": 1
+        "z": -200,
+        "depth": -200
       }
     ]
   },
@@ -5810,117 +6201,129 @@
         "w": 752,
         "h": 768,
         "clip": false,
-        "depth": 1
+        "z": 0,
+        "depth": 0
       },
       {
         "file": "gyro_4044_ceiling",
         "path": "chars/4044/4044_p/overlays/gyro_4044_ceiling.png",
-        "x": -12.6,
-        "y": 1.97,
+        "x": -3.5,
+        "y": 0.55,
         "w": 1412.41,
         "h": 1000,
         "clip": true,
-        "depth": 1
+        "z": 3000,
+        "depth": 3000
       },
       {
         "file": "gyro_4044_balls",
         "path": "chars/4044/4044_p/overlays/gyro_4044_balls.png",
-        "x": -174,
-        "y": -1216.56,
+        "x": -64.44,
+        "y": -450.58,
         "w": 588,
         "h": 580,
         "clip": true,
-        "depth": 1
+        "z": 2500,
+        "depth": 2500
       },
       {
         "file": "gyro_4044_partition",
         "path": "chars/4044/4044_p/overlays/gyro_4044_partition.png",
-        "x": 16.6,
-        "y": -98.3,
+        "x": 6.15,
+        "y": -36.41,
         "w": 1412.41,
         "h": 1000,
         "clip": true,
-        "depth": 1
+        "z": 2300,
+        "depth": 2300
       },
       {
         "file": "gyro_4044_drip",
         "path": "chars/4044/4044_p/overlays/gyro_4044_drip.png",
-        "x": 587,
-        "y": -150.8,
+        "x": 326.11,
+        "y": -83.78,
         "w": 359,
         "h": 815,
         "clip": true,
-        "depth": 1
+        "z": 1500,
+        "depth": 1500
       },
       {
         "file": "gyro_4044_box",
         "path": "chars/4044/4044_p/overlays/gyro_4044_box.png",
-        "x": -556.9,
-        "y": 468.9,
+        "x": -384.07,
+        "y": 323.38,
         "w": 428,
         "h": 412,
         "clip": true,
-        "depth": 1
+        "z": 1000,
+        "depth": 1000
       },
       {
         "file": "gyro_4044_bed",
         "path": "chars/4044/4044_p/overlays/gyro_4044_bed.png",
-        "x": 213.7,
-        "y": 377,
+        "x": 147.38,
+        "y": 260,
         "w": 936,
         "h": 444,
         "clip": true,
-        "depth": 1
+        "z": 800,
+        "depth": 800
       },
       {
         "file": "gyro_4044_particle",
         "path": "chars/4044/4044_p/overlays/gyro_4044_particle.png",
-        "x": -81.8,
-        "y": 224.8,
+        "x": -54.53,
+        "y": 149.87,
         "w": 1204,
         "h": 984.13,
         "clip": true,
-        "depth": 1
+        "z": 693,
+        "depth": 693
       },
       {
         "file": "gyro_4044_actor1",
         "path": "chars/4044/4044_p/overlays/gyro_4044_actor1.png",
-        "x": 32.7,
-        "y": 95.2,
+        "x": 31.75,
+        "y": 92.43,
         "w": 756,
         "h": 760,
         "clip": true,
-        "depth": 1
+        "z": 400,
+        "depth": 400
       },
       {
         "file": "gyro_4044_front",
         "path": "chars/4044/4044_p/overlays/gyro_4044_front.png",
-        "x": 9.2,
-        "y": 335.9,
+        "x": 10.22,
+        "y": 373.22,
         "w": 1412,
         "h": 368.17,
         "clip": true,
-        "depth": 1
+        "z": 300,
+        "depth": 300
       },
       {
         "file": "gyro_4044_subtitle",
         "path": "chars/4044/4044_p/overlays/gyro_4044_subtitle.png",
-        "x": -205.2,
-        "y": 285.9,
+        "x": -315.69,
+        "y": 439.85,
         "w": 268,
         "h": 48,
         "clip": false,
-        "depth": 1
+        "z": -120,
+        "depth": -120
       },
       {
         "file": "gyro_4044_title",
         "path": "chars/4044/4044_p/overlays/gyro_4044_title.png",
-        "x": -135.4,
-        "y": -215.5,
+        "x": -237.54,
+        "y": -378.07,
         "w": 464,
         "h": 192,
         "clip": false,
-        "depth": 1
+        "z": -200,
+        "depth": -200
       }
     ]
   },
@@ -5950,147 +6353,162 @@
         "w": 752,
         "h": 768,
         "clip": false,
-        "depth": 1
+        "z": 0,
+        "depth": 0
       },
       {
         "file": "gyro_4045_bg",
         "path": "chars/4045/4045_p/overlays/gyro_4045_bg.png",
-        "x": -351.8,
-        "y": -28.3,
+        "x": -87.95,
+        "y": -7.07,
         "w": 1412.41,
         "h": 1000,
         "clip": true,
-        "depth": 1
+        "z": 3500,
+        "depth": 3500
       },
       {
         "file": "gyro_4045_back_lily",
         "path": "chars/4045/4045_p/overlays/gyro_4045_back_lily.png",
-        "x": 44.9,
-        "y": 624.4,
+        "x": 17.27,
+        "y": 240.15,
         "w": 1412,
         "h": 660.5,
         "clip": true,
-        "depth": 1
+        "z": 2500,
+        "depth": 2500
       },
       {
         "file": "gyro_4045_smoke",
         "path": "chars/4045/4045_p/overlays/gyro_4045_smoke.png",
-        "x": 87,
-        "y": -401,
+        "x": 72.5,
+        "y": -286.43,
         "w": 1000,
         "h": 252,
         "clip": true,
-        "depth": 1
+        "z": 1152,
+        "depth": 1152
       },
       {
         "file": "gyro_4045_actor1",
         "path": "chars/4045/4045_p/overlays/gyro_4045_actor1.png",
-        "x": 3.1,
-        "y": 128,
+        "x": 2.01,
+        "y": 83.12,
         "w": 1412.63,
         "h": 916,
         "clip": true,
-        "depth": 1
+        "z": 1000,
+        "depth": 1000
       },
       {
         "file": "gyro_4045_L-1",
         "path": "chars/4045/4045_p/overlays/gyro_4045_L-1.png",
-        "x": -446.4,
-        "y": -417.3,
+        "x": -288,
+        "y": -269.23,
         "w": 120,
         "h": 152,
         "clip": false,
-        "depth": 1
+        "z": 1000,
+        "depth": 1000
       },
       {
         "file": "gyro_4045_O",
         "path": "chars/4045/4045_p/overlays/gyro_4045_O.png",
-        "x": -235.9,
-        "y": 495.8,
+        "x": -196.58,
+        "y": 413.17,
         "w": 124,
         "h": 176,
         "clip": true,
-        "depth": 1
+        "z": 600,
+        "depth": 600
       },
       {
         "file": "gyro_4045_petal",
         "path": "chars/4045/4045_p/overlays/gyro_4045_petal.png",
         "x": -1,
-        "y": -35.9,
+        "y": -34.34,
         "w": 1232,
         "h": 836.17,
         "clip": true,
-        "depth": 1
+        "z": 400,
+        "depth": 400
       },
       {
         "file": "gyro_4045_L-2",
         "path": "chars/4045/4045_p/overlays/gyro_4045_L-2.png",
-        "x": -183.9,
-        "y": -444.6,
+        "x": -167.18,
+        "y": -404.18,
         "w": 100,
         "h": 128,
         "clip": true,
-        "depth": 1
+        "z": 400,
+        "depth": 400
       },
       {
         "file": "gyro_4045_front_lily",
         "path": "chars/4045/4045_p/overlays/gyro_4045_front_lily.png",
-        "x": -34.7,
-        "y": 354.5,
+        "x": -40.82,
+        "y": 417.06,
         "w": 1412,
         "h": 252.34,
         "clip": true,
-        "depth": 1
+        "z": 200,
+        "depth": 200
       },
       {
         "file": "gyro_4045_I-1",
         "path": "chars/4045/4045_p/overlays/gyro_4045_I-1.png",
-        "x": -340.8,
-        "y": 241,
+        "x": -378.67,
+        "y": 267.78,
         "w": 200,
         "h": 212,
         "clip": true,
-        "depth": 1
+        "z": 200,
+        "depth": 200
       },
       {
         "file": "gyro_4045_ephemeral",
         "path": "chars/4045/4045_p/overlays/gyro_4045_ephemeral.png",
-        "x": 3.4,
-        "y": -329.3,
+        "x": 4.72,
+        "y": -457.36,
         "w": 872,
         "h": 28,
         "clip": false,
-        "depth": 1
+        "z": 0,
+        "depth": 0
       },
       {
         "file": "gyro_4045_N",
         "path": "chars/4045/4045_p/overlays/gyro_4045_N.png",
-        "x": 146.1,
-        "y": 230.7,
+        "x": 218.06,
+        "y": 344.33,
         "w": 164,
         "h": 168,
         "clip": false,
-        "depth": 1
+        "z": -50,
+        "depth": -50
       },
       {
         "file": "gyro_4045_UN",
         "path": "chars/4045/4045_p/overlays/gyro_4045_UN.png",
-        "x": 239.3,
-        "y": -217.82,
+        "x": 341.86,
+        "y": -311.17,
         "w": 224,
         "h": 188,
         "clip": false,
-        "depth": 1
+        "z": -100,
+        "depth": -100
       },
       {
         "file": "gyro_4045_I",
         "path": "chars/4045/4045_p/overlays/gyro_4045_I.png",
-        "x": -240.2,
-        "y": -235.3,
+        "x": -428.93,
+        "y": -420.18,
         "w": 204,
         "h": 220,
         "clip": false,
-        "depth": 1
+        "z": -150,
+        "depth": -150
       }
     ]
   },
@@ -6120,57 +6538,63 @@
         "w": 752,
         "h": 768,
         "clip": false,
-        "depth": 1
+        "z": 0,
+        "depth": 0
       },
       {
         "file": "gyro_4046_snow",
         "path": "chars/4046/4046_p/overlays/gyro_4046_snow.png",
-        "x": -12.6,
-        "y": 27.06,
+        "x": -3.6,
+        "y": 7.73,
         "w": 1412.41,
         "h": 1000,
         "clip": true,
-        "depth": 1
+        "z": 3000,
+        "depth": 3000
       },
       {
         "file": "gyro_4046_actor1",
         "path": "chars/4046/4046_p/overlays/gyro_4046_actor1.png",
-        "x": 1,
-        "y": 0.27,
+        "x": 0.86,
+        "y": 0.23,
         "w": 1412.41,
         "h": 1000,
         "clip": true,
-        "depth": 1
+        "z": 500,
+        "depth": 500
       },
       {
         "file": "gyro_4046_rough",
         "path": "chars/4046/4046_p/overlays/gyro_4046_rough.png",
-        "x": 206.6,
-        "y": -220.5,
+        "x": 229.56,
+        "y": -245,
         "w": 556,
         "h": 392,
         "clip": true,
-        "depth": 1
+        "z": 0,
+        "depth": 0
       },
       {
         "file": "gyro_4046_subtitle",
         "path": "chars/4046/4046_p/overlays/gyro_4046_subtitle.png",
-        "x": -257.2,
-        "y": 275.8,
+        "x": -395.69,
+        "y": 424.31,
         "w": 152,
         "h": 92,
         "clip": false,
-        "depth": 1
+        "z": -120,
+        "depth": -120
       },
       {
         "file": "gyro_4046_title",
         "path": "chars/4046/4046_p/overlays/gyro_4046_title.png",
-        "x": 112.4,
-        "y": -215.5,
+        "x": 197.19,
+        "y": -378.07,
         "w": 572,
         "h": 196,
         "clip": false,
-        "depth": 1
+        "z": -200,
+        "depth": -200
       }
     ]
   },
@@ -6200,107 +6624,118 @@
         "w": 752,
         "h": 768,
         "clip": false,
-        "depth": 1
+        "z": 0,
+        "depth": 0
       },
       {
         "file": "gyro_4047_bg",
         "path": "chars/4047/4047_p/overlays/gyro_4047_bg.png",
-        "x": -94.9,
-        "y": 1.3,
+        "x": -26,
+        "y": 0.36,
         "w": 1412.41,
         "h": 1000,
         "clip": true,
-        "depth": 1
+        "z": 3350,
+        "depth": 3350
       },
       {
         "file": "gyro_4047_particles",
         "path": "chars/4047/4047_p/overlays/gyro_4047_particles.png",
-        "x": 12.4,
-        "y": 129.33,
+        "x": 6.2,
+        "y": 64.67,
         "w": 1100.69,
         "h": 732,
         "clip": true,
-        "depth": 1
+        "z": 1800,
+        "depth": 1800
       },
       {
         "file": "gyro_4047_letter2",
         "path": "chars/4047/4047_p/overlays/gyro_4047_letter2.png",
-        "x": 415.8,
-        "y": 733.9,
+        "x": 277.2,
+        "y": 407.72,
         "w": 316,
         "h": 172,
         "clip": true,
-        "depth": 1
+        "z": 1200,
+        "depth": 1200
       },
       {
         "file": "gyro_4047_letter3",
         "path": "chars/4047/4047_p/overlays/gyro_4047_letter3.png",
-        "x": -553,
-        "y": -328,
+        "x": -307.22,
+        "y": -192.94,
         "w": 708,
         "h": 596,
         "clip": true,
-        "depth": 1
+        "z": 800,
+        "depth": 800
       },
       {
         "file": "gyro_4047_letter4",
         "path": "chars/4047/4047_p/overlays/gyro_4047_letter4.png",
-        "x": 536.1,
-        "y": 435.8,
+        "x": 446.75,
+        "y": 302.64,
         "w": 320,
         "h": 236,
         "clip": true,
-        "depth": 1
+        "z": 600,
+        "depth": 600
       },
       {
         "file": "gyro_4047_letter1",
         "path": "chars/4047/4047_p/overlays/gyro_4047_letter1.png",
-        "x": 505.6,
-        "y": -321.6,
+        "x": 842.67,
+        "y": -536,
         "w": 260,
         "h": 448,
         "clip": true,
-        "depth": 1
+        "z": 300,
+        "depth": 300
       },
       {
         "file": "gyro_4047_windbell",
         "path": "chars/4047/4047_p/overlays/gyro_4047_windbell.png",
-        "x": -505.3,
-        "y": -200.4,
+        "x": -561.44,
+        "y": -222.67,
         "w": 284,
         "h": 472,
         "clip": true,
-        "depth": 1
+        "z": 241.2,
+        "depth": 241.2
       },
       {
         "file": "gyro_4047_righttitle",
         "path": "chars/4047/4047_p/overlays/gyro_4047_righttitle.png",
-        "x": 226.9,
-        "y": -283,
+        "x": 302.53,
+        "y": -377.33,
         "w": 332,
         "h": 192,
         "clip": false,
-        "depth": 1
+        "z": 0,
+        "depth": 0
       },
       {
         "file": "gyro_4047_lefttitle",
         "path": "chars/4047/4047_p/overlays/gyro_4047_lefttitle.png",
-        "x": -217.8,
-        "y": -274,
+        "x": -335.08,
+        "y": -421.54,
         "w": 224,
         "h": 60,
         "clip": false,
-        "depth": 1
+        "z": -120,
+        "depth": -120
       },
       {
         "file": "gyro_4047_title",
         "path": "chars/4047/4047_p/overlays/gyro_4047_title.png",
-        "x": -109.8,
-        "y": 210.6,
+        "x": -192.63,
+        "y": 369.47,
         "w": 520,
         "h": 216,
         "clip": false,
-        "depth": 1
+        "z": -200,
+        "depth": -200
       }
     ]
   },
@@ -6330,147 +6765,162 @@
         "w": 752,
         "h": 768,
         "clip": false,
-        "depth": 1
+        "z": 0,
+        "depth": 0
       },
       {
         "file": "gyro_4048_bg",
         "path": "chars/4048/4048_p/overlays/gyro_4048_bg.png",
-        "x": 111.2,
-        "y": 14.6,
+        "x": 32.71,
+        "y": 4.29,
         "w": 1412.41,
         "h": 1000,
         "clip": true,
-        "depth": 1
+        "z": 3000,
+        "depth": 3000
       },
       {
         "file": "gyro_4048_snow",
         "path": "chars/4048/4048_p/overlays/gyro_4048_snow.png",
-        "x": -287,
-        "y": -513.1,
+        "x": -98.97,
+        "y": -176.93,
         "w": 1360,
         "h": 536.56,
         "clip": true,
-        "depth": 1
+        "z": 2300,
+        "depth": 2300
       },
       {
         "file": "gyro_4048_sledge",
         "path": "chars/4048/4048_p/overlays/gyro_4048_sledge.png",
-        "x": 257.9,
-        "y": 448.6,
+        "x": 110.21,
+        "y": 191.71,
         "w": 1060,
         "h": 628.34,
         "clip": true,
-        "depth": 1
+        "z": 2200,
+        "depth": 2200
       },
       {
         "file": "gyro_4048_window1",
         "path": "chars/4048/4048_p/overlays/gyro_4048_window1.png",
-        "x": -762.7,
-        "y": -306.5,
+        "x": -331.61,
+        "y": -97.72,
         "w": 804,
         "h": 1004,
         "clip": true,
-        "depth": 1
+        "z": 2000,
+        "depth": 2000
       },
       {
         "file": "gyro_4048_window2",
         "path": "chars/4048/4048_p/overlays/gyro_4048_window2.png",
-        "x": 1306,
-        "y": 5.6,
+        "x": 502.31,
+        "y": 1.93,
         "w": 328,
         "h": 1004,
         "clip": true,
-        "depth": 1
+        "z": 2000,
+        "depth": 2000
       },
       {
         "file": "gyro_4048_actor1",
         "path": "chars/4048/4048_p/overlays/gyro_4048_actor1.png",
-        "x": 229.48,
-        "y": 2.89,
+        "x": 122.06,
+        "y": 1.54,
         "w": 1000,
         "h": 1000,
         "clip": true,
-        "depth": 1
+        "z": 1500,
+        "depth": 1500
       },
       {
         "file": "gyro_4048_box",
         "path": "chars/4048/4048_p/overlays/gyro_4048_box.png",
-        "x": -141.2,
-        "y": 508.3,
+        "x": -97.38,
+        "y": 350.55,
         "w": 556,
         "h": 380,
         "clip": true,
-        "depth": 1
+        "z": 950,
+        "depth": 950
       },
       {
         "file": "gyro_4048_ribbon3",
         "path": "chars/4048/4048_p/overlays/gyro_4048_ribbon3.png",
-        "x": -310.2,
-        "y": 651.9,
+        "x": -206.8,
+        "y": 362.17,
         "w": 168,
         "h": 128,
         "clip": true,
-        "depth": 1
+        "z": 942.45,
+        "depth": 942.45
       },
       {
         "file": "gyro_4048_ribbon1",
         "path": "chars/4048/4048_p/overlays/gyro_4048_ribbon1.png",
-        "x": -523.5,
-        "y": 197.2,
+        "x": -361.03,
+        "y": 136,
         "w": 572,
         "h": 420,
         "clip": true,
-        "depth": 1
+        "z": 824.1,
+        "depth": 824.1
       },
       {
         "file": "gyro_4048_ribbon2",
         "path": "chars/4048/4048_p/overlays/gyro_4048_ribbon2.png",
-        "x": -510.4,
-        "y": 339,
+        "x": -352,
+        "y": 233.79,
         "w": 540,
         "h": 148,
         "clip": true,
-        "depth": 1
+        "z": 824.1,
+        "depth": 824.1
       },
       {
         "file": "gyro_4048_ribbon5",
         "path": "chars/4048/4048_p/overlays/gyro_4048_ribbon5.png",
-        "x": 134.6,
-        "y": 604.7,
+        "x": 84.12,
+        "y": 431.93,
         "w": 340,
         "h": 144,
         "clip": true,
-        "depth": 1
+        "z": 824.1,
+        "depth": 824.1
       },
       {
         "file": "gyro_4048_actor3",
         "path": "chars/4048/4048_p/overlays/gyro_4048_actor3.png",
-        "x": -458.47,
-        "y": -89,
+        "x": -363.87,
+        "y": -70.63,
         "w": 280,
         "h": 356,
         "clip": true,
-        "depth": 1
+        "z": 734.3,
+        "depth": 734.3
       },
       {
         "file": "gyro_4048_ribbon4",
         "path": "chars/4048/4048_p/overlays/gyro_4048_ribbon4.png",
-        "x": 401.1,
-        "y": 110.26,
+        "x": 308.54,
+        "y": 84.82,
         "w": 724,
         "h": 488,
         "clip": true,
-        "depth": 1
+        "z": 680,
+        "depth": 680
       },
       {
         "file": "gyro_4048_actor4",
         "path": "chars/4048/4048_p/overlays/gyro_4048_actor4.png",
-        "x": -106.2,
-        "y": 401.3,
+        "x": -92.35,
+        "y": 308.69,
         "w": 192,
         "h": 268,
         "clip": true,
-        "depth": 1
+        "z": 600,
+        "depth": 600
       },
       {
         "file": "gyro_4048_paper2",
@@ -6480,7 +6930,8 @@
         "w": 1232.65,
         "h": 768,
         "clip": true,
-        "depth": 1
+        "z": 500,
+        "depth": 500
       },
       {
         "file": "gyro_4048_paper1",
@@ -6490,7 +6941,8 @@
         "w": 1412.41,
         "h": 1000,
         "clip": true,
-        "depth": 1
+        "z": 350,
+        "depth": 350
       },
       {
         "file": "gyro_4048_actor5",
@@ -6500,37 +6952,41 @@
         "w": 228,
         "h": 216,
         "clip": true,
-        "depth": 1
+        "z": 306.9,
+        "depth": 306.9
       },
       {
         "file": "gyro_4048_actor2",
         "path": "chars/4048/4048_p/overlays/gyro_4048_actor2.png",
-        "x": 312.7,
-        "y": 127.7,
+        "x": 376.75,
+        "y": 144.14,
         "w": 572,
         "h": 560,
         "clip": true,
-        "depth": 1
+        "z": 150,
+        "depth": 150
       },
       {
         "file": "gyro_4048_subtitle",
         "path": "chars/4048/4048_p/overlays/gyro_4048_subtitle.png",
-        "x": -161,
-        "y": 286.4,
+        "x": -247.69,
+        "y": 440.62,
         "w": 408,
         "h": 40,
         "clip": false,
-        "depth": 1
+        "z": -120,
+        "depth": -120
       },
       {
         "file": "gyro_4048_title",
         "path": "chars/4048/4048_p/overlays/gyro_4048_title.png",
-        "x": 174.4,
-        "y": -198.8,
+        "x": 317.09,
+        "y": -361.45,
         "w": 368,
         "h": 252,
         "clip": false,
-        "depth": 1
+        "z": -200,
+        "depth": -200
       }
     ]
   },
@@ -6560,207 +7016,228 @@
         "w": 752,
         "h": 768,
         "clip": false,
-        "depth": 1
+        "z": 0,
+        "depth": 0
       },
       {
         "file": "gyro_4049_bg",
         "path": "chars/4049/4049_p/overlays/gyro_4049_bg.png",
-        "x": -94.9,
-        "y": 238.2,
+        "x": -21.09,
+        "y": 52.93,
         "w": 1412.41,
         "h": 1000,
         "clip": true,
-        "depth": 1
+        "z": 3500,
+        "depth": 3500
       },
       {
         "file": "gyro_4049_cloud3",
         "path": "chars/4049/4049_p/overlays/gyro_4049_cloud3.png",
-        "x": -15.6,
-        "y": -294.5,
+        "x": -4.59,
+        "y": -81.81,
         "w": 1412,
         "h": 772.19,
         "clip": true,
-        "depth": 1
+        "z": 2800,
+        "depth": 2800
       },
       {
         "file": "gyro_4049_field",
         "path": "chars/4049/4049_p/overlays/gyro_4049_field.png",
-        "x": -37.2,
-        "y": 848.1,
+        "x": -13.29,
+        "y": 282.7,
         "w": 1412,
         "h": 576.38,
         "clip": true,
-        "depth": 1
+        "z": 2800,
+        "depth": 2800
       },
       {
         "file": "gyro_4049_cloud2",
         "path": "chars/4049/4049_p/overlays/gyro_4049_cloud2.png",
-        "x": -1526.5,
-        "y": -845.9,
+        "x": -401.71,
+        "y": -201.4,
         "w": 500,
         "h": 380,
         "clip": true,
-        "depth": 1
+        "z": 2700,
+        "depth": 2700
       },
       {
         "file": "gyro_4049_redbg",
         "path": "chars/4049/4049_p/overlays/gyro_4049_redbg.png",
-        "x": -496.4,
-        "y": 345,
+        "x": -198.56,
+        "y": 138,
         "w": 1076,
         "h": 1000.34,
         "clip": true,
-        "depth": 1
+        "z": 2600,
+        "depth": 2600
       },
       {
         "file": "gyro_4049_stair",
         "path": "chars/4049/4049_p/overlays/gyro_4049_stair.png",
-        "x": 183.6,
-        "y": 35.6,
+        "x": 70.62,
+        "y": 11.87,
         "w": 1364,
         "h": 1000.36,
         "clip": true,
-        "depth": 1
+        "z": 2600,
+        "depth": 2600
       },
       {
         "file": "gyro_4049_tower",
         "path": "chars/4049/4049_p/overlays/gyro_4049_tower.png",
-        "x": -6.2,
-        "y": 183.3,
+        "x": -2.14,
+        "y": 63.21,
         "w": 308,
         "h": 1000,
         "clip": true,
-        "depth": 1
+        "z": 2000,
+        "depth": 2000
       },
       {
         "file": "gyro_4049_star",
         "path": "chars/4049/4049_p/overlays/gyro_4049_star.png",
-        "x": 4.9,
-        "y": -552.2,
+        "x": 2.04,
+        "y": -230.08,
         "w": 324,
         "h": 504,
         "clip": true,
-        "depth": 1
+        "z": 2000,
+        "depth": 2000
       },
       {
         "file": "gyro_4049_starlight",
         "path": "chars/4049/4049_p/overlays/gyro_4049_starlight.png",
-        "x": 7.5,
-        "y": -266.6,
+        "x": 5,
+        "y": -177.73,
         "w": 568,
         "h": 932,
         "clip": true,
-        "depth": 1
+        "z": 2000,
+        "depth": 2000
       },
       {
         "file": "gyro_4049_stair1",
         "path": "chars/4049/4049_p/overlays/gyro_4049_stair1.png",
-        "x": 132.9,
-        "y": 974.9,
+        "x": 60.41,
+        "y": 336.17,
         "w": 676,
         "h": 148,
         "clip": true,
-        "depth": 1
+        "z": 1760.1,
+        "depth": 1760.1
       },
       {
         "file": "gyro_4049_actor1",
         "path": "chars/4049/4049_p/overlays/gyro_4049_actor1.png",
-        "x": -727.8,
-        "y": -169.2,
+        "x": -383.05,
+        "y": -89.05,
         "w": 404,
         "h": 480,
         "clip": true,
-        "depth": 1
+        "z": 1700,
+        "depth": 1700
       },
       {
         "file": "gyro_4049_halo",
         "path": "chars/4049/4049_p/overlays/gyro_4049_halo.png",
-        "x": -1.9,
-        "y": -310,
+        "x": -1,
+        "y": -163.16,
         "w": 972,
         "h": 844,
         "clip": true,
-        "depth": 1
+        "z": 1600,
+        "depth": 1600
       },
       {
         "file": "gyro_4049_wind",
         "path": "chars/4049/4049_p/overlays/gyro_4049_wind.png",
-        "x": 3.32,
-        "y": -66.5,
+        "x": 1.66,
+        "y": -33.25,
         "w": 1412.41,
         "h": 1000,
         "clip": true,
-        "depth": 1
+        "z": 1500,
+        "depth": 1500
       },
       {
         "file": "gyro_4049_cloud1",
         "path": "chars/4049/4049_p/overlays/gyro_4049_cloud1.png",
-        "x": -140.1,
-        "y": 774.8,
+        "x": -63.68,
+        "y": 352.18,
         "w": 1176,
         "h": 228.54,
         "clip": true,
-        "depth": 1
+        "z": 1400,
+        "depth": 1400
       },
       {
         "file": "gyro_4049_actor2",
         "path": "chars/4049/4049_p/overlays/gyro_4049_actor2.png",
-        "x": 431.3,
-        "y": 24.1,
+        "x": 269.56,
+        "y": 15.06,
         "w": 424,
         "h": 588,
         "clip": true,
-        "depth": 1
+        "z": 1200,
+        "depth": 1200
       },
       {
         "file": "gyro_4049_actor5",
         "path": "chars/4049/4049_p/overlays/gyro_4049_actor5.png",
-        "x": -469.7,
-        "y": 249.5,
+        "x": -313.13,
+        "y": 166.33,
         "w": 304,
         "h": 380,
         "clip": true,
-        "depth": 1
+        "z": 900,
+        "depth": 900
       },
       {
         "file": "gyro_4049_actor3",
         "path": "chars/4049/4049_p/overlays/gyro_4049_actor3.png",
-        "x": 141.6,
-        "y": 180.3,
+        "x": 118,
+        "y": 150.25,
         "w": 332,
         "h": 772,
         "clip": true,
-        "depth": 1
+        "z": 600,
+        "depth": 600
       },
       {
         "file": "gyro_4049_actor4",
         "path": "chars/4049/4049_p/overlays/gyro_4049_actor4.png",
-        "x": -198.3,
-        "y": 204.2,
+        "x": -180.27,
+        "y": 185.64,
         "w": 456,
         "h": 692,
         "clip": true,
-        "depth": 1
+        "z": 500,
+        "depth": 500
       },
       {
         "file": "gyro_4049_sub",
         "path": "chars/4049/4049_p/overlays/gyro_4049_sub.png",
-        "x": -235.6,
-        "y": 311.4,
+        "x": -294.5,
+        "y": 389.25,
         "w": 252,
         "h": 88,
         "clip": false,
-        "depth": 1
+        "z": 0,
+        "depth": 0
       },
       {
         "file": "gyro_4049_title",
         "path": "chars/4049/4049_p/overlays/gyro_4049_title.png",
-        "x": 159.4,
-        "y": -200.82,
+        "x": 279.65,
+        "y": -352.32,
         "w": 392,
         "h": 256,
         "clip": false,
-        "depth": 1
+        "z": -200,
+        "depth": -200
       }
     ]
   },
@@ -6790,157 +7267,173 @@
         "w": 752,
         "h": 768,
         "clip": false,
-        "depth": 1
+        "z": 0,
+        "depth": 0
       },
       {
         "file": "gyro_4050_bg",
         "path": "chars/4050/4050_p/overlays/gyro_4050_bg.png",
-        "x": -193.9,
-        "y": 28.8,
+        "x": -51.03,
+        "y": 7.58,
         "w": 1576.61,
         "h": 1184,
         "clip": true,
-        "depth": 1
+        "z": 3500,
+        "depth": 3500
       },
       {
         "file": "gyro_4050_hotel",
         "path": "chars/4050/4050_p/overlays/gyro_4050_hotel.png",
-        "x": -1272.6,
-        "y": -61.9,
+        "x": -397.69,
+        "y": -19.34,
         "w": 1120.08,
         "h": 1180,
         "clip": true,
-        "depth": 1
+        "z": 3000,
+        "depth": 3000
       },
       {
         "file": "gyro_4050_spark3",
         "path": "chars/4050/4050_p/overlays/gyro_4050_spark3.png",
-        "x": -1459.2,
-        "y": -12,
+        "x": -583.68,
+        "y": -4.8,
         "w": 400,
         "h": 236,
         "clip": true,
-        "depth": 1
+        "z": 2500,
+        "depth": 2500
       },
       {
         "file": "gyro_4050_shadow",
         "path": "chars/4050/4050_p/overlays/gyro_4050_shadow.png",
-        "x": -1490.14,
-        "y": -516,
+        "x": -573.13,
+        "y": -198.46,
         "w": 228,
         "h": 180,
         "clip": true,
-        "depth": 1
+        "z": 2500,
+        "depth": 2500
       },
       {
         "file": "gyro_4050_roundlight",
         "path": "chars/4050/4050_p/overlays/gyro_4050_roundlight.png",
-        "x": -1434.4,
-        "y": -499,
+        "x": -573.76,
+        "y": -199.6,
         "w": 256,
         "h": 268,
         "clip": true,
-        "depth": 1
+        "z": 2300,
+        "depth": 2300
       },
       {
         "file": "gyro_4050_spark2",
         "path": "chars/4050/4050_p/overlays/gyro_4050_spark2.png",
-        "x": -1090,
-        "y": 369.7,
+        "x": -605.56,
+        "y": 205.39,
         "w": 855,
         "h": 640,
         "clip": true,
-        "depth": 1
+        "z": 2300,
+        "depth": 2300
       },
       {
         "file": "gyro_4050_chandelier3",
         "path": "chars/4050/4050_p/overlays/gyro_4050_chandelier3.png",
-        "x": -1193.1,
-        "y": 365.5,
+        "x": -518.74,
+        "y": 158.91,
         "w": 176,
         "h": 176,
         "clip": true,
-        "depth": 1
+        "z": 2100,
+        "depth": 2100
       },
       {
         "file": "gyro_4050_spark1",
         "path": "chars/4050/4050_p/overlays/gyro_4050_spark1.png",
-        "x": -910,
-        "y": 492,
+        "x": -455,
+        "y": 246,
         "w": 784,
         "h": 664,
         "clip": true,
-        "depth": 1
+        "z": 2000,
+        "depth": 2000
       },
       {
         "file": "gyro_4050_light",
         "path": "chars/4050/4050_p/overlays/gyro_4050_light.png",
-        "x": -707.9,
-        "y": -45.7,
+        "x": -353.95,
+        "y": -20.4,
         "w": 784,
         "h": 592,
         "clip": true,
-        "depth": 1
+        "z": 2000,
+        "depth": 2000
       },
       {
         "file": "gyro_4050_boss",
         "path": "chars/4050/4050_p/overlays/gyro_4050_boss.png",
-        "x": -610.57,
-        "y": 230.2,
+        "x": -277.53,
+        "y": 101.47,
         "w": 296,
         "h": 328,
         "clip": true,
-        "depth": 1
+        "z": 1800,
+        "depth": 1800
       },
       {
         "file": "gyro_4050_actor2",
         "path": "chars/4050/4050_p/overlays/gyro_4050_actor2.png",
-        "x": 469.5,
-        "y": 359.3,
+        "x": 223.57,
+        "y": 171.1,
         "w": 768,
         "h": 864,
         "clip": true,
-        "depth": 1
+        "z": 1800,
+        "depth": 1800
       },
       {
         "file": "gyro_4050_actor1",
         "path": "chars/4050/4050_p/overlays/gyro_4050_actor1.png",
-        "x": -77.6,
-        "y": 20.9,
+        "x": -52.79,
+        "y": 14.22,
         "w": 1348.57,
         "h": 1180,
         "clip": true,
-        "depth": 1
+        "z": 1000,
+        "depth": 1000
       },
       {
         "file": "gyro_4050_lily2",
         "path": "chars/4050/4050_p/overlays/gyro_4050_lily2.png",
-        "x": 265.6,
-        "y": 411.1,
+        "x": 221.33,
+        "y": 342.58,
         "w": 476,
         "h": 464,
         "clip": true,
-        "depth": 1
+        "z": 600,
+        "depth": 600
       },
       {
         "file": "gyro_4050_chandelier2",
         "path": "chars/4050/4050_p/overlays/gyro_4050_chandelier2.png",
-        "x": -730.6,
-        "y": 163.3,
+        "x": -562,
+        "y": 125.62,
         "w": 288,
         "h": 300,
         "clip": true,
-        "depth": 1
+        "z": 600,
+        "depth": 600
       },
       {
         "file": "gyro_4050_chandelier2-fx",
         "path": "chars/4050/4050_p/overlays/gyro_4050_chandelier2-fx.png",
-        "x": -739.5,
-        "y": 155.8,
+        "x": -568.85,
+        "y": 119.85,
         "w": 244,
         "h": 244,
         "clip": true,
-        "depth": 1
+        "z": 600,
+        "depth": 600
       },
       {
         "file": "gyro_4050_lily1",
@@ -6950,47 +7443,52 @@
         "w": 988,
         "h": 280,
         "clip": true,
-        "depth": 1
+        "z": 350,
+        "depth": 350
       },
       {
         "file": "gyro_4050_chandelier1",
         "path": "chars/4050/4050_p/overlays/gyro_4050_chandelier1.png",
-        "x": -175.5,
-        "y": -393.6,
+        "x": -204.07,
+        "y": -457.67,
         "w": 372,
         "h": 336,
         "clip": true,
-        "depth": 1
+        "z": 241.2,
+        "depth": 241.2
       },
       {
         "file": "gyro_4050_chandelier1-fx",
         "path": "chars/4050/4050_p/overlays/gyro_4050_chandelier1-fx.png",
-        "x": -179.15,
-        "y": -406.2,
+        "x": -208.31,
+        "y": -451.33,
         "w": 304,
         "h": 308,
         "clip": true,
-        "depth": 1
+        "z": 241.2,
+        "depth": 241.2
       },
       {
         "file": "gyro_4050_sub",
         "path": "chars/4050/4050_p/overlays/gyro_4050_sub.png",
-        "x": 256.6,
-        "y": -291.5,
+        "x": 342.13,
+        "y": -388.67,
         "w": 176,
         "h": 100,
         "clip": false,
-        "depth": 1
+        "z": 0,
+        "depth": 0
       },
       {
         "file": "gyro_4050_title",
         "path": "chars/4050/4050_p/overlays/gyro_4050_title.png",
-        "x": -98.44,
-        "y": 210.6,
+        "x": -182.3,
+        "y": 390,
         "w": 604,
         "h": 216,
         "clip": false,
-        "depth": 1
+        "z": -200,
+        "depth": -200
       }
     ]
   },
@@ -7020,127 +7518,140 @@
         "w": 752,
         "h": 768,
         "clip": false,
-        "depth": 1
+        "z": 0,
+        "depth": 0
       },
       {
         "file": "gyro_4051_bg",
         "path": "chars/4051/4051_p/overlays/gyro_4051_bg.png",
-        "x": -41.3,
-        "y": -13.7,
+        "x": -16.86,
+        "y": -5.59,
         "w": 2048,
         "h": 1580,
         "clip": true,
-        "depth": 1
+        "z": 3000,
+        "depth": 3000
       },
       {
         "file": "gyro_4051_fx2",
         "path": "chars/4051/4051_p/overlays/gyro_4051_fx2.png",
-        "x": -715.1,
-        "y": -1059.2,
+        "x": -210.32,
+        "y": -294.22,
         "w": 320,
         "h": 356,
         "clip": true,
-        "depth": 1
+        "z": 2800,
+        "depth": 2800
       },
       {
         "file": "gyro_4051_monster2",
         "path": "chars/4051/4051_p/overlays/gyro_4051_monster2.png",
-        "x": -814,
-        "y": -1313,
+        "x": -271.33,
+        "y": -437.67,
         "w": 280,
         "h": 252,
         "clip": true,
-        "depth": 1
+        "z": 2800,
+        "depth": 2800
       },
       {
         "file": "gyro_4051_star",
         "path": "chars/4051/4051_p/overlays/gyro_4051_star.png",
-        "x": -337,
-        "y": 233.2,
+        "x": -129.62,
+        "y": 89.69,
         "w": 128,
         "h": 124,
         "clip": true,
-        "depth": 1
+        "z": 2200,
+        "depth": 2200
       },
       {
         "file": "gyro_4051_particle",
         "path": "chars/4051/4051_p/overlays/gyro_4051_particle.png",
-        "x": -61.3,
-        "y": -103.8,
+        "x": -26.65,
+        "y": -45.13,
         "w": 1340,
         "h": 956.58,
         "clip": true,
-        "depth": 1
+        "z": 2000,
+        "depth": 2000
       },
       {
         "file": "gyro_4051_monster1",
         "path": "chars/4051/4051_p/overlays/gyro_4051_monster1.png",
-        "x": 957.7,
-        "y": 547.3,
+        "x": 504.05,
+        "y": 259.25,
         "w": 396,
         "h": 380,
         "clip": true,
-        "depth": 1
+        "z": 1600,
+        "depth": 1600
       },
       {
         "file": "gyro_4051_light1",
         "path": "chars/4051/4051_p/overlays/gyro_4051_light1.png",
-        "x": 265.5,
-        "y": -986.9,
+        "x": 94.82,
+        "y": -328.97,
         "w": 300,
         "h": 88,
         "clip": true,
-        "depth": 1
+        "z": 1600,
+        "depth": 1600
       },
       {
         "file": "gyro_4051_fx1",
         "path": "chars/4051/4051_p/overlays/gyro_4051_fx1.png",
-        "x": -78.5,
-        "y": -77,
+        "x": -56.07,
+        "y": -51.33,
         "w": 1412.41,
         "h": 1000,
         "clip": true,
-        "depth": 1
+        "z": 1000,
+        "depth": 1000
       },
       {
         "file": "gyro_4051_light3",
         "path": "chars/4051/4051_p/overlays/gyro_4051_light3.png",
-        "x": -69,
-        "y": -78.5,
+        "x": -49.29,
+        "y": -56.07,
         "w": 1412.41,
         "h": 1000,
         "clip": true,
-        "depth": 1
+        "z": 1000,
+        "depth": 1000
       },
       {
         "file": "gyro_4051_light2",
         "path": "chars/4051/4051_p/overlays/gyro_4051_light2.png",
-        "x": 17.7,
-        "y": 298.7,
+        "x": 14.75,
+        "y": 229.77,
         "w": 1412,
         "h": 544.67,
         "clip": true,
-        "depth": 1
+        "z": 600,
+        "depth": 600
       },
       {
         "file": "gyro_4051_sub",
         "path": "chars/4051/4051_p/overlays/gyro_4051_sub.png",
-        "x": -213.2,
-        "y": 286.3,
+        "x": -304.57,
+        "y": 409,
         "w": 252,
         "h": 68,
         "clip": false,
-        "depth": 1
+        "z": -80,
+        "depth": -80
       },
       {
         "file": "gyro_4051_title",
         "path": "chars/4051/4051_p/overlays/gyro_4051_title.png",
-        "x": 112.3,
-        "y": -175.9,
+        "x": 215.96,
+        "y": -338.27,
         "w": 548,
         "h": 364,
         "clip": false,
-        "depth": 1
+        "z": -200,
+        "depth": -200
       }
     ]
   },
@@ -7170,177 +7681,195 @@
         "w": 752,
         "h": 768,
         "clip": false,
-        "depth": 1
+        "z": 0,
+        "depth": 0
       },
       {
         "file": "gyro_4052_sky",
         "path": "chars/4052/4052_p/overlays/gyro_4052_sky.png",
-        "x": 131.43,
-        "y": -10.7,
+        "x": 37.55,
+        "y": -2.61,
         "w": 1412.41,
         "h": 1000,
         "clip": true,
-        "depth": 1
+        "z": 3500,
+        "depth": 3500
       },
       {
         "file": "gyro_4052_star3",
         "path": "chars/4052/4052_p/overlays/gyro_4052_star3.png",
-        "x": 330.8,
-        "y": 27,
+        "x": 110.27,
+        "y": 9,
         "w": 1224,
         "h": 1000.48,
         "clip": true,
-        "depth": 1
+        "z": 3000,
+        "depth": 3000
       },
       {
         "file": "gyro_4052_moon",
         "path": "chars/4052/4052_p/overlays/gyro_4052_moon.png",
-        "x": 1669,
-        "y": -1211,
+        "x": 556.33,
+        "y": -403.67,
         "w": 168,
         "h": 176,
         "clip": true,
-        "depth": 1
+        "z": 2800,
+        "depth": 2800
       },
       {
         "file": "gyro_4052_gear10",
         "path": "chars/4052/4052_p/overlays/gyro_4052_gear10.png",
-        "x": -1201,
-        "y": 385,
+        "x": -400.33,
+        "y": 128.33,
         "w": 504,
         "h": 780,
         "clip": true,
-        "depth": 1
+        "z": 2800,
+        "depth": 2800
       },
       {
         "file": "gyro_4052_circle",
         "path": "chars/4052/4052_p/overlays/gyro_4052_circle.png",
-        "x": -1516.1,
-        "y": -1057.3,
+        "x": -505.37,
+        "y": -352.43,
         "w": 248,
         "h": 388,
         "clip": true,
-        "depth": 1
+        "z": 2700,
+        "depth": 2700
       },
       {
         "file": "gyro_4052_gear7",
         "path": "chars/4052/4052_p/overlays/gyro_4052_gear7.png",
-        "x": 58.2,
-        "y": -379.5,
+        "x": 22.82,
+        "y": -148.82,
         "w": 436,
         "h": 408,
         "clip": true,
-        "depth": 1
+        "z": 2500,
+        "depth": 2500
       },
       {
         "file": "gyro_4052_gear6",
         "path": "chars/4052/4052_p/overlays/gyro_4052_gear6.png",
-        "x": 1392.1,
-        "y": -858.7,
+        "x": 535.42,
+        "y": -330.27,
         "w": 364,
         "h": 496,
         "clip": true,
-        "depth": 1
+        "z": 2400,
+        "depth": 2400
       },
       {
         "file": "gyro_4052_gear4",
         "path": "chars/4052/4052_p/overlays/gyro_4052_gear4.png",
-        "x": -1107,
-        "y": 1095.6,
+        "x": -369,
+        "y": 365.2,
         "w": 416,
         "h": 152,
         "clip": true,
-        "depth": 1
+        "z": 2000,
+        "depth": 2000
       },
       {
         "file": "gyro_4052_gear5",
         "path": "chars/4052/4052_p/overlays/gyro_4052_gear5.png",
-        "x": 642.3,
-        "y": -672,
+        "x": 305.86,
+        "y": -320,
         "w": 484,
         "h": 348,
         "clip": true,
-        "depth": 1
+        "z": 1800,
+        "depth": 1800
       },
       {
         "file": "gyro_4052_gear3",
         "path": "chars/4052/4052_p/overlays/gyro_4052_gear3.png",
-        "x": -1159.4,
-        "y": 736,
+        "x": -463.76,
+        "y": 294.4,
         "w": 88,
         "h": 348,
         "clip": true,
-        "depth": 1
+        "z": 1600,
+        "depth": 1600
       },
       {
         "file": "gyro_4052_gear2",
         "path": "chars/4052/4052_p/overlays/gyro_4052_gear2.png",
-        "x": -941.8,
-        "y": 553.5,
+        "x": -362.23,
+        "y": 212.88,
         "w": 268,
         "h": 268,
         "clip": true,
-        "depth": 1
+        "z": 1500,
+        "depth": 1500
       },
       {
         "file": "gyro_4052_star2",
         "path": "chars/4052/4052_p/overlays/gyro_4052_star2.png",
-        "x": 69.2,
-        "y": 188.1,
+        "x": 38.44,
+        "y": 104.5,
         "w": 1340.78,
         "h": 728,
         "clip": true,
-        "depth": 1
+        "z": 1400,
+        "depth": 1400
       },
       {
         "file": "gyro_4052_gear1",
         "path": "chars/4052/4052_p/overlays/gyro_4052_gear1.png",
-        "x": -754.4,
-        "y": 70,
+        "x": -377.2,
+        "y": 35,
         "w": 348,
         "h": 332,
         "clip": true,
-        "depth": 1
+        "z": 1200,
+        "depth": 1200
       },
       {
         "file": "gyro_4052_actor5",
         "path": "chars/4052/4052_p/overlays/gyro_4052_actor5.png",
-        "x": 345.1,
-        "y": -379.4,
+        "x": 215.69,
+        "y": -237.12,
         "w": 220,
         "h": 228,
         "clip": true,
-        "depth": 1
+        "z": 1000,
+        "depth": 1000
       },
       {
         "file": "gyro_4052_actor4",
         "path": "chars/4052/4052_p/overlays/gyro_4052_actor4.png",
-        "x": 726.9,
-        "y": -82.3,
+        "x": 454.31,
+        "y": -51.44,
         "w": 232,
         "h": 228,
         "clip": true,
-        "depth": 1
+        "z": 900,
+        "depth": 900
       },
       {
         "file": "gyro_4052_actor3",
         "path": "chars/4052/4052_p/overlays/gyro_4052_actor3.png",
-        "x": 72,
-        "y": -107.6,
+        "x": 51.43,
+        "y": -76.86,
         "w": 340,
         "h": 488,
         "clip": true,
-        "depth": 1
+        "z": 900,
+        "depth": 900
       },
       {
         "file": "gyro_4052_actor2",
         "path": "chars/4052/4052_p/overlays/gyro_4052_actor2.png",
-        "x": 386.9,
-        "y": -157.1,
+        "x": 309.52,
+        "y": -125.68,
         "w": 348,
         "h": 312,
         "clip": true,
-        "depth": 1
+        "z": 650,
+        "depth": 650
       },
       {
         "file": "gyro_4052_light",
@@ -7350,7 +7879,8 @@
         "w": 1176.56,
         "h": 964,
         "clip": true,
-        "depth": 1
+        "z": 500,
+        "depth": 500
       },
       {
         "file": "gyro_4052_star1",
@@ -7360,47 +7890,52 @@
         "w": 180,
         "h": 208,
         "clip": true,
-        "depth": 1
+        "z": 500,
+        "depth": 500
       },
       {
         "file": "gyro_4052_actor1",
         "path": "chars/4052/4052_p/overlays/gyro_4052_actor1.png",
-        "x": 322.7,
-        "y": -6.3,
+        "x": 293.36,
+        "y": -5.73,
         "w": 820,
         "h": 516,
         "clip": true,
-        "depth": 1
+        "z": 500,
+        "depth": 500
       },
       {
         "file": "gyro_4052_rabbit",
         "path": "chars/4052/4052_p/overlays/gyro_4052_rabbit.png",
-        "x": -299.4,
-        "y": 131,
+        "x": -272.18,
+        "y": 119.09,
         "w": 704,
         "h": 744,
         "clip": true,
-        "depth": 1
+        "z": 500,
+        "depth": 500
       },
       {
         "file": "gyro_4052_sub",
         "path": "chars/4052/4052_p/overlays/gyro_4052_sub.png",
-        "x": -214.46,
-        "y": -298.9,
+        "x": -306.37,
+        "y": -427,
         "w": 308,
         "h": 100,
         "clip": false,
-        "depth": 1
+        "z": 0,
+        "depth": 0
       },
       {
         "file": "gyro_4052_title",
         "path": "chars/4052/4052_p/overlays/gyro_4052_title.png",
-        "x": 142.8,
-        "y": 196.46,
+        "x": 250.53,
+        "y": 344.67,
         "w": 404,
         "h": 252,
         "clip": false,
-        "depth": 1
+        "z": -200,
+        "depth": -200
       }
     ]
   },
@@ -7430,57 +7965,63 @@
         "w": 752,
         "h": 768,
         "clip": false,
-        "depth": 1
+        "z": 0,
+        "depth": 0
       },
       {
         "file": "gyro_4053_bg",
         "path": "chars/4053/4053_p/overlays/gyro_4053_bg.png",
-        "x": -31.2,
-        "y": -161.6,
+        "x": -9.75,
+        "y": -29.89,
         "w": 1412.41,
         "h": 1000,
         "clip": true,
-        "depth": 1
+        "z": 3200.5,
+        "depth": 3200.5
       },
       {
         "file": "gyro_4053_actor1",
         "path": "chars/4053/4053_p/overlays/gyro_4053_actor1.png",
-        "x": -231.3,
-        "y": 909,
+        "x": -105.14,
+        "y": 402.01,
         "w": 660,
         "h": 780,
         "clip": true,
-        "depth": 1
+        "z": 2263,
+        "depth": 2263
       },
       {
         "file": "gyro_4053_label",
         "path": "chars/4053/4053_p/overlays/gyro_4053_label.png",
-        "x": 192.8,
-        "y": -272.6,
+        "x": 275.43,
+        "y": -389.43,
         "w": 228,
         "h": 64,
         "clip": false,
-        "depth": 1
+        "z": -80,
+        "depth": -80
       },
       {
         "file": "gyro_4053_barrel",
         "path": "chars/4053/4053_p/overlays/gyro_4053_barrel.png",
-        "x": -236.6,
-        "y": 253.4,
+        "x": -364,
+        "y": 389.85,
         "w": 156,
         "h": 148,
         "clip": false,
-        "depth": 1
+        "z": -100,
+        "depth": -100
       },
       {
         "file": "gyro_4053_title",
         "path": "chars/4053/4053_p/overlays/gyro_4053_title.png",
-        "x": 66.5,
-        "y": -189.3,
+        "x": 110.83,
+        "y": -315.5,
         "w": 612,
         "h": 236,
         "clip": false,
-        "depth": 1
+        "z": -150,
+        "depth": -150
       }
     ]
   },
@@ -7510,177 +8051,195 @@
         "w": 752,
         "h": 768,
         "clip": false,
-        "depth": 1
+        "z": 0,
+        "depth": 0
       },
       {
         "file": "gyro_4054_bg",
         "path": "chars/4054/4054_p/overlays/gyro_4054_bg.png",
-        "x": -4.7,
-        "y": -277.4,
+        "x": -1.47,
+        "y": -86.69,
         "w": 1412.41,
         "h": 1000,
         "clip": true,
-        "depth": 1
+        "z": 3000,
+        "depth": 3000
       },
       {
         "file": "gyro_4054_arm",
         "path": "chars/4054/4054_p/overlays/gyro_4054_arm.png",
-        "x": -224.64,
-        "y": 308.48,
+        "x": -112.32,
+        "y": 154.24,
         "w": 840,
         "h": 320,
         "clip": true,
-        "depth": 1
+        "z": 2200.29,
+        "depth": 2200.29
       },
       {
         "file": "gyro_4054_light4",
         "path": "chars/4054/4054_p/overlays/gyro_4054_light4.png",
-        "x": -463.5,
-        "y": -993.8,
+        "x": -193.12,
+        "y": -331.27,
         "w": 80,
         "h": 256,
         "clip": true,
-        "depth": 1
+        "z": 2200,
+        "depth": 2200
       },
       {
         "file": "gyro_4054_light3",
         "path": "chars/4054/4054_p/overlays/gyro_4054_light3.png",
-        "x": -142.1,
-        "y": -1021,
+        "x": -41.79,
+        "y": -300.29,
         "w": 208,
         "h": 208,
         "clip": true,
-        "depth": 1
+        "z": 2000,
+        "depth": 2000
       },
       {
         "file": "gyro_4054_light1",
         "path": "chars/4054/4054_p/overlays/gyro_4054_light1.png",
-        "x": -539.9,
-        "y": -804.5,
+        "x": -269.95,
+        "y": -309.42,
         "w": 92,
         "h": 348,
         "clip": true,
-        "depth": 1
+        "z": 1800,
+        "depth": 1800
       },
       {
         "file": "gyro_4054_actor",
         "path": "chars/4054/4054_p/overlays/gyro_4054_actor.png",
-        "x": 50.6,
-        "y": 73.4,
+        "x": 26.63,
+        "y": 38.63,
         "w": 1412,
         "h": 928,
         "clip": true,
-        "depth": 1
+        "z": 1600,
+        "depth": 1600
       },
       {
         "file": "gyro_4054_light5",
         "path": "chars/4054/4054_p/overlays/gyro_4054_light5.png",
-        "x": 220.3,
-        "y": -1017.1,
+        "x": 100.14,
+        "y": -462.32,
         "w": 140,
         "h": 88,
         "clip": true,
-        "depth": 1
+        "z": 1600,
+        "depth": 1600
       },
       {
         "file": "gyro_4054_spark",
         "path": "chars/4054/4054_p/overlays/gyro_4054_spark.png",
-        "x": 359.8,
-        "y": 188.3,
+        "x": 299.83,
+        "y": 156.92,
         "w": 324,
         "h": 188,
         "clip": true,
-        "depth": 1
+        "z": 1600,
+        "depth": 1600
       },
       {
         "file": "gyro_4054_light2",
         "path": "chars/4054/4054_p/overlays/gyro_4054_light2.png",
-        "x": -572.3,
-        "y": -812,
+        "x": -238.46,
+        "y": -338.33,
         "w": 96,
         "h": 172,
         "clip": true,
-        "depth": 1
+        "z": 1400,
+        "depth": 1400
       },
       {
         "file": "gyro_4054_crystalball",
         "path": "chars/4054/4054_p/overlays/gyro_4054_crystalball.png",
-        "x": -317.2,
-        "y": 388.3,
+        "x": -187.24,
+        "y": 215.72,
         "w": 556,
         "h": 584,
         "clip": true,
-        "depth": 1
+        "z": 1357,
+        "depth": 1357
       },
       {
         "file": "gyro_4054_tube",
         "path": "chars/4054/4054_p/overlays/gyro_4054_tube.png",
-        "x": -735.5,
-        "y": -223.8,
+        "x": -420.29,
+        "y": -111.9,
         "w": 516,
         "h": 872,
         "clip": true,
-        "depth": 1
+        "z": 1313,
+        "depth": 1313
       },
       {
         "file": "gyro_4054_jar",
         "path": "chars/4054/4054_p/overlays/gyro_4054_jar.png",
-        "x": -838.1,
-        "y": 303.5,
+        "x": -493,
+        "y": 178.53,
         "w": 252,
         "h": 316,
         "clip": true,
-        "depth": 1
+        "z": 1000,
+        "depth": 1000
       },
       {
         "file": "gyro_4054_round",
         "path": "chars/4054/4054_p/overlays/gyro_4054_round.png",
-        "x": 24.4,
-        "y": 78.6,
+        "x": 32.53,
+        "y": 104.8,
         "w": 1412.67,
         "h": 756,
         "clip": true,
-        "depth": 1
+        "z": 0,
+        "depth": 0
       },
       {
         "file": "gyro_4054_text",
         "path": "chars/4054/4054_p/overlays/gyro_4054_text.png",
-        "x": 122.1,
-        "y": 301,
+        "x": 488.4,
+        "y": 1204,
         "w": 616,
         "h": 111,
         "clip": true,
-        "depth": 1
+        "z": 0,
+        "depth": 0
       },
       {
         "file": "gyro_4054_star",
         "path": "chars/4054/4054_p/overlays/gyro_4054_star.png",
-        "x": 8.3,
-        "y": 4.24,
+        "x": 12.97,
+        "y": 6.63,
         "w": 952,
         "h": 944,
         "clip": false,
-        "depth": 1
+        "z": -80,
+        "depth": -80
       },
       {
         "file": "gyro_4054_gear",
         "path": "chars/4054/4054_p/overlays/gyro_4054_gear.png",
-        "x": 233.15,
-        "y": 216.3,
+        "x": 376.05,
+        "y": 348.87,
         "w": 200,
         "h": 208,
         "clip": false,
-        "depth": 1
+        "z": -100,
+        "depth": -100
       },
       {
         "file": "gyro_4054_title",
         "path": "chars/4054/4054_p/overlays/gyro_4054_title.png",
-        "x": -49.2,
-        "y": -160.6,
+        "x": -91.11,
+        "y": -297.41,
         "w": 768,
         "h": 388,
         "clip": false,
-        "depth": 1
+        "z": -200,
+        "depth": -200
       }
     ]
   },
@@ -7710,87 +8269,96 @@
         "w": 752,
         "h": 768,
         "clip": false,
-        "depth": 1
+        "z": 0,
+        "depth": 0
       },
       {
         "file": "gyro_4055_bg",
         "path": "chars/4055/4055_p/overlays/gyro_4055_bg.png",
-        "x": 34.4,
-        "y": 82.8,
+        "x": 10.12,
+        "y": 24.35,
         "w": 1412.41,
         "h": 1360,
         "clip": true,
-        "depth": 1
+        "z": 3500,
+        "depth": 3500
       },
       {
         "file": "gyro_4055_flower3",
         "path": "chars/4055/4055_p/overlays/gyro_4055_flower3.png",
-        "x": -222.4,
-        "y": 191.5,
+        "x": -74.13,
+        "y": 63.83,
         "w": 1356,
         "h": 883.25,
         "clip": true,
-        "depth": 1
+        "z": 3277,
+        "depth": 3277
       },
       {
         "file": "gyro_4055_actor",
         "path": "chars/4055/4055_p/overlays/gyro_4055_actor.png",
-        "x": -44.9,
-        "y": 429.4,
+        "x": -14.03,
+        "y": 129.71,
         "w": 1000,
         "h": 788,
         "clip": true,
-        "depth": 1
+        "z": 3231,
+        "depth": 3231
       },
       {
         "file": "gyro_4055_flower2",
         "path": "chars/4055/4055_p/overlays/gyro_4055_flower2.png",
-        "x": -421.3,
-        "y": 695.7,
+        "x": -210.65,
+        "y": 347.85,
         "w": 1024,
         "h": 264,
         "clip": true,
-        "depth": 1
+        "z": 1800,
+        "depth": 1800
       },
       {
         "file": "gyro_4055_fish",
         "path": "chars/4055/4055_p/overlays/gyro_4055_fish.png",
-        "x": 121.3,
-        "y": -43.4,
+        "x": 75.81,
+        "y": -27.12,
         "w": 968,
         "h": 468,
         "clip": true,
-        "depth": 1
+        "z": 1200,
+        "depth": 1200
       },
       {
         "file": "gyro_4055_flower1",
         "path": "chars/4055/4055_p/overlays/gyro_4055_flower1.png",
-        "x": -71.7,
-        "y": 190.2,
+        "x": -51.21,
+        "y": 135.86,
         "w": 1320.86,
         "h": 792,
         "clip": true,
-        "depth": 1
+        "z": 1000,
+        "depth": 1000
       },
       {
         "file": "gyro_4055_waterweed",
         "path": "chars/4055/4055_p/overlays/gyro_4055_waterweed.png",
-        "x": 105.9,
-        "y": 471.9,
+        "x": 66.19,
+        "y": 294.94,
         "w": 1413.41,
         "h": 392,
         "clip": true,
-        "depth": 1
+        "z": 800,
+        "depth": 800
       },
       {
         "file": "gyro_4055_bubble2",
         "path": "chars/4055/4055_p/overlays/gyro_4055_bubble2.png",
-        "x": 35.6,
-        "y": 159.2,
+        "x": 27.38,
+        "y": 122.46,
         "w": 1264,
         "h": 792.47,
         "clip": true,
-        "depth": 1
+        "z": 800,
+        "depth": 800
       },
       {
         "file": "gyro_4055_bubble1",
@@ -7800,37 +8368,41 @@
         "w": 1104.54,
         "h": 672,
         "clip": true,
-        "depth": 1
+        "z": 400,
+        "depth": 400
       },
       {
         "file": "gyro_4055_title",
         "path": "chars/4055/4055_p/overlays/gyro_4055_title.png",
-        "x": -104.6,
-        "y": 263.9,
+        "x": -149.43,
+        "y": 377,
         "w": 660,
         "h": 272,
         "clip": false,
-        "depth": 1
+        "z": 0,
+        "depth": 0
       },
       {
         "file": "gyro_4055_sub1",
         "path": "chars/4055/4055_p/overlays/gyro_4055_sub1.png",
-        "x": 244.2,
-        "y": 282.9,
+        "x": 375.69,
+        "y": 435.23,
         "w": 188,
         "h": 88,
         "clip": false,
-        "depth": 1
+        "z": -100,
+        "depth": -100
       },
       {
         "file": "gyro_4055_sub2",
         "path": "chars/4055/4055_p/overlays/gyro_4055_sub2.png",
-        "x": 237.9,
-        "y": -239.6,
+        "x": 366,
+        "y": -368.62,
         "w": 80,
         "h": 84,
         "clip": false,
-        "depth": 1
+        "z": -200,
+        "depth": -200
       }
     ]
   },
@@ -7860,87 +8432,96 @@
         "w": 752,
         "h": 768,
         "clip": false,
-        "depth": 1
+        "z": 0,
+        "depth": 0
       },
       {
         "file": "gyro_4056_bg",
         "path": "chars/4056/4056_p/overlays/gyro_4056_bg.png",
-        "x": -5.6,
-        "y": 252.8,
+        "x": -1.87,
+        "y": 54.96,
         "w": 1412.41,
         "h": 1000,
         "clip": true,
-        "depth": 1
+        "z": 3000,
+        "depth": 3000
       },
       {
         "file": "gyro_4056_title1",
         "path": "chars/4056/4056_p/overlays/gyro_4056_title1.png",
-        "x": -495.5,
-        "y": -956.7,
+        "x": -170.86,
+        "y": -329.9,
         "w": 612,
         "h": 236,
         "clip": true,
-        "depth": 1
+        "z": 2900,
+        "depth": 2900
       },
       {
         "file": "gyro_4056_actor01",
         "path": "chars/4056/4056_p/overlays/gyro_4056_actor01.png",
-        "x": 138.89,
-        "y": 69.3,
+        "x": 49.6,
+        "y": 24.75,
         "w": 520,
         "h": 652,
         "clip": true,
-        "depth": 1
+        "z": 2731,
+        "depth": 2731
       },
       {
         "file": "gyro_4056_particle",
         "path": "chars/4056/4056_p/overlays/gyro_4056_particle.png",
-        "x": 440.6,
-        "y": -450.9,
+        "x": 176.24,
+        "y": -180.36,
         "w": 216,
         "h": 260,
         "clip": true,
-        "depth": 1
+        "z": 2000,
+        "depth": 2000
       },
       {
         "file": "gyro_4056_waterfall",
         "path": "chars/4056/4056_p/overlays/gyro_4056_waterfall.png",
-        "x": -618.3,
-        "y": -64.73,
+        "x": -412.2,
+        "y": -35.96,
         "w": 536,
         "h": 992,
         "clip": true,
-        "depth": 1
+        "z": 1000,
+        "depth": 1000
       },
       {
         "file": "gyro_4056_tree",
         "path": "chars/4056/4056_p/overlays/gyro_4056_tree.png",
-        "x": 514.1,
-        "y": -55.6,
+        "x": 489.62,
+        "y": -52.95,
         "w": 500,
         "h": 928,
         "clip": true,
-        "depth": 1
+        "z": 500,
+        "depth": 500
       },
       {
         "file": "gyro_4056_sub",
         "path": "chars/4056/4056_p/overlays/gyro_4056_sub.png",
-        "x": 179.9,
-        "y": 289.39,
+        "x": 276.77,
+        "y": 445.22,
         "w": 252,
         "h": 64,
         "clip": false,
-        "depth": 1
+        "z": -100,
+        "depth": -100
       },
       {
         "file": "gyro_4056_title2",
         "path": "chars/4056/4056_p/overlays/gyro_4056_title2.png",
-        "x": 146.9,
-        "y": 211.8,
+        "x": 244.83,
+        "y": 353,
         "w": 408,
         "h": 140,
         "clip": false,
-        "depth": 1
+        "z": -200,
+        "depth": -200
       }
     ]
   }

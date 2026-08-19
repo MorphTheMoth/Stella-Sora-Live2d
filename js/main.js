@@ -1,4 +1,4 @@
-import { Application, Container, Sprite, Graphics, Assets, extensions } from './pixi.min.mjs';
+import { Application, Container, Sprite, Graphics, Assets, extensions, Mesh, PlaneGeometry } from './pixi.min.mjs';
 import { Live2DModel, Live2DPlugin, configureCubismSDK, CubismFramework } from './cubism.es.js';
 
 extensions.add(Live2DPlugin);
@@ -31,6 +31,7 @@ const state = {
   parallaxScene: null,
   parallaxFit: 1,
   parallaxMask: true,
+  parallaxMaskGraphic: null,
   // Where the rig canvas (the customized_bg backdrop / camera view) sits on
   // screen.  The character is placed relative to it via its MainView offset,
   // exactly like the game parents the L2D under actor_offset inside the rig.
@@ -338,11 +339,13 @@ function clearParallax() {
   const c = state.parallaxContainer;
   if (!c) return;
   while (c.children.length) c.removeChildAt(0);
+  c.scale.set(1, 1);
   state.parallaxLayers = [];
   state.parallaxActive = false;
   state.parallaxItem = null;
   state.parallaxScene = null;
   state.parallaxFit = 1;
+  state.parallaxMaskGraphic = null;
 }
 
 // Render a parallax scene centred on the screen, fitted to the mask window.
@@ -388,34 +391,37 @@ async function loadParallax(item) {
 
   const container = state.parallaxContainer;
   container.position.set(screenW / 2, screenH / 2);
+  container.scale.set(1, 1);
   container.visible = true;
   state.parallaxFit = fit;
 
   // One shared mask for the clipped overlay layers: a rounded-rectangle window
   // centred on the canvas (the game's Mask component).  The mask is nudged 1px
-  // higher and 1px smaller, with 4px of corner rounding, to sit neatly inside
+  // higher and 1px smaller, with 5px of corner rounding, to sit neatly inside
   // the frame border.  Everything (card backdrop, glints and the watermarks) is
   // clipped to it, so no layer spills outside the mask — only the frame border
-  // (which draws behind at the back) remains unmasked.  In Pixi v8 the mask must
-  // be part of the display tree to render, so it is added to the container
-  // (behind everything).  The mask can be toggled off via the options panel
+  // (which draws behind at the back) remains unmasked.  The mask tilts with the
+  // card: each frame we rebuild its polygon from the perspective-projected
+  // window outline, so the content (which rotates with the card) stays neatly
+  // clipped inside it and is never cut off.  In Pixi v8 the mask must be part of
+  // the display tree to render, so it is added to the container (behind
+  // everything).  The mask can be toggled off via the options panel
   // (state.parallaxMask).
   const maskGraphic = new Graphics();
   maskGraphic.eventMode = 'none';
+  let windowPts = null;
   if (mask && state.parallaxMask) {
     const corner = 5;
     const mw = mask.w - 1; // 1px smaller
     const mh = mask.h - 1;
     const my = mask.y + 2; // 1px higher
-    maskGraphic.roundRect(
-      (mask.x - mw / 2) * fit,
-      (my - mh / 2) * fit,
-      mw * fit,
-      mh * fit,
-      corner * fit
-    ).fill(0xffffff);
+    const x0 = mask.x - mw / 2;
+    const y0 = my - mh / 2;
+    windowPts = roundedRectPoints(x0, y0, mw, mh, corner, 8);
+    maskGraphic.scale.set(fit, fit);
     container.addChildAt(maskGraphic, 0);
   }
+  state.parallaxMaskGraphic = maskGraphic;
 
   const loaded = [];
   for (const l of layers) {
@@ -423,55 +429,201 @@ async function loadParallax(item) {
     try {
       const texture = await Assets.load(resolveUrl(l.path));
       if (seq !== modelLoadSeq) return;
-      const sprite = new Sprite(texture);
-      sprite.anchor.set(0.5);
-      sprite.eventMode = 'none';
-      sprite.interactive = false;
-      // Texture is stretched to the layer's display size (canvas px) * fit.
-      sprite.scale.set((fit * l.w) / texture.width, (fit * l.h) / texture.height);
-      sprite.x = l.x * fit;
-      sprite.y = l.y * fit;
-      // Every layer sits behind the mask (clipped to the rounded window) except
-      // the frame border, which draws at the back as the card's edge.
-      if (l.file !== 'frame' && mask && state.parallaxMask) sprite.mask = maskGraphic;
-      container.addChild(sprite);
-      loaded.push({ sprite, baseX: sprite.x, baseY: sprite.y, depth: l.depth || 0 });
+      // Every layer is a perspective-projected Mesh; they all rotate with the
+      // card (the frame / title tilt as much as the card art does).  The frame
+      // needs finer subdivision so its border stays smooth under perspective.
+      const isFrame = l.file === 'frame';
+      const sub = isFrame ? 28 : 12;
+      const mesh = createTiltMesh(texture, l.w, l.h, sub, sub);
+      mesh.scale.set(fit, fit);
+      // Card art / glints / watermarks are clipped to the mask window (which
+      // tilts with them, so they are never cut off).  The frame draws unmasked
+      // behind everything.
+      if (!isFrame && mask && state.parallaxMask) mesh.mask = maskGraphic;
+      container.addChild(mesh);
+      loaded.push({
+        mesh,
+        // Layer layout in 1080-canvas px (y-down, relative to the card centre).
+        x: l.x,
+        y: l.y,
+        w: l.w,
+        h: l.h,
+        // World-space depth along the camera view axis (drives the parallax).
+        z: l.z || 0,
+        zpx: (l.z || 0) * PARALLAX_DEPTH_SCALE,
+        verticesX: sub,
+        verticesY: sub,
+        geometry: mesh.geometry,
+        windowPts: isFrame ? null : windowPts,
+      });
     } catch (e) {
       console.error('Failed to load parallax layer', l.path, e);
     }
   }
   state.parallaxLayers = loaded;
   state.parallaxActive = true;
+  // Initialize both the mesh vertices and the mask before the first drag.
+  resetParallax();
   els.status.textContent = '';
 }
 
-// Shift each parallax layer by its depth relative to a drag delta (in screen
-// px), scaled by the scene's gyroscope factors so the overlay group slides as
-// a unit.  depth 0 layers (the base) stay put.
-function applyParallaxOffset(dx, dy) {
-  if (!state.parallaxActive) return;
-  const p = (state.parallaxScene && state.parallaxScene.parallax) || { ax: 5, ay: -25 };
-  const ax = p.ax || 0;
-  const ay = p.ay || 0;
+// 3D tilt of the disc card.
+//
+// In the game the <id>Card.prefab is rendered by a perspective offscreen camera
+// (FOV 60, canvas plane at distance 100).  The gyroscope rotates the whole card
+// and each overlay layer turns with it.  We reproduce that exactly with a real
+// perspective projection: every layer (frame, mask window, content, title) is a
+// Mesh whose vertices we project from 3D card space to 2D screen space for each
+// frame of the drag.
+//
+// Card space is centred on the card face (z = 0, the frame / mask window plane)
+// and expressed in canvas px; extracted relative depth z is scaled into a small
+// camera-space offset.  The camera is at distance CAM_DIST
+// looking down the +z axis.  Each vertex is rotated by the gyroscope yaw (about
+// Y) and pitch (about X), then perspective-projected: a vertex closer to the
+// camera maps to a larger screen offset, which is what makes the near edge of
+// the card grow and the far edge shrink — the "bottom larger, top smaller"
+// trapezoid.  Because the mask window and the content sit on the same rotating
+// card and both tilt together, the content stays clipped to the window and is
+// never cut off.
+//
+// The Meshes use Pixi's built-in default mesh shader (a Mesh with no custom
+// shader binds its texture automatically), so the perspective quad renders
+// reliably.
+const PARALLAX_PX_PER_WORLD = 1080 / (2 * 100 * Math.tan(Math.PI / 6)); // 9.3528
+const PARALLAX_CARD_TILT = 28;    // degrees of tilt at full drag (yaw or pitch)
+const PARALLAX_CAM_DIST = 100;    // offscreen camera distance (world units)
+const PARALLAX_CAM_DIST_PX = PARALLAX_CAM_DIST * PARALLAX_PX_PER_WORLD; // 935.28
+const PARALLAX_DEPTH_SCALE = 0.1;  // extracted layer depths are relative units
+const DEG2RAD = Math.PI / 180;
+
+// Build a Mesh that renders a texture as a plane grid of verticesX * verticesY
+// points.  The mesh's own transform is identity (position 0, scale 1); every
+// frame we overwrite the vertex positions with the perspective-projected card
+// coordinates (relative to the card centre), and set mesh.scale = fit so the
+// 1080-canvas px card coords map to screen px.  The plane geometry's UVs are
+// fixed, so the texture maps across the grid, and with enough subdivision the
+// projective distortion is approximated cleanly.
+function createTiltMesh(texture, w, h, verticesX, verticesY) {
+  const geometry = new PlaneGeometry({ width: w, height: h, verticesX, verticesY });
+  const mesh = new Mesh({ geometry, texture });
+  mesh.eventMode = 'none';
+  mesh.interactive = false;
+  return mesh;
+}
+
+// Project a single 3D card point (card-local px, y-down) through the yaw (ry,
+// about Y) and pitch (rx, about X) rotation, then the perspective camera.
+// Returns the projected screen coords relative to the card centre (1080 px).
+function projectCardPoint(x, y, z, ry, rx) {
+  const cosY = Math.cos(ry), sinY = Math.sin(ry);
+  const cosX = Math.cos(rx), sinX = Math.sin(rx);
+  // yaw about Y: a point ahead of centre swings sideways.
+  const x1 = x * cosY + z * sinY;
+  const z1 = -x * sinY + z * cosY;
+  // pitch about X (y-down): a point ahead of centre swings vertically.
+  const y1 = y * cosX - z1 * sinX;
+  const z2 = y * sinX + z1 * cosX;
+  // Preserve each layer's rest-state size; tilt alone changes its perspective.
+  const inv = (z + PARALLAX_CAM_DIST_PX) / (z2 + PARALLAX_CAM_DIST_PX);
+  return { x: x1 * inv, y: y1 * inv };
+}
+
+// Update a layer mesh's vertices for the current tilt.
+function updateTiltMesh(pl, ry, rx) {
+  const pos = pl.geometry.buffers[0].data;
+  const cosY = Math.cos(ry), sinY = Math.sin(ry);
+  const cosX = Math.cos(rx), sinX = Math.sin(rx);
+  const hw = pl.w / 2, hh = pl.h / 2;
+  const vx = pl.verticesX, vy = pl.verticesY;
+  let n = 0;
+  for (let gy = 0; gy < vy; gy++) {
+    const v = (gy / (vy - 1)) * pl.h;
+    for (let gx = 0; gx < vx; gx++) {
+      const u = (gx / (vx - 1)) * pl.w;
+      const x = pl.x + u - hw;
+      const y = pl.y + v - hh;
+      const z = pl.zpx;
+      const x1 = x * cosY + z * sinY;
+      const z1 = -x * sinY + z * cosY;
+      const y1 = y * cosX - z1 * sinX;
+      const z2 = y * sinX + z1 * cosX;
+      const inv = (z + PARALLAX_CAM_DIST_PX) / (z2 + PARALLAX_CAM_DIST_PX);
+      pos[n] = x1 * inv;
+      pos[n + 1] = y1 * inv;
+      n += 2;
+    }
+  }
+  pl.geometry.buffers[0].update();
+}
+
+// Perimeter points of a rounded rectangle in card-local px (y-down), used to
+// draw the mask window so it tilts with the card.  Enough points per corner to
+// keep the rounded corners smooth under perspective.
+function roundedRectPoints(x0, y0, w, h, radius, perCorner) {
+  const pts = [];
+  const r = Math.min(radius, w / 2, h / 2);
+  const corners = [
+    [x0 + w - r, y0 + r, 0],          // top-right (-90..0 deg)
+    [x0 + w - r, y0 + h - r, 1],      // bottom-right (0..90 deg)
+    [x0 + r, y0 + h - r, 2],          // bottom-left (90..180 deg)
+    [x0 + r, y0 + r, 3],              // top-left (180..270 deg)
+  ];
+  const starts = [-90, 0, 90, 180];
+  for (let c = 0; c < 4; c++) {
+    const [cx, cy, qi] = corners[c];
+    for (let i = 0; i < perCorner; i++) {
+      const a = (starts[qi] + (i / perCorner) * 90) * DEG2RAD;
+      pts.push([cx + Math.cos(a) * r, cy + Math.sin(a) * r]);
+    }
+  }
+  return pts;
+}
+
+// Rebuild the mask window polygon from its projected perimeter for the tilt.
+function updateMaskTilt(pl, ry, rx) {
+  const g = state.parallaxMaskGraphic;
+  if (!g || !pl.windowPts) return;
+  g.clear();
+  for (let i = 0; i < pl.windowPts.length; i++) {
+    const p = projectCardPoint(pl.windowPts[i][0], pl.windowPts[i][1], 0, ry, rx);
+    if (i === 0) g.moveTo(p.x, p.y);
+    else g.lineTo(p.x, p.y);
+  }
+  g.closePath();
+  g.fill(0xffffff);
+}
+
+function parallaxTilt(dx, dy) {
   const screenW = state.app.renderer.width;
   const screenH = state.app.renderer.height;
-  const fit = state.parallaxFit || 1;
-  // Normalise the drag to the full screen; the game's gyroscope offset is tiny
-  // (ax/ay canvas px), so amplify it ~3x for a visible tilt in the viewer.
-  const nx = dx / Math.max(screenW, 1);
-  const ny = dy / Math.max(screenH, 1);
-  const amp = 3;
+  // Normalise the drag to the screen and clamp to [-1,1] like the gyroscope's
+  // follow target position; that drives the yaw/pitch tilt angles.
+  return {
+    nx: Math.max(-1, Math.min(1, dx / Math.max(screenW, 1))),
+    ny: Math.max(-1, Math.min(1, dy / Math.max(screenH, 1))),
+  };
+}
+
+function applyParallaxOffset(dx, dy) {
+  if (!state.parallaxActive) return;
+  const { nx, ny } = parallaxTilt(dx, dy);
+  // Yaw (drag sideways) and pitch (drag up/down) tilt of the whole card.  Pitch
+  // is negated so dragging down makes the near (bottom) edge grow and the far
+  // (top) edge shrink — the perspective trapezoid.
+  const ry = nx * PARALLAX_CARD_TILT * DEG2RAD;
+  const rx = -ny * PARALLAX_CARD_TILT * DEG2RAD;
   for (const pl of state.parallaxLayers) {
-    pl.sprite.x = pl.baseX + nx * ax * fit * amp * pl.depth;
-    pl.sprite.y = pl.baseY + ny * ay * fit * amp * pl.depth;
+    updateTiltMesh(pl, ry, rx);
+    if (pl.windowPts) updateMaskTilt(pl, ry, rx);
   }
 }
 
 function resetParallax() {
   if (!state.parallaxActive) return;
   for (const pl of state.parallaxLayers) {
-    pl.sprite.x = pl.baseX;
-    pl.sprite.y = pl.baseY;
+    updateTiltMesh(pl, 0, 0);
+    if (pl.windowPts) updateMaskTilt(pl, 0, 0);
   }
 }
 

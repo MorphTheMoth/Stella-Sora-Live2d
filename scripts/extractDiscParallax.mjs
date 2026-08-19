@@ -129,6 +129,15 @@ function vecField(block, key, n) {
   return out;
 }
 
+function quaternionZ(block) {
+  const s = block.join('\n');
+  const m = /m_LocalRotation[\s\S]*?float x = ([-\.0-9Ee+]+)[\s\S]*?float y = ([-\.0-9Ee+]+)[\s\S]*?float z = ([-\.0-9Ee+]+)[\s\S]*?float w = ([-\.0-9Ee+]+)/.exec(s);
+  if (!m) return 0;
+  const x = parseFloat(m[1]), y = parseFloat(m[2]);
+  const z = parseFloat(m[3]), w = parseFloat(m[4]);
+  return Math.atan2(2 * (w * z + x * y), 1 - 2 * (y * y + z * z));
+}
+
 // Parse the scene-graph dump into GameObjects, Transforms/RectTransforms,
 // SpriteRenderers and CanvasRenderers.
 function parseDump(dumpDir) {
@@ -154,14 +163,17 @@ function parseDump(dumpDir) {
       const goF = byName.get('GameObject');
       const pos = vecField(byName.get('LocalPosition') ? byName.get('LocalPosition').block : [], 'm_LocalPosition', 3) || { x: 0, y: 0, z: 0 };
       const scale = vecField(byName.get('LocalScale') ? byName.get('LocalScale').block : [], 'm_LocalScale', 3) || { x: 1, y: 1, z: 1 };
-      const ap = vecField(byName.get('AnchoredPosition') ? byName.get('AnchoredPosition').block : [], 'm_AnchoredPosition', 2) || { x: 0, y: 0 };
+      const apBlock = byName.get('AnchoredPosition') ? byName.get('AnchoredPosition').block : [];
+      const ap = vecField(apBlock, 'm_AnchoredPosition', 2);
       const sd = vecField(byName.get('SizeDelta') ? byName.get('SizeDelta').block : [], 'm_SizeDelta', 2) || { x: 0, y: 0 };
       trs.set(pid, {
         go: goF ? singlePathID(goF.block) : null,
         x: pos.x, y: pos.y, z: pos.z,
         sx: scale.x, sy: scale.y,
-        apx: ap.x, apy: ap.y,
+        apx: ap ? ap.x : pos.x, apy: ap ? ap.y : pos.y,
+        hasAp: Boolean(ap),
         sdx: sd.x, sdy: sd.y,
+        rot: quaternionZ(byName.get('LocalRotation') ? byName.get('LocalRotation').block : []),
         children: allPathIDs(byName.get('Children') ? byName.get('Children').block : []),
         father: byName.get('Father') ? singlePathID(byName.get('Father').block) : null,
       });
@@ -312,13 +324,35 @@ function worldTransform(tid, trs) {
   return { x, y, sx, sy };
 }
 
-// Accumulate a RectTransform's anchored position from the canvas root.  All
-// anchors are centre (0.5,0.5), so children stack additively.  The layers'
-// local `scale` is NOT applied here: it is a gyroscope parallax "depth" scale
-// (e.g. the card backdrop is 5x, the title 0.57x) that the game overrides at
-// runtime so every layer sits at its natural sizeDelta on the card.  Applying
-// it to the layout makes the backgrounds enormous and the watermarks tiny.
-function anchoredPosition(tid, trs) {
+// Resolve a RectTransform into the card root's coordinate space.  Unity's
+// anchoredPosition is local to the parent; local scale and rotation still
+// affect both the displayed size and the child's final position.  Ignoring
+// those transforms loses objects on compositions whose Canvas uses a scale
+// chain (notably discs 4012 and 4020).
+function worldLayout(tid, trs, seen = new Set()) {
+  if (!tid || tid === '0' || seen.has(tid)) {
+    return { x: 0, y: 0, sx: 1, sy: 1, rot: 0 };
+  }
+  seen.add(tid);
+  const t = trs.get(tid);
+  if (!t) return { x: 0, y: 0, sx: 1, sy: 1, rot: 0 };
+  const parent = worldLayout(t.father, trs, seen);
+  const c = Math.cos(parent.rot), s = Math.sin(parent.rot);
+  const lx = t.apx, ly = t.apy;
+  return {
+    x: parent.x + (lx * parent.sx * c - ly * parent.sy * s),
+    y: parent.y + (lx * parent.sx * s + ly * parent.sy * c),
+    sx: parent.sx * t.sx,
+    sy: parent.sy * t.sy,
+    rot: parent.rot + t.rot,
+  };
+}
+
+// Accumulate a node's world-space depth (sum of localPosition.z from the root).
+// This is the layer's position along the camera's view axis, which drives the
+// 3D parallax: layers further from the camera (larger z) shift more when the
+// gyroscope tilts the card.
+function worldDepth(tid, trs) {
   const path = [];
   let cur = tid;
   const seen = new Set();
@@ -328,13 +362,12 @@ function anchoredPosition(tid, trs) {
     const t = trs.get(cur);
     cur = t ? t.father : null;
   }
-  let x = 0, y = 0;
+  let z = 0;
   for (const pid of path.reverse()) {
     const t = trs.get(pid);
-    x += t.apx;
-    y += t.apy;
+    z += t.z;
   }
-  return { x, y };
+  return z;
 }
 
 // Collect the overlay (UI Image) layers of the <id>_G root, in Unity's render
@@ -364,7 +397,7 @@ function collectOverlay(gos, trs, srs, crs, images, followers, masks) {
     // Only layers that actually draw something: an Image with a real sprite.
     const spriteId = images.get(gid);
     if (active && spriteId) {
-      const at = anchoredPosition(tid, trs);
+      const at = worldLayout(tid, trs);
       // Determine whether this node is under a Mask (its ancestors are clipped).
       let underMask = false;
       let cur = t.father;
@@ -379,9 +412,13 @@ function collectOverlay(gos, trs, srs, crs, images, followers, masks) {
       layers.push({
         goId: gid,
         name: go.name,
-        z: t.z,
-        x: at.x, y: at.y,
+        z: worldDepth(tid, trs),
+        // RectTransform positions are authored in the layer's scaled canvas
+        // space. Convert back to logical card px; the exported texture already
+        // carries the intended display dimensions.
+        x: at.x / (at.sx || 1), y: at.y / (at.sy || 1),
         w: t.sdx, h: t.sdy,
+        sx: t.sx, sy: t.sy,
         clip: underMask,
         follower: followers.get(gid),
         sprite: spriteId,
@@ -428,8 +465,9 @@ function findMask(gos, trs, masks) {
     if (!tid) continue;
     const t = trs.get(tid);
     if (!t) continue;
-    const sdw = t.sdx * Math.abs(t.sx || 1);
-    const sdh = t.sdy * Math.abs(t.sy || 1);
+    const layout = worldLayout(tid, trs);
+    const sdw = t.sdx * Math.abs(layout.sx || 1);
+    const sdh = t.sdy * Math.abs(layout.sy || 1);
     if (sdw > 0 && sdh > 0) return { w: sdw, h: sdh, x: 0, y: 0 };
   }
   return null;
@@ -485,7 +523,11 @@ function main() {
           // its centre, leaving only the outer ring (the border around the card)
           // visible.  It is re-ordered to the back after the z-sort below.
           clip: false,
-          depth: 1,
+          // The frame sits on the card plane (z=0, same as the mask), so it
+          // does not drift when the gyroscope tilts the card — keeping the
+          // border locked to the mask window.
+          z: Math.round(l.z * 100) / 100,
+          depth: 0,
         });
         continue;
       }
@@ -505,10 +547,14 @@ function main() {
         w: Math.round(l.w * 100) / 100,
         h: Math.round(l.h * 100) / 100,
         clip: l.clip,
-        // The whole overlay group follows the gyroscope target together
-        // (type 1 followers use AX/AY; the factor is identical for every
-        // layer that draws, so a single per-scene factor is enough).
-        depth: 1,
+        // World-space depth of the layer along the camera view axis.  This is
+        // the parallax driver: the gyroscope rotates the card, and in the
+        // perspective projection a layer's screen offset scales with its z
+        // (far layers shift more, near ones less).  z is kept in world units
+        // (the same scale as the canvas-plane distance), so the viewer can
+        // project it directly.
+        z: Math.round(l.z * 100) / 100,
+        depth: Math.round(l.z * 100) / 100,
       });
     }
 
