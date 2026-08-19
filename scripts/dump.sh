@@ -248,8 +248,15 @@ fi
 # in the viewer (rendered with a mouse-drag parallax effect).  The disc's
 # Live2D (disc_l2d_XXXX) is extracted separately by the Live2D step above.
 DISC_OV="$TMP/discoverlays"
-mkdir -p "$DISC_OV"/{dump,img,tex,texpng}
+mkdir -p "$DISC_OV"/{dump,img,tex,texpng,common}
 echo "=== disc parallax scenes ==="
+# The card's outer border ("frame") is a shared sprite/texture in the
+# disc_common bundle; export its PNG once so it can be added back to every
+# disc's overlay (the per-disc sprite dump drops it due to a name collision).
+if [[ -f "$PERSISTENT/disc_common.unity3d" ]]; then
+  DOTNET_ROLL_FORWARD=Major dotnet "$CLI" "$PERSISTENT/disc_common.unity3d" -m export \
+    -t texture2d -o "$DISC_OV/common" --image-format png >/dev/null 2>&1 || true
+fi
 for f in "$INSTALL_RESOURCE"/disc_[0-9][0-9][0-9][0-9].unity3d; do
   [[ -f "$f" ]] || continue
   base="$(basename "$f" .unity3d)"   # e.g. disc_4004
@@ -293,6 +300,7 @@ node "$SCRIPT_DIR/extractDiscParallax.mjs" \
   --img "$DISC_OV/img" \
   --tex "$DISC_OV/tex" \
   --texpng "$DISC_OV/texpng" \
+  --frame "$DISC_OV/common" \
   --out "$ROOT/data/discparallax.json" \
   --chars "$TMP/chars" || true
 # Rebuild the Discs section: every disc as a parallax entry + a "[title] l2d"

@@ -46,6 +46,7 @@ function parseArgs() {
     imgDir: get('--img', path.resolve('.dump_tmp/discimg')),
     texDir: get('--tex', path.resolve('.dump_tmp/disctex')),
     texPngDir: get('--texpng', path.resolve('.dump_tmp/disctexpng')),
+    frameDir: get('--frame', path.resolve('.dump_tmp/disccommon')),
     outFile: get('--out', path.resolve('data/discparallax.json')),
     charsDir: get('--chars', path.resolve('chars')),
   };
@@ -427,8 +428,15 @@ function findMask(gos, trs, masks) {
 }
 
 function main() {
-  const { dumpDir, spriteDir, imgDir, texDir, texPngDir, outFile, charsDir } = parseArgs();
+  const { dumpDir, spriteDir, imgDir, texDir, texPngDir, frameDir, outFile, charsDir } = parseArgs();
   const result = {};
+
+  // The disc card's outer border ("frame") is a shared sprite/texture in the
+  // disc_common bundle, so its sprite never appears in a disc's own sprite dump
+  // (AssetStudio drops the name-colliding "frame" sprite there).  Recover it
+  // from the shared frame.png so it can be added back to every disc's overlay.
+  const FRAME_SPRITE_ID = '-8539956293099782948';
+  const framePng = listFiles(frameDir).find((f) => f.split(/[\\/]/).pop() === 'frame.png');
 
   const bundles = fs.existsSync(dumpDir) ? fs.readdirSync(dumpDir) : [];
   for (const bundle of bundles) {
@@ -451,6 +459,24 @@ function main() {
 
     const layers = [];
     for (const l of overlay) {
+      // The frame sprite lives in the shared common bundle; fall back to the
+      // shared frame.png so the border isn't dropped from every disc.
+      if (l.sprite === FRAME_SPRITE_ID) {
+        if (!framePng) continue;
+        const dest = path.join(ovDir, 'frame.png');
+        fs.copyFileSync(framePng, dest);
+        layers.push({
+          file: 'frame',
+          path: `chars/${id}/${id}_p/overlays/frame.png`,
+          x: Math.round(l.x * 100) / 100,
+          y: Math.round(-l.y * 100) / 100,
+          w: Math.round(l.w * 100) / 100,
+          h: Math.round(l.h * 100) / 100,
+          clip: l.clip,
+          depth: 1,
+        });
+        continue;
+      }
       const spr = sprs.get(l.sprite);
       const texName = spr && spr.texture ? textures.get(spr.texture) : null;
       if (!texName) continue;

@@ -395,9 +395,10 @@ async function loadParallax(item) {
   // the canvas (the game's Mask component).  Layers with clip:false (title,
   // frame) render unmasked on top.  In Pixi v8 the mask must be part of the
   // display tree to render, so it is added to the container (behind everything).
+  // The mask can be toggled off via the options panel (state.parallaxMask).
   const maskGraphic = new Graphics();
   maskGraphic.eventMode = 'none';
-  if (mask) {
+  if (mask && state.parallaxMask) {
     maskGraphic.rect(
       (mask.x - mask.w / 2) * fit,
       (mask.y - mask.h / 2) * fit,
@@ -421,7 +422,7 @@ async function loadParallax(item) {
       sprite.scale.set((fit * l.w) / texture.width, (fit * l.h) / texture.height);
       sprite.x = l.x * fit;
       sprite.y = l.y * fit;
-      if (l.clip && mask) sprite.mask = maskGraphic;
+      if (l.clip && mask && state.parallaxMask) sprite.mask = maskGraphic;
       container.addChild(sprite);
       loaded.push({ sprite, baseX: sprite.x, baseY: sprite.y, depth: l.depth || 0 });
     } catch (e) {
@@ -798,6 +799,21 @@ function buildOptionsPanel() {
     row.style.color = 'var(--text-faint)';
     row.style.fontSize = '11px';
     section.appendChild(row);
+
+    // Square-mask toggle: clip the parallax glints to the card window (the
+    // game's Mask).  Turn off to show the full layers spilling over.
+    const check = document.createElement('label');
+    check.className = 'opt-check';
+    const input = document.createElement('input');
+    input.type = 'checkbox';
+    input.checked = state.parallaxMask;
+    check.appendChild(input);
+    check.appendChild(document.createTextNode('Square Mask'));
+    input.addEventListener('change', () => {
+      state.parallaxMask = input.checked;
+      if (state.parallaxItem) loadParallax(state.parallaxItem);
+    });
+    section.appendChild(check);
     return;
   }
 
