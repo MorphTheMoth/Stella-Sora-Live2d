@@ -398,19 +398,27 @@ async function loadParallax(item) {
   // One shared mask for the clipped overlay layers: a rounded-rectangle window
   // centred on the canvas (the game's Mask component).  The mask is nudged 1px
   // higher and 1px smaller, with 5px of corner rounding, to sit neatly inside
-  // the frame border.  Everything (card backdrop, glints and the watermarks) is
-  // clipped to it, so no layer spills outside the mask — only the frame border
-  // (which draws behind at the back) remains unmasked.  The mask tilts with the
-  // card: each frame we rebuild its polygon from the perspective-projected
-  // window outline, so the content (which rotates with the card) stays neatly
-  // clipped inside it and is never cut off.  In Pixi v8 the mask must be part of
-  // the display tree to render, so it is added to the container (behind
-  // everything).  The mask can be toggled off via the options panel
-  // (state.parallaxMask).
+  // the frame border.  Only the layers that sit under the game's Mask (the card
+  // backdrop, glints and the watermarks — flag `clip` in the data) are clipped
+  // to it, so none of them spill outside the mask.  The frame border and the
+  // title overlays (`clip: false`) draw unmasked, on top of the clipped group —
+  // the frame behind, the titles in front.  The mask tilts with the card: each
+  // frame we rebuild its polygon from the perspective-projected window outline,
+  // so the content (which rotates with the card) stays neatly clipped inside it
+  // and is never cut off.
+  //
+  // A Pixi mask can only be bound to a single display object, so assigning the
+  // same Graphics to every mesh left all but the last layer unclipped — which is
+  // why foreground glints/watermarks spilled outside the window.  Instead every
+  // clipped layer lives in one sub-Container and the single mask is bound to
+  // that Container.  In Pixi v8 the mask must be part of the display tree to
+  // render, so it is added to the container (behind everything).  The mask can
+  // be toggled off via the options panel (state.parallaxMask).
   const maskGraphic = new Graphics();
   maskGraphic.eventMode = 'none';
   let windowPts = null;
-  if (mask && state.parallaxMask) {
+  const useMask = !!(mask && state.parallaxMask);
+  if (useMask) {
     const corner = 5;
     const mw = mask.w - 1; // 1px smaller
     const mh = mask.h - 1;
@@ -423,6 +431,17 @@ async function loadParallax(item) {
   }
   state.parallaxMaskGraphic = maskGraphic;
 
+  // Sub-container holding every clipped (under-Mask) layer; the single mask is
+  // bound to it so all of them are clipped together.
+  const clipped = new Container();
+  clipped.eventMode = 'none';
+  if (useMask) clipped.mask = maskGraphic;
+
+  // Separate out the frame (back) and unmasked foreground overlays (front) so
+  // they can be layered around the clipped group in the correct draw order.
+  const frameMeshes = [];
+  const fgMeshes = [];
+  const clipMeshes = [];
   const loaded = [];
   for (const l of layers) {
     if (seq !== modelLoadSeq) return;
@@ -434,32 +453,56 @@ async function loadParallax(item) {
       // needs finer subdivision so its border stays smooth under perspective.
       const isFrame = l.file === 'frame';
       const sub = isFrame ? 28 : 12;
-      const mesh = createTiltMesh(texture, l.w, l.h, sub, sub);
+      // The extracted box (l.w x l.h) already carries the layer's intended
+      // display size, but a non-uniform RectTransform scale (scaleX != scaleY)
+      // would stretch the sprite.  The dumped texture keeps its native aspect,
+      // so fit it inside the authored box preserving that aspect — otherwise
+      // backgrounds / elements get squished.  The same size is used both for
+      // the mesh geometry and the tilt vertex layout below, so they stay in
+      // sync.
+      const texW = texture.width || l.w;
+      const texH = texture.height || l.h;
+      const texAspect = texW / texH; // width per unit height of the source image
+      let dispW = l.w;
+      let dispH = l.h;
+      if (l.w > 0 && l.h > 0 && Math.abs(l.w / l.h - texAspect) > 1e-3) {
+        if (l.w / l.h > texAspect) dispW = l.h * texAspect;
+        else dispH = l.w / texAspect;
+      }
+      const mesh = createTiltMesh(texture, dispW, dispH, sub, sub);
       mesh.scale.set(fit, fit);
-      // Card art / glints / watermarks are clipped to the mask window (which
-      // tilts with them, so they are never cut off).  The frame draws unmasked
-      // behind everything.
-      if (!isFrame && mask && state.parallaxMask) mesh.mask = maskGraphic;
-      container.addChild(mesh);
+      // Card art / glints / watermarks under the Mask are clipped to the window
+      // (which tilts with them, so they are never cut off).  The frame and any
+      // foreground overlay without a clip flag draw unmasked instead.
+      const layerClipped = useMask && l.clip;
+      if (isFrame) frameMeshes.push(mesh);
+      else if (layerClipped) clipMeshes.push(mesh);
+      else fgMeshes.push(mesh);
       loaded.push({
         mesh,
         // Layer layout in 1080-canvas px (y-down, relative to the card centre).
         x: l.x,
         y: l.y,
-        w: l.w,
-        h: l.h,
+        w: dispW,
+        h: dispH,
         // World-space depth along the camera view axis (drives the parallax).
         z: l.z || 0,
         zpx: (l.z || 0) * PARALLAX_DEPTH_SCALE,
         verticesX: sub,
         verticesY: sub,
         geometry: mesh.geometry,
-        windowPts: isFrame ? null : windowPts,
+        windowPts: layerClipped ? windowPts : null,
       });
     } catch (e) {
       console.error('Failed to load parallax layer', l.path, e);
     }
   }
+  // Draw order: mask (hidden), frame at the back, then the clipped group, then
+  // any unmasked foreground overlays on top.
+  if (useMask) container.addChildAt(clipped, 1);
+  for (const m of clipMeshes) clipped.addChild(m);
+  for (const m of frameMeshes) container.addChildAt(m, 1);
+  for (const m of fgMeshes) container.addChild(m);
   state.parallaxLayers = loaded;
   state.parallaxActive = true;
   // Initialize both the mesh vertices and the mask before the first drag.

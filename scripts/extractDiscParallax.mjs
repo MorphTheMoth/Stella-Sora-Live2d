@@ -385,7 +385,12 @@ function collectOverlay(gos, trs, srs, crs, images, followers, masks) {
   }
 
   const layers = [];
-  const walk = (gid, vis) => {
+  // A GyroscopeFollower usually lives on a container node (e.g. layer_1) and
+  // drives every sprite beneath it: the container's localPosition is what the
+  // follower moves, so its children inherit that motion through the hierarchy.
+  // We therefore propagate the nearest ancestor's follower down to each drawable
+  // layer so the viewer can apply the same 2D translation to the whole group.
+  const walk = (gid, vis, inheritedFollower) => {
     if (vis.has(gid)) return;
     vis.add(gid);
     const tid = trOfGo.get(gid);
@@ -409,24 +414,30 @@ function collectOverlay(gos, trs, srs, crs, images, followers, masks) {
         if (pgo && masks.has(pgo)) { underMask = true; break; }
         cur = pt ? pt.father : null;
       }
+      // RectTransform positions/sizes are authored in the layer's local canvas
+      // space and then multiplied by the full scale chain (this node's
+      // localScale * every ancestor's scale) to reach world canvas px.  Each
+      // layer's scale is independent, so we must carry BOTH the scale into the
+      // size (sdx*at.sx) AND leave the position as the true world centre
+      // (at.x, not at.x/at.sx) — otherwise layers with non-unit scale render
+      // too small and drifted toward the card centre.  at.sx already includes
+      // this node's own localScale, so sdx*at.sx is the displayed world width.
       layers.push({
         goId: gid,
         name: go.name,
         z: worldDepth(tid, trs),
-        // RectTransform positions are authored in the layer's scaled canvas
-        // space. Convert back to logical card px; the exported texture already
-        // carries the intended display dimensions.
-        x: at.x / (at.sx || 1), y: at.y / (at.sy || 1),
-        w: t.sdx, h: t.sdy,
+        x: at.x, y: at.y,
+        w: t.sdx * (at.sx || 1), h: t.sdy * (at.sy || 1),
         sx: t.sx, sy: t.sy,
         clip: underMask,
-        follower: followers.get(gid),
+        follower: followers.get(gid) || inheritedFollower,
         sprite: spriteId,
       });
     }
+    const childFollower = followers.get(gid) || inheritedFollower;
     for (const c of t.children) {
       const cgo = trs.get(c) ? trs.get(c).go : null;
-      if (cgo) walk(cgo, vis);
+      if (cgo) walk(cgo, vis, childFollower);
     }
   };
 
@@ -441,7 +452,7 @@ function collectOverlay(gos, trs, srs, crs, images, followers, masks) {
           const cg = gos.get(cgo);
           // The Gyroscope node itself contains no drawable layers; skip it.
           if (cg && cg.name === 'Gyroscope') continue;
-          walk(cgo, new Set());
+          walk(cgo, new Set(), null);
         }
       }
     }
@@ -547,12 +558,18 @@ function main() {
         w: Math.round(l.w * 100) / 100,
         h: Math.round(l.h * 100) / 100,
         clip: l.clip,
-        // World-space depth of the layer along the camera view axis.  This is
-        // the parallax driver: the gyroscope rotates the card, and in the
-        // perspective projection a layer's screen offset scales with its z
-        // (far layers shift more, near ones less).  z is kept in world units
-        // (the same scale as the canvas-plane distance), so the viewer can
-        // project it directly.
+        // Per-layer gyroscope follower.  In the game the disc is rendered by an
+        // orthographic OffScreen2DCamera and the parallax is a plain 2D
+        // translation: each layer follows the Gyroscope/Target object, shifting
+        // by (targetOffset * fFactorAX/AY) for `move` type (rotation for
+        // `rotate` type).  We surface the factors so the viewer can reproduce
+        // that exactly instead of faking it with a perspective projection.
+        follower: l.follower
+          ? { type: l.follower.type, ax: l.follower.ax, ay: l.follower.ay }
+          : null,
+        // World-space depth of the layer along the camera view axis, kept for
+        // reference / sorting.  (The actual parallax driver is the follower
+        // factors above, not a perspective projection.)
         z: Math.round(l.z * 100) / 100,
         depth: Math.round(l.z * 100) / 100,
       });
