@@ -66,22 +66,47 @@ def guess_skin_and_variant(model_dir, model_file):
       .../character/11001/live2d_full/a/moc_a/11001_f_a/11001_F_a.model3.json
       .../npc/910201/live2d/moc/910201_l/910201_L.model3.json
       .../disc_l2d/noncen/4004/l2d/moc/4004_f/4004_F.model3.json
+      .../characteravg/avg1_137/avg1_137/13701_L.model3.json
+
+    The AVG actor bundles (unreleased characters) have no <id>/<kind> path
+    components, so both the skin id and the variant come from the model file
+    name itself (13701_L -> skin 13701, Default).
     """
     path = model_dir.replace("\\", "/")
     # .../character/<id>/<kind>/   |  .../npc/<id>/<kind>/
     # .../disc_l2d/noncen/<id>/<kind>/
     m = re.search(r"/(?:character|npc|disc_l2d/noncen)/(\d+)/([^/]+)/", path)
-    if not m:
-        return None
-    skin_id = m.group(1)
-    kind = m.group(2)  # live2d | live2d_full | live2d_talent | l2d
-    suffix = VARIANT_SUFFIX.get(kind)
-    if suffix is None and kind == "l2d":
-        suffix = "l"
-    if suffix is None:
-        return None
-    model_name = model_file[: -len(".model3.json")]
-    return skin_id, suffix, model_name
+    if m:
+        skin_id = m.group(1)
+        kind = m.group(2)  # live2d | live2d_full | live2d_talent | l2d
+        suffix = VARIANT_SUFFIX.get(kind)
+        if suffix is None and kind == "l2d":
+            suffix = "l"
+        if suffix is None:
+            return None
+        model_name = model_file[: -len(".model3.json")]
+        return skin_id, suffix, model_name
+
+    # .../characteravg/<bundle>/<model-or-moc-dir>/<name>.model3.json
+    if "/characteravg/" in path:
+        model_name = model_file[: -len(".model3.json")]
+        # numbered models carry their 5-digit skin id (13701_L)
+        m = re.match(r"^(\d+)_([A-Za-z])", model_name)
+        if m:
+            suffix = {"L": "l", "F": "lf", "T": "t"}.get(m.group(2).upper(), "l")
+            return m.group(1), suffix, model_name
+        # unnumbered codename models (jiguang, qingye) — file them under the
+        # character id embedded in the avg1 bundle name (avg1_106 -> 106).
+        # Story-CG scene rigs (<name>_CG) and models from other avg series
+        # (e.g. avg3_100_a, story NPCs with no character entry) are skipped.
+        if model_name.endswith("_CG"):
+            return None
+        fm = re.search(r"/characteravg/avg1_(\d+)", path)
+        if not fm:
+            return None
+        return fm.group(1), "l", model_name
+
+    return None
 
 
 def find_mtn_folder(model_dir, raw_root):
@@ -182,7 +207,7 @@ def main():
     for m in models:
         info = guess_skin_and_variant(m["dir"], m["file"])
         if not info:
-            print("SKIP (unrecognized path):", m["dir"])
+            print("SKIP (no numeric skin id or unrecognized path):", os.path.join(m["dir"], m["file"]))
             continue
         skin_id, suffix, model_name = info
 

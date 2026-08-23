@@ -31,7 +31,19 @@ const state = {
   parallaxScene: null,
   parallaxFit: 1,
   parallaxMask: true,
-  parallaxMaskGraphic: null,
+  // One Graphics per masked run of layers (a Pixi mask binds to a single
+  // display object, so each clipped run needs its own).
+  parallaxMaskGraphics: [],
+  parallaxWindowPts: null,
+  // Gyroscope follow-target state (the game's Gyroscope/Target node): the
+  // accumulated drag position in canvas units, clamped to [-100,100], and
+  // the idle-sway clock (LiveDiscCtrl tweens it between -8 and +8).
+  parallaxTargetX: 0,
+  parallaxTargetY: 0,
+  parallaxDragAccX: 0,
+  parallaxDragAccY: 0,
+  parallaxDragging: false,
+  parallaxSwayMs: 0,
   // Where the rig canvas (the customized_bg backdrop / camera view) sits on
   // screen.  The character is placed relative to it via its MainView offset,
   // exactly like the game parents the L2D under actor_offset inside the rig.
@@ -345,7 +357,14 @@ function clearParallax() {
   state.parallaxItem = null;
   state.parallaxScene = null;
   state.parallaxFit = 1;
-  state.parallaxMaskGraphic = null;
+  state.parallaxMaskGraphics = [];
+  state.parallaxWindowPts = null;
+  state.parallaxTargetX = 0;
+  state.parallaxTargetY = 0;
+  state.parallaxDragAccX = 0;
+  state.parallaxDragAccY = 0;
+  state.parallaxDragging = false;
+  state.parallaxSwayMs = 0;
 }
 
 // Render a parallax scene centred on the screen, fitted to the mask window.
@@ -395,149 +414,125 @@ async function loadParallax(item) {
   container.visible = true;
   state.parallaxFit = fit;
 
-  // One shared mask for the clipped overlay layers: a rounded-rectangle window
-  // centred on the canvas (the game's Mask component).  The mask is nudged 1px
-  // higher and 1px smaller, with 5px of corner rounding, to sit neatly inside
-  // the frame border.  Only the layers that sit under the game's Mask (the card
-  // backdrop, glints and the watermarks — flag `clip` in the data) are clipped
-  // to it, so none of them spill outside the mask.  The frame border and the
-  // title overlays (`clip: false`) draw unmasked, on top of the clipped group —
-  // the frame behind, the titles in front.  The mask tilts with the card: each
-  // frame we rebuild its polygon from the perspective-projected window outline,
-  // so the content (which rotates with the card) stays neatly clipped inside it
-  // and is never cut off.
-  //
-  // A Pixi mask can only be bound to a single display object, so assigning the
-  // same Graphics to every mesh left all but the last layer unclipped — which is
-  // why foreground glints/watermarks spilled outside the window.  Instead every
-  // clipped layer lives in one sub-Container and the single mask is bound to
-  // that Container.  In Pixi v8 the mask must be part of the display tree to
-  // render, so it is added to the container (behind everything).  The mask can
-  // be toggled off via the options panel (state.parallaxMask).
-  const maskGraphic = new Graphics();
-  maskGraphic.eventMode = 'none';
+  // Layers are drawn in dump order — Unity canvases are painter-sorted by
+  // hierarchy, not by z.  Consecutive layers sharing the Mask flag form runs;
+  // each masked run gets its own Graphics stencil showing the projected window
+  // outline (rebuilt every frame), since a Pixi mask binds to a single display
+  // object.  Unmasked runs (frame border / title) draw without one.  The mask
+  // can be toggled off via the options panel (state.parallaxMask).
+  const corner = 5;
   let windowPts = null;
-  const useMask = !!(mask && state.parallaxMask);
-  if (useMask) {
-    const corner = 5;
+  if (mask && state.parallaxMask) {
     const mw = mask.w - 1; // 1px smaller
     const mh = mask.h - 1;
     const my = mask.y + 2; // 1px higher
-    const x0 = mask.x - mw / 2;
-    const y0 = my - mh / 2;
-    windowPts = roundedRectPoints(x0, y0, mw, mh, corner, 8);
-    maskGraphic.scale.set(fit, fit);
-    container.addChildAt(maskGraphic, 0);
+    windowPts = roundedRectPoints(mask.x - mw / 2, my - mh / 2, mw, mh, corner, 8);
   }
-  state.parallaxMaskGraphic = maskGraphic;
+  state.parallaxWindowPts = windowPts;
 
-  // Sub-container holding every clipped (under-Mask) layer; the single mask is
-  // bound to it so all of them are clipped together.
-  const clipped = new Container();
-  clipped.eventMode = 'none';
-  if (useMask) clipped.mask = maskGraphic;
-
-  // Separate out the frame (back) and unmasked foreground overlays (front) so
-  // they can be layered around the clipped group in the correct draw order.
-  const frameMeshes = [];
-  const fgMeshes = [];
-  const clipMeshes = [];
+  // Load textures and split the layer list into maximal clip-runs.
+  const runs = []; // { clip, entries: [layerData] }
   const loaded = [];
   for (const l of layers) {
     if (seq !== modelLoadSeq) return;
     try {
       const texture = await Assets.load(resolveUrl(l.path));
       if (seq !== modelLoadSeq) return;
-      // Every layer is a perspective-projected Mesh; they all rotate with the
-      // card (the frame / title tilt as much as the card art does).  The frame
+      // Every layer is a perspective-projected Mesh rotating with the card
+      // (the frame / title tilt as much as the card art does).  The frame
       // needs finer subdivision so its border stays smooth under perspective.
-      const isFrame = l.file === 'frame';
-      const sub = isFrame ? 28 : 12;
-      // The extracted box (l.w x l.h) already carries the layer's intended
-      // display size, but a non-uniform RectTransform scale (scaleX != scaleY)
-      // would stretch the sprite.  The dumped texture keeps its native aspect,
-      // so fit it inside the authored box preserving that aspect — otherwise
-      // backgrounds / elements get squished.  The same size is used both for
-      // the mesh geometry and the tilt vertex layout below, so they stay in
-      // sync.
-      const texW = texture.width || l.w;
-      const texH = texture.height || l.h;
-      const texAspect = texW / texH; // width per unit height of the source image
-      let dispW = l.w;
-      let dispH = l.h;
-      if (l.w > 0 && l.h > 0 && Math.abs(l.w / l.h - texAspect) > 1e-3) {
-        if (l.w / l.h > texAspect) dispW = l.h * texAspect;
-        else dispH = l.w / texAspect;
+      // Each layer renders at its authored rect (sizeDelta x scale chain):
+      // the game's UI Image stretches the sprite to that rect, and the
+      // rest-state zoom comes from the projection itself.
+      let run = runs[runs.length - 1];
+      if (!run || run.clip !== !!l.clip) {
+        run = { clip: !!l.clip, entries: [] };
+        runs.push(run);
       }
-      const mesh = createTiltMesh(texture, dispW, dispH, sub, sub);
-      mesh.scale.set(fit, fit);
-      // Card art / glints / watermarks under the Mask are clipped to the window
-      // (which tilts with them, so they are never cut off).  The frame and any
-      // foreground overlay without a clip flag draw unmasked instead.
-      const layerClipped = useMask && l.clip;
-      if (isFrame) frameMeshes.push(mesh);
-      else if (layerClipped) clipMeshes.push(mesh);
-      else fgMeshes.push(mesh);
-      loaded.push({
-        mesh,
-        // Layer layout in 1080-canvas px (y-down, relative to the card centre).
+      const entry = {
+        texture,
+        // Layer layout in 1080-canvas px (y-down, relative to the centre).
         x: l.x,
         y: l.y,
-        w: dispW,
-        h: dispH,
-        // World-space depth along the camera view axis (drives the parallax).
-        z: l.z || 0,
-        zpx: (l.z || 0) * PARALLAX_DEPTH_SCALE,
-        verticesX: sub,
-        verticesY: sub,
-        geometry: mesh.geometry,
-        windowPts: layerClipped ? windowPts : null,
-      });
+        w: l.w,
+        h: l.h,
+        // True depth along the camera axis, world units: accumulated
+        // RectTransform z (canvas px) divided by the world->canvas scale.
+        zw: (l.z || 0) / PARALLAX_PX_PER_WORLD,
+        // Static world-space tilt baked from the prefab hierarchy (radians).
+        // Discs 4020/4023/4024 have pre-tilted layers (ground 80° X etc.).
+        rx: l.rx || 0,
+        ry: l.ry || 0,
+        rz: l.rz || 0,
+        sub: l.file === 'frame' ? 28 : 12,
+      };
+      run.entries.push(entry);
+      loaded.push(entry);
     } catch (e) {
       console.error('Failed to load parallax layer', l.path, e);
     }
   }
-  // Draw order: mask (hidden), frame at the back, then the clipped group, then
-  // any unmasked foreground overlays on top.
-  if (useMask) container.addChildAt(clipped, 1);
-  for (const m of clipMeshes) clipped.addChild(m);
-  for (const m of frameMeshes) container.addChildAt(m, 1);
-  for (const m of fgMeshes) container.addChild(m);
   state.parallaxLayers = loaded;
+
+  // Build the display tree in dump order: per run a Graphics stencil plus a
+  // container holding that run's meshes.
+  const meshOf = new Map();
+  for (const run of runs) {
+    const cont = new Container();
+    cont.eventMode = 'none';
+    if (run.clip && windowPts) {
+      const graphic = new Graphics();
+      graphic.eventMode = 'none';
+      graphic.scale.set(fit, fit);
+      container.addChildAt(graphic, 0);
+      cont.mask = graphic;
+      state.parallaxMaskGraphics.push(graphic);
+    }
+    for (const entry of run.entries) {
+      const mesh = createTiltMesh(entry.texture, entry.w, entry.h, entry.sub, entry.sub);
+      mesh.scale.set(fit, fit);
+      cont.addChild(mesh);
+      meshOf.set(entry, mesh);
+    }
+    container.addChild(cont);
+  }
+  for (const entry of loaded) {
+    entry.mesh = meshOf.get(entry);
+    entry.geometry = entry.mesh.geometry;
+    entry.verticesX = entry.sub;
+    entry.verticesY = entry.sub;
+  }
   state.parallaxActive = true;
-  // Initialize both the mesh vertices and the mask before the first drag.
+  // Start at the game's initial follow-target position: LiveDiscCtrl seeds
+  // Gyroscope/Target at (-8, 0) before its idle sway tween begins.
   resetParallax();
   els.status.textContent = '';
 }
 
-// 3D tilt of the disc card.
+// 3D tilt of the disc card — replicating the game's own pipeline.
 //
-// In the game the <id>Card.prefab is rendered by a perspective offscreen camera
-// (FOV 60, canvas plane at distance 100).  The gyroscope rotates the whole card
-// and each overlay layer turns with it.  We reproduce that exactly with a real
-// perspective projection: every layer (frame, mask window, content, title) is a
-// Mesh whose vertices we project from 3D card space to 2D screen space for each
-// frame of the drag.
-//
-// Card space is centred on the card face (z = 0, the frame / mask window plane)
-// and expressed in canvas px; extracted relative depth z is scaled into a small
-// camera-space offset.  The camera is at distance CAM_DIST
-// looking down the +z axis.  Each vertex is rotated by the gyroscope yaw (about
-// Y) and pitch (about X), then perspective-projected: a vertex closer to the
-// camera maps to a larger screen offset, which is what makes the near edge of
-// the card grow and the far edge shrink — the "bottom larger, top smaller"
-// trapezoid.  Because the mask window and the content sit on the same rotating
-// card and both tilt together, the content stays clipped to the window and is
-// never cut off.
-//
-// The Meshes use Pixi's built-in default mesh shader (a Mesh with no custom
-// shader binds its texture automatically), so the perspective quad renders
-// reliably.
+// In-game (LiveDiscCtrl + GyroscopeFollower + Disc_OffScreen_Renderer):
+//   - The card prefab's Canvas is Screen Space - Camera on the offscreen
+//     camera: FOV 60, PlaneDistance 100, CanvasScaler reference 1080x1080.
+//     One canvas px = 2*100*tan(30deg)/1080 world units.
+//   - Drag deltas accumulate onto the Gyroscope/Target RectTransform,
+//     clamped to [-100,+100] canvas px; released, it snaps back to 0; while
+//     idle it tweens between (-8,0) and (+8,0) (8s yoyo, InOutSine).
+//   - Each GyroscopeFollower (type rotate) applies
+//         localRotation = Quaternion.Euler(fFactorAX*ty/100 deg,
+//                                           fFactorAY*tx/100 deg, 0)
+//     to its group.  The Mask window, the frame and the title carry those
+//     followers and the backdrop/art layers are children of the Mask, so the
+//     whole visible card rotates rigidly about the canvas centre.
+//   - Layers keep their authored RectTransform z chain, so they sit at real
+//     depths behind the canvas plane; the perspective camera then shrinks
+//     deeper layers by D/(D+z) at rest — that IS the card's rest-state zoom —
+//     and produces the differential parallax while tilting.
 const PARALLAX_PX_PER_WORLD = 1080 / (2 * 100 * Math.tan(Math.PI / 6)); // 9.3528
-const PARALLAX_CARD_TILT = 28;    // degrees of tilt at full drag (yaw or pitch)
-const PARALLAX_CAM_DIST = 100;    // offscreen camera distance (world units)
-const PARALLAX_CAM_DIST_PX = PARALLAX_CAM_DIST * PARALLAX_PX_PER_WORLD; // 935.28
-const PARALLAX_DEPTH_SCALE = 0.1;  // extracted layer depths are relative units
+const PARALLAX_PLANE_DIST = 100;   // OffScreen2DCamera PlaneDistance (world units)
+const PARALLAX_TARGET_MAX = 100;   // drag clamp on Gyroscope/Target, canvas px
+const PARALLAX_SWAY_RANGE = 8;     // idle sway amplitude, canvas px
+const PARALLAX_SWAY_HALF_S = 8;    // seconds per sway leg (yoyo tween)
 const DEG2RAD = Math.PI / 180;
 
 // Build a Mesh that renders a texture as a plane grid of verticesX * verticesY
@@ -555,45 +550,76 @@ function createTiltMesh(texture, w, h, verticesX, verticesY) {
   return mesh;
 }
 
-// Project a single 3D card point (card-local px, y-down) through the yaw (ry,
-// about Y) and pitch (rx, about X) rotation, then the perspective camera.
-// Returns the projected screen coords relative to the card centre (1080 px).
-function projectCardPoint(x, y, z, ry, rx) {
-  const cosY = Math.cos(ry), sinY = Math.sin(ry);
-  const cosX = Math.cos(rx), sinX = Math.sin(rx);
-  // yaw about Y: a point ahead of centre swings sideways.
-  const x1 = x * cosY + z * sinY;
-  const z1 = -x * sinY + z * cosY;
-  // pitch about X (y-down): a point ahead of centre swings vertically.
+// Rotate a world-space point (canvas-px x/y right/down converted to world
+// x-right/y-up, plus depth zw in world units) by Unity's yaw/pitch (left-
+// handed Euler XYZ) and project through the perspective camera sitting
+// PARALLAX_PLANE_DIST in front of the canvas plane.  Returns canvas px
+// relative to the card centre.  At zero tilt this is exactly the game's rest
+// state: authored size scaled by D/(D+zw).
+function projectCardPoint(px, py, zw, yaw, pitch) {
+  const x = px / PARALLAX_PX_PER_WORLD;
+  const y = -py / PARALLAX_PX_PER_WORLD;
+  const cosY = Math.cos(yaw), sinY = Math.sin(yaw);
+  const cosX = Math.cos(pitch), sinX = Math.sin(pitch);
+  // R_y(yaw): left-handed, +Z swings toward +X for positive angles.
+  const x1 = x * cosY + zw * sinY;
+  const z1 = -x * sinY + zw * cosY;
+  // R_x(pitch): +Y swings toward +Z for positive angles.
   const y1 = y * cosX - z1 * sinX;
   const z2 = y * sinX + z1 * cosX;
-  // Preserve each layer's rest-state size; tilt alone changes its perspective.
-  const inv = (z + PARALLAX_CAM_DIST_PX) / (z2 + PARALLAX_CAM_DIST_PX);
-  return { x: x1 * inv, y: y1 * inv };
+  const k = PARALLAX_PLANE_DIST / (PARALLAX_PLANE_DIST + z2);
+  return { x: x1 * k * PARALLAX_PX_PER_WORLD, y: -y1 * k * PARALLAX_PX_PER_WORLD };
 }
 
-// Update a layer mesh's vertices for the current tilt.
-function updateTiltMesh(pl, ry, rx) {
+// Update a layer mesh's vertices for the current tilt (same math as
+// projectCardPoint, inlined over the vertex grid).  Handles per-layer static
+// tilt (rx/ry/rz) for discs 4020/4023/4024 where ground planes etc. are
+// pre-tilted in the prefab.
+function updateTiltMesh(pl, yaw, pitch) {
   const pos = pl.geometry.buffers[0].data;
-  const cosY = Math.cos(ry), sinY = Math.sin(ry);
-  const cosX = Math.cos(rx), sinX = Math.sin(rx);
+  const cosY = Math.cos(yaw), sinY = Math.sin(yaw);
+  const cosX = Math.cos(pitch), sinX = Math.sin(pitch);
   const hw = pl.w / 2, hh = pl.h / 2;
   const vx = pl.verticesX, vy = pl.verticesY;
+  const S = PARALLAX_PX_PER_WORLD, D = PARALLAX_PLANE_DIST;
+  const hasStatic = (pl.rx || pl.ry || pl.rz);
+  const srX = pl.rx || 0, srY = pl.ry || 0, srZ = pl.rz || 0;
+  const cSx = hasStatic ? Math.cos(srX) : 1, sSx = hasStatic ? Math.sin(srX) : 0;
+  const cSy = hasStatic ? Math.cos(srY) : 1, sSy = hasStatic ? Math.sin(srY) : 0;
+  const cSz = hasStatic ? Math.cos(srZ) : 1, sSz = hasStatic ? Math.sin(srZ) : 0;
+  const cx = pl.x / S, cy = -pl.y / S;
   let n = 0;
   for (let gy = 0; gy < vy; gy++) {
     const v = (gy / (vy - 1)) * pl.h;
     for (let gx = 0; gx < vx; gx++) {
       const u = (gx / (vx - 1)) * pl.w;
-      const x = pl.x + u - hw;
-      const y = pl.y + v - hh;
-      const z = pl.zpx;
-      const x1 = x * cosY + z * sinY;
-      const z1 = -x * sinY + z * cosY;
-      const y1 = y * cosX - z1 * sinX;
-      const z2 = y * sinX + z1 * cosX;
-      const inv = (z + PARALLAX_CAM_DIST_PX) / (z2 + PARALLAX_CAM_DIST_PX);
-      pos[n] = x1 * inv;
-      pos[n + 1] = y1 * inv;
+      let dx = (u - hw) / S;
+      let dy = -(v - hh) / S;
+      let dz = 0;
+      if (hasStatic) {
+        // static R_x
+        let y1 = dy * cSx - dz * sSx;
+        let z1 = dy * sSx + dz * cSx;
+        dy = y1; dz = z1;
+        // static R_y
+        let x1 = dx * cSy + dz * sSy;
+        z1 = -dx * sSy + dz * cSy;
+        dx = x1; dz = z1;
+        // static R_z
+        let x2 = dx * cSz - dy * sSz;
+        let y2 = dx * sSz + dy * cSz;
+        dx = x2; dy = y2;
+      }
+      const xw = cx + dx;
+      const yw = cy + dy;
+      const zw = pl.zw + dz;
+      const x1 = xw * cosY + zw * sinY;
+      const z1 = -xw * sinY + zw * cosY;
+      const y1 = yw * cosX - z1 * sinX;
+      const z2 = yw * sinX + z1 * cosX;
+      const k = D / (D + z2);
+      pos[n] = x1 * k * S;
+      pos[n + 1] = -y1 * k * S;
       n += 2;
     }
   }
@@ -623,51 +649,41 @@ function roundedRectPoints(x0, y0, w, h, radius, perCorner) {
   return pts;
 }
 
-// Rebuild the mask window polygon from its projected perimeter for the tilt.
-function updateMaskTilt(pl, ry, rx) {
-  const g = state.parallaxMaskGraphic;
-  if (!g || !pl.windowPts) return;
-  g.clear();
-  for (let i = 0; i < pl.windowPts.length; i++) {
-    const p = projectCardPoint(pl.windowPts[i][0], pl.windowPts[i][1], 0, ry, rx);
-    if (i === 0) g.moveTo(p.x, p.y);
-    else g.lineTo(p.x, p.y);
+// Redraw every masked run's stencil from the projected window outline.
+function updateParallaxMasks(yaw, pitch) {
+  const pts = state.parallaxWindowPts;
+  if (!pts) return;
+  for (const g of state.parallaxMaskGraphics) {
+    g.clear();
+    for (let i = 0; i < pts.length; i++) {
+      const p = projectCardPoint(pts[i][0], pts[i][1], 0, yaw, pitch);
+      if (i === 0) g.moveTo(p.x, p.y);
+      else g.lineTo(p.x, p.y);
+    }
+    g.closePath();
+    g.fill(0xffffff);
   }
-  g.closePath();
-  g.fill(0xffffff);
 }
 
-function parallaxTilt(dx, dy) {
-  const screenW = state.app.renderer.width;
-  const screenH = state.app.renderer.height;
-  // Normalise the drag to the screen and clamp to [-1,1] like the gyroscope's
-  // follow target position; that drives the yaw/pitch tilt angles.
-  return {
-    nx: Math.max(-1, Math.min(1, dx / Math.max(screenW, 1))),
-    ny: Math.max(-1, Math.min(1, dy / Math.max(screenH, 1))),
-  };
-}
-
-function applyParallaxOffset(dx, dy) {
-  if (!state.parallaxActive) return;
-  const { nx, ny } = parallaxTilt(dx, dy);
-  // Yaw (drag sideways) and pitch (drag up/down) tilt of the whole card.  Pitch
-  // is negated so dragging down makes the near (bottom) edge grow and the far
-  // (top) edge shrink — the perspective trapezoid.
-  const ry = nx * PARALLAX_CARD_TILT * DEG2RAD;
-  const rx = -ny * PARALLAX_CARD_TILT * DEG2RAD;
-  for (const pl of state.parallaxLayers) {
-    updateTiltMesh(pl, ry, rx);
-    if (pl.windowPts) updateMaskTilt(pl, ry, rx);
-  }
+// Apply a Gyroscope/Target position (canvas px, y-down like Unity UI) to the
+// whole card: yaw from target.x, pitch from target.y, both through the
+// follower factors dumped per disc (fFactorAY / fFactorAX).
+function applyParallaxTarget(tx, ty) {
+  if (!state.parallaxActive || !state.parallaxScene) return;
+  const p = state.parallaxScene.parallax;
+  if (!p) return;
+  state.parallaxTargetX = tx;
+  state.parallaxTargetY = ty;
+  const yaw = ((p.ay || 0) * tx / PARALLAX_TARGET_MAX) * DEG2RAD;
+  const pitch = ((p.ax || 0) * ty / PARALLAX_TARGET_MAX) * DEG2RAD;
+  for (const pl of state.parallaxLayers) updateTiltMesh(pl, yaw, pitch);
+  updateParallaxMasks(yaw, pitch);
 }
 
 function resetParallax() {
-  if (!state.parallaxActive) return;
-  for (const pl of state.parallaxLayers) {
-    updateTiltMesh(pl, 0, 0);
-    if (pl.windowPts) updateMaskTilt(pl, 0, 0);
-  }
+  // The game seeds Gyroscope/Target at (-8, 0) before its idle sway begins.
+  state.parallaxSwayMs = 0;
+  applyParallaxTarget(-PARALLAX_SWAY_RANGE, 0);
 }
 
 function getVariantBgs(path) {
@@ -828,7 +844,12 @@ function addMotionControls(section) {
     opt.textContent = g;
     groupSel.appendChild(opt);
   }
-  if (groups.includes('idle')) groupSel.value = 'idle';
+  const variant = getVariantInfo(state.currentPath);
+  const defaultGroup =
+    variant && variant.label === 'Talent' && groups.includes('idle_2')
+      ? 'idle_2'
+      : groups.includes('idle') ? 'idle' : groups[0];
+  if (defaultGroup) groupSel.value = defaultGroup;
   groupRow.appendChild(groupLab);
   groupRow.appendChild(groupSel);
   section.appendChild(groupRow);
@@ -1188,7 +1209,9 @@ function addListItem(item) {
 
   const name = document.createElement('span');
   name.className = 'character-name' + (isDisc ? ' is-disc' : '');
-  const shownId = isDisc ? item.id.replace(/l2d$/, '') : item.id.slice(0, -2);
+  // Skin ids end in a 2-digit variant number (10301 -> char 103); plain
+  // character ids (unreleased chars, e.g. 106 from an avg bundle) show as-is.
+  const shownId = shownIdOf(item);
   const idSpan = document.createElement('span');
   idSpan.className = 'character-id';
   idSpan.textContent = shownId + ' ';
@@ -1239,14 +1262,6 @@ function addListItem(item) {
         li.classList.add('collapsed');
         return;
       }
-      // Keep the clicked name in place: record its position inside the
-      // scrollable content before the DOM changes, then restore that same
-      // visual position afterwards (content above shrinks as others fold).
-      const scrollEl = li.closest('.panel-body');
-      const contentPos = () =>
-        name.getBoundingClientRect().top - scrollEl.getBoundingClientRect().top + scrollEl.scrollTop;
-      const posBefore = contentPos();
-      const scrollTopBefore = scrollEl.scrollTop;
       document.querySelectorAll('.entity-block').forEach((other) => {
         if (other === li) return;
         const v = other.querySelector('.character-variation');
@@ -1257,7 +1272,6 @@ function addListItem(item) {
       });
       variants.style.display = '';
       li.classList.remove('collapsed');
-      scrollEl.scrollTop = scrollTopBefore + contentPos() - posBefore;
       // Opening a character loads its first L2D by default.
       if (firstBtn) {
         setActiveButton(firstBtn);
@@ -1268,6 +1282,16 @@ function addListItem(item) {
   els.list.appendChild(li);
 }
 
+// Id shown in the list: skin ids end in a 2-digit variant number, so the
+// character group is the id minus those (10301 -> 103, 910201 -> 9102).
+// Discs drop their l2d suffix. Plain 3-digit character ids (unreleased
+// chars from avg bundles, e.g. 106) are shown as-is.
+function shownIdOf(item) {
+  const isDisc = item.kind === 'parallax' || item.kind === 'discl2d';
+  if (isDisc) return item.id.replace(/l2d$/, '');
+  return item.id.length <= 4 ? item.id : item.id.slice(0, -2);
+}
+
 // Entries whose shown id (group id, last 2 digits cut for chars/NPCs) starts
 // with any hide-token are filtered out of the list.
 function getHideTokens() {
@@ -1276,8 +1300,7 @@ function getHideTokens() {
 
 function isHidden(item, tokens) {
   if (!tokens.length) return false;
-  const isDisc = item.kind === 'parallax' || item.kind === 'discl2d';
-  const shownId = isDisc ? item.id.replace(/l2d$/, '') : item.id.slice(0, -2);
+  const shownId = shownIdOf(item);
   return tokens.some((t) => shownId.startsWith(t));
 }
 
@@ -1288,7 +1311,7 @@ function createCharactersList() {
   const tokens = getHideTokens();
 
   const chars = state.models.filter((item) => !isDiscEntry(item) && !isHidden(item, tokens));
-  const discs = state.models.filter((item) => isDiscEntry(item) && !isHidden(item, tokens));
+  const discs = state.models.filter((item) => isDiscEntry(item) && !isHidden(item, tokens)).reverse();
 
   addListSection('Trekkers (' + chars.length + ')');
   for (const item of chars) addListItem(item);
@@ -1305,8 +1328,6 @@ function enableDrag() {
   let dragging = false;
   let lastX = 0;
   let lastY = 0;
-  let startX = 0;
-  let startY = 0;
 
   app.stage.eventMode = 'static';
   app.stage.hitArea = app.renderer.screen;
@@ -1316,27 +1337,62 @@ function enableDrag() {
     dragging = true;
     lastX = e.global.x;
     lastY = e.global.y;
-    startX = e.global.x;
-    startY = e.global.y;
+    if (state.parallaxActive) {
+      // LiveDiscCtrl pauses the sway tween and accumulates deltas on top of
+      // the target's current position.
+      state.parallaxDragging = true;
+      state.parallaxDragAccX = state.parallaxTargetX;
+      state.parallaxDragAccY = state.parallaxTargetY;
+    }
   });
   app.stage.on('pointermove', (e) => {
     if (!dragging) return;
     if (state.parallaxActive) {
-      // Parallax scene: shift each layer by its depth relative to drag start.
-      applyParallaxOffset(e.global.x - startX, e.global.y - startY);
+      // Parallax scene: accumulate raw pointer deltas onto the gyroscope
+      // follow target, clamped to [-100,+100] like the game's drag.  Unity
+      // EventData delta.y is y-up, so invert before applying as pitch.
+      const tx = clampParallaxTarget(state.parallaxDragAccX + (e.global.x - lastX));
+      const ty = clampParallaxTarget(state.parallaxDragAccY - (e.global.y - lastY));
+      state.parallaxDragAccX = tx;
+      state.parallaxDragAccY = ty;
+      applyParallaxTarget(tx, ty);
     } else {
       camera.x += e.global.x - lastX;
       camera.y += e.global.y - lastY;
-      lastX = e.global.x;
-      lastY = e.global.y;
     }
+    lastX = e.global.x;
+    lastY = e.global.y;
   });
   const stop = () => {
+    if (!dragging) return;
     dragging = false;
-    resetParallax();
+    if (state.parallaxActive) {
+      // DragEnd snaps the follow target back to zero; the sway tween resumes.
+      state.parallaxDragging = false;
+      applyParallaxTarget(0, 0);
+    }
   };
   app.stage.on('pointerup', stop);
   app.stage.on('pointerupoutside', stop);
+}
+
+function clampParallaxTarget(v) {
+  return Math.max(-PARALLAX_TARGET_MAX, Math.min(PARALLAX_TARGET_MAX, v));
+}
+
+// Idle sway: LiveDiscCtrl tweens Gyroscope/Target along (-8,0)..(8,0), 8s per
+// leg, Yoyo + InOutSine — a raised cosine between the two endpoints.  Paused
+// while dragging, like the game pausing its tweener.
+function parallaxSwayTick() {
+  const app = state.app;
+  if (!app || !state.parallaxActive || !state.parallaxScene) return;
+  const p = state.parallaxScene.parallax;
+  if (!p) return;
+  if (state.parallaxDragging) return;
+  state.parallaxSwayMs += app.ticker.deltaMS;
+  const tx = -PARALLAX_SWAY_RANGE *
+    Math.cos((Math.PI * state.parallaxSwayMs) / (PARALLAX_SWAY_HALF_S * 1000));
+  applyParallaxTarget(tx, 0);
 }
 
 function enableZoom() {
@@ -1490,6 +1546,7 @@ async function init() {
   handleContextLost();
   enableDrag();
   enableZoom();
+  app.ticker.add(parallaxSwayTick);
   handleMenuState();
   setupBackgroundPicker();
 
@@ -1499,3 +1556,6 @@ async function init() {
 }
 
 init();
+
+// Exposed for headless testing / debugging — harmless in production.
+window.__state = state;

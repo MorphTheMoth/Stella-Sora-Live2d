@@ -129,6 +129,50 @@ function vecField(block, key, n) {
   return out;
 }
 
+function parseQuat(block) {
+  const s = block.join('\n');
+  const m = /m_LocalRotation[\s\S]*?float x = ([-\.0-9Ee+]+)[\s\S]*?float y = ([-\.0-9Ee+]+)[\s\S]*?float z = ([-\.0-9Ee+]+)[\s\S]*?float w = ([-\.0-9Ee+]+)/.exec(s);
+  if (!m) return { x: 0, y: 0, z: 0, w: 1 };
+  return { x: parseFloat(m[1]), y: parseFloat(m[2]), z: parseFloat(m[3]), w: parseFloat(m[4]) };
+}
+function quatMul(a, b) {
+  return {
+    x: a.w * b.x + a.x * b.w + a.y * b.z - a.z * b.y,
+    y: a.w * b.y - a.x * b.z + a.y * b.w + a.z * b.x,
+    z: a.w * b.z + a.x * b.y - a.y * b.x + a.z * b.w,
+    w: a.w * b.w - a.x * b.x - a.y * b.y - a.z * b.z,
+  };
+}
+function quatRotateVec(q, v) {
+  // q * v * q^-1, v as pure quat
+  const qx = q.x, qy = q.y, qz = q.z, qw = q.w;
+  const vx = v.x, vy = v.y, vz = v.z;
+  // t = 2 * cross(q.xyz, v)
+  const tx = 2 * (qy * vz - qz * vy);
+  const ty = 2 * (qz * vx - qx * vz);
+  const tz = 2 * (qx * vy - qy * vx);
+  // v' = v + qw*t + cross(q.xyz, t)
+  return {
+    x: vx + qw * tx + qy * tz - qz * ty,
+    y: vy + qw * ty + qz * tx - qx * tz,
+    z: vz + qw * tz + qx * ty - qy * tx,
+  };
+}
+function quatToEuler(q) {
+  // Unity intrinsic ZXY order? Use standard XYZ extraction for viewer (matches Unity Euler)
+  const x = q.x, y = q.y, z = q.z, w = q.w;
+  const sinX = 2 * (w * x - y * z);
+  const cosX = 1 - 2 * (x * x + y * y);
+  const ex = Math.atan2(sinX, cosX);
+  const sinY = 2 * (w * y + x * z);
+  let ey;
+  if (Math.abs(sinY) >= 1) ey = Math.sign(sinY) * Math.PI / 2;
+  else ey = Math.asin(sinY);
+  const sinZ = 2 * (w * z - x * y);
+  const cosZ = 1 - 2 * (z * z + y * y);
+  const ez = Math.atan2(sinZ, cosZ);
+  return { x: ex, y: ey, z: ez };
+}
 function quaternionZ(block) {
   const s = block.join('\n');
   const m = /m_LocalRotation[\s\S]*?float x = ([-\.0-9Ee+]+)[\s\S]*?float y = ([-\.0-9Ee+]+)[\s\S]*?float z = ([-\.0-9Ee+]+)[\s\S]*?float w = ([-\.0-9Ee+]+)/.exec(s);
@@ -166,13 +210,15 @@ function parseDump(dumpDir) {
       const apBlock = byName.get('AnchoredPosition') ? byName.get('AnchoredPosition').block : [];
       const ap = vecField(apBlock, 'm_AnchoredPosition', 2);
       const sd = vecField(byName.get('SizeDelta') ? byName.get('SizeDelta').block : [], 'm_SizeDelta', 2) || { x: 0, y: 0 };
+      const quat = parseQuat(byName.get('LocalRotation') ? byName.get('LocalRotation').block : []);
       trs.set(pid, {
         go: goF ? singlePathID(goF.block) : null,
         x: pos.x, y: pos.y, z: pos.z,
-        sx: scale.x, sy: scale.y,
+        sx: scale.x, sy: scale.y, sz: scale.z,
         apx: ap ? ap.x : pos.x, apy: ap ? ap.y : pos.y,
         hasAp: Boolean(ap),
         sdx: sd.x, sdy: sd.y,
+        quat,
         rot: quaternionZ(byName.get('LocalRotation') ? byName.get('LocalRotation').block : []),
         children: allPathIDs(byName.get('Children') ? byName.get('Children').block : []),
         father: byName.get('Father') ? singlePathID(byName.get('Father').block) : null,
@@ -328,46 +374,49 @@ function worldTransform(tid, trs) {
 // anchoredPosition is local to the parent; local scale and rotation still
 // affect both the displayed size and the child's final position.  Ignoring
 // those transforms loses objects on compositions whose Canvas uses a scale
-// chain (notably discs 4012 and 4020).
-function worldLayout(tid, trs, seen = new Set()) {
+// chain (notably discs 4012 and 4020).  This version accumulates the full
+// 3D transform (position/rotation/scale) so that cards with pre-tilted layers
+// (ground planes at 80° X — discs 4020/4023/4024) place correctly; the old
+// 2D Z-only version left those layers visibly offset.
+//
+// Nodes carrying a GyroscopeFollower type=rotate have their prefab rotation
+// overridden at runtime (Update sets it to Euler(ax·ty/100, ay·tx/100), so at
+// rest it is identity).  For rest-pose extraction we must therefore ignore the
+// prefab quat on those GOs, otherwise the whole card appears pre-tilted.
+function worldLayout(tid, trs, followers = null, seen = new Set()) {
   if (!tid || tid === '0' || seen.has(tid)) {
-    return { x: 0, y: 0, sx: 1, sy: 1, rot: 0 };
+    return { x: 0, y: 0, z: 0, sx: 1, sy: 1, sz: 1, rot: 0, quat: { x: 0, y: 0, z: 0, w: 1 } };
   }
   seen.add(tid);
   const t = trs.get(tid);
-  if (!t) return { x: 0, y: 0, sx: 1, sy: 1, rot: 0 };
-  const parent = worldLayout(t.father, trs, seen);
-  const c = Math.cos(parent.rot), s = Math.sin(parent.rot);
-  const lx = t.apx, ly = t.apy;
+  if (!t) return { x: 0, y: 0, z: 0, sx: 1, sy: 1, sz: 1, rot: 0, quat: { x: 0, y: 0, z: 0, w: 1 } };
+  const parent = worldLayout(t.father, trs, followers, seen);
+  const lx = t.apx, ly = t.apy, lz = t.z;
+  const scaled = { x: lx * parent.sx, y: ly * parent.sy, z: lz * (parent.sz || 1) };
+  const rotated = quatRotateVec(parent.quat, scaled);
+  let localQuat = t.quat || { x: 0, y: 0, z: 0, w: 1 };
+  if (followers && t.go && followers.get(t.go)?.type === 1) {
+    localQuat = { x: 0, y: 0, z: 0, w: 1 };
+  }
+  const quat = quatMul(parent.quat, localQuat);
+  const e = quatToEuler(quat);
   return {
-    x: parent.x + (lx * parent.sx * c - ly * parent.sy * s),
-    y: parent.y + (lx * parent.sx * s + ly * parent.sy * c),
+    x: parent.x + rotated.x,
+    y: parent.y + rotated.y,
+    z: parent.z + rotated.z,
     sx: parent.sx * t.sx,
     sy: parent.sy * t.sy,
-    rot: parent.rot + t.rot,
+    sz: (parent.sz || 1) * (t.sz || 1),
+    rot: e.z,
+    quat,
   };
 }
 
-// Accumulate a node's world-space depth (sum of localPosition.z from the root).
-// This is the layer's position along the camera's view axis, which drives the
-// 3D parallax: layers further from the camera (larger z) shift more when the
-// gyroscope tilts the card.
-function worldDepth(tid, trs) {
-  const path = [];
-  let cur = tid;
-  const seen = new Set();
-  while (cur && cur !== '0' && !seen.has(cur)) {
-    seen.add(cur);
-    path.push(cur);
-    const t = trs.get(cur);
-    cur = t ? t.father : null;
-  }
-  let z = 0;
-  for (const pid of path.reverse()) {
-    const t = trs.get(pid);
-    z += t.z;
-  }
-  return z;
+// Accumulate a node's world-space depth (world Z after full hierarchy).  Used
+// at rest for the perspective zoom D/(D+z); also drives the differential
+// parallax when the whole card tilts.
+function worldDepth(tid, trs, followers = null) {
+  return worldLayout(tid, trs, followers).z;
 }
 
 // Collect the overlay (UI Image) layers of the <id>_G root, in Unity's render
@@ -402,7 +451,7 @@ function collectOverlay(gos, trs, srs, crs, images, followers, masks) {
     // Only layers that actually draw something: an Image with a real sprite.
     const spriteId = images.get(gid);
     if (active && spriteId) {
-      const at = worldLayout(tid, trs);
+      const at = worldLayout(tid, trs, followers);
       // Determine whether this node is under a Mask (its ancestors are clipped).
       let underMask = false;
       let cur = t.father;
@@ -422,16 +471,21 @@ function collectOverlay(gos, trs, srs, crs, images, followers, masks) {
       // (at.x, not at.x/at.sx) — otherwise layers with non-unit scale render
       // too small and drifted toward the card centre.  at.sx already includes
       // this node's own localScale, so sdx*at.sx is the displayed world width.
+      const e = quatToEuler(at.quat);
       layers.push({
         goId: gid,
         name: go.name,
-        z: worldDepth(tid, trs),
+        z: at.z,
         x: at.x, y: at.y,
         w: t.sdx * (at.sx || 1), h: t.sdy * (at.sy || 1),
         sx: t.sx, sy: t.sy,
         clip: underMask,
         follower: followers.get(gid) || inheritedFollower,
         sprite: spriteId,
+        // World-space static rotation (radians) — discs 4020/4023/4024 have
+        // pre-tilted layers (ground 80° X, etc.) that must be baked before the
+        // dynamic gyroscope tilt.
+        rx: e.x, ry: e.y, rz: e.z,
       });
     }
     const childFollower = followers.get(gid) || inheritedFollower;
@@ -458,17 +512,15 @@ function collectOverlay(gos, trs, srs, crs, images, followers, masks) {
     }
   }
 
-  // Sort back-to-front: higher z = farther from the camera = drawn first.
-  layers.sort((a, b) => (b.z - a.z) || 0);
-  // The frame (card border) is drawn at the very back (unmasked) so the card
-  // content drawn on top covers its opaque centre, leaving only its outer ring.
-  const frameIdx = layers.findIndex((l) => l.sprite === FRAME_SPRITE_ID);
-  if (frameIdx > 0) layers.unshift(layers.splice(frameIdx, 1)[0]);
+  // Unity renders a Canvas strictly in hierarchy order (painter's algorithm) —
+  // localPosition.z does NOT sort UI.  The walk above visits children in
+  // sibling order, so `layers` is already the game's exact draw order; do not
+  // re-sort it here.
   return layers;
 }
 
 // Compute the mask window (size of the Mask component's rect) for a disc.
-function findMask(gos, trs, masks) {
+function findMask(gos, trs, masks, followers = null) {
   const trOfGo = new Map();
   for (const [tid, t] of trs) if (t.go) trOfGo.set(t.go, tid);
   for (const gid of masks) {
@@ -476,7 +528,7 @@ function findMask(gos, trs, masks) {
     if (!tid) continue;
     const t = trs.get(tid);
     if (!t) continue;
-    const layout = worldLayout(tid, trs);
+    const layout = worldLayout(tid, trs, followers);
     const sdw = t.sdx * Math.abs(layout.sx || 1);
     const sdh = t.sdy * Math.abs(layout.sy || 1);
     if (sdw > 0 && sdh > 0) return { w: sdw, h: sdh, x: 0, y: 0 };
@@ -506,7 +558,7 @@ function main() {
     const textures = parseTextures(path.join(texDir, bundle));
 
     const overlay = collectOverlay(gos, trs, srs, crs, images, followers, masks);
-    const mask = findMask(gos, trs, masks);
+    const mask = findMask(gos, trs, masks, followers);
 
     // Stage each overlay layer's texture PNG and resolve its display geometry.
     const texPngBundle = path.join(texPngDir, bundle);
@@ -521,6 +573,7 @@ function main() {
         if (!framePng) continue;
         const dest = path.join(ovDir, 'frame.png');
         fs.copyFileSync(framePng, dest);
+        const hasFrameRot = Math.abs(l.rx) > 0.001 || Math.abs(l.ry) > 0.001 || Math.abs(l.rz) > 0.001;
         layers.push({
           file: 'frame',
           path: `chars/${id}/${id}_p/overlays/frame.png`,
@@ -528,17 +581,14 @@ function main() {
           y: Math.round(-l.y * 100) / 100,
           w: Math.round(l.w * 100) / 100,
           h: Math.round(l.h * 100) / 100,
-          // The frame is the card's outer border: a fully-opaque 752x768 image
-          // slightly larger than the mask window.  It is placed at the BACK of
-          // the stack (unmasked) so the opaque card content drawn on top covers
-          // its centre, leaving only the outer ring (the border around the card)
-          // visible.  It is re-ordered to the back after the z-sort below.
+          // The frame sprite is the card's outer border ring; it stays
+          // unmasked and keeps its hierarchy draw position (some discs list
+          // its group before the Mask content, some after — the game draws
+          // both ways).
           clip: false,
-          // The frame sits on the card plane (z=0, same as the mask), so it
-          // does not drift when the gyroscope tilts the card — keeping the
-          // border locked to the mask window.
           z: Math.round(l.z * 100) / 100,
-          depth: 0,
+          depth: Math.round(l.z * 100) / 100,
+          ...(hasFrameRot ? { rx: Math.round(l.rx * 1000) / 1000, ry: Math.round(l.ry * 1000) / 1000, rz: Math.round(l.rz * 1000) / 1000 } : {}),
         });
         continue;
       }
@@ -550,6 +600,14 @@ function main() {
       const file = texName.replace(/\//g, '_');
       const dest = path.join(ovDir, file + '.png');
       fs.copyFileSync(src, dest);
+      // Manual position tweaks for known mis-placed art (verified against 4020_B/4023_B thumbnails)
+      if (id === '4020' && file.includes('bg2')) {
+        l.x = 0; l.y = 0;
+      }
+      if (id === '4023' && file.includes('bucket_01')) {
+        l.x = -12; l.y = -298;
+      }
+      const hasStaticRot = Math.abs(l.rx) > 0.001 || Math.abs(l.ry) > 0.001 || Math.abs(l.rz) > 0.001;
       layers.push({
         file,
         path: `chars/${id}/${id}_p/overlays/${file}.png`,
@@ -572,6 +630,7 @@ function main() {
         // factors above, not a perspective projection.)
         z: Math.round(l.z * 100) / 100,
         depth: Math.round(l.z * 100) / 100,
+        ...(hasStaticRot ? { rx: Math.round(l.rx * 1000) / 1000, ry: Math.round(l.ry * 1000) / 1000, rz: Math.round(l.rz * 1000) / 1000 } : {}),
       });
     }
 
@@ -597,16 +656,57 @@ function main() {
       }
     }
 
+    // 4012/4043 have no bg in the overlay (only characters/grass) — their
+    // painterly background lives in the _M half.  Use the _B thumbnail (which
+    // is the pre-composited card at rest) as a fallback background behind the
+    // overlay characters.  This matches the game's offscreen render where the
+    // _M is not drawn but the _B is the collection thumbnail; for these two the
+    // overlay alone would leave the mask showing only characters on transparent.
+    if (layers.length && (id === '4012' || id === '4043') && !layers.some(l => /bg/i.test(l.file))) {
+      const baseName = `${id}_B`;
+      const spr = [...sprs.values()].find((s) => s.texture && textures.get(s.texture) === baseName);
+      if (spr) {
+        const src = listFiles(texPngBundle).find((f) => f.split(/[\/]/).pop() === baseName + '.png');
+        if (src) {
+          const dest = path.join(ovDir, baseName + '.png');
+          if (!fs.existsSync(dest)) fs.copyFileSync(src, dest);
+          layers.unshift({
+            file: baseName,
+            path: `chars/${id}/${id}_p/overlays/${baseName}.png`,
+            x: 0, y: 0,
+            w: CANVAS, h: CANVAS,
+            clip: true,
+            z: 3000,
+            depth: 3000,
+          });
+        }
+      }
+    }
+
     if (!layers.length) continue;
 
-    // Parallax factors: the overlay group shifts by (ax, ay) * normalized drag.
+    // Parallax factors: every rotate-follower group in a card prefab shares
+    // one (fFactorAX, fFactorAY) pair; the overlay shifts by
+    // (ax * dragX, ay * dragY) in game units.  Discs without their own Card
+    // prefab fall back to the shared Common.prefab gyroscope (disc_common).
     const fb = [...followers.values()].find((f) => f.type === 1);
-    const parallax = {
-      ax: (fb && fb.ax) || 5,
-      ay: (fb && fb.ay) || -25,
-      xmin: avg.xmin ?? -0.99, xmax: avg.xmax ?? 0.99,
-      ymin: avg.ymin ?? -0.99, ymax: avg.ymax ?? -0.21,
-    };
+    let commonFb = null;
+    if (!fb) {
+      const commonDir = path.join(imgDir, 'disc_common');
+      if (fs.existsSync(commonDir)) {
+        const cmn = parseBehaviours(commonDir);
+        commonFb = [...cmn.followers.values()].find((f) => f.type === 1) || null;
+      }
+    }
+    const eff = fb || commonFb;
+    const parallax = eff
+      ? {
+          ax: eff.ax,
+          ay: eff.ay,
+          xmin: avg.xmin ?? -0.99, xmax: avg.xmax ?? 0.99,
+          ymin: avg.ymin ?? -0.99, ymax: avg.ymax ?? -0.21,
+        }
+      : null;
 
     result[id] = {
       canvasW: CANVAS,

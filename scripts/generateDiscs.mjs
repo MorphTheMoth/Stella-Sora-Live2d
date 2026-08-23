@@ -66,7 +66,12 @@ function main() {
     }
     const isDisc = /^\d{4}$/.test(item.id);
     if (isDisc) {
-      l2dDiscs.set(item.id, { name: item.name, variants: item.variants });
+      // Only discs carrying real model data become [title] l2d entries;
+      // folder shells without a model3.json (1xxx-3xxx parallax-only cards)
+      // must not spawn variant-less discl2d entries.
+      if (Array.isArray(item.variants) && item.variants.length) {
+        l2dDiscs.set(item.id, { name: item.name, variants: item.variants });
+      }
     } else {
       characters.push(item);
     }

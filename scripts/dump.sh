@@ -11,21 +11,29 @@
 #
 #   --game DIR   game install dir (default: resolved symlink of
 #                "../Link to YostarGames/StellaSora_EN")
+#   --datamine DIR
+#                datamine root (default: "../StellaSoraData Makostar"); the
+#                name tables below are auto-resolved from its
+#                EN/language/en_US when not given explicitly
 #   --all        also dump npc_l2d_* and disc_l2d_* bundles
-#                (default: only char_l2d_*)
+#                (default: only char_l2d_* + the AVG actor bundles that
+#                carry unreleased characters' Live2D)
 #   --skin FILE  datamine CharacterSkin.json; if given, data/charbg.json is
 #                regenerated and the CharBg main-menu backdrops are staged
 #                into bg/charbg/ from the game's image-*.unity3d bundles
 #   --board-npc FILE
 #                datamine language/en_US/BoardNPC.json; fallback names for
 #                NPCs that characterid.json doesn't cover
+#                (default: auto-resolved from --datamine)
 #   --skin-names FILE
 #                datamine language/en_US/CharacterSkin.json; labels the extra
 #                skin variants that don't match Default/Awakened/Talent/Memory
 #                Snapshot (shown as "Unknown" otherwise)
+#                (default: auto-resolved from --datamine)
 #   --char-names FILE
 #                datamine language/en_US/Character.json; authoritative
 #                character names, rebuilt into data/characterid.json
+#                (default: auto-resolved from --datamine)
 #
 # Prereqs:
 #   - dotnet with .NET 9+ (uses DOTNET_ROLL_FORWARD=Major)
@@ -43,6 +51,7 @@ CHAR_NAMES=""
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
 TMP="$ROOT/.dump_tmp"
+DATAMINE="$ROOT/../StellaSoraData Makostar"
 
 while [[ $# -gt 0 ]]; do
   case "$1" in
@@ -53,6 +62,7 @@ while [[ $# -gt 0 ]]; do
     --board-npc) BOARD_NPC="$2"; shift 2 ;;
     --skin-names) SKIN_NAMES="$2"; shift 2 ;;
     --char-names) CHAR_NAMES="$2"; shift 2 ;;
+    --datamine) DATAMINE="$2"; shift 2 ;;
     *) echo "unknown arg: $1"; exit 1 ;;
   esac
 done
@@ -61,6 +71,14 @@ if [[ -z "$GAME" ]]; then
   LINK="$ROOT/../Link to YostarGames/StellaSora_EN"
   GAME="$(readlink -f "$LINK" 2>/dev/null || echo "$LINK")"
 fi
+
+# Name tables (BoardNPC / CharacterSkin / Character) auto-resolve from the
+# datamine's EN language dir when not passed explicitly — the pipeline should
+# pick up NPC/skin/character names on every run without hand-arguing files.
+LANG_DIR="$DATAMINE/EN/language/en_US"
+[[ -n "$BOARD_NPC" || ! -f "$LANG_DIR/BoardNPC.json" ]] || BOARD_NPC="$LANG_DIR/BoardNPC.json"
+[[ -n "$SKIN_NAMES" || ! -f "$LANG_DIR/CharacterSkin.json" ]] || SKIN_NAMES="$LANG_DIR/CharacterSkin.json"
+[[ -n "$CHAR_NAMES" || ! -f "$LANG_DIR/Character.json" ]] || CHAR_NAMES="$LANG_DIR/Character.json"
 
 INSTALL_RESOURCE="$GAME/StellaSora_Data/StreamingAssets/InstallResource"
 PERSISTENT="$GAME/Persistent_Store/AssetBundles"
@@ -73,12 +91,21 @@ fi
 echo "Game: $GAME"
 echo "AssetStudio CLI: $CLI"
 echo "InstallResource: $INSTALL_RESOURCE"
+echo "BoardNPC names: ${BOARD_NPC:-<none found>}"
+echo "Skin names: ${SKIN_NAMES:-<none found>}"
+echo "Char names: ${CHAR_NAMES:-<none found>}"
 
 rm -rf "$TMP"
 mkdir -p "$TMP/live2d" "$TMP/raw" "$TMP/chars"
 
 # Collect the bundle list
-PATTERNS=("char_l2d_")
+# char_avg_2d_avg1_* / char_avg_2d_avg3_10*: unreleased characters ship no
+# char_l2d_<id> bundle at all — their Live2D is embedded as a Cubism prefab
+# (CubismMoc + AnimationClips) inside these AVG actor bundles in
+# Persistent_Store (the InstallResource copies are stripped and export
+# nothing).  Sprite-only avg bundles come out empty and are skipped before
+# normalize below.
+PATTERNS=("char_l2d_" "char_avg_2d_avg1_" "char_avg_2d_avg3_10")
 if [[ "$ALL" == "1" ]]; then
   PATTERNS+=("npc_l2d_" "disc_l2d_")
 fi
@@ -103,9 +130,17 @@ BUNDLES=($(printf '%s\n' "${BUNDLES[@]}" | sort -u))
 echo "Found ${#BUNDLES[@]} Live2D bundles"
 
 FAILED=()
+mkdir -p "$TMP/chars_avg"
 for bundle in "${BUNDLES[@]}"; do
   base="$(basename "$bundle" .unity3d)"
   echo "=== $base ==="
+  # avg-derived models are staged separately: they duplicate the _l/_lf
+  # variants already extracted (richer) from char_l2d bundles for released
+  # characters, and only the ids without a char_l2d source are merged below.
+  stage="$TMP/chars"
+  if [[ "$base" == char_avg_2d_* ]]; then
+    stage="$TMP/chars_avg"
+  fi
   out_l2d="$TMP/live2d/$base"
   out_raw="$TMP/raw/$base"
   mkdir -p "$out_l2d" "$out_raw"
@@ -118,9 +153,27 @@ for bundle in "${BUNDLES[@]}"; do
   DOTNET_ROLL_FORWARD=Major dotnet "$CLI" "$bundle" -m export -t textAsset -o "$out_raw" \
     >/dev/null 2>&1 || echo "  textAsset export FAILED"
 
-  python3 "$SCRIPT_DIR/normalize.py" \
-    --live2d "$out_l2d" --raw "$out_raw" --out "$TMP/chars" \
-    || echo "  normalize FAILED"
+  # Sprite-only bundles (e.g. avg actors that ship no L2D yet) export no
+  # model at all — skip normalize for them.
+  if [[ -n "$(find "$out_l2d" -name '*.model3.json' -print -quit)" ]]; then
+    python3 "$SCRIPT_DIR/normalize.py" \
+      --live2d "$out_l2d" --raw "$out_raw" --out "$stage" \
+      || echo "  normalize FAILED"
+  fi
+done
+
+# Merge avg-staged models in: only characters that have no char_l2d-derived
+# folder (unreleased ids like 13701).  Released characters keep the richer
+# char_l2d extraction.
+for d in "$TMP/chars_avg"/*/; do
+  [[ -d "$d" ]] || continue
+  id="$(basename "$d")"
+  if [[ -e "$TMP/chars/$id" ]]; then
+    echo "avg duplicate skipped: $id (already covered by char_l2d)"
+  else
+    mv "$d" "$TMP/chars/$id"
+    echo "avg new character merged: $id"
+  fi
 done
 
 echo ""
@@ -138,6 +191,8 @@ mkdir -p "$BGDIR" "$TEXDIR"
 BG_FAILED=()
 for bundle in "${BUNDLES[@]}"; do
   base="$(basename "$bundle" .unity3d)"
+  # avg prefabs are plain model rigs — no ----bg---- scene layers to compose
+  [[ "$base" == char_avg_2d_* ]] && continue
   echo "=== $base (bg) ==="
   out_bg="$BGDIR/$base"
   out_tex="$TEXDIR/$base"
@@ -253,9 +308,14 @@ echo "=== disc parallax scenes ==="
 # The card's outer border ("frame") is a shared sprite/texture in the
 # disc_common bundle; export its PNG once so it can be added back to every
 # disc's overlay (the per-disc sprite dump drops it due to a name collision).
+# The shared Common.prefab gyroscope setup (GyroscopeFollower /
+# AvgL2DUseGyroscope) is dumped alongside: discs without their own Card
+# prefab inherit its parallax factors in extractDiscParallax.mjs.
 if [[ -f "$PERSISTENT/disc_common.unity3d" ]]; then
   DOTNET_ROLL_FORWARD=Major dotnet "$CLI" "$PERSISTENT/disc_common.unity3d" -m export \
     -t texture2d -o "$DISC_OV/common" --image-format png >/dev/null 2>&1 || true
+  DOTNET_ROLL_FORWARD=Major dotnet "$CLI" "$PERSISTENT/disc_common.unity3d" -m export \
+    -t monoBehaviour -o "$DISC_OV/img/disc_common" >/dev/null 2>&1 || true
 fi
 for f in "$INSTALL_RESOURCE"/disc_[0-9][0-9][0-9][0-9].unity3d; do
   [[ -f "$f" ]] || continue
