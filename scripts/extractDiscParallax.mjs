@@ -211,6 +211,10 @@ function parseDump(dumpDir) {
       const ap = vecField(apBlock, 'm_AnchoredPosition', 2);
       const sd = vecField(byName.get('SizeDelta') ? byName.get('SizeDelta').block : [], 'm_SizeDelta', 2) || { x: 0, y: 0 };
       const pv = vecField(byName.get('Pivot') ? byName.get('Pivot').block : [], 'm_Pivot', 2) || { x: 0.5, y: 0.5 };
+      const amn = vecField(byName.get('AnchorMin') ? byName.get('AnchorMin').block : [], 'm_AnchorMin', 2) || { x: 0.5, y: 0.5 };
+      const amx = vecField(byName.get('AnchorMax') ? byName.get('AnchorMax').block : [], 'm_AnchorMax', 2) || { x: 0.5, y: 0.5 };
+      const ancx = (amn.x + amx.x) / 2;
+      const ancy = (amn.y + amx.y) / 2;
       const quat = parseQuat(byName.get('LocalRotation') ? byName.get('LocalRotation').block : []);
       trs.set(pid, {
         go: goF ? singlePathID(goF.block) : null,
@@ -220,6 +224,7 @@ function parseDump(dumpDir) {
         hasAp: Boolean(ap),
         sdx: sd.x, sdy: sd.y,
         pvx: pv.x, pvy: pv.y,
+        ancx, ancy,
         quat,
         rot: quaternionZ(byName.get('LocalRotation') ? byName.get('LocalRotation').block : []),
         children: allPathIDs(byName.get('Children') ? byName.get('Children').block : []),
@@ -393,6 +398,21 @@ function worldLayout(tid, trs, followers = null, seen = new Set()) {
   const t = trs.get(tid);
   if (!t) return { x: 0, y: 0, z: 0, sx: 1, sy: 1, sz: 1, rot: 0, quat: { x: 0, y: 0, z: 0, w: 1 } };
   const parent = worldLayout(t.father, trs, followers, seen);
+  // Child's anchoredPosition is relative to the parent's *anchor* (RectTransform anchor point),
+  // not its pivot.  Parent's anchor world = parent pivot + (anc - pv)*sizeWorld.
+  let anchorOff = { x: 0, y: 0, z: 0 };
+  const pTr = t.father ? trs.get(t.father) : null;
+  if (pTr) {
+    const pw = pTr.sdx * parent.sx;
+    const ph = pTr.sdy * parent.sy;
+    const ax = (pTr.ancx ?? 0.5) - (pTr.pvx ?? 0.5);
+    const ay = (pTr.ancy ?? 0.5) - (pTr.pvy ?? 0.5);
+    const localAnchor = { x: ax * pw, y: ay * ph, z: 0 };
+    anchorOff = quatRotateVec(parent.quat, localAnchor);
+  }
+  const parentAnchorX = parent.x + anchorOff.x;
+  const parentAnchorY = parent.y + anchorOff.y;
+  const parentAnchorZ = parent.z + anchorOff.z;
   const lx = t.apx, ly = t.apy, lz = t.z;
   const scaled = { x: lx * parent.sx, y: ly * parent.sy, z: lz * (parent.sz || 1) };
   const rotated = quatRotateVec(parent.quat, scaled);
@@ -403,9 +423,9 @@ function worldLayout(tid, trs, followers = null, seen = new Set()) {
   const quat = quatMul(parent.quat, localQuat);
   const e = quatToEuler(quat);
   return {
-    x: parent.x + rotated.x,
-    y: parent.y + rotated.y,
-    z: parent.z + rotated.z,
+    x: parentAnchorX + rotated.x,
+    y: parentAnchorY + rotated.y,
+    z: parentAnchorZ + rotated.z,
     sx: parent.sx * t.sx,
     sy: parent.sy * t.sy,
     sz: (parent.sz || 1) * (t.sz || 1),
@@ -613,10 +633,6 @@ function main() {
       const file = texName.replace(/\//g, '_');
       const dest = path.join(ovDir, file + '.png');
       fs.copyFileSync(src, dest);
-      // Manual position tweaks for known mis-placed art (verified against 4020_B/4023_B thumbnails)
-      if (id === '4020' && file.includes('bg2')) {
-        l.x = 0; l.y = 0;
-      }
       if (id === '4023' && file.includes('bucket_01')) {
         l.x = -12; l.y = -298;
       }
