@@ -96,7 +96,7 @@ echo "Skin names: ${SKIN_NAMES:-<none found>}"
 echo "Char names: ${CHAR_NAMES:-<none found>}"
 
 rm -rf "$TMP"
-mkdir -p "$TMP/live2d" "$TMP/raw" "$TMP/chars"
+mkdir -p "$TMP/live2d" "$TMP/raw" "$ROOT/chars"
 
 # Collect the bundle list
 # char_avg_2d_avg1_* / char_avg_2d_avg3_10*: unreleased characters ship no
@@ -137,7 +137,7 @@ for bundle in "${BUNDLES[@]}"; do
   # avg-derived models are staged separately: they duplicate the _l/_lf
   # variants already extracted (richer) from char_l2d bundles for released
   # characters, and only the ids without a char_l2d source are merged below.
-  stage="$TMP/chars"
+  stage="$ROOT/chars"
   if [[ "$base" == char_avg_2d_* ]]; then
     stage="$TMP/chars_avg"
   fi
@@ -168,10 +168,10 @@ done
 for d in "$TMP/chars_avg"/*/; do
   [[ -d "$d" ]] || continue
   id="$(basename "$d")"
-  if [[ -e "$TMP/chars/$id" ]]; then
+  if [[ -e "$ROOT/chars/$id" ]]; then
     echo "avg duplicate skipped: $id (already covered by char_l2d)"
   else
-    mv "$d" "$TMP/chars/$id"
+    mv "$d" "$ROOT/chars/$id"
     echo "avg new character merged: $id"
   fi
 done
@@ -236,7 +236,7 @@ if [[ -n "$CHAR_NAMES" ]]; then
     --out "$ROOT/data/characterid.json" || true
 fi
 node "$SCRIPT_DIR/generateManifest.mjs" \
-  --chars "$TMP/chars" \
+  --chars "$ROOT/chars" \
   --out "$ROOT/data/models.json" \
   --names "$ROOT/data/characterid.json" \
   --disc-names "$ROOT/data/discid.json" \
@@ -254,12 +254,12 @@ node "$SCRIPT_DIR/mergeBgLayers.mjs" \
 node "$SCRIPT_DIR/copyBgTextures.mjs" \
   --models "$ROOT/data/models.json" \
   --tex "$TEXDIR" \
-  --chars "$TMP/chars" || true
+  --chars "$ROOT/chars" || true
 
 # Regenerate the manifest now that bg/ folders are populated (so each
 # variant's standalone `bg` list is present), then re-merge bgLayers on top.
 node "$SCRIPT_DIR/generateManifest.mjs" \
-  --chars "$TMP/chars" \
+  --chars "$ROOT/chars" \
   --out "$ROOT/data/models.json" \
   --names "$ROOT/data/characterid.json" \
   --disc-names "$ROOT/data/discid.json" \
@@ -362,7 +362,7 @@ node "$SCRIPT_DIR/extractDiscParallax.mjs" \
   --texpng "$DISC_OV/texpng" \
   --frame "$DISC_OV/common" \
   --out "$ROOT/data/discparallax.json" \
-  --chars "$TMP/chars" || true
+  --chars "$ROOT/chars" || true
 # Rebuild the Discs section: every disc as a parallax entry + a "[title] l2d"
 # entry for the discs that have a Live2D.
 node "$SCRIPT_DIR/generateDiscs.mjs" \
@@ -394,12 +394,12 @@ node "$SCRIPT_DIR/generateOffset.mjs" \
   --out "$ROOT/data/offset.json" || true
 
 echo ""
-echo "Done. Normalized models in:"
-echo "  $TMP/chars"
+echo "Done. Models written directly to:"
+echo "  $ROOT/chars"
 echo "Bg compositions in:"
 echo "  $TMP/bglayers"
 echo "Manifest written to:"
 echo "  $ROOT/data/models.json"
-echo ""
-echo "To deploy, copy $TMP/chars into the site's 'chars/' directory:"
-echo "  cp -r $TMP/chars/. $ROOT/chars/"
+echo "Overlays written to:"
+echo "  $ROOT/chars/<id>/<id>_p/overlays"
+echo "No manual copy needed — final files are already in place."

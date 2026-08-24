@@ -210,6 +210,7 @@ function parseDump(dumpDir) {
       const apBlock = byName.get('AnchoredPosition') ? byName.get('AnchoredPosition').block : [];
       const ap = vecField(apBlock, 'm_AnchoredPosition', 2);
       const sd = vecField(byName.get('SizeDelta') ? byName.get('SizeDelta').block : [], 'm_SizeDelta', 2) || { x: 0, y: 0 };
+      const pv = vecField(byName.get('Pivot') ? byName.get('Pivot').block : [], 'm_Pivot', 2) || { x: 0.5, y: 0.5 };
       const quat = parseQuat(byName.get('LocalRotation') ? byName.get('LocalRotation').block : []);
       trs.set(pid, {
         go: goF ? singlePathID(goF.block) : null,
@@ -218,6 +219,7 @@ function parseDump(dumpDir) {
         apx: ap ? ap.x : pos.x, apy: ap ? ap.y : pos.y,
         hasAp: Boolean(ap),
         sdx: sd.x, sdy: sd.y,
+        pvx: pv.x, pvy: pv.y,
         quat,
         rot: quaternionZ(byName.get('LocalRotation') ? byName.get('LocalRotation').block : []),
         children: allPathIDs(byName.get('Children') ? byName.get('Children').block : []),
@@ -471,13 +473,24 @@ function collectOverlay(gos, trs, srs, crs, images, followers, masks) {
       // (at.x, not at.x/at.sx) — otherwise layers with non-unit scale render
       // too small and drifted toward the card centre.  at.sx already includes
       // this node's own localScale, so sdx*at.sx is the displayed world width.
+      // Pivot handling: at is the pivot's world position; the rect's centre is
+      // pivot + rotate(worldQuat, ((0.5-px)*w, (0.5-py)*h)).
+      const w = t.sdx * (at.sx || 1), h = t.sdy * (at.sy || 1);
+      const pvx = t.pvx ?? 0.5, pvy = t.pvy ?? 0.5;
+      const offLocalX = (0.5 - pvx) * w;
+      const offLocalY = (0.5 - pvy) * h;
+      const offWorld = quatRotateVec(at.quat, { x: offLocalX, y: offLocalY, z: 0 });
+
+      const cx = at.x + offWorld.x;
+      const cy = at.y + offWorld.y;
+      const cz = at.z + offWorld.z;
       const e = quatToEuler(at.quat);
       layers.push({
         goId: gid,
         name: go.name,
-        z: at.z,
-        x: at.x, y: at.y,
-        w: t.sdx * (at.sx || 1), h: t.sdy * (at.sy || 1),
+        z: cz,
+        x: cx, y: cy,
+        w, h,
         sx: t.sx, sy: t.sy,
         clip: underMask,
         follower: followers.get(gid) || inheritedFollower,
@@ -662,7 +675,7 @@ function main() {
     // overlay characters.  This matches the game's offscreen render where the
     // _M is not drawn but the _B is the collection thumbnail; for these two the
     // overlay alone would leave the mask showing only characters on transparent.
-    if (layers.length && (id === '4012' || id === '4043') && !layers.some(l => /bg/i.test(l.file))) {
+    if (layers.length && (id === '4012' || id === '4043') && !layers.some(l => /bg/i.test(l.file) || l.file === `${id}_B`)) {
       const baseName = `${id}_B`;
       const spr = [...sprs.values()].find((s) => s.texture && textures.get(s.texture) === baseName);
       if (spr) {

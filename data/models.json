@@ -11827,150 +11827,6 @@
     ]
   },
   {
-    "id": "813301",
-    "name": "Nazuka",
-    "variants": [
-      {
-        "name": "813301_l",
-        "label": "Unknown",
-        "path": "chars/813301/813301_l/813301_L.model3.json",
-        "bg": []
-      }
-    ]
-  },
-  {
-    "id": "813401",
-    "name": "Fuyuka",
-    "variants": [
-      {
-        "name": "813401_l",
-        "label": "Unknown",
-        "path": "chars/813401/813401_l/813401_L.model3.json",
-        "bg": []
-      }
-    ]
-  },
-  {
-    "id": "910201",
-    "name": "Willow",
-    "variants": [
-      {
-        "name": "910201_l",
-        "label": "Unknown",
-        "path": "chars/910201/910201_l/910201_L.model3.json",
-        "bg": []
-      },
-      {
-        "name": "910202_l",
-        "label": "Unknown",
-        "path": "chars/910202/910202_l/910202_L.model3.json",
-        "bg": []
-      }
-    ]
-  },
-  {
-    "id": "913101",
-    "name": "Bloc",
-    "variants": [
-      {
-        "name": "913101_l",
-        "label": "Unknown",
-        "path": "chars/913101/913101_l/913101_L.model3.json",
-        "bg": []
-      }
-    ]
-  },
-  {
-    "id": "913301",
-    "name": "Portia",
-    "variants": [
-      {
-        "name": "913301_l",
-        "label": "Unknown",
-        "path": "chars/913301/913301_l/913301_L.model3.json",
-        "bg": []
-      }
-    ]
-  },
-  {
-    "id": "915901",
-    "name": "Horizon",
-    "variants": [
-      {
-        "name": "915901_l",
-        "label": "Unknown",
-        "path": "chars/915901/915901_l/915901_L.model3.json",
-        "bg": []
-      }
-    ]
-  },
-  {
-    "id": "916402",
-    "name": "Iori",
-    "variants": [
-      {
-        "name": "916402_l",
-        "label": "Unknown",
-        "path": "chars/916402/916402_l/916402_L.model3.json",
-        "bg": []
-      }
-    ]
-  },
-  {
-    "id": "917201",
-    "name": "Beatrixa",
-    "variants": [
-      {
-        "name": "917201_l",
-        "label": "Unknown",
-        "path": "chars/917201/917201_l/917201_L.model3.json",
-        "bg": []
-      },
-      {
-        "name": "917202_l",
-        "label": "Unknown",
-        "path": "chars/917202/917202_l/917202_L.model3.json",
-        "bg": []
-      }
-    ]
-  },
-  {
-    "id": "917301",
-    "name": "Bernina",
-    "variants": [
-      {
-        "name": "917301_l",
-        "label": "Unknown",
-        "path": "chars/917301/917301_l/917301_L.model3.json",
-        "bg": []
-      },
-      {
-        "name": "917302_l",
-        "label": "Unknown",
-        "path": "chars/917302/917302_l/917302_L.model3.json",
-        "bg": []
-      }
-    ]
-  },
-  {
-    "id": "917401",
-    "name": "Virigia",
-    "variants": [
-      {
-        "name": "917401_l",
-        "label": "Unknown",
-        "path": "chars/917401/917401_l/917401_L.model3.json",
-        "bg": []
-      },
-      {
-        "name": "917402_l",
-        "label": "Unknown",
-        "path": "chars/917402/917402_l/917402_L.model3.json",
-        "bg": []
-      }
-    ]
-  },
-  {
     "id": "1001",
     "name": "Crisp Morning",
     "kind": "parallax",
@@ -14830,8 +14686,8 @@
         {
           "file": "gyro_07",
           "path": "chars/4008/4008_p/overlays/gyro_07.png",
-          "x": 1493,
-          "y": -1102,
+          "x": 349.1,
+          "y": -241.97,
           "w": 2287.8,
           "h": 1746.6,
           "clip": true,
@@ -14840,8 +14696,8 @@
             "ax": 0,
             "ay": 0
           },
-          "z": 1500,
-          "depth": 1500,
+          "z": 1348.35,
+          "depth": 1348.35,
           "rx": 0.175,
           "ry": 0,
           "rz": 0
@@ -16841,8 +16697,8 @@
             "ax": 0,
             "ay": 0
           },
-          "z": 3000,
-          "depth": 3000,
+          "z": 2912.6,
+          "depth": 2912.6,
           "rx": 0,
           "ry": -0.087,
           "rz": 0
@@ -16860,8 +16716,8 @@
             "ax": 0,
             "ay": 0
           },
-          "z": 2912.6,
-          "depth": 2912.6,
+          "z": 3057.37,
+          "depth": 3057.37,
           "rx": 0,
           "ry": 0.262,
           "rz": 0
@@ -16869,7 +16725,7 @@
         {
           "file": "gyro_4020_bg3",
           "path": "chars/4020/4020_p/overlays/gyro_4020_bg3.png",
-          "x": 1901,
+          "x": 843.7,
           "y": 356,
           "w": 2114.6,
           "h": 1435.6,
@@ -17059,7 +16915,7 @@
           "file": "gyro_4021_light",
           "path": "chars/4021/4021_p/overlays/gyro_4021_light.png",
           "x": 0,
-          "y": -1100,
+          "y": -170.4,
           "w": 3012.8,
           "h": 1859.2,
           "clip": true,
@@ -17094,7 +16950,7 @@
           "file": "gyro_4021_shoe",
           "path": "chars/4021/4021_p/overlays/gyro_4021_shoe.png",
           "x": 0,
-          "y": 504.3,
+          "y": 334.9,
           "w": 1183.6,
           "h": 338.8,
           "clip": true,
@@ -17344,7 +17200,7 @@
         {
           "file": "gyro_4023_Bird",
           "path": "chars/4023/4023_p/overlays/gyro_4023_Bird.png",
-          "x": 895,
+          "x": 632.59,
           "y": -1035,
           "w": 606,
           "h": 96,
@@ -17354,8 +17210,8 @@
             "ax": 0,
             "ay": 0
           },
-          "z": 1600,
-          "depth": 1600,
+          "z": 1751.5,
+          "depth": 1751.5,
           "rx": 0,
           "ry": 0.524,
           "rz": 0
@@ -17364,7 +17220,7 @@
           "file": "gyro_4023_Ground",
           "path": "chars/4023/4023_p/overlays/gyro_4023_Ground.png",
           "x": 0,
-          "y": -417,
+          "y": 159.23,
           "w": 2400.4,
           "h": 1271.6,
           "clip": true,
@@ -17373,8 +17229,8 @@
             "ax": 0,
             "ay": 0
           },
-          "z": 1000,
-          "depth": 1000,
+          "z": 731.3,
+          "depth": 731.3,
           "rx": 0.436,
           "ry": 0,
           "rz": 0
@@ -17382,8 +17238,8 @@
         {
           "file": "gyro_4023_Skateboard",
           "path": "chars/4023/4023_p/overlays/gyro_4023_Skateboard.png",
-          "x": -914.6,
-          "y": -272.17,
+          "x": -731.6,
+          "y": -431.17,
           "w": 366,
           "h": 318,
           "clip": true,
@@ -17414,8 +17270,8 @@
         {
           "file": "gyro_4023_House",
           "path": "chars/4023/4023_p/overlays/gyro_4023_House.png",
-          "x": -530,
-          "y": -200,
+          "x": -333.82,
+          "y": -445.35,
           "w": 562.5,
           "h": 398.25,
           "clip": true,
@@ -17424,8 +17280,8 @@
             "ax": 0,
             "ay": 0
           },
-          "z": 1000,
-          "depth": 1000,
+          "z": 1141.65,
+          "depth": 1141.65,
           "rx": 0.524,
           "ry": 0,
           "rz": 0.349
@@ -17433,8 +17289,8 @@
         {
           "file": "gyro_4023_Sign",
           "path": "chars/4023/4023_p/overlays/gyro_4023_Sign.png",
-          "x": -1055,
-          "y": 100,
+          "x": -1172,
+          "y": -75.5,
           "w": 354,
           "h": 468,
           "clip": true,
@@ -17443,8 +17299,8 @@
             "ax": 0,
             "ay": 0
           },
-          "z": 1000,
-          "depth": 1000,
+          "z": 1101.32,
+          "depth": 1101.32,
           "rx": 0.524,
           "ry": 0,
           "rz": 0.524
@@ -17452,8 +17308,8 @@
         {
           "file": "gyro_4023_Sofa",
           "path": "chars/4023/4023_p/overlays/gyro_4023_Sofa.png",
-          "x": -540,
-          "y": -150,
+          "x": -667.6,
+          "y": -341.4,
           "w": 822,
           "h": 510.4,
           "clip": true,
@@ -17462,8 +17318,8 @@
             "ax": 0,
             "ay": 0
           },
-          "z": 1000,
-          "depth": 1000,
+          "z": 1110.5,
+          "depth": 1110.5,
           "rx": 0.524,
           "ry": 0,
           "rz": 0.524
@@ -17488,7 +17344,7 @@
           "file": "gyro_4023_Flag",
           "path": "chars/4023/4023_p/overlays/gyro_4023_Flag.png",
           "x": 240,
-          "y": -300,
+          "y": -472,
           "w": 488,
           "h": 344,
           "clip": true,
@@ -17519,8 +17375,8 @@
         {
           "file": "gyro_4023_Npc_02",
           "path": "chars/4023/4023_p/overlays/gyro_4023_Npc_02.png",
-          "x": -600,
-          "y": -165,
+          "x": -548,
+          "y": -233,
           "w": 104,
           "h": 136,
           "clip": true,
@@ -17535,8 +17391,8 @@
         {
           "file": "gyro_4023_Npc_01",
           "path": "chars/4023/4023_p/overlays/gyro_4023_Npc_01.png",
-          "x": -469,
-          "y": 294,
+          "x": -225.73,
+          "y": 148.19,
           "w": 537.2,
           "h": 558,
           "clip": true,
@@ -17545,8 +17401,8 @@
             "ax": 0,
             "ay": 0
           },
-          "z": 480,
-          "depth": 480,
+          "z": 620.45,
+          "depth": 620.45,
           "rx": 0,
           "ry": -0.524,
           "rz": -0.079
@@ -17564,8 +17420,8 @@
             "ax": 0,
             "ay": 0
           },
-          "z": 886.49,
-          "depth": 886.49,
+          "z": 912.35,
+          "depth": 912.35,
           "rx": 0.436,
           "ry": 0,
           "rz": 0
@@ -17574,7 +17430,7 @@
           "file": "gyro_4023_MiNieWa",
           "path": "chars/4023/4023_p/overlays/gyro_4023_MiNieWa.png",
           "x": -470,
-          "y": -450,
+          "y": -321,
           "w": 228,
           "h": 258,
           "clip": true,
@@ -17590,7 +17446,7 @@
           "file": "gyro_4023_ManYue",
           "path": "chars/4023/4023_p/overlays/gyro_4023_ManYue.png",
           "x": -45,
-          "y": -200,
+          "y": -255.2,
           "w": 246,
           "h": 552,
           "clip": true,
@@ -17599,8 +17455,8 @@
             "ax": 0,
             "ay": 0
           },
-          "z": 1000,
-          "depth": 1000,
+          "z": 904.39,
+          "depth": 904.39,
           "rx": -1.047,
           "ry": 0,
           "rz": 0
@@ -17609,7 +17465,7 @@
           "file": "gyro_4023_XinYue",
           "path": "chars/4023/4023_p/overlays/gyro_4023_XinYue.png",
           "x": 325,
-          "y": 480,
+          "y": 43.2,
           "w": 720,
           "h": 1092,
           "clip": true,
@@ -17728,7 +17584,7 @@
           "file": "gyro_4024_Ground",
           "path": "chars/4024/4024_p/overlays/gyro_4024_Ground.png",
           "x": -680,
-          "y": 100,
+          "y": 704.2,
           "w": 1780.8,
           "h": 1208.4,
           "clip": true,
@@ -18305,8 +18161,8 @@
         {
           "file": "gyro_4029_fx",
           "path": "chars/4029/4029_p/overlays/gyro_4029_fx.png",
-          "x": -221,
-          "y": -1175.34,
+          "x": 239.24,
+          "y": -875.34,
           "w": 924,
           "h": 600,
           "clip": true,
@@ -18315,8 +18171,8 @@
             "ax": 0,
             "ay": 0
           },
-          "z": 2000,
-          "depth": 2000,
+          "z": 1959.73,
+          "depth": 1959.73,
           "rx": 0,
           "ry": 0.087,
           "rz": 0
@@ -18324,8 +18180,8 @@
         {
           "file": "gyro_4029_claw2",
           "path": "chars/4029/4029_p/overlays/gyro_4029_claw2.png",
-          "x": -1084,
-          "y": -1200,
+          "x": -867.84,
+          "y": -744,
           "w": 499.2,
           "h": 912,
           "clip": true,
@@ -18334,8 +18190,8 @@
             "ax": 0,
             "ay": 0
           },
-          "z": 1500,
-          "depth": 1500,
+          "z": 1624.8,
+          "depth": 1624.8,
           "rx": 0,
           "ry": -0.524,
           "rz": 0
@@ -18343,8 +18199,8 @@
         {
           "file": "gyro_4029_claw1",
           "path": "chars/4029/4029_p/overlays/gyro_4029_claw1.png",
-          "x": -924,
-          "y": -910.5,
+          "x": -512.35,
+          "y": -536.5,
           "w": 836,
           "h": 748,
           "clip": true,
@@ -18353,8 +18209,8 @@
             "ax": 0,
             "ay": 0
           },
-          "z": 1000,
-          "depth": 1000,
+          "z": 1072.58,
+          "depth": 1072.58,
           "rx": 0,
           "ry": -0.175,
           "rz": 0
@@ -18378,8 +18234,8 @@
         {
           "file": "gyro_4029_fg",
           "path": "chars/4029/4029_p/overlays/gyro_4029_fg.png",
-          "x": -740,
-          "y": 150,
+          "x": 5.2,
+          "y": 414.6,
           "w": 1490.4,
           "h": 529.2,
           "clip": true,
@@ -18562,7 +18418,7 @@
         {
           "file": "gyro_4031_actor1",
           "path": "chars/4031/4031_p/overlays/gyro_4031_actor1.png",
-          "x": 92.4,
+          "x": -550.15,
           "y": 23,
           "w": 1290,
           "h": 1685.6,
@@ -18572,8 +18428,8 @@
             "ax": 0,
             "ay": 0
           },
-          "z": 1002,
-          "depth": 1002,
+          "z": 945.78,
+          "depth": 945.78,
           "rx": 0,
           "ry": -0.087,
           "rz": 0
@@ -18600,7 +18456,7 @@
         {
           "file": "gyro_4031_actor2",
           "path": "chars/4031/4031_p/overlays/gyro_4031_actor2.png",
-          "x": -218,
+          "x": 489.98,
           "y": 0,
           "w": 1421.36,
           "h": 1709.12,
@@ -18610,8 +18466,8 @@
             "ax": 0,
             "ay": 0
           },
-          "z": 1002,
-          "depth": 1002,
+          "z": 940.06,
+          "depth": 940.06,
           "rx": 0,
           "ry": 0.087,
           "rz": 0
@@ -18841,7 +18697,7 @@
         {
           "file": "gyro_4033_sparkle",
           "path": "chars/4033/4033_p/overlays/gyro_4033_sparkle.png",
-          "x": 891.3,
+          "x": 72.3,
           "y": -159.1,
           "w": 1638,
           "h": 1332.47,
@@ -18879,7 +18735,7 @@
         {
           "file": "gyro_4033_ball_upleft",
           "path": "chars/4033/4033_p/overlays/gyro_4033_ball_upleft.png",
-          "x": -533.2,
+          "x": -340.34,
           "y": -386.7,
           "w": 387.2,
           "h": 255.2,
@@ -18889,8 +18745,8 @@
             "ax": 0,
             "ay": 0
           },
-          "z": 300,
-          "depth": 300,
+          "z": 283.13,
+          "depth": 283.13,
           "rx": 0,
           "ry": 0.087,
           "rz": 0
@@ -19107,7 +18963,7 @@
           "file": "gyro_4036_IronMaiden_Front",
           "path": "chars/4036/4036_p/overlays/gyro_4036_IronMaiden_Front.png",
           "x": 0,
-          "y": -525,
+          "y": 148.46,
           "w": 2329.8,
           "h": 1346.92,
           "clip": true,
@@ -19170,8 +19026,8 @@
         {
           "file": "gyro_4036_Chain_Front_01",
           "path": "chars/4036/4036_p/overlays/gyro_4036_Chain_Front_01.png",
-          "x": -475,
-          "y": 475.6,
+          "x": -606.9,
+          "y": 335.23,
           "w": 820.8,
           "h": 264,
           "clip": true,
@@ -19180,8 +19036,8 @@
             "ax": 0,
             "ay": 0
           },
-          "z": 1000,
-          "depth": 1000,
+          "z": 637.61,
+          "depth": 637.61,
           "rx": 0,
           "ry": -1.222,
           "rz": -0.349
@@ -19189,8 +19045,8 @@
         {
           "file": "gyro_4036_Chain_Front_02",
           "path": "chars/4036/4036_p/overlays/gyro_4036_Chain_Front_02.png",
-          "x": 590,
-          "y": -195,
+          "x": 747.35,
+          "y": -380.75,
           "w": 618.8,
           "h": 497.2,
           "clip": true,
@@ -19199,8 +19055,8 @@
             "ax": 0,
             "ay": 0
           },
-          "z": 1000,
-          "depth": 1000,
+          "z": 757.69,
+          "depth": 757.69,
           "rx": 0,
           "ry": 0.995,
           "rz": 0.122
@@ -19609,7 +19465,7 @@
           "file": "gyro_4038_Fish",
           "path": "chars/4038/4038_p/overlays/gyro_4038_Fish.png",
           "x": -75,
-          "y": -850,
+          "y": -25,
           "w": 1933.8,
           "h": 1650,
           "clip": true,
@@ -20077,8 +19933,8 @@
         {
           "file": "gyro_4041_snow1",
           "path": "chars/4041/4041_p/overlays/gyro_4041_snow1.png",
-          "x": -162.5,
-          "y": 223.6,
+          "x": 21.08,
+          "y": 117.26,
           "w": 1835.84,
           "h": 1097.2,
           "clip": true,
@@ -20087,8 +19943,8 @@
             "ax": 5,
             "ay": -20
           },
-          "z": 950,
-          "depth": 950,
+          "z": 977.01,
+          "depth": 977.01,
           "rx": 0.249,
           "ry": 0,
           "rz": 0
@@ -20112,8 +19968,8 @@
         {
           "file": "gyro_4041_rope1",
           "path": "chars/4041/4041_p/overlays/gyro_4041_rope1.png",
-          "x": 248,
-          "y": 224.9,
+          "x": 274.54,
+          "y": 189.87,
           "w": 72,
           "h": 50.4,
           "clip": true,
@@ -20122,8 +19978,8 @@
             "ax": 5,
             "ay": -20
           },
-          "z": 501.7,
-          "depth": 501.7,
+          "z": 501.55,
+          "depth": 501.55,
           "rx": 0.344,
           "ry": 0.423,
           "rz": 0.236
@@ -20131,8 +19987,8 @@
         {
           "file": "gyro_4041_rope2",
           "path": "chars/4041/4041_p/overlays/gyro_4041_rope2.png",
-          "x": 106,
-          "y": 362.1,
+          "x": 182.29,
+          "y": 262.4,
           "w": 686.4,
           "h": 64,
           "clip": true,
@@ -20141,8 +19997,8 @@
             "ax": 5,
             "ay": -20
           },
-          "z": 1153,
-          "depth": 1153,
+          "z": 831.99,
+          "depth": 831.99,
           "rx": 1.182,
           "ry": 1.228,
           "rz": -0.944
@@ -20437,8 +20293,8 @@
         {
           "file": "gyro_4043_actor4",
           "path": "chars/4043/4043_p/overlays/gyro_4043_actor4.png",
-          "x": 352.3,
-          "y": 909.5,
+          "x": 411.52,
+          "y": 844.64,
           "w": 592.2,
           "h": 648.6,
           "clip": true,
@@ -20526,8 +20382,8 @@
         {
           "file": "gyro_4043_actor2",
           "path": "chars/4043/4043_p/overlays/gyro_4043_actor2.png",
-          "x": -987,
-          "y": 746.4,
+          "x": -295.4,
+          "y": 252.4,
           "w": 1383.2,
           "h": 988,
           "clip": true,
@@ -20542,8 +20398,8 @@
         {
           "file": "gyro_4043_actor1",
           "path": "chars/4043/4043_p/overlays/gyro_4043_actor1.png",
-          "x": -642.1,
-          "y": 1136.3,
+          "x": 24.9,
+          "y": 271.5,
           "w": 1334,
           "h": 1729.6,
           "clip": true,
@@ -20674,8 +20530,8 @@
         {
           "file": "gyro_4044_particle",
           "path": "chars/4044/4044_p/overlays/gyro_4044_particle.png",
-          "x": -81.8,
-          "y": 224.8,
+          "x": 98.8,
+          "y": 77.19,
           "w": 1806,
           "h": 1476.19,
           "clip": true,
@@ -20684,8 +20540,8 @@
             "ax": 5,
             "ay": -15
           },
-          "z": 693,
-          "depth": 693,
+          "z": 694.8,
+          "depth": 694.8,
           "rx": 0.012,
           "ry": 0,
           "rz": 0
@@ -21444,8 +21300,8 @@
         {
           "file": "gyro_4048_snow",
           "path": "chars/4048/4048_p/overlays/gyro_4048_snow.png",
-          "x": -287,
-          "y": -513.1,
+          "x": 107.4,
+          "y": -667.11,
           "w": 3944,
           "h": 1556.03,
           "clip": true,
@@ -21454,8 +21310,8 @@
             "ax": 3,
             "ay": -15
           },
-          "z": 2300,
-          "depth": 2300,
+          "z": 2322.19,
+          "depth": 2322.19,
           "rx": 0.143,
           "ry": 0,
           "rz": 0
@@ -21588,7 +21444,7 @@
           "file": "gyro_4048_ribbon3",
           "path": "chars/4048/4048_p/overlays/gyro_4048_ribbon3.png",
           "x": -310.2,
-          "y": 651.9,
+          "y": 681.3,
           "w": 252,
           "h": 230.4,
           "clip": true,
@@ -21597,8 +21453,8 @@
             "ax": 3,
             "ay": -15
           },
-          "z": 942.45,
-          "depth": 942.45,
+          "z": 936.74,
+          "depth": 936.74,
           "rx": 0.192,
           "ry": 0,
           "rz": 0
@@ -23225,8 +23081,8 @@
         {
           "file": "gyro_4053_actor1",
           "path": "chars/4053/4053_p/overlays/gyro_4053_actor1.png",
-          "x": -231.3,
-          "y": 909,
+          "x": -335.65,
+          "y": 224.99,
           "w": 1452,
           "h": 1763.67,
           "clip": true,
@@ -23235,8 +23091,8 @@
             "ax": 5,
             "ay": -8
           },
-          "z": 2263,
-          "depth": 2263,
+          "z": 2062.98,
+          "depth": 2062.98,
           "rx": -0.284,
           "ry": 0,
           "rz": -0.058
@@ -23347,8 +23203,8 @@
         {
           "file": "gyro_4054_arm",
           "path": "chars/4054/4054_p/overlays/gyro_4054_arm.png",
-          "x": -224.64,
-          "y": 308.48,
+          "x": -218.91,
+          "y": -10.8,
           "w": 1680,
           "h": 640,
           "clip": true,
@@ -23357,8 +23213,8 @@
             "ax": 5,
             "ay": -10
           },
-          "z": 2200.29,
-          "depth": 2200.29,
+          "z": 2179.64,
+          "depth": 2179.64,
           "rx": -0.07,
           "ry": -0.27,
           "rz": -0.019
@@ -24027,2717 +23883,5 @@
         }
       ]
     }
-  },
-  {
-    "id": "4004l2d",
-    "name": "Wisteria Dream l2d",
-    "kind": "discl2d",
-    "variants": [
-      {
-        "name": "4004_l",
-        "label": "Disc",
-        "path": "chars/4004/4004_l/4004_F.model3.json",
-        "bg": [
-          "chars/4004/4004_l/bg/4004_disc_l2d_main_bg_001.png"
-        ],
-        "bgLayers": [
-          {
-            "file": "4004_disc_l2d_main_bg_001",
-            "x": 0,
-            "y": 0,
-            "sx": 1,
-            "sy": 1,
-            "w": 2400,
-            "h": 1700,
-            "fg": false
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "id": "4005l2d",
-    "name": "Sunlit Blossom l2d",
-    "kind": "discl2d",
-    "variants": [
-      {
-        "name": "4005_l",
-        "label": "Disc",
-        "path": "chars/4005/4005_l/4005_F.model3.json",
-        "bg": [
-          "chars/4005/4005_l/bg/4005_disc_l2d_bg_001.png",
-          "chars/4005/4005_l/bg/4005_disc_l2d_flower_001.png"
-        ],
-        "bgLayers": [
-          {
-            "file": "4005_disc_l2d_bg_001",
-            "x": 0,
-            "y": 0,
-            "sx": 1,
-            "sy": 1,
-            "w": 2400,
-            "h": 1700,
-            "fg": false
-          },
-          {
-            "file": "4005_disc_l2d_flower_001",
-            "x": 6.033,
-            "y": -2.631,
-            "sx": 1,
-            "sy": 1,
-            "w": 244,
-            "h": 136,
-            "fg": false
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "id": "4006l2d",
-    "name": "Witch's Swing l2d",
-    "kind": "discl2d",
-    "variants": [
-      {
-        "name": "4006_l",
-        "label": "Disc",
-        "path": "chars/4006/4006_l/4006_F.model3.json",
-        "bg": [
-          "chars/4006/4006_l/bg/4006_disc_l2d_main_bg_001.png",
-          "chars/4006/4006_l/bg/4006_disc_l2d_main_bg_003.png",
-          "chars/4006/4006_l/bg/4006_disc_l2d_main_bg_004.png",
-          "chars/4006/4006_l/bg/4006_disc_l2d_main_bg_005.png",
-          "chars/4006/4006_l/bg/4006_disc_l2d_main_bg_006.png"
-        ],
-        "bgLayers": [
-          {
-            "file": "4006_disc_l2d_main_bg_001",
-            "x": 0,
-            "y": 0,
-            "sx": 1,
-            "sy": 1,
-            "w": 2048,
-            "h": 1451,
-            "fg": false
-          },
-          {
-            "file": "4006_disc_l2d_main_bg_005",
-            "x": -5.24,
-            "y": -2.04,
-            "sx": 1,
-            "sy": 1,
-            "w": 684,
-            "h": 856,
-            "fg": false
-          },
-          {
-            "file": "4006_disc_l2d_main_bg_006",
-            "x": -2.751,
-            "y": 6.09,
-            "sx": 1,
-            "sy": 1,
-            "w": 40,
-            "h": 28,
-            "fg": false
-          },
-          {
-            "file": "4006_disc_l2d_main_bg_004",
-            "x": -3.42,
-            "y": 4.32,
-            "sx": 1,
-            "sy": 1,
-            "w": 728,
-            "h": 508,
-            "fg": false
-          },
-          {
-            "file": "4006_disc_l2d_main_bg_003",
-            "x": -5.34,
-            "y": -2.67,
-            "sx": 1,
-            "sy": 1,
-            "w": 772,
-            "h": 808,
-            "fg": false
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "id": "4007l2d",
-    "name": "Midnight Mayhem l2d",
-    "kind": "discl2d",
-    "variants": [
-      {
-        "name": "4007_l",
-        "label": "Disc",
-        "path": "chars/4007/4007_l/4007_F.model3.json",
-        "bg": [
-          "chars/4007/4007_l/bg/4007_disc_l2d_bg_001.png",
-          "chars/4007/4007_l/bg/4007_disc_l2d_bg_002.png",
-          "chars/4007/4007_l/bg/fx_4007_disc_l2d_shuiliu_004.png",
-          "chars/4007/4007_l/bg/fx_4007_disc_l2d_shuiliu_005.png",
-          "chars/4007/4007_l/bg/fx_4007_disc_l2d_shuiliu_006.png",
-          "chars/4007/4007_l/bg/fx_4007_disc_l2d_shuiliu_007.png",
-          "chars/4007/4007_l/bg/fx_4007_disc_l2d_shuiliu_008.png"
-        ],
-        "bgLayers": [
-          {
-            "file": "4007_disc_l2d_bg_001",
-            "x": 0,
-            "y": 0,
-            "sx": 1,
-            "sy": 1,
-            "w": 2048,
-            "h": 1451,
-            "fg": false
-          },
-          {
-            "file": "4007_disc_l2d_bg_002",
-            "x": 0,
-            "y": 0,
-            "sx": 1,
-            "sy": 1,
-            "w": 2048,
-            "h": 1451,
-            "fg": false
-          },
-          {
-            "file": "fx_4007_disc_l2d_shuiliu_004",
-            "x": -7.929,
-            "y": 1.85,
-            "sx": 0.59907496,
-            "sy": 0.59907496,
-            "w": 256,
-            "h": 256,
-            "fg": false
-          },
-          {
-            "file": "fx_4007_disc_l2d_shuiliu_005",
-            "x": -10.08,
-            "y": 1.082,
-            "sx": 0.3819762,
-            "sy": 0.3819762,
-            "w": 256,
-            "h": 256,
-            "fg": false
-          },
-          {
-            "file": "fx_4007_disc_l2d_shuiliu_006",
-            "x": -6.004,
-            "y": -8.244,
-            "sx": 1.0630114,
-            "sy": 0.8343888,
-            "w": 256,
-            "h": 256,
-            "fg": false
-          },
-          {
-            "file": "fx_4007_disc_l2d_shuiliu_007",
-            "x": 6.358,
-            "y": -8.039,
-            "sx": 0.59806013,
-            "sy": 0.59806013,
-            "w": 256,
-            "h": 256,
-            "fg": false
-          },
-          {
-            "file": "fx_4007_disc_l2d_shuiliu_008",
-            "x": -5.664,
-            "y": -5.877,
-            "sx": 0.3636,
-            "sy": 0.3636,
-            "w": 256,
-            "h": 256,
-            "fg": false
-          },
-          {
-            "file": "fx_4007_disc_l2d_shuiliu_008",
-            "x": 2.233,
-            "y": -8.031,
-            "sx": 0.28004107,
-            "sy": 0.28004107,
-            "w": 256,
-            "h": 256,
-            "fg": false
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "id": "4008l2d",
-    "name": "Soaring Blue l2d",
-    "kind": "discl2d",
-    "variants": [
-      {
-        "name": "4008_l",
-        "label": "Disc",
-        "path": "chars/4008/4008_l/4008_F.model3.json",
-        "bg": [
-          "chars/4008/4008_l/bg/4008_disc_l2d_bg_001.png",
-          "chars/4008/4008_l/bg/4008_disc_l2d_bg_002.png",
-          "chars/4008/4008_l/bg/4008_disc_l2d_leaves_001.png",
-          "chars/4008/4008_l/bg/4008_disc_l2d_leaves_002.png",
-          "chars/4008/4008_l/bg/4008_disc_l2d_leaves_003.png"
-        ],
-        "bgLayers": [
-          {
-            "file": "4008_disc_l2d_bg_001",
-            "x": 0,
-            "y": 0,
-            "sx": 1,
-            "sy": 1,
-            "w": 2400,
-            "h": 1700,
-            "fg": false
-          },
-          {
-            "file": "4008_disc_l2d_bg_002",
-            "x": -5.1,
-            "y": -0.62,
-            "sx": 1,
-            "sy": 1,
-            "w": 1380,
-            "h": 1576,
-            "fg": false
-          },
-          {
-            "file": "4008_disc_l2d_leaves_001",
-            "x": -11.42,
-            "y": -0.02,
-            "sx": 1,
-            "sy": 1,
-            "w": 116,
-            "h": 252,
-            "fg": false
-          },
-          {
-            "file": "4008_disc_l2d_leaves_002",
-            "x": -8.789,
-            "y": -6.238,
-            "sx": 1,
-            "sy": 1,
-            "w": 640,
-            "h": 452,
-            "fg": false
-          },
-          {
-            "file": "4008_disc_l2d_leaves_003",
-            "x": 4.16,
-            "y": -7.461,
-            "sx": 1,
-            "sy": 1,
-            "w": 868,
-            "h": 212,
-            "fg": false
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "id": "4015l2d",
-    "name": "Deer's Song l2d",
-    "kind": "discl2d",
-    "variants": [
-      {
-        "name": "4015_l",
-        "label": "Disc",
-        "path": "chars/4015/4015_l/4015_F.model3.json",
-        "bg": [
-          "chars/4015/4015_l/bg/4015_disc_l2d_bg_001.png",
-          "chars/4015/4015_l/bg/4015_disc_l2d_deer_001.png",
-          "chars/4015/4015_l/bg/4015_disc_l2d_deer_002.png",
-          "chars/4015/4015_l/bg/4015_disc_l2d_deer_005.png",
-          "chars/4015/4015_l/bg/4015_disc_l2d_deer_006.png",
-          "chars/4015/4015_l/bg/4015_disc_l2d_leaves_001.png",
-          "chars/4015/4015_l/bg/4015_disc_l2d_leaves_002.png",
-          "chars/4015/4015_l/bg/4015_disc_l2d_leaves_003.png"
-        ],
-        "bgLayers": [
-          {
-            "file": "4015_disc_l2d_bg_001",
-            "x": 0,
-            "y": 0,
-            "sx": 1,
-            "sy": 1,
-            "w": 2400,
-            "h": 1700,
-            "fg": false
-          },
-          {
-            "file": "4015_disc_l2d_leaves_001",
-            "x": -7.04,
-            "y": 5.86,
-            "sx": 1,
-            "sy": 1,
-            "w": 996,
-            "h": 528,
-            "fg": false
-          },
-          {
-            "file": "4015_disc_l2d_leaves_002",
-            "x": -2.18,
-            "y": -6.905,
-            "sx": 1,
-            "sy": 1,
-            "w": 976,
-            "h": 324,
-            "fg": false
-          },
-          {
-            "file": "4015_disc_l2d_leaves_003",
-            "x": -9.68,
-            "y": -2.15,
-            "sx": 1,
-            "sy": 1,
-            "w": 464,
-            "h": 1120,
-            "fg": false
-          },
-          {
-            "file": "4015_disc_l2d_deer_006",
-            "x": 5.088,
-            "y": 0.796,
-            "sx": 1,
-            "sy": 1,
-            "w": 176,
-            "h": 236,
-            "fg": false
-          },
-          {
-            "file": "4015_disc_l2d_deer_001",
-            "x": -8.962,
-            "y": -4.846,
-            "sx": 1,
-            "sy": 1,
-            "w": 608,
-            "h": 732,
-            "fg": false
-          },
-          {
-            "file": "4015_disc_l2d_deer_005",
-            "x": -2.98,
-            "y": 0,
-            "sx": 1,
-            "sy": 1,
-            "w": 1572,
-            "h": 1700,
-            "fg": false
-          },
-          {
-            "file": "4015_disc_l2d_deer_002",
-            "x": -6.866,
-            "y": -1.564,
-            "sx": 1,
-            "sy": 1,
-            "w": 544,
-            "h": 516,
-            "fg": false
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "id": "4016l2d",
-    "name": "Chronicles of Spring l2d",
-    "kind": "discl2d",
-    "variants": [
-      {
-        "name": "4016_l",
-        "label": "Disc",
-        "path": "chars/4016/4016_l/4016_F.model3.json",
-        "bg": [
-          "chars/4016/4016_l/bg/4016_disc_l2d_bg_001.png",
-          "chars/4016/4016_l/bg/4016_disc_l2d_bg_002.png",
-          "chars/4016/4016_l/bg/4016_disc_l2d_bg_003.png",
-          "chars/4016/4016_l/bg/4016_disc_l2d_bg_004.png",
-          "chars/4016/4016_l/bg/4016_disc_l2d_grass_001.png",
-          "chars/4016/4016_l/bg/4016_disc_l2d_grass_002.png",
-          "chars/4016/4016_l/bg/4016_disc_l2d_grass_003.png",
-          "chars/4016/4016_l/bg/4016_disc_l2d_grass_004.png",
-          "chars/4016/4016_l/bg/4016_disc_l2d_grass_005.png",
-          "chars/4016/4016_l/bg/4016_disc_l2d_grass_006.png",
-          "chars/4016/4016_l/bg/4016_disc_l2d_grass_007.png",
-          "chars/4016/4016_l/bg/4016_disc_l2d_grass_008.png",
-          "chars/4016/4016_l/bg/4016_disc_l2d_grass_009.png",
-          "chars/4016/4016_l/bg/4016_disc_l2d_grass_010.png",
-          "chars/4016/4016_l/bg/4016_disc_l2d_grass_011.png",
-          "chars/4016/4016_l/bg/4016_disc_l2d_grass_012.png",
-          "chars/4016/4016_l/bg/4016_disc_l2d_grass_013.png",
-          "chars/4016/4016_l/bg/4016_disc_l2d_grass_014.png",
-          "chars/4016/4016_l/bg/4016_disc_l2d_leaves_001.png"
-        ],
-        "bgLayers": [
-          {
-            "file": "4016_disc_l2d_bg_001",
-            "x": 0,
-            "y": 0,
-            "sx": 1,
-            "sy": 1,
-            "w": 2400,
-            "h": 1700,
-            "fg": false
-          },
-          {
-            "file": "4016_disc_l2d_bg_002",
-            "x": 0,
-            "y": 0,
-            "sx": 1,
-            "sy": 1,
-            "w": 2400,
-            "h": 1700,
-            "fg": false
-          },
-          {
-            "file": "4016_disc_l2d_grass_001",
-            "x": -10.539999,
-            "y": -4.5499997,
-            "sx": 1,
-            "sy": 1,
-            "w": 136,
-            "h": 148,
-            "fg": false
-          },
-          {
-            "file": "4016_disc_l2d_grass_002",
-            "x": -7.7299995,
-            "y": -6.5059996,
-            "sx": 1,
-            "sy": 1,
-            "w": 468,
-            "h": 400,
-            "fg": false
-          },
-          {
-            "file": "4016_disc_l2d_grass_003",
-            "x": -3.0679998,
-            "y": -6.2519994,
-            "sx": 1,
-            "sy": 1,
-            "w": 976,
-            "h": 360,
-            "fg": false
-          },
-          {
-            "file": "4016_disc_l2d_grass_004",
-            "x": 2.7819998,
-            "y": -7.171999,
-            "sx": 1,
-            "sy": 1,
-            "w": 188,
-            "h": 128,
-            "fg": false
-          },
-          {
-            "file": "4016_disc_l2d_grass_005",
-            "x": -0.077999994,
-            "y": -7.733,
-            "sx": 1,
-            "sy": 1,
-            "w": 488,
-            "h": 156,
-            "fg": false
-          },
-          {
-            "file": "4016_disc_l2d_grass_011",
-            "x": -10.971,
-            "y": -5.73,
-            "sx": 1,
-            "sy": 1,
-            "w": 208,
-            "h": 260,
-            "fg": false
-          },
-          {
-            "file": "4016_disc_l2d_grass_012",
-            "x": -11.181,
-            "y": -7.397,
-            "sx": 1,
-            "sy": 1,
-            "w": 164,
-            "h": 180,
-            "fg": false
-          },
-          {
-            "file": "4016_disc_l2d_grass_013",
-            "x": -9.894,
-            "y": -7.694,
-            "sx": 1,
-            "sy": 1,
-            "w": 204,
-            "h": 164,
-            "fg": false
-          },
-          {
-            "file": "4016_disc_l2d_grass_014",
-            "x": -4.282,
-            "y": -6.842,
-            "sx": 1,
-            "sy": 1,
-            "w": 220,
-            "h": 168,
-            "fg": false
-          },
-          {
-            "file": "4016_disc_l2d_bg_003",
-            "x": 0,
-            "y": 0,
-            "sx": 1,
-            "sy": 1,
-            "w": 2400,
-            "h": 1700,
-            "fg": false
-          },
-          {
-            "file": "4016_disc_l2d_grass_006",
-            "x": 7.61,
-            "y": -6.29,
-            "sx": 1,
-            "sy": 1,
-            "w": 880,
-            "h": 444,
-            "fg": false
-          },
-          {
-            "file": "4016_disc_l2d_grass_010",
-            "x": -7.87,
-            "y": -2.14,
-            "sx": 1,
-            "sy": 1,
-            "w": 828,
-            "h": 636,
-            "fg": false
-          },
-          {
-            "file": "4016_disc_l2d_bg_004",
-            "x": 0,
-            "y": -5.6300006,
-            "sx": 1,
-            "sy": 1,
-            "w": 2400,
-            "h": 580,
-            "fg": false
-          },
-          {
-            "file": "4016_disc_l2d_grass_007",
-            "x": 11.322,
-            "y": -3.532,
-            "sx": 1,
-            "sy": 1,
-            "w": 140,
-            "h": 392,
-            "fg": false
-          },
-          {
-            "file": "4016_disc_l2d_grass_008",
-            "x": -11.462,
-            "y": 1.843,
-            "sx": 1,
-            "sy": 1,
-            "w": 108,
-            "h": 232,
-            "fg": false
-          },
-          {
-            "file": "4016_disc_l2d_grass_009",
-            "x": -10.163,
-            "y": -1.36,
-            "sx": 1,
-            "sy": 1,
-            "w": 368,
-            "h": 460,
-            "fg": false
-          },
-          {
-            "file": "4016_disc_l2d_leaves_001",
-            "x": 7.782,
-            "y": 4.835,
-            "sx": 1,
-            "sy": 1,
-            "w": 248,
-            "h": 324,
-            "fg": false
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "id": "4017l2d",
-    "name": "Fireworks l2d",
-    "kind": "discl2d",
-    "variants": [
-      {
-        "name": "4017_l",
-        "label": "Disc",
-        "path": "chars/4017/4017_l/4017_F.model3.json",
-        "bg": [
-          "chars/4017/4017_l/bg/4017_disc_l2d_bg_001.png",
-          "chars/4017/4017_l/bg/4017_disc_l2d_bg_002.png",
-          "chars/4017/4017_l/bg/4017_disc_l2d_bg_003.png",
-          "chars/4017/4017_l/bg/4017_disc_l2d_bg_004.png",
-          "chars/4017/4017_l/bg/4017_disc_l2d_fg_001.png"
-        ],
-        "bgLayers": [
-          {
-            "file": "4017_disc_l2d_bg_001",
-            "x": 0,
-            "y": 0,
-            "sx": 1,
-            "sy": 1,
-            "w": 2400,
-            "h": 1700,
-            "fg": false
-          },
-          {
-            "file": "4017_disc_l2d_bg_002",
-            "x": -3.55,
-            "y": 1.28,
-            "sx": 1,
-            "sy": 1,
-            "w": 904,
-            "h": 1444,
-            "fg": false
-          },
-          {
-            "file": "4017_disc_l2d_bg_003",
-            "x": 0,
-            "y": -1.72,
-            "sx": 1,
-            "sy": 1,
-            "w": 2400,
-            "h": 1360,
-            "fg": false
-          },
-          {
-            "file": "4017_disc_l2d_bg_004",
-            "x": 0,
-            "y": -2.65,
-            "sx": 1,
-            "sy": 1,
-            "w": 2400,
-            "h": 1172,
-            "fg": false
-          },
-          {
-            "file": "4017_disc_l2d_fg_001",
-            "x": 6.14,
-            "y": -5.58,
-            "sx": 1,
-            "sy": 1,
-            "w": 1176,
-            "h": 588,
-            "fg": false
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "id": "4026l2d",
-    "name": "Sword Against Stream l2d",
-    "kind": "discl2d",
-    "variants": [
-      {
-        "name": "4026_l",
-        "label": "Disc",
-        "path": "chars/4026/4026_l/4026_F.model3.json",
-        "bg": [
-          "chars/4026/4026_l/bg/4026_disc_l2d_bg_01.png",
-          "chars/4026/4026_l/bg/4026_disc_l2d_bg_02.png",
-          "chars/4026/4026_l/bg/4026_disc_l2d_bg_03.png",
-          "chars/4026/4026_l/bg/4026_disc_l2d_bg_04.png",
-          "chars/4026/4026_l/bg/4026_disc_l2d_bg_05.png",
-          "chars/4026/4026_l/bg/4026_disc_l2d_bg_06.png",
-          "chars/4026/4026_l/bg/4026_disc_l2d_bg_07.png",
-          "chars/4026/4026_l/bg/4026_disc_l2d_bg_08.png",
-          "chars/4026/4026_l/bg/4026_disc_l2d_bg_09.png",
-          "chars/4026/4026_l/bg/4026_disc_l2d_bg_10.png",
-          "chars/4026/4026_l/bg/4026_disc_l2d_bg_11.png",
-          "chars/4026/4026_l/bg/fx_4026_disc_l2d_03.png"
-        ],
-        "bgLayers": [
-          {
-            "file": "4026_disc_l2d_bg_01",
-            "x": 0,
-            "y": 0,
-            "sx": 1,
-            "sy": 1,
-            "w": 2400,
-            "h": 1700,
-            "fg": false
-          },
-          {
-            "file": "4026_disc_l2d_bg_02",
-            "x": 0,
-            "y": 0,
-            "sx": 1,
-            "sy": 1,
-            "w": 2400,
-            "h": 1700,
-            "fg": false
-          },
-          {
-            "file": "4026_disc_l2d_bg_03",
-            "x": 8.8,
-            "y": -3.96,
-            "sx": 1,
-            "sy": 1,
-            "w": 638,
-            "h": 903,
-            "fg": false
-          },
-          {
-            "file": "4026_disc_l2d_bg_04",
-            "x": -7.59,
-            "y": 1.87,
-            "sx": 1,
-            "sy": 1,
-            "w": 872,
-            "h": 1174,
-            "fg": false
-          },
-          {
-            "file": "4026_disc_l2d_bg_11",
-            "x": -8.76,
-            "y": 4.3100000000000005,
-            "sx": 1,
-            "sy": 1,
-            "w": 440,
-            "h": 686,
-            "fg": false
-          },
-          {
-            "file": "fx_4026_disc_l2d_03",
-            "x": -9.591999999999999,
-            "y": 2.069,
-            "sx": 0.98210895,
-            "sy": 0.98210895,
-            "w": 391,
-            "h": 1078,
-            "fg": false
-          },
-          {
-            "file": "4026_disc_l2d_bg_05",
-            "x": 5.69,
-            "y": 0.02,
-            "sx": 1,
-            "sy": 1,
-            "w": 1099,
-            "h": 1700,
-            "fg": false
-          },
-          {
-            "file": "fx_4026_disc_l2d_03",
-            "x": 9.11,
-            "y": -1.22,
-            "sx": 0.84321916,
-            "sy": 0.84321916,
-            "w": 391,
-            "h": 1078,
-            "fg": false
-          },
-          {
-            "file": "4026_disc_l2d_bg_06",
-            "x": -6.9349998,
-            "y": -3.8755249999999997,
-            "sx": 0.5990749,
-            "sy": 0.5990749,
-            "w": 92,
-            "h": 208,
-            "fg": false
-          },
-          {
-            "file": "4026_disc_l2d_bg_07",
-            "x": -8.5129994,
-            "y": -3.016,
-            "sx": 0.7208668,
-            "sy": 0.7208668,
-            "w": 203,
-            "h": 164,
-            "fg": false
-          },
-          {
-            "file": "4026_disc_l2d_bg_08",
-            "x": 6.98,
-            "y": -2.31,
-            "sx": 0.7208668,
-            "sy": 0.7208668,
-            "w": 105,
-            "h": 123,
-            "fg": false
-          },
-          {
-            "file": "4026_disc_l2d_bg_09",
-            "x": 7.079999900000001,
-            "y": 6.359999999999999,
-            "sx": 0.86107534,
-            "sy": 0.86107534,
-            "w": 115,
-            "h": 131,
-            "fg": false
-          },
-          {
-            "file": "4026_disc_l2d_bg_10",
-            "x": -1.49,
-            "y": 3.976,
-            "sx": 1,
-            "sy": 1,
-            "w": 80,
-            "h": 72,
-            "fg": true
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "id": "4027l2d",
-    "name": "Mystic Brushstrokes l2d",
-    "kind": "discl2d",
-    "variants": [
-      {
-        "name": "4027_l",
-        "label": "Disc",
-        "path": "chars/4027/4027_l/4027_F.model3.json",
-        "bg": [
-          "chars/4027/4027_l/bg/4027_disc_l2d_bg_01.png",
-          "chars/4027/4027_l/bg/4027_disc_l2d_bg_02.png",
-          "chars/4027/4027_l/bg/4027_disc_l2d_bg_03.png",
-          "chars/4027/4027_l/bg/4027_disc_l2d_denglong_01.png",
-          "chars/4027/4027_l/bg/4027_disc_l2d_denglong_02.png",
-          "chars/4027/4027_l/bg/4027_disc_l2d_fg_01.png",
-          "chars/4027/4027_l/bg/4027_disc_l2d_fg_02.png",
-          "chars/4027/4027_l/bg/4027_disc_l2d_fg_03.png",
-          "chars/4027/4027_l/bg/4027_disc_l2d_fg_04.png",
-          "chars/4027/4027_l/bg/4027_disc_l2d_fg_05.png",
-          "chars/4027/4027_l/bg/4027_disc_l2d_fg_06.png",
-          "chars/4027/4027_l/bg/4027_disc_l2d_painting_01.png",
-          "chars/4027/4027_l/bg/4027_disc_l2d_painting_02.png",
-          "chars/4027/4027_l/bg/4027_disc_l2d_painting_03.png"
-        ],
-        "bgLayers": [
-          {
-            "file": "4027_disc_l2d_bg_01",
-            "x": 0,
-            "y": 0,
-            "sx": 1,
-            "sy": 1,
-            "w": 2400,
-            "h": 1700,
-            "fg": false
-          },
-          {
-            "file": "4027_disc_l2d_painting_01",
-            "x": -3.304,
-            "y": 7.652,
-            "sx": 1,
-            "sy": 1,
-            "w": 316,
-            "h": 172,
-            "fg": false
-          },
-          {
-            "file": "4027_disc_l2d_painting_02",
-            "x": 0.24,
-            "y": 6.379,
-            "sx": 1,
-            "sy": 1,
-            "w": 400,
-            "h": 428,
-            "fg": false
-          },
-          {
-            "file": "4027_disc_l2d_bg_02",
-            "x": 0,
-            "y": 0,
-            "sx": 1,
-            "sy": 1,
-            "w": 2400,
-            "h": 1700,
-            "fg": false
-          },
-          {
-            "file": "4027_disc_l2d_denglong_01",
-            "x": -7.992,
-            "y": -0.85,
-            "sx": 1,
-            "sy": 1,
-            "w": 584,
-            "h": 692,
-            "fg": false
-          },
-          {
-            "file": "4027_disc_l2d_denglong_02",
-            "x": 3.895,
-            "y": 6.437,
-            "sx": 1,
-            "sy": 1,
-            "w": 268,
-            "h": 368,
-            "fg": false
-          },
-          {
-            "file": "4027_disc_l2d_bg_03",
-            "x": 0,
-            "y": 0,
-            "sx": 1,
-            "sy": 1,
-            "w": 2400,
-            "h": 1700,
-            "fg": false
-          },
-          {
-            "file": "4027_disc_l2d_fg_01",
-            "x": -8.74,
-            "y": 5.01,
-            "sx": 0.7900001,
-            "sy": 0.708,
-            "w": 884,
-            "h": 924,
-            "fg": false
-          },
-          {
-            "file": "4027_disc_l2d_fg_05",
-            "x": -7.21,
-            "y": -5.69,
-            "sx": 1,
-            "sy": 1,
-            "w": 960,
-            "h": 568,
-            "fg": false
-          },
-          {
-            "file": "4027_disc_l2d_fg_06",
-            "x": 8.65,
-            "y": -6.37,
-            "sx": 1,
-            "sy": 1,
-            "w": 672,
-            "h": 432,
-            "fg": false
-          },
-          {
-            "file": "4027_disc_l2d_fg_02",
-            "x": 0.45,
-            "y": -4.61,
-            "sx": 1,
-            "sy": 1,
-            "w": 2048,
-            "h": 719,
-            "fg": false
-          },
-          {
-            "file": "4027_disc_l2d_fg_03",
-            "x": -7.811,
-            "y": 3.39,
-            "sx": 1,
-            "sy": 1,
-            "w": 840,
-            "h": 676,
-            "fg": false
-          },
-          {
-            "file": "4027_disc_l2d_fg_04",
-            "x": -5.557,
-            "y": 7.728,
-            "sx": 1,
-            "sy": 1,
-            "w": 184,
-            "h": 156,
-            "fg": false
-          },
-          {
-            "file": "4027_disc_l2d_painting_03",
-            "x": 7.027,
-            "y": 5.651,
-            "sx": 1,
-            "sy": 1,
-            "w": 476,
-            "h": 572,
-            "fg": false
-          },
-          {
-            "file": "4027_disc_l2d_fg_01",
-            "x": 7.589999,
-            "y": 3.8899999,
-            "sx": 1,
-            "sy": 1,
-            "w": 884,
-            "h": 924,
-            "fg": false
-          },
-          {
-            "file": "4027_disc_l2d_fg_01",
-            "x": -7.229999,
-            "y": -5.6899996,
-            "sx": 1.0819999,
-            "sy": 0.61,
-            "w": 884,
-            "h": 924,
-            "fg": false
-          },
-          {
-            "file": "4027_disc_l2d_fg_01",
-            "x": 8.618,
-            "y": -6.1099997,
-            "sx": 0.545,
-            "sy": 0.735,
-            "w": 884,
-            "h": 924,
-            "fg": false
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "id": "4028l2d",
-    "name": "Daylight Garden l2d",
-    "kind": "discl2d",
-    "variants": [
-      {
-        "name": "4028_l",
-        "label": "Disc",
-        "path": "chars/4028/4028_l/4028_F.model3.json",
-        "bg": [
-          "chars/4028/4028_l/bg/4028_disc_l2d_bg_01.png"
-        ],
-        "bgLayers": [
-          {
-            "file": "4028_disc_l2d_bg_01",
-            "x": 0,
-            "y": 0,
-            "sx": 1,
-            "sy": 1,
-            "w": 2400,
-            "h": 1700,
-            "fg": false
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "id": "4029l2d",
-    "name": "The Cat's Treasure l2d",
-    "kind": "discl2d",
-    "variants": [
-      {
-        "name": "4029_l",
-        "label": "Disc",
-        "path": "chars/4029/4029_l/4029_F.model3.json",
-        "bg": [
-          "chars/4029/4029_l/bg/4029_disc_l2d_bg_001.png",
-          "chars/4029/4029_l/bg/4029_disc_l2d_fg_001.png"
-        ],
-        "bgLayers": [
-          {
-            "file": "4029_disc_l2d_bg_001",
-            "x": 0,
-            "y": 0,
-            "sx": 1,
-            "sy": 1,
-            "w": 2400,
-            "h": 1700,
-            "fg": false
-          },
-          {
-            "file": "4029_disc_l2d_fg_001",
-            "x": 0,
-            "y": 0,
-            "sx": 1,
-            "sy": 1,
-            "w": 2400,
-            "h": 1700,
-            "fg": false
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "id": "4036l2d",
-    "name": "The Lost Pilgrim l2d",
-    "kind": "discl2d",
-    "variants": [
-      {
-        "name": "4036_l",
-        "label": "Disc",
-        "path": "chars/4036/4036_l/4036_F.model3.json",
-        "bg": [
-          "chars/4036/4036_l/bg/4036_disc_l2d_bg_001.png"
-        ],
-        "bgLayers": [
-          {
-            "file": "4036_disc_l2d_bg_001",
-            "x": 0,
-            "y": 0,
-            "sx": 1,
-            "sy": 1,
-            "w": 2400,
-            "h": 1700,
-            "fg": false
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "id": "4037l2d",
-    "name": "Claw the Claw l2d",
-    "kind": "discl2d",
-    "variants": [
-      {
-        "name": "4037_l",
-        "label": "Disc",
-        "path": "chars/4037/4037_l/4037_F.model3.json",
-        "bg": [
-          "chars/4037/4037_l/bg/4037_disc_main_bg_01.png",
-          "chars/4037/4037_l/bg/4037_disc_main_bg_02.png"
-        ],
-        "bgLayers": [
-          {
-            "file": "4037_disc_main_bg_01",
-            "x": 0,
-            "y": 0,
-            "sx": 1,
-            "sy": 1,
-            "w": 2400,
-            "h": 1700,
-            "fg": false
-          },
-          {
-            "file": "4037_disc_main_bg_02",
-            "x": 0,
-            "y": 0,
-            "sx": 1,
-            "sy": 1,
-            "w": 2048,
-            "h": 1451,
-            "fg": false
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "id": "4038l2d",
-    "name": "Ripples of Nostalgia l2d",
-    "kind": "discl2d",
-    "variants": [
-      {
-        "name": "4038_l",
-        "label": "Disc",
-        "path": "chars/4038/4038_l/4038_F .model3.json",
-        "bg": [
-          "chars/4038/4038_l/bg/4038_disc_main_bg_01.png",
-          "chars/4038/4038_l/bg/4038_disc_main_fg_01.png",
-          "chars/4038/4038_l/bg/4038_disc_main_fg_02.png",
-          "chars/4038/4038_l/bg/4038_disc_main_fg_03.png",
-          "chars/4038/4038_l/bg/4038_disc_main_fg_04.png",
-          "chars/4038/4038_l/bg/4038_disc_main_fg_05.png",
-          "chars/4038/4038_l/bg/4038_disc_main_fg_06.png",
-          "chars/4038/4038_l/bg/4038_disc_main_fg_07.png",
-          "chars/4038/4038_l/bg/4038_disc_main_fg_08.png",
-          "chars/4038/4038_l/bg/4038_disc_main_fg_09.png",
-          "chars/4038/4038_l/bg/4038_disc_main_fg_10.png",
-          "chars/4038/4038_l/bg/4038_disc_main_pao_001.png",
-          "chars/4038/4038_l/bg/4038_disc_main_pao_002.png",
-          "chars/4038/4038_l/bg/4038_disc_main_pao_003.png",
-          "chars/4038/4038_l/bg/4038_disc_main_pao_004.png",
-          "chars/4038/4038_l/bg/4038_disc_main_pao_005.png",
-          "chars/4038/4038_l/bg/4038_disc_main_pao_006.png",
-          "chars/4038/4038_l/bg/4038_disc_main_pao_007.png",
-          "chars/4038/4038_l/bg/4038_disc_main_pao_008.png",
-          "chars/4038/4038_l/bg/4038_disc_main_pao_009.png",
-          "chars/4038/4038_l/bg/4038_disc_main_pao_010.png",
-          "chars/4038/4038_l/bg/4038_disc_main_pao_011.png",
-          "chars/4038/4038_l/bg/4038_disc_main_pao_012.png",
-          "chars/4038/4038_l/bg/4038_disc_main_pao_013.png",
-          "chars/4038/4038_l/bg/4038_disc_main_pao_014.png",
-          "chars/4038/4038_l/bg/4038_disc_main_pao_015.png",
-          "chars/4038/4038_l/bg/4038_disc_main_pao_016.png",
-          "chars/4038/4038_l/bg/4038_disc_main_pao_017.png",
-          "chars/4038/4038_l/bg/4038_disc_main_pao_018.png",
-          "chars/4038/4038_l/bg/4038_disc_main_pao_019.png",
-          "chars/4038/4038_l/bg/4038_disc_main_pao_020.png",
-          "chars/4038/4038_l/bg/4038_disc_main_pao_021.png",
-          "chars/4038/4038_l/bg/4038_disc_main_pao_022.png",
-          "chars/4038/4038_l/bg/4038_disc_main_pao_023.png",
-          "chars/4038/4038_l/bg/4038_disc_main_pao_024.png",
-          "chars/4038/4038_l/bg/4038_disc_main_pao_025.png",
-          "chars/4038/4038_l/bg/4038_disc_main_pao_026.png",
-          "chars/4038/4038_l/bg/4038_disc_main_pao_027.png",
-          "chars/4038/4038_l/bg/4038_disc_main_pao_028.png",
-          "chars/4038/4038_l/bg/4038_disc_main_pao_029.png",
-          "chars/4038/4038_l/bg/4038_disc_main_pao_030.png",
-          "chars/4038/4038_l/bg/4038_disc_main_pao_031.png",
-          "chars/4038/4038_l/bg/4038_disc_main_pao_032.png",
-          "chars/4038/4038_l/bg/4038_disc_main_pao_033.png",
-          "chars/4038/4038_l/bg/4038_disc_main_pao_034.png",
-          "chars/4038/4038_l/bg/4038_disc_main_pao_035.png",
-          "chars/4038/4038_l/bg/4038_disc_main_pao_036.png",
-          "chars/4038/4038_l/bg/4038_disc_main_pao_037.png",
-          "chars/4038/4038_l/bg/4038_disc_main_pao_038.png",
-          "chars/4038/4038_l/bg/4038_disc_main_pao_039.png",
-          "chars/4038/4038_l/bg/4038_disc_main_pao_040.png",
-          "chars/4038/4038_l/bg/4038_disc_main_pao_041.png",
-          "chars/4038/4038_l/bg/4038_disc_main_pao_042.png"
-        ],
-        "bgLayers": [
-          {
-            "file": "4038_disc_main_fg_01",
-            "x": 6.75,
-            "y": 0,
-            "sx": 1,
-            "sy": 1,
-            "w": 1052,
-            "h": 1700,
-            "fg": false
-          },
-          {
-            "file": "4038_disc_main_fg_02",
-            "x": -8.625,
-            "y": -7.046,
-            "sx": 1,
-            "sy": 1,
-            "w": 548,
-            "h": 296,
-            "fg": false
-          },
-          {
-            "file": "4038_disc_main_fg_03",
-            "x": 8.9,
-            "y": -6.584,
-            "sx": 1,
-            "sy": 1,
-            "w": 524,
-            "h": 388,
-            "fg": false
-          },
-          {
-            "file": "4038_disc_main_fg_04",
-            "x": -8.298,
-            "y": -5.523,
-            "sx": 1,
-            "sy": 1,
-            "w": 744,
-            "h": 596,
-            "fg": false
-          },
-          {
-            "file": "4038_disc_main_fg_05",
-            "x": 10.35,
-            "y": -4.51,
-            "sx": 1,
-            "sy": 1,
-            "w": 332,
-            "h": 800,
-            "fg": false
-          },
-          {
-            "file": "4038_disc_main_fg_06",
-            "x": 10.007,
-            "y": -7.062,
-            "sx": 1,
-            "sy": 1,
-            "w": 400,
-            "h": 292,
-            "fg": false
-          },
-          {
-            "file": "4038_disc_main_fg_07",
-            "x": -10.426,
-            "y": -4.078,
-            "sx": 1,
-            "sy": 1,
-            "w": 320,
-            "h": 364,
-            "fg": false
-          },
-          {
-            "file": "4038_disc_main_fg_08",
-            "x": -9.731,
-            "y": -6.653,
-            "sx": 1,
-            "sy": 1,
-            "w": 452,
-            "h": 372,
-            "fg": false
-          },
-          {
-            "file": "4038_disc_main_fg_09",
-            "x": -10.671,
-            "y": 6.876,
-            "sx": 1,
-            "sy": 1,
-            "w": 268,
-            "h": 280,
-            "fg": false
-          },
-          {
-            "file": "4038_disc_main_fg_10",
-            "x": -10.404,
-            "y": 1.026,
-            "sx": 1,
-            "sy": 1,
-            "w": 320,
-            "h": 916,
-            "fg": false
-          },
-          {
-            "file": "4038_disc_main_bg_01",
-            "x": 0,
-            "y": 0,
-            "sx": 1,
-            "sy": 1,
-            "w": 2400,
-            "h": 1700,
-            "fg": false
-          },
-          {
-            "file": "4038_disc_main_pao_001",
-            "x": -5.91,
-            "y": 4.9,
-            "sx": 1,
-            "sy": 1,
-            "w": 84,
-            "h": 80,
-            "fg": false
-          },
-          {
-            "file": "4038_disc_main_pao_002",
-            "x": -7.099,
-            "y": 4.695,
-            "sx": 1,
-            "sy": 1,
-            "w": 180,
-            "h": 160,
-            "fg": false
-          },
-          {
-            "file": "4038_disc_main_pao_003",
-            "x": -6.256,
-            "y": 5.38,
-            "sx": 1,
-            "sy": 1,
-            "w": 44,
-            "h": 36,
-            "fg": false
-          },
-          {
-            "file": "4038_disc_main_pao_004",
-            "x": -9.439,
-            "y": 2.391,
-            "sx": 1,
-            "sy": 1,
-            "w": 124,
-            "h": 108,
-            "fg": false
-          },
-          {
-            "file": "4038_disc_main_pao_005",
-            "x": -10.181,
-            "y": 1.72,
-            "sx": 1,
-            "sy": 1,
-            "w": 40,
-            "h": 32,
-            "fg": false
-          },
-          {
-            "file": "4038_disc_main_pao_006",
-            "x": -8.97,
-            "y": -3.64,
-            "sx": 1,
-            "sy": 1,
-            "w": 56,
-            "h": 56,
-            "fg": false
-          },
-          {
-            "file": "4038_disc_main_pao_007",
-            "x": -8.435,
-            "y": -3.073,
-            "sx": 1,
-            "sy": 1,
-            "w": 36,
-            "h": 24,
-            "fg": false
-          },
-          {
-            "file": "4038_disc_main_pao_008",
-            "x": 10.069,
-            "y": -0.06,
-            "sx": 1,
-            "sy": 1,
-            "w": 140,
-            "h": 92,
-            "fg": false
-          },
-          {
-            "file": "4038_disc_main_pao_009",
-            "x": 9.099,
-            "y": -6.06,
-            "sx": 1,
-            "sy": 1,
-            "w": 136,
-            "h": 164,
-            "fg": false
-          },
-          {
-            "file": "4038_disc_main_pao_010",
-            "x": 8.488,
-            "y": -5.467,
-            "sx": 1,
-            "sy": 1,
-            "w": 72,
-            "h": 76,
-            "fg": false
-          },
-          {
-            "file": "4038_disc_main_pao_011",
-            "x": -10.061,
-            "y": 7.595,
-            "sx": 1,
-            "sy": 1,
-            "w": 32,
-            "h": 32,
-            "fg": false
-          },
-          {
-            "file": "4038_disc_main_pao_012",
-            "x": -8.73,
-            "y": 6.151,
-            "sx": 1,
-            "sy": 1,
-            "w": 48,
-            "h": 48,
-            "fg": false
-          },
-          {
-            "file": "4038_disc_main_pao_013",
-            "x": -8.206,
-            "y": 5.694,
-            "sx": 1,
-            "sy": 1,
-            "w": 32,
-            "h": 24,
-            "fg": false
-          },
-          {
-            "file": "4038_disc_main_pao_014",
-            "x": -8.473,
-            "y": 5.628,
-            "sx": 1,
-            "sy": 1,
-            "w": 40,
-            "h": 36,
-            "fg": false
-          },
-          {
-            "file": "4038_disc_main_pao_015",
-            "x": -7.579,
-            "y": 5.674,
-            "sx": 1,
-            "sy": 1,
-            "w": 28,
-            "h": 24,
-            "fg": false
-          },
-          {
-            "file": "4038_disc_main_pao_016",
-            "x": -7.679,
-            "y": 6.155,
-            "sx": 1,
-            "sy": 1,
-            "w": 20,
-            "h": 16,
-            "fg": false
-          },
-          {
-            "file": "4038_disc_main_pao_017",
-            "x": -7.853,
-            "y": 5.995,
-            "sx": 1,
-            "sy": 1,
-            "w": 12,
-            "h": 12,
-            "fg": false
-          },
-          {
-            "file": "4038_disc_main_pao_018",
-            "x": -9.368,
-            "y": 4.746,
-            "sx": 1,
-            "sy": 1,
-            "w": 32,
-            "h": 36,
-            "fg": false
-          },
-          {
-            "file": "4038_disc_main_pao_019",
-            "x": -6.077,
-            "y": 5.841,
-            "sx": 1,
-            "sy": 1,
-            "w": 24,
-            "h": 24,
-            "fg": false
-          },
-          {
-            "file": "4038_disc_main_pao_020",
-            "x": -8.307,
-            "y": 4.319,
-            "sx": 1,
-            "sy": 1,
-            "w": 24,
-            "h": 24,
-            "fg": false
-          },
-          {
-            "file": "4038_disc_main_pao_021",
-            "x": -10.295,
-            "y": 1.532,
-            "sx": 1,
-            "sy": 1,
-            "w": 16,
-            "h": 16,
-            "fg": false
-          },
-          {
-            "file": "4038_disc_main_pao_022",
-            "x": -10.76,
-            "y": 1.34,
-            "sx": 1,
-            "sy": 1,
-            "w": 32,
-            "h": 24,
-            "fg": false
-          },
-          {
-            "file": "4038_disc_main_pao_023",
-            "x": -8.37,
-            "y": -2.33,
-            "sx": 1,
-            "sy": 1,
-            "w": 28,
-            "h": 20,
-            "fg": false
-          },
-          {
-            "file": "4038_disc_main_pao_024",
-            "x": -9.079,
-            "y": -4.419,
-            "sx": 1,
-            "sy": 1,
-            "w": 24,
-            "h": 28,
-            "fg": false
-          },
-          {
-            "file": "4038_disc_main_pao_025",
-            "x": -8.256,
-            "y": -2.978,
-            "sx": 1,
-            "sy": 1,
-            "w": 16,
-            "h": 16,
-            "fg": false
-          },
-          {
-            "file": "4038_disc_main_pao_026",
-            "x": 3.847,
-            "y": 4.085,
-            "sx": 1,
-            "sy": 1,
-            "w": 28,
-            "h": 36,
-            "fg": false
-          },
-          {
-            "file": "4038_disc_main_pao_027",
-            "x": 5.359,
-            "y": 3.221,
-            "sx": 1,
-            "sy": 1,
-            "w": 24,
-            "h": 24,
-            "fg": false
-          },
-          {
-            "file": "4038_disc_main_pao_028",
-            "x": 5.776,
-            "y": 1.8,
-            "sx": 1,
-            "sy": 1,
-            "w": 44,
-            "h": 36,
-            "fg": false
-          },
-          {
-            "file": "4038_disc_main_pao_029",
-            "x": 6.433,
-            "y": 1.26,
-            "sx": 1,
-            "sy": 1,
-            "w": 32,
-            "h": 28,
-            "fg": false
-          },
-          {
-            "file": "4038_disc_main_pao_030",
-            "x": 6.608,
-            "y": 1.03,
-            "sx": 1,
-            "sy": 1,
-            "w": 16,
-            "h": 12,
-            "fg": false
-          },
-          {
-            "file": "4038_disc_main_pao_031",
-            "x": 9.73,
-            "y": 6.202,
-            "sx": 1,
-            "sy": 1,
-            "w": 28,
-            "h": 28,
-            "fg": false
-          },
-          {
-            "file": "4038_disc_main_pao_032",
-            "x": 8.893,
-            "y": 5.616,
-            "sx": 1,
-            "sy": 1,
-            "w": 28,
-            "h": 24,
-            "fg": false
-          },
-          {
-            "file": "4038_disc_main_pao_033",
-            "x": 8.61,
-            "y": 5.239,
-            "sx": 1,
-            "sy": 1,
-            "w": 20,
-            "h": 32,
-            "fg": false
-          },
-          {
-            "file": "4038_disc_main_pao_034",
-            "x": 10.32,
-            "y": 2.704,
-            "sx": 1,
-            "sy": 1,
-            "w": 32,
-            "h": 28,
-            "fg": false
-          },
-          {
-            "file": "4038_disc_main_pao_035",
-            "x": 8.071,
-            "y": -0.36,
-            "sx": 1,
-            "sy": 1,
-            "w": 20,
-            "h": 28,
-            "fg": false
-          },
-          {
-            "file": "4038_disc_main_pao_036",
-            "x": 11.497,
-            "y": -0.848,
-            "sx": 1,
-            "sy": 1,
-            "w": 20,
-            "h": 24,
-            "fg": false
-          },
-          {
-            "file": "4038_disc_main_pao_037",
-            "x": 10.937,
-            "y": -0.279,
-            "sx": 1,
-            "sy": 1,
-            "w": 24,
-            "h": 20,
-            "fg": false
-          },
-          {
-            "file": "4038_disc_main_pao_038",
-            "x": 9.559,
-            "y": -3.077,
-            "sx": 1,
-            "sy": 1,
-            "w": 36,
-            "h": 44,
-            "fg": false
-          },
-          {
-            "file": "4038_disc_main_pao_039",
-            "x": 4.508,
-            "y": -6.26,
-            "sx": 1,
-            "sy": 1,
-            "w": 48,
-            "h": 76,
-            "fg": false
-          },
-          {
-            "file": "4038_disc_main_pao_040",
-            "x": 4.486,
-            "y": -5.526,
-            "sx": 1,
-            "sy": 1,
-            "w": 28,
-            "h": 36,
-            "fg": false
-          },
-          {
-            "file": "4038_disc_main_pao_041",
-            "x": 4.342,
-            "y": -5.808,
-            "sx": 1,
-            "sy": 1,
-            "w": 16,
-            "h": 16,
-            "fg": false
-          },
-          {
-            "file": "4038_disc_main_pao_042",
-            "x": 5.38,
-            "y": -7.264,
-            "sx": 1,
-            "sy": 1,
-            "w": 32,
-            "h": 32,
-            "fg": false
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "id": "4044l2d",
-    "name": "Veiled Dawn of Spring l2d",
-    "kind": "discl2d",
-    "variants": [
-      {
-        "name": "4044_l",
-        "label": "Disc",
-        "path": "chars/4044/4044_l/4044_F.model3.json",
-        "bg": [
-          "chars/4044/4044_l/bg/4044_disc_l2d_bg_001.png",
-          "chars/4044/4044_l/bg/4044_disc_l2d_bird_001.png",
-          "chars/4044/4044_l/bg/4044_disc_l2d_bird_002.png",
-          "chars/4044/4044_l/bg/4044_disc_l2d_bird_003.png",
-          "chars/4044/4044_l/bg/4044_disc_l2d_curtain_001.png",
-          "chars/4044/4044_l/bg/4044_disc_l2d_fg_001.png",
-          "chars/4044/4044_l/bg/4044_disc_l2d_fg_002.png",
-          "chars/4044/4044_l/bg/4044_disc_l2d_fg_003.png",
-          "chars/4044/4044_l/bg/4044_disc_l2d_fg_004.png",
-          "chars/4044/4044_l/bg/4044_disc_l2d_fg_005.png"
-        ],
-        "bgLayers": [
-          {
-            "file": "4044_disc_l2d_bg_001",
-            "x": 0,
-            "y": 0,
-            "sx": 1,
-            "sy": 1,
-            "w": 2400,
-            "h": 1700,
-            "fg": false
-          },
-          {
-            "file": "4044_disc_l2d_bird_001",
-            "x": -4.66,
-            "y": 6.21,
-            "sx": 1,
-            "sy": 1,
-            "w": 308,
-            "h": 484,
-            "fg": false
-          },
-          {
-            "file": "4044_disc_l2d_bird_002",
-            "x": -2.22,
-            "y": 6.754999,
-            "sx": 1,
-            "sy": 1,
-            "w": 352,
-            "h": 372,
-            "fg": false
-          },
-          {
-            "file": "4044_disc_l2d_bird_003",
-            "x": 2.917,
-            "y": 5.5059996,
-            "sx": 1,
-            "sy": 1,
-            "w": 448,
-            "h": 624,
-            "fg": false
-          },
-          {
-            "file": "4044_disc_l2d_fg_004",
-            "x": 6.25,
-            "y": 1.14,
-            "sx": 1,
-            "sy": 1,
-            "w": 608,
-            "h": 1384,
-            "fg": false
-          },
-          {
-            "file": "4044_disc_l2d_curtain_001",
-            "x": 0,
-            "y": 0,
-            "sx": 1,
-            "sy": 1,
-            "w": 2400,
-            "h": 1700,
-            "fg": false
-          },
-          {
-            "file": "4044_disc_l2d_fg_005",
-            "x": 6.25,
-            "y": 1.14,
-            "sx": 1,
-            "sy": 1,
-            "w": 608,
-            "h": 1384,
-            "fg": false
-          },
-          {
-            "file": "4044_disc_l2d_fg_002",
-            "x": 4.0709996,
-            "y": -4.7439995,
-            "sx": 1,
-            "sy": 1,
-            "w": 1588,
-            "h": 756,
-            "fg": false
-          },
-          {
-            "file": "4044_disc_l2d_fg_003",
-            "x": -6.7,
-            "y": -4.781,
-            "sx": 1,
-            "sy": 1,
-            "w": 728,
-            "h": 700,
-            "fg": false
-          },
-          {
-            "file": "4044_disc_l2d_fg_001",
-            "x": 0,
-            "y": -5.39,
-            "sx": 1,
-            "sy": 1,
-            "w": 2048,
-            "h": 532,
-            "fg": false
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "id": "4045l2d",
-    "name": "Petals of Blooming Mirage l2d",
-    "kind": "discl2d",
-    "variants": [
-      {
-        "name": "4045_l",
-        "label": "Disc",
-        "path": "chars/4045/4045_l/4045_F.model3.json",
-        "bg": [
-          "chars/4045/4045_l/bg/4045_disc_l2d_bg_001.png"
-        ],
-        "bgLayers": [
-          {
-            "file": "4045_disc_l2d_bg_001",
-            "x": 0,
-            "y": 0,
-            "sx": 1,
-            "sy": 1,
-            "w": 2048,
-            "h": 1451,
-            "fg": false
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "id": "4048l2d",
-    "name": "Snowy Night Surprise l2d",
-    "kind": "discl2d",
-    "variants": [
-      {
-        "name": "4048_l",
-        "label": "Disc",
-        "path": "chars/4048/4048_l/4048_F.model3.json",
-        "bg": [
-          "chars/4048/4048_l/bg/4048_disc_main_bg_01.png",
-          "chars/4048/4048_l/bg/4048_disc_main_bg_02.png",
-          "chars/4048/4048_l/bg/4048_disc_main_bg_03.png"
-        ],
-        "bgLayers": [
-          {
-            "file": "4048_disc_main_bg_01",
-            "x": 0,
-            "y": 0,
-            "sx": 1,
-            "sy": 1,
-            "w": 2400,
-            "h": 1700,
-            "fg": false
-          },
-          {
-            "file": "4048_disc_main_bg_02",
-            "x": -5.05,
-            "y": 0,
-            "sx": 1,
-            "sy": 1,
-            "w": 1400,
-            "h": 1700,
-            "fg": false
-          },
-          {
-            "file": "4048_disc_main_bg_03",
-            "x": 9.28,
-            "y": 0,
-            "sx": 1,
-            "sy": 1,
-            "w": 560,
-            "h": 1700,
-            "fg": false
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "id": "4051l2d",
-    "name": "Stellar Destination l2d",
-    "kind": "discl2d",
-    "variants": [
-      {
-        "name": "4051_l",
-        "label": "Disc",
-        "path": "chars/4051/4051_l/4051_F.model3.json",
-        "bg": [
-          "chars/4051/4051_l/bg/4051_disc_l2d_bg_01.png",
-          "chars/4051/4051_l/bg/4051_disc_l2d_bg_02.png",
-          "chars/4051/4051_l/bg/4051_disc_l2d_bg_03.png",
-          "chars/4051/4051_l/bg/4051_disc_l2d_bg_04.png",
-          "chars/4051/4051_l/bg/4051_disc_l2d_bg_05.png",
-          "chars/4051/4051_l/bg/4051_disc_l2d_bg_06.png"
-        ],
-        "bgLayers": [
-          {
-            "file": "4051_disc_l2d_bg_02",
-            "x": 0,
-            "y": 0,
-            "sx": 1,
-            "sy": 1,
-            "w": 2400,
-            "h": 1700,
-            "fg": false
-          },
-          {
-            "file": "4051_disc_l2d_bg_04",
-            "x": 0,
-            "y": 0,
-            "sx": 1,
-            "sy": 1,
-            "w": 2400,
-            "h": 1700,
-            "fg": false
-          },
-          {
-            "file": "4051_disc_l2d_bg_01",
-            "x": 0,
-            "y": 0,
-            "sx": 1,
-            "sy": 1,
-            "w": 2400,
-            "h": 1700,
-            "fg": false
-          },
-          {
-            "file": "4051_disc_l2d_bg_05",
-            "x": -11.314,
-            "y": -5.178,
-            "sx": 1,
-            "sy": 1,
-            "w": 136,
-            "h": 267,
-            "fg": false
-          },
-          {
-            "file": "4051_disc_l2d_bg_06",
-            "x": 11.12,
-            "y": -2.52,
-            "sx": 1,
-            "sy": 1,
-            "w": 198,
-            "h": 358,
-            "fg": false
-          },
-          {
-            "file": "4051_disc_l2d_bg_03",
-            "x": 0,
-            "y": 0,
-            "sx": 1,
-            "sy": 1,
-            "w": 2048,
-            "h": 1451,
-            "fg": false
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "id": "4054l2d",
-    "name": "Little Paradise l2d",
-    "kind": "discl2d",
-    "variants": [
-      {
-        "name": "4054_l",
-        "label": "Disc",
-        "path": "chars/4054/4054_l/4054_F.model3.json",
-        "bg": [
-          "chars/4054/4054_l/bg/4054_disc_l2d_bg_001.png",
-          "chars/4054/4054_l/bg/4054_disc_l2d_fg_001.png",
-          "chars/4054/4054_l/bg/4054_disc_l2d_light_001.png",
-          "chars/4054/4054_l/bg/4054_disc_l2d_light_002.png",
-          "chars/4054/4054_l/bg/4054_disc_l2d_light_003.png",
-          "chars/4054/4054_l/bg/4054_disc_l2d_sugar_001.png",
-          "chars/4054/4054_l/bg/4054_disc_l2d_sugar_002.png",
-          "chars/4054/4054_l/bg/fx_4054_disc_l2d_paopao_003.png",
-          "chars/4054/4054_l/bg/fx_4054_disc_l2d_paopao_004.png",
-          "chars/4054/4054_l/bg/fx_4054_disc_l2d_paopao_005.png",
-          "chars/4054/4054_l/bg/fx_4054_disc_l2d_paopao_006.png",
-          "chars/4054/4054_l/bg/fx_4054_disc_l2d_paopao_007.png",
-          "chars/4054/4054_l/bg/fx_4054_disc_l2d_paopao_008.png",
-          "chars/4054/4054_l/bg/fx_4054_disc_l2d_paopao_009.png",
-          "chars/4054/4054_l/bg/fx_4054_disc_l2d_paopao_010.png",
-          "chars/4054/4054_l/bg/fx_4054_disc_l2d_paopao_011.png",
-          "chars/4054/4054_l/bg/fx_4054_disc_l2d_paopao_012.png",
-          "chars/4054/4054_l/bg/fx_4054_disc_l2d_paopao_013.png"
-        ],
-        "bgLayers": [
-          {
-            "file": "4054_disc_l2d_sugar_001",
-            "x": -5.766,
-            "y": -2.615,
-            "sx": 1,
-            "sy": 1,
-            "w": 52,
-            "h": 60,
-            "fg": false
-          },
-          {
-            "file": "4054_disc_l2d_sugar_002",
-            "x": -5.567,
-            "y": -1.818,
-            "sx": 1,
-            "sy": 1,
-            "w": 64,
-            "h": 60,
-            "fg": false
-          },
-          {
-            "file": "4054_disc_l2d_light_001",
-            "x": -4.05,
-            "y": -3.95,
-            "sx": 1,
-            "sy": 1,
-            "w": 820,
-            "h": 912,
-            "fg": false
-          },
-          {
-            "file": "fx_4054_disc_l2d_paopao_003",
-            "x": -10.336,
-            "y": -4.281,
-            "sx": 1,
-            "sy": 1,
-            "w": 161,
-            "h": 156,
-            "fg": false
-          },
-          {
-            "file": "fx_4054_disc_l2d_paopao_004",
-            "x": -10.229,
-            "y": -3.053,
-            "sx": 1,
-            "sy": 1,
-            "w": 99,
-            "h": 114,
-            "fg": false
-          },
-          {
-            "file": "fx_4054_disc_l2d_paopao_005",
-            "x": -10.317,
-            "y": -2.331,
-            "sx": 1,
-            "sy": 1,
-            "w": 40,
-            "h": 46,
-            "fg": false
-          },
-          {
-            "file": "fx_4054_disc_l2d_paopao_006",
-            "x": -11.451,
-            "y": -4.243,
-            "sx": 1,
-            "sy": 1,
-            "w": 22,
-            "h": 25,
-            "fg": false
-          },
-          {
-            "file": "fx_4054_disc_l2d_paopao_007",
-            "x": -8.461,
-            "y": -3.187,
-            "sx": 1,
-            "sy": 1,
-            "w": 34,
-            "h": 29,
-            "fg": false
-          },
-          {
-            "file": "fx_4054_disc_l2d_paopao_008",
-            "x": -8.503,
-            "y": -3.382,
-            "sx": 1,
-            "sy": 1,
-            "w": 19,
-            "h": 18,
-            "fg": false
-          },
-          {
-            "file": "fx_4054_disc_l2d_paopao_009",
-            "x": -8.665,
-            "y": -3.636,
-            "sx": 1,
-            "sy": 1,
-            "w": 42,
-            "h": 37,
-            "fg": false
-          },
-          {
-            "file": "fx_4054_disc_l2d_paopao_010",
-            "x": -8.785,
-            "y": -3.761,
-            "sx": 1,
-            "sy": 1,
-            "w": 14,
-            "h": 14,
-            "fg": false
-          },
-          {
-            "file": "fx_4054_disc_l2d_paopao_011",
-            "x": -8.308,
-            "y": -3.942,
-            "sx": 1,
-            "sy": 1,
-            "w": 42,
-            "h": 32,
-            "fg": false
-          },
-          {
-            "file": "fx_4054_disc_l2d_paopao_012",
-            "x": -8.725,
-            "y": -4.155,
-            "sx": 1,
-            "sy": 1,
-            "w": 30,
-            "h": 30,
-            "fg": false
-          },
-          {
-            "file": "fx_4054_disc_l2d_paopao_013",
-            "x": -8.545,
-            "y": -4.447,
-            "sx": 1,
-            "sy": 1,
-            "w": 63,
-            "h": 36,
-            "fg": false
-          },
-          {
-            "file": "4054_disc_l2d_bg_001",
-            "x": 0,
-            "y": 0,
-            "sx": 1,
-            "sy": 1,
-            "w": 2400,
-            "h": 1700,
-            "fg": false
-          },
-          {
-            "file": "4054_disc_l2d_light_002",
-            "x": -10.773,
-            "y": -3.323,
-            "sx": 1,
-            "sy": 1,
-            "w": 96,
-            "h": 336,
-            "fg": false
-          },
-          {
-            "file": "4054_disc_l2d_light_003",
-            "x": -4.179,
-            "y": -6.212,
-            "sx": 1,
-            "sy": 1,
-            "w": 792,
-            "h": 460,
-            "fg": false
-          },
-          {
-            "file": "4054_disc_l2d_fg_001",
-            "x": 0,
-            "y": 0,
-            "sx": 1,
-            "sy": 1,
-            "w": 2400,
-            "h": 1700,
-            "fg": true
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "id": "4055l2d",
-    "name": "Fleeting Glimmers l2d",
-    "kind": "discl2d",
-    "variants": [
-      {
-        "name": "4055_l",
-        "label": "Disc",
-        "path": "chars/4055/4055_l/4055_F.model3.json",
-        "bg": [
-          "chars/4055/4055_l/bg/4055_disc_l2d_bg_001.png",
-          "chars/4055/4055_l/bg/4055_disc_l2d_bg_002.png",
-          "chars/4055/4055_l/bg/4055_disc_l2d_bg_003.png",
-          "chars/4055/4055_l/bg/4055_disc_l2d_bg_004.png",
-          "chars/4055/4055_l/bg/4055_disc_l2d_bg_005.png",
-          "chars/4055/4055_l/bg/4055_disc_l2d_bg_006.png",
-          "chars/4055/4055_l/bg/4055_disc_l2d_bg_007.png",
-          "chars/4055/4055_l/bg/4055_disc_l2d_bg_008.png",
-          "chars/4055/4055_l/bg/4055_disc_l2d_bg_009.png",
-          "chars/4055/4055_l/bg/4055_disc_l2d_bg_010.png",
-          "chars/4055/4055_l/bg/4055_disc_l2d_bg_011.png",
-          "chars/4055/4055_l/bg/4055_disc_l2d_bg_012.png",
-          "chars/4055/4055_l/bg/4055_disc_l2d_bg_013.png",
-          "chars/4055/4055_l/bg/4055_disc_l2d_bg_015.png",
-          "chars/4055/4055_l/bg/4055_disc_l2d_bg_016.png",
-          "chars/4055/4055_l/bg/4055_disc_l2d_bg_017.png",
-          "chars/4055/4055_l/bg/4055_disc_l2d_bg_018.png",
-          "chars/4055/4055_l/bg/4055_disc_l2d_bg_020.png",
-          "chars/4055/4055_l/bg/4055_disc_l2d_bg_021.png",
-          "chars/4055/4055_l/bg/4055_disc_l2d_hua_01.png",
-          "chars/4055/4055_l/bg/4055_disc_l2d_hua_02.png",
-          "chars/4055/4055_l/bg/4055_disc_l2d_pao_01.png",
-          "chars/4055/4055_l/bg/4055_disc_l2d_pao_02.png",
-          "chars/4055/4055_l/bg/4055_disc_l2d_pao_03.png",
-          "chars/4055/4055_l/bg/4055_disc_l2d_pao_04.png",
-          "chars/4055/4055_l/bg/4055_disc_l2d_pao_05.png",
-          "chars/4055/4055_l/bg/4055_disc_l2d_pao_06.png",
-          "chars/4055/4055_l/bg/4055_disc_l2d_pao_07.png",
-          "chars/4055/4055_l/bg/4055_disc_l2d_pao_08.png",
-          "chars/4055/4055_l/bg/4055_disc_l2d_pao_09.png",
-          "chars/4055/4055_l/bg/4055_disc_l2d_pao_10.png",
-          "chars/4055/4055_l/bg/4055_disc_l2d_pao_11.png"
-        ],
-        "bgLayers": [
-          {
-            "file": "4055_disc_l2d_bg_001",
-            "x": 0,
-            "y": 0,
-            "sx": 1,
-            "sy": 1,
-            "w": 2048,
-            "h": 1451,
-            "fg": false
-          },
-          {
-            "file": "4055_disc_l2d_bg_015",
-            "x": -9.050004600000001,
-            "y": 1.4899903999999997,
-            "sx": 1,
-            "sy": 1,
-            "w": 460,
-            "h": 488,
-            "fg": false
-          },
-          {
-            "file": "4055_disc_l2d_bg_016",
-            "x": -6.72000118,
-            "y": -0.9599852,
-            "sx": 1,
-            "sy": 1,
-            "w": 268,
-            "h": 312,
-            "fg": false
-          },
-          {
-            "file": "4055_disc_l2d_bg_017",
-            "x": -8.300003,
-            "y": 5.586997,
-            "sx": 1,
-            "sy": 1,
-            "w": 224,
-            "h": 208,
-            "fg": false
-          },
-          {
-            "file": "4055_disc_l2d_bg_013",
-            "x": -10.394004899999999,
-            "y": -2.3839845,
-            "sx": 1,
-            "sy": 1,
-            "w": 340,
-            "h": 328,
-            "fg": false
-          },
-          {
-            "file": "4055_disc_l2d_bg_020",
-            "x": -10.759992,
-            "y": 1.030023,
-            "sx": 1,
-            "sy": 1,
-            "w": 264,
-            "h": 504,
-            "fg": false
-          },
-          {
-            "file": "4055_disc_l2d_bg_018",
-            "x": -4.820004,
-            "y": -6.1799836,
-            "sx": 1,
-            "sy": 1,
-            "w": 140,
-            "h": 136,
-            "fg": false
-          },
-          {
-            "file": "4055_disc_l2d_bg_011",
-            "x": 7.065988,
-            "y": -7.254986,
-            "sx": 1,
-            "sy": 1,
-            "w": 344,
-            "h": 268,
-            "fg": false
-          },
-          {
-            "file": "4055_disc_l2d_bg_012",
-            "x": -9.230001,
-            "y": -6.090024,
-            "sx": 1,
-            "sy": 1,
-            "w": 552,
-            "h": 456,
-            "fg": false
-          },
-          {
-            "file": "4055_disc_l2d_bg_008",
-            "x": -7.7699976,
-            "y": -5.7399898,
-            "sx": 1,
-            "sy": 1,
-            "w": 572,
-            "h": 568,
-            "fg": false
-          },
-          {
-            "file": "4055_disc_l2d_bg_009",
-            "x": -10.0899885,
-            "y": -3.4600247999999993,
-            "sx": 1,
-            "sy": 1,
-            "w": 392,
-            "h": 312,
-            "fg": false
-          },
-          {
-            "file": "4055_disc_l2d_bg_010",
-            "x": 10.35999796,
-            "y": -6.909984600000001,
-            "sx": 1,
-            "sy": 1,
-            "w": 356,
-            "h": 340,
-            "fg": false
-          },
-          {
-            "file": "4055_disc_l2d_bg_007",
-            "x": 3.7900069,
-            "y": 5.760016,
-            "sx": 1,
-            "sy": 1,
-            "w": 1644,
-            "h": 556,
-            "fg": false
-          },
-          {
-            "file": "4055_disc_l2d_bg_002",
-            "x": 2.7299972,
-            "y": 4.5400085,
-            "sx": 1,
-            "sy": 1,
-            "w": 876,
-            "h": 364,
-            "fg": false
-          },
-          {
-            "file": "4055_disc_l2d_bg_004",
-            "x": -1.6059936,
-            "y": 7.9709806,
-            "sx": 1,
-            "sy": 1,
-            "w": 356,
-            "h": 128,
-            "fg": false
-          },
-          {
-            "file": "4055_disc_l2d_bg_003",
-            "x": 4.7499924,
-            "y": 6.9700103,
-            "sx": 1,
-            "sy": 1,
-            "w": 524,
-            "h": 312,
-            "fg": false
-          },
-          {
-            "file": "4055_disc_l2d_bg_006",
-            "x": 0.84999996,
-            "y": 4.9199767,
-            "sx": 1,
-            "sy": 1,
-            "w": 2236,
-            "h": 724,
-            "fg": false
-          },
-          {
-            "file": "4055_disc_l2d_hua_01",
-            "x": -2.5800126,
-            "y": 4.900003,
-            "sx": 1,
-            "sy": 1,
-            "w": 628,
-            "h": 268,
-            "fg": false
-          },
-          {
-            "file": "4055_disc_l2d_hua_02",
-            "x": 6.7999997,
-            "y": 2.6599853,
-            "sx": 1,
-            "sy": 1,
-            "w": 904,
-            "h": 300,
-            "fg": false
-          },
-          {
-            "file": "4055_disc_l2d_bg_005",
-            "x": 2.4199889,
-            "y": 5.7100034,
-            "sx": 1,
-            "sy": 1,
-            "w": 724,
-            "h": 348,
-            "fg": false
-          },
-          {
-            "file": "4055_disc_l2d_bg_021",
-            "x": -0.0900116,
-            "y": -6.940023,
-            "sx": 1,
-            "sy": 1,
-            "w": 2048,
-            "h": 297,
-            "fg": false
-          },
-          {
-            "file": "4055_disc_l2d_pao_01",
-            "x": -4.502,
-            "y": 4.562,
-            "sx": 1,
-            "sy": 1,
-            "w": 84,
-            "h": 120,
-            "fg": false
-          },
-          {
-            "file": "4055_disc_l2d_pao_02",
-            "x": -5.129,
-            "y": 4.925,
-            "sx": 1,
-            "sy": 1,
-            "w": 48,
-            "h": 116,
-            "fg": false
-          },
-          {
-            "file": "4055_disc_l2d_pao_03",
-            "x": -7.48,
-            "y": -0.179,
-            "sx": 1,
-            "sy": 1,
-            "w": 104,
-            "h": 236,
-            "fg": false
-          },
-          {
-            "file": "4055_disc_l2d_pao_04",
-            "x": -5.08,
-            "y": 0.795,
-            "sx": 1,
-            "sy": 1,
-            "w": 28,
-            "h": 44,
-            "fg": false
-          },
-          {
-            "file": "4055_disc_l2d_pao_05",
-            "x": -6.79,
-            "y": -5.69,
-            "sx": 1,
-            "sy": 1,
-            "w": 144,
-            "h": 420,
-            "fg": false
-          },
-          {
-            "file": "4055_disc_l2d_pao_06",
-            "x": 1.53,
-            "y": 3.18,
-            "sx": 1,
-            "sy": 1,
-            "w": 108,
-            "h": 284,
-            "fg": false
-          },
-          {
-            "file": "4055_disc_l2d_pao_07",
-            "x": 4.21,
-            "y": 0.28,
-            "sx": 1,
-            "sy": 1,
-            "w": 320,
-            "h": 372,
-            "fg": false
-          },
-          {
-            "file": "4055_disc_l2d_pao_08",
-            "x": 5.88,
-            "y": 0.72,
-            "sx": 1,
-            "sy": 1,
-            "w": 424,
-            "h": 276,
-            "fg": false
-          },
-          {
-            "file": "4055_disc_l2d_pao_09",
-            "x": 4.61,
-            "y": -7.71,
-            "sx": 1,
-            "sy": 1,
-            "w": 172,
-            "h": 168,
-            "fg": false
-          },
-          {
-            "file": "4055_disc_l2d_pao_10",
-            "x": 3.124,
-            "y": -5.085,
-            "sx": 1,
-            "sy": 1,
-            "w": 28,
-            "h": 64,
-            "fg": false
-          },
-          {
-            "file": "4055_disc_l2d_pao_11",
-            "x": 8.018,
-            "y": -5.286,
-            "sx": 1,
-            "sy": 1,
-            "w": 48,
-            "h": 80,
-            "fg": false
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "id": "4057l2d",
-    "name": "Disc 4057 l2d",
-    "kind": "discl2d",
-    "variants": [
-      {
-        "name": "4057_l",
-        "label": "Disc",
-        "path": "chars/4057/4057_l/4057_F.model3.json",
-        "bg": [
-          "chars/4057/4057_l/bg/4057_disc_l2d_bg_001.png",
-          "chars/4057/4057_l/bg/4057_disc_l2d_bird_001.png",
-          "chars/4057/4057_l/bg/4057_disc_l2d_bird_002.png"
-        ],
-        "bgLayers": [
-          {
-            "file": "4057_disc_l2d_bg_001",
-            "x": 0,
-            "y": 0,
-            "sx": 1,
-            "sy": 1,
-            "w": 2400,
-            "h": 1700,
-            "fg": false
-          },
-          {
-            "file": "4057_disc_l2d_bird_001",
-            "x": -5.7,
-            "y": 4.45,
-            "sx": 1,
-            "sy": 1,
-            "w": 1260,
-            "h": 810,
-            "fg": false
-          },
-          {
-            "file": "4057_disc_l2d_bird_002",
-            "x": 7.71,
-            "y": 4.599999,
-            "sx": 1,
-            "sy": 1,
-            "w": 857,
-            "h": 783,
-            "fg": false
-          }
-        ]
-      }
-    ]
   }
 ]

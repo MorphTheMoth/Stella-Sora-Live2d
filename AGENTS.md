@@ -6,7 +6,7 @@ All project documentation lives in `AgentsReadme.md` — edit that file instead.
 
 This is a datamine project first and foremost, do not extract data temporarily, always make scripts that will be executed again once the game updates.
 
-Never hand-edit generated/dumped artifacts (`data/*.json`, extracted assets under `chars/`, anything under `.dump_tmp/`); they are overwritten by the next `scripts/dump.sh` run. When generated output looks wrong, fix the generating script (`extract*.mjs`, `generate*.mjs`, `normalize.py`, ...) and re-run it, so the fix survives game updates.
+Never hand-edit generated/dumped artifacts (`data/*.json`, extracted assets under `chars/`, anything under `.dump_tmp/`); they are overwritten by the next `scripts/dump.sh` run. When generated output looks wrong, fix the generating script (`extract*.mjs`, `generate*.mjs`, `normalize.py`, ...) and re-run it, so the fix survives game updates. When fixing issues only some entries have, and you're using a temporary script to diagnose the issues, make sure to mirror the edits on the real script, it must never be out of date.
 
 
 Other datamine projects:
