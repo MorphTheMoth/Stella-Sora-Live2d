@@ -477,6 +477,7 @@ async function loadParallax(item) {
   // Build the display tree in dump order: per run a Graphics stencil plus a
   // container holding that run's meshes.
   const meshOf = new Map();
+  const runContainers = [];
   for (const run of runs) {
     const cont = new Container();
     cont.eventMode = 'none';
@@ -484,7 +485,7 @@ async function loadParallax(item) {
       const graphic = new Graphics();
       graphic.eventMode = 'none';
       graphic.scale.set(fit, fit);
-      container.addChildAt(graphic, 0);
+      container.addChild(graphic);
       cont.mask = graphic;
       state.parallaxMaskGraphics.push(graphic);
     }
@@ -495,7 +496,11 @@ async function loadParallax(item) {
       meshOf.set(entry, mesh);
     }
     container.addChild(cont);
+    runContainers.push({ run, cont });
   }
+  // Generic stencil fix: multiple masked runs each need their own Graphics.
+  // Previous addChildAt(0) piled masks at 0, culling first run on Pixi v8.
+  // Now each graphic is added immediately before its container (see above).
   for (const entry of loaded) {
     entry.mesh = meshOf.get(entry);
     entry.geometry = entry.mesh.geometry;

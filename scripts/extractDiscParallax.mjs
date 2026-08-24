@@ -268,11 +268,13 @@ function parseSprites(spriteDir) {
     // texture ref lives under m_RD -> texture -> m_PathID
     const rd = byName.get('RD') ? byName.get('RD').block : [];
     const texM = /PPtr<Texture2D> texture\s*\n\s*int m_FileID = \d+\s*\n\s*SInt64 m_PathID = (-?\d+)/.exec(rd.join('\n'));
+    const ppuM = /float m_PixelsToUnits = ([\d\.]+)/.exec(text);
     sprs.set(pid, {
       name: strVal(byName.get('Name') ? byName.get('Name').block : []),
       texture: texM ? texM[1] : null,
       w: rect.width || 0,
       h: rect.height || 0,
+      ppu: ppuM ? parseFloat(ppuM[1]) : 100,
     });
   }
   return sprs;
@@ -306,7 +308,7 @@ function parseBehaviours(imgDir) {
     if (!goM) continue;
     const goId = goM[1];
     const name = path.basename(p).replace(/_#?\d*\.json$/, '').replace(/\.json$/, '');
-    if (name === 'Image') {
+    if (name === 'Image' || name === 'ImageWarp') {
       const sprM = /"m_Sprite"\s*:\s*\{[^}]*"m_PathID"\s*:\s*(-?\d+)/.exec(text);
       if (sprM && sprM[1] !== '0') images.set(goId, sprM[1]);
     } else if (name === 'GyroscopeFollower') {
@@ -686,28 +688,92 @@ function main() {
     }
 
     // 4012/4043 have no bg in the overlay (only characters/grass) — their
-    // painterly background lives in the _M half.  Use the _B thumbnail (which
-    // is the pre-composited card at rest) as a fallback background behind the
-    // overlay characters.  This matches the game's offscreen render where the
-    // _M is not drawn but the _B is the collection thumbnail; for these two the
-    // overlay alone would leave the mask showing only characters on transparent.
-    if (layers.length && (id === '4012' || id === '4043') && !layers.some(l => /bg/i.test(l.file) || l.file === `${id}_B`)) {
-      const baseName = `${id}_B`;
-      const spr = [...sprs.values()].find((s) => s.texture && textures.get(s.texture) === baseName);
-      if (spr) {
-        const src = listFiles(texPngBundle).find((f) => f.split(/[\/]/).pop() === baseName + '.png');
-        if (src) {
-          const dest = path.join(ovDir, baseName + '.png');
-          if (!fs.existsSync(dest)) fs.copyFileSync(src, dest);
-          layers.unshift({
-            file: baseName,
-            path: `chars/${id}/${id}_p/overlays/${baseName}.png`,
-            x: 0, y: 0,
-            w: CANVAS, h: CANVAS,
-            clip: true,
-            z: 3000,
-            depth: 3000,
-          });
+    // painterly background lives in the _M half (SpriteRenderers under
+    // <id>_M, not Images under <id>_G).  Temporarily disabled: user reports
+    // hall image is wrong (likely _M bg is thumbnail composite, not live
+    // parallax bg). Revert to gradient until correct bg identified.
+    if (false && layers.length && (id === '4012' || id === '4043') && !layers.some(l => /bg/i.test(l.file) || l.file === `${id}_B`)) {
+      // Build a reverse map: goId -> tid, and tid -> tr
+      const trOfGo = new Map();
+      for (const [tid, t] of trs) if (t.go) trOfGo.set(t.go, tid);
+      const mEntry = [...gos.entries()].find(([, g]) => g.name === `${id}_M`);
+      const mLayers = [];
+      if (mEntry) {
+        const [mGid] = mEntry;
+        const mTid = trOfGo.get(mGid);
+        const mTr = mTid ? trs.get(mTid) : null;
+        const walkM = (gid) => {
+          const tid = trOfGo.get(gid);
+          if (!tid) return;
+          const t = trs.get(tid);
+          if (!t) return;
+          // Any SpriteRenderer on this GO is a candidate background piece.
+          for (const [srPid, sr] of srs) {
+            if (sr.go !== gid) continue;
+            const spr = sprs.get(sr.sprite);
+            const texName = spr && spr.texture ? textures.get(spr.texture) : null;
+            if (!texName || !spr) continue;
+            const src = listFiles(texPngBundle).find((f) => f.split(/[\\/]/).pop() === texName.split('/').pop() + '.png');
+            if (!src) continue;
+            const file = texName.replace(/\//g, '_');
+            const dest = path.join(ovDir, file + '.png');
+            try { fs.copyFileSync(src, dest); } catch {}
+            const at = worldLayout(tid, trs, followers);
+            const w = (t.sdx ? t.sdx : spr.w) * (at.sx || 1);
+            const h = (t.sdy ? t.sdy : spr.h) * (at.sy || 1);
+            const pvx = t.pvx ?? 0.5, pvy = t.pvy ?? 0.5;
+            const offLocalX = (0.5 - pvx) * w;
+            const offLocalY = (0.5 - pvy) * h;
+            const offWorld = quatRotateVec(at.quat, { x: offLocalX, y: offLocalY, z: 0 });
+            const cx = at.x + offWorld.x;
+            const cy = at.y + offWorld.y;
+            const cz = at.z + offWorld.z;
+            const e = quatToEuler(at.quat);
+            const hasRot = Math.abs(e.x) > 0.001 || Math.abs(e.y) > 0.001 || Math.abs(e.z) > 0.001;
+            mLayers.push({
+              file,
+              path: `chars/${id}/${id}_p/overlays/${file}.png`,
+              x: Math.round(cx * 100) / 100,
+              y: Math.round(-cy * 100) / 100,
+              w: Math.round(w * 100) / 100,
+              h: Math.round(h * 100) / 100,
+              clip: true,
+              z: Math.round(cz * 100) / 100,
+              depth: Math.round(cz * 100) / 100,
+              ...(hasRot ? { rx: Math.round(e.x*1000)/1000, ry: Math.round(e.y*1000)/1000, rz: Math.round(e.z*1000)/1000 } : {}),
+            });
+          }
+          for (const c of t.children) {
+            const cgo = trs.get(c)?.go;
+            if (cgo) walkM(cgo);
+          }
+        };
+        if (mTr) for (const c of mTr.children) {
+          const cgo = trs.get(c)?.go;
+          if (cgo) walkM(cgo);
+        }
+      }
+      if (mLayers.length) {
+        // _M layers are behind _G; prepend them in hierarchy order.
+        layers.unshift(...mLayers);
+      } else {
+        const baseName = `${id}_B`;
+        const spr = [...sprs.values()].find((s) => s.texture && textures.get(s.texture) === baseName);
+        if (spr) {
+          const src = listFiles(texPngBundle).find((f) => f.split(/[\\/]/).pop() === baseName + '.png');
+          if (src) {
+            const dest = path.join(ovDir, baseName + '.png');
+            if (!fs.existsSync(dest)) fs.copyFileSync(src, dest);
+            layers.unshift({
+              file: baseName,
+              path: `chars/${id}/${id}_p/overlays/${baseName}.png`,
+              x: 0, y: 0,
+              w: CANVAS, h: CANVAS,
+              clip: false,
+              z: 0,
+              depth: 0,
+            });
+          }
         }
       }
     }
