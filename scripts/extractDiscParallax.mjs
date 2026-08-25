@@ -47,6 +47,7 @@ function parseArgs() {
     texDir: get('--tex', path.resolve('.dump_tmp/disctex')),
     texPngDir: get('--texpng', path.resolve('.dump_tmp/disctexpng')),
     frameDir: get('--frame', path.resolve('.dump_tmp/disccommon')),
+    bigSpritesDir: get('--bigsprites', path.resolve('.dump_tmp/discbigsprites')),
     outFile: get('--out', path.resolve('data/discparallax.json')),
     charsDir: get('--chars', path.resolve('chars')),
   };
@@ -301,6 +302,7 @@ function parseBehaviours(imgDir) {
   const followers = new Map();   // goId -> { type, fx, fy, ax, ay }
   const masks = new Set();       // goId of Mask components
   const warps = new Map();       // goId -> [BL,TL,TR,BR] warped corner [x,y,z] (local px)
+  const additives = new Set();   // goId of UIAdditiveEffect components (additive blend)
   const avg = {};                // target range
   for (const p of listFiles(imgDir)) {
     if (!/\.json$/.test(p)) continue;
@@ -340,6 +342,13 @@ function parseBehaviours(imgDir) {
           br: grab('m_cornerOffsetBR'),
         });
       } catch {}
+    } else if (name === 'UIAdditiveEffect') {
+      // UIAdditiveEffect.SetMaterial (decompiled) swaps the graphic's material
+      // to the "UI Extensions/UIAdditive" shader — additive blending, so the
+      // texture's black areas contribute nothing and only the bright parts
+      // (e.g. disc 4038's sun-glare Light layer) show over the scene.  The
+      // viewer must composite these layers additively, not alpha-blended.
+      additives.add(goId);
     } else if (name === 'GyroscopeFollower') {
       const getF = (k) => {
         const m = new RegExp('"' + k + '"\\s*:\\s*([-\\.0-9eE+]+)').exec(text);
@@ -362,7 +371,7 @@ function parseBehaviours(imgDir) {
       avg.ymin = getF('Ymin'); avg.ymax = getF('Ymax');
     }
   }
-  return { images, followers, masks, warps, avg };
+  return { images, followers, masks, warps, additives, avg };
 }
 
 // The offscreen renderer (Disc_OffScreen_Renderer.prefab) renders the card with
@@ -474,7 +483,7 @@ function worldDepth(tid, trs, followers = null) {
 
 // Collect the overlay (UI Image) layers of the <id>_G root, in Unity's render
 // order (back to front = descending z, ties broken by hierarchy order).
-function collectOverlay(gos, trs, srs, crs, images, followers, masks, warps) {
+function collectOverlay(gos, trs, srs, crs, images, followers, masks, warps, additives) {
   const trOfGo = new Map();
   for (const [tid, t] of trs) if (t.go) trOfGo.set(t.go, tid);
 
@@ -593,6 +602,7 @@ function collectOverlay(gos, trs, srs, crs, images, followers, masks, warps) {
         // dynamic gyroscope tilt.
         rx: e.x, ry: e.y, rz: e.z,
         ...(warp ? { corners: warp.map((c) => [c[0] * (at.sx || 1), c[1] * (at.sy || 1), (c[2] || 0) * (at.sz || 1)]) } : {}),
+        ...(additives && additives.has(gid) ? { blend: 'add' } : {}),
       });
     }
     const childFollower = followers.get(gid) || inheritedFollower;
@@ -644,7 +654,7 @@ function findMask(gos, trs, masks, followers = null) {
 }
 
 function main() {
-  const { dumpDir, spriteDir, imgDir, texDir, texPngDir, frameDir, outFile, charsDir } = parseArgs();
+  const { dumpDir, spriteDir, imgDir, texDir, texPngDir, frameDir, bigSpritesDir, outFile, charsDir } = parseArgs();
   const result = {};
 
   // The disc card's outer border ("frame") is a shared sprite/texture in the
@@ -652,6 +662,38 @@ function main() {
   // (AssetStudio drops the name-colliding "frame" sprite there).  Recover it
   // from the shared frame.png so it can be added back to every disc's overlay.
   const framePng = listFiles(frameDir).find((f) => f.split(/[\\/]/).pop() === 'frame.png');
+
+  // Discs without their own Card prefab (all 1xxx/2xxx/3xxx discs) are
+  // rendered by the game through Disc/Common/Common.prefab
+  // (LiveDiscCtrl.SetRawImage): the <id>_B art goes into `layer_-1/icon` and
+  // a rarity-coloured frame into `layer_-1/frame` (BaseCtrl.SetSprite_FrameColor
+  // loads "UI/big_sprites/rare_outfit_<R>.png", with FrameColor_New mapping
+  // SSR->5, SR->4, R->3).  Parse the prefab's icon/frame rects from the
+  // disc_common scene-graph dump instead of hardcoding them.
+  let commonLayout = null;
+  {
+    const cmnDump = path.join(dumpDir, 'disc_common');
+    if (fs.existsSync(cmnDump)) {
+      const { gos, trs } = parseDump(cmnDump);
+      const trOfGo = new Map();
+      for (const [tid, t] of trs) if (t.go) trOfGo.set(t.go, tid);
+      const rectOf = (name) => {
+        for (const [gid, g] of gos) {
+          if (g.name !== name) continue;
+          const t = trs.get(trOfGo.get(gid));
+          if (t) return {
+            w: Math.round(t.sdx * t.sx * 100) / 100,
+            h: Math.round(t.sdy * t.sy * 100) / 100,
+            x: t.apx, y: t.apy,
+          };
+        }
+        return null;
+      };
+      const icon = rectOf('icon');
+      const frame = rectOf('frame');
+      if (icon && frame) commonLayout = { icon, frame };
+    }
+  }
 
   const bundles = fs.existsSync(dumpDir) ? fs.readdirSync(dumpDir) : [];
   for (const bundle of bundles) {
@@ -661,10 +703,10 @@ function main() {
 
     const { gos, trs, srs, crs } = parseDump(path.join(dumpDir, bundle));
     const sprs = parseSprites(path.join(spriteDir, bundle));
-    const { images, followers, masks, warps, avg } = parseBehaviours(path.join(imgDir, bundle));
+    const { images, followers, masks, warps, additives, avg } = parseBehaviours(path.join(imgDir, bundle));
     const textures = parseTextures(path.join(texDir, bundle));
 
-    const overlay = collectOverlay(gos, trs, srs, crs, images, followers, masks, warps);
+    const overlay = collectOverlay(gos, trs, srs, crs, images, followers, masks, warps, additives);
     const mask = findMask(gos, trs, masks, followers);
 
     // Stage each overlay layer's texture PNG and resolve its display geometry.
@@ -735,13 +777,19 @@ function main() {
         z: Math.round(l.z * 100) / 100,
         depth: Math.round(l.z * 100) / 100,
         ...(l.corners ? { corners: l.corners.map((c) => [Math.round(c[0] * 100) / 100, Math.round(c[1] * 100) / 100, Math.round((c[2] || 0) * 100) / 100]) } : {}),
+        ...(l.blend ? { blend: l.blend } : {}),
         ...(hasStaticRot ? { rx: Math.round(l.rx * 1000) / 1000, ry: Math.round(l.ry * 1000) / 1000, rz: Math.round(l.rz * 1000) / 1000 } : {}),
       });
     }
 
     if (!layers.length) {
-      // No overlay scene (e.g. 1xxx/2xxx/3xxx discs): fall back to the <id>_B
-      // full-card image as a single static layer.
+      // No overlay scene (1xxx/2xxx/3xxx discs): the game falls back to
+      // Disc/Common/Common.prefab — the <id>_B art in `layer_-1/icon` plus a
+      // rarity-coloured frame in `layer_-1/frame`, drawn in sibling order
+      // (icon first, frame on top).  Frame rarity per AllEnum.FrameColor_New:
+      // R (3-star) -> rare_outfit_3, SR (4-star) -> rare_outfit_4; disc ids
+      // 1xxx/2xxx are 3-star, 3xxx are 4-star (4xxx are SSR but all have
+      // Card prefabs, so they never take this path — map them to 5 anyway).
       const baseName = `${id}_B`;
       const spr = [...sprs.values()].find((s) => s.texture && textures.get(s.texture) === baseName);
       if (spr) {
@@ -749,14 +797,37 @@ function main() {
         if (src) {
           const dest = path.join(ovDir, baseName + '.png');
           fs.copyFileSync(src, dest);
+          const rarity = id[0] === '3' ? 4 : id[0] === '4' ? 5 : 3;
+          // The rarity frame is shared — stage it once under chars/common/.
+          let frameLayer = null;
+          const layout = commonLayout || { icon: { w: CANVAS, h: CANVAS, x: 0, y: 0 }, frame: null };
+          if (commonLayout) {
+            const frameSrc = listFiles(bigSpritesDir).find((f) => f.split(/[\\/]/).pop() === `rare_outfit_${rarity}.png`);
+            if (frameSrc) {
+              const commonDir = path.join(`${charsDir}/common`);
+              fs.mkdirSync(commonDir, { recursive: true });
+              const frameDest = path.join(commonDir, `rare_outfit_${rarity}.png`);
+              if (!fs.existsSync(frameDest)) fs.copyFileSync(frameSrc, frameDest);
+              frameLayer = {
+                file: `rare_outfit_${rarity}`,
+                path: `chars/common/rare_outfit_${rarity}.png`,
+                x: commonLayout.frame.x, y: commonLayout.frame.y,
+                w: commonLayout.frame.w, h: commonLayout.frame.h,
+              };
+            }
+          }
           layers.push({
             file: baseName,
             path: `chars/${id}/${id}_p/overlays/${baseName}.png`,
-            x: 0, y: 0,
-            w: CANVAS, h: CANVAS,
+            x: layout.icon.x, y: layout.icon.y,
+            w: layout.icon.w, h: layout.icon.h,
             clip: false,
+            z: 0,
             depth: 0,
           });
+          if (frameLayer) {
+            layers.push({ ...frameLayer, clip: false, z: 0, depth: 0 });
+          }
         }
       }
     }

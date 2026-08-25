@@ -86,8 +86,11 @@ function main() {
   }
 
   // Discs that also have a Live2D get a separate "[title] l2d" entry.
-  const l2dIds = [...l2dDiscs.keys()];
-  for (const id of l2dIds.sort()) {
+  // Only genuine disc_l2d bundles (chars/<id> with a model) become entries —
+  // no synthesis from character Live2Ds (event menu Live2Ds have a different
+  // name/bundle and are still being located).
+  const l2dIds = [...l2dDiscs.keys()].sort();
+  for (const id of l2dIds) {
     const src = l2dDiscs.get(id);
     const name = discNames[id] || src.name || `Disc ${id}`;
     discs.push({ id: `${id}l2d`, name: `${name} l2d`, kind: 'discl2d', variants: src.variants });

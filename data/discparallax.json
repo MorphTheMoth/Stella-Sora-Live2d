@@ -17,9 +17,21 @@
         "path": "chars/1001/1001_p/overlays/1001_B.png",
         "x": 0,
         "y": 0,
-        "w": 1080,
-        "h": 1080,
+        "w": 731,
+        "h": 731,
         "clip": false,
+        "z": 0,
+        "depth": 0
+      },
+      {
+        "file": "rare_outfit_3",
+        "path": "chars/common/rare_outfit_3.png",
+        "x": 0,
+        "y": -1,
+        "w": 752,
+        "h": 770,
+        "clip": false,
+        "z": 0,
         "depth": 0
       }
     ]
@@ -42,9 +54,21 @@
         "path": "chars/1002/1002_p/overlays/1002_B.png",
         "x": 0,
         "y": 0,
-        "w": 1080,
-        "h": 1080,
+        "w": 731,
+        "h": 731,
         "clip": false,
+        "z": 0,
+        "depth": 0
+      },
+      {
+        "file": "rare_outfit_3",
+        "path": "chars/common/rare_outfit_3.png",
+        "x": 0,
+        "y": -1,
+        "w": 752,
+        "h": 770,
+        "clip": false,
+        "z": 0,
         "depth": 0
       }
     ]
@@ -67,9 +91,21 @@
         "path": "chars/1003/1003_p/overlays/1003_B.png",
         "x": 0,
         "y": 0,
-        "w": 1080,
-        "h": 1080,
+        "w": 731,
+        "h": 731,
         "clip": false,
+        "z": 0,
+        "depth": 0
+      },
+      {
+        "file": "rare_outfit_3",
+        "path": "chars/common/rare_outfit_3.png",
+        "x": 0,
+        "y": -1,
+        "w": 752,
+        "h": 770,
+        "clip": false,
+        "z": 0,
         "depth": 0
       }
     ]
@@ -92,9 +128,21 @@
         "path": "chars/1004/1004_p/overlays/1004_B.png",
         "x": 0,
         "y": 0,
-        "w": 1080,
-        "h": 1080,
+        "w": 731,
+        "h": 731,
         "clip": false,
+        "z": 0,
+        "depth": 0
+      },
+      {
+        "file": "rare_outfit_3",
+        "path": "chars/common/rare_outfit_3.png",
+        "x": 0,
+        "y": -1,
+        "w": 752,
+        "h": 770,
+        "clip": false,
+        "z": 0,
         "depth": 0
       }
     ]
@@ -117,9 +165,21 @@
         "path": "chars/1005/1005_p/overlays/1005_B.png",
         "x": 0,
         "y": 0,
-        "w": 1080,
-        "h": 1080,
+        "w": 731,
+        "h": 731,
         "clip": false,
+        "z": 0,
+        "depth": 0
+      },
+      {
+        "file": "rare_outfit_3",
+        "path": "chars/common/rare_outfit_3.png",
+        "x": 0,
+        "y": -1,
+        "w": 752,
+        "h": 770,
+        "clip": false,
+        "z": 0,
         "depth": 0
       }
     ]
@@ -142,9 +202,21 @@
         "path": "chars/1006/1006_p/overlays/1006_B.png",
         "x": 0,
         "y": 0,
-        "w": 1080,
-        "h": 1080,
+        "w": 731,
+        "h": 731,
         "clip": false,
+        "z": 0,
+        "depth": 0
+      },
+      {
+        "file": "rare_outfit_3",
+        "path": "chars/common/rare_outfit_3.png",
+        "x": 0,
+        "y": -1,
+        "w": 752,
+        "h": 770,
+        "clip": false,
+        "z": 0,
         "depth": 0
       }
     ]
@@ -167,9 +239,21 @@
         "path": "chars/1007/1007_p/overlays/1007_B.png",
         "x": 0,
         "y": 0,
-        "w": 1080,
-        "h": 1080,
+        "w": 731,
+        "h": 731,
         "clip": false,
+        "z": 0,
+        "depth": 0
+      },
+      {
+        "file": "rare_outfit_3",
+        "path": "chars/common/rare_outfit_3.png",
+        "x": 0,
+        "y": -1,
+        "w": 752,
+        "h": 770,
+        "clip": false,
+        "z": 0,
         "depth": 0
       }
     ]
@@ -192,9 +276,21 @@
         "path": "chars/1008/1008_p/overlays/1008_B.png",
         "x": 0,
         "y": 0,
-        "w": 1080,
-        "h": 1080,
+        "w": 731,
+        "h": 731,
         "clip": false,
+        "z": 0,
+        "depth": 0
+      },
+      {
+        "file": "rare_outfit_3",
+        "path": "chars/common/rare_outfit_3.png",
+        "x": 0,
+        "y": -1,
+        "w": 752,
+        "h": 770,
+        "clip": false,
+        "z": 0,
         "depth": 0
       }
     ]
@@ -217,9 +313,21 @@
         "path": "chars/2001/2001_p/overlays/2001_B.png",
         "x": 0,
         "y": 0,
-        "w": 1080,
-        "h": 1080,
+        "w": 731,
+        "h": 731,
         "clip": false,
+        "z": 0,
+        "depth": 0
+      },
+      {
+        "file": "rare_outfit_3",
+        "path": "chars/common/rare_outfit_3.png",
+        "x": 0,
+        "y": -1,
+        "w": 752,
+        "h": 770,
+        "clip": false,
+        "z": 0,
         "depth": 0
       }
     ]
@@ -242,9 +350,21 @@
         "path": "chars/2002/2002_p/overlays/2002_B.png",
         "x": 0,
         "y": 0,
-        "w": 1080,
-        "h": 1080,
+        "w": 731,
+        "h": 731,
         "clip": false,
+        "z": 0,
+        "depth": 0
+      },
+      {
+        "file": "rare_outfit_3",
+        "path": "chars/common/rare_outfit_3.png",
+        "x": 0,
+        "y": -1,
+        "w": 752,
+        "h": 770,
+        "clip": false,
+        "z": 0,
         "depth": 0
       }
     ]
@@ -267,9 +387,21 @@
         "path": "chars/2003/2003_p/overlays/2003_B.png",
         "x": 0,
         "y": 0,
-        "w": 1080,
-        "h": 1080,
+        "w": 731,
+        "h": 731,
         "clip": false,
+        "z": 0,
+        "depth": 0
+      },
+      {
+        "file": "rare_outfit_3",
+        "path": "chars/common/rare_outfit_3.png",
+        "x": 0,
+        "y": -1,
+        "w": 752,
+        "h": 770,
+        "clip": false,
+        "z": 0,
         "depth": 0
       }
     ]
@@ -292,9 +424,21 @@
         "path": "chars/2005/2005_p/overlays/2005_B.png",
         "x": 0,
         "y": 0,
-        "w": 1080,
-        "h": 1080,
+        "w": 731,
+        "h": 731,
         "clip": false,
+        "z": 0,
+        "depth": 0
+      },
+      {
+        "file": "rare_outfit_3",
+        "path": "chars/common/rare_outfit_3.png",
+        "x": 0,
+        "y": -1,
+        "w": 752,
+        "h": 770,
+        "clip": false,
+        "z": 0,
         "depth": 0
       }
     ]
@@ -317,9 +461,21 @@
         "path": "chars/2006/2006_p/overlays/2006_B.png",
         "x": 0,
         "y": 0,
-        "w": 1080,
-        "h": 1080,
+        "w": 731,
+        "h": 731,
         "clip": false,
+        "z": 0,
+        "depth": 0
+      },
+      {
+        "file": "rare_outfit_3",
+        "path": "chars/common/rare_outfit_3.png",
+        "x": 0,
+        "y": -1,
+        "w": 752,
+        "h": 770,
+        "clip": false,
+        "z": 0,
         "depth": 0
       }
     ]
@@ -342,9 +498,21 @@
         "path": "chars/2007/2007_p/overlays/2007_B.png",
         "x": 0,
         "y": 0,
-        "w": 1080,
-        "h": 1080,
+        "w": 731,
+        "h": 731,
         "clip": false,
+        "z": 0,
+        "depth": 0
+      },
+      {
+        "file": "rare_outfit_3",
+        "path": "chars/common/rare_outfit_3.png",
+        "x": 0,
+        "y": -1,
+        "w": 752,
+        "h": 770,
+        "clip": false,
+        "z": 0,
         "depth": 0
       }
     ]
@@ -367,9 +535,21 @@
         "path": "chars/2008/2008_p/overlays/2008_B.png",
         "x": 0,
         "y": 0,
-        "w": 1080,
-        "h": 1080,
+        "w": 731,
+        "h": 731,
         "clip": false,
+        "z": 0,
+        "depth": 0
+      },
+      {
+        "file": "rare_outfit_3",
+        "path": "chars/common/rare_outfit_3.png",
+        "x": 0,
+        "y": -1,
+        "w": 752,
+        "h": 770,
+        "clip": false,
+        "z": 0,
         "depth": 0
       }
     ]
@@ -392,9 +572,21 @@
         "path": "chars/2009/2009_p/overlays/2009_B.png",
         "x": 0,
         "y": 0,
-        "w": 1080,
-        "h": 1080,
+        "w": 731,
+        "h": 731,
         "clip": false,
+        "z": 0,
+        "depth": 0
+      },
+      {
+        "file": "rare_outfit_3",
+        "path": "chars/common/rare_outfit_3.png",
+        "x": 0,
+        "y": -1,
+        "w": 752,
+        "h": 770,
+        "clip": false,
+        "z": 0,
         "depth": 0
       }
     ]
@@ -417,9 +609,21 @@
         "path": "chars/2010/2010_p/overlays/2010_B.png",
         "x": 0,
         "y": 0,
-        "w": 1080,
-        "h": 1080,
+        "w": 731,
+        "h": 731,
         "clip": false,
+        "z": 0,
+        "depth": 0
+      },
+      {
+        "file": "rare_outfit_3",
+        "path": "chars/common/rare_outfit_3.png",
+        "x": 0,
+        "y": -1,
+        "w": 752,
+        "h": 770,
+        "clip": false,
+        "z": 0,
         "depth": 0
       }
     ]
@@ -442,9 +646,21 @@
         "path": "chars/3001/3001_p/overlays/3001_B.png",
         "x": 0,
         "y": 0,
-        "w": 1080,
-        "h": 1080,
+        "w": 731,
+        "h": 731,
         "clip": false,
+        "z": 0,
+        "depth": 0
+      },
+      {
+        "file": "rare_outfit_4",
+        "path": "chars/common/rare_outfit_4.png",
+        "x": 0,
+        "y": -1,
+        "w": 752,
+        "h": 770,
+        "clip": false,
+        "z": 0,
         "depth": 0
       }
     ]
@@ -467,9 +683,21 @@
         "path": "chars/3002/3002_p/overlays/3002_B.png",
         "x": 0,
         "y": 0,
-        "w": 1080,
-        "h": 1080,
+        "w": 731,
+        "h": 731,
         "clip": false,
+        "z": 0,
+        "depth": 0
+      },
+      {
+        "file": "rare_outfit_4",
+        "path": "chars/common/rare_outfit_4.png",
+        "x": 0,
+        "y": -1,
+        "w": 752,
+        "h": 770,
+        "clip": false,
+        "z": 0,
         "depth": 0
       }
     ]
@@ -492,9 +720,21 @@
         "path": "chars/3003/3003_p/overlays/3003_B.png",
         "x": 0,
         "y": 0,
-        "w": 1080,
-        "h": 1080,
+        "w": 731,
+        "h": 731,
         "clip": false,
+        "z": 0,
+        "depth": 0
+      },
+      {
+        "file": "rare_outfit_4",
+        "path": "chars/common/rare_outfit_4.png",
+        "x": 0,
+        "y": -1,
+        "w": 752,
+        "h": 770,
+        "clip": false,
+        "z": 0,
         "depth": 0
       }
     ]
@@ -517,9 +757,21 @@
         "path": "chars/3004/3004_p/overlays/3004_B.png",
         "x": 0,
         "y": 0,
-        "w": 1080,
-        "h": 1080,
+        "w": 731,
+        "h": 731,
         "clip": false,
+        "z": 0,
+        "depth": 0
+      },
+      {
+        "file": "rare_outfit_4",
+        "path": "chars/common/rare_outfit_4.png",
+        "x": 0,
+        "y": -1,
+        "w": 752,
+        "h": 770,
+        "clip": false,
+        "z": 0,
         "depth": 0
       }
     ]
@@ -542,9 +794,21 @@
         "path": "chars/3005/3005_p/overlays/3005_B.png",
         "x": 0,
         "y": 0,
-        "w": 1080,
-        "h": 1080,
+        "w": 731,
+        "h": 731,
         "clip": false,
+        "z": 0,
+        "depth": 0
+      },
+      {
+        "file": "rare_outfit_4",
+        "path": "chars/common/rare_outfit_4.png",
+        "x": 0,
+        "y": -1,
+        "w": 752,
+        "h": 770,
+        "clip": false,
+        "z": 0,
         "depth": 0
       }
     ]
@@ -567,9 +831,21 @@
         "path": "chars/3006/3006_p/overlays/3006_B.png",
         "x": 0,
         "y": 0,
-        "w": 1080,
-        "h": 1080,
+        "w": 731,
+        "h": 731,
         "clip": false,
+        "z": 0,
+        "depth": 0
+      },
+      {
+        "file": "rare_outfit_4",
+        "path": "chars/common/rare_outfit_4.png",
+        "x": 0,
+        "y": -1,
+        "w": 752,
+        "h": 770,
+        "clip": false,
+        "z": 0,
         "depth": 0
       }
     ]
@@ -592,9 +868,21 @@
         "path": "chars/3007/3007_p/overlays/3007_B.png",
         "x": 0,
         "y": 0,
-        "w": 1080,
-        "h": 1080,
+        "w": 731,
+        "h": 731,
         "clip": false,
+        "z": 0,
+        "depth": 0
+      },
+      {
+        "file": "rare_outfit_4",
+        "path": "chars/common/rare_outfit_4.png",
+        "x": 0,
+        "y": -1,
+        "w": 752,
+        "h": 770,
+        "clip": false,
+        "z": 0,
         "depth": 0
       }
     ]
@@ -617,9 +905,21 @@
         "path": "chars/3008/3008_p/overlays/3008_B.png",
         "x": 0,
         "y": 0,
-        "w": 1080,
-        "h": 1080,
+        "w": 731,
+        "h": 731,
         "clip": false,
+        "z": 0,
+        "depth": 0
+      },
+      {
+        "file": "rare_outfit_4",
+        "path": "chars/common/rare_outfit_4.png",
+        "x": 0,
+        "y": -1,
+        "w": 752,
+        "h": 770,
+        "clip": false,
+        "z": 0,
         "depth": 0
       }
     ]
@@ -642,9 +942,21 @@
         "path": "chars/3009/3009_p/overlays/3009_B.png",
         "x": 0,
         "y": 0,
-        "w": 1080,
-        "h": 1080,
+        "w": 731,
+        "h": 731,
         "clip": false,
+        "z": 0,
+        "depth": 0
+      },
+      {
+        "file": "rare_outfit_4",
+        "path": "chars/common/rare_outfit_4.png",
+        "x": 0,
+        "y": -1,
+        "w": 752,
+        "h": 770,
+        "clip": false,
+        "z": 0,
         "depth": 0
       }
     ]
@@ -667,9 +979,21 @@
         "path": "chars/3010/3010_p/overlays/3010_B.png",
         "x": 0,
         "y": 0,
-        "w": 1080,
-        "h": 1080,
+        "w": 731,
+        "h": 731,
         "clip": false,
+        "z": 0,
+        "depth": 0
+      },
+      {
+        "file": "rare_outfit_4",
+        "path": "chars/common/rare_outfit_4.png",
+        "x": 0,
+        "y": -1,
+        "w": 752,
+        "h": 770,
+        "clip": false,
+        "z": 0,
         "depth": 0
       }
     ]
@@ -692,9 +1016,21 @@
         "path": "chars/3011/3011_p/overlays/3011_B.png",
         "x": 0,
         "y": 0,
-        "w": 1080,
-        "h": 1080,
+        "w": 731,
+        "h": 731,
         "clip": false,
+        "z": 0,
+        "depth": 0
+      },
+      {
+        "file": "rare_outfit_4",
+        "path": "chars/common/rare_outfit_4.png",
+        "x": 0,
+        "y": -1,
+        "w": 752,
+        "h": 770,
+        "clip": false,
+        "z": 0,
         "depth": 0
       }
     ]
@@ -717,9 +1053,21 @@
         "path": "chars/3012/3012_p/overlays/3012_B.png",
         "x": 0,
         "y": 0,
-        "w": 1080,
-        "h": 1080,
+        "w": 731,
+        "h": 731,
         "clip": false,
+        "z": 0,
+        "depth": 0
+      },
+      {
+        "file": "rare_outfit_4",
+        "path": "chars/common/rare_outfit_4.png",
+        "x": 0,
+        "y": -1,
+        "w": 752,
+        "h": 770,
+        "clip": false,
+        "z": 0,
         "depth": 0
       }
     ]
@@ -742,9 +1090,21 @@
         "path": "chars/3013/3013_p/overlays/3013_B.png",
         "x": 0,
         "y": 0,
-        "w": 1080,
-        "h": 1080,
+        "w": 731,
+        "h": 731,
         "clip": false,
+        "z": 0,
+        "depth": 0
+      },
+      {
+        "file": "rare_outfit_4",
+        "path": "chars/common/rare_outfit_4.png",
+        "x": 0,
+        "y": -1,
+        "w": 752,
+        "h": 770,
+        "clip": false,
+        "z": 0,
         "depth": 0
       }
     ]
@@ -767,9 +1127,21 @@
         "path": "chars/3014/3014_p/overlays/3014_B.png",
         "x": 0,
         "y": 0,
-        "w": 1080,
-        "h": 1080,
+        "w": 731,
+        "h": 731,
         "clip": false,
+        "z": 0,
+        "depth": 0
+      },
+      {
+        "file": "rare_outfit_4",
+        "path": "chars/common/rare_outfit_4.png",
+        "x": 0,
+        "y": -1,
+        "w": 752,
+        "h": 770,
+        "clip": false,
+        "z": 0,
         "depth": 0
       }
     ]
@@ -792,9 +1164,21 @@
         "path": "chars/3015/3015_p/overlays/3015_B.png",
         "x": 0,
         "y": 0,
-        "w": 1080,
-        "h": 1080,
+        "w": 731,
+        "h": 731,
         "clip": false,
+        "z": 0,
+        "depth": 0
+      },
+      {
+        "file": "rare_outfit_4",
+        "path": "chars/common/rare_outfit_4.png",
+        "x": 0,
+        "y": -1,
+        "w": 752,
+        "h": 770,
+        "clip": false,
+        "z": 0,
         "depth": 0
       }
     ]
@@ -817,9 +1201,21 @@
         "path": "chars/3016/3016_p/overlays/3016_B.png",
         "x": 0,
         "y": 0,
-        "w": 1080,
-        "h": 1080,
+        "w": 731,
+        "h": 731,
         "clip": false,
+        "z": 0,
+        "depth": 0
+      },
+      {
+        "file": "rare_outfit_4",
+        "path": "chars/common/rare_outfit_4.png",
+        "x": 0,
+        "y": -1,
+        "w": 752,
+        "h": 770,
+        "clip": false,
+        "z": 0,
         "depth": 0
       }
     ]
@@ -842,9 +1238,21 @@
         "path": "chars/3017/3017_p/overlays/3017_B.png",
         "x": 0,
         "y": 0,
-        "w": 1080,
-        "h": 1080,
+        "w": 731,
+        "h": 731,
         "clip": false,
+        "z": 0,
+        "depth": 0
+      },
+      {
+        "file": "rare_outfit_4",
+        "path": "chars/common/rare_outfit_4.png",
+        "x": 0,
+        "y": -1,
+        "w": 752,
+        "h": 770,
+        "clip": false,
+        "z": 0,
         "depth": 0
       }
     ]
@@ -867,9 +1275,21 @@
         "path": "chars/3018/3018_p/overlays/3018_B.png",
         "x": 0,
         "y": 0,
-        "w": 1080,
-        "h": 1080,
+        "w": 731,
+        "h": 731,
         "clip": false,
+        "z": 0,
+        "depth": 0
+      },
+      {
+        "file": "rare_outfit_4",
+        "path": "chars/common/rare_outfit_4.png",
+        "x": 0,
+        "y": -1,
+        "w": 752,
+        "h": 770,
+        "clip": false,
+        "z": 0,
         "depth": 0
       }
     ]
@@ -892,9 +1312,21 @@
         "path": "chars/3019/3019_p/overlays/3019_B.png",
         "x": 0,
         "y": 0,
-        "w": 1080,
-        "h": 1080,
+        "w": 731,
+        "h": 731,
         "clip": false,
+        "z": 0,
+        "depth": 0
+      },
+      {
+        "file": "rare_outfit_4",
+        "path": "chars/common/rare_outfit_4.png",
+        "x": 0,
+        "y": -1,
+        "w": 752,
+        "h": 770,
+        "clip": false,
+        "z": 0,
         "depth": 0
       }
     ]
@@ -917,9 +1349,21 @@
         "path": "chars/3020/3020_p/overlays/3020_B.png",
         "x": 0,
         "y": 0,
-        "w": 1080,
-        "h": 1080,
+        "w": 731,
+        "h": 731,
         "clip": false,
+        "z": 0,
+        "depth": 0
+      },
+      {
+        "file": "rare_outfit_4",
+        "path": "chars/common/rare_outfit_4.png",
+        "x": 0,
+        "y": -1,
+        "w": 752,
+        "h": 770,
+        "clip": false,
+        "z": 0,
         "depth": 0
       }
     ]
@@ -942,9 +1386,21 @@
         "path": "chars/3021/3021_p/overlays/3021_B.png",
         "x": 0,
         "y": 0,
-        "w": 1080,
-        "h": 1080,
+        "w": 731,
+        "h": 731,
         "clip": false,
+        "z": 0,
+        "depth": 0
+      },
+      {
+        "file": "rare_outfit_4",
+        "path": "chars/common/rare_outfit_4.png",
+        "x": 0,
+        "y": -1,
+        "w": 752,
+        "h": 770,
+        "clip": false,
+        "z": 0,
         "depth": 0
       }
     ]
@@ -967,9 +1423,21 @@
         "path": "chars/3022/3022_p/overlays/3022_B.png",
         "x": 0,
         "y": 0,
-        "w": 1080,
-        "h": 1080,
+        "w": 731,
+        "h": 731,
         "clip": false,
+        "z": 0,
+        "depth": 0
+      },
+      {
+        "file": "rare_outfit_4",
+        "path": "chars/common/rare_outfit_4.png",
+        "x": 0,
+        "y": -1,
+        "w": 752,
+        "h": 770,
+        "clip": false,
+        "z": 0,
         "depth": 0
       }
     ]
@@ -992,9 +1460,21 @@
         "path": "chars/3023/3023_p/overlays/3023_B.png",
         "x": 0,
         "y": 0,
-        "w": 1080,
-        "h": 1080,
+        "w": 731,
+        "h": 731,
         "clip": false,
+        "z": 0,
+        "depth": 0
+      },
+      {
+        "file": "rare_outfit_4",
+        "path": "chars/common/rare_outfit_4.png",
+        "x": 0,
+        "y": -1,
+        "w": 752,
+        "h": 770,
+        "clip": false,
+        "z": 0,
         "depth": 0
       }
     ]
@@ -1017,9 +1497,21 @@
         "path": "chars/3024/3024_p/overlays/3024_B.png",
         "x": 0,
         "y": 0,
-        "w": 1080,
-        "h": 1080,
+        "w": 731,
+        "h": 731,
         "clip": false,
+        "z": 0,
+        "depth": 0
+      },
+      {
+        "file": "rare_outfit_4",
+        "path": "chars/common/rare_outfit_4.png",
+        "x": 0,
+        "y": -1,
+        "w": 752,
+        "h": 770,
+        "clip": false,
+        "z": 0,
         "depth": 0
       }
     ]
@@ -1042,9 +1534,21 @@
         "path": "chars/3025/3025_p/overlays/3025_B.png",
         "x": 0,
         "y": 0,
-        "w": 1080,
-        "h": 1080,
+        "w": 731,
+        "h": 731,
         "clip": false,
+        "z": 0,
+        "depth": 0
+      },
+      {
+        "file": "rare_outfit_4",
+        "path": "chars/common/rare_outfit_4.png",
+        "x": 0,
+        "y": -1,
+        "w": 752,
+        "h": 770,
+        "clip": false,
+        "z": 0,
         "depth": 0
       }
     ]
@@ -1067,9 +1571,21 @@
         "path": "chars/3026/3026_p/overlays/3026_B.png",
         "x": 0,
         "y": 0,
-        "w": 1080,
-        "h": 1080,
+        "w": 731,
+        "h": 731,
         "clip": false,
+        "z": 0,
+        "depth": 0
+      },
+      {
+        "file": "rare_outfit_4",
+        "path": "chars/common/rare_outfit_4.png",
+        "x": 0,
+        "y": -1,
+        "w": 752,
+        "h": 770,
+        "clip": false,
+        "z": 0,
         "depth": 0
       }
     ]
@@ -1407,7 +1923,8 @@
           "ay": 0
         },
         "z": 100,
-        "depth": 100
+        "depth": 100,
+        "blend": "add"
       },
       {
         "file": "gyro_4",
@@ -1842,7 +2359,8 @@
           "ay": 0
         },
         "z": 450,
-        "depth": 450
+        "depth": 450,
+        "blend": "add"
       },
       {
         "file": "gyro_05",
@@ -1874,7 +2392,8 @@
           "ay": 0
         },
         "z": 200,
-        "depth": 200
+        "depth": 200,
+        "blend": "add"
       },
       {
         "file": "gyro_title",
@@ -1985,7 +2504,8 @@
           "ay": 0
         },
         "z": 1400,
-        "depth": 1400
+        "depth": 1400,
+        "blend": "add"
       },
       {
         "file": "gyro_02",
@@ -2081,7 +2601,8 @@
           "ay": 0
         },
         "z": 500,
-        "depth": 500
+        "depth": 500,
+        "blend": "add"
       },
       {
         "file": "gyro_fx01",
@@ -2097,7 +2618,8 @@
           "ay": 0
         },
         "z": 500,
-        "depth": 500
+        "depth": 500,
+        "blend": "add"
       },
       {
         "file": "gyro_06",
@@ -2161,7 +2683,8 @@
           "ay": -20
         },
         "z": -200,
-        "depth": -200
+        "depth": -200,
+        "blend": "add"
       }
     ]
   },
@@ -2291,7 +2814,8 @@
           "ay": 0
         },
         "z": 1000,
-        "depth": 1000
+        "depth": 1000,
+        "blend": "add"
       },
       {
         "file": "gyro_05",
@@ -2339,7 +2863,8 @@
           "ay": 0
         },
         "z": 800,
-        "depth": 800
+        "depth": 800,
+        "blend": "add"
       },
       {
         "file": "gyro_06_add",
@@ -2355,7 +2880,8 @@
           "ay": 0
         },
         "z": 800,
-        "depth": 800
+        "depth": 800,
+        "blend": "add"
       },
       {
         "file": "gyro_07",
@@ -2387,7 +2913,8 @@
           "ay": 0
         },
         "z": 0,
-        "depth": 0
+        "depth": 0,
+        "blend": "add"
       },
       {
         "file": "gyro_09",
@@ -2584,7 +3111,8 @@
           "ay": 0
         },
         "z": 2500,
-        "depth": 2500
+        "depth": 2500,
+        "blend": "add"
       },
       {
         "file": "gyro_fx02",
@@ -2671,6 +3199,7 @@
         },
         "z": 500,
         "depth": 500,
+        "blend": "add",
         "rx": 0.175,
         "ry": 0,
         "rz": 0
@@ -2806,7 +3335,8 @@
           "ay": 0
         },
         "z": 500,
-        "depth": 500
+        "depth": 500,
+        "blend": "add"
       },
       {
         "file": "gyro_flower",
@@ -5773,7 +6303,8 @@
           "ay": 0
         },
         "z": 480,
-        "depth": 480
+        "depth": 480,
+        "blend": "add"
       },
       {
         "file": "gyro_4024_Title_Down",
@@ -6180,6 +6711,7 @@
         },
         "z": 300,
         "depth": 300,
+        "blend": "add",
         "rx": -0.175,
         "ry": 0,
         "rz": 0
@@ -6544,6 +7076,7 @@
         },
         "z": 947.62,
         "depth": 947.62,
+        "blend": "add",
         "rx": 0,
         "ry": -0.087,
         "rz": 0
@@ -6582,6 +7115,7 @@
         },
         "z": 929.99,
         "depth": 929.99,
+        "blend": "add",
         "rx": 0,
         "ry": 0.087,
         "rz": 0
@@ -6870,6 +7404,7 @@
         },
         "z": 232.39,
         "depth": 232.39,
+        "blend": "add",
         "rx": 0.303,
         "ry": 0,
         "rz": 0
@@ -7190,7 +7725,8 @@
           "ay": 0
         },
         "z": 480,
-        "depth": 480
+        "depth": 480,
+        "blend": "add"
       },
       {
         "file": "gyro_4036_Title_Down",
@@ -7577,7 +8113,8 @@
           "ay": 0
         },
         "z": 480,
-        "depth": 480
+        "depth": 480,
+        "blend": "add"
       },
       {
         "file": "gyro_4038_Title",
@@ -7870,6 +8407,7 @@
         },
         "z": 169.03,
         "depth": 169.03,
+        "blend": "add",
         "rx": 0.379,
         "ry": 0,
         "rz": 0
@@ -8206,6 +8744,7 @@
         },
         "z": 765.1,
         "depth": 765.1,
+        "blend": "add",
         "rx": 0.518,
         "ry": 0,
         "rz": 0
@@ -8374,6 +8913,7 @@
         },
         "z": 1000,
         "depth": 1000,
+        "blend": "add",
         "rx": 0.712,
         "ry": 0.008,
         "rz": -0.007
@@ -8393,6 +8933,7 @@
         },
         "z": 1637,
         "depth": 1637,
+        "blend": "add",
         "rx": 0.134,
         "ry": 0.01,
         "rz": -0.001
@@ -8800,6 +9341,7 @@
         },
         "z": 1152,
         "depth": 1152,
+        "blend": "add",
         "rx": -0.446,
         "ry": 0.467,
         "rz": 0.074
@@ -9847,7 +10389,8 @@
           "ay": -10
         },
         "z": 2000,
-        "depth": 2000
+        "depth": 2000,
+        "blend": "add"
       },
       {
         "file": "gyro_4049_halo",
@@ -9863,7 +10406,8 @@
           "ay": -10
         },
         "z": 1600,
-        "depth": 1600
+        "depth": 1600,
+        "blend": "add"
       },
       {
         "file": "gyro_4049_wind",
@@ -9879,7 +10423,8 @@
           "ay": -10
         },
         "z": 1500,
-        "depth": 1500
+        "depth": 1500,
+        "blend": "add"
       },
       {
         "file": "gyro_4049_stair1",
@@ -10103,6 +10648,7 @@
         },
         "z": 2500,
         "depth": 2500,
+        "blend": "add",
         "rx": -0.445,
         "ry": 0,
         "rz": 0
@@ -10121,7 +10667,8 @@
           "ay": -10
         },
         "z": 2300,
-        "depth": 2300
+        "depth": 2300,
+        "blend": "add"
       },
       {
         "file": "gyro_4050_shadow",
@@ -10154,6 +10701,7 @@
         },
         "z": 2300,
         "depth": 2300,
+        "blend": "add",
         "rx": 0.066,
         "ry": 0,
         "rz": 0
@@ -10192,6 +10740,7 @@
         },
         "z": 2000,
         "depth": 2000,
+        "blend": "add",
         "rx": 0.047,
         "ry": 0.1,
         "rz": -0.005
@@ -10328,7 +10877,8 @@
           "ay": -10
         },
         "z": 600,
-        "depth": 600
+        "depth": 600,
+        "blend": "add"
       },
       {
         "file": "gyro_4050_chandelier1",
@@ -10360,7 +10910,8 @@
           "ay": -10
         },
         "z": 241.2,
-        "depth": 241.2
+        "depth": 241.2,
+        "blend": "add"
       },
       {
         "file": "gyro_4050_title",
@@ -10455,7 +11006,8 @@
           "ay": -10
         },
         "z": 2800,
-        "depth": 2800
+        "depth": 2800,
+        "blend": "add"
       },
       {
         "file": "gyro_4051_monster2",
@@ -10544,7 +11096,8 @@
           "ay": -10
         },
         "z": 1000,
-        "depth": 1000
+        "depth": 1000,
+        "blend": "add"
       },
       {
         "file": "gyro_4051_light3",
@@ -10885,7 +11438,8 @@
           "ay": -10
         },
         "z": 500,
-        "depth": 500
+        "depth": 500,
+        "blend": "add"
       },
       {
         "file": "gyro_4052_star1",
@@ -11419,7 +11973,8 @@
           "ay": -10
         },
         "z": 1600,
-        "depth": 1600
+        "depth": 1600,
+        "blend": "add"
       },
       {
         "file": "gyro_4054_title",
@@ -11798,6 +12353,7 @@
         },
         "z": 2000,
         "depth": 2000,
+        "blend": "add",
         "rx": 0.426,
         "ry": 0,
         "rz": 0
@@ -11865,6 +12421,393 @@
           "type": 1,
           "ax": 8,
           "ay": -10
+        },
+        "z": -100,
+        "depth": -100
+      }
+    ]
+  },
+  "4057": {
+    "canvasW": 1080,
+    "canvasH": 1080,
+    "mask": {
+      "w": 712,
+      "h": 712,
+      "x": 0,
+      "y": 0
+    },
+    "parallax": {
+      "ax": 8,
+      "ay": -10,
+      "xmin": -0.99,
+      "xmax": 0.99,
+      "ymin": -0.99,
+      "ymax": -0.21
+    },
+    "layers": [
+      {
+        "file": "frame",
+        "path": "chars/4057/4057_p/overlays/frame.png",
+        "x": 0,
+        "y": 12,
+        "w": 752,
+        "h": 768,
+        "clip": false,
+        "z": 0,
+        "depth": 0
+      },
+      {
+        "file": "gyro_4057_bg",
+        "path": "chars/4057/4057_p/overlays/gyro_4057_bg.png",
+        "x": 22.4,
+        "y": 46.6,
+        "w": 5052,
+        "h": 3986.34,
+        "clip": true,
+        "follower": {
+          "type": 2,
+          "ax": 8,
+          "ay": -10
+        },
+        "z": 3000,
+        "depth": 3000
+      },
+      {
+        "file": "gyro_4057_title1",
+        "path": "chars/4057/4057_p/overlays/gyro_4057_title1.png",
+        "x": 128,
+        "y": 1176.8,
+        "w": 2882.61,
+        "h": 1309,
+        "clip": true,
+        "follower": {
+          "type": 2,
+          "ax": 8,
+          "ay": -10
+        },
+        "z": 2700,
+        "depth": 2700
+      },
+      {
+        "file": "gyro_4057_title2",
+        "path": "chars/4057/4057_p/overlays/gyro_4057_title2.png",
+        "x": 276.3,
+        "y": 519,
+        "w": 504.4,
+        "h": 182,
+        "clip": true,
+        "follower": {
+          "type": 2,
+          "ax": 8,
+          "ay": -10
+        },
+        "z": 700,
+        "depth": 700
+      },
+      {
+        "file": "gyro_4057_actor1",
+        "path": "chars/4057/4057_p/overlays/gyro_4057_actor1.png",
+        "x": 99,
+        "y": 123.3,
+        "w": 1974,
+        "h": 1784.16,
+        "clip": true,
+        "follower": {
+          "type": 2,
+          "ax": 8,
+          "ay": -10
+        },
+        "z": 2250,
+        "depth": 2250,
+        "rx": -0.293,
+        "ry": 0,
+        "rz": 0
+      },
+      {
+        "file": "gyro_4057_shiny",
+        "path": "chars/4057/4057_p/overlays/gyro_4057_shiny.png",
+        "x": 80.1,
+        "y": 77.9,
+        "w": 1679.6,
+        "h": 1679.6,
+        "clip": true,
+        "follower": {
+          "type": 2,
+          "ax": 8,
+          "ay": -10
+        },
+        "z": 1500,
+        "depth": 1500,
+        "blend": "add",
+        "rx": 0.458,
+        "ry": 0,
+        "rz": 0
+      },
+      {
+        "file": "gyro_4057_drop",
+        "path": "chars/4057/4057_p/overlays/gyro_4057_drop.png",
+        "x": 170.3,
+        "y": 343.4,
+        "w": 1482,
+        "h": 1482,
+        "clip": true,
+        "follower": {
+          "type": 2,
+          "ax": 8,
+          "ay": -10
+        },
+        "z": 1800,
+        "depth": 1800,
+        "blend": "add",
+        "rx": 0.257,
+        "ry": 0,
+        "rz": 0
+      },
+      {
+        "file": "gyro_4057_seagull1",
+        "path": "chars/4057/4057_p/overlays/gyro_4057_seagull1.png",
+        "x": 798.1,
+        "y": -453,
+        "w": 914.4,
+        "h": 820.8,
+        "clip": true,
+        "follower": {
+          "type": 2,
+          "ax": 8,
+          "ay": -10
+        },
+        "z": 1200,
+        "depth": 1200
+      },
+      {
+        "file": "gyro_4057_seagull2",
+        "path": "chars/4057/4057_p/overlays/gyro_4057_seagull2.png",
+        "x": -431.3,
+        "y": -310.5,
+        "w": 967.2,
+        "h": 624,
+        "clip": true,
+        "follower": {
+          "type": 2,
+          "ax": 8,
+          "ay": -10
+        },
+        "z": 300,
+        "depth": 300,
+        "rx": -0.082,
+        "ry": 0,
+        "rz": 0
+      },
+      {
+        "file": "gyro_4057_sub",
+        "path": "chars/4057/4057_p/overlays/gyro_4057_sub.png",
+        "x": 255.6,
+        "y": -266.1,
+        "w": 84.32,
+        "h": 78.88,
+        "clip": false,
+        "follower": {
+          "type": 1,
+          "ax": 8,
+          "ay": -10
+        },
+        "z": -100,
+        "depth": -100
+      }
+    ]
+  },
+  "4058": {
+    "canvasW": 1080,
+    "canvasH": 1080,
+    "mask": {
+      "w": 712,
+      "h": 712,
+      "x": 0,
+      "y": 0
+    },
+    "parallax": {
+      "ax": 3,
+      "ay": -5,
+      "xmin": -0.99,
+      "xmax": 0.99,
+      "ymin": -0.99,
+      "ymax": -0.21
+    },
+    "layers": [
+      {
+        "file": "frame",
+        "path": "chars/4058/4058_p/overlays/frame.png",
+        "x": 0,
+        "y": 12,
+        "w": 752,
+        "h": 768,
+        "clip": false,
+        "z": 0,
+        "depth": 0
+      },
+      {
+        "file": "gyro_4058_bg",
+        "path": "chars/4058/4058_p/overlays/gyro_4058_bg.png",
+        "x": -64.3,
+        "y": -446.3,
+        "w": 4957.57,
+        "h": 4914,
+        "clip": true,
+        "follower": {
+          "type": 2,
+          "ax": 3,
+          "ay": -5
+        },
+        "z": 3500,
+        "depth": 3500
+      },
+      {
+        "file": "gyro_4058_actor4",
+        "path": "chars/4058/4058_p/overlays/gyro_4058_actor4.png",
+        "x": 304.6,
+        "y": 477.6,
+        "w": 957,
+        "h": 550,
+        "clip": true,
+        "follower": {
+          "type": 2,
+          "ax": 3,
+          "ay": -5
+        },
+        "z": 2609,
+        "depth": 2609
+      },
+      {
+        "file": "gyro_4058_sea",
+        "path": "chars/4058/4058_p/overlays/gyro_4058_sea.png",
+        "x": 42,
+        "y": 618.8,
+        "w": 2761.2,
+        "h": 2070.49,
+        "clip": true,
+        "follower": {
+          "type": 2,
+          "ax": 3,
+          "ay": -5
+        },
+        "z": 1800,
+        "depth": 1800,
+        "rx": -0.103,
+        "ry": 0,
+        "rz": 0
+      },
+      {
+        "file": "gyro_4058_title",
+        "path": "chars/4058/4058_p/overlays/gyro_4058_title.png",
+        "x": -209.3,
+        "y": -1021.2,
+        "w": 2459.2,
+        "h": 777.2,
+        "clip": true,
+        "follower": {
+          "type": 2,
+          "ax": 3,
+          "ay": -5
+        },
+        "z": 3000,
+        "depth": 3000
+      },
+      {
+        "file": "gyro_4058_actor3",
+        "path": "chars/4058/4058_p/overlays/gyro_4058_actor3.png",
+        "x": 347.9,
+        "y": -609.1,
+        "w": 481.6,
+        "h": 492.8,
+        "clip": true,
+        "follower": {
+          "type": 2,
+          "ax": 3,
+          "ay": -5
+        },
+        "z": 2800,
+        "depth": 2800
+      },
+      {
+        "file": "gyro_4058_actor2",
+        "path": "chars/4058/4058_p/overlays/gyro_4058_actor2.png",
+        "x": -90,
+        "y": 176.7,
+        "w": 2408,
+        "h": 1305.12,
+        "clip": true,
+        "follower": {
+          "type": 2,
+          "ax": 3,
+          "ay": -5
+        },
+        "z": 1700,
+        "depth": 1700
+      },
+      {
+        "file": "gyro_4058_actor1",
+        "path": "chars/4058/4058_p/overlays/gyro_4058_actor1.png",
+        "x": -159.7,
+        "y": 326.1,
+        "w": 1557.6,
+        "h": 1733.6,
+        "clip": true,
+        "follower": {
+          "type": 2,
+          "ax": 3,
+          "ay": -5
+        },
+        "z": 1907.2,
+        "depth": 1907.2
+      },
+      {
+        "file": "gyro_4058_spray",
+        "path": "chars/4058/4058_p/overlays/gyro_4058_spray.png",
+        "x": -686.9,
+        "y": 702.9,
+        "w": 1507.2,
+        "h": 316.8,
+        "clip": true,
+        "follower": {
+          "type": 2,
+          "ax": 3,
+          "ay": -5
+        },
+        "z": 2037,
+        "depth": 2037,
+        "rx": -0.128,
+        "ry": -0.042,
+        "rz": -0.005
+      },
+      {
+        "file": "gyro_4058_light",
+        "path": "chars/4058/4058_p/overlays/gyro_4058_light.png",
+        "x": -245.7,
+        "y": -289.5,
+        "w": 691.6,
+        "h": 566.8,
+        "clip": true,
+        "follower": {
+          "type": 2,
+          "ax": 3,
+          "ay": -5
+        },
+        "z": 500,
+        "depth": 500,
+        "blend": "add"
+      },
+      {
+        "file": "gyro_4058_sub",
+        "path": "chars/4058/4058_p/overlays/gyro_4058_sub.png",
+        "x": 206.5,
+        "y": 259.7,
+        "w": 195,
+        "h": 78,
+        "clip": false,
+        "follower": {
+          "type": 1,
+          "ax": 3,
+          "ay": -5
         },
         "z": -100,
         "depth": -100

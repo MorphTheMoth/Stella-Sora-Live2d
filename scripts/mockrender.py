@@ -34,7 +34,7 @@ CARD = 712
 out = Image.new("RGBA", (CARD, CARD), (0, 0, 0, 0))
 
 for l in layers:
-    tex = Image.open("chars/%s/%s_p/overlays/%s.png" % (ID, ID, l["file"])).convert("RGBA")
+    tex = Image.open(l["path"]).convert("RGBA")
     zw = l.get("z", 0) / S
     rx, ry, rz = l.get("rx", 0), l.get("ry", 0), l.get("rz", 0)
     corners = l.get("corners")
@@ -68,7 +68,13 @@ for l in layers:
                 mesh.append(((int(x0),int(y0),int(math.ceil(x1)),int(math.ceil(y1))), quad))
         if mesh:
             warped = tex.transform((CARD, CARD), Image.MESH, mesh, Image.BILINEAR)
-            out.alpha_composite(warped)
+            if l.get("blend") == "add":
+                # additive composite (game: "UI Extensions/UIAdditive" shader)
+                wa = np.asarray(warped, np.float64)
+                arr = np.clip(np.asarray(out, np.float64)[..., :3] + wa[..., :3] * (wa[..., 3:4] / 255.0), 0, 255)
+                out = Image.fromarray(np.concatenate([arr, np.asarray(out)[..., 3:4]], axis=2).astype(np.uint8), 'RGBA')
+            else:
+                out.alpha_composite(warped)
     else:
         cx, cy = project(l["x"], l["y"], zw)
         # corners of rect through static rot (z=0 local)
@@ -81,7 +87,15 @@ for l in layers:
         if w < 0.5 or h < 0.5: continue
         quad = (0,0, 0,tex.size[1], tex.size[0],tex.size[1], tex.size[0],0)
         warped = tex.transform((int(w), int(h)), Image.QUAD, quad, Image.BILINEAR)
-        out.alpha_composite(warped, (int(x0), int(y0)))
+        if l.get("blend") == "add":
+            # additive composite (game: "UI Extensions/UIAdditive" shader)
+            pad = Image.new("RGBA", (CARD, CARD), (0, 0, 0, 0))
+            pad.paste(warped, (int(x0), int(y0)))
+            pa = np.asarray(pad, np.float64)
+            arr = np.clip(np.asarray(out, np.float64)[..., :3] + pa[..., :3] * (pa[..., 3:4] / 255.0), 0, 255)
+            out = Image.fromarray(np.concatenate([arr, np.asarray(out)[..., 3:4]], axis=2).astype(np.uint8), 'RGBA')
+        else:
+            out.alpha_composite(warped, (int(x0), int(y0)))
 
 out.save("/tmp/mock_%s.png" % ID)
 

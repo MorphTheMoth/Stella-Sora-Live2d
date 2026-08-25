@@ -229,6 +229,12 @@ fi
 # runs before bg textures are copied in, so run it again at the end once the
 # variant bg/ folders exist (see below) so the standalone `bg` list and the
 # merged `bgLayers` both end up in data/models.json.
+# Rebuild disc name table (Disc.json + Item.json) so new discs like 4057/4058
+# resolve to "Ride the Waves With Me" / "Summer March" instead of "Disc 4057".
+node "$SCRIPT_DIR/generateDiscId.mjs" \
+  --datamine "$DATAMINE" \
+  --out "$ROOT/data/discid.json" || true
+
 if [[ -n "$CHAR_NAMES" ]]; then
   node "$SCRIPT_DIR/generateCharNames.mjs" \
     --lang "$CHAR_NAMES" \
@@ -316,16 +322,35 @@ if [[ -f "$PERSISTENT/disc_common.unity3d" ]]; then
     -t texture2d -o "$DISC_OV/common" --image-format png >/dev/null 2>&1 || true
   DOTNET_ROLL_FORWARD=Major dotnet "$CLI" "$PERSISTENT/disc_common.unity3d" -m export \
     -t monoBehaviour -o "$DISC_OV/img/disc_common" >/dev/null 2>&1 || true
+  # Scene graph of the shared Common.prefab: discs without their own Card
+  # prefab (1xxx/2xxx/3xxx) are rendered through it (layer_-1/icon +
+  # layer_-1/frame), and extractDiscParallax.mjs reads the icon/frame rects
+  # from this dump.
+  DOTNET_ROLL_FORWARD=Major dotnet "$CLI" "$PERSISTENT/disc_common.unity3d" -m dump \
+    -t gameobject,transform,rectTransform -f assetName_pathID --load-all \
+    -o "$DISC_OV/dump/disc_common" >/dev/null 2>&1 || true
 fi
-for f in "$INSTALL_RESOURCE"/disc_[0-9][0-9][0-9][0-9].unity3d; do
-  [[ -f "$f" ]] || continue
-  base="$(basename "$f" .unity3d)"   # e.g. disc_4004
-  id="${base#disc_}"                 # 4004
-  out_dump="$DISC_OV/dump/$base"
-  out_img="$DISC_OV/img/$base"
-  out_tex="$DISC_OV/tex/$base"
-  out_png="$DISC_OV/texpng/$base"
-  mkdir -p "$out_dump" "$out_img" "$out_tex" "$out_png"
+# Rarity frames for the fallback discs: the game loads them from
+# UI/big_sprites/rare_outfit_<R>.png (BaseCtrl.SetSprite_FrameColor).
+if [[ -f "$PERSISTENT/ui_big_sprites.unity3d" ]]; then
+  DOTNET_ROLL_FORWARD=Major dotnet "$CLI" "$PERSISTENT/ui_big_sprites.unity3d" -m export \
+    -t texture2d -o "$DISC_OV/bigsprites" --image-format png >/dev/null 2>&1 || true
+fi
+for dir in "$INSTALL_RESOURCE" "$PERSISTENT"; do
+  [[ -d "$dir" ]] || continue
+  for f in "$dir"/disc_[0-9][0-9][0-9][0-9].unity3d; do
+    [[ -f "$f" ]] || continue
+    base="$(basename "$f" .unity3d)"   # e.g. disc_4004
+    id="${base#disc_}"                 # 4004
+    # Prefer Persistent_Store version (newer) when both exist; skip if already dumped
+    if [[ -d "$DISC_OV/dump/$base" && "$dir" == "$INSTALL_RESOURCE" && -f "$PERSISTENT/$base.unity3d" ]]; then
+      continue
+    fi
+    out_dump="$DISC_OV/dump/$base"
+    out_img="$DISC_OV/img/$base"
+    out_tex="$DISC_OV/tex/$base"
+    out_png="$DISC_OV/texpng/$base"
+    mkdir -p "$out_dump" "$out_img" "$out_tex" "$out_png"
 
   # Scene graph (GameObject/Transform/RectTransform/SpriteRenderer)
   DOTNET_ROLL_FORWARD=Major dotnet "$CLI" "$f" -m dump \
@@ -353,6 +378,7 @@ for f in "$INSTALL_RESOURCE"/disc_[0-9][0-9][0-9][0-9].unity3d; do
   # Texture PNGs
   DOTNET_ROLL_FORWARD=Major dotnet "$CLI" "$f" -m export \
     -t texture2d -o "$out_png" --image-format png >/dev/null 2>&1 || true
+  done
 done
 node "$SCRIPT_DIR/extractDiscParallax.mjs" \
   --dump "$DISC_OV/dump" \
@@ -361,14 +387,25 @@ node "$SCRIPT_DIR/extractDiscParallax.mjs" \
   --tex "$DISC_OV/tex" \
   --texpng "$DISC_OV/texpng" \
   --frame "$DISC_OV/common" \
+  --bigsprites "$DISC_OV/bigsprites" \
   --out "$ROOT/data/discparallax.json" \
   --chars "$ROOT/chars" || true
 # Rebuild the Discs section: every disc as a parallax entry + a "[title] l2d"
-# entry for the discs that have a Live2D.
+# entry for the discs that have a Live2D (genuine disc_l2d bundles only).
 node "$SCRIPT_DIR/generateDiscs.mjs" \
   --models "$ROOT/data/models.json" \
   --parallax "$ROOT/data/discparallax.json" \
   --disc-names "$ROOT/data/discid.json" || true
+
+# Events section: true event-page Live2Ds (e.g. Surfing Splash Karin on
+# SummerAdvPanel) are separate from disc_gacha Live2Ds. The large
+# disc_l2d models (4057 etc) stay as Disc L2D above Discs. When event
+# Live2Ds are located, generateEvents.mjs will surface them as `kind:"event"`.
+# Currently no event Live2Ds are known, so this is a no-op placeholder.
+# node "$SCRIPT_DIR/generateEvents.mjs" \
+#   --models "$ROOT/data/models.json" \
+#   --disc-names "$ROOT/data/discid.json" \
+#   --datamine "$DATAMINE" || true
 
 # --- MainView L2D offsets (Actor2DOffsetData) --------------------------------
 # Each skin's CharacterSkin.Offset (Actor2D/Character/<skin>/<skin>.asset) lives

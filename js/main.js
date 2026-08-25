@@ -31,6 +31,10 @@ const state = {
   parallaxScene: null,
   parallaxFit: 1,
   parallaxMask: true,
+  // When false, the Gyroscope/Target drag clamp ([-100,+100]) is disabled so
+  // the card can be rotated without limit.
+  parallaxMaxRotation: true,
+  parallaxFrame: true,
   // One Graphics per masked run of layers (a Pixi mask binds to a single
   // display object, so each clipped run needs its own).
   parallaxMaskGraphics: [],
@@ -57,6 +61,30 @@ const state = {
     overrides: new Map(),
   },
 };
+
+// Shared disc-view options — persisted in localStorage so they apply to every
+// disc (and survive reloads), not per-scene.
+const DISC_OPTS_KEY = 'ssDiscOptions';
+function loadDiscOpts() {
+  try { return JSON.parse(localStorage.getItem(DISC_OPTS_KEY)) || {}; }
+  catch { return {}; }
+}
+function isFrameLayer(l) {
+  return l.file === 'frame' || l.file.startsWith('rare_outfit_');
+}
+function saveDiscOpts() {
+  localStorage.setItem(DISC_OPTS_KEY, JSON.stringify({
+    mask: state.parallaxMask,
+    maxRotation: state.parallaxMaxRotation,
+    frame: state.parallaxFrame,
+  }));
+}
+{
+  const discOpts = loadDiscOpts();
+  state.parallaxMask = discOpts.mask !== false;
+  state.parallaxMaxRotation = discOpts.maxRotation !== false;
+  state.parallaxFrame = discOpts.frame !== false;
+}
 
 const els = {
   canvas: document.getElementById('main-canvas'),
@@ -393,7 +421,8 @@ async function loadParallax(item) {
   if (seq !== modelLoadSeq) return;
 
   const scene = item.parallax || {};
-  const layers = scene.layers || [];
+  let layers = scene.layers || [];
+  if (!state.parallaxFrame) layers = layers.filter((l) => !isFrameLayer(l));
   if (!layers.length) { els.status.textContent = ''; return; }
   state.parallaxItem = item;
   state.parallaxScene = scene;
@@ -468,6 +497,10 @@ async function loadParallax(item) {
         // local depth) — the game fake-perspectives floors/walls through
         // these; the vertex grid is bilinearly mapped through them.
         corners: l.corners || null,
+        // UIAdditiveEffect layers (e.g. disc 4038's sun glare) composite
+        // additively in the game ("UI Extensions/UIAdditive" shader) — their
+        // black areas must contribute nothing.
+        blend: l.blend || null,
         sub: l.file === 'frame' ? 28 : 12,
       };
       run.entries.push(entry);
@@ -496,6 +529,7 @@ async function loadParallax(item) {
     for (const entry of run.entries) {
       const mesh = createTiltMesh(entry.texture, entry.w, entry.h, entry.sub, entry.sub);
       mesh.scale.set(fit, fit);
+      if (entry.blend === 'add') mesh.blendMode = 'add';
       cont.addChild(mesh);
       meshOf.set(entry, mesh);
     }
@@ -516,6 +550,7 @@ async function loadParallax(item) {
   // Gyroscope/Target at (-8, 0) before its idle sway tween begins.
   resetParallax();
   els.status.textContent = '';
+  buildOptionsPanel();
 }
 
 // 3D tilt of the disc card — replicating the game's own pipeline.
@@ -1054,7 +1089,29 @@ function buildOptionsPanel() {
     row.style.fontSize = '11px';
     section.appendChild(row);
 
-    // Square-mask toggle: clip the parallax glints to the card window (the
+    // Shared disc options (persisted in localStorage, applied to every disc).
+    // Max Rotation: the game clamps Gyroscope/Target to [-100,+100]; turning
+    // this off removes the clamp so the card can be rotated without limit.
+    const rotCheck = document.createElement('label');
+    rotCheck.className = 'opt-check';
+    const rotInput = document.createElement('input');
+    rotInput.type = 'checkbox';
+    rotInput.checked = state.parallaxMaxRotation;
+    rotCheck.appendChild(rotInput);
+    rotCheck.appendChild(document.createTextNode('Enable Max Rotation'));
+    rotInput.addEventListener('change', () => {
+      state.parallaxMaxRotation = rotInput.checked;
+      saveDiscOpts();
+      if (rotInput.checked) {
+        // Re-clamp the accumulated drag target so the card returns in-range.
+        state.parallaxDragAccX = clampParallaxTarget(state.parallaxDragAccX);
+        state.parallaxDragAccY = clampParallaxTarget(state.parallaxDragAccY);
+        applyParallaxTarget(state.parallaxDragAccX, state.parallaxDragAccY);
+      }
+    });
+    section.appendChild(rotCheck);
+
+    // Mask toggle: clip the parallax glints to the card window (the
     // game's Mask).  Turn off to show the full layers spilling over.
     const check = document.createElement('label');
     check.className = 'opt-check';
@@ -1062,12 +1119,27 @@ function buildOptionsPanel() {
     input.type = 'checkbox';
     input.checked = state.parallaxMask;
     check.appendChild(input);
-    check.appendChild(document.createTextNode('Square Mask'));
+    check.appendChild(document.createTextNode('Enable Mask'));
     input.addEventListener('change', () => {
       state.parallaxMask = input.checked;
+      saveDiscOpts();
       if (state.parallaxItem) loadParallax(state.parallaxItem);
     });
     section.appendChild(check);
+
+    const frameCheck = document.createElement('label');
+    frameCheck.className = 'opt-check';
+    const frameInput = document.createElement('input');
+    frameInput.type = 'checkbox';
+    frameInput.checked = state.parallaxFrame;
+    frameCheck.appendChild(frameInput);
+    frameCheck.appendChild(document.createTextNode('Enable Disc Frame'));
+    frameInput.addEventListener('change', () => {
+      state.parallaxFrame = frameInput.checked;
+      saveDiscOpts();
+      if (state.parallaxItem) loadParallax(state.parallaxItem);
+    });
+    section.appendChild(frameCheck);
     return;
   }
 
@@ -1101,6 +1173,61 @@ function buildOptionsPanel() {
 
   const paramsSection = addSection('Parameters');
   addParameterControls(paramsSection);
+
+  // Global disc options — also shown here so they are discoverable while
+  // viewing a trekker, but they only affect parallax discs.
+  {
+    const section = addSection('Disc');
+    const row = document.createElement('div');
+    row.className = 'opt-row';
+    row.textContent = 'Applies to parallax discs.';
+    row.style.color = 'var(--text-faint)';
+    row.style.fontSize = '11px';
+    section.appendChild(row);
+    const rotCheck2 = document.createElement('label');
+    rotCheck2.className = 'opt-check';
+    const rotInput2 = document.createElement('input');
+    rotInput2.type = 'checkbox';
+    rotInput2.checked = state.parallaxMaxRotation;
+    rotCheck2.appendChild(rotInput2);
+    rotCheck2.appendChild(document.createTextNode('Enable Max Rotation'));
+    rotInput2.addEventListener('change', () => {
+      state.parallaxMaxRotation = rotInput2.checked;
+      saveDiscOpts();
+      if (rotInput2.checked) {
+        state.parallaxDragAccX = clampParallaxTarget(state.parallaxDragAccX);
+        state.parallaxDragAccY = clampParallaxTarget(state.parallaxDragAccY);
+        applyParallaxTarget(state.parallaxDragAccX, state.parallaxDragAccY);
+      }
+    });
+    section.appendChild(rotCheck2);
+    const check2 = document.createElement('label');
+    check2.className = 'opt-check';
+    const input2 = document.createElement('input');
+    input2.type = 'checkbox';
+    input2.checked = state.parallaxMask;
+    check2.appendChild(input2);
+    check2.appendChild(document.createTextNode('Enable Mask'));
+    input2.addEventListener('change', () => {
+      state.parallaxMask = input2.checked;
+      saveDiscOpts();
+      if (state.parallaxItem) loadParallax(state.parallaxItem);
+    });
+    section.appendChild(check2);
+    const frameCheck2 = document.createElement('label');
+    frameCheck2.className = 'opt-check';
+    const frameInput2 = document.createElement('input');
+    frameInput2.type = 'checkbox';
+    frameInput2.checked = state.parallaxFrame;
+    frameCheck2.appendChild(frameInput2);
+    frameCheck2.appendChild(document.createTextNode('Enable Disc Frame'));
+    frameInput2.addEventListener('change', () => {
+      state.parallaxFrame = frameInput2.checked;
+      saveDiscOpts();
+      if (state.parallaxItem) loadParallax(state.parallaxItem);
+    });
+    section.appendChild(frameCheck2);
+  }
 }
 
 function applyEyeBlink() {
@@ -1232,7 +1359,7 @@ function addListSection(title) {
 function addListItem(item) {
   const li = document.createElement('li');
   li.className = 'entity-block';
-  const isDisc = item.kind === 'parallax' || item.kind === 'discl2d';
+  const isDisc = item.kind === 'parallax' || item.kind === 'discl2d' || item.kind === 'event';
 
   const name = document.createElement('span');
   name.className = 'character-name' + (isDisc ? ' is-disc' : '');
@@ -1252,8 +1379,9 @@ function addListItem(item) {
       setActiveButton(name);
       loadParallax(item);
     });
-  } else if (item.kind === 'discl2d') {
-    // The disc's Live2D, as a separate entry.
+  } else if (item.kind === 'discl2d' || item.kind === 'event') {
+    // The disc's Live2D or an event Live2D (event discs are large disc_l2d
+    // models shown full-screen on the event page).
     const variant = item.variants[0];
     name.addEventListener('click', () => {
       setActiveButton(name);
@@ -1311,11 +1439,11 @@ function addListItem(item) {
 
 // Id shown in the list: skin ids end in a 2-digit variant number, so the
 // character group is the id minus those (10301 -> 103, 910201 -> 9102).
-// Discs drop their l2d suffix. Plain 3-digit character ids (unreleased
-// chars from avg bundles, e.g. 106) are shown as-is.
+// Discs/Events drop their l2d/event suffix. Plain 3-digit character ids
+// (unreleased chars from avg bundles, e.g. 106) are shown as-is.
 function shownIdOf(item) {
-  const isDisc = item.kind === 'parallax' || item.kind === 'discl2d';
-  if (isDisc) return item.id.replace(/l2d$/, '');
+  const isDisc = item.kind === 'parallax' || item.kind === 'discl2d' || item.kind === 'event';
+  if (isDisc) return item.id.replace(/l2d$/, '').replace(/event$/, '');
   return item.id.length <= 4 ? item.id : item.id.slice(0, -2);
 }
 
@@ -1334,14 +1462,28 @@ function isHidden(item, tokens) {
 function createCharactersList() {
   const list = els.list;
   list.innerHTML = '';
-  const isDiscEntry = (item) => item.kind === 'parallax' || item.kind === 'discl2d';
+  const isEventEntry = (item) => item.kind === 'event';
+  const isParallaxEntry = (item) => item.kind === 'parallax';
+  const isDiscL2dEntry = (item) => item.kind === 'discl2d';
   const tokens = getHideTokens();
 
-  const chars = state.models.filter((item) => !isDiscEntry(item) && !isHidden(item, tokens));
-  const discs = state.models.filter((item) => isDiscEntry(item) && !isHidden(item, tokens)).reverse();
+  const chars = state.models.filter((item) => !isParallaxEntry(item) && !isDiscL2dEntry(item) && !isEventEntry(item) && !isHidden(item, tokens));
+  const events = state.models.filter((item) => isEventEntry(item) && !isHidden(item, tokens));
+  const discL2ds = state.models.filter((item) => isDiscL2dEntry(item) && !isHidden(item, tokens)).reverse();
+  const discs = state.models.filter((item) => isParallaxEntry(item) && !isHidden(item, tokens)).reverse();
 
   addListSection('Trekkers (' + chars.length + ')');
   for (const item of chars) addListItem(item);
+
+  if (events.length) {
+    addListSection('Events (' + events.length + ')');
+    for (const item of events) addListItem(item);
+  }
+
+  if (discL2ds.length) {
+    addListSection('Disc L2D (' + discL2ds.length + ')');
+    for (const item of discL2ds) addListItem(item);
+  }
 
   if (discs.length) {
     addListSection('Discs (' + discs.length + ')');
@@ -1404,6 +1546,9 @@ function enableDrag() {
 }
 
 function clampParallaxTarget(v) {
+  // 'Enable Max Rotation' off removes the game's [-100,+100] target clamp so
+  // the gyroscope rotation is unbounded while dragging.
+  if (!state.parallaxMaxRotation) return v;
   return Math.max(-PARALLAX_TARGET_MAX, Math.min(PARALLAX_TARGET_MAX, v));
 }
 
