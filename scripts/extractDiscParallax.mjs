@@ -314,24 +314,31 @@ function parseBehaviours(imgDir) {
       if (sprM && sprM[1] !== '0') images.set(goId, sprM[1]);
     } else if (name === 'ImageWarp') {
       // ImageWarp is an Image variant: register its sprite like an Image, and
-      // additionally record its corner warp (see below).
+      // additionally record its corner offsets (see below).
       const sprM = /"m_Sprite"\s*:\s*\{[^}]*"m_PathID"\s*:\s*(-?\d+)/.exec(text);
       if (sprM && sprM[1] !== '0') images.set(goId, sprM[1]);
       // ImageWarp bends the quad through 4 corner positions (a static fake-
       // perspective warp the game uses for floors/walls, e.g. disc 4012's
-      // bg_ground).  Only record corners that actually deviate from the
-      // original rect; the viewer bilinearly maps its vertex grid through
-      // them before the static rotation + camera projection.
+      // bg_ground).  At runtime (ImageWarp.OnPopulateMesh -> WarpManager
+      // .PopulateMesh, confirmed in the GameAssembly decompilation) the mesh
+      // corners are rebuilt from the LIVE rect quad and only the component's
+      // own m_cornerOffsetBL/TL/TR/BR are added on top of them — the serialised
+      // m_warpManager.m_cornerPosition* in the bundle is stale editor data
+      // (disc 4012 bg05's rect was resized after warping, so the two no longer
+      // agree).  We therefore store the offsets and rebuild the corners from
+      // the live RectTransform in collectOverlay.
       try {
         const j = JSON.parse(text);
-        const wm = j.m_warpManager;
-        if (wm) {
-          const grab = (k) => [wm[k].x, wm[k].y, wm[k].z || 0];
-          const cur = ['m_cornerPositionBL', 'm_cornerPositionTL', 'm_cornerPositionTR', 'm_cornerPositionBR'].map(grab);
-          const orig = ['m_originalCornerPositionBL', 'm_originalCornerPositionTL', 'm_originalCornerPositionTR', 'm_originalCornerPositionBR'].map(grab);
-          const differs = cur.some((c, i) => Math.abs(c[0] - orig[i][0]) > 0.01 || Math.abs(c[1] - orig[i][1]) > 0.01 || Math.abs(c[2] - orig[i][2]) > 0.01);
-          if (differs) warps.set(goId, cur);
-        }
+        const grab = (k) => {
+          const v = j[k];
+          return v ? [v.x, v.y, v.z || 0] : [0, 0, 0];
+        };
+        warps.set(goId, {
+          bl: grab('m_cornerOffsetBL'),
+          tl: grab('m_cornerOffsetTL'),
+          tr: grab('m_cornerOffsetTR'),
+          br: grab('m_cornerOffsetBR'),
+        });
       } catch {}
     } else if (name === 'GyroscopeFollower') {
       const getF = (k) => {
@@ -519,7 +526,7 @@ function collectOverlay(gos, trs, srs, crs, images, followers, masks, warps) {
       // this node's own localScale, so sdx*at.sx is the displayed world width.
       // Pivot handling: at is the pivot's world position; the rect's centre is
       // pivot + rotate(worldQuat, ((0.5-px)*w, (0.5-py)*h)).
-      const w = t.sdx * (at.sx || 1), h = t.sdy * (at.sy || 1);
+      let w = t.sdx * (at.sx || 1), h = t.sdy * (at.sy || 1);
       const pvx = t.pvx ?? 0.5, pvy = t.pvy ?? 0.5;
       const offLocalX = (0.5 - pvx) * w;
       const offLocalY = (0.5 - pvy) * h;
@@ -528,17 +535,53 @@ function collectOverlay(gos, trs, srs, crs, images, followers, masks, warps) {
       const cx = at.x + offWorld.x;
       const cy = at.y + offWorld.y;
       const cz = at.z + offWorld.z;
+      // Depth frame: the game's mesh vertices are pivot-relative in ALL axes
+      // (ImageWarp_OnPopulateMesh rebuilds the warp from the live rect quad and
+      // the CanvasRenderer transforms it by the pivot-anchored localToWorld), so
+      // a warped layer's base depth is the PIVOT's z.  Storing the centre's z
+      // (cz) here shifted rotated off-centre layers (disc 4012's pillars:
+      // pivot at the left/right edge + a static ry) several dozen canvas px
+      // too deep, which shrank/drifted them relative to the floor and made
+      // adjacent pillars overlap.  Unwarped layers are centred (the viewer
+      // rotates their offsets around the centre), so they keep cz.
       const e = quatToEuler(at.quat);
-      // ImageWarp corner warp (local px) scaled into canvas px by the
-      // accumulated hierarchy scale; the viewer bilinearly maps its vertex
-      // grid through these before static rotation + camera projection.
-      const warp = warps && warps.get(gid);
+      // ImageWarp corner warp: rebuild the runtime mesh corners the way
+      // WarpManager.PopulateMesh does — live rect corners (pivot-relative,
+      // local px) plus the component's m_cornerOffset* — then scale them into
+      // canvas px by the accumulated hierarchy scale.  The viewer bilinearly
+      // maps its vertex grid through these before static rotation + camera
+      // projection.  Layers whose offsets leave the rect unchanged render as
+      // plain quads.
+      const warpOff = warps && warps.get(gid);
+      let warp = null;
+      if (warpOff) {
+        const lx0 = -(t.pvx ?? 0.5) * t.sdx, ly0 = -(t.pvy ?? 0.5) * t.sdy;
+        const rect = [
+          [lx0, ly0, 0], [lx0, ly0 + t.sdy, 0],
+          [lx0 + t.sdx, ly0 + t.sdy, 0], [lx0 + t.sdx, ly0, 0],
+        ]; // [BL, TL, TR, BR]
+        const cur = [warpOff.bl, warpOff.tl, warpOff.tr, warpOff.br].map(
+          (o, i) => [rect[i][0] + o[0], rect[i][1] + o[1], rect[i][2] + o[2]]
+        );
+        const differs = cur.some((c, i) =>
+          Math.abs(c[0] - rect[i][0]) > 0.01 || Math.abs(c[1] - rect[i][1]) > 0.01 || Math.abs(c[2] - rect[i][2]) > 0.01
+        );
+        if (differs) warp = cur;
+      }
+      // For ImageWarp the corners define the actual mesh size — use that
+      // for w/h, not the RectTransform's sizeDelta, so the pillar joints
+      // line up exactly as the game does.
+      if (warp) {
+        const xs = warp.map(c => c[0]), ys = warp.map(c => c[1]);
+        w = (Math.max(...xs) - Math.min(...xs)) * (at.sx || 1);
+        h = (Math.max(...ys) - Math.min(...ys)) * (at.sy || 1);
+      }
       // For ImageWarp the corners are pivot-relative, not centre-relative.
       const isWarp = !!warp;
       layers.push({
         goId: gid,
         name: go.name,
-        z: cz,
+        z: isWarp ? at.z : cz,
         x: isWarp ? at.x : cx, y: isWarp ? at.y : cy,
         w, h,
         sx: t.sx, sy: t.sy,
@@ -667,10 +710,7 @@ function main() {
       if (id === '4023' && file.includes('bucket_01')) {
         l.x = -12; l.y = -298;
       }
-      // 4012 wall must be flat in depth so joints don't separate when tilting.
-      if (id === '4012' && /^gyro_4012_0[1-6]$/.test(file)) {
-        l.z = 1966; l.depth = 1966;
-      }
+
       const hasStaticRot = Math.abs(l.rx) > 0.001 || Math.abs(l.ry) > 0.001 || Math.abs(l.rz) > 0.001;
       layers.push({
         file,
