@@ -464,6 +464,10 @@ async function loadParallax(item) {
         rx: l.rx || 0,
         ry: l.ry || 0,
         rz: l.rz || 0,
+        // ImageWarp corner warp: [BL, TL, TR, BR] local canvas px (y-up, z
+        // local depth) — the game fake-perspectives floors/walls through
+        // these; the vertex grid is bilinearly mapped through them.
+        corners: l.corners || null,
         sub: l.file === 'frame' ? 28 : 12,
       };
       run.entries.push(entry);
@@ -593,14 +597,32 @@ function updateTiltMesh(pl, yaw, pitch) {
   const cSy = hasStatic ? Math.cos(srY) : 1, sSy = hasStatic ? Math.sin(srY) : 0;
   const cSz = hasStatic ? Math.cos(srZ) : 1, sSz = hasStatic ? Math.sin(srZ) : 0;
   const cx = pl.x / S, cy = -pl.y / S;
+  const corners = pl.corners || null; // [BL, TL, TR, BR] local canvas px, y-up
   let n = 0;
   for (let gy = 0; gy < vy; gy++) {
     const v = (gy / (vy - 1)) * pl.h;
     for (let gx = 0; gx < vx; gx++) {
       const u = (gx / (vx - 1)) * pl.w;
-      let dx = (u - hw) / S;
-      let dy = -(v - hh) / S;
-      let dz = 0;
+      let dx, dy, dz;
+      if (corners) {
+        // Bilinear map of the grid through the warped corners (Unity local
+        // space: y-up, z = local depth).  gy=0 is the texture top row, which
+        // corresponds to the TL/TR corners — hence vv = 1 - gy/(vy-1).
+        const uu = gx / (vx - 1), vv = 1 - gy / (vy - 1);
+        const tX = corners[1][0] + (corners[2][0] - corners[1][0]) * uu;
+        const tY = corners[1][1] + (corners[2][1] - corners[1][1]) * uu;
+        const tZ = (corners[1][2] || 0) + ((corners[2][2] || 0) - (corners[1][2] || 0)) * uu;
+        const bX = corners[0][0] + (corners[3][0] - corners[0][0]) * uu;
+        const bY = corners[0][1] + (corners[3][1] - corners[0][1]) * uu;
+        const bZ = (corners[0][2] || 0) + ((corners[3][2] || 0) - (corners[0][2] || 0)) * uu;
+        dx = (bX + (tX - bX) * vv) / S;
+        dy = (bY + (tY - bY) * vv) / S;
+        dz = (bZ + (tZ - bZ) * vv) / S;
+      } else {
+        dx = (u - hw) / S;
+        dy = -(v - hh) / S;
+        dz = 0;
+      }
       if (hasStatic) {
         // static R_x
         let y1 = dy * cSx - dz * sSx;

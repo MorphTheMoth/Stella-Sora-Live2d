@@ -300,6 +300,7 @@ function parseBehaviours(imgDir) {
   const images = new Map();      // goId -> spriteId
   const followers = new Map();   // goId -> { type, fx, fy, ax, ay }
   const masks = new Set();       // goId of Mask components
+  const warps = new Map();       // goId -> [BL,TL,TR,BR] warped corner [x,y,z] (local px)
   const avg = {};                // target range
   for (const p of listFiles(imgDir)) {
     if (!/\.json$/.test(p)) continue;
@@ -308,9 +309,30 @@ function parseBehaviours(imgDir) {
     if (!goM) continue;
     const goId = goM[1];
     const name = path.basename(p).replace(/_#?\d*\.json$/, '').replace(/\.json$/, '');
-    if (name === 'Image' || name === 'ImageWarp') {
+    if (name === 'Image') {
       const sprM = /"m_Sprite"\s*:\s*\{[^}]*"m_PathID"\s*:\s*(-?\d+)/.exec(text);
       if (sprM && sprM[1] !== '0') images.set(goId, sprM[1]);
+    } else if (name === 'ImageWarp') {
+      // ImageWarp is an Image variant: register its sprite like an Image, and
+      // additionally record its corner warp (see below).
+      const sprM = /"m_Sprite"\s*:\s*\{[^}]*"m_PathID"\s*:\s*(-?\d+)/.exec(text);
+      if (sprM && sprM[1] !== '0') images.set(goId, sprM[1]);
+      // ImageWarp bends the quad through 4 corner positions (a static fake-
+      // perspective warp the game uses for floors/walls, e.g. disc 4012's
+      // bg_ground).  Only record corners that actually deviate from the
+      // original rect; the viewer bilinearly maps its vertex grid through
+      // them before the static rotation + camera projection.
+      try {
+        const j = JSON.parse(text);
+        const wm = j.m_warpManager;
+        if (wm) {
+          const grab = (k) => [wm[k].x, wm[k].y, wm[k].z || 0];
+          const cur = ['m_cornerPositionBL', 'm_cornerPositionTL', 'm_cornerPositionTR', 'm_cornerPositionBR'].map(grab);
+          const orig = ['m_originalCornerPositionBL', 'm_originalCornerPositionTL', 'm_originalCornerPositionTR', 'm_originalCornerPositionBR'].map(grab);
+          const differs = cur.some((c, i) => Math.abs(c[0] - orig[i][0]) > 0.01 || Math.abs(c[1] - orig[i][1]) > 0.01 || Math.abs(c[2] - orig[i][2]) > 0.01);
+          if (differs) warps.set(goId, cur);
+        }
+      } catch {}
     } else if (name === 'GyroscopeFollower') {
       const getF = (k) => {
         const m = new RegExp('"' + k + '"\\s*:\\s*([-\\.0-9eE+]+)').exec(text);
@@ -333,7 +355,7 @@ function parseBehaviours(imgDir) {
       avg.ymin = getF('Ymin'); avg.ymax = getF('Ymax');
     }
   }
-  return { images, followers, masks, avg };
+  return { images, followers, masks, warps, avg };
 }
 
 // The offscreen renderer (Disc_OffScreen_Renderer.prefab) renders the card with
@@ -445,7 +467,7 @@ function worldDepth(tid, trs, followers = null) {
 
 // Collect the overlay (UI Image) layers of the <id>_G root, in Unity's render
 // order (back to front = descending z, ties broken by hierarchy order).
-function collectOverlay(gos, trs, srs, crs, images, followers, masks) {
+function collectOverlay(gos, trs, srs, crs, images, followers, masks, warps) {
   const trOfGo = new Map();
   for (const [tid, t] of trs) if (t.go) trOfGo.set(t.go, tid);
 
@@ -507,6 +529,10 @@ function collectOverlay(gos, trs, srs, crs, images, followers, masks) {
       const cy = at.y + offWorld.y;
       const cz = at.z + offWorld.z;
       const e = quatToEuler(at.quat);
+      // ImageWarp corner warp (local px) scaled into canvas px by the
+      // accumulated hierarchy scale; the viewer bilinearly maps its vertex
+      // grid through these before static rotation + camera projection.
+      const warp = warps && warps.get(gid);
       layers.push({
         goId: gid,
         name: go.name,
@@ -521,6 +547,7 @@ function collectOverlay(gos, trs, srs, crs, images, followers, masks) {
         // pre-tilted layers (ground 80° X, etc.) that must be baked before the
         // dynamic gyroscope tilt.
         rx: e.x, ry: e.y, rz: e.z,
+        ...(warp ? { corners: warp.map((c) => [c[0] * (at.sx || 1), c[1] * (at.sy || 1), (c[2] || 0) * (at.sz || 1)]) } : {}),
       });
     }
     const childFollower = followers.get(gid) || inheritedFollower;
@@ -589,10 +616,10 @@ function main() {
 
     const { gos, trs, srs, crs } = parseDump(path.join(dumpDir, bundle));
     const sprs = parseSprites(path.join(spriteDir, bundle));
-    const { images, followers, masks, avg } = parseBehaviours(path.join(imgDir, bundle));
+    const { images, followers, masks, warps, avg } = parseBehaviours(path.join(imgDir, bundle));
     const textures = parseTextures(path.join(texDir, bundle));
 
-    const overlay = collectOverlay(gos, trs, srs, crs, images, followers, masks);
+    const overlay = collectOverlay(gos, trs, srs, crs, images, followers, masks, warps);
     const mask = findMask(gos, trs, masks, followers);
 
     // Stage each overlay layer's texture PNG and resolve its display geometry.
@@ -661,6 +688,7 @@ function main() {
         // factors above, not a perspective projection.)
         z: Math.round(l.z * 100) / 100,
         depth: Math.round(l.z * 100) / 100,
+        ...(l.corners ? { corners: l.corners.map((c) => [Math.round(c[0] * 100) / 100, Math.round(c[1] * 100) / 100, Math.round((c[2] || 0) * 100) / 100]) } : {}),
         ...(hasStaticRot ? { rx: Math.round(l.rx * 1000) / 1000, ry: Math.round(l.ry * 1000) / 1000, rz: Math.round(l.rz * 1000) / 1000 } : {}),
       });
     }
