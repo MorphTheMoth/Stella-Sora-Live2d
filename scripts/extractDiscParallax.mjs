@@ -533,11 +533,13 @@ function collectOverlay(gos, trs, srs, crs, images, followers, masks, warps) {
       // accumulated hierarchy scale; the viewer bilinearly maps its vertex
       // grid through these before static rotation + camera projection.
       const warp = warps && warps.get(gid);
+      // For ImageWarp the corners are pivot-relative, not centre-relative.
+      const isWarp = !!warp;
       layers.push({
         goId: gid,
         name: go.name,
         z: cz,
-        x: cx, y: cy,
+        x: isWarp ? at.x : cx, y: isWarp ? at.y : cy,
         w, h,
         sx: t.sx, sy: t.sy,
         clip: underMask,
@@ -664,6 +666,10 @@ function main() {
       fs.copyFileSync(src, dest);
       if (id === '4023' && file.includes('bucket_01')) {
         l.x = -12; l.y = -298;
+      }
+      // 4012 wall must be flat in depth so joints don't separate when tilting.
+      if (id === '4012' && /^gyro_4012_0[1-6]$/.test(file)) {
+        l.z = 1966; l.depth = 1966;
       }
       const hasStaticRot = Math.abs(l.rx) > 0.001 || Math.abs(l.ry) > 0.001 || Math.abs(l.rz) > 0.001;
       layers.push({
