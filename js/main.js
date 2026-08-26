@@ -385,6 +385,26 @@ function getParamValue(id) {
   }
 }
 
+// Disc-like entries (parallax cards + disc L2D, plus event/other discs).
+function isDiscItem(item) {
+  if (!item || !item.kind) return false;
+  return item.kind === 'parallax' || item.kind === 'discl2d' ||
+         item.kind === 'event' || item.kind === 'other';
+}
+
+// Resolve the currently displayed item (matches by variant path or, for
+// parallax discs, by the `id+p` currentPath set in loadParallax).
+function getCurrentItem() {
+  const rel = stripAssetBase(state.currentPath);
+  for (const item of state.models) {
+    if (item.variants && item.variants.some((v) => stripAssetBase(v.path) === rel)) {
+      return item;
+    }
+    if (item.id + 'p' === state.currentPath) return item;
+  }
+  return null;
+}
+
 function getVariantInfo(path) {
   for (const item of state.models) {
     if (!item.variants) continue;
@@ -1218,8 +1238,9 @@ function buildOptionsPanel() {
   addParameterControls(paramsSection);
 
   // Global disc options — also shown here so they are discoverable while
-  // viewing a trekker, but they only affect parallax discs.
-  {
+  // viewing a trekker, but they only affect parallax discs.  Only surface
+  // them when the current entry is actually a disc (L2D or card).
+  if (isDiscItem(getCurrentItem())) {
     const section = addSection('Disc');
     const row = document.createElement('div');
     row.className = 'opt-row';
