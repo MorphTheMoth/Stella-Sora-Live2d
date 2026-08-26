@@ -2885,9 +2885,238 @@
     ]
   },
   {
-    "id": "common",
-    "name": "#comm",
-    "variants": []
+    "id": "avg1_109_a",
+    "name": "avg1_109_a",
+    "kind": "other",
+    "variants": [
+      {
+        "name": "avg1_109_a",
+        "label": "avg1_109_a",
+        "path": "chars/others/avg1_109_a/qingye_CG.model3.json",
+        "bg": []
+      }
+    ]
+  },
+  {
+    "id": "avg3_100_a",
+    "name": "avg3_100_a",
+    "kind": "other",
+    "variants": [
+      {
+        "name": "avg3_100_a",
+        "label": "avg3_100_a",
+        "path": "chars/others/avg3_100_a/avg3_100_a.model3.json",
+        "bg": []
+      }
+    ]
+  },
+  {
+    "id": "avg3_101_a",
+    "name": "avg3_101_a",
+    "kind": "other",
+    "variants": [
+      {
+        "name": "avg3_101_a",
+        "label": "avg3_101_a",
+        "path": "chars/others/avg3_101_a/avg3_101_a.model3.json",
+        "bg": []
+      }
+    ]
+  },
+  {
+    "id": "createplayer_F",
+    "name": "createplayer_F",
+    "kind": "other",
+    "variants": [
+      {
+        "name": "createplayer_F",
+        "label": "createplayer_F",
+        "path": "chars/others/createplayer_F/createplayer_F.model3.json",
+        "bg": []
+      }
+    ]
+  },
+  {
+    "id": "createplayer_M",
+    "name": "createplayer_M",
+    "kind": "other",
+    "variants": [
+      {
+        "name": "createplayer_M",
+        "label": "createplayer_M",
+        "path": "chars/others/createplayer_M/createplayer_M.model3.json",
+        "bg": []
+      }
+    ]
+  },
+  {
+    "id": "dailyquest_f_l",
+    "name": "dailyquest_f_l",
+    "kind": "other",
+    "variants": [
+      {
+        "name": "dailyquest_f_l",
+        "label": "dailyquest_f_l",
+        "path": "chars/others/dailyquest_f_l/dailyquest_f_l.model3.json",
+        "bg": []
+      }
+    ]
+  },
+  {
+    "id": "dailyquest_m_l",
+    "name": "dailyquest_m_l",
+    "kind": "other",
+    "variants": [
+      {
+        "name": "dailyquest_m_l",
+        "label": "dailyquest_m_l",
+        "path": "chars/others/dailyquest_m_l/dailyquest_m_l.model3.json",
+        "bg": []
+      }
+    ]
+  },
+  {
+    "id": "l2d_daily_female",
+    "name": "l2d_daily_female",
+    "kind": "other",
+    "variants": [
+      {
+        "name": "l2d_daily_female",
+        "label": "l2d_daily_female",
+        "path": "chars/others/l2d_daily_female/dailyquest_f_l.model3.json",
+        "bg": []
+      }
+    ]
+  },
+  {
+    "id": "l2d_daily_male",
+    "name": "l2d_daily_male",
+    "kind": "other",
+    "variants": [
+      {
+        "name": "l2d_daily_male",
+        "label": "l2d_daily_male",
+        "path": "chars/others/l2d_daily_male/dailyquest_m_l.model3.json",
+        "bg": []
+      }
+    ]
+  },
+  {
+    "id": "l2d_tour_female",
+    "name": "l2d_tour_female",
+    "kind": "other",
+    "variants": [
+      {
+        "name": "l2d_tour_female",
+        "label": "l2d_tour_female",
+        "path": "chars/others/l2d_tour_female/tourguide_f_l.model3.json",
+        "bg": []
+      }
+    ]
+  },
+  {
+    "id": "l2d_tour_male",
+    "name": "l2d_tour_male",
+    "kind": "other",
+    "variants": [
+      {
+        "name": "l2d_tour_male",
+        "label": "l2d_tour_male",
+        "path": "chars/others/l2d_tour_male/tourguide_m_l.model3.json",
+        "bg": []
+      }
+    ]
+  },
+  {
+    "id": "l2d_weekly_female",
+    "name": "l2d_weekly_female",
+    "kind": "other",
+    "variants": [
+      {
+        "name": "l2d_weekly_female",
+        "label": "l2d_weekly_female",
+        "path": "chars/others/l2d_weekly_female/weeklyquest_f_l.model3.json",
+        "bg": []
+      }
+    ]
+  },
+  {
+    "id": "l2d_weekly_male",
+    "name": "l2d_weekly_male",
+    "kind": "other",
+    "variants": [
+      {
+        "name": "l2d_weekly_male",
+        "label": "l2d_weekly_male",
+        "path": "chars/others/l2d_weekly_male/weeklyquest_m_l.model3.json",
+        "bg": []
+      }
+    ]
+  },
+  {
+    "id": "qingye_CG",
+    "name": "qingye_CG",
+    "kind": "other",
+    "variants": [
+      {
+        "name": "qingye_CG",
+        "label": "qingye_CG",
+        "path": "chars/others/qingye_CG/qingye_CG.model3.json",
+        "bg": []
+      }
+    ]
+  },
+  {
+    "id": "tourguide_f_l",
+    "name": "tourguide_f_l",
+    "kind": "other",
+    "variants": [
+      {
+        "name": "tourguide_f_l",
+        "label": "tourguide_f_l",
+        "path": "chars/others/tourguide_f_l/tourguide_f_l.model3.json",
+        "bg": []
+      }
+    ]
+  },
+  {
+    "id": "tourguide_m_l",
+    "name": "tourguide_m_l",
+    "kind": "other",
+    "variants": [
+      {
+        "name": "tourguide_m_l",
+        "label": "tourguide_m_l",
+        "path": "chars/others/tourguide_m_l/tourguide_m_l.model3.json",
+        "bg": []
+      }
+    ]
+  },
+  {
+    "id": "weeklyquest_f_l",
+    "name": "weeklyquest_f_l",
+    "kind": "other",
+    "variants": [
+      {
+        "name": "weeklyquest_f_l",
+        "label": "weeklyquest_f_l",
+        "path": "chars/others/weeklyquest_f_l/weeklyquest_f_l.model3.json",
+        "bg": []
+      }
+    ]
+  },
+  {
+    "id": "weeklyquest_m_l",
+    "name": "weeklyquest_m_l",
+    "kind": "other",
+    "variants": [
+      {
+        "name": "weeklyquest_m_l",
+        "label": "weeklyquest_m_l",
+        "path": "chars/others/weeklyquest_m_l/weeklyquest_m_l.model3.json",
+        "bg": []
+      }
+    ]
   },
   {
     "id": "1001",

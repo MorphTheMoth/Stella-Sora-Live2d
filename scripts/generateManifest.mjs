@@ -152,6 +152,36 @@ function main() {
   for (const skinId of fs.readdirSync(charsDir).sort()) {
     const skinPath = path.join(charsDir, skinId);
     if (!fs.statSync(skinPath).isDirectory()) continue;
+    // Ignore stray common assets folder (rare_outfit_*.png)
+    if (skinId === 'common') continue;
+
+    // Brute-forced bucket for Live2D not yet in site (e.g. avg3_100_a) - flat like Disc L2D: one entry per variant
+    if (skinId === 'others') {
+      for (const variant of fs.readdirSync(skinPath).sort()) {
+        const variantPath = path.join(skinPath, variant);
+        if (!fs.statSync(variantPath).isDirectory()) continue;
+        const files = fs.readdirSync(variantPath);
+        const modelFile = files.find((f) => f.endsWith('.model3.json'));
+        if (!modelFile) continue;
+        let label = getModelTypeLabel(modelFile);
+        if (label === 'Unknown' && skinNames[variant]) label = skinNames[variant];
+        if (label === 'Unknown') label = variant;
+        characters.push({
+          id: variant,
+          name: variant,
+          kind: 'other',
+          variants: [{
+            name: variant,
+            label,
+            path: `chars/${skinId}/${variant}/${modelFile}`,
+            bg: getVariantBgs(variantPath),
+            charBg: charBgOf(variant, label),
+            offset: offsetOf(variant, label),
+          }],
+        });
+      }
+      continue;
+    }
 
     const isDisc = /^\d{4}$/.test(skinId);
 

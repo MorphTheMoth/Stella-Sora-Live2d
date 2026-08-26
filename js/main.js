@@ -1359,7 +1359,7 @@ function addListSection(title) {
 function addListItem(item) {
   const li = document.createElement('li');
   li.className = 'entity-block';
-  const isDisc = item.kind === 'parallax' || item.kind === 'discl2d' || item.kind === 'event';
+  const isDisc = item.kind === 'parallax' || item.kind === 'discl2d' || item.kind === 'event' || item.kind === 'other';
 
   const name = document.createElement('span');
   name.className = 'character-name' + (isDisc ? ' is-disc' : '');
@@ -1379,9 +1379,8 @@ function addListItem(item) {
       setActiveButton(name);
       loadParallax(item);
     });
-  } else if (item.kind === 'discl2d' || item.kind === 'event') {
-    // The disc's Live2D or an event Live2D (event discs are large disc_l2d
-    // models shown full-screen on the event page).
+  } else if (item.kind === 'discl2d' || item.kind === 'event' || item.kind === 'other') {
+    // The disc's Live2D, an event Live2D, or a brute-forced Other Live2D
     const variant = item.variants[0];
     name.addEventListener('click', () => {
       setActiveButton(name);
@@ -1443,6 +1442,7 @@ function addListItem(item) {
 // (unreleased chars from avg bundles, e.g. 106) are shown as-is.
 function shownIdOf(item) {
   const isDisc = item.kind === 'parallax' || item.kind === 'discl2d' || item.kind === 'event';
+  if (item.kind === 'other') return item.id;
   if (isDisc) return item.id.replace(/l2d$/, '').replace(/event$/, '');
   return item.id.length <= 4 ? item.id : item.id.slice(0, -2);
 }
@@ -1465,12 +1465,14 @@ function createCharactersList() {
   const isEventEntry = (item) => item.kind === 'event';
   const isParallaxEntry = (item) => item.kind === 'parallax';
   const isDiscL2dEntry = (item) => item.kind === 'discl2d';
+  const isOtherEntry = (item) => item.kind === 'other';
   const tokens = getHideTokens();
 
-  const chars = state.models.filter((item) => !isParallaxEntry(item) && !isDiscL2dEntry(item) && !isEventEntry(item) && !isHidden(item, tokens));
+  const chars = state.models.filter((item) => !isParallaxEntry(item) && !isDiscL2dEntry(item) && !isEventEntry(item) && !isOtherEntry(item) && !isHidden(item, tokens));
   const events = state.models.filter((item) => isEventEntry(item) && !isHidden(item, tokens));
   const discL2ds = state.models.filter((item) => isDiscL2dEntry(item) && !isHidden(item, tokens)).reverse();
   const discs = state.models.filter((item) => isParallaxEntry(item) && !isHidden(item, tokens)).reverse();
+  const others = state.models.filter((item) => isOtherEntry(item) && !isHidden(item, tokens));
 
   addListSection('Trekkers (' + chars.length + ')');
   for (const item of chars) addListItem(item);
@@ -1488,6 +1490,11 @@ function createCharactersList() {
   if (discs.length) {
     addListSection('Discs (' + discs.length + ')');
     for (const item of discs) addListItem(item);
+  }
+
+  if (others.length) {
+    addListSection('Others (' + others.length + ')');
+    for (const item of others) addListItem(item);
   }
 }
 
