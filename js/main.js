@@ -1147,7 +1147,6 @@ function buildOptionsPanel() {
     const section = addSection('Disc');
     const row = document.createElement('div');
     row.className = 'opt-row';
-    row.textContent = 'Parallax scene — drag to shift layers.';
     row.style.color = 'var(--text-faint)';
     row.style.fontSize = '11px';
     section.appendChild(row);
