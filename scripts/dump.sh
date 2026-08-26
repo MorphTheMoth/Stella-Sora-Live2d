@@ -95,8 +95,8 @@ echo "BoardNPC names: ${BOARD_NPC:-<none found>}"
 echo "Skin names: ${SKIN_NAMES:-<none found>}"
 echo "Char names: ${CHAR_NAMES:-<none found>}"
 
-rm -rf "$TMP"
 mkdir -p "$TMP/live2d" "$TMP/raw" "$ROOT/chars"
+# Keep existing chars/data - only override, never delete old entries (e.g. removed bundles stay visible)
 
 # Collect the bundle list
 # char_avg_2d_avg1_* / char_avg_2d_avg3_10*: unreleased characters ship no
@@ -125,8 +125,8 @@ for dir in "$INSTALL_RESOURCE" "$PERSISTENT"; do
   done
 done
 
-# Dedupe, sort
-BUNDLES=($(printf '%s\n' "${BUNDLES[@]}" | sort -u))
+# Dedupe, sort (mapfile preserves paths with spaces)
+mapfile -t BUNDLES < <(printf '%s\n' "${BUNDLES[@]}" | sort -u)
 echo "Found ${#BUNDLES[@]} Live2D bundles"
 
 FAILED=()
@@ -396,16 +396,6 @@ node "$SCRIPT_DIR/generateDiscs.mjs" \
   --models "$ROOT/data/models.json" \
   --parallax "$ROOT/data/discparallax.json" \
   --disc-names "$ROOT/data/discid.json" || true
-
-# Events section: true event-page Live2Ds (e.g. Surfing Splash Karin on
-# SummerAdvPanel) are separate from disc_gacha Live2Ds. The large
-# disc_l2d models (4057 etc) stay as Disc L2D above Discs. When event
-# Live2Ds are located, generateEvents.mjs will surface them as `kind:"event"`.
-# Currently no event Live2Ds are known, so this is a no-op placeholder.
-# node "$SCRIPT_DIR/generateEvents.mjs" \
-#   --models "$ROOT/data/models.json" \
-#   --disc-names "$ROOT/data/discid.json" \
-#   --datamine "$DATAMINE" || true
 
 # --- MainView L2D offsets (Actor2DOffsetData) --------------------------------
 # Each skin's CharacterSkin.Offset (Actor2D/Character/<skin>/<skin>.asset) lives

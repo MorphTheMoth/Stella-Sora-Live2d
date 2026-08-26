@@ -55,6 +55,7 @@ function main() {
 
   let added = 0;
   for (const item of models) {
+    if (!item.variants) continue;
     for (const variant of item.variants) {
       // Find which bundle this variant belongs to.
       const parts = variant.path.split('/');
@@ -93,21 +94,28 @@ function main() {
 
       // Store ordered back-to-front layers (sortLayer, then sortOrder).
       use.sort((a, b) => (a.sortLayer - b.sortLayer) || (a.sortOrder - b.sortOrder));
-      variant.bgLayers = use.map((l) => ({
-        file: l.texture, // texture name; resolved against the variant bg/ dir
-        x: l.posX || 0,
-        y: l.posY || 0,
-        sx: l.scaleX || 1,
-        sy: l.scaleY || 1,
-        w: l.texW,
-        h: l.texH,
-        // A layer draws in front of the character only when its Unity
-        // sortOrder >= 1 (Actor2DManager sets CubismRenderController
-        // SortingOrder = 1).  The ----fg_effect----/----live2d_modle---- group
-        // names do NOT decide front/behind: many such objects sit at negative
-        // sorting orders and render behind the character in-game.
-        fg: l.sortOrder >= 1,
-      }));
+      variant.bgLayers = use.map((l) => {
+        const isDisc = /^\d{4}$/.test(skin);
+        // Disc L2Ds use a different panel setup: the character's
+        // CubismRenderer stays at sortingOrder 0 and the foreground
+        // is defined by the prefab hierarchy (----fg_effect---- after
+        // ----live2d_modle----), not just sortingOrder.  Keep the
+        // strict sortOrder>=1 check for trekker (char) L2Ds where
+        // many fg_effect layers at -100..-200 must stay behind.
+        const fg = isDisc
+          ? (l.group === '----fg_effect----' || l.group === '----live2d_modle----' || l.sortOrder >= 1)
+          : l.sortOrder >= 1;
+        return {
+          file: l.texture, // texture name; resolved against the variant bg/ dir
+          x: l.posX || 0,
+          y: l.posY || 0,
+          sx: l.scaleX || 1,
+          sy: l.scaleY || 1,
+          w: l.texW,
+          h: l.texH,
+          fg,
+        };
+      });
       added++;
     }
   }

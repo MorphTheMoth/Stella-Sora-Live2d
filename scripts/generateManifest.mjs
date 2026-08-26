@@ -2,7 +2,7 @@
 /**
  * generateManifest.mjs — scan the `chars/` folder and produce `data/models.json`.
  *
- * Output format (matches tyrant-viewer):
+ * Output format:
  *   [ { id, name, variants: [ { name, label, path } ] } ]
  *
  * Character names come from a name map file if provided
@@ -15,6 +15,7 @@
 
 import fs from 'node:fs';
 import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 
 function parseArgs() {
   const args = process.argv.slice(2);
@@ -31,7 +32,18 @@ function parseArgs() {
     offsetFile: get('--offset', path.resolve('data/offset.json')),
     boardNpcFile: get('--board-npc', ''),
     skinNamesFile: get('--skin-names', ''),
+    datamineDir: get('--datamine', ''),
   };
+}
+
+function resolveDatamineFile(explicitFile, datamineDir, langSubpath) {
+  if (explicitFile && fs.existsSync(explicitFile)) return explicitFile;
+  const scriptDir = path.dirname(fileURLToPath(import.meta.url));
+  const root = path.resolve(scriptDir, '..');
+  const dm = datamineDir || path.join(root, '../StellaSoraData Makostar');
+  const cand = path.join(dm, langSubpath);
+  if (fs.existsSync(cand)) return cand;
+  return explicitFile;
 }
 
 // BoardNPC.json (datamine language table) names NPCs that characterid.json
@@ -75,7 +87,7 @@ const CHAR_BG_LABELS = new Set(['Default', 'Awakened']);
 const CHAR_BG_PREFIX = 'bg/charbg/';
 
 function getModelTypeLabel(modelFile) {
-  // Mirrors tyrant-viewer generateModels.ts: label from chars [4,7)
+  // Label from chars [4,7)
   // e.g. "10301_L.model3.json" -> "1_L" -> Default
   //      "10301_F_a.model3.json" -> "1_F" -> Memory Snapshot
   //      "10301_T.model3.json" -> "1_T" -> Talent
@@ -113,13 +125,15 @@ function getVariantBgs(variantPath) {
 }
 
 function main() {
-  const { charsDir, outFile, namesFile, discNamesFile, charBgFile, offsetFile, boardNpcFile, skinNamesFile } = parseArgs();
+  const { charsDir, outFile, namesFile, discNamesFile, charBgFile, offsetFile, boardNpcFile, skinNamesFile, datamineDir } = parseArgs();
+  const resolvedBoardNpc = resolveDatamineFile(boardNpcFile, datamineDir, 'EN/language/en_US/BoardNPC.json');
+  const resolvedSkinNames = resolveDatamineFile(skinNamesFile, datamineDir, 'EN/language/en_US/CharacterSkin.json');
   const names = {};
   if (fs.existsSync(namesFile)) {
     Object.assign(names, JSON.parse(fs.readFileSync(namesFile, 'utf8')));
   }
-  const boardNpc = loadBoardNpcNames(boardNpcFile);
-  const skinNames = loadSkinNames(skinNamesFile);
+  const boardNpc = loadBoardNpcNames(resolvedBoardNpc);
+  const skinNames = loadSkinNames(resolvedSkinNames);
   const discNames = {};
   if (fs.existsSync(discNamesFile)) {
     Object.assign(discNames, JSON.parse(fs.readFileSync(discNamesFile, 'utf8')));

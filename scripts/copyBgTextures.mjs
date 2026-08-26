@@ -72,6 +72,7 @@ function main() {
   const missingFiles = new Set();
 
   for (const item of models) {
+    if (!item.variants) continue;
     for (const variant of item.variants) {
       const parts = variant.path.split('/');
       const skin = parts[1];

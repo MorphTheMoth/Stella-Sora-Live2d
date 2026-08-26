@@ -1447,16 +1447,26 @@ function shownIdOf(item) {
   return item.id.length <= 4 ? item.id : item.id.slice(0, -2);
 }
 
-// Entries whose shown id (group id, last 2 digits cut for chars/NPCs) starts
-// with any hide-token are filtered out of the list.
-function getHideTokens() {
-  return els.filter.value.trim().split(/[\s,]+/).filter(Boolean);
+// Two ids are always hidden in the background (no UI toggle).
+const HIDDEN_PREFIXES = ['8133', '8134'];
+
+function isHidden(item) {
+  const shownId = shownIdOf(item);
+  return HIDDEN_PREFIXES.some((t) => shownId.startsWith(t) || item.id.startsWith(t));
 }
 
-function isHidden(item, tokens) {
-  if (!tokens.length) return false;
-  const shownId = shownIdOf(item);
-  return tokens.some((t) => shownId.startsWith(t));
+function matchesSearch(item, query) {
+  if (!query) return true;
+  const q = query.toLowerCase();
+  if (shownIdOf(item).toLowerCase().includes(q)) return true;
+  if (item.id.toLowerCase().includes(q)) return true;
+  if (item.name.toLowerCase().includes(q)) return true;
+  if (item.variants) {
+    for (const v of item.variants) {
+      if (v.label && v.label.toLowerCase().includes(q)) return true;
+    }
+  }
+  return false;
 }
 
 function createCharactersList() {
@@ -1466,13 +1476,14 @@ function createCharactersList() {
   const isParallaxEntry = (item) => item.kind === 'parallax';
   const isDiscL2dEntry = (item) => item.kind === 'discl2d';
   const isOtherEntry = (item) => item.kind === 'other';
-  const tokens = getHideTokens();
+  const query = els.filter.value.trim().toLowerCase();
+  const visible = (item) => !isHidden(item) && matchesSearch(item, query);
 
-  const chars = state.models.filter((item) => !isParallaxEntry(item) && !isDiscL2dEntry(item) && !isEventEntry(item) && !isOtherEntry(item) && !isHidden(item, tokens));
-  const events = state.models.filter((item) => isEventEntry(item) && !isHidden(item, tokens));
-  const discL2ds = state.models.filter((item) => isDiscL2dEntry(item) && !isHidden(item, tokens)).reverse();
-  const discs = state.models.filter((item) => isParallaxEntry(item) && !isHidden(item, tokens)).reverse();
-  const others = state.models.filter((item) => isOtherEntry(item) && !isHidden(item, tokens));
+  const chars = state.models.filter((item) => !isParallaxEntry(item) && !isDiscL2dEntry(item) && !isEventEntry(item) && !isOtherEntry(item) && visible(item));
+  const events = state.models.filter((item) => isEventEntry(item) && visible(item));
+  const discL2ds = state.models.filter((item) => isDiscL2dEntry(item) && visible(item)).reverse();
+  const discs = state.models.filter((item) => isParallaxEntry(item) && visible(item)).reverse();
+  const others = state.models.filter((item) => isOtherEntry(item) && visible(item));
 
   addListSection('Trekkers (' + chars.length + ')');
   for (const item of chars) addListItem(item);

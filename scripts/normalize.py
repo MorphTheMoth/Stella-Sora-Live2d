@@ -3,7 +3,7 @@
 normalize.py — Convert AssetStudioModCLI -m live2d export into the
 site's `chars/<skinId>/<variant>/` folder convention.
 
-Variant mapping (matches tyrant-viewer / srpg-kr naming):
+Variant mapping:
   live2d        -> <id>_l   (Default)           model <id>_L
   live2d_full   -> <id>_lf  (Memory Snapshot)   model <id>_F / <id>_F_a / <id>_F_b
   live2d_talent -> <id>_lt  (Talent)            model <id>_T
