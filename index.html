@@ -98,6 +98,12 @@
     display: inline-block;
   }
   #bginput, #status { display: none; }
+  .tool-status {
+    display: none;
+    font-size: 11px;
+    color: var(--text-dim);
+    white-space: nowrap;
+  }
   #status {
     margin-left: auto;
     font-size: 11px;
@@ -410,6 +416,7 @@
     <button class="tool" id="bgcolor" type="button">
       <span class="swatch" id="bgcolor-swatch"></span> Background
     </button>
+    <span id="bg-status" class="tool-status">loading…</span>
     <input type="color" id="bginput" value="#161616" />
   </div>
   <span id="status"></span>

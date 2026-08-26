@@ -1,5 +1,6 @@
 import { Application, Container, Sprite, Graphics, Assets, extensions, Mesh, PlaneGeometry } from './pixi.min.mjs';
 import { Live2DModel, Live2DPlugin, configureCubismSDK, CubismFramework } from './cubism.es.js';
+import { USE_REMOTE_ASSETS, REMOTE_ASSETS_URL } from './config.js';
 
 extensions.add(Live2DPlugin);
 
@@ -9,7 +10,20 @@ extensions.add(Live2DPlugin);
 configureCubismSDK({ memorySizeMB: 64 });
 
 function resolveUrl(p) {
-  return p.replace(/^\/+/, '');
+  let clean = p.replace(/^\/+/, '');
+  // Already an absolute URL (e.g. already-prefixed by a prior call) — return as-is.
+  if (/^https?:\/\//.test(clean)) return clean;
+  // Tolerate a path double-prefixed as `chars/<absolute-url>` or `bg/<absolute-url>`.
+  const m = clean.match(/^(?:chars|bg)\/(https?:\/\/.+)$/);
+  if (m) return m[1];
+  if (USE_REMOTE_ASSETS && REMOTE_ASSETS_URL) {
+    // Only redirect heavy assets — keep data/*.json + js/ local for GitHub Pages split hosting
+    if (clean.startsWith('chars/') || clean.startsWith('bg/')) {
+      const base = REMOTE_ASSETS_URL.replace(/\/+$/, '');
+      return base + '/' + clean;
+    }
+  }
+  return clean;
 }
 
 const state = {
@@ -96,6 +110,7 @@ const els = {
   title: document.getElementById('page-title'),
   status: document.getElementById('status'),
   bgcolor: document.getElementById('bgcolor'),
+  bgstatus: document.getElementById('bg-status'),
   bginput: document.getElementById('bginput'),
   optionsOpen: document.getElementById('options_open'),
   optionsClose: document.getElementById('options_close'),
@@ -288,23 +303,24 @@ async function setBackground(layers) {
   const fgContainer = state.fgContainer;
   const seq = ++bgLoadSeq;
   clearBackground();
-  if (!container || !layers || !layers.length) return;
+  if (!container || !layers || !layers.length) { hideBgLoading(); return; }
 
+  showBgLoading();
   // Load all layer textures up-front, then attach in order so no frame ever
   // shows a partially-composed background.
   const loaded = [];
   for (const layer of layers) {
-    if (seq !== bgLoadSeq) return;
+    if (seq !== bgLoadSeq) { hideBgLoading(); return; }
     const p = resolveUrl(layer.path);
     try {
       const texture = await Assets.load(p);
-      if (seq !== bgLoadSeq) return;
+      if (seq !== bgLoadSeq) { hideBgLoading(); return; }
       loaded.push({ layer, texture });
     } catch (e) {
       console.error('Failed to load background layer', p, e);
     }
   }
-  if (!loaded.length) return;
+  if (!loaded.length) { hideBgLoading(); return; }
 
   for (const { layer, texture } of loaded) {
     const sprite = new Sprite(texture);
@@ -316,6 +332,19 @@ async function setBackground(layers) {
     state.bgTextures.push({ key: resolveUrl(layer.path), texture });
   }
   state.currentBgKey = loaded[0].layer.path;
+  hideBgLoading();
+}
+
+// Tracks in-flight asset loads (model textures, bg layers, parallax layers)
+// so the top-bar "loading…" indicator stays visible across any combination.
+let pendingLoads = 0;
+function showBgLoading() {
+  pendingLoads++;
+  if (els.bgstatus) els.bgstatus.style.display = 'inline';
+}
+function hideBgLoading() {
+  pendingLoads = Math.max(0, pendingLoads - 1);
+  if (pendingLoads === 0 && els.bgstatus) els.bgstatus.style.display = 'none';
 }
 
 function getParamInfo() {
@@ -400,6 +429,7 @@ async function loadParallax(item) {
   const seq = ++modelLoadSeq;
   resetCamera();
   state.currentPath = item.id + 'p';
+  showBgLoading();
 
   // Tear down any live model and parallax scene.
   if (state.model) {
@@ -418,12 +448,12 @@ async function loadParallax(item) {
   clearElement(els.optionsContent);
   els.status.textContent = 'Loading ' + item.name + ' ...';
   await new Promise((r) => requestAnimationFrame(r));
-  if (seq !== modelLoadSeq) return;
+  if (seq !== modelLoadSeq) { hideBgLoading(); return; }
 
   const scene = item.parallax || {};
   let layers = scene.layers || [];
   if (!state.parallaxFrame) layers = layers.filter((l) => !isFrameLayer(l));
-  if (!layers.length) { els.status.textContent = ''; return; }
+  if (!layers.length) { els.status.textContent = ''; hideBgLoading(); return; }
   state.parallaxItem = item;
   state.parallaxScene = scene;
 
@@ -463,10 +493,10 @@ async function loadParallax(item) {
   const runs = []; // { clip, entries: [layerData] }
   const loaded = [];
   for (const l of layers) {
-    if (seq !== modelLoadSeq) return;
+    if (seq !== modelLoadSeq) { hideBgLoading(); return; }
     try {
       const texture = await Assets.load(resolveUrl(l.path));
-      if (seq !== modelLoadSeq) return;
+      if (seq !== modelLoadSeq) { hideBgLoading(); return; }
       // Every layer is a perspective-projected Mesh rotating with the card
       // (the frame / title tilt as much as the card art does).  The frame
       // needs finer subdivision so its border stays smooth under perspective.
@@ -551,6 +581,7 @@ async function loadParallax(item) {
   resetParallax();
   els.status.textContent = '';
   buildOptionsPanel();
+  hideBgLoading();
 }
 
 // 3D tilt of the disc card — replicating the game's own pipeline.
@@ -748,11 +779,23 @@ function resetParallax() {
   applyParallaxTarget(-PARALLAX_SWAY_RANGE, 0);
 }
 
+function stripAssetBase(p) {
+  let clean = p.replace(/^\/+/, '');
+  if (USE_REMOTE_ASSETS && REMOTE_ASSETS_URL) {
+    const base = REMOTE_ASSETS_URL.replace(/\/+$/, '');
+    if (clean.startsWith(base + '/')) clean = clean.slice(base.length + 1);
+  }
+  return clean;
+}
+
 function getVariantBgs(path) {
   const variant = getVariantInfo(path);
   if (!variant) return { layers: [], singles: [] };
-  const skin = path.split('/')[1];
-  const variantDir = path.split('/')[2];
+  // loadModel may receive an absolute (remote) URL; reduce to the relative
+  // chars/<skin>/<variant>/ form before extracting skin/variantDir.
+  const rel = stripAssetBase(path);
+  const skin = rel.split('/')[1];
+  const variantDir = rel.split('/')[2];
   const bgPath = (f) => `chars/${skin}/${variantDir}/bg/${f}`;
   const layers = (variant.bgLayers || []).map((l) => ({ ...l, path: bgPath(l.file + '.png') }));
   const singles = (variant.bg || []).slice();
@@ -1310,7 +1353,8 @@ export async function loadModel(path) {
     state.model = null;
   }
 
-  els.status.textContent = 'Loading ' + path.split('/').slice(-2).join('/') + ' ...';
+  els.status.textContent = 'Loading ' + stripAssetBase(path).split('/').slice(-2).join('/') + ' ...';
+  showBgLoading();
   await new Promise((r) => requestAnimationFrame(r));
 
   try {
@@ -1319,6 +1363,7 @@ export async function loadModel(path) {
     // loads don't stack every previously clicked model on the scene.
     if (seq !== modelLoadSeq) {
       model.destroy({ children: true, texture: true, baseTexture: true });
+      hideBgLoading();
       return;
     }
     camera.addChild(model);
@@ -1338,10 +1383,11 @@ export async function loadModel(path) {
     hookOverrideApply();
     els.status.textContent = '';
   } catch (e) {
-    if (seq !== modelLoadSeq) return;
+    if (seq !== modelLoadSeq) { hideBgLoading(); return; }
     els.status.textContent = 'Failed: ' + e.message;
     console.error(e);
   }
+  hideBgLoading();
 }
 
 function setActiveButton(activeBtn) {
@@ -1728,7 +1774,7 @@ async function init() {
 
   const res = await fetch(resolveUrl('data/models.json'));
   state.models = await res.json();
-  els.title.textContent = 'Stella Sora L2D (' + state.models.length + ' trekkers)';
+  els.title.textContent = 'Stella Sora L2D (' + state.models.length + ' models)';
   els.filter.addEventListener('input', createCharactersList);
   createCharactersList();
 
