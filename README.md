@@ -1,6 +1,7 @@
 # [Stella Sora live 2d viewer](https://morphthemoth.github.io/Stella-Sora-Live2d/)
 
 https://morphthemoth.github.io/Stella-Sora-Live2d/
+
 A Stella Sora l2d viewer with character's l2d, discs parallaxes and other miscellaneous l2d.
 With reconstruction of the game's backgrounds and discs UI.
 
