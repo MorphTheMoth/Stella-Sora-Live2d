@@ -4117,6 +4117,103 @@
             "fg": false
           }
         ]
+      },
+      {
+        "name": "12003_l",
+        "label": "Unknown",
+        "path": "chars/12003/12003_l/12003_L.model3.json",
+        "bg": [
+          "chars/12003/12003_l/bg/12003_live2d_ball_001.png",
+          "chars/12003/12003_l/bg/12003_live2d_bg_001.png",
+          "chars/12003/12003_l/bg/12003_live2d_bg_002.png",
+          "chars/12003/12003_l/bg/12003_live2d_flag_001.png",
+          "chars/12003/12003_l/bg/12003_live2d_flag_002.png",
+          "chars/12003/12003_l/bg/12003_live2d_flag_003.png",
+          "chars/12003/12003_l/bg/12003_live2d_flag_004.png",
+          "chars/12003/12003_l/bg/12003_live2d_net_001.png"
+        ],
+        "bgLayers": [
+          {
+            "file": "12003_live2d_bg_001",
+            "x": 0,
+            "y": 0,
+            "sx": 1,
+            "sy": 1,
+            "w": 2048,
+            "h": 2048,
+            "fg": false
+          },
+          {
+            "file": "12003_live2d_ball_001",
+            "x": -0.61,
+            "y": -4.7,
+            "sx": 1,
+            "sy": 1,
+            "w": 84,
+            "h": 88,
+            "fg": false
+          },
+          {
+            "file": "12003_live2d_flag_001",
+            "x": -5.778999,
+            "y": 5.795,
+            "sx": 1,
+            "sy": 1,
+            "w": 180,
+            "h": 424,
+            "fg": false
+          },
+          {
+            "file": "12003_live2d_flag_002",
+            "x": -2.541,
+            "y": 6.3239994,
+            "sx": 1,
+            "sy": 1,
+            "w": 212,
+            "h": 532,
+            "fg": false
+          },
+          {
+            "file": "12003_live2d_flag_003",
+            "x": 0.89,
+            "y": 6.979,
+            "sx": 1,
+            "sy": 1,
+            "w": 260,
+            "h": 652,
+            "fg": false
+          },
+          {
+            "file": "12003_live2d_flag_004",
+            "x": 6.2729993,
+            "y": 6.282998,
+            "sx": 1,
+            "sy": 1,
+            "w": 200,
+            "h": 532,
+            "fg": false
+          },
+          {
+            "file": "12003_live2d_net_001",
+            "x": -4.015,
+            "y": 1.733,
+            "sx": 1,
+            "sy": 1,
+            "w": 1124,
+            "h": 740,
+            "fg": false
+          },
+          {
+            "file": "12003_live2d_bg_002",
+            "x": 0,
+            "y": 0,
+            "sx": 1,
+            "sy": 1,
+            "w": 2048,
+            "h": 2048,
+            "fg": false
+          }
+        ]
       }
     ]
   },
@@ -14591,7 +14688,7 @@
       },
       "parallax": {
         "ax": 5,
-        "ay": -20,
+        "ay": -25,
         "xmin": -0.99,
         "xmax": 0.99,
         "ymin": -0.99,
@@ -14618,7 +14715,7 @@
           "h": 2597.6,
           "clip": true,
           "follower": {
-            "type": 2,
+            "type": 0,
             "ax": 0,
             "ay": 0
           },
@@ -14634,7 +14731,7 @@
           "h": 957.6,
           "clip": true,
           "follower": {
-            "type": 2,
+            "type": 0,
             "ax": 0,
             "ay": 0
           },
@@ -14650,7 +14747,7 @@
           "h": 1200,
           "clip": true,
           "follower": {
-            "type": 2,
+            "type": 0,
             "ax": 0,
             "ay": 0
           },
@@ -14666,7 +14763,7 @@
           "h": 628,
           "clip": true,
           "follower": {
-            "type": 2,
+            "type": 0,
             "ax": 0,
             "ay": 0
           },
@@ -14682,9 +14779,9 @@
           "h": 118.08,
           "clip": false,
           "follower": {
-            "type": 1,
-            "ax": 5,
-            "ay": -20
+            "type": 0,
+            "ax": 0,
+            "ay": 0
           },
           "z": -200,
           "depth": -200
@@ -14707,7 +14804,7 @@
       },
       "parallax": {
         "ax": 5,
-        "ay": -20,
+        "ay": -25,
         "xmin": -0.99,
         "xmax": 0.99,
         "ymin": -0.99,
@@ -14734,7 +14831,7 @@
           "h": 2597.6,
           "clip": true,
           "follower": {
-            "type": 2,
+            "type": 0,
             "ax": 0,
             "ay": 0
           },
@@ -15439,7 +15536,7 @@
       },
       "parallax": {
         "ax": 5,
-        "ay": -20,
+        "ay": -25,
         "xmin": -0.99,
         "xmax": 0.99,
         "ymin": -0.99,
@@ -15449,235 +15546,265 @@
         {
           "file": "frame",
           "path": "chars/4008/4008_p/overlays/frame.png",
-          "x": 0,
+          "x": -0.06,
           "y": 12,
           "w": 752,
           "h": 768,
           "clip": false,
-          "z": 0,
-          "depth": 0
+          "z": 0.31,
+          "depth": 0.31,
+          "rx": -0.027,
+          "ry": -0.177,
+          "rz": -0.005
         },
         {
           "file": "gyro_bg",
           "path": "chars/4008/4008_p/overlays/gyro_bg.png",
-          "x": 0,
-          "y": -30,
+          "x": -528.17,
+          "y": -108.84,
           "w": 5380,
           "h": 3820,
           "clip": true,
           "follower": {
-            "type": 2,
+            "type": 0,
             "ax": 0,
             "ay": 0
           },
-          "z": 3000,
-          "depth": 3000
+          "z": 2951.29,
+          "depth": 2951.29,
+          "rx": -0.027,
+          "ry": -0.177,
+          "rz": -0.005
         },
         {
           "file": "gyro_01",
           "path": "chars/4008/4008_p/overlays/gyro_01.png",
-          "x": -900,
-          "y": 209,
+          "x": -1327.15,
+          "y": 143.22,
           "w": 2232,
           "h": 2548.8,
           "clip": true,
           "follower": {
-            "type": 2,
+            "type": 0,
             "ax": 0,
             "ay": 0
           },
-          "z": 2500,
-          "depth": 2500
+          "z": 2306.91,
+          "depth": 2306.91,
+          "rx": -0.027,
+          "ry": -0.177,
+          "rz": -0.005
         },
         {
           "file": "gyro_02",
           "path": "chars/4008/4008_p/overlays/gyro_02.png",
-          "x": -677,
-          "y": 891.13,
+          "x": -1022.74,
+          "y": 838.26,
           "w": 2191.2,
           "h": 1011.2,
           "clip": true,
           "follower": {
-            "type": 2,
+            "type": 0,
             "ax": 0,
             "ay": 0
           },
-          "z": 2000,
-          "depth": 2000,
-          "rx": 0.356,
-          "ry": -0.197,
-          "rz": 0.073
+          "z": 1871.84,
+          "depth": 1871.84,
+          "rx": 0.347,
+          "ry": -0.364,
+          "rz": 0.134
         },
         {
           "file": "gyro_03",
           "path": "chars/4008/4008_p/overlays/gyro_03.png",
-          "x": -34.5,
-          "y": 363,
+          "x": -246.96,
+          "y": 331.33,
           "w": 2520,
           "h": 1209.6,
           "clip": true,
           "follower": {
-            "type": 2,
+            "type": 0,
             "ax": 0,
             "ay": 0
           },
-          "z": 1200,
-          "depth": 1200
+          "z": 1184.14,
+          "depth": 1184.14,
+          "rx": -0.027,
+          "ry": -0.177,
+          "rz": -0.005
         },
         {
           "file": "gyro_06",
           "path": "chars/4008/4008_p/overlays/gyro_06.png",
-          "x": 488,
-          "y": 48,
+          "x": 268.82,
+          "y": 16.44,
           "w": 1478.4,
           "h": 1228.8,
           "clip": true,
           "follower": {
-            "type": 2,
+            "type": 0,
             "ax": 0,
             "ay": 0
           },
-          "z": 1200,
-          "depth": 1200
+          "z": 1268.03,
+          "depth": 1268.03,
+          "rx": -0.027,
+          "ry": -0.177,
+          "rz": -0.005
         },
         {
           "file": "gyro_04",
           "path": "chars/4008/4008_p/overlays/gyro_04.png",
-          "x": 0,
-          "y": 43,
+          "x": -141.08,
+          "y": 21.96,
           "w": 1958.32,
           "h": 1390.48,
           "clip": true,
           "follower": {
-            "type": 2,
+            "type": 0,
             "ax": 0,
             "ay": 0
           },
-          "z": 800,
-          "depth": 800
+          "z": 788.33,
+          "depth": 788.33,
+          "rx": -0.027,
+          "ry": -0.177,
+          "rz": -0.005
         },
         {
           "file": "gyro_05",
           "path": "chars/4008/4008_p/overlays/gyro_05.png",
-          "x": -14,
-          "y": -26,
+          "x": -453.92,
+          "y": -91.7,
           "w": 2152,
           "h": 1528,
           "clip": true,
           "follower": {
-            "type": 2,
+            "type": 0,
             "ax": 0,
             "ay": 0
           },
-          "z": 2500,
-          "depth": 2500,
-          "blend": "add"
+          "z": 2456.91,
+          "depth": 2456.91,
+          "blend": "add",
+          "rx": -0.027,
+          "ry": -0.177,
+          "rz": -0.005
         },
         {
           "file": "gyro_fx02",
           "path": "chars/4008/4008_p/overlays/gyro_fx02.png",
-          "x": 6,
-          "y": 44,
+          "x": -434.55,
+          "y": -21.72,
           "w": 2120,
           "h": 1384,
           "clip": true,
           "follower": {
-            "type": 2,
+            "type": 0,
             "ax": 0,
             "ay": 0
           },
-          "z": 2500,
-          "depth": 2500
+          "z": 2462.25,
+          "depth": 2462.25,
+          "rx": -0.027,
+          "ry": -0.177,
+          "rz": -0.005
         },
         {
           "file": "gyro_07",
           "path": "chars/4008/4008_p/overlays/gyro_07.png",
-          "x": 349.1,
-          "y": -241.97,
+          "x": 107.31,
+          "y": -277.32,
           "w": 2287.8,
           "h": 1746.6,
           "clip": true,
           "follower": {
-            "type": 2,
+            "type": 0,
             "ax": 0,
             "ay": 0
           },
-          "z": 1348.35,
-          "depth": 1348.35,
-          "rx": 0.175,
-          "ry": 0,
-          "rz": 0
+          "z": 1382.05,
+          "depth": 1382.05,
+          "rx": 0.151,
+          "ry": -0.175,
+          "rz": 0.026
         },
         {
           "file": "gyro_08",
           "path": "chars/4008/4008_p/overlays/gyro_08.png",
-          "x": -62,
-          "y": -27,
+          "x": -237.01,
+          "y": -53.27,
           "w": 1648.8,
           "h": 1368,
           "clip": true,
           "follower": {
-            "type": 2,
+            "type": 0,
             "ax": 0,
             "ay": 0
           },
-          "z": 1000,
-          "depth": 1000,
-          "rx": 0.175,
-          "ry": 0,
-          "rz": 0
+          "z": 972.4,
+          "depth": 972.4,
+          "rx": 0.151,
+          "ry": -0.175,
+          "rz": 0.026
         },
         {
           "file": "gyro_title02",
           "path": "chars/4008/4008_p/overlays/gyro_title02.png",
-          "x": -1,
-          "y": 8,
+          "x": 34.2,
+          "y": 13.25,
           "w": 573,
           "h": 669,
           "clip": true,
           "follower": {
-            "type": 2,
+            "type": 0,
             "ax": 0,
             "ay": 0
           },
-          "z": -200,
-          "depth": -200
+          "z": -196.77,
+          "depth": -196.77,
+          "rx": -0.027,
+          "ry": -0.177,
+          "rz": -0.005
         },
         {
           "file": "gyro_fx01",
           "path": "chars/4008/4008_p/overlays/gyro_fx01.png",
-          "x": -33,
-          "y": 84,
+          "x": -120.92,
+          "y": 70.83,
           "w": 1458,
           "h": 828,
           "clip": true,
           "follower": {
-            "type": 2,
+            "type": 0,
             "ax": 0,
             "ay": 0
           },
-          "z": 500,
-          "depth": 500,
+          "z": 488.37,
+          "depth": 488.37,
           "blend": "add",
-          "rx": 0.175,
-          "ry": 0,
-          "rz": 0
+          "rx": 0.151,
+          "ry": -0.175,
+          "rz": 0.026
         },
         {
           "file": "gyro_title01",
           "path": "chars/4008/4008_p/overlays/gyro_title01.png",
-          "x": 0,
-          "y": 0,
+          "x": 35.22,
+          "y": 5.26,
           "w": 534,
           "h": 537,
           "clip": false,
           "follower": {
-            "type": 1,
-            "ax": 5,
-            "ay": -20
+            "type": 0,
+            "ax": 0,
+            "ay": 0
           },
-          "z": -200,
-          "depth": -200
+          "z": -196.8,
+          "depth": -196.8,
+          "rx": -0.027,
+          "ry": -0.177,
+          "rz": -0.005
         }
       ]
     }
@@ -16847,7 +16974,7 @@
       },
       "parallax": {
         "ax": 5,
-        "ay": -20,
+        "ay": -25,
         "xmin": -0.99,
         "xmax": 0.99,
         "ymin": -0.99,
@@ -16874,7 +17001,7 @@
           "h": 3800,
           "clip": true,
           "follower": {
-            "type": 2,
+            "type": 0,
             "ax": 0,
             "ay": 0
           },
@@ -16890,7 +17017,7 @@
           "h": 1459.2,
           "clip": true,
           "follower": {
-            "type": 2,
+            "type": 0,
             "ax": 0,
             "ay": 0
           },
@@ -16909,7 +17036,7 @@
           "h": 2560,
           "clip": true,
           "follower": {
-            "type": 2,
+            "type": 0,
             "ax": 0,
             "ay": 0
           },
@@ -16928,7 +17055,7 @@
           "h": 1625.4,
           "clip": true,
           "follower": {
-            "type": 2,
+            "type": 0,
             "ax": 0,
             "ay": 0
           },
@@ -16944,7 +17071,7 @@
           "h": 542.4,
           "clip": true,
           "follower": {
-            "type": 2,
+            "type": 0,
             "ax": 0,
             "ay": 0
           },
@@ -16963,7 +17090,7 @@
           "h": 659.4,
           "clip": true,
           "follower": {
-            "type": 2,
+            "type": 0,
             "ax": 0,
             "ay": 0
           },
@@ -16982,7 +17109,7 @@
           "h": 721.22,
           "clip": true,
           "follower": {
-            "type": 2,
+            "type": 0,
             "ax": 0,
             "ay": 0
           },
@@ -16998,9 +17125,9 @@
           "h": 542.08,
           "clip": false,
           "follower": {
-            "type": 1,
-            "ax": 5,
-            "ay": -20
+            "type": 0,
+            "ax": 0,
+            "ay": 0
           },
           "z": -150,
           "depth": -150
@@ -17023,7 +17150,7 @@
       },
       "parallax": {
         "ax": 5,
-        "ay": -20,
+        "ay": -25,
         "xmin": -0.99,
         "xmax": 0.99,
         "ymin": -0.99,
@@ -17050,7 +17177,7 @@
           "h": 3800,
           "clip": true,
           "follower": {
-            "type": 2,
+            "type": 0,
             "ax": 0,
             "ay": 0
           },
@@ -17066,7 +17193,7 @@
           "h": 1786,
           "clip": true,
           "follower": {
-            "type": 2,
+            "type": 0,
             "ax": 0,
             "ay": 0
           },
@@ -17082,7 +17209,7 @@
           "h": 1162.56,
           "clip": true,
           "follower": {
-            "type": 2,
+            "type": 0,
             "ax": 0,
             "ay": 0
           },
@@ -17098,7 +17225,7 @@
           "h": 352,
           "clip": true,
           "follower": {
-            "type": 2,
+            "type": 0,
             "ax": 0,
             "ay": 0
           },
@@ -17114,7 +17241,7 @@
           "h": 369.2,
           "clip": true,
           "follower": {
-            "type": 2,
+            "type": 0,
             "ax": 0,
             "ay": 0
           },
@@ -17133,7 +17260,7 @@
           "h": 315.4,
           "clip": true,
           "follower": {
-            "type": 2,
+            "type": 0,
             "ax": 0,
             "ay": 0
           },
@@ -17149,7 +17276,7 @@
           "h": 275.6,
           "clip": true,
           "follower": {
-            "type": 2,
+            "type": 0,
             "ax": 0,
             "ay": 0
           },
@@ -17165,9 +17292,9 @@
           "h": 104.52,
           "clip": false,
           "follower": {
-            "type": 1,
-            "ax": 5,
-            "ay": -20
+            "type": 0,
+            "ax": 0,
+            "ay": 0
           },
           "z": -120,
           "depth": -120
@@ -18297,9 +18424,9 @@
           "h": 127.92,
           "clip": false,
           "follower": {
-            "type": 1,
-            "ax": 5,
-            "ay": -20
+            "type": 0,
+            "ax": 0,
+            "ay": 0
           },
           "z": -120,
           "depth": -120
@@ -18726,8 +18853,8 @@
         {
           "file": "gyro_4024_Bg",
           "path": "chars/4024/4024_p/overlays/gyro_4024_Bg.png",
-          "x": 0,
-          "y": 0,
+          "x": -331.98,
+          "y": 127.01,
           "w": 5367.17,
           "h": 3800,
           "clip": true,
@@ -18736,14 +18863,17 @@
             "ax": 0,
             "ay": 0
           },
-          "z": 3000,
-          "depth": 3000
+          "z": 2978.87,
+          "depth": 2978.87,
+          "rx": 0.043,
+          "ry": -0.111,
+          "rz": 0.005
         },
         {
           "file": "gyro_4024_YuanWei",
           "path": "chars/4024/4024_p/overlays/gyro_4024_YuanWei.png",
-          "x": -130,
-          "y": -590,
+          "x": -397.55,
+          "y": -487.86,
           "w": 264,
           "h": 276,
           "clip": true,
@@ -18752,17 +18882,17 @@
             "ax": 0,
             "ay": 0
           },
-          "z": 2400,
-          "depth": 2400,
-          "rx": 0,
-          "ry": 0.087,
-          "rz": 0
+          "z": 2393.52,
+          "depth": 2393.52,
+          "rx": 0.042,
+          "ry": -0.024,
+          "rz": 0.005
         },
         {
           "file": "gyro_4024_HuPo",
           "path": "chars/4024/4024_p/overlays/gyro_4024_HuPo.png",
-          "x": -915,
-          "y": -40,
+          "x": -1130.88,
+          "y": 44.71,
           "w": 996.4,
           "h": 1166,
           "clip": true,
@@ -18771,14 +18901,17 @@
             "ax": 0,
             "ay": 0
           },
-          "z": 2000,
-          "depth": 2000
+          "z": 1886.25,
+          "depth": 1886.25,
+          "rx": 0.043,
+          "ry": -0.111,
+          "rz": 0.005
         },
         {
           "file": "gyro_4024_Ground",
           "path": "chars/4024/4024_p/overlays/gyro_4024_Ground.png",
-          "x": -680,
-          "y": 704.2,
+          "x": -838.5,
+          "y": 767.08,
           "w": 1780.8,
           "h": 1208.4,
           "clip": true,
@@ -18787,14 +18920,17 @@
             "ax": 0,
             "ay": 0
           },
-          "z": 1500,
-          "depth": 1500
+          "z": 1384.49,
+          "depth": 1384.49,
+          "rx": 0.043,
+          "ry": -0.111,
+          "rz": 0.005
         },
         {
           "file": "gyro_4024_ChenSha",
           "path": "chars/4024/4024_p/overlays/gyro_4024_ChenSha.png",
-          "x": 190,
-          "y": 5,
+          "x": 127.99,
+          "y": 28.28,
           "w": 1095,
           "h": 1375,
           "clip": true,
@@ -18803,17 +18939,17 @@
             "ax": 0,
             "ay": 0
           },
-          "z": 550,
-          "depth": 550,
-          "rx": 0,
-          "ry": 0.262,
-          "rz": 0
+          "z": 566.96,
+          "depth": 566.96,
+          "rx": 0.041,
+          "ry": 0.151,
+          "rz": 0.005
         },
         {
           "file": "gyro_4024_Eff",
           "path": "chars/4024/4024_p/overlays/gyro_4024_Eff.png",
-          "x": -30,
-          "y": 195,
+          "x": -84.23,
+          "y": 215.99,
           "w": 1336,
           "h": 1272.07,
           "clip": true,
@@ -18822,17 +18958,17 @@
             "ax": 0,
             "ay": 0
           },
-          "z": 500,
-          "depth": 500,
-          "rx": 0.524,
-          "ry": 0,
-          "rz": 0
+          "z": 484.95,
+          "depth": 484.95,
+          "rx": 0.569,
+          "ry": -0.094,
+          "rz": 0.06
         },
         {
           "file": "gyro_4024_RainBow",
           "path": "chars/4024/4024_p/overlays/gyro_4024_RainBow.png",
-          "x": 440,
-          "y": -415,
+          "x": 382.23,
+          "y": -394.31,
           "w": 668,
           "h": 508,
           "clip": true,
@@ -18841,9 +18977,12 @@
             "ax": 0,
             "ay": 0
           },
-          "z": 480,
-          "depth": 480,
-          "blend": "add"
+          "z": 542.82,
+          "depth": 542.82,
+          "blend": "add",
+          "rx": 0.043,
+          "ry": -0.111,
+          "rz": 0.005
         },
         {
           "file": "gyro_4024_Title_Down",
@@ -19025,7 +19164,7 @@
           "h": 3815.2,
           "clip": true,
           "follower": {
-            "type": 2,
+            "type": 0,
             "ax": 0,
             "ay": 0
           },
@@ -19041,7 +19180,7 @@
           "h": 2309.2,
           "clip": true,
           "follower": {
-            "type": 2,
+            "type": 0,
             "ax": 0,
             "ay": 0
           },
@@ -19057,7 +19196,7 @@
           "h": 1222.4,
           "clip": true,
           "follower": {
-            "type": 2,
+            "type": 0,
             "ax": 0,
             "ay": 0
           },
@@ -19076,7 +19215,7 @@
           "h": 1008.8,
           "clip": true,
           "follower": {
-            "type": 2,
+            "type": 0,
             "ax": 0,
             "ay": 0
           },
@@ -19092,7 +19231,7 @@
           "h": 1100,
           "clip": true,
           "follower": {
-            "type": 2,
+            "type": 0,
             "ax": 0,
             "ay": 0
           },
@@ -19111,7 +19250,7 @@
           "h": 722.88,
           "clip": true,
           "follower": {
-            "type": 2,
+            "type": 0,
             "ax": 0,
             "ay": 0
           },
@@ -20603,7 +20742,7 @@
           "h": 3800,
           "clip": true,
           "follower": {
-            "type": 2,
+            "type": 0,
             "ax": 0,
             "ay": 0
           },
@@ -20719,9 +20858,9 @@
           "h": 212.8,
           "clip": false,
           "follower": {
-            "type": 1,
-            "ax": 5,
-            "ay": -20
+            "type": 0,
+            "ax": 0,
+            "ay": 0
           },
           "z": -150,
           "depth": -150
@@ -20771,9 +20910,9 @@
           "h": 3514,
           "clip": true,
           "follower": {
-            "type": 2,
-            "ax": 3,
-            "ay": -15
+            "type": 0,
+            "ax": 0,
+            "ay": 0
           },
           "z": 3000,
           "depth": 3000
@@ -20935,9 +21074,9 @@
           "h": 644.8,
           "clip": true,
           "follower": {
-            "type": 2,
-            "ax": 5,
-            "ay": -15
+            "type": 0,
+            "ax": 0,
+            "ay": 0
           },
           "z": 2500,
           "depth": 2500,
@@ -20954,9 +21093,9 @@
           "h": 1420.08,
           "clip": true,
           "follower": {
-            "type": 2,
-            "ax": 5,
-            "ay": -15
+            "type": 0,
+            "ax": 0,
+            "ay": 0
           },
           "z": 1800,
           "depth": 1800
@@ -20970,9 +21109,9 @@
           "h": 1464.4,
           "clip": true,
           "follower": {
-            "type": 2,
-            "ax": 5,
-            "ay": -15
+            "type": 0,
+            "ax": 0,
+            "ay": 0
           },
           "z": 1000,
           "depth": 1000
@@ -20986,9 +21125,9 @@
           "h": 980,
           "clip": true,
           "follower": {
-            "type": 2,
-            "ax": 5,
-            "ay": -15
+            "type": 0,
+            "ax": 0,
+            "ay": 0
           },
           "z": 500,
           "depth": 500,
@@ -21005,9 +21144,9 @@
           "h": 904.53,
           "clip": true,
           "follower": {
-            "type": 2,
-            "ax": 5,
-            "ay": -15
+            "type": 0,
+            "ax": 0,
+            "ay": 0
           },
           "z": 169.03,
           "depth": 169.03,
@@ -21459,9 +21598,9 @@
           "h": 3000,
           "clip": true,
           "follower": {
-            "type": 2,
-            "ax": 3,
-            "ay": -5
+            "type": 0,
+            "ax": 0,
+            "ay": 0
           },
           "z": 2533,
           "depth": 2533,
@@ -21674,7 +21813,7 @@
       },
       "parallax": {
         "ax": 5,
-        "ay": -15,
+        "ay": -25,
         "xmin": -0.99,
         "xmax": 0.99,
         "ymin": -0.99,
@@ -21701,9 +21840,9 @@
           "h": 3600,
           "clip": true,
           "follower": {
-            "type": 2,
-            "ax": 5,
-            "ay": -15
+            "type": 0,
+            "ax": 0,
+            "ay": 0
           },
           "z": 3000,
           "depth": 3000
@@ -21717,9 +21856,9 @@
           "h": 1566,
           "clip": true,
           "follower": {
-            "type": 2,
-            "ax": 5,
-            "ay": -15
+            "type": 0,
+            "ax": 0,
+            "ay": 0
           },
           "z": 2500,
           "depth": 2500
@@ -21733,9 +21872,9 @@
           "h": 2700,
           "clip": true,
           "follower": {
-            "type": 2,
-            "ax": 5,
-            "ay": -15
+            "type": 0,
+            "ax": 0,
+            "ay": 0
           },
           "z": 2300,
           "depth": 2300
@@ -21749,9 +21888,9 @@
           "h": 1476.19,
           "clip": true,
           "follower": {
-            "type": 2,
-            "ax": 5,
-            "ay": -15
+            "type": 0,
+            "ax": 0,
+            "ay": 0
           },
           "z": 694.8,
           "depth": 694.8,
@@ -21768,9 +21907,9 @@
           "h": 1467,
           "clip": true,
           "follower": {
-            "type": 2,
-            "ax": 5,
-            "ay": -15
+            "type": 0,
+            "ax": 0,
+            "ay": 0
           },
           "z": 1500,
           "depth": 1500
@@ -21784,9 +21923,9 @@
           "h": 597.4,
           "clip": true,
           "follower": {
-            "type": 2,
-            "ax": 5,
-            "ay": -15
+            "type": 0,
+            "ax": 0,
+            "ay": 0
           },
           "z": 1000,
           "depth": 1000
@@ -21800,9 +21939,9 @@
           "h": 643.8,
           "clip": true,
           "follower": {
-            "type": 2,
-            "ax": 5,
-            "ay": -15
+            "type": 0,
+            "ax": 0,
+            "ay": 0
           },
           "z": 800,
           "depth": 800
@@ -21816,9 +21955,9 @@
           "h": 782.8,
           "clip": true,
           "follower": {
-            "type": 2,
-            "ax": 5,
-            "ay": -15
+            "type": 0,
+            "ax": 0,
+            "ay": 0
           },
           "z": 400,
           "depth": 400
@@ -21832,9 +21971,9 @@
           "h": 331.35,
           "clip": true,
           "follower": {
-            "type": 2,
-            "ax": 5,
-            "ay": -15
+            "type": 0,
+            "ax": 0,
+            "ay": 0
           },
           "z": 300,
           "depth": 300
@@ -21848,9 +21987,9 @@
           "h": 109.44,
           "clip": false,
           "follower": {
-            "type": 1,
-            "ax": 5,
-            "ay": -15
+            "type": 0,
+            "ax": 0,
+            "ay": 0
           },
           "z": -200,
           "depth": -200
@@ -21864,9 +22003,9 @@
           "h": 31.2,
           "clip": false,
           "follower": {
-            "type": 1,
-            "ax": 5,
-            "ay": -15
+            "type": 0,
+            "ax": 0,
+            "ay": 0
           },
           "z": -120,
           "depth": -120
@@ -22299,9 +22438,9 @@
           "h": 3650,
           "clip": true,
           "follower": {
-            "type": 2,
-            "ax": 3,
-            "ay": -8
+            "type": 0,
+            "ax": 0,
+            "ay": 0
           },
           "z": 3350,
           "depth": 3350
@@ -22414,50 +22553,59 @@
         {
           "file": "gyro_4047_title",
           "path": "chars/4047/4047_p/overlays/gyro_4047_title.png",
-          "x": -109.8,
-          "y": 210.6,
+          "x": -116.75,
+          "y": 220.78,
           "w": 296.4,
           "h": 123.12,
           "clip": false,
           "follower": {
-            "type": 1,
-            "ax": 3,
-            "ay": -8
+            "type": 0,
+            "ax": 0,
+            "ay": 0
           },
-          "z": -200,
-          "depth": -200
+          "z": -184.49,
+          "depth": -184.49,
+          "rx": -0.052,
+          "ry": 0.037,
+          "rz": 0.002
         },
         {
           "file": "gyro_4047_lefttitle",
           "path": "chars/4047/4047_p/overlays/gyro_4047_lefttitle.png",
-          "x": -217.8,
-          "y": -274,
+          "x": -222.64,
+          "y": -267.34,
           "w": 145.6,
           "h": 39,
           "clip": false,
           "follower": {
-            "type": 1,
-            "ax": 3,
-            "ay": -8
+            "type": 0,
+            "ax": 0,
+            "ay": 0
           },
-          "z": -120,
-          "depth": -120
+          "z": -125.97,
+          "depth": -125.97,
+          "rx": -0.052,
+          "ry": 0.037,
+          "rz": 0.002
         },
         {
           "file": "gyro_4047_righttitle",
           "path": "chars/4047/4047_p/overlays/gyro_4047_righttitle.png",
-          "x": 226.9,
-          "y": -283,
+          "x": 226.19,
+          "y": -282.61,
           "w": 249,
           "h": 144,
           "clip": false,
           "follower": {
-            "type": 1,
-            "ax": 3,
-            "ay": -8
+            "type": 0,
+            "ax": 0,
+            "ay": 0
           },
-          "z": 0,
-          "depth": 0
+          "z": -23.25,
+          "depth": -23.25,
+          "rx": -0.052,
+          "ry": 0.037,
+          "rz": 0.002
         }
       ]
     }
@@ -22476,8 +22624,8 @@
         "y": 0
       },
       "parallax": {
-        "ax": 3,
-        "ay": -15,
+        "ax": 5,
+        "ay": -25,
         "xmin": -0.99,
         "xmax": 0.99,
         "ymin": -0.99,
@@ -22504,9 +22652,9 @@
           "h": 3400,
           "clip": true,
           "follower": {
-            "type": 2,
-            "ax": 3,
-            "ay": -15
+            "type": 0,
+            "ax": 0,
+            "ay": 0
           },
           "z": 3000,
           "depth": 3000
@@ -22520,9 +22668,9 @@
           "h": 1556.03,
           "clip": true,
           "follower": {
-            "type": 2,
-            "ax": 3,
-            "ay": -15
+            "type": 0,
+            "ax": 0,
+            "ay": 0
           },
           "z": 2322.19,
           "depth": 2322.19,
@@ -22539,9 +22687,9 @@
           "h": 1470.32,
           "clip": true,
           "follower": {
-            "type": 2,
-            "ax": 3,
-            "ay": -15
+            "type": 0,
+            "ax": 0,
+            "ay": 0
           },
           "z": 2200,
           "depth": 2200
@@ -22555,9 +22703,9 @@
           "h": 3148.91,
           "clip": true,
           "follower": {
-            "type": 2,
-            "ax": 3,
-            "ay": -15
+            "type": 0,
+            "ax": 0,
+            "ay": 0
           },
           "z": 2000,
           "depth": 2000,
@@ -22574,9 +22722,9 @@
           "h": 2911.6,
           "clip": true,
           "follower": {
-            "type": 2,
-            "ax": 3,
-            "ay": -15
+            "type": 0,
+            "ax": 0,
+            "ay": 0
           },
           "z": 2000,
           "depth": 2000,
@@ -22593,9 +22741,9 @@
           "h": 1880,
           "clip": true,
           "follower": {
-            "type": 2,
-            "ax": 3,
-            "ay": -15
+            "type": 0,
+            "ax": 0,
+            "ay": 0
           },
           "z": 1500,
           "depth": 1500
@@ -22609,9 +22757,9 @@
           "h": 551,
           "clip": true,
           "follower": {
-            "type": 2,
-            "ax": 3,
-            "ay": -15
+            "type": 0,
+            "ax": 0,
+            "ay": 0
           },
           "z": 950,
           "depth": 950
@@ -22625,9 +22773,9 @@
           "h": 609,
           "clip": true,
           "follower": {
-            "type": 2,
-            "ax": 3,
-            "ay": -15
+            "type": 0,
+            "ax": 0,
+            "ay": 0
           },
           "z": 824.1,
           "depth": 824.1,
@@ -22644,9 +22792,9 @@
           "h": 214.6,
           "clip": true,
           "follower": {
-            "type": 2,
-            "ax": 3,
-            "ay": -15
+            "type": 0,
+            "ax": 0,
+            "ay": 0
           },
           "z": 824.1,
           "depth": 824.1,
@@ -22663,9 +22811,9 @@
           "h": 230.4,
           "clip": true,
           "follower": {
-            "type": 2,
-            "ax": 3,
-            "ay": -15
+            "type": 0,
+            "ax": 0,
+            "ay": 0
           },
           "z": 936.74,
           "depth": 936.74,
@@ -22682,9 +22830,9 @@
           "h": 634.4,
           "clip": true,
           "follower": {
-            "type": 2,
-            "ax": 3,
-            "ay": -15
+            "type": 0,
+            "ax": 0,
+            "ay": 0
           },
           "z": 680,
           "depth": 680,
@@ -22701,9 +22849,9 @@
           "h": 201.6,
           "clip": true,
           "follower": {
-            "type": 2,
-            "ax": 3,
-            "ay": -15
+            "type": 0,
+            "ax": 0,
+            "ay": 0
           },
           "z": 824.1,
           "depth": 824.1,
@@ -22720,9 +22868,9 @@
           "h": 768,
           "clip": true,
           "follower": {
-            "type": 2,
-            "ax": 3,
-            "ay": -15
+            "type": 0,
+            "ax": 0,
+            "ay": 0
           },
           "z": 500,
           "depth": 500,
@@ -22739,9 +22887,9 @@
           "h": 448.56,
           "clip": true,
           "follower": {
-            "type": 2,
-            "ax": 3,
-            "ay": -15
+            "type": 0,
+            "ax": 0,
+            "ay": 0
           },
           "z": 734.3,
           "depth": 734.3,
@@ -22758,9 +22906,9 @@
           "h": 348.4,
           "clip": true,
           "follower": {
-            "type": 2,
-            "ax": 3,
-            "ay": -15
+            "type": 0,
+            "ax": 0,
+            "ay": 0
           },
           "z": 600,
           "depth": 600,
@@ -22777,9 +22925,9 @@
           "h": 216,
           "clip": true,
           "follower": {
-            "type": 2,
-            "ax": 3,
-            "ay": -15
+            "type": 0,
+            "ax": 0,
+            "ay": 0
           },
           "z": 306.9,
           "depth": 306.9,
@@ -22796,9 +22944,9 @@
           "h": 1000,
           "clip": true,
           "follower": {
-            "type": 2,
-            "ax": 3,
-            "ay": -15
+            "type": 0,
+            "ax": 0,
+            "ay": 0
           },
           "z": 350,
           "depth": 350,
@@ -22815,9 +22963,9 @@
           "h": 496.13,
           "clip": true,
           "follower": {
-            "type": 2,
-            "ax": 3,
-            "ay": -15
+            "type": 0,
+            "ax": 0,
+            "ay": 0
           },
           "z": 150,
           "depth": 150,
@@ -22834,9 +22982,9 @@
           "h": 138.6,
           "clip": false,
           "follower": {
-            "type": 1,
-            "ax": 3,
-            "ay": -15
+            "type": 0,
+            "ax": 0,
+            "ay": 0
           },
           "z": -200,
           "depth": -200
@@ -22850,9 +22998,9 @@
           "h": 26,
           "clip": false,
           "follower": {
-            "type": 1,
-            "ax": 3,
-            "ay": -15
+            "type": 0,
+            "ax": 0,
+            "ay": 0
           },
           "z": -120,
           "depth": -120
@@ -23638,10 +23786,10 @@
         {
           "file": "gyro_4051_bg",
           "path": "chars/4051/4051_p/overlays/gyro_4051_bg.png",
-          "x": -41.3,
-          "y": -13.7,
-          "w": 5017.6,
-          "h": 3871,
+          "x": -94.9,
+          "y": 4.9,
+          "w": 5091.47,
+          "h": 3604.8,
           "clip": true,
           "follower": {
             "type": 2,
