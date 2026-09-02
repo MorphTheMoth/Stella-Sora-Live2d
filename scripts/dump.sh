@@ -44,6 +44,7 @@ set -euo pipefail
 GAME=""
 CLI="${ASSETSTUDIO_CLI:-/home/morph/ssassets/assetStudioMod/AssetStudioModCLI.dll}"
 ALL=0
+FORCE=0
 SKIN=""
 BOARD_NPC=""
 SKIN_NAMES=""
@@ -51,6 +52,8 @@ CHAR_NAMES=""
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
 TMP="$ROOT/.dump_tmp"
+CACHE_FILE="$TMP/dump.cache.json"
+CACHE_HITS=0
 DATAMINE="$ROOT/../StellaSoraData Makostar"
 
 while [[ $# -gt 0 ]]; do
@@ -63,9 +66,118 @@ while [[ $# -gt 0 ]]; do
     --skin-names) SKIN_NAMES="$2"; shift 2 ;;
     --char-names) CHAR_NAMES="$2"; shift 2 ;;
     --datamine) DATAMINE="$2"; shift 2 ;;
+    --force|-f) FORCE=1; shift ;;
     *) echo "unknown arg: $1"; exit 1 ;;
   esac
 done
+
+# --- Incremental cache (mtime+size, like bruteForceOthers.mjs) -----------------
+# Cache file: .dump_tmp/dump.cache.json  {version:1, entries:{path:{mtimeMs,size,live2d_ok,live2d_cnt,bg_ok,disc_ok,offset_ok,charbg_ok}}}
+# Skips dotnet exports for unchanged bundles; --force / -f ignores cache.
+cache_ensure() {
+  mkdir -p "$(dirname "$CACHE_FILE")"
+  if [[ ! -f "$CACHE_FILE" ]]; then
+    echo '{"version":1,"entries":{}}' > "$CACHE_FILE"
+  fi
+  python3 - "$CACHE_FILE" <<'__PYCACHE__'
+import json, sys
+p=sys.argv[1]
+try:
+  with open(p) as f: d=json.load(f)
+  if d.get("version")!=1 or not isinstance(d.get("entries"), dict):
+    raise ValueError
+except Exception:
+  with open(p,"w") as f: json.dump({"version":1,"entries":{}}, f, indent=2)
+__PYCACHE__
+}
+
+cache_hit() {
+  local file="$1"
+  local stage="$2"
+  local expect="${3:-}"
+  if [[ "$FORCE" -eq 1 ]]; then return 1; fi
+  python3 - "$CACHE_FILE" "$file" "$stage" "$expect" <<'__PYCACHE__'
+import json, os, sys
+cache, file, stage, expect = sys.argv[1], sys.argv[2], sys.argv[3], sys.argv[4] if len(sys.argv)>4 else ""
+try:
+  st=os.stat(file)
+  mtimeMs=int(st.st_mtime*1000)
+  size=st.st_size
+except: sys.exit(1)
+try:
+  with open(cache) as f: d=json.load(f)
+except: sys.exit(1)
+e=d.get("entries",{}).get(file)
+if not e: sys.exit(1)
+# per-stage mtime/size (like bruteForceOthers but per-stage to avoid cross-stage false hits)
+if e.get(stage+"_mtimeMs")!=mtimeMs or e.get(stage+"_size")!=size: sys.exit(1)
+if not e.get(stage+"_ok"): sys.exit(1)
+if expect and expect!="-" and expect!="":
+  if stage=="live2d" and e.get("live2d_cnt",0)==0:
+    sys.exit(0)
+  if not os.path.exists(expect):
+    sys.exit(1)
+sys.exit(0)
+__PYCACHE__
+}
+
+cache_mark() {
+  local file="$1"
+  local stage="$2"
+  local cnt="${3:-0}"
+  python3 - "$CACHE_FILE" "$file" "$stage" "$cnt" <<'__PYCACHE__'
+import json, os, sys, pathlib
+cache, file, stage, cnt = sys.argv[1], sys.argv[2], sys.argv[3], sys.argv[4] if len(sys.argv)>4 else "0"
+try:
+  st=os.stat(file)
+  mtimeMs=int(st.st_mtime*1000)
+  size=st.st_size
+except: sys.exit(0)
+try:
+  with open(cache) as f: d=json.load(f)
+except:
+  d={"version":1,"entries":{}}
+if "entries" not in d or not isinstance(d["entries"], dict):
+  d={"version":1,"entries":{}}
+e=d["entries"].get(file, {})
+# per-stage mtime/size so updating one stage doesn't falsely validate another (fix for shared mtime bug)
+e[stage+"_mtimeMs"]=mtimeMs
+e[stage+"_size"]=size
+# also keep legacy shared keys for pruning/display but stage keys are authoritative
+e["mtimeMs"]=mtimeMs
+e["size"]=size
+e[stage+"_ok"]=True
+if stage=="live2d":
+  try: e["live2d_cnt"]=int(cnt)
+  except: e["live2d_cnt"]=0
+d["entries"][file]=e
+p=pathlib.Path(cache)
+tmp=str(p)+".tmp"
+with open(tmp,"w") as f: json.dump(d,f,indent=2)
+os.rename(tmp, cache)
+__PYCACHE__
+}
+
+cache_prune() {
+  python3 - "$CACHE_FILE" <<'__PYCACHE__'
+import json, os, sys
+cache=sys.argv[1]
+try:
+  with open(cache) as f: d=json.load(f)
+except: sys.exit(0)
+entries=d.get("entries",{})
+keep={}
+for k,v in entries.items():
+  if os.path.exists(k):
+    keep[k]=v
+if len(keep)!=len(entries):
+  d["entries"]=keep
+  tmp=cache+".tmp"
+  with open(tmp,"w") as f: json.dump(d,f,indent=2)
+  os.rename(tmp,cache)
+  print(f"Pruned {len(entries)-len(keep)} stale cache entries", file=sys.stderr)
+__PYCACHE__
+}
 
 if [[ -z "$GAME" ]]; then
   LINK="$ROOT/../Link to YostarGames/StellaSora_EN"
@@ -96,6 +208,13 @@ echo "Skin names: ${SKIN_NAMES:-<none found>}"
 echo "Char names: ${CHAR_NAMES:-<none found>}"
 
 mkdir -p "$TMP/live2d" "$TMP/raw" "$ROOT/chars"
+# Incremental cache init (like bruteForceOthers.mjs)
+cache_ensure
+if [[ -f "$CACHE_FILE" ]]; then
+  _cache_n=$(python3 -c "import json; print(len(json.load(open('$CACHE_FILE')).get('entries',{})))" 2>/dev/null || echo 0)
+  if [[ "$_cache_n" -gt 0 ]]; then echo "Cache: $_cache_n entries from $CACHE_FILE"; fi
+  if [[ "$FORCE" -eq 1 ]]; then echo "Force mode: ignoring cache"; fi
+fi
 # Keep existing chars/data - only override, never delete old entries (e.g. removed bundles stay visible)
 
 # Collect the bundle list
@@ -134,6 +253,16 @@ mkdir -p "$TMP/chars_avg"
 for bundle in "${BUNDLES[@]}"; do
   base="$(basename "$bundle" .unity3d)"
   echo "=== $base ==="
+  # incremental cache: skip unchanged live2d bundles
+  _live_expect="-"
+  if [[ "$base" == char_l2d_* ]]; then _live_expect="$ROOT/chars/${base#char_l2d_}"; fi
+  # char_avg / npc / disc variants use TMP staging; check live2d output dir instead of final chars
+  # sprite-only bundles have cnt==0 so expect check is bypassed inside cache_hit
+  if cache_hit "$bundle" "live2d" "$_live_expect"; then
+    echo "  cached (unchanged) — skipping live2d"
+    CACHE_HITS=$((CACHE_HITS+1))
+    continue
+  fi
   # avg-derived models are staged separately: they duplicate the _l/_lf
   # variants already extracted (richer) from char_l2d bundles for released
   # characters, and only the ids without a char_l2d source are merged below.
@@ -160,6 +289,8 @@ for bundle in "${BUNDLES[@]}"; do
       --live2d "$out_l2d" --raw "$out_raw" --out "$stage" \
       || echo "  normalize FAILED"
   fi
+  _cnt=$(find "$out_l2d" -name '*.model3.json' 2>/dev/null | wc -l | tr -d ' ')
+  cache_mark "$bundle" "live2d" "$_cnt"
 done
 
 # Merge avg-staged models in: only characters that have no char_l2d-derived
@@ -193,6 +324,12 @@ for bundle in "${BUNDLES[@]}"; do
   base="$(basename "$bundle" .unity3d)"
   # avg prefabs are plain model rigs — no ----bg---- scene layers to compose
   [[ "$base" == char_avg_2d_* ]] && continue
+  if cache_hit "$bundle" "bg" "$BGDIR/$base/compositions.json"; then
+    echo "=== $base (bg) ==="
+    echo "  cached (unchanged) — skipping bg dump"
+    CACHE_HITS=$((CACHE_HITS+1))
+    continue
+  fi
   echo "=== $base (bg) ==="
   out_bg="$BGDIR/$base"
   out_tex="$TEXDIR/$base"
@@ -219,6 +356,7 @@ for bundle in "${BUNDLES[@]}"; do
       -t texture2d -o "$out_tex" --image-format png >/dev/null 2>&1; then
     echo "  texture export FAILED"
   fi
+  cache_mark "$bundle" "bg" 0
 done
 
 if [[ ${#BG_FAILED[@]} -gt 0 ]]; then
@@ -346,6 +484,11 @@ for dir in "$INSTALL_RESOURCE" "$PERSISTENT"; do
     if [[ -d "$DISC_OV/dump/$base" && "$dir" == "$INSTALL_RESOURCE" && -f "$PERSISTENT/$base.unity3d" ]]; then
       continue
     fi
+    if cache_hit "$f" "disc" "$DISC_OV/dump/$base"; then
+      echo "  cached (unchanged) — skipping disc $base"
+      CACHE_HITS=$((CACHE_HITS+1))
+      continue
+    fi
     out_dump="$DISC_OV/dump/$base"
     out_img="$DISC_OV/img/$base"
     out_tex="$DISC_OV/tex/$base"
@@ -378,6 +521,7 @@ for dir in "$INSTALL_RESOURCE" "$PERSISTENT"; do
   # Texture PNGs
   DOTNET_ROLL_FORWARD=Major dotnet "$CLI" "$f" -m export \
     -t texture2d -o "$out_png" --image-format png >/dev/null 2>&1 || true
+  cache_mark "$f" "disc" 0
   done
 done
 node "$SCRIPT_DIR/extractDiscParallax.mjs" \
@@ -410,15 +554,25 @@ for dir in "$INSTALL_RESOURCE" "$PERSISTENT"; do
     [[ -f "$f" ]] || continue
     base="$(basename "$f" .unity3d)"
     id="${base#char_2d_}"
+    if cache_hit "$f" "offset" "$OFFDIR/$id"; then
+      CACHE_HITS=$((CACHE_HITS+1))
+      continue
+    fi
     out="$OFFDIR/$id"
     mkdir -p "$out"
     DOTNET_ROLL_FORWARD=Major dotnet "$CLI" "$f" -m export -t monoBehaviour \
       --filter-by-name "$id" -o "$out" >/dev/null 2>&1 || true
+    cache_mark "$f" "offset" 0
   done
 done
+# count offset cache hits silently (too many to log per file)
 node "$SCRIPT_DIR/generateOffset.mjs" \
   --src "$OFFDIR" \
   --out "$ROOT/data/offset.json" || true
+
+# Prune stale cache entries (bundles that no longer exist)
+cache_prune || true
+if [[ "$CACHE_HITS" -gt 0 ]]; then echo "Cache hits: $CACHE_HITS (skipped unchanged bundles)"; fi
 
 echo ""
 echo "Done. Models written directly to:"

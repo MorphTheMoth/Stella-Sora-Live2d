@@ -32,6 +32,9 @@ bash scripts/dump.sh --game "$GAME" --all
 # also rebuild CharBg backdrops (bg/charbg/ + data/charbg.json) from CharacterSkin.Bg
 bash scripts/dump.sh --game "$GAME" --skin "/path/to/datamine/EN/bin/CharacterSkin.json"
 
+# force re-extract even if cache says unchanged
+bash scripts/dump.sh --game "$GAME" --force
+
 # fully explicit (game + datamine tables)
 bash scripts/dump.sh \
   --game "/home/morph/stella sora meter/Link to YostarGames/StellaSora_EN" \
@@ -42,6 +45,8 @@ bash scripts/dump.sh \
 `--datamine` auto-resolves the three name tables (`BoardNPC.json`, `CharacterSkin.json`, `Character.json`) from `EN/language/en_US`; you only need to pass them by hand when the datamine is elsewhere.
 
 The script is additive: existing `chars/`/`data/` entries that vanished from the game stay visible (never deleted, only overwritten/appended).
+
+`dump.sh` caches per-bundle `mtime`+`size` in `.dump_tmp/dump.cache.json` (like `bruteForceOthers.mjs`) per-stage (`live2d`/`bg`/`disc`/`offset`). Unchanged bundles skip `dotnet` exports; modified/new bundles are re-extracted. Use `--force`/`-f` to ignore the cache, or delete `.dump_tmp/dump.cache.json`. Stale entries are pruned automatically. Manifest/regeneration steps still run every time even on cache hits so `data/*.json` stays consistent.
 
 ---
 
@@ -113,7 +118,7 @@ git add chars/
 git commit -m "data: re-dump for <game version> (<date>)"
 ```
 
-`.dump_tmp/` and the brute-force cache (`.dump_tmp/brute_others.cache.json`) are gitignored and not committed.
+`.dump_tmp/` and the caches (`.dump_tmp/dump.cache.json`, `.dump_tmp/brute_others.cache.json`) are gitignored and not committed.
 
 ---
 
