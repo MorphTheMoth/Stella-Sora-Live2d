@@ -6100,8 +6100,8 @@
       {
         "file": "gyro_4023_bucket_01",
         "path": "chars/4023/4023_p/overlays/gyro_4023_bucket_01.png",
-        "x": -12,
-        "y": 298,
+        "x": 4.05,
+        "y": 347.2,
         "w": 252,
         "h": 204,
         "clip": true,

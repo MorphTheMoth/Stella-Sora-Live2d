@@ -749,9 +749,6 @@ function main() {
       const file = texName.replace(/\//g, '_');
       const dest = path.join(ovDir, file + '.png');
       fs.copyFileSync(src, dest);
-      if (id === '4023' && file.includes('bucket_01')) {
-        l.x = -12; l.y = -298;
-      }
 
       const hasStaticRot = Math.abs(l.rx) > 0.001 || Math.abs(l.ry) > 0.001 || Math.abs(l.rz) > 0.001;
       layers.push({
