@@ -4120,7 +4120,7 @@
       },
       {
         "name": "12003_l",
-        "label": "Unknown",
+        "label": "The Formula for Victory",
         "path": "chars/12003/12003_l/12003_L.model3.json",
         "bg": [
           "chars/12003/12003_l/bg/12003_live2d_ball_001.png",
@@ -12068,19 +12068,6 @@
     ]
   },
   {
-    "id": "avg1_109_a",
-    "name": "avg1_109_a",
-    "kind": "other",
-    "variants": [
-      {
-        "name": "avg1_109_a",
-        "label": "avg1_109_a",
-        "path": "chars/others/avg1_109_a/qingye_CG.model3.json",
-        "bg": []
-      }
-    ]
-  },
-  {
     "id": "avg3_100_a",
     "name": "avg3_100_a",
     "kind": "other",
@@ -12102,6 +12089,32 @@
         "name": "avg3_101_a",
         "label": "avg3_101_a",
         "path": "chars/others/avg3_101_a/avg3_101_a.model3.json",
+        "bg": []
+      }
+    ]
+  },
+  {
+    "id": "createplayer2_F",
+    "name": "createplayer2_F",
+    "kind": "other",
+    "variants": [
+      {
+        "name": "createplayer2_F",
+        "label": "createplayer2_F",
+        "path": "chars/others/createplayer2_F/createplayer2_F.model3.json",
+        "bg": []
+      }
+    ]
+  },
+  {
+    "id": "createplayer2_M",
+    "name": "createplayer2_M",
+    "kind": "other",
+    "variants": [
+      {
+        "name": "createplayer2_M",
+        "label": "createplayer2_M",
+        "path": "chars/others/createplayer2_M/createplayer2_M.model3.json",
         "bg": []
       }
     ]
@@ -12154,84 +12167,6 @@
         "name": "dailyquest_m_l",
         "label": "dailyquest_m_l",
         "path": "chars/others/dailyquest_m_l/dailyquest_m_l.model3.json",
-        "bg": []
-      }
-    ]
-  },
-  {
-    "id": "l2d_daily_female",
-    "name": "l2d_daily_female",
-    "kind": "other",
-    "variants": [
-      {
-        "name": "l2d_daily_female",
-        "label": "l2d_daily_female",
-        "path": "chars/others/l2d_daily_female/dailyquest_f_l.model3.json",
-        "bg": []
-      }
-    ]
-  },
-  {
-    "id": "l2d_daily_male",
-    "name": "l2d_daily_male",
-    "kind": "other",
-    "variants": [
-      {
-        "name": "l2d_daily_male",
-        "label": "l2d_daily_male",
-        "path": "chars/others/l2d_daily_male/dailyquest_m_l.model3.json",
-        "bg": []
-      }
-    ]
-  },
-  {
-    "id": "l2d_tour_female",
-    "name": "l2d_tour_female",
-    "kind": "other",
-    "variants": [
-      {
-        "name": "l2d_tour_female",
-        "label": "l2d_tour_female",
-        "path": "chars/others/l2d_tour_female/tourguide_f_l.model3.json",
-        "bg": []
-      }
-    ]
-  },
-  {
-    "id": "l2d_tour_male",
-    "name": "l2d_tour_male",
-    "kind": "other",
-    "variants": [
-      {
-        "name": "l2d_tour_male",
-        "label": "l2d_tour_male",
-        "path": "chars/others/l2d_tour_male/tourguide_m_l.model3.json",
-        "bg": []
-      }
-    ]
-  },
-  {
-    "id": "l2d_weekly_female",
-    "name": "l2d_weekly_female",
-    "kind": "other",
-    "variants": [
-      {
-        "name": "l2d_weekly_female",
-        "label": "l2d_weekly_female",
-        "path": "chars/others/l2d_weekly_female/weeklyquest_f_l.model3.json",
-        "bg": []
-      }
-    ]
-  },
-  {
-    "id": "l2d_weekly_male",
-    "name": "l2d_weekly_male",
-    "kind": "other",
-    "variants": [
-      {
-        "name": "l2d_weekly_male",
-        "label": "l2d_weekly_male",
-        "path": "chars/others/l2d_weekly_male/weeklyquest_m_l.model3.json",
         "bg": []
       }
     ]

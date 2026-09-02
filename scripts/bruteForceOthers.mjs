@@ -51,20 +51,40 @@ function getFileStat(file) {
 
 function getAllUnityFiles() {
   // Exhaustive: every .unity3d (and .ab/.bundle if present) under the entire game install
+  // Deduplicate by basename – the same .unity3d (e.g. ui_quest.unity3d, char_2d_10301.unity3d)
+  // exists in both Persistent_Store/AssetBundles and StreamingAssets/InstallResource
+  // (InstallResource is the stale install copy). Prefer Persistent_Store (live) when
+  // both exist, to avoid dumping the same bundle twice and creating duplicate
+  // Others entries like l2d_weekly_female / weeklyquest_f_l which are the same
+  // moc (5f188fbe… – weeklyquest_f_l.moc3) staged under two folder names.
   const roots = [
     '/home/morph/stella sora meter/Link to YostarGames/StellaSora_EN',
   ];
-  const seen = new Set();
-  const files = [];
+  const byBase = new Map(); // basename -> path (Persistent wins)
   for (const root of roots) {
     if (!fs.existsSync(root)) continue;
     const result = spawnSync('find', [root, '-type', 'f', '(', '-name', '*.unity3d', '-o', '-name', '*.ab', '-o', '-name', '*.bundle', ')', '-print0'], { maxBuffer: 20 * 1024 * 1024 });
     if (result.stdout) {
       const list = result.stdout.toString().split('\0').filter(Boolean);
       for (const f of list) {
-        if (!seen.has(f)) { seen.add(f); files.push(f); }
+        const base = path.basename(f);
+        const cur = byBase.get(base);
+        if (!cur) { byBase.set(base, f); continue; }
+        // Prefer Persistent_Store over InstallResource / other copies
+        const isPersistent = f.includes('Persistent_Store');
+        const curIsPersistent = cur.includes('Persistent_Store');
+        if (isPersistent && !curIsPersistent) byBase.set(base, f);
+        // if both persistent or both not, keep first (stable sort will order)
       }
     }
+  }
+  // Prune any remaining duplicates that share the same file identity beyond
+  // basename – e.g. same size+mtime copies that slipped through. Use a secondary
+  // seen set on full path to be safe, but primary dedup is by basename.
+  const seen = new Set();
+  const files = [];
+  for (const f of byBase.values()) {
+    if (!seen.has(f)) { seen.add(f); files.push(f); }
   }
   return files.sort();
 }
@@ -82,7 +102,7 @@ function hasLive2DMarker(file) {
 function runLive2D(file, outDir) {
   fs.mkdirSync(outDir, { recursive: true });
   const env = { ...process.env, DOTNET_ROLL_FORWARD: 'Major' };
-  const result = spawnSync('dotnet', [CLI, file, '-m', 'live2d', '-o', outDir, '--image-format', 'png'], {
+  const result = spawnSync('dotnet', [CLI, file, '-m', 'live2d', '-o', outDir, '--image-format', 'png', '--l2d-group-option', 'modelName'], {
     env,
     timeout: 25000,
     maxBuffer: 10 * 1024 * 1024,
@@ -111,7 +131,7 @@ function stageToOthers(live2dOutDir) {
         const modelName = path.basename(p, '.model3.json'); // e.g. createplayer2_F
         const variant = modelName; // one folder per model, fixes multi-model prefabs like createplayer_bg
         const modelDir = path.dirname(p);
-        // Deduplicate by model file basename, not folder
+        // Deduplicate by model file basename, not folder – check both chars and all others
         let already = false;
         for (const skin of fs.readdirSync(CHARS_DIR)) {
           if (skin === 'others') continue;
@@ -122,17 +142,38 @@ function stageToOthers(live2dOutDir) {
           }
           if (already) break;
         }
-        if (fs.existsSync(path.join(OTHERS_DIR, variant, path.basename(p)))) already = true;
+        if (!already) {
+          // Check all existing Others variants, not just the target variant folder
+          // (e.g. qingye_CG.moc3 already staged as avg1_109_a/qingye_CG.moc3 and
+          // later found as qingye_CG/qingye_CG.moc3 – same file, different folder
+          // name – should be deduped)
+          for (const v of fs.readdirSync(OTHERS_DIR)) {
+            if (fs.existsSync(path.join(OTHERS_DIR, v, path.basename(p)))) { already = true; break; }
+          }
+        }
         if (already) continue;
         const dest = path.join(OTHERS_DIR, variant);
         fs.mkdirSync(dest, { recursive: true });
         // Copy model files + textures/motions relative to modelDir
+        // For multi-model prefabs like createplayer_bg (createplayer2_F/M share
+        // the same directory) we must not duplicate the sibling model's
+        // .moc3/.model3.json into each variant folder — otherwise the
+        // manifest picks the wrong model (F inside M folder). Only copy
+        // files that belong to this variant plus shared assets.
         for (const f of fs.readdirSync(modelDir)) {
           const src = path.join(modelDir, f);
           const dst = path.join(dest, f);
-          if (fs.statSync(src).isDirectory()) {
+          const stat = fs.statSync(src);
+          if (stat.isDirectory()) {
+            // textures / motions are shared
             fs.cpSync(src, dst, { recursive: true, force: true });
           } else {
+            // Only copy this variant's model files; skip sibling model
+            // files that share the same directory (e.g. createplayer2_F
+            // files when staging createplayer2_M)
+            if (f.endsWith('.moc3') || f.endsWith('.model3.json') || f.endsWith('.cdi3.json') || f.endsWith('.physics3.json')) {
+              if (!f.startsWith(variant)) continue;
+            }
             fs.copyFileSync(src, dst);
           }
         }
@@ -177,12 +218,39 @@ async function main() {
         // if it previously produced models, verify staged outputs still exist when applicable
         if (cached.staged && cached.staged.length > 0) {
           const allExist = cached.staged.every((v) => fs.existsSync(path.join(OTHERS_DIR, v)));
-          if (allExist) {
+          // Detect incomplete staging (e.g. ui_createplayer originally staged only
+          // createplayer_F/M but missed createplayer2_F/M sitting on throne):
+          // cnt should match staged length unless some models were deduplicated.
+          let countMismatch = cached.cnt !== cached.staged.length;
+          if (countMismatch && cached.names && cached.names.length === cached.cnt) {
+            const missing = cached.names.filter((n) => !cached.staged.includes(n));
+            // If every missing model already exists elsewhere (true dedup), mismatch is expected
+            let allMissingDeduped = true;
+            for (const m of missing) {
+              const inOthers = fs.existsSync(path.join(OTHERS_DIR, m, `${m}.model3.json`));
+              if (inOthers) continue;
+              let inChars = false;
+              try {
+                for (const skin of fs.readdirSync(CHARS_DIR)) {
+                  if (skin === 'others') continue;
+                  const skinPath = path.join(CHARS_DIR, skin);
+                  if (!fs.statSync(skinPath).isDirectory()) continue;
+                  for (const v of fs.readdirSync(skinPath)) {
+                    if (fs.existsSync(path.join(skinPath, v, `${m}.model3.json`))) { inChars = true; break; }
+                  }
+                  if (inChars) break;
+                }
+              } catch {}
+              if (!inChars) { allMissingDeduped = false; break; }
+            }
+            if (allMissingDeduped) countMismatch = false;
+          }
+          if (allExist && !countMismatch) {
             cacheHits++;
             totalFound++;
             continue;
           }
-          // staged output missing -> re-extract despite unchanged file
+          // staged output missing or count mismatch -> re-extract despite unchanged file
         } else {
           // deduplicated (already existed elsewhere) -> skip
           cacheHits++;
@@ -207,6 +275,39 @@ async function main() {
       console.log(`[${i + 1}/${allFiles.length}] ${base} -> ${cnt} models ${names.join(', ')}`);
       totalFound++;
       staged = stageToOthers(outDir);
+      // Fixup for createplayer2_F motions: modelName grouping without
+      // --l2d-search-by-filename gives M motions for F (shape ok, texture ok,
+      // but motions broken). Detect and patch by re-exporting that bundle
+      // with search flag and copying correct F motions.
+      if (staged.includes('createplayer2_F') || names.includes('createplayer2_F')) {
+        try {
+          const fModel = path.join(OTHERS_DIR, 'createplayer2_F', 'createplayer2_F.model3.json');
+          if (fs.existsSync(fModel)) {
+            const j = JSON.parse(fs.readFileSync(fModel, 'utf8'));
+            const keys = Object.keys(j.FileReferences?.Motions || {});
+            const hasWrong = keys.some((k) => k.startsWith('createplayer2_M'));
+            if (hasWrong) {
+              const fixTmp = path.join(TMP_BASE, `_fix_${i}_createplayer2_F`);
+              if (fs.existsSync(fixTmp)) fs.rmSync(fixTmp, { recursive: true, force: true });
+              fs.mkdirSync(fixTmp, { recursive: true });
+              const env2 = { ...process.env, DOTNET_ROLL_FORWARD: 'Major' };
+              spawnSync('dotnet', [CLI, file, '-m', 'live2d', '-o', fixTmp, '--image-format', 'png', '--l2d-group-option', 'modelName', '--l2d-search-by-filename'], { env: env2, timeout: 25000, maxBuffer: 10 * 1024 * 1024 });
+              const srcModel = path.join(fixTmp, 'Live2DOutput', 'createplayer2_F');
+              if (fs.existsSync(path.join(srcModel, 'createplayer2_F.model3.json'))) {
+                fs.rmSync(path.join(OTHERS_DIR, 'createplayer2_F', 'motions'), { recursive: true, force: true });
+                if (fs.existsSync(path.join(srcModel, 'motions'))) fs.cpSync(path.join(srcModel, 'motions'), path.join(OTHERS_DIR, 'createplayer2_F', 'motions'), { recursive: true, force: true });
+                fs.copyFileSync(path.join(srcModel, 'createplayer2_F.model3.json'), fModel);
+                for (const fn of ['createplayer2_F.cdi3.json', 'createplayer2_F.physics3.json']) {
+                  const s = path.join(srcModel, fn);
+                  if (fs.existsSync(s)) fs.copyFileSync(s, path.join(OTHERS_DIR, 'createplayer2_F', fn));
+                }
+                console.log('  fixed createplayer2_F motions (was M, now F)');
+              }
+              if (fs.existsSync(fixTmp)) fs.rmSync(fixTmp, { recursive: true, force: true });
+            }
+          }
+        } catch (e) { console.error('  fixup failed', e.message); }
+      }
       if (staged.length > 0) {
         totalStaged += staged.length;
         // Regenerate manifest to include new others

@@ -175,7 +175,10 @@ function main() {
         const variantPath = path.join(skinPath, variant);
         if (!fs.statSync(variantPath).isDirectory()) continue;
         const files = fs.readdirSync(variantPath);
-        const modelFile = files.find((f) => f.endsWith('.model3.json'));
+        // Prefer the variant-named model (fixes createplayer2_F/M sharing
+        // the same source dir and previously being copied together)
+        let modelFile = files.find((f) => f === `${variant}.model3.json`);
+        if (!modelFile) modelFile = files.find((f) => f.endsWith('.model3.json'));
         if (!modelFile) continue;
         let label = getModelTypeLabel(modelFile);
         if (label === 'Unknown' && skinNames[variant]) label = skinNames[variant];
