@@ -34,6 +34,10 @@
 #                datamine language/en_US/Character.json; authoritative
 #                character names, rebuilt into data/characterid.json
 #                (default: auto-resolved from --datamine)
+#   --avg-names FILE
+#                datamine _Lua/Game/UI/Avg/_en/Preset/AvgCharacter.lua;
+#                display names for the Story Characters (avg sprite) entries
+#                (default: auto-resolved from --datamine)
 #
 # Prereqs:
 #   - dotnet with .NET 9+ (uses DOTNET_ROLL_FORWARD=Major)
@@ -49,6 +53,7 @@ SKIN=""
 BOARD_NPC=""
 SKIN_NAMES=""
 CHAR_NAMES=""
+AVG_NAMES=""
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
 TMP="$ROOT/.dump_tmp"
@@ -65,6 +70,7 @@ while [[ $# -gt 0 ]]; do
     --board-npc) BOARD_NPC="$2"; shift 2 ;;
     --skin-names) SKIN_NAMES="$2"; shift 2 ;;
     --char-names) CHAR_NAMES="$2"; shift 2 ;;
+    --avg-names) AVG_NAMES="$2"; shift 2 ;;
     --datamine) DATAMINE="$2"; shift 2 ;;
     --force|-f) FORCE=1; shift ;;
     *) echo "unknown arg: $1"; exit 1 ;;
@@ -206,6 +212,7 @@ echo "InstallResource: $INSTALL_RESOURCE"
 echo "BoardNPC names: ${BOARD_NPC:-<none found>}"
 echo "Skin names: ${SKIN_NAMES:-<none found>}"
 echo "Char names: ${CHAR_NAMES:-<none found>}"
+echo "Avg names: ${AVG_NAMES:-$DATAMINE/_Lua/Game/UI/Avg/_en/Preset/AvgCharacter.lua}"
 
 mkdir -p "$TMP/live2d" "$TMP/raw" "$ROOT/chars"
 # Incremental cache init (like bruteForceOthers.mjs)
@@ -569,6 +576,53 @@ done
 node "$SCRIPT_DIR/generateOffset.mjs" \
   --src "$OFFDIR" \
   --out "$ROOT/data/offset.json" || true
+
+# --- Story character sprites (Actor2D/CharacterAvg) --------------------------
+# Every AVG dialogue actor (char_avg_2d_avg1/2/3_*) ships its dialogue sprites
+# in one bundle: the faceless body (<id>_<pose>_001), its black silhouette
+# (_001x) and the face/expression overlays (_002..N) as tightly-packed
+# sprites.  The game draws body + face on coincident rig nodes, so alignment
+# is baked into each sprite's tight mesh — extractAvg.py (UnityPy) exports
+# the mesh-cropped PNGs plus each sprite's mesh bbox centre, which
+# generateAvg.mjs turns into data/avg.json (face positions relative to the
+# body + the Set 2 rig placement from Actor2DOffsetData).  The viewer shows
+# these under the "Story Characters" section with clickable face thumbnails.
+AVG_TMP="$TMP/avg"
+AVG_META="$TMP/avgmeta"
+mkdir -p "$AVG_TMP" "$AVG_META"
+echo "=== story character sprites (avg) ==="
+# Prefer the Persistent_Store copy when both exist (it receives game patches).
+declare -A AVG_BUNDLES
+for dir in "$PERSISTENT" "$INSTALL_RESOURCE"; do
+  [[ -d "$dir" ]] || continue
+  for f in "$dir"/char_avg_2d_avg*.unity3d; do
+    [[ -f "$f" ]] || continue
+    base="$(basename "$f" .unity3d)"
+    AVG_BUNDLES["$base"]="$f"
+  done
+done
+AVG_IDS=()
+for base in $(printf '%s\n' "${!AVG_BUNDLES[@]}" | sort); do
+  f="${AVG_BUNDLES[$base]}"
+  if cache_hit "$f" "avg" "$ROOT/avg/$base"; then
+    echo "  cached (unchanged) — skipping avg $base"
+    CACHE_HITS=$((CACHE_HITS+1))
+    continue
+  fi
+  echo "=== $base (avg sprites) ==="
+  python3 "$SCRIPT_DIR/extractAvg.py" \
+    --bundle "$f" \
+    --out "$AVG_TMP/$base" \
+    --meta "$AVG_META/$base.json" \
+    || echo "  avg extract FAILED"
+  cache_mark "$f" "avg" 0
+done
+node "$SCRIPT_DIR/generateAvg.mjs" \
+  --meta "$AVG_META" \
+  --staging "$AVG_TMP" \
+  --avg "$ROOT/avg" \
+  --names "${AVG_NAMES:-$DATAMINE/_Lua/Game/UI/Avg/_en/Preset/AvgCharacter.lua}" \
+  --out "$ROOT/data/avg.json" || true
 
 # Prune stale cache entries (bundles that no longer exist)
 cache_prune || true

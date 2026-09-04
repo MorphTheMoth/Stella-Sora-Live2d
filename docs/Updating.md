@@ -11,6 +11,7 @@ This is the canonical procedure to re-extract everything after the game ships a 
 - **Game install** — resolved via symlink `../Link to YostarGames/StellaSora_EN` or `--game DIR`. Must contain both `StellaSora_Data/StreamingAssets/InstallResource` and `Persistent_Store/AssetBundles`.
 - **Datamine** — clone of `StellaSoraData Makostar` next to this repo (default `../StellaSoraData Makostar`). Provides `EN/bin/{Disc,Character,CharacterSkin,CharacterCG}.json` and `EN/language/en_US/{Character,CharacterSkin,BoardNPC,Item}.json`. Override with `--datamine DIR` or the explicit `--board-npc`/`--skin-names`/`--char-names`/`--skin` flags.
 - **AssetStudioModCLI** — `dotnet` with .NET 9+ (`DOTNET_ROLL_FORWARD=Major`) and `AssetStudioModCLI.dll` (default `/home/morph/ssassets/assetStudioMod/AssetStudioModCLI.dll`, override with `--cli` / `$ASSETSTUDIO_CLI`).
+- **UnityPy** — `python3 -m pip install UnityPy` (used only by `scripts/extractAvg.py`, the story-character sprite stage).
 - **Site viewer** — no build step; `python3 -m http.server 8000` after the dump is enough to verify.
 
 ---
@@ -46,7 +47,7 @@ bash scripts/dump.sh \
 
 The script is additive: existing `chars/`/`data/` entries that vanished from the game stay visible (never deleted, only overwritten/appended).
 
-`dump.sh` caches per-bundle `mtime`+`size` in `.dump_tmp/dump.cache.json` (like `bruteForceOthers.mjs`) per-stage (`live2d`/`bg`/`disc`/`offset`). Unchanged bundles skip `dotnet` exports; modified/new bundles are re-extracted. Use `--force`/`-f` to ignore the cache, or delete `.dump_tmp/dump.cache.json`. Stale entries are pruned automatically. Manifest/regeneration steps still run every time even on cache hits so `data/*.json` stays consistent.
+`dump.sh` caches per-bundle `mtime`+`size` in `.dump_tmp/dump.cache.json` (like `bruteForceOthers.mjs`) per-stage (`live2d`/`bg`/`disc`/`offset`/`avg`). Unchanged bundles skip `dotnet` exports; modified/new bundles are re-extracted. Use `--force`/`-f` to ignore the cache, or delete `.dump_tmp/dump.cache.json`. Stale entries are pruned automatically. Manifest/regeneration steps still run every time even on cache hits so `data/*.json` stays consistent.
 
 ---
 
@@ -62,6 +63,7 @@ Order matters — `data/models.json` is built twice (before and after bg staging
 6. **CharBg backdrops** (only with `--skin`) — `image-*.unity3d` `--filter-by-container CharBg` → `bg/charbg/*.png` + `scripts/generateCharBg.mjs` → `data/charbg.json`.
 7. **Disc parallax cards** — every `disc_XXXX.unity3d` (+ `disc_common.unity3d` + `ui_big_sprites.unity3d`) → `.dump_tmp/discoverlays/` → `scripts/extractDiscParallax.mjs` → `data/discparallax.json` + `chars/<id>/<id>_p/overlays/*.png`; then `scripts/generateDiscs.mjs` rebuilds the Discs section (`kind:"parallax"` + `kind:"discl2d"`).
 8. **Offsets** — `char_2d_*.unity3d` `Actor2DOffsetData` → `.dump_tmp/offsets/` → `scripts/generateOffset.mjs` → `data/offset.json` (MainView panel 10 Set 2: `{s,x,y}`).
+9. **Story character sprites (AVG)** — every `char_avg_2d_avg*.unity3d` (`avg1/2/3/4`, Persistent_Store copy preferred) → `scripts/extractAvg.py` (UnityPy: mesh-cropped sprite PNGs + mesh bbox centres + `Actor2DOffsetData` Set 2) → `.dump_tmp/avg/` + `.dump_tmp/avgmeta/` → `scripts/generateAvg.mjs` stages PNGs to `avg/<id>/` and writes `data/avg.json` (names from `--avg-names`, default `_Lua/Game/UI/Avg/_en/Preset/AvgCharacter.lua`). See `docs/AgentsReadme.md` → "Story characters".
 
 ### What each `data/*.json` is for
 
@@ -73,6 +75,7 @@ Order matters — `data/models.json` is built twice (before and after bg staging
 | `data/charbg.json` | `generateCharBg.mjs` (`CharacterSkin.json`) | skinId → CharBg basename |
 | `data/discparallax.json` | `extractDiscParallax.mjs` | per-disc `{canvasW/H, mask, parallax{ax,ay}, layers[]}` |
 | `data/offset.json` | `generateOffset.mjs` (`Actor2DOffsetData`) | skinId → MainView Set 2 `{s,x,y}` |
+| `data/avg.json` | `extractAvg.py` + `generateAvg.mjs` (`char_avg_2d_avg*` + `AvgCharacter.lua`) | story-character sprite entries: `{id, shortId, name, poses[{letter, body, black, faces[{file,x,y}], offset}]}`; sprite PNGs in `avg/<id>/` |
 
 ---
 
@@ -98,9 +101,15 @@ jq '[.[].kind] | group_by(.) | map({kind:.[0], n:length})' data/models.json
 
 # spot-check a new skin / new disc is Listed in the viewer
 python3 -m http.server 8000
-# open http://localhost:8000 — Trekkers / Discs / Disc L2D / Events counts at top
+# open http://localhost:8000 — Trekkers / Story Characters / Discs / Disc L2D / Events counts at top
 # open a Default variant with CharBg (dark bar should fill screen, character offset down)
 # open a Memory Snapshot (bgLayers composite) and a parallax disc (drag → tilt, Enable Mask/Max Rotation toggles)
+# open a Story Character: body renders; right panel → click expression thumbnails (face composites on the
+#   face area), switch Pose letters, toggle Dark Silhouette on entries with a `_001x`
+
+# avg manifest sanity
+jq 'length' data/avg.json
+jq '[.[] | .name == .id] | map(select(.)) | length' data/avg.json   # unnamed entries (should be 0)
 ```
 
 If something looks wrong, fix the extractor/generator (never the dumped `data/`/`chars/` files) and re-run `bash scripts/dump.sh --game …` or the single `node scripts/*.mjs` that owns the artifact.
@@ -118,7 +127,7 @@ git add chars/
 git commit -m "data: re-dump for <game version> (<date>)"
 ```
 
-`.dump_tmp/` and the caches (`.dump_tmp/dump.cache.json`, `.dump_tmp/brute_others.cache.json`) are gitignored and not committed.
+`.dump_tmp/` and the caches (`.dump_tmp/dump.cache.json`, `.dump_tmp/brute_others.cache.json`) are gitignored and not committed. `avg/` (story-character sprite PNGs) is gitignored like `chars/` — only `data/avg.json` is committed; host the PNGs from the same remote asset store as `chars/`/`bg/` when using the split hosting (`js/config.js` already redirects `avg/` paths).
 
 ---
 
@@ -129,3 +138,5 @@ git commit -m "data: re-dump for <game version> (<date>)"
 - `bgLayers` empty after hand-running `generateManifest.mjs` → normal: the manifest drops `bgLayers`; re-run `node scripts/mergeBgLayers.mjs --models data/models.json --layers .dump_tmp/bglayers` or just re-run `dump.sh`.
 - Motion clips `SyntaxError: unexpected character` → UTF-8 BOM not stripped; `scripts/normalize.py` handles this; don't dump motions by hand without stripping the first 3 bytes.
 - `discparallax.json` missing a disc → ensure both `InstallResource/disc_XXXX.unity3d` and `Persistent_Store/disc_XXXX.unity3d` were dumped; the script prefers the `Persistent_Store` copy when both exist.
+- `avg.json` entries missing / faces misaligned → the mesh-centre extraction needs the bundle's type trees; re-run `python3 scripts/extractAvg.py --bundle <bundle> --out <dir> --meta <json>` on the failing bundle (needs `pip install UnityPy`). Misaligned faces after a game update usually mean the exporter changed sprite naming (`<id>_<pose>_<num>[x].png`); check `parseSpriteName` in `generateAvg.mjs`.
+- Story Character thumbnails 404 → `avg/<id>/` not staged; re-run `node scripts/generateAvg.mjs --meta .dump_tmp/avgmeta --staging .dump_tmp/avg --avg avg --names <AvgCharacter.lua> --out data/avg.json`.

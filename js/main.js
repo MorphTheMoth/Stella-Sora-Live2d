@@ -1,4 +1,4 @@
-import { Application, Container, Sprite, Graphics, Assets, extensions, Mesh, PlaneGeometry } from './pixi.min.mjs';
+import { Application, Container, Sprite, Graphics, Assets, Texture, extensions, Mesh, PlaneGeometry } from './pixi.min.mjs';
 import { Live2DModel, Live2DPlugin, configureCubismSDK, CubismFramework } from './cubism.es.js';
 import { USE_REMOTE_ASSETS, REMOTE_ASSETS_URL } from './config.js';
 
@@ -18,7 +18,7 @@ function resolveUrl(p) {
   if (m) return m[1];
   if (USE_REMOTE_ASSETS && REMOTE_ASSETS_URL) {
     // Only redirect heavy assets — keep data/*.json + js/ local for GitHub Pages split hosting
-    if (clean.startsWith('chars/') || clean.startsWith('bg/')) {
+    if (clean.startsWith('chars/') || clean.startsWith('bg/') || clean.startsWith('avg/')) {
       const base = REMOTE_ASSETS_URL.replace(/\/+$/, '');
       return base + '/' + clean;
     }
@@ -32,6 +32,7 @@ const state = {
   model: null,
   models: [],
   currentPath: null,
+  currentName: null,
   currentBgList: [],
   bgContainer: null,
   fgContainer: null,
@@ -68,6 +69,16 @@ const state = {
   canvasX: 0,
   canvasY: 0,
   canvasScale: 1,
+  // Story characters (AVG dialogue sprites): body + face overlay viewer.
+  avgModels: [],
+  avgContainer: null,
+  avgItem: null,
+  avgTextures: [],
+  avgBody: null,
+  avgFaceSprite: null,
+  avgPoseIdx: 0,
+  avgFaceIdx: -1,
+  avgDark: false,
   options: {
     eyeBlink: true,
     angles: { x: 0, y: 0, z: 0 },
@@ -110,6 +121,8 @@ const els = {
   title: document.getElementById('page-title'),
   status: document.getElementById('status'),
   bgcolor: document.getElementById('bgcolor'),
+  screenshot: document.getElementById('screenshot'),
+  transparentShot: document.getElementById('transparent-shot'),
   bgstatus: document.getElementById('bg-status'),
   bginput: document.getElementById('bginput'),
   optionsOpen: document.getElementById('options_open'),
@@ -465,6 +478,7 @@ async function loadParallax(item) {
   }
   clearBackground();
   clearParallax();
+  clearAvg();
   clearElement(els.optionsContent);
   els.status.textContent = 'Loading ' + item.name + ' ...';
   await new Promise((r) => requestAnimationFrame(r));
@@ -891,6 +905,268 @@ function addBackgroundControls(section) {
   section.appendChild(row);
 }
 
+/* ---------------- Story characters (AVG dialogue sprites) ---------------- */
+
+// Each AVG actor bundle (char_avg_2d_avg<N>_<id>.unity3d) holds one artwork
+// pose per atlas letter: the faceless body (`<id>_<pose>_001`), its black
+// silhouette (`_001x`) and the face/expression overlays (`_002..N`).  The
+// game renders body + face on coincident nodes of a shared rig (AvgPanel
+// prefab in ui_avg.unity3d — Avg_2_CharCtrl:_SetPortrait), so alignment is
+// baked into each sprite's tight mesh: data/avg.json carries every face's
+// mesh-centre delta from the body's (extractAvg.py + generateAvg.mjs).  The
+// exported PNGs are mesh-cropped, so anchoring each sprite at its centre
+// reproduces the game's composite exactly.
+
+function avgAsset(item, file) {
+  return 'avg/' + item.id + '/' + file;
+}
+
+function getAvgPose() {
+  const item = state.avgItem;
+  if (!item || !item.poses.length) return null;
+  return item.poses[Math.min(state.avgPoseIdx, item.poses.length - 1)];
+}
+
+function clearAvg() {
+  if (state.avgContainer) {
+    state.camera.removeChild(state.avgContainer);
+    // Detach sprites before destroying their textures (see clearBackground).
+    while (state.avgContainer.children.length) state.avgContainer.removeChildAt(0);
+    state.avgContainer.destroy({ children: true });
+  }
+  for (const t of state.avgTextures) {
+    try {
+      if (t.key) Assets.cache.remove(t.key);
+    } catch (e) { /* ignore */ }
+    try { t.texture.destroy(true); } catch (e) { /* ignore */ }
+  }
+  state.avgContainer = null;
+  state.avgTextures = [];
+  state.avgItem = null;
+  state.avgBody = null;
+  state.avgFaceSprite = null;
+  state.avgPoseIdx = 0;
+  state.avgFaceIdx = -1;
+  state.avgDark = false;
+}
+
+function fitAvgToScreen() {
+  const c = state.avgContainer;
+  const pose = getAvgPose();
+  if (!c || !pose) return;
+  const sw = state.app.renderer.width;
+  const sh = state.app.renderer.height;
+  const fit = Math.min((sw * 0.85) / pose.w, (sh * 0.92) / pose.h);
+  c.scale.set(fit, fit);
+  // Container origin = the body's mesh/content centre (sprites are mesh-
+  // cropped and centre-anchored), centred on the screen.
+  c.position.set(sw / 2, sh / 2);
+}
+
+// Load (and cache) one AVG sprite texture.
+async function loadAvgTexture(item, file) {
+  const p = resolveUrl(avgAsset(item, file));
+  const tex = await Assets.load(p);
+  if (!state.avgTextures.some((t) => t.key === p)) {
+    state.avgTextures.push({ key: p, texture: tex });
+  }
+  return tex;
+}
+
+async function loadAvg(item, poseIdx) {
+  const seq = ++modelLoadSeq;
+  resetCamera();
+  state.currentPath = item.id + 'a';
+
+  // Tear down any live model (same sequence as loadParallax).
+  if (state.model) {
+    const currentModel = state.model;
+    if (state._overrideHandler && currentModel.internalModel) {
+      currentModel.internalModel.off('beforeModelUpdate', state._overrideHandler);
+    }
+    state._overrideHandler = null;
+    clearBackground();
+    state.camera.removeChild(currentModel);
+    currentModel.destroy({ children: true, texture: true, baseTexture: true });
+    state.model = null;
+  }
+  clearBackground();
+  clearParallax();
+  clearAvg();
+  clearElement(els.optionsContent);
+  els.status.textContent = 'Loading ' + item.name + ' ...';
+  showBgLoading();
+  await new Promise((r) => requestAnimationFrame(r));
+  if (seq !== modelLoadSeq) { hideBgLoading(); return; }
+
+  state.avgItem = item;
+  state.avgPoseIdx = Math.max(0, Math.min(poseIdx || 0, item.poses.length - 1));
+  state.avgFaceIdx = -1;
+  state.avgDark = false;
+  const pose = getAvgPose();
+
+  const container = new Container();
+  container.eventMode = 'none';
+  container.interactive = false;
+  state.camera.addChild(container);
+  state.avgContainer = container;
+
+  try {
+    const bodyTex = await loadAvgTexture(item, pose.body);
+    if (seq !== modelLoadSeq) { hideBgLoading(); return; }
+    const body = new Sprite(bodyTex);
+    body.anchor.set(0.5);
+    body.eventMode = 'none';
+    body.interactive = false;
+    container.addChild(body);
+    state.avgBody = body;
+
+    const face = new Sprite(Texture.EMPTY);
+    face.anchor.set(0.5);
+    face.eventMode = 'none';
+    face.interactive = false;
+    container.addChild(face);
+    state.avgFaceSprite = face;
+
+    fitAvgToScreen();
+    // The first expression is selected by default (avgFaceIdx drives the
+    // panel's active thumbnail).
+    state.avgFaceIdx = 0;
+    buildOptionsPanel();
+    applyAvgFace(0);
+    els.status.textContent = '';
+  } catch (e) {
+    if (seq !== modelLoadSeq) { hideBgLoading(); return; }
+    els.status.textContent = 'Failed: ' + e.message;
+    console.error(e);
+  }
+  hideBgLoading();
+}
+
+// Show expression overlay `idx` (index into the pose's face list; -1 = none).
+async function applyAvgFace(idx) {
+  const pose = getAvgPose();
+  const face = state.avgFaceSprite;
+  if (!pose || !face) return;
+  if (idx < 0 || idx >= pose.faces.length) {
+    state.avgFaceIdx = -1;
+    face.texture = Texture.EMPTY;
+    return;
+  }
+  const f = pose.faces[idx];
+  state.avgFaceIdx = idx;
+  try {
+    const tex = await loadAvgTexture(state.avgItem, f.file);
+    // A newer selection (or a reloaded scene / pose switch) superseded this
+    // request — the captured sprite is the destroyed previous one.
+    if (state.avgFaceSprite !== face || state.avgFaceIdx !== idx) return;
+    face.texture = tex;
+    // Face content centre relative to the body content centre (y-up data,
+    // Pixi is y-down).
+    face.x = f.x;
+    face.y = -f.y;
+  } catch (e) {
+    console.error('Failed to load face', f.file, e);
+  }
+}
+
+// Swap the body between its normal art and the black silhouette (<pose>_001x).
+async function applyAvgDark(on) {
+  const pose = getAvgPose();
+  const body = state.avgBody;
+  if (!pose || !body || !pose.black) return;
+  state.avgDark = !!on;
+  try {
+    const tex = await loadAvgTexture(state.avgItem, on ? pose.black : pose.body);
+    if (state.avgBody !== body || state.avgDark !== !!on) return;
+    body.texture = tex;
+  } catch (e) {
+    console.error('Failed to load body', on ? pose.black : pose.body, e);
+  }
+}
+
+function buildAvgOptionsPanel() {
+  clearElement(els.optionsContent);
+  const item = state.avgItem;
+  const pose = getAvgPose();
+  if (!item || !pose) return;
+
+  const infoSection = addSection('Story Character');
+  const info = document.createElement('div');
+  info.className = 'opt-row';
+  info.style.color = 'var(--text-faint)';
+  info.style.fontSize = '11px';
+  info.textContent = item.shortId + ' — ' + item.name;
+  infoSection.appendChild(info);
+
+  if (item.poses.length > 1) {
+    const row = document.createElement('div');
+    row.className = 'opt-row';
+    const lab = document.createElement('label');
+    lab.textContent = 'Pose';
+    const sel = document.createElement('select');
+    item.poses.forEach((p, i) => {
+      const opt = document.createElement('option');
+      opt.value = i;
+      opt.textContent = p.letter.toUpperCase() + ' (' + (p.faces.length + 1) + ' sprites)';
+      sel.appendChild(opt);
+    });
+    sel.value = state.avgPoseIdx;
+    sel.addEventListener('change', () => {
+      loadAvg(item, parseInt(sel.value, 10));
+    });
+    row.appendChild(lab);
+    row.appendChild(sel);
+    infoSection.appendChild(row);
+  }
+
+  if (pose.black) {
+    const check = document.createElement('label');
+    check.className = 'opt-check';
+    const input = document.createElement('input');
+    input.type = 'checkbox';
+    input.checked = state.avgDark;
+    check.appendChild(input);
+    check.appendChild(document.createTextNode('Dark Silhouette'));
+    input.addEventListener('change', () => applyAvgDark(input.checked));
+    infoSection.appendChild(check);
+  }
+
+  const exprSection = addSection('Expressions (' + pose.faces.length + ')');
+  const grid = document.createElement('div');
+  grid.className = 'emoji-grid';
+  pose.faces.forEach((f, i) => {
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'emoji-btn' + (state.avgFaceIdx === i ? ' active' : '');
+    btn.title = f.file;
+    const img = document.createElement('img');
+    img.loading = 'lazy';
+    img.draggable = false;
+    img.src = resolveUrl(avgAsset(item, f.file));
+    btn.appendChild(img);
+    btn.addEventListener('click', () => {
+      const next = state.avgFaceIdx === i ? -1 : i;
+      applyAvgFace(next);
+      grid.querySelectorAll('.emoji-btn.active').forEach((b) => b.classList.remove('active'));
+      if (next >= 0) btn.classList.add('active');
+    });
+    grid.appendChild(btn);
+  });
+  exprSection.appendChild(grid);
+  const noneRow = document.createElement('div');
+  noneRow.className = 'opt-buttons';
+  const noneBtn = document.createElement('button');
+  noneBtn.type = 'button';
+  noneBtn.textContent = 'No Expression';
+  noneBtn.addEventListener('click', () => {
+    applyAvgFace(-1);
+    grid.querySelectorAll('.emoji-btn.active').forEach((b) => b.classList.remove('active'));
+  });
+  noneRow.appendChild(noneBtn);
+  exprSection.appendChild(noneRow);
+}
+
 /* ---------------- Options panel ---------------- */
 
 function clearElement(el) {
@@ -1143,6 +1419,12 @@ function addParameterControls(section) {
 function buildOptionsPanel() {
   clearElement(els.optionsContent);
 
+  // Story-character (AVG sprite) viewer panel.
+  if (state.avgItem) {
+    buildAvgOptionsPanel();
+    return;
+  }
+
   if (!state.model) {
     const section = addSection('Disc');
     const row = document.createElement('div');
@@ -1360,6 +1642,7 @@ export async function loadModel(path) {
   state.options.angles = { x: 0, y: 0, z: 0 };
   state.options.bodyAngles = { x: 0, y: 0, z: 0 };
   clearParallax();
+  clearAvg();
 
   if (state.model) {
     const currentModel = state.model;
@@ -1368,6 +1651,7 @@ export async function loadModel(path) {
     }
     state._overrideHandler = null;
     clearBackground();
+    clearAvg();
     camera.removeChild(currentModel);
     currentModel.destroy({ children: true, texture: true, baseTexture: true });
     state.model = null;
@@ -1415,11 +1699,57 @@ function setActiveButton(activeBtn) {
   if (activeBtn) activeBtn.classList.add('active');
 }
 
-function addListSection(title) {
+// Section fold state (module-level so createCharactersList rebuilds keep it).
+// true = folded; missing = folded (all sections start folded). Persisted in
+// localStorage so the layout survives reloads.
+const sectionFoldState = new Map();
+const sectionFoldHeaders = [];
+try {
+  const saved = JSON.parse(localStorage.getItem('entitySectionsFold') || '[]');
+  for (const [key, folded] of saved) sectionFoldState.set(key, !!folded);
+} catch (e) { /* corrupt or missing — defaults */ }
+
+function addListSection(title, key) {
   const li = document.createElement('li');
   li.className = 'entity-section';
-  li.textContent = title;
+  li.dataset.sectionKey = key || title;
+  const caret = document.createElement('span');
+  caret.className = 'entity-section_caret';
+  li.appendChild(caret);
+  li.appendChild(document.createTextNode(title));
+  li.addEventListener('click', () => {
+    setSectionFold(li, !isSectionFoldedNow(li));
+  });
   els.list.appendChild(li);
+  sectionFoldHeaders.push(li);
+}
+
+// Section entries are flat <li>s after the header; collect them until the
+// next section header.
+function sectionFollowers(headerEl) {
+  const out = [];
+  for (let el = headerEl.nextElementSibling;
+       el && !el.classList.contains('entity-section');
+       el = el.nextElementSibling) {
+    out.push(el);
+  }
+  return out;
+}
+
+function isSectionFoldedNow(headerEl) {
+  return headerEl.classList.contains('folded');
+}
+
+function setSectionFold(headerEl, folded) {
+  sectionFoldState.set(headerEl.dataset.sectionKey, folded);
+  try {
+    localStorage.setItem('entitySectionsFold', JSON.stringify([...sectionFoldState]));
+  } catch (e) { /* storage unavailable */ }
+  headerEl.querySelector('.entity-section_caret').textContent = '\u25B8';
+  headerEl.classList.toggle('folded', folded);
+  for (const el of sectionFollowers(headerEl)) {
+    el.style.display = folded ? 'none' : '';
+  }
 }
 
 function addListItem(item) {
@@ -1451,6 +1781,12 @@ function addListItem(item) {
     name.addEventListener('click', () => {
       setActiveButton(name);
       loadModel(resolveUrl(variant.path));
+    });
+  } else if (item.kind === 'avg') {
+    // Story character (AVG dialogue sprite) — opens the body + face viewer.
+    name.addEventListener('click', () => {
+      setActiveButton(name);
+      loadAvg(item);
     });
   } else {
     const variants = document.createElement('ul');
@@ -1507,6 +1843,7 @@ function addListItem(item) {
 // Discs/Events drop their l2d/event suffix. Plain 3-digit character ids
 // (unreleased chars from avg bundles, e.g. 106) are shown as-is.
 function shownIdOf(item) {
+  if (item.kind === 'avg') return item.shortId;
   const isDisc = item.kind === 'parallax' || item.kind === 'discl2d' || item.kind === 'event';
   if (item.kind === 'other') return item.id;
   if (isDisc) return item.id.replace(/l2d$/, '').replace(/event$/, '');
@@ -1526,6 +1863,7 @@ function matchesSearch(item, query) {
   const q = query.toLowerCase();
   if (shownIdOf(item).toLowerCase().includes(q)) return true;
   if (item.id.toLowerCase().includes(q)) return true;
+  if (item.shortId && item.shortId.toLowerCase().includes(q)) return true;
   if (item.name.toLowerCase().includes(q)) return true;
   if (item.variants) {
     for (const v of item.variants) {
@@ -1538,6 +1876,7 @@ function matchesSearch(item, query) {
 function createCharactersList() {
   const list = els.list;
   list.innerHTML = '';
+  sectionFoldHeaders.length = 0;
   const isEventEntry = (item) => item.kind === 'event';
   const isParallaxEntry = (item) => item.kind === 'parallax';
   const isDiscL2dEntry = (item) => item.kind === 'discl2d';
@@ -1550,28 +1889,47 @@ function createCharactersList() {
   const discL2ds = state.models.filter((item) => isDiscL2dEntry(item) && visible(item)).reverse();
   const discs = state.models.filter((item) => isParallaxEntry(item) && visible(item)).reverse();
   const others = state.models.filter((item) => isOtherEntry(item) && visible(item));
+  const avgs = state.avgModels.filter((item) => !isHidden(item) && matchesSearch(item, query));
 
-  addListSection('Trekkers (' + chars.length + ')');
-  for (const item of chars) addListItem(item);
+  // Sections with no matches (e.g. Events (0)) are skipped entirely.
+  if (chars.length) {
+    addListSection('Trekkers (' + chars.length + ')', 'trekkers');
+    for (const item of chars) addListItem(item);
+  }
 
   if (events.length) {
-    addListSection('Events (' + events.length + ')');
+    addListSection('Events (' + events.length + ')', 'events');
     for (const item of events) addListItem(item);
   }
 
   if (discL2ds.length) {
-    addListSection('Disc L2D (' + discL2ds.length + ')');
+    addListSection('Disc L2D (' + discL2ds.length + ')', 'discl2d');
     for (const item of discL2ds) addListItem(item);
   }
 
   if (discs.length) {
-    addListSection('Discs (' + discs.length + ')');
+    addListSection('Discs (' + discs.length + ')', 'discs');
     for (const item of discs) addListItem(item);
   }
 
+  if (avgs.length) {
+    addListSection('Story Characters (' + avgs.length + ')', 'avg');
+    for (const item of avgs) addListItem(item);
+  }
+
   if (others.length) {
-    addListSection('Others (' + others.length + ')');
+    addListSection('Others (' + others.length + ')', 'others');
     for (const item of others) addListItem(item);
+  }
+
+  // Apply folding. All sections start folded (state persists across rebuilds);
+  // while a search query is active every section is expanded so matches are
+  // visible.
+  const searching = !!query;
+  for (const header of sectionFoldHeaders) {
+    const key = header.dataset.sectionKey;
+    const folded = searching ? false : sectionFoldState.get(key) !== false;
+    setSectionFold(header, folded);
   }
 }
 
@@ -1655,7 +2013,7 @@ function enableZoom() {
   const app = state.app;
   const camera = state.camera;
   const MIN = 0.2;
-  const MAX = 5;
+  const MAX = 2.5;
   app.canvas.addEventListener('wheel', (e) => {
     e.preventDefault();
     const factor = 1 - e.deltaY * 0.001;
@@ -1722,6 +2080,8 @@ function handleResize() {
     if (state.model) {
       fitModelToScreen();
       fitBackground();
+    } else if (state.avgItem) {
+      fitAvgToScreen();
     } else if (state.parallaxItem) {
       loadParallax(state.parallaxItem);
     }
@@ -1741,6 +2101,7 @@ function handleContextLost() {
       state.model = null;
     }
     clearParallax();
+    clearAvg();
   });
   canvas.addEventListener('webglcontextrestored', () => {
     // The Cubism renderer needs fresh GL objects after a restore; simply
@@ -1748,7 +2109,9 @@ function handleContextLost() {
     if (state.currentPath) {
       const p = state.currentPath;
       state.currentPath = null;
-      if (p.endsWith('p') && state.parallaxItem) {
+      if (p.endsWith('a') && state.avgItem) {
+        setTimeout(() => loadAvg(state.avgItem), 100);
+      } else if (p.endsWith('p') && state.parallaxItem) {
         setTimeout(() => loadParallax(state.parallaxItem), 100);
       } else {
         setTimeout(() => loadModel(p), 100);
@@ -1774,6 +2137,89 @@ function setupBackgroundPicker() {
   apply('#161616');
 }
 
+/* ---------------- Transparent screenshot ---------------- */
+
+function sanitizeFileName(s) {
+  return (s || '').trim().replace(/[^\w-]+/g, '_').replace(/^_+|_+$/g, '');
+}
+
+// Name for the downloaded file.  Prefer the active list button (combined
+// with its parent character name), e.g. "103_Amber" / "103_Amber_Memory
+// Snapshot" / "avg1_103 Amber" / disc titles; fall back to the tracked name
+// (programmatic loads) or the current path id.
+function currentShotName() {
+  const btn = document.querySelector('.character-name.active, .character-variation_button.active');
+  if (btn) {
+    let label = sanitizeFileName(btn.textContent);
+    if (btn.classList.contains('character-variation_button')) {
+      const parent = btn.closest('.entity-block');
+      const parentName = parent ? sanitizeFileName(parent.querySelector('.character-name').textContent) : '';
+      if (label && label !== 'Default') {
+        return [parentName, label].filter(Boolean).join('_') || 'transparent';
+      }
+      return parentName || 'transparent';
+    }
+    return label || 'transparent';
+  }
+  return sanitizeFileName(state.currentName || state.currentPath || 'transparent') || 'transparent';
+}
+
+// Capture the current view to a PNG Blob.  With `transparent`, scene/backdrop
+// layers (customized_bg, in-model bg/fg_effect, disc card backdrops) are
+// hidden and the renderer clears to alpha 0, so only the character (L2D rig,
+// AVG sprite, or parallax card) remains.  Parallax cards keep their layers —
+// the card art is the content and can't be split from the character.  Without
+// `transparent`, the view is captured as-is (opaque page background).
+async function captureScreenshotBlob(transparent) {
+  const app = state.app;
+  if (!app) return null;
+  const renderer = app.renderer;
+  const hidden = [];
+  if (transparent) {
+    for (const c of [state.bgContainer, state.fgContainer]) {
+      if (c && c.visible && c.children.length) {
+        c.visible = false;
+        hidden.push(c);
+      }
+    }
+  }
+  const prevAlpha = renderer.background.alpha;
+  if (transparent) renderer.background.alpha = 0;
+  try {
+    // Wait two frames so the hidden containers and alpha-0 clear take effect
+    // in the render loop.
+    await new Promise((r) => requestAnimationFrame(() => requestAnimationFrame(r)));
+    const canvas = renderer.extract.canvas(app.stage);
+    return await new Promise((resolve, reject) => {
+      canvas.toBlob((b) => (b ? resolve(b) : reject(new Error('canvas.toBlob failed'))), 'image/png');
+    });
+  } finally {
+    renderer.background.alpha = prevAlpha;
+    for (const c of hidden) c.visible = true;
+  }
+}
+
+async function downloadScreenshot(transparent) {
+  const app = state.app;
+  if (!app) return;
+  try {
+    const blob = await captureScreenshotBlob(transparent);
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = currentShotName() + (transparent ? '-transparent.png' : '.png');
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    setTimeout(() => URL.revokeObjectURL(url), 5000);
+    els.status.textContent = 'Saved ' + a.download;
+    setTimeout(() => { if (els.status.textContent.startsWith('Saved ')) els.status.textContent = ''; }, 4000);
+  } catch (e) {
+    console.error('Screenshot failed', e);
+    els.status.textContent = 'Screenshot failed';
+  }
+}
+
 async function init() {
   const app = new Application();
   await app.init({
@@ -1795,6 +2241,14 @@ async function init() {
   const res = await fetch(resolveUrl('data/models.json'));
   state.models = await res.json();
   els.title.textContent = 'Stella Sora L2D (' + state.models.length + ' models)';
+  try {
+    const resAvg = await fetch(resolveUrl('data/avg.json'));
+    if (resAvg.ok) {
+      state.avgModels = (await resAvg.json()).map((e) => ({ ...e, kind: 'avg' }));
+    }
+  } catch (e) {
+    console.warn('data/avg.json unavailable', e);
+  }
   els.filter.addEventListener('input', createCharactersList);
   createCharactersList();
 
@@ -1805,8 +2259,11 @@ async function init() {
   app.ticker.add(parallaxSwayTick);
   handleMenuState();
   setupBackgroundPicker();
+  if (els.transparentShot) els.transparentShot.addEventListener('click', () => downloadScreenshot(true));
+  if (els.screenshot) els.screenshot.addEventListener('click', () => downloadScreenshot(false));
 
   if (state.models.length && state.models[0].variants.length) {
+    state.currentName = state.models[0].name;
     loadModel(resolveUrl(state.models[0].variants[0].path));
   }
 }

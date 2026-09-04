@@ -10,6 +10,9 @@ to zoom. Use the toolbar to change the background, reset the view, or export a
 screenshot. The **Options** panel (right side) exposes per-model controls:
 motions (group + Start/Stop), expressions, head/body angle sliders, an
 eye-blink toggle, and a full parameter list with per-parameter overrides.
+The **Story Characters** section lists the story-mode (AVG dialogue) sprite
+actors: clicking one shows the body art, and the right panel renders every
+cost face/expression overlay as a clickable thumbnail.
 
 ## Layout
 
@@ -22,14 +25,18 @@ js/
   main.js                   # viewer app
 chars/<skinId>/<variant>/   # extracted Live2D models (gitignored, ~1.1GB full-res)
 bg/charbg/                  # per-character main-menu backdrops (Image/CharBg)
+avg/<avgId>/                # story-character (AVG dialogue) sprite PNGs (gitignored)
 data/
   models.json               # manifest: characters + events + discs (generated)
+  avg.json                  # story-character sprite manifest (generated)
   characterid.json          # charId(3) -> display name
   discid.json               # discId(4) -> display name (generated from datamine)
   charbg.json               # skinId -> CharBg image basename (generated)
 scripts/
   dump.sh                   # extraction pipeline
   normalize.py              # AssetStudio output -> chars/ layout
+  extractAvg.py             # UnityPy: AVG sprite PNGs + mesh centres -> .dump_tmp/avg(+meta)
+  generateAvg.mjs           # AVG sprite metadata -> avg/ + data/avg.json
   generateManifest.mjs      # scans chars/ -> data/models.json
   generateCharBg.mjs        # datamine CharacterSkin.Bg -> data/charbg.json
   extractDiscParallax.mjs   # disc parallax scenes -> data/discparallax.json
@@ -96,6 +103,48 @@ Each character skin has a main-menu background the game draws behind the L2D
 > many `fg_effect` objects sit at negative sorting orders and render *behind*
 > the character in-game (e.g. Shia's Memory Snapshot rocks at order -100..-200).
 > `mergeBgLayers.mjs` therefore sets each layer's `fg` from `sortOrder >= 1`.
+
+## Story characters (AVG dialogue sprites)
+
+Every AVG dialogue actor ships one `char_avg_2d_avg<N>_<id>.unity3d` bundle
+(all `avg1_*`/`avg2_*`/`avg3_*`/`avg4_*` series, e.g. `avg1_131` = Amber's
+story sprite): a sprite atlas per artwork pose plus the character's
+`Actor2DOffsetData` (`<id>.asset`). The sprites per pose letter (`a`, `b`, ...):
+
+- `<id>_<pose>_001.png` — the full-body art with the face area left blank;
+- `<id>_<pose>_001x.png` — the black silhouette of the body (the game's
+  "unknown/dark" rendering; the viewer exposes it as a Dark Silhouette toggle);
+- `<id>_<pose>_002..N.png` — faces: eye/mouth overlays drawn on top of the
+  body (the clickable expression thumbnails).
+
+In-game (`Avg_2_CharCtrl:_SetPortrait`, AvgPanel prefab in `ui_avg.unity3d`)
+the body (`body_a`/`body_b`), face (`face_a`/`face_b`) and black body sit on
+**coincident rig nodes at (0,0,0) scale 1** — the body/face alignment is baked
+into each sprite's **tight mesh**: the packed atlas rect is larger than the
+visible content and the content sits off-centre inside it. AssetStudio-style
+rect crops therefore cannot be stacked as-is. `scripts/extractAvg.py`
+(UnityPy) decodes each sprite's mesh vertices (PPU 100, pivot-relative) and
+exports the mesh-cropped PNG plus the mesh bbox centre; `generateAvg.mjs`
+emits per-pose face positions as centre deltas in `data/avg.json` (y-up, like
+`data/offset.json`). Anchoring every sprite at its centre reproduces the
+game's composite pixel-for-pixel.
+
+`data/avg.json` also keeps the Set 2 rig placement (`offset: {x,y,s}` from
+`Actor2DOffsetData` panel 99 / AvgST — what the game applies to the
+`rtRawImage` of the dialogue canvas) per pose, for reference; the viewer
+simply fits the composite to the screen. Names come from the datamine's
+`_Lua/Game/UI/Avg/_en/Preset/AvgCharacter.lua` (`id -> name`; entries with a
+`reuse` id share another actor's bundle and are skipped). The `arrEmojiData`
+entries in the offset asset position the shared `UI/Avg/AnimEmoji/*.prefab`
+sticker animations (sweat drops etc., indexed by `AvgPreset.CharEmoji`);
+those prefabs live in the UI bundles and are out of scope.
+
+Viewer behaviour (`main.js`): the **Story Characters** section lists all
+`char_avg_2d_avg*` bundles (name + id); clicking one renders the body with
+`loadAvg`, the right panel gets a Pose select (per atlas letter), the Dark
+Silhouette toggle when `_001x` exists, and an **Expressions** grid of face
+thumbnails — clicking a thumbnail composites that face onto the body at the
+recorded mesh offset (click again to clear, or use "No Expression").
 
 ## Disc L2D entries (large Live2Ds for the gacha) / Disc entries (parallax)
 

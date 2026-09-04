@@ -231,6 +231,8 @@
   .character-name.is-disc.active { color: #9fc0d4; }
 
   .entity-section {
+    display: flex;
+    align-items: center;
     padding: 6px 8px 4px;
     margin-top: 8px;
     font-size: 10px;
@@ -239,8 +241,21 @@
     letter-spacing: 1px;
     color: var(--text-faint);
     border-bottom: 1px solid var(--border);
+    cursor: pointer;
+    user-select: none;
   }
+  .entity-section:hover { color: var(--text-dim); }
   .entity-section:first-child { margin-top: 0; }
+  .entity-section_caret {
+    flex: none;
+    margin-right: 5px;
+    font-size: 11px;
+    line-height: 1;
+    color: var(--text-faint);
+    transition: transform .15s ease;
+    transform-origin: center;
+  }
+  .entity-section:not(.folded) .entity-section_caret { transform: rotate(90deg); }
 
   .character-variation {
     list-style: none;
@@ -400,6 +415,27 @@
   .opt-param .opt-param-slider input[type="range"] { flex: 1; accent-color: var(--accent); }
   .opt-param .opt-param-slider .opt-value { font-size: 10px; }
 
+  /* Story character (AVG sprite) expression thumbnails */
+  .emoji-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+  .emoji-btn {
+    padding: 2px;
+    background: var(--card);
+    border: 1px solid var(--border2);
+    cursor: pointer;
+  }
+  .emoji-btn:hover { background: #2e2e2e; border-color: #6f93a8; }
+  .emoji-btn.active { border-color: var(--accent); }
+  .emoji-btn img {
+    display: block;
+    width: 64px;
+    height: 64px;
+    object-fit: contain;
+  }
+
   @media (max-width: 600px) {
     .panel { width: 240px; }
     #topbar h1 { font-size: 10px; letter-spacing: 1px; }
@@ -415,6 +451,12 @@
     <h1 id="page-title">Stella Sora · Live2D Viewer</h1>
     <button class="tool" id="bgcolor" type="button">
       <span class="swatch" id="bgcolor-swatch"></span> Background
+    </button>
+    <button class="tool" id="screenshot" type="button" title="Download the current view as a PNG (as-is, with background)">
+      Screenshot
+    </button>
+    <button class="tool" id="transparent-shot" type="button" title="Download the current view as a PNG with a transparent background (scene/backdrop layers hidden)">
+      Transparent screenshot
     </button>
     <span id="bg-status" class="tool-status">loading…</span>
     <input type="color" id="bginput" value="#161616" />
