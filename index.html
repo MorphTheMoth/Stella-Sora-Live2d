@@ -84,6 +84,7 @@
     background: var(--card);
     border: 1px solid var(--border2);
     color: var(--text-dim);
+    font-family: inherit;
     padding: 3px 8px;
     font-size: 12px;
     cursor: pointer;
@@ -91,6 +92,15 @@
   }
   .tool:hover { background: #2e2e2e; color: var(--text); }
   .tool input[type="color"] { display: none; }
+  .tool input[type="checkbox"] {
+    width: 12px;
+    height: 12px;
+    margin: 0;
+    padding: 0;
+    accent-color: var(--accent);
+    cursor: pointer;
+    flex: none;
+  }
   .tool .swatch {
     width: 12px;
     height: 12px;
@@ -452,12 +462,15 @@
     <button class="tool" id="bgcolor" type="button">
       <span class="swatch" id="bgcolor-swatch"></span> Background
     </button>
-    <button class="tool" id="screenshot" type="button" title="Download the current view as a PNG (as-is, with background)">
+    <button class="tool" id="screenshot" type="button" title="Download the current view as a PNG">
       Screenshot
     </button>
-    <button class="tool" id="transparent-shot" type="button" title="Download the current view as a PNG with a transparent background (scene/backdrop layers hidden)">
-      Transparent screenshot
-    </button>
+    <label class="tool" title="When enabled, the screenshot is cropped to the visible viewport; when disabled, the full model/scene is captured">
+      <input type="checkbox" id="crop-shot" /> Crop
+    </label>
+    <label class="tool" title="When enabled, the background is hidden and made transparent in the screenshot">
+      <input type="checkbox" id="shot-transparent" checked /> Transparent
+    </label>
     <span id="bg-status" class="tool-status">loading…</span>
     <input type="color" id="bginput" value="#161616" />
   </div>

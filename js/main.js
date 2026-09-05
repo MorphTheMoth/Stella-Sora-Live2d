@@ -1,4 +1,4 @@
-import { Application, Container, Sprite, Graphics, Assets, Texture, extensions, Mesh, PlaneGeometry } from './pixi.min.mjs';
+import { Application, Container, Matrix, RenderTexture, Sprite, Graphics, Assets, Texture, extensions, Mesh, PlaneGeometry } from './pixi.min.mjs';
 import { Live2DModel, Live2DPlugin, configureCubismSDK, CubismFramework } from './cubism.es.js';
 import { USE_REMOTE_ASSETS, REMOTE_ASSETS_URL } from './config.js';
 
@@ -122,7 +122,8 @@ const els = {
   status: document.getElementById('status'),
   bgcolor: document.getElementById('bgcolor'),
   screenshot: document.getElementById('screenshot'),
-  transparentShot: document.getElementById('transparent-shot'),
+  cropShot: document.getElementById('crop-shot'),
+  shotTransparent: document.getElementById('shot-transparent'),
   bgstatus: document.getElementById('bg-status'),
   bginput: document.getElementById('bginput'),
   optionsOpen: document.getElementById('options_open'),
@@ -2022,7 +2023,7 @@ function enableZoom() {
   const app = state.app;
   const camera = state.camera;
   const MIN = 0.2;
-  const MAX = 2.5;
+  const MAX = 8;
   app.canvas.addEventListener('wheel', (e) => {
     e.preventDefault();
     const factor = 1 - e.deltaY * 0.001;
@@ -2173,13 +2174,14 @@ function currentShotName() {
   return sanitizeFileName(state.currentName || state.currentPath || 'transparent') || 'transparent';
 }
 
-// Capture the current view to a PNG Blob.  With `transparent`, scene/backdrop
-// layers (customized_bg, in-model bg/fg_effect, disc card backdrops) are
-// hidden and the renderer clears to alpha 0, so only the character (L2D rig,
-// AVG sprite, or parallax card) remains.  Parallax cards keep their layers —
-// the card art is the content and can't be split from the character.  Without
-// `transparent`, the view is captured as-is (opaque page background).
-async function captureScreenshotBlob(transparent) {
+// Capture the current view to a PNG Blob.  With `crop`, the shot is limited
+// to the visible viewport; without it, the full stage bounds are captured
+// (the whole model, even parts that extend past the window).  With
+// `transparent`, scene/backdrop layers (customized_bg, in-model bg/fg_effect,
+// disc card backdrops) are hidden and the clear is alpha 0, so only the
+// character (L2D rig, AVG sprite, or parallax card) remains; without it, the
+// scene/background is included and cleared with the page background color.
+async function captureScreenshotBlob(transparent, crop) {
   const app = state.app;
   if (!app) return null;
   const renderer = app.renderer;
@@ -2194,25 +2196,47 @@ async function captureScreenshotBlob(transparent) {
   }
   const prevAlpha = renderer.background.alpha;
   if (transparent) renderer.background.alpha = 0;
+  let rt = null;
   try {
     // Wait two frames so the hidden containers and alpha-0 clear take effect
     // in the render loop.
     await new Promise((r) => requestAnimationFrame(() => requestAnimationFrame(r)));
-    const canvas = renderer.extract.canvas(app.stage);
+    const resolution = renderer.resolution || 1;
+    let rtW;
+    let rtH;
+    let transform = null;
+    if (crop) {
+      // Visible viewport only.
+      rtW = renderer.screen ? renderer.screen.width : app.canvas.width / resolution;
+      rtH = renderer.screen ? renderer.screen.height : app.canvas.height / resolution;
+    } else {
+      // Full stage bounds (whole model / scene, off-screen parts included).
+      const b = app.stage.getLocalBounds();
+      rtW = Math.ceil(b.width);
+      rtH = Math.ceil(b.height);
+      transform = new Matrix(1, 0, 0, 1, -b.x, -b.y);
+    }
+    rt = RenderTexture.create({ width: rtW, height: rtH, resolution, antialias: true });
+    const clear = transparent
+      ? [0, 0, 0, 0]
+      : (() => { const c = renderer.background.colorRgba; return [c[0], c[1], c[2], 1]; })();
+    renderer.render({ container: app.stage, target: rt, clearColor: clear, transform });
+    const canvas = renderer.extract.canvas(rt);
     return await new Promise((resolve, reject) => {
       canvas.toBlob((b) => (b ? resolve(b) : reject(new Error('canvas.toBlob failed'))), 'image/png');
     });
   } finally {
     renderer.background.alpha = prevAlpha;
     for (const c of hidden) c.visible = true;
+    if (rt) rt.destroy(true);
   }
 }
 
-async function downloadScreenshot(transparent) {
+async function downloadScreenshot(transparent, crop) {
   const app = state.app;
   if (!app) return;
   try {
-    const blob = await captureScreenshotBlob(transparent);
+    const blob = await captureScreenshotBlob(transparent, crop);
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
@@ -2268,8 +2292,13 @@ async function init() {
   app.ticker.add(parallaxSwayTick);
   handleMenuState();
   setupBackgroundPicker();
-  if (els.transparentShot) els.transparentShot.addEventListener('click', () => downloadScreenshot(true));
-  if (els.screenshot) els.screenshot.addEventListener('click', () => downloadScreenshot(false));
+  if (els.screenshot) {
+    els.screenshot.addEventListener('click', () => {
+      const transparent = !els.shotTransparent || els.shotTransparent.checked;
+      const crop = !!(els.cropShot && els.cropShot.checked);
+      downloadScreenshot(transparent, crop);
+    });
+  }
 
   if (state.models.length && state.models[0].variants.length) {
     state.currentName = state.models[0].name;

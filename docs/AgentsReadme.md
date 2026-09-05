@@ -7,7 +7,9 @@ the Nebula Record Builder.
 Pick a character in the **Trekkers** panel (left side), choose a variant
 (Default / Memory Snapshot / Talent / Awakened), drag to pan, scroll or pinch
 to zoom. Use the toolbar to change the background, reset the view, or export a
-screenshot. The **Options** panel (right side) exposes per-model controls:
+screenshot. **Crop** limits the shot to the visible viewport (off = full
+model/scene bounds); **Transparent** (on by default) hides the background and
+exports with an alpha channel. The **Options** panel (right side) exposes per-model controls:
 motions (group + Start/Stop), expressions, head/body angle sliders, an
 eye-blink toggle, and a full parameter list with per-parameter overrides.
 The **Story Characters** section lists the story-mode (AVG dialogue) sprite
