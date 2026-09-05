@@ -289,6 +289,12 @@ function clearContainer(container) {
 }
 
 function clearBackground() {
+  // Invalidate any in-flight setBackground composition: bumping the seq here
+  // makes a still-loading background from the previous entry abort as soon as
+  // its next layer load resolves, instead of attaching stale layers onto the
+  // new scene (e.g. swapping to a parallax disc / AVG entry while a bg was
+  // loading — nothing else would bump the seq and clear it again).
+  bgLoadSeq++;
   clearContainer(state.bgContainer);
   clearContainer(state.fgContainer);
   for (const tex of state.bgTextures) {
@@ -301,9 +307,9 @@ function clearBackground() {
   state.currentBgKey = null;
 }
 
-// Incremented on every setBackground call; a request that finishes loading
-// after a newer one was issued drops its textures instead of stacking them
-// on the newest scene.
+// Incremented on every setBackground call (and by clearBackground); a request
+// that finishes loading after a newer one was issued drops its textures
+// instead of stacking them on the newest scene.
 let bgLoadSeq = 0;
 // Incremented on every loadModel call; a model that finishes loading after a
 // newer entry was clicked is dropped so only the last-clicked model renders.
@@ -314,8 +320,11 @@ let modelLoadSeq = 0;
 async function setBackground(layers) {
   const container = state.bgContainer;
   const fgContainer = state.fgContainer;
-  const seq = ++bgLoadSeq;
+  // clearBackground() bumps bgLoadSeq to invalidate any in-flight older
+  // composition — capture OUR seq only afterwards, or the bump would make
+  // this very request treat itself as stale and never attach a layer.
   clearBackground();
+  const seq = bgLoadSeq;
   if (!container || !layers || !layers.length) { hideBgLoading(); return; }
 
   showBgLoading();
