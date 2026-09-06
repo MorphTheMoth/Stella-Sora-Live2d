@@ -2177,29 +2177,21 @@ function currentShotName() {
 // Capture the current view to a PNG Blob.  With `crop`, the shot is limited
 // to the visible viewport; without it, the full stage bounds are captured
 // (the whole model, even parts that extend past the window).  With
-// `transparent`, scene/backdrop layers (customized_bg, in-model bg/fg_effect,
-// disc card backdrops) are hidden and the clear is alpha 0, so only the
-// character (L2D rig, AVG sprite, or parallax card) remains; without it, the
-// scene/background is included and cleared with the page background color.
+// `transparent` only the site's own background color is removed (alpha-0
+// clear); the entry's own scene layers (customized_bg/CharBg, in-model
+// ----bg----/----fg_effect----, parallax disc scenes, AVG backgrounds) are
+// kept.  To shoot the character without a backdrop, pick "None" in the
+// Background selector first.  Without `transparent` the shot is cleared with
+// the page background color.
 async function captureScreenshotBlob(transparent, crop) {
   const app = state.app;
   if (!app) return null;
   const renderer = app.renderer;
-  const hidden = [];
-  if (transparent) {
-    for (const c of [state.bgContainer, state.fgContainer]) {
-      if (c && c.visible && c.children.length) {
-        c.visible = false;
-        hidden.push(c);
-      }
-    }
-  }
   const prevAlpha = renderer.background.alpha;
   if (transparent) renderer.background.alpha = 0;
   let rt = null;
   try {
-    // Wait two frames so the hidden containers and alpha-0 clear take effect
-    // in the render loop.
+    // Wait two frames so the alpha-0 clear takes effect in the render loop.
     await new Promise((r) => requestAnimationFrame(() => requestAnimationFrame(r)));
     const resolution = renderer.resolution || 1;
     let rtW;
@@ -2227,7 +2219,6 @@ async function captureScreenshotBlob(transparent, crop) {
     });
   } finally {
     renderer.background.alpha = prevAlpha;
-    for (const c of hidden) c.visible = true;
     if (rt) rt.destroy(true);
   }
 }
