@@ -117,6 +117,8 @@ const els = {
   filter: document.getElementById('entity-filter'),
   openBtn: document.getElementById('entity-list_open'),
   closeBtn: document.getElementById('entity-list_close'),
+  listPrev: document.getElementById('entity-list_prev'),
+  listNext: document.getElementById('entity-list_next'),
   wrapper: document.getElementById('entity-list_wrapper'),
   title: document.getElementById('page-title'),
   status: document.getElementById('status'),
@@ -1709,6 +1711,47 @@ function setActiveButton(activeBtn) {
   if (activeBtn) activeBtn.classList.add('active');
 }
 
+// Ordered clickable targets for up/down stepping: one per collapsed block
+// (its name loads the default variant) and one per visible variant button
+// inside expanded blocks. Entries hidden by a folded section or an active
+// search filter are skipped.
+function listNavTargets() {
+  const targets = [];
+  for (const block of els.list.querySelectorAll('.entity-block')) {
+    if (block.offsetParent === null) continue;
+    const variants = block.querySelector('.character-variation');
+    const btns = variants && variants.style.display !== 'none'
+      ? [...variants.querySelectorAll('.character-variation_button')].filter((b) => b.offsetParent !== null)
+      : [];
+    if (btns.length) targets.push(...btns);
+    else targets.push(block.querySelector('.character-name'));
+  }
+  return targets;
+}
+
+// Step the list selection up (-1) or down (+1) and load that entry exactly
+// as if it had been clicked (the ▲/▼ buttons next to the panel title, and
+// the Up/Down arrow keys when not typing in a field).
+function stepListSelection(dir) {
+  const targets = listNavTargets();
+  if (!targets.length) return;
+  const active = document.querySelector('.character-name.active, .character-variation_button.active');
+  let idx = targets.indexOf(active);
+  if (idx === -1 && active) {
+    // Active is a character name whose block is expanded (trekker): resume
+    // at its first variant so stepping doesn't re-collapse or reload it.
+    const block = active.closest('.entity-block');
+    idx = block ? targets.findIndex((t) => block.contains(t)) : -1;
+  }
+  const next = idx === -1
+    ? (dir > 0 ? 0 : targets.length - 1)
+    : Math.min(targets.length - 1, Math.max(0, idx + dir));
+  const target = targets[next];
+  if (!target) return;
+  target.scrollIntoView({ block: 'nearest' });
+  target.click();
+}
+
 // Section fold state (module-level so createCharactersList rebuilds keep it).
 // true = folded; missing = folded (all sections start folded). Persisted in
 // localStorage so the layout survives reloads.
@@ -2070,13 +2113,24 @@ function handleMenuState() {
   };
   bind(els.openBtn, els.closeBtn, els.wrapper);
   bind(els.optionsOpen, els.optionsClose, els.optionsWrapper);
+  els.listPrev.addEventListener('click', () => stepListSelection(-1));
+  els.listNext.addEventListener('click', () => stepListSelection(1));
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
       els.wrapper.classList.remove('open');
       els.optionsWrapper.classList.remove('open');
       els.openBtn.style.display = 'block';
       els.optionsOpen.style.display = 'block';
+      return;
     }
+    if (e.key !== 'ArrowUp' && e.key !== 'ArrowDown') return;
+    if (e.altKey || e.ctrlKey || e.metaKey) return;
+    if (e.target && e.target.closest && e.target.closest('input, select, textarea')) return;
+    e.preventDefault();
+    // Make sure the list panel is visible so the stepping can be seen.
+    els.wrapper.classList.add('open');
+    els.openBtn.style.display = 'none';
+    stepListSelection(e.key === 'ArrowDown' ? 1 : -1);
   });
 }
 

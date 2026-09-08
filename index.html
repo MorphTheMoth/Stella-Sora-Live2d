@@ -189,6 +189,24 @@
   }
   .panel_close:hover { color: var(--text); }
 
+  .panel_nav { display: flex; align-items: center; gap: 4px; }
+  .panel_nav_btn {
+    background: none;
+    border: 1px solid var(--border);
+    color: var(--text-dim);
+    font-size: 10px;
+    line-height: 1;
+    width: 22px;
+    height: 20px;
+    padding: 0;
+    cursor: pointer;
+  }
+  .panel_nav_btn:hover {
+    color: var(--text);
+    background: #2e2e2e;
+    border-color: var(--border2);
+  }
+
   .panel-body {
     flex: 1;
     overflow-y: auto;
@@ -221,7 +239,8 @@
     width: 100%;
     box-sizing: border-box;
     text-align: left;
-    padding: 5px 8px;
+    padding: 5px 8px 5px 6px;
+    border-left: 2px solid transparent;
     font-size: 13px;
     font-weight: bold;
     color: var(--text);
@@ -238,7 +257,11 @@
     font-weight: normal;
     font-size: 11px;
   }
-  .character-name.is-disc.active { color: #9fc0d4; }
+  .character-name.active {
+    color: #9fc0d4;
+    background: #2e2e2e;
+    border-left-color: #6f93a8;
+  }
 
   .entity-section {
     display: flex;
@@ -482,7 +505,11 @@
   <div id="entity-list_wrapper" class="panel left">
     <div class="panel_top">
       <div class="panel_title">Characters</div>
-      <button id="entity-list_close" class="panel_close" type="button">✕</button>
+      <div class="panel_nav">
+        <button id="entity-list_prev" class="panel_nav_btn" type="button" title="Previous entry (Up arrow)">▲</button>
+        <button id="entity-list_next" class="panel_nav_btn" type="button" title="Next entry (Down arrow)">▼</button>
+        <button id="entity-list_close" class="panel_close" type="button">✕</button>
+      </div>
     </div>
     <div class="panel-body">
       <input id="entity-filter" class="entity-filter" type="text"
