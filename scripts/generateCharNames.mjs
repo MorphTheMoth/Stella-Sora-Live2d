@@ -12,7 +12,16 @@
  * Usage:
  *   node scripts/generateCharNames.mjs --lang <Character.json> \
  *     --current <data/characterid.json> --out <data/characterid.json>
+ *
+ * HAND_NAMES: manual overrides for ids the datamine doesn't cover (e.g.
+ * event NPCs whose tables aren't published yet). Applied last, so they
+ * always win. Remove an entry once upstream datamines the real name.
  */
+
+const HAND_NAMES = {
+  // npc_l2d_915201 — event NPC, unreferenced in the datamine tables so far
+  9152: 'Bastelina',
+};
 
 import fs from 'node:fs';
 import path from 'node:path';
@@ -49,6 +58,7 @@ function main() {
     Object.assign(names, JSON.parse(fs.readFileSync(currentFile, 'utf8')));
   }
   Object.assign(names, lang);
+  Object.assign(names, HAND_NAMES);
 
   fs.mkdirSync(path.dirname(outFile), { recursive: true });
   fs.writeFileSync(outFile, JSON.stringify(names, null, 2) + '\n');

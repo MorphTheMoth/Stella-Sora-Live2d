@@ -432,15 +432,21 @@ if [[ -n "$SKIN" ]]; then
   CHARBG_DIR="$ROOT/bg/charbg"
   mkdir -p "$CHARBG_DIR" "$TMP/charbg"
   echo "=== charbg (main-menu backdrops) ==="
-  for f in "$INSTALL_RESOURCE"/image-*.unity3d; do
-    [[ -f "$f" ]] || continue
-    base="$(basename "$f" .unity3d)"
-    out="$TMP/charbg/$base"
-    mkdir -p "$out"
-    DOTNET_ROLL_FORWARD=Major dotnet "$CLI" "$f" -m export -t tex2d \
-      --filter-by-container CharBg -o "$out" --image-format png >/dev/null 2>&1 || true
+  # Scan both InstallResource and Persistent_Store: new backdrops ship in
+  # PS-only image bundles (e.g. 13701 traveller_camp_b_daylight in Sep 2026).
+  # InstallResource is copied first so the (newer) Persistent_Store copy wins
+  # when a name exists in both.
+  for dir in "$INSTALL_RESOURCE" "$PERSISTENT"; do
+    for f in "$dir"/image-*.unity3d; do
+      [[ -f "$f" ]] || continue
+      base="$(basename "$f" .unity3d)"
+      out="$TMP/charbg/$base"
+      mkdir -p "$out"
+      DOTNET_ROLL_FORWARD=Major dotnet "$CLI" "$f" -m export -t tex2d \
+        --filter-by-container CharBg -o "$out" --image-format png >/dev/null 2>&1 || true
+    done
+    find "$TMP/charbg" -name "*.png" -exec cp {} "$CHARBG_DIR" \; 2>/dev/null || true
   done
-  find "$TMP/charbg" -name "*.png" -exec cp {} "$CHARBG_DIR" \; 2>/dev/null || true
   node "$SCRIPT_DIR/generateCharBg.mjs" \
     --skin "$SKIN" \
     --bg "$CHARBG_DIR" \
@@ -624,7 +630,27 @@ node "$SCRIPT_DIR/generateAvg.mjs" \
   --names "${AVG_NAMES:-$DATAMINE/_Lua/Game/UI/Avg/_en/Preset/AvgCharacter.lua}" \
   --out "$ROOT/data/avg.json" || true
 
-# Prune stale cache entries (bundles that no longer exist)
+# --- Final manifest rebuild ---------------------------------------------------
+# charbg.json, discparallax.json/generateDiscs and offset.json are all
+# regenerated AFTER the manifest builds above, so a new game update's charBg/
+# offset/disc fields would otherwise only appear on the *next* run. Rebuild the
+# manifest once more now that every input table is current (generateManifest
+# drops bgLayers, so re-merge them on top).
+echo "=== final manifest rebuild ==="
+node "$SCRIPT_DIR/generateManifest.mjs" \
+  --chars "$ROOT/chars" \
+  --out "$ROOT/data/models.json" \
+  --names "$ROOT/data/characterid.json" \
+  --disc-names "$ROOT/data/discid.json" \
+  --charbg "$ROOT/data/charbg.json" \
+  --offset "$ROOT/data/offset.json" \
+  --board-npc "$BOARD_NPC" \
+  --skin-names "$SKIN_NAMES" || true
+node "$SCRIPT_DIR/generateDiscs.mjs" \
+  --models "$ROOT/data/models.json" \
+  --parallax "$ROOT/data/discparallax.json" \
+  --disc-names "$ROOT/data/discid.json" || true
+node "$SCRIPT_DIR/mergeBgLayers.mjs" \
 cache_prune || true
 if [[ "$CACHE_HITS" -gt 0 ]]; then echo "Cache hits: $CACHE_HITS (skipped unchanged bundles)"; fi
 

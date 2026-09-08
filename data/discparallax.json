@@ -6491,7 +6491,7 @@
     },
     "parallax": {
       "ax": 5,
-      "ay": -20,
+      "ay": -25,
       "xmin": -0.99,
       "xmax": 0.99,
       "ymin": -0.99,
@@ -6620,9 +6620,9 @@
         "h": 602.68,
         "clip": false,
         "follower": {
-          "type": 1,
-          "ax": 5,
-          "ay": -20
+          "type": 0,
+          "ax": 0,
+          "ay": 0
         },
         "z": -120,
         "depth": -120
@@ -8024,7 +8024,7 @@
     },
     "parallax": {
       "ax": 5,
-      "ay": -20,
+      "ay": -25,
       "xmin": -0.99,
       "xmax": 0.99,
       "ymin": -0.99,
@@ -9685,13 +9685,16 @@
       {
         "file": "frame",
         "path": "chars/4047/4047_p/overlays/frame.png",
-        "x": 0,
-        "y": 12,
+        "x": 0.02,
+        "y": 11.98,
         "w": 752,
         "h": 768,
         "clip": false,
-        "z": 0,
-        "depth": 0
+        "z": 0.63,
+        "depth": 0.63,
+        "rx": -0.052,
+        "ry": 0.037,
+        "rz": 0.002
       },
       {
         "file": "gyro_4047_bg",
@@ -12862,6 +12865,560 @@
         },
         "z": -100,
         "depth": -100
+      }
+    ]
+  },
+  "4059": {
+    "canvasW": 1080,
+    "canvasH": 1080,
+    "mask": {
+      "w": 712,
+      "h": 712,
+      "x": 0,
+      "y": 0
+    },
+    "parallax": {
+      "ax": 3,
+      "ay": -8,
+      "xmin": -0.99,
+      "xmax": 0.99,
+      "ymin": -0.99,
+      "ymax": -0.21
+    },
+    "layers": [
+      {
+        "file": "frame",
+        "path": "chars/4059/4059_p/overlays/frame.png",
+        "x": 0,
+        "y": 12,
+        "w": 752,
+        "h": 768,
+        "clip": false,
+        "z": 0,
+        "depth": 0
+      },
+      {
+        "file": "gyro_4059_house",
+        "path": "chars/4059/4059_p/overlays/gyro_4059_house.png",
+        "x": -693.4,
+        "y": 212.8,
+        "w": 4266,
+        "h": 4518,
+        "clip": true,
+        "follower": {
+          "type": 2,
+          "ax": 3,
+          "ay": -8
+        },
+        "z": 3240,
+        "depth": 3240
+      },
+      {
+        "file": "gyro_4059_sky",
+        "path": "chars/4059/4059_p/overlays/gyro_4059_sky.png",
+        "x": 84.1,
+        "y": -444.2,
+        "w": 3945.6,
+        "h": 3182.4,
+        "clip": true,
+        "follower": {
+          "type": 2,
+          "ax": 3,
+          "ay": -8
+        },
+        "z": 3240,
+        "depth": 3240
+      },
+      {
+        "file": "gyro_4059_cage",
+        "path": "chars/4059/4059_p/overlays/gyro_4059_cage.png",
+        "x": -932.8,
+        "y": 365.9,
+        "w": 1200,
+        "h": 2384,
+        "clip": true,
+        "follower": {
+          "type": 2,
+          "ax": 3,
+          "ay": -8
+        },
+        "z": 2800,
+        "depth": 2800
+      },
+      {
+        "file": "gyro_4059_desk",
+        "path": "chars/4059/4059_p/overlays/gyro_4059_desk.png",
+        "x": -633.7,
+        "y": 802.6,
+        "w": 1356,
+        "h": 972,
+        "clip": true,
+        "follower": {
+          "type": 2,
+          "ax": 3,
+          "ay": -8
+        },
+        "z": 2600,
+        "depth": 2600
+      },
+      {
+        "file": "gyro_4059_tower",
+        "path": "chars/4059/4059_p/overlays/gyro_4059_tower.png",
+        "x": 1424.2,
+        "y": -264,
+        "w": 1190.4,
+        "h": 1561.6,
+        "clip": true,
+        "follower": {
+          "type": 2,
+          "ax": 3,
+          "ay": -8
+        },
+        "z": 2400,
+        "depth": 2400,
+        "rx": -0.157,
+        "ry": -0.179,
+        "rz": -0.009
+      },
+      {
+        "file": "gyro_4059_tree",
+        "path": "chars/4059/4059_p/overlays/gyro_4059_tree.png",
+        "x": 870.8,
+        "y": 357.7,
+        "w": 1140,
+        "h": 1584,
+        "clip": true,
+        "follower": {
+          "type": 2,
+          "ax": 3,
+          "ay": -8
+        },
+        "z": 1500,
+        "depth": 1500
+      },
+      {
+        "file": "gyro_4059_bird2",
+        "path": "chars/4059/4059_p/overlays/gyro_4059_bird2.png",
+        "x": 43,
+        "y": -360.4,
+        "w": 950.4,
+        "h": 1008,
+        "clip": true,
+        "follower": {
+          "type": 2,
+          "ax": 3,
+          "ay": -8
+        },
+        "z": 2000,
+        "depth": 2000,
+        "rx": 0.165,
+        "ry": -0.388,
+        "rz": 0.017
+      },
+      {
+        "file": "gyro_4059_actor2",
+        "path": "chars/4059/4059_p/overlays/gyro_4059_actor2.png",
+        "x": -174.4,
+        "y": 603.7,
+        "w": 1824,
+        "h": 2480,
+        "clip": true,
+        "follower": {
+          "type": 2,
+          "ax": 3,
+          "ay": -8
+        },
+        "z": 2500,
+        "depth": 2500,
+        "rx": -0.344,
+        "ry": 0.121,
+        "rz": 0.01
+      },
+      {
+        "file": "gyro_4059_sign",
+        "path": "chars/4059/4059_p/overlays/gyro_4059_sign.png",
+        "x": 203.4,
+        "y": 302.7,
+        "w": 2553.6,
+        "h": 3813.6,
+        "clip": true,
+        "follower": {
+          "type": 2,
+          "ax": 3,
+          "ay": -8
+        },
+        "z": 3000,
+        "depth": 3000,
+        "rx": -0.343,
+        "ry": 0.129,
+        "rz": 0.024
+      },
+      {
+        "file": "gyro_4059_leaves",
+        "path": "chars/4059/4059_p/overlays/gyro_4059_leaves.png",
+        "x": 408,
+        "y": -415.3,
+        "w": 1033.6,
+        "h": 562.4,
+        "clip": true,
+        "follower": {
+          "type": 2,
+          "ax": 3,
+          "ay": -8
+        },
+        "z": 1200,
+        "depth": 1200,
+        "rx": 0.116,
+        "ry": 0.216,
+        "rz": -0.011
+      },
+      {
+        "file": "gyro_4059_title2",
+        "path": "chars/4059/4059_p/overlays/gyro_4059_title2.png",
+        "x": 390.5,
+        "y": -649.3,
+        "w": 748.8,
+        "h": 384,
+        "clip": true,
+        "follower": {
+          "type": 2,
+          "ax": 3,
+          "ay": -8
+        },
+        "z": 1400,
+        "depth": 1400,
+        "rx": -0.391,
+        "ry": 0.274,
+        "rz": 0.09
+      },
+      {
+        "file": "gyro_4059_bird1",
+        "path": "chars/4059/4059_p/overlays/gyro_4059_bird1.png",
+        "x": 528.5,
+        "y": -81.2,
+        "w": 136.8,
+        "h": 144,
+        "clip": true,
+        "follower": {
+          "type": 2,
+          "ax": 3,
+          "ay": -8
+        },
+        "z": 1200,
+        "depth": 1200
+      },
+      {
+        "file": "gyro_4059_actor1",
+        "path": "chars/4059/4059_p/overlays/gyro_4059_actor1.png",
+        "x": 35,
+        "y": 130.2,
+        "w": 2472.96,
+        "h": 1774.08,
+        "clip": true,
+        "follower": {
+          "type": 2,
+          "ax": 3,
+          "ay": -8
+        },
+        "z": 1000,
+        "depth": 1000
+      },
+      {
+        "file": "gyro_4059_title1",
+        "path": "chars/4059/4059_p/overlays/gyro_4059_title1.png",
+        "x": -103.1,
+        "y": 178.3,
+        "w": 272,
+        "h": 176,
+        "clip": false,
+        "follower": {
+          "type": 1,
+          "ax": 3,
+          "ay": -8
+        },
+        "z": -200,
+        "depth": -200
+      }
+    ]
+  },
+  "4060": {
+    "canvasW": 1080,
+    "canvasH": 1080,
+    "mask": {
+      "w": 712,
+      "h": 712,
+      "x": 0,
+      "y": 0
+    },
+    "parallax": {
+      "ax": 5,
+      "ay": -8,
+      "xmin": -0.99,
+      "xmax": 0.99,
+      "ymin": -0.99,
+      "ymax": -0.21
+    },
+    "layers": [
+      {
+        "file": "frame",
+        "path": "chars/4060/4060_p/overlays/frame.png",
+        "x": 0,
+        "y": 12,
+        "w": 752,
+        "h": 768,
+        "clip": false,
+        "z": 0,
+        "depth": 0
+      },
+      {
+        "file": "gyro_4060_bg",
+        "path": "chars/4060/4060_p/overlays/gyro_4060_bg.png",
+        "x": -64.3,
+        "y": 36.8,
+        "w": 5084.69,
+        "h": 3600,
+        "clip": true,
+        "follower": {
+          "type": 2,
+          "ax": 5,
+          "ay": -8
+        },
+        "z": 3000,
+        "depth": 3000
+      },
+      {
+        "file": "gyro_4060_rightdeco",
+        "path": "chars/4060/4060_p/overlays/gyro_4060_rightdeco.png",
+        "x": 701.1,
+        "y": 760.6,
+        "w": 1293.6,
+        "h": 1016.4,
+        "clip": true,
+        "follower": {
+          "type": 2,
+          "ax": 5,
+          "ay": -8
+        },
+        "z": 1800,
+        "depth": 1800
+      },
+      {
+        "file": "gyro_4060_star2",
+        "path": "chars/4060/4060_p/overlays/gyro_4060_star2.png",
+        "x": 670.1,
+        "y": 665,
+        "w": 238,
+        "h": 170,
+        "clip": true,
+        "follower": {
+          "type": 2,
+          "ax": 5,
+          "ay": -8
+        },
+        "z": 1300,
+        "depth": 1300
+      },
+      {
+        "file": "gyro_4060_icon",
+        "path": "chars/4060/4060_p/overlays/gyro_4060_icon.png",
+        "x": 633.7,
+        "y": 611.5,
+        "w": 160,
+        "h": 153.6,
+        "clip": true,
+        "follower": {
+          "type": 2,
+          "ax": 5,
+          "ay": -8
+        },
+        "z": 1100,
+        "depth": 1100
+      },
+      {
+        "file": "gyro_4060_actor",
+        "path": "chars/4060/4060_p/overlays/gyro_4060_actor.png",
+        "x": 79.3,
+        "y": 256.5,
+        "w": 1862,
+        "h": 1618.8,
+        "clip": true,
+        "follower": {
+          "type": 2,
+          "ax": 5,
+          "ay": -8
+        },
+        "z": 1500,
+        "depth": 1500
+      },
+      {
+        "file": "gyro_4060_shiny",
+        "path": "chars/4060/4060_p/overlays/gyro_4060_shiny.png",
+        "x": -550.7,
+        "y": -30.6,
+        "w": 880,
+        "h": 800,
+        "clip": true,
+        "follower": {
+          "type": 2,
+          "ax": 5,
+          "ay": -8
+        },
+        "z": 1700,
+        "depth": 1700,
+        "blend": "add",
+        "rx": -0.279,
+        "ry": 0,
+        "rz": 0
+      },
+      {
+        "file": "gyro_4060_petal",
+        "path": "chars/4060/4060_p/overlays/gyro_4060_petal.png",
+        "x": -18.8,
+        "y": 106.2,
+        "w": 1736.8,
+        "h": 1071.93,
+        "clip": true,
+        "follower": {
+          "type": 2,
+          "ax": 5,
+          "ay": -8
+        },
+        "z": 800,
+        "depth": 800,
+        "rx": 0.237,
+        "ry": 0,
+        "rz": 0
+      },
+      {
+        "file": "gyro_4060_aura",
+        "path": "chars/4060/4060_p/overlays/gyro_4060_aura.png",
+        "x": -616.9,
+        "y": 444.2,
+        "w": 503.2,
+        "h": 639.2,
+        "clip": true,
+        "follower": {
+          "type": 2,
+          "ax": 5,
+          "ay": -8
+        },
+        "z": 1200,
+        "depth": 1200,
+        "rx": 0.67,
+        "ry": 0,
+        "rz": 0
+      },
+      {
+        "file": "gyro_4060_leftdeco",
+        "path": "chars/4060/4060_p/overlays/gyro_4060_leftdeco.png",
+        "x": -321,
+        "y": -347.9,
+        "w": 682,
+        "h": 550,
+        "clip": true,
+        "follower": {
+          "type": 2,
+          "ax": 5,
+          "ay": -8
+        },
+        "z": 500,
+        "depth": 500
+      },
+      {
+        "file": "gyro_4060_star1",
+        "path": "chars/4060/4060_p/overlays/gyro_4060_star1.png",
+        "x": -358.7,
+        "y": -276.5,
+        "w": 156,
+        "h": 172,
+        "clip": true,
+        "follower": {
+          "type": 2,
+          "ax": 5,
+          "ay": -8
+        },
+        "z": 300,
+        "depth": 300
+      },
+      {
+        "file": "gyro_4060_ribbon",
+        "path": "chars/4060/4060_p/overlays/gyro_4060_ribbon.png",
+        "x": -297.5,
+        "y": -323.3,
+        "w": 493.68,
+        "h": 420.24,
+        "clip": true,
+        "follower": {
+          "type": 2,
+          "ax": 5,
+          "ay": -8
+        },
+        "z": 300,
+        "depth": 300
+      },
+      {
+        "file": "gyro_4060_badage",
+        "path": "chars/4060/4060_p/overlays/gyro_4060_badage.png",
+        "x": -312.4,
+        "y": -204.1,
+        "w": 115.6,
+        "h": 156.4,
+        "clip": true,
+        "follower": {
+          "type": 2,
+          "ax": 5,
+          "ay": -8
+        },
+        "z": 150,
+        "depth": 150
+      },
+      {
+        "file": "gyro_4060_sub2",
+        "path": "chars/4060/4060_p/overlays/gyro_4060_sub2.png",
+        "x": -269.7,
+        "y": 8.3,
+        "w": 66,
+        "h": 132,
+        "clip": false,
+        "follower": {
+          "type": 1,
+          "ax": 5,
+          "ay": -8
+        },
+        "z": -100,
+        "depth": -100
+      },
+      {
+        "file": "gyro_4060_title",
+        "path": "chars/4060/4060_p/overlays/gyro_4060_title.png",
+        "x": 5.7,
+        "y": -207.8,
+        "w": 230.4,
+        "h": 100.8,
+        "clip": false,
+        "follower": {
+          "type": 1,
+          "ax": 5,
+          "ay": -8
+        },
+        "z": -200,
+        "depth": -200
+      },
+      {
+        "file": "gyro_4060_sub1",
+        "path": "chars/4060/4060_p/overlays/gyro_4060_sub1.png",
+        "x": -73.1,
+        "y": -191.5,
+        "w": 96.72,
+        "h": 27.28,
+        "clip": false,
+        "follower": {
+          "type": 1,
+          "ax": 5,
+          "ay": -8
+        },
+        "z": -150,
+        "depth": -150
       }
     ]
   }
