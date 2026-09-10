@@ -597,9 +597,10 @@ AVG_TMP="$TMP/avg"
 AVG_META="$TMP/avgmeta"
 mkdir -p "$AVG_TMP" "$AVG_META"
 echo "=== story character sprites (avg) ==="
-# Prefer the Persistent_Store copy when both exist (it receives game patches).
+# Prefer the Persistent_Store copy when both exist (it receives game patches):
+# iterate InstallResource first so the PS copy overwrites it in AVG_BUNDLES.
 declare -A AVG_BUNDLES
-for dir in "$PERSISTENT" "$INSTALL_RESOURCE"; do
+for dir in "$INSTALL_RESOURCE" "$PERSISTENT"; do
   [[ -d "$dir" ]] || continue
   for f in "$dir"/char_avg_2d_avg*.unity3d; do
     [[ -f "$f" ]] || continue
