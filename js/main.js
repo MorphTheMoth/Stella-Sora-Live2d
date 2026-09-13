@@ -128,6 +128,7 @@ const els = {
   shotTransparent: document.getElementById('shot-transparent'),
   bgstatus: document.getElementById('bg-status'),
   bginput: document.getElementById('bginput'),
+  copyLink: document.getElementById('copy-link'),
   optionsOpen: document.getElementById('options_open'),
   optionsClose: document.getElementById('options_close'),
   optionsWrapper: document.getElementById('options_wrapper'),
@@ -440,6 +441,158 @@ function getVariantInfo(path) {
   return null;
 }
 
+/* ---------------- Shareable deep links (?l=<id>) ----------------
+ *
+ * Link ids (all unique across the data sets):
+ *   - Model entries (trekkers, disc L2D, events, others): the variant's
+ *     compact `name` (e.g. 10301_l, 10301_lf, 4004_l, avg3_100_a).
+ *   - Parallax disc scenes: `<id>p` (e.g. 1001p; parallax ids are numeric).
+ *   - Story characters (AVG): the entry's shortId (e.g. avg1_103).
+ */
+
+// Link id of whatever is currently displayed (null when nothing is loaded).
+function currentLinkId() {
+  if (state.parallaxItem) return state.parallaxItem.id + 'p';
+  if (state.avgItem) return state.avgItem.shortId || state.avgItem.id;
+  if (!state.currentPath) return null;
+  const rel = stripAssetBase(state.currentPath);
+  for (const item of state.models) {
+    if (!item.variants) continue;
+    for (const variant of item.variants) {
+      if (stripAssetBase(variant.path) === rel) return variant.name || item.id;
+    }
+  }
+  return null;
+}
+
+// Resolve a link id back to { type, item, variant? }.
+function resolveLinkId(id) {
+  for (const item of state.models) {
+    if (item.kind === 'parallax') {
+      if (item.id + 'p' === id) return { type: 'parallax', item };
+      continue;
+    }
+    for (const variant of item.variants || []) {
+      if ((variant.name || item.id) === id) return { type: 'model', item, variant };
+    }
+  }
+  for (const item of state.avgModels) {
+    if ((item.shortId || item.id) === id || item.id === id) return { type: 'avg', item };
+  }
+  return null;
+}
+
+// Keep the address bar in sync with the displayed entry so the browser URL
+// can always be copied directly (replaceState = no history spam).
+function setUrlLink(id) {
+  if (!id) return;
+  try {
+    history.replaceState(null, '', location.pathname + '?l=' + encodeURIComponent(id) + location.hash);
+  } catch (e) { /* sandboxed / file:// contexts */ }
+}
+
+// The list row (`.character-name`) of a list item, matched by the exact label
+// addListItem builds (shownId + name).
+function findEntryNameEl(item) {
+  const shownId = shownIdOf(item);
+  const label = shownId + ' ' + (item.name === '#' + shownId ? '' : item.name);
+  for (const el of els.list.querySelectorAll('.character-name')) {
+    if (el.textContent === label) return el;
+  }
+  return null;
+}
+
+// Unfold the section a list element lives in (links must stay reachable
+// while sections are collapsed).
+function unfoldSectionOf(el) {
+  let header = el && el.previousElementSibling;
+  while (header && !header.classList.contains('entity-section')) {
+    header = header.previousElementSibling;
+  }
+  if (header && isSectionFoldedNow(header)) setSectionFold(header, false);
+}
+
+// Load the entry a `?l=` id points at. Prefers clicking the real list button
+// so the active highlight / expansion match a manual click; falls back to a
+// direct programmatic load. Returns false when the id is unknown.
+function applyLink(id) {
+  const link = resolveLinkId(id);
+  if (!link) return false;
+  if (link.type === 'model') {
+    const btn = [...els.list.querySelectorAll('.character-variation_button')]
+      .find((b) => b.title === link.variant.path);
+    if (btn) {
+      // Expand the owning block (like clicking the character name would).
+      const block = btn.closest('.entity-block');
+      if (block) {
+        unfoldSectionOf(block);
+        document.querySelectorAll('.entity-block').forEach((other) => {
+          if (other === block) return;
+          const v = other.querySelector('.character-variation');
+          if (v && v.style.display !== 'none') {
+            v.style.display = 'none';
+            other.classList.add('collapsed');
+          }
+        });
+        const v = block.querySelector('.character-variation');
+        if (v) { v.style.display = ''; block.classList.remove('collapsed'); }
+      }
+      btn.click();
+      return true;
+    }
+    // Single-variant entries (disc L2D / events / others) have no variation
+    // button; their name row is the click target.
+    const nameEl = findEntryNameEl(link.item);
+    if (nameEl) {
+      unfoldSectionOf(nameEl);
+      nameEl.click();
+      return true;
+    }
+    state.currentName = link.item.name;
+    loadModel(resolveUrl(link.variant.path));
+    return true;
+  }
+  const nameEl = findEntryNameEl(link.item);
+  if (nameEl) {
+    unfoldSectionOf(nameEl);
+    nameEl.click();
+    return true;
+  }
+  state.currentName = link.item.name;
+  if (link.type === 'parallax') loadParallax(link.item);
+  else loadAvg(link.item);
+  return true;
+}
+
+// Top-bar "Copy link" — copies a URL with ?l=<current entry>.
+function copyCurrentLink() {
+  const id = currentLinkId();
+  if (!id) {
+    els.status.textContent = 'Nothing loaded yet';
+    return;
+  }
+  const url = location.origin + location.pathname + '?l=' + encodeURIComponent(id) + location.hash;
+  const done = () => {
+    els.status.textContent = 'Link copied';
+    setTimeout(() => { if (els.status.textContent === 'Link copied') els.status.textContent = ''; }, 2500);
+  };
+  const fallbackCopy = () => {
+    const ta = document.createElement('textarea');
+    ta.value = url;
+    ta.style.position = 'fixed';
+    ta.style.opacity = '0';
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand('copy'); done(); } catch (e) { els.status.textContent = 'Copy failed'; }
+    ta.remove();
+  };
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(url).then(done, fallbackCopy);
+  } else {
+    fallbackCopy();
+  }
+}
+
 /* ---------------- Disc parallax (image-only scene) ---------------- */
 
 // A disc's non-L2D entry is a parallax scene replicating the game's card
@@ -474,6 +627,7 @@ async function loadParallax(item) {
   const seq = ++modelLoadSeq;
   resetCamera();
   state.currentPath = item.id + 'p';
+  setUrlLink(item.id + 'p');
   showBgLoading();
 
   // Tear down any live model and parallax scene.
@@ -989,6 +1143,7 @@ async function loadAvg(item, poseIdx) {
   const seq = ++modelLoadSeq;
   resetCamera();
   state.currentPath = item.id + 'a';
+  setUrlLink(item.shortId || item.id);
 
   // Tear down any live model (same sequence as loadParallax).
   if (state.model) {
@@ -1648,6 +1803,8 @@ export async function loadModel(path) {
   resetCamera();
 
   state.currentPath = path;
+  const linkVariant = getVariantInfo(path);
+  if (linkVariant && linkVariant.name) setUrlLink(linkVariant.name);
   const { layers } = getVariantBgs(path);
   state.currentBgList = layers;
   state.options.overrides.clear();
@@ -2344,8 +2501,12 @@ async function init() {
       downloadScreenshot(transparent, crop);
     });
   }
+  if (els.copyLink) els.copyLink.addEventListener('click', copyCurrentLink);
 
-  if (state.models.length && state.models[0].variants.length) {
+  // A ?l=<id> in the URL deep-links straight to that entry; otherwise load
+  // the first trekker's default L2D as before.
+  const linkId = new URLSearchParams(location.search).get('l');
+  if (!(linkId && applyLink(linkId)) && state.models.length && state.models[0].variants.length) {
     state.currentName = state.models[0].name;
     loadModel(resolveUrl(state.models[0].variants[0].path));
   }
