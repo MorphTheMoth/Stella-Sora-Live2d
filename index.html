@@ -4,6 +4,31 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Stella Sora · Live2D Viewer</title>
+<script>
+// Deep links use clean paths (/10301_l, /avg2_960).  Pixi resolves relative
+// asset URLs against document.baseURI, and history.replaceState makes
+// baseURI follow the link path — which would prefix every chars/ bg/ avg/
+// fetch with the id segment.  Pin a <base> to the viewer's own directory
+// before any resource loads.  Id-shape regex must stay in sync with
+// js/main.js (linkIdFromUrl / siteBase) and 404.html.  Note: a repo/site
+// directory whose name looks like a link id (contains "_" like "10301_l",
+// or is "<digits>p") would confuse this — use an underscore-free name
+// (e.g. "stella-sora-l2d").
+(function () {
+  if (location.protocol !== "http:" && location.protocol !== "https:") return;
+  var raw = location.pathname;
+  var stripped = raw.replace(/\/+$/, "");
+  var seg = decodeURIComponent(stripped.split("/").pop() || "");
+  var isId = !!seg && seg !== "index.html" && seg.indexOf(".") === -1 &&
+             /[\w-]*_\w+$|^\d+p$/i.test(seg);
+  var base = isId
+    ? stripped.slice(0, stripped.lastIndexOf("/") + 1) || "/"
+    : raw.slice(0, raw.lastIndexOf("/") + 1) || "/";
+  var b = document.createElement("base");
+  b.href = base;
+  document.head.appendChild(b);
+})();
+</script>
 <script src="./js/live2dcubismcore.min.js"></script>
 <script type="importmap">
 {
@@ -494,7 +519,7 @@
     <label class="tool" title="When enabled, the site's background color is exported as transparency in the screenshot; the entry's own background/scene layers are kept">
       <input type="checkbox" id="shot-transparent" checked /> Transparent
     </label>
-    <button class="tool" id="copy-link" type="button" title="Copy a shareable link to the currently open Live2D (?l=…)">
+    <button class="tool" id="copy-link" type="button" title="Copy a shareable link to the currently open Live2D (/id or ?l=id)">
       Copy link
     </button>
     <span id="bg-status" class="tool-status">loading…</span>

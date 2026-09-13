@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Stella Sora · Live2D Viewer</title>
+<script>
+// GitHub Pages has no server-side rewrites, so a clean deep link such as
+// /<repo>/avg2_960 is served this 404 page.  Translate the path into the
+// viewer's ?l=<id> query and redirect there.
+(function () {
+  var seg = decodeURIComponent(location.pathname.replace(/\/+$/, '').split('/').pop() || '');
+  // Link ids: variant names (10301_lf, avg3_100_a), parallax ids (4060p),
+  // AVG shortIds (avg1_103).  Anything else (e.g. the bare site root or a
+  // real missing file) is treated as a genuine 404.
+  if (/[\w-]*_\w+$|^\d+p$/i.test(seg)) {
+    // Trailing slashes are stripped first so /10301_lf/ redirects to the
+    // viewer root, not to /10301_lf/index.html (which doesn't exist).
+    var p = location.pathname.replace(/\/+$/, '');
+    var base = p.slice(0, p.lastIndexOf('/') + 1) || '/';
+    location.replace(base + 'index.html?l=' + encodeURIComponent(seg) + location.hash);
+    return;
+  }
+  document.write(
+    '<p style="font-family:monospace;padding:2em">404 — <a href="./">open the L2D viewer</a></p>'
+  );
+})();
+</script>
+</head>
+<body></body>
+</html>

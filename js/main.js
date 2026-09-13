@@ -482,13 +482,61 @@ function resolveLinkId(id) {
   return null;
 }
 
+// Base URL directory of the viewer (always ends with '/'): '/' on a user
+// site, '/<repo>/' on a GitHub Pages project site.  Handles deep-link path
+// forms too (the page may be served at /10301_l or /10301_l/): the id
+// segment is dropped so the viewer directory is returned.  Id-shape regex
+// must stay in sync with the inline <base> script in index.html, 404.html
+// and linkIdFromUrl().
+function siteBase() {
+  const raw = location.pathname;
+  const stripped = raw.replace(/\/+$/, '');
+  const seg = decodeURIComponent(stripped.split('/').pop() || '');
+  const isId = !!seg && seg !== 'index.html' && !seg.includes('.') &&
+    /^[\w-]*_\w+$|^\d+p$/i.test(seg);
+  if (isId && (raw !== stripped || stripped.split('/').length > 2)) {
+    // Deep-link path: drop the id segment.
+    return stripped.slice(0, stripped.lastIndexOf('/') + 1) || '/';
+  }
+  // Natural index URL ('/', '/repo/', '/index.html', '/repo/index.html').
+  return raw.slice(0, raw.lastIndexOf('/') + 1) || '/';
+}
+
+// URL for a link id.  On http(s) the clean path style is used (/avg2_960);
+// GitHub Pages resolves it via the root 404.html fallback, which redirects
+// to index.html?l=<id>.  On file:// (and any other host without a fallback)
+// the query style is used instead.
+function linkUrl(id) {
+  if (location.protocol === 'http:' || location.protocol === 'https:') {
+    return location.origin + siteBase() + encodeURIComponent(id) + location.hash;
+  }
+  return location.origin + location.pathname + '?l=' + encodeURIComponent(id) + location.hash;
+}
+
+// Link id in the current URL, from ?l= or from a clean path segment
+// (/avg2_960).  Only segments matching the known id shapes are accepted so
+// stray paths never hijack the default entry.
+function linkIdFromUrl() {
+  const q = new URLSearchParams(location.search).get('l');
+  if (q) return q;
+  const seg = decodeURIComponent(location.pathname.replace(/\/+$/, '').split('/').pop() || '');
+  if (/[\w-]*_\w+$|^\d+p$/i.test(seg)) return seg;
+  return null;
+}
+
 // Keep the address bar in sync with the displayed entry so the browser URL
-// can always be copied directly (replaceState = no history spam).
+// can always be copied directly (replaceState = no history spam).  Clean
+// path style on http(s), ?l= style on file:// (pushState with a path is a
+// SecurityError there).
 function setUrlLink(id) {
   if (!id) return;
   try {
-    history.replaceState(null, '', location.pathname + '?l=' + encodeURIComponent(id) + location.hash);
-  } catch (e) { /* sandboxed / file:// contexts */ }
+    if (location.protocol === 'http:' || location.protocol === 'https:') {
+      history.replaceState(null, '', siteBase() + encodeURIComponent(id) + location.hash);
+    } else {
+      history.replaceState(null, '', location.pathname + '?l=' + encodeURIComponent(id) + location.hash);
+    }
+  } catch (e) { /* sandboxed contexts */ }
 }
 
 // The list row (`.character-name`) of a list item, matched by the exact label
@@ -571,7 +619,7 @@ function copyCurrentLink() {
     els.status.textContent = 'Nothing loaded yet';
     return;
   }
-  const url = location.origin + location.pathname + '?l=' + encodeURIComponent(id) + location.hash;
+  const url = linkUrl(id);
   const done = () => {
     els.status.textContent = 'Link copied';
     setTimeout(() => { if (els.status.textContent === 'Link copied') els.status.textContent = ''; }, 2500);
@@ -2503,9 +2551,10 @@ async function init() {
   }
   if (els.copyLink) els.copyLink.addEventListener('click', copyCurrentLink);
 
-  // A ?l=<id> in the URL deep-links straight to that entry; otherwise load
-  // the first trekker's default L2D as before.
-  const linkId = new URLSearchParams(location.search).get('l');
+  // A ?l=<id> query or a clean path segment (/avg2_960) in the URL
+  // deep-links straight to that entry; otherwise load the first trekker's
+  // default L2D as before.
+  const linkId = linkIdFromUrl();
   if (!(linkId && applyLink(linkId)) && state.models.length && state.models[0].variants.length) {
     state.currentName = state.models[0].name;
     loadModel(resolveUrl(state.models[0].variants[0].path));

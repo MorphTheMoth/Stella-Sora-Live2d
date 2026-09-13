@@ -48,6 +48,45 @@ scripts/
   generateDiscId.mjs        # rebuild discid.json from Disc.json + Item.json
 ```
 
+## Shareable deep links
+
+Every entry has a compact link id, shown in the address bar as you browse
+(URL synced via `history.replaceState`) and copyable via the top-bar
+**Copy link** button:
+
+- Model entries (trekkers, disc L2D, events, others): the variant's `name`,
+  e.g. `10301_l`, `10301_lf`, `4004_l`, `avg3_100_a`.
+- Parallax disc scenes: `<id>p`, e.g. `4060p` (parallax ids are numeric).
+- Story characters (AVG): the entry's shortId, e.g. `avg1_103`.
+
+Id shapes live in `main.js` (`resolveLinkId`, `currentLinkId`,
+`linkIdFromUrl`).  URL formats:
+
+- `http(s)://…/` hosting: clean path style `/10301_lf`.  GitHub Pages has no
+  server rewrites, so the repo-root `404.html` catches those URLs and
+  redirects to `index.html?l=<id>` (only segments matching the id shapes
+  above are redirected; anything else stays a real 404).
+- `file://` / hosts without a 404 fallback: query style `?l=<id>` (a path
+  pushState is a SecurityError on `file://`, so `main.js` falls back there).
+
+Local testing needs the same fallback: `python -m http.server` serves its
+own error page for `/10301_l`, so fresh loads of path links break there
+(navigating around still works — only fresh loads need the fallback).  Use
+`node scripts/devserver.mjs [port]` instead (optionally `--spa` to serve
+index.html for any unknown path); it reproduces the GitHub Pages behaviour
+exactly, so what works locally works on Pages.
+
+Relative-asset pinning: Pixi absolutizes URLs against `document.baseURI`,
+which follows `history.replaceState` — once the address bar reads
+`/10301_l`, every `chars/`… fetch would get the id segment prefixed.  An
+inline `<script>` in `index.html` (runs before any resource) pins a `<base>`
+to the viewer directory on http(s), so relative loads stay correct whether
+the page is served at the site root or at a deep-link path (with or without
+a trailing slash).  Hosts that serve `index.html` for deep-link paths will
+show harmless 404s in the console for the speculative preload of
+`js/main.js` / `js/live2dcubismcore.min.js` (the base tag applies a moment
+later and the real fetches succeed).
+
 ## Main-menu backdrops (CharBg)
 
 Each character skin has a main-menu background the game draws behind the L2D
