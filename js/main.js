@@ -2523,7 +2523,7 @@ async function init() {
 
   const res = await fetch(resolveUrl('data/models.json'));
   state.models = await res.json();
-  els.title.textContent = 'Stella Sora L2D (' + state.models.length + ' models)';
+  els.title.textContent = 'Stella Sora l2d (' + state.models.length + ' models)';
   try {
     const resAvg = await fetch(resolveUrl('data/avg.json'));
     if (resAvg.ok) {
