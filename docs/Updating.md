@@ -49,6 +49,8 @@ The script is additive: existing `chars/`/`data/` entries that vanished from the
 
 `dump.sh` caches per-bundle `mtime`+`size` in `.dump_tmp/dump.cache.json` (like `bruteForceOthers.mjs`) per-stage (`live2d`/`bg`/`disc`/`offset`/`avg`). Unchanged bundles skip `dotnet` exports; modified/new bundles are re-extracted. Use `--force`/`-f` to ignore the cache, or delete `.dump_tmp/dump.cache.json`. Stale entries are pruned automatically. Manifest/regeneration steps still run every time even on cache hits so `data/*.json` stays consistent.
 
+All staging into `chars/`/`bg/`/`avg/`/`events/`/`data/` is content-stable (`scripts/io.mjs` + equivalent guards in `normalize.py`): files whose bytes didn't change keep their mtime, so `aws s3 sync` re-uploads only real changes after a game update instead of everything the update touched.
+
 ---
 
 ## 3. What `dump.sh` does (and what it rebuilds)

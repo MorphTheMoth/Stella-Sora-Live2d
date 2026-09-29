@@ -14,6 +14,7 @@
 
 import fs from 'node:fs';
 import path from 'node:path';
+import { writeTextIfChanged } from './io.mjs';
 
 function parseArgs() {
   const args = process.argv.slice(2);
@@ -86,7 +87,7 @@ function main() {
   for (const k of Object.keys(result).sort((a, b) => Number(a) - Number(b))) sorted[k] = result[k];
 
   fs.mkdirSync(path.dirname(outFile), { recursive: true });
-  fs.writeFileSync(outFile, JSON.stringify(sorted, null, 2) + '\n');
+  writeTextIfChanged(outFile, JSON.stringify(sorted, null, 2) + '\n');
   console.log(`Generated ${Object.keys(sorted).length} disc names -> ${outFile} (from ${discFile} + ${itemFile})`);
 }
 

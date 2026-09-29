@@ -14,6 +14,7 @@
 
 import fs from 'node:fs';
 import path from 'node:path';
+import { writeTextIfChanged } from './io.mjs';
 
 function parseArgs() {
   const args = process.argv.slice(2);
@@ -120,7 +121,7 @@ function main() {
     }
   }
 
-  fs.writeFileSync(modelsFile, JSON.stringify(models, null, 2));
+  writeTextIfChanged(modelsFile, JSON.stringify(models, null, 2));
   console.log(`Merged bgLayers into ${added} variants -> ${modelsFile}`);
 }
 

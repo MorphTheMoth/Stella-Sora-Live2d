@@ -21,8 +21,28 @@ import argparse
 import json
 import os
 import re
-import shutil
 import sys
+
+# Content-stable writes: `aws s3 sync` reuploads anything with a newer
+# mtime, even byte-identical files — so never touch a destination whose
+# bytes already match (see scripts/io.mjs, the node equivalent).
+def read_bytes(p):
+    try:
+        with open(p, "rb") as f:
+            return f.read()
+    except OSError:
+        return None
+
+
+def write_bytes_if_changed(dst_path, data):
+    if read_bytes(dst_path) == data:
+        return False
+    parent = os.path.dirname(dst_path)
+    if parent:
+        os.makedirs(parent, exist_ok=True)
+    with open(dst_path, "wb") as f:
+        f.write(data)
+    return True
 
 VARIANT_SUFFIX = {
     "live2d": "l",
@@ -32,20 +52,12 @@ VARIANT_SUFFIX = {
 
 # Unity textAssets are exported with a UTF-8 BOM (EF BB BF), which breaks
 # JSON.parse in the browser. Strip it from any json file we write.
-def strip_bom(src_path, dst_path):
+def copy_no_bom(src_path, dst_path):
     with open(src_path, "rb") as f:
         data = f.read()
-    if data.startswith(b"\xef\xbb\xbf"):
+    if dst_path.endswith(".json") and data.startswith(b"\xef\xbb\xbf"):
         data = data[3:]
-    with open(dst_path, "wb") as f:
-        f.write(data)
-
-
-def copy_no_bom(src_path, dst_path):
-    if dst_path.endswith(".json"):
-        strip_bom(src_path, dst_path)
-    else:
-        shutil.copy2(src_path, dst_path)
+    write_bytes_if_changed(dst_path, data)
 
 
 def find_model3_roots(root):
@@ -172,11 +184,13 @@ def attach_motions(model_dir, model_json, raw_root, dest):
 
 
 def merge_copy(src_dir, dst_dir):
-    """Copy src_dir into dst_dir without clobbering existing files.
+    """Copy src_dir into dst_dir, updating only changed files.
 
     Shared subfolders (textures/, motions/) across multiple models in one
-    variant folder (e.g. 11001_lf contains 11001_F_a and 11001_F_b) must be
-    merged, keeping files from whichever model is copied first.
+    variant folder (e.g. 11001_lf contains 11001_F_a and 11001_F_b) are
+    merged; a re-extracted bundle refreshes changed files instead of
+    keeping stale first-wins copies, while identical bytes keep their
+    mtime (so `aws s3 sync` stays quiet).
     """
     os.makedirs(dst_dir, exist_ok=True)
     for entry in os.listdir(src_dir):
@@ -184,7 +198,7 @@ def merge_copy(src_dir, dst_dir):
         dst = os.path.join(dst_dir, entry)
         if os.path.isdir(src):
             merge_copy(src, dst)
-        elif not os.path.exists(dst):
+        else:
             copy_no_bom(src, dst)
 
 
@@ -229,8 +243,8 @@ def main():
             with open(model3_path, "r", encoding="utf-8-sig") as f:
                 model_json = json.load(f)
             model_json = attach_motions(m["dir"], model_json, args.raw, dest)
-            with open(model3_path, "w", encoding="utf-8") as f:
-                json.dump(model_json, f, indent=2, ensure_ascii=False)
+            blob = json.dumps(model_json, indent=2, ensure_ascii=False).encode("utf-8")
+            write_bytes_if_changed(model3_path, blob)
         except (OSError, json.JSONDecodeError) as e:
             print("WARN: could not post-process", model3_path, e)
 

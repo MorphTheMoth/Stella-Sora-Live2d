@@ -28,6 +28,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { writeTextIfChanged } from './io.mjs';
 
 const SCRIPT_DIR = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(SCRIPT_DIR, '..');
@@ -78,16 +79,21 @@ function buildNames(datamine) {
     if (nm) groupNames[m[1]] = (nm[1] || nm[2]).trim();
   }
   const activityCn = {};
+  const activityGroup = {};
   const vals = Array.isArray(activityBin) ? activityBin : Object.values(activityBin);
   for (const it of vals) {
     if (it && it.Id !== undefined && it.Name) activityCn[String(it.Id)] = it.Name;
+    // Story-event fragments are keyed by Activity id (e.g. 400017) while the
+    // EN group notes are keyed by group id (e.g. 10112 via MidGroupId) —
+    // keep the bridge so nameFor can resolve the group title.
+    if (it && it.Id !== undefined && it.MidGroupId !== undefined) activityGroup[String(it.Id)] = String(it.MidGroupId);
   }
   const skinNames = {};
   for (const [k, v] of Object.entries(skinLang)) {
     const m = /^CharacterSkin\.(\d+)\.1$/.exec(k);
     if (m && typeof v === 'string') skinNames[m[1]] = v;
   }
-  return { groupNames, activityCn, skinNames };
+  return { groupNames, activityCn, activityGroup, skinNames };
 }
 
 function nameFor(ref, names) {
@@ -95,6 +101,8 @@ function nameFor(ref, names) {
   const sp = /^sp(\d+)$/.exec(ref);
   if (sp) return (names.skinNames[sp[1]] || `Skin ${sp[1]}`) + ' (Spine)';
   if (names.groupNames[ref]) return names.groupNames[ref];
+  const grp = names.activityGroup ? names.activityGroup[ref] : null;
+  if (grp && names.groupNames[grp]) return names.groupNames[grp];
   if (names.activityCn[ref]) return `${names.activityCn[ref]} (${ref})`;
   return `Activity ${ref}`;
 }
@@ -169,11 +177,11 @@ function main() {
   }
 
   fs.mkdirSync(path.dirname(o.outFile), { recursive: true });
-  fs.writeFileSync(o.outFile, JSON.stringify(events, null, 2));
+  writeTextIfChanged(o.outFile, JSON.stringify(events, null, 2));
 
   const models = loadJson(o.modelsFile) || [];
   const kept = models.filter((item) => item.kind !== 'event');
-  fs.writeFileSync(o.modelsFile, JSON.stringify([...kept, ...section], null, 2));
+  writeTextIfChanged(o.modelsFile, JSON.stringify([...kept, ...section], null, 2));
   console.log(`Wrote ${Object.keys(events).length} events, ${section.length} entries -> ${o.modelsFile}`);
 }
 

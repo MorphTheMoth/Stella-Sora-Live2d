@@ -296,6 +296,24 @@
       }
     ]
   },
+  "400017": {
+    "name": "A Monolith Too Far",
+    "static": null,
+    "spines": [
+      {
+        "name": "castnet",
+        "skel": "castnet.skel",
+        "atlas": "castnet.atlas",
+        "textures": [
+          {
+            "file": "castnet.png",
+            "w": 1024,
+            "h": 512
+          }
+        ]
+      }
+    ]
+  },
   "510001": {
     "name": "Joint Drill I — Eye of Ashes",
     "static": {

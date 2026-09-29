@@ -16,6 +16,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { writeTextIfChanged } from './io.mjs';
 
 function parseArgs() {
   const args = process.argv.slice(2);
@@ -271,7 +272,7 @@ function main() {
   const result = [...characters, ...discs];
 
   fs.mkdirSync(path.dirname(outFile), { recursive: true });
-  fs.writeFileSync(outFile, JSON.stringify(result, null, 2));
+  writeTextIfChanged(outFile, JSON.stringify(result, null, 2));
   console.log(`Generated ${characters.length} characters + ${discs.length} discs, ${outFile}`);
 }
 

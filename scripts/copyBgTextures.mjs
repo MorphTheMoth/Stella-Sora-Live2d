@@ -9,7 +9,8 @@
  * texture2d export (`-m export -t texture2d`, see dump.sh) into
  * `<texRoot>/<bundle>/assets/.../fx/<subdir>/<file>.png`.  We search that
  * export tree by filename and copy the first hit into
- * `chars/<skin>/<variant>/bg/<file>.png`, skipping files that already exist.
+ * `chars/<skin>/<variant>/bg/<file>.png`, writing only changed bytes
+ * (identical files keep their mtime so `aws s3 sync` stays quiet).
  *
  * Each variant's `bg/` folder is kept in sync with its `bgLayers` (and its
  * `bg` list): any PNG there that is not referenced by either is removed, so a
@@ -24,6 +25,7 @@
 
 import fs from 'node:fs';
 import path from 'node:path';
+import { copyIfChanged } from './io.mjs';
 
 function parseArgs() {
   const args = process.argv.slice(2);
@@ -102,16 +104,17 @@ function main() {
       for (const layer of variant.bgLayers) {
         const fn = layer.file + '.png';
         const dst = path.join(bgDir, fn);
-        if (fs.existsSync(dst)) continue;
         const src = byName.get(fn);
         if (!src) {
           missing++;
           missingFiles.add(fn);
           continue;
         }
+        // Content-compare, not exists-skip: a game update may change the
+        // art behind a same-named texture, but identical bytes keep their
+        // mtime so `aws s3 sync` stays quiet.
         fs.mkdirSync(bgDir, { recursive: true });
-        fs.copyFileSync(src, dst);
-        copied++;
+        if (copyIfChanged(src, dst)) copied++;
       }
     }
   }

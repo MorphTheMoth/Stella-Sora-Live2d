@@ -2820,11 +2820,6 @@ function createCharactersList() {
     for (const item of chars) addListItem(item);
   }
 
-  if (events.length) {
-    addListSection('Events (' + events.length + ')', 'events');
-    for (const item of events) addListItem(item);
-  }
-
   if (discL2ds.length) {
     addListSection('Disc L2D (' + discL2ds.length + ')', 'discl2d');
     for (const item of discL2ds) addListItem(item);
@@ -2843,6 +2838,11 @@ function createCharactersList() {
   if (others.length) {
     addListSection('Others (' + others.length + ')', 'others');
     for (const item of others) addListItem(item);
+  }
+
+  if (events.length) {
+    addListSection('Events (' + events.length + ')', 'events');
+    for (const item of events) addListItem(item);
   }
 
   // Apply folding. All sections start folded (state persists across rebuilds);

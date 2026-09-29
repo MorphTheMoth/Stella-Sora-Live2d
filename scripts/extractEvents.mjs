@@ -38,6 +38,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
+import { copyIfChanged } from './io.mjs';
 
 const SCRIPT_DIR = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(SCRIPT_DIR, '..');
@@ -408,7 +409,7 @@ function stage(bundle, ref, found, outDir) {
   for (const [i, rig] of found.rigs.entries()) {
     const bodyFile = found.rigs.length > 1 ? `body${i + 1}.png` : 'body.png';
     fs.mkdirSync(dest, { recursive: true });
-    fs.copyFileSync(rig.body.png, path.join(dest, bodyFile));
+    copyIfChanged(rig.body.png, path.join(dest, bodyFile));
     if (i === 0) {
       frag.static = { body: bodyFile, w: rig.body.w, h: rig.body.h, faces: [] };
       if (rig.body.rect && (rig.body.rect.w !== rig.body.w || rig.body.rect.h !== rig.body.h || rig.body.rect.x !== 0 || rig.body.rect.y !== 0)) {
@@ -423,7 +424,7 @@ function stage(bundle, ref, found, outDir) {
   if (frag.static) {
     for (const f of found.faces) {
       const faceFile = `face_${f.sprName}.png`;
-      fs.copyFileSync(f.png, path.join(dest, faceFile));
+      copyIfChanged(f.png, path.join(dest, faceFile));
       frag.static.faces.push({ name: f.sprName, file: faceFile, w: f.w, h: f.h, x: f.x, y: f.y });
       n++;
     }
@@ -432,11 +433,11 @@ function stage(bundle, ref, found, outDir) {
     if (s.maxDim < MIN_SPINE_TEX) { console.log(`  spine ${s.name}: max texture ${s.maxDim}px < ${MIN_SPINE_TEX}, skipped as decoration`); continue; }
     const sdir = path.join(dest, 'spine');
     fs.mkdirSync(sdir, { recursive: true });
-    fs.copyFileSync(s.skelSrc, path.join(sdir, s.skelFile));
-    fs.copyFileSync(s.atlasSrc, path.join(sdir, s.atlasFile));
+    copyIfChanged(s.skelSrc, path.join(sdir, s.skelFile));
+    copyIfChanged(s.atlasSrc, path.join(sdir, s.atlasFile));
     const tex = [];
     for (const t of s.textures) {
-      fs.copyFileSync(t.png, path.join(sdir, t.file));
+      copyIfChanged(t.png, path.join(sdir, t.file));
       tex.push({ file: t.file, w: t.w, h: t.h });
     }
     frag.spines.push({ name: s.name, skel: s.skelFile, atlas: s.atlasFile, textures: tex });

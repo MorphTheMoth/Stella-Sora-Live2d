@@ -8,6 +8,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
+import { copyDirIfChanged, copyIfChanged } from './io.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const GAME_PERSIST = process.env.GAME_PERSIST || '/home/morph/stella sora meter/Link to YostarGames/StellaSora_EN/Persistent_Store/AssetBundles';
@@ -166,7 +167,7 @@ function stageToOthers(live2dOutDir) {
           const stat = fs.statSync(src);
           if (stat.isDirectory()) {
             // textures / motions are shared
-            fs.cpSync(src, dst, { recursive: true, force: true });
+            copyDirIfChanged(src, dst);
           } else {
             // Only copy this variant's model files; skip sibling model
             // files that share the same directory (e.g. createplayer2_F
@@ -174,7 +175,7 @@ function stageToOthers(live2dOutDir) {
             if (f.endsWith('.moc3') || f.endsWith('.model3.json') || f.endsWith('.cdi3.json') || f.endsWith('.physics3.json')) {
               if (!f.startsWith(variant)) continue;
             }
-            fs.copyFileSync(src, dst);
+            copyIfChanged(src, dst);
           }
         }
         console.log(`  staged ${variant} -> chars/others/${variant}/`);
@@ -295,11 +296,11 @@ async function main() {
               const srcModel = path.join(fixTmp, 'Live2DOutput', 'createplayer2_F');
               if (fs.existsSync(path.join(srcModel, 'createplayer2_F.model3.json'))) {
                 fs.rmSync(path.join(OTHERS_DIR, 'createplayer2_F', 'motions'), { recursive: true, force: true });
-                if (fs.existsSync(path.join(srcModel, 'motions'))) fs.cpSync(path.join(srcModel, 'motions'), path.join(OTHERS_DIR, 'createplayer2_F', 'motions'), { recursive: true, force: true });
-                fs.copyFileSync(path.join(srcModel, 'createplayer2_F.model3.json'), fModel);
+                if (fs.existsSync(path.join(srcModel, 'motions'))) copyDirIfChanged(path.join(srcModel, 'motions'), path.join(OTHERS_DIR, 'createplayer2_F', 'motions'));
+                copyIfChanged(path.join(srcModel, 'createplayer2_F.model3.json'), fModel);
                 for (const fn of ['createplayer2_F.cdi3.json', 'createplayer2_F.physics3.json']) {
                   const s = path.join(srcModel, fn);
-                  if (fs.existsSync(s)) fs.copyFileSync(s, path.join(OTHERS_DIR, 'createplayer2_F', fn));
+                  if (fs.existsSync(s)) copyIfChanged(s, path.join(OTHERS_DIR, 'createplayer2_F', fn));
                 }
                 console.log('  fixed createplayer2_F motions (was M, now F)');
               }

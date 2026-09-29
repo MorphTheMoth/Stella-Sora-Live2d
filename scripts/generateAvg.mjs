@@ -40,6 +40,7 @@
 
 import fs from 'node:fs';
 import path from 'node:path';
+import { copyIfChanged, writeTextIfChanged } from './io.mjs';
 
 function parseArgs() {
   const args = process.argv.slice(2);
@@ -171,7 +172,7 @@ function main() {
           keep.add(f);
           const src = path.join(srcDir, f);
           const dst = path.join(dstDir, f);
-          if (fs.existsSync(src)) fs.copyFileSync(src, dst);
+          if (fs.existsSync(src)) copyIfChanged(src, dst);
         }
       }
       // Drop stale files from earlier dumps.
@@ -182,7 +183,7 @@ function main() {
   }
 
   fs.mkdirSync(path.dirname(outFile), { recursive: true });
-  fs.writeFileSync(outFile, JSON.stringify(entries, null, 1) + '\n');
+  writeTextIfChanged(outFile, JSON.stringify(entries, null, 1) + '\n');
   const nFaces = entries.reduce((n, e) => n + e.poses.reduce((m, p) => m + p.faces.length, 0), 0);
   console.log(`avg.json: ${entries.length} characters, ${nFaces} faces -> ${outFile}`);
 }

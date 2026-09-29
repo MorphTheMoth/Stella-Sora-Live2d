@@ -33,6 +33,7 @@
 
 import fs from 'node:fs';
 import path from 'node:path';
+import { copyIfChanged, writeTextIfChanged } from './io.mjs';
 
 function parseArgs() {
   const args = process.argv.slice(2);
@@ -721,7 +722,7 @@ function main() {
       if (l.sprite === FRAME_SPRITE_ID) {
         if (!framePng) continue;
         const dest = path.join(ovDir, 'frame.png');
-        fs.copyFileSync(framePng, dest);
+        copyIfChanged(framePng, dest);
         const hasFrameRot = Math.abs(l.rx) > 0.001 || Math.abs(l.ry) > 0.001 || Math.abs(l.rz) > 0.001;
         layers.push({
           file: 'frame',
@@ -748,7 +749,7 @@ function main() {
       if (!src) continue;
       const file = texName.replace(/\//g, '_');
       const dest = path.join(ovDir, file + '.png');
-      fs.copyFileSync(src, dest);
+      copyIfChanged(src, dest);
 
       const hasStaticRot = Math.abs(l.rx) > 0.001 || Math.abs(l.ry) > 0.001 || Math.abs(l.rz) > 0.001;
       layers.push({
@@ -793,7 +794,7 @@ function main() {
         const src = listFiles(texPngBundle).find((f) => f.split(/[\\/]/).pop() === baseName + '.png');
         if (src) {
           const dest = path.join(ovDir, baseName + '.png');
-          fs.copyFileSync(src, dest);
+          copyIfChanged(src, dest);
           const rarity = id[0] === '3' ? 4 : id[0] === '4' ? 5 : 3;
           // The rarity frame is shared — stage it once under chars/common/.
           let frameLayer = null;
@@ -804,7 +805,7 @@ function main() {
               const commonDir = path.join(`${charsDir}/common`);
               fs.mkdirSync(commonDir, { recursive: true });
               const frameDest = path.join(commonDir, `rare_outfit_${rarity}.png`);
-              if (!fs.existsSync(frameDest)) fs.copyFileSync(frameSrc, frameDest);
+              copyIfChanged(frameSrc, frameDest);
               frameLayer = {
                 file: `rare_outfit_${rarity}`,
                 path: `chars/common/rare_outfit_${rarity}.png`,
@@ -859,7 +860,7 @@ function main() {
             if (!src) continue;
             const file = texName.replace(/\//g, '_');
             const dest = path.join(ovDir, file + '.png');
-            try { fs.copyFileSync(src, dest); } catch {}
+            try { copyIfChanged(src, dest); } catch {}
             const at = worldLayout(tid, trs, followers);
             const w = (t.sdx ? t.sdx : spr.w) * (at.sx || 1);
             const h = (t.sdy ? t.sdy : spr.h) * (at.sy || 1);
@@ -905,7 +906,7 @@ function main() {
           const src = listFiles(texPngBundle).find((f) => f.split(/[\\/]/).pop() === baseName + '.png');
           if (src) {
             const dest = path.join(ovDir, baseName + '.png');
-            if (!fs.existsSync(dest)) fs.copyFileSync(src, dest);
+            copyIfChanged(src, dest);
             layers.unshift({
               file: baseName,
               path: `chars/${id}/${id}_p/overlays/${baseName}.png`,
@@ -956,7 +957,7 @@ function main() {
   }
 
   fs.mkdirSync(path.dirname(outFile), { recursive: true });
-  fs.writeFileSync(outFile, JSON.stringify(result, null, 2));
+  writeTextIfChanged(outFile, JSON.stringify(result, null, 2));
   console.log(`Done. Wrote ${Object.keys(result).length} disc parallax scene(s) -> ${outFile}`);
 }
 

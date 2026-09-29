@@ -56,6 +56,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { copyIfChanged, writeTextIfChanged } from './io.mjs';
 
 const SCRIPT_DIR = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(SCRIPT_DIR, '..');
@@ -470,8 +471,8 @@ function main() {
     const texNames = parseTextures(texDir);
 
     const sceneDir = path.join(o.outDir, ref, 'scene');
-    // Index-based filenames: clear stale layers from previous runs first.
-    if (fs.existsSync(sceneDir)) fs.rmSync(sceneDir, { recursive: true, force: true });
+    // Stale layers from previous runs are pruned after staging (below), so
+    // identical files keep their mtime instead of being wiped + rewritten.
     const stagedByTex = new Map(); // texName -> staged file (packed textures shared)
     const behind = [];
     const front = [];
@@ -515,7 +516,7 @@ function main() {
       if (!file) {
         file = `scene_${base}.png`;
         fs.mkdirSync(sceneDir, { recursive: true });
-        fs.copyFileSync(png, path.join(sceneDir, file));
+        copyIfChanged(png, path.join(sceneDir, file));
         stagedByTex.set(texName || spr.name, file);
       }
       const pngSizeVal = pngSize(png);
@@ -610,7 +611,7 @@ function main() {
       if (!file) {
         file = `scene_${ex.texture.replace(/\//g, '_')}.png`;
         fs.mkdirSync(sceneDir, { recursive: true });
-        fs.copyFileSync(png, path.join(sceneDir, file));
+        copyIfChanged(png, path.join(sceneDir, file));
         stagedByTex.set(ex.texture, file);
       }
       let layer = {
@@ -625,6 +626,15 @@ function main() {
       if (ex.alpha !== undefined) layer.alpha = ex.alpha;
       (ex.front ? front : behind).push(layer);
       nImg++;
+    }
+
+    // Drop staged layers no longer referenced (replaces the old wipe +
+    // re-stage, which touched every mtime on every run).
+    if (fs.existsSync(sceneDir)) {
+      const keep = new Set(stagedByTex.values());
+      for (const f of fs.readdirSync(sceneDir)) {
+        if (!keep.has(f)) fs.rmSync(path.join(sceneDir, f), { force: true });
+      }
     }
 
     // Drop exact duplicate layers (the prefabs layer some decorations twice,

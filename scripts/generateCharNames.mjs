@@ -25,6 +25,7 @@ const HAND_NAMES = {
 
 import fs from 'node:fs';
 import path from 'node:path';
+import { writeTextIfChanged } from './io.mjs';
 
 function parseArgs() {
   const args = process.argv.slice(2);
@@ -61,7 +62,7 @@ function main() {
   Object.assign(names, HAND_NAMES);
 
   fs.mkdirSync(path.dirname(outFile), { recursive: true });
-  fs.writeFileSync(outFile, JSON.stringify(names, null, 2) + '\n');
+  writeTextIfChanged(outFile, JSON.stringify(names, null, 2) + '\n');
   console.log(`Generated ${Object.keys(names).length} character names -> ${outFile}`);
 }
 

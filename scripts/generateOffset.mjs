@@ -17,6 +17,7 @@
 
 import fs from 'node:fs';
 import path from 'node:path';
+import { writeTextIfChanged } from './io.mjs';
 
 function parseArgs() {
   const args = process.argv.slice(2);
@@ -73,7 +74,7 @@ function main() {
   }
 
   fs.mkdirSync(path.dirname(outFile), { recursive: true });
-  fs.writeFileSync(outFile, JSON.stringify(result, null, 2));
+  writeTextIfChanged(outFile, JSON.stringify(result, null, 2));
   console.log(`Mapped ${Object.keys(result).length} skins to MainView offsets -> ${outFile}`);
 }
 

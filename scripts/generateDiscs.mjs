@@ -22,6 +22,7 @@
 
 import fs from 'node:fs';
 import path from 'node:path';
+import { writeTextIfChanged } from './io.mjs';
 
 function parseArgs() {
   const args = process.argv.slice(2);
@@ -97,7 +98,7 @@ function main() {
   }
 
   const result = [...characters, ...discs];
-  fs.writeFileSync(modelsFile, JSON.stringify(result, null, 2));
+  writeTextIfChanged(modelsFile, JSON.stringify(result, null, 2));
   console.log(`Wrote ${characters.length} characters + ${Object.keys(parallax).length} parallax + ${l2dIds.length} l2d disc entries -> ${modelsFile}`);
 }
 

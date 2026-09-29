@@ -445,7 +445,12 @@ if [[ -n "$SKIN" ]]; then
       DOTNET_ROLL_FORWARD=Major dotnet "$CLI" "$f" -m export -t tex2d \
         --filter-by-container CharBg -o "$out" --image-format png >/dev/null 2>&1 || true
     done
-    find "$TMP/charbg" -name "*.png" -exec cp {} "$CHARBG_DIR" \; 2>/dev/null || true
+    # Content-stable copy: `aws s3 sync` reuploads anything with a newer
+    # mtime, so only touch backdrops whose bytes actually changed.
+    find "$TMP/charbg" -name "*.png" -print0 2>/dev/null | while IFS= read -r -d '' png; do
+      dst="$CHARBG_DIR/$(basename "$png")"
+      if [[ ! -f "$dst" ]] || ! cmp -s "$png" "$dst"; then cp "$png" "$dst"; fi
+    done || true
   done
   node "$SCRIPT_DIR/generateCharBg.mjs" \
     --skin "$SKIN" \
