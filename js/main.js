@@ -1,4 +1,4 @@
-import { Application, Container, Matrix, RenderTexture, Sprite, Graphics, Assets, Texture, extensions, Mesh, PlaneGeometry } from './pixi.min.mjs';
+import { Application, Container, Matrix, RenderTexture, Sprite, TilingSprite, Graphics, Assets, Texture, Rectangle, extensions, Mesh, PlaneGeometry } from './pixi.min.mjs';
 import { Live2DModel, Live2DPlugin, configureCubismSDK, CubismFramework } from './cubism.es.js';
 import { USE_REMOTE_ASSETS, REMOTE_ASSETS_URL } from './config.js';
 
@@ -14,11 +14,11 @@ function resolveUrl(p) {
   // Already an absolute URL (e.g. already-prefixed by a prior call) — return as-is.
   if (/^https?:\/\//.test(clean)) return clean;
   // Tolerate a path double-prefixed as `chars/<absolute-url>` or `bg/<absolute-url>`.
-  const m = clean.match(/^(?:chars|bg)\/(https?:\/\/.+)$/);
+  const m = clean.match(/^(?:chars|bg|avg|events)\/(https?:\/\/.+)$/);
   if (m) return m[1];
   if (USE_REMOTE_ASSETS && REMOTE_ASSETS_URL) {
     // Only redirect heavy assets — keep data/*.json + js/ local for GitHub Pages split hosting
-    if (clean.startsWith('chars/') || clean.startsWith('bg/') || clean.startsWith('avg/')) {
+    if (clean.startsWith('chars/') || clean.startsWith('bg/') || clean.startsWith('avg/') || clean.startsWith('events/')) {
       const base = REMOTE_ASSETS_URL.replace(/\/+$/, '');
       return base + '/' + clean;
     }
@@ -79,6 +79,33 @@ const state = {
   avgPoseIdx: 0,
   avgFaceIdx: -1,
   avgDark: false,
+  // Events: static event-page art (body + face overlays) and Spine skeletons.
+  eventData: {},
+  eventItem: null,
+  eventContainer: null,
+  eventTextures: [],
+  eventBody: null,
+  eventFaceSprite: null,
+  eventArtIdx: 0,
+  eventFaceIdx: -1,
+  eventSpine: null,
+  eventSpineKeys: [],
+  // Full-page scene composition (backgrounds + foregrounds around the
+  // character; see "Events entries" in docs/AgentsReadme.md).
+  eventScene: null,
+  eventSceneOn: true,
+  eventSceneLayers: [],
+  eventCharBox: null,
+  eventCharScale: 1,
+  eventCharPos: null,
+  eventSpineCenter: null,
+  // One entry per character in a combined scene (two JointDrill bosses);
+  // single-character scenes have one entry.  {box, spine, scale, pos, center}.
+  eventSpineList: [],
+  eventGroupOffset: { x: 0, y: 0 },
+  // Scene layers with a texture scroll (still-staged particle art, e.g. the
+  // 20103 waterfall); advanced by eventSceneTick.
+  eventAnimLayers: [],
   options: {
     eyeBlink: true,
     angles: { x: 0, y: 0, z: 0 },
@@ -448,12 +475,14 @@ function getVariantInfo(path) {
  *     compact `name` (e.g. 10301_l, 10301_lf, 4004_l, avg3_100_a).
  *   - Parallax disc scenes: `<id>p` (e.g. 1001p; parallax ids are numeric).
  *   - Story characters (AVG): the entry's shortId (e.g. avg1_103).
+ *   - Events: `<ref>event` (e.g. 510001event, 510007_BOSS1event).
  */
 
 // Link id of whatever is currently displayed (null when nothing is loaded).
 function currentLinkId() {
   if (state.parallaxItem) return state.parallaxItem.id + 'p';
   if (state.avgItem) return state.avgItem.shortId || state.avgItem.id;
+  if (state.eventItem) return state.eventItem.id;
   if (!state.currentPath) return null;
   const rel = stripAssetBase(state.currentPath);
   for (const item of state.models) {
@@ -470,6 +499,10 @@ function resolveLinkId(id) {
   for (const item of state.models) {
     if (item.kind === 'parallax') {
       if (item.id + 'p' === id) return { type: 'parallax', item };
+      continue;
+    }
+    if (item.kind === 'event') {
+      if (item.id === id) return { type: 'event', item };
       continue;
     }
     for (const variant of item.variants || []) {
@@ -493,7 +526,7 @@ function siteBase() {
   const stripped = raw.replace(/\/+$/, '');
   const seg = decodeURIComponent(stripped.split('/').pop() || '');
   const isId = !!seg && seg !== 'index.html' && !seg.includes('.') &&
-    /^[\w-]*_\w+$|^\d+p$/i.test(seg);
+    /^[\w-]*_\w+$|^\d+p$|^\w+event$/i.test(seg);
   if (isId && (raw !== stripped || stripped.split('/').length > 2)) {
     // Deep-link path: drop the id segment.
     return stripped.slice(0, stripped.lastIndexOf('/') + 1) || '/';
@@ -520,7 +553,7 @@ function linkIdFromUrl() {
   const q = new URLSearchParams(location.search).get('l');
   if (q) return q;
   const seg = decodeURIComponent(location.pathname.replace(/\/+$/, '').split('/').pop() || '');
-  if (/[\w-]*_\w+$|^\d+p$/i.test(seg)) return seg;
+  if (/[\w-]*_\w+$|^\d+p$|^\w+event$/i.test(seg)) return seg;
   return null;
 }
 
@@ -608,6 +641,7 @@ function applyLink(id) {
   }
   state.currentName = link.item.name;
   if (link.type === 'parallax') loadParallax(link.item);
+  else if (link.type === 'event') loadEvent(link.item);
   else loadAvg(link.item);
   return true;
 }
@@ -693,6 +727,7 @@ async function loadParallax(item) {
   clearBackground();
   clearParallax();
   clearAvg();
+  clearEvent();
   clearElement(els.optionsContent);
   els.status.textContent = 'Loading ' + item.name + ' ...';
   await new Promise((r) => requestAnimationFrame(r));
@@ -1208,6 +1243,7 @@ async function loadAvg(item, poseIdx) {
   clearBackground();
   clearParallax();
   clearAvg();
+  clearEvent();
   clearElement(els.optionsContent);
   els.status.textContent = 'Loading ' + item.name + ' ...';
   showBgLoading();
@@ -1376,6 +1412,621 @@ function buildAvgOptionsPanel() {
   noneBtn.textContent = 'No Expression';
   noneBtn.addEventListener('click', () => {
     applyAvgFace(-1);
+    grid.querySelectorAll('.emoji-btn.active').forEach((b) => b.classList.remove('active'));
+  });
+  noneRow.appendChild(noneBtn);
+  exprSection.appendChild(noneRow);
+}
+
+/* ---------------- Events (event-page art + Spine bosses) ---------------- */
+
+// Event-page character art comes from the game's ui_activity__* bundles
+// (see scripts/extractEvents.mjs): either a static full-frame PNG rig
+// (`----Actor2D_PNG----` -> img_body + img_face, staged to events/<ref>/)
+// or a Spine 4.2 skeleton (.skel + .atlas + page PNGs under
+// events/<ref>/spine/).  data/events.json carries the per-ref metadata;
+// models.json holds one kind:"event" row per renderable.
+
+function eventAsset(ref, file) {
+  return 'events/' + ref + '/' + file;
+}
+
+function getEventEntry(item) {
+  const ref = item.eventRef;
+  return (ref && state.eventData[ref]) || null;
+}
+
+function clearEvent() {
+  for (const rec of state.eventSpineList) {
+    try { rec.spine.destroy(); } catch (e) { /* ignore */ }
+  }
+  state.eventSpine = null; // owned by eventSpineList[0]
+  if (state.eventSpineKeys.length) {
+    for (const k of state.eventSpineKeys) {
+      try { Assets.cache.remove(k); } catch (e) { /* ignore */ }
+    }
+    try { Assets.unload(state.eventSpineKeys); } catch (e) { /* ignore */ }
+    state.eventSpineKeys = [];
+  }
+  if (state.eventContainer) {
+    state.camera.removeChild(state.eventContainer);
+    while (state.eventContainer.children.length) state.eventContainer.removeChildAt(0);
+    state.eventContainer.destroy({ children: true });
+  }
+  for (const t of state.eventTextures) {
+    if (t.key) {
+      try { Assets.cache.remove(t.key); } catch (e) { /* ignore */ }
+    }
+    try { t.texture.destroy(t.owned !== false); } catch (e) { /* ignore */ }
+  }
+  state.eventContainer = null;
+  state.eventTextures = [];
+  state.eventItem = null;
+  state.eventBody = null;
+  state.eventFaceSprite = null;
+  state.eventArtIdx = 0;
+  state.eventFaceIdx = -1;
+  state.eventScene = null;
+  state.eventSceneLayers = [];
+  state.eventCharBox = null;
+  state.eventCharScale = 1;
+  state.eventCharPos = null;
+  state.eventSpineCenter = null;
+  state.eventSpineList = [];
+  state.eventGroupOffset = { x: 0, y: 0 };
+  state.eventAnimLayers = [];
+}
+
+function fitEventToScreen() {
+  const c = state.eventContainer;
+  if (!c) return;
+  const sw = state.app.renderer.width;
+  const sh = state.app.renderer.height;
+  // Full-page scene: fit the 2160x1080 event canvas like the game frames it.
+  if (state.eventScene && state.eventSceneOn) {
+    const fit = Math.min((sw * 0.98) / state.eventScene.w, (sh * 0.98) / state.eventScene.h);
+    c.scale.set(fit, fit);
+    c.position.set(sw / 2, sh / 2);
+    return;
+  }
+  let w = 0, h = 0;
+  if (state.eventSpineList.length > 1) {
+    // Combined scene with the scenery hidden: fit the union of all spines.
+    let minX = Infinity, minY = Infinity, maxX = -Infinity, maxY = -Infinity;
+    try {
+      for (const s of state.eventSpineList) {
+        s.spine.update(0);
+        const b = s.spine.bounds;
+        const ox = s.box.x + s.spine.position.x;
+        const oy = s.box.y + s.spine.position.y;
+        const sx = s.spine.scale.x, sy = s.spine.scale.y;
+        minX = Math.min(minX, ox + b.x * sx);
+        minY = Math.min(minY, oy + b.y * sy);
+        maxX = Math.max(maxX, ox + (b.x + b.width) * sx);
+        maxY = Math.max(maxY, oy + (b.y + b.height) * sy);
+      }
+    } catch (e) { return; }
+    w = maxX - minX; h = maxY - minY;
+  } else if (state.eventSpine) {
+    try {
+      state.eventSpine.update(0);
+      const b = state.eventSpine.bounds;
+      w = b.width; h = b.height;
+    } catch (e) { return; }
+  } else {
+    const entry = state.eventItem && getEventEntry(state.eventItem);
+    const body = entry && entry.static && entry.static.bodies[state.eventArtIdx];
+    if (!body) return;
+    w = body.w; h = body.h;
+  }
+  if (!w || !h) return;
+  const fit = Math.min((sw * 0.85) / w, (sh * 0.92) / h);
+  c.scale.set(fit, fit);
+  c.position.set(sw / 2, sh / 2);
+}
+
+async function loadEventTexture(ref, file) {
+  const p = resolveUrl(eventAsset(ref, file));
+  const tex = await Assets.load(p);
+  if (!state.eventTextures.some((t) => t.key === p)) {
+    state.eventTextures.push({ key: p, texture: tex, owned: false });
+  }
+  return tex;
+}
+
+async function loadEvent(item, artIdx) {
+  const seq = ++modelLoadSeq;
+  resetCamera();
+  state.currentPath = item.id;
+  setUrlLink(item.id);
+
+  if (state.model) {
+    const currentModel = state.model;
+    if (state._overrideHandler && currentModel.internalModel) {
+      currentModel.internalModel.off('beforeModelUpdate', state._overrideHandler);
+    }
+    state._overrideHandler = null;
+    clearBackground();
+    state.camera.removeChild(currentModel);
+    currentModel.destroy({ children: true, texture: true, baseTexture: true });
+    state.model = null;
+  }
+  clearBackground();
+  clearParallax();
+  clearAvg();
+  clearEvent();
+  clearElement(els.optionsContent);
+  els.status.textContent = 'Loading ' + item.name + ' ...';
+  showBgLoading();
+  await new Promise((r) => requestAnimationFrame(r));
+  if (seq !== modelLoadSeq) { hideBgLoading(); return; }
+
+  const entry = getEventEntry(item);
+  if (!entry) {
+    els.status.textContent = 'Event data unavailable (data/events.json)';
+    hideBgLoading();
+    return;
+  }
+  state.eventItem = item;
+
+  const container = new Container();
+  container.eventMode = 'none';
+  container.interactive = false;
+  state.camera.addChild(container);
+  state.eventContainer = container;
+
+  // Full-page scene (backgrounds/foregrounds) when the extractor staged one
+  // for this entry; on by default, toggleable in the options panel.
+  state.eventSceneOn = true;
+  state.eventScene = eventSceneFor(item, entry);
+
+  try {
+    if (item.sub === 'spine') {
+      await loadEventSpine(item, entry, container, seq);
+    } else {
+      await loadEventStatic(item, entry, container, seq, artIdx || 0);
+    }
+    if (seq !== modelLoadSeq) { hideBgLoading(); return; }
+    fitEventToScreen();
+    buildOptionsPanel();
+    els.status.textContent = '';
+  } catch (e) {
+    if (seq !== modelLoadSeq) { hideBgLoading(); return; }
+    els.status.textContent = 'Failed: ' + e.message;
+    console.error(e);
+  }
+  hideBgLoading();
+}
+
+/* Full-page event scenes (backgrounds + foregrounds around the character).
+ *
+ * Spine/static event art is staged inside its in-game page (SummerCheckinPanel,
+ * GunStormPanel, JointDrillLevelSelect, ...): data/events.json carries the
+ * scenic Image layers (behind[]/front[], 2160x1080 canvas px, y-down) plus the
+ * character slot (char rect). The viewer draws behind layers, then the
+ * character fitted into its authored slot, then front layers — the game's
+ * painter's-order composite. With the scene off, the character renders alone
+ * centred, exactly like entries without a scene.
+ */
+
+function eventSceneFor(item, entry) {
+  if (!entry) return null;
+  if (item.sub === 'spine') {
+    const sp = (entry.spines || []).find((s) => s.name === item.spine) || entry.spines[0];
+    return (sp && sp.scene) || null;
+  }
+  return (entry.static && entry.static.scene) || null;
+}
+
+async function addEventSceneLayers(ref, layers, box, seq) {
+  for (const l of layers || []) {
+    const tex = await loadEventTexture(ref, 'scene/' + l.file);
+    if (seq !== modelLoadSeq) return;
+    // Packed-atlas sprite: crop the sprite's rect (Unity y-up) out of the
+    // shared texture, like static body frames.
+    let texture = tex;
+    let natW = tex.width, natH = tex.height;
+    if (l.frame) {
+      const r = l.frame;
+      texture = new Texture({
+        source: tex.source,
+        frame: new Rectangle(r.x, tex.height - r.y - r.h, r.w, r.h),
+      });
+      state.eventTextures.push({ key: null, texture, owned: true });
+      natW = r.w;
+      natH = r.h;
+    }
+    // Unity Tiled images repeat the texture across the rect (PPU 100, 1:1 —
+    // no stretching). Pixi's TilingSprite does exactly this.
+    let spr;
+    if (l.tiled || l.scroll) {
+      tex.source.addressModeU = 'repeat';
+      tex.source.addressModeV = 'repeat';
+      spr = new TilingSprite({ texture: tex, width: l.w, height: l.h });
+      if (l.scroll) {
+        // One tile spans the layer width; vertical repeat stays native.
+        spr.tileScale.set(l.w / tex.width, 1);
+        state.eventAnimLayers.push({ spr, tex, scroll: l.scroll });
+      }
+    } else {
+      spr = new Sprite(texture);
+      if (natW > 0 && natH > 0) spr.scale.set(l.w / natW, l.h / natH);
+    }
+    spr.anchor.set(0.5);
+    spr.eventMode = 'none';
+    spr.interactive = false;
+    spr.position.set(l.x, l.y);
+    // Unity Image tint: multiplied over the texture (white = no-op).
+    if (l.tint) {
+      const [r, g, b] = l.tint;
+      spr.tint = ((Math.round(r * 255) << 16) | (Math.round(g * 255) << 8) | Math.round(b * 255)) >>> 0;
+    }
+    if (l.alpha !== undefined) spr.alpha = l.alpha;
+    box.addChild(spr);
+    state.eventSceneLayers.push(spr);
+  }
+}
+
+// Texture scroll for still-staged particle art (the 20103 waterfall): the
+// game's fx material auto-pans the texture; advance tilePosition instead.
+function eventSceneTick() {
+  if (!state.eventAnimLayers.length) return;
+  const dt = state.app.ticker.deltaMS / 1000;
+  for (const a of state.eventAnimLayers) {
+    a.spr.tilePosition.x += a.scroll[0] * a.tex.width * dt;
+    a.spr.tilePosition.y += a.scroll[1] * a.tex.height * dt;
+  }
+}
+
+function applyEventSceneVisibility() {
+  const scene = state.eventScene;
+  const on = state.eventSceneOn && !!scene;
+  for (const l of state.eventSceneLayers) l.visible = on;
+  const g = state.eventGroupOffset || { x: 0, y: 0 };
+  for (const s of state.eventSpineList) {
+    if (!s.box) continue;
+    // With the scenery on, each character sits in its authored slot; with it
+    // off, the group keeps its relative layout, centred on the origin.
+    const sc = on ? s.scale : 1;
+    s.spine.scale.set(sc, sc);
+    const c = s.center || { x: 0, y: 0 };
+    if (s.origin) {
+      // Pivot placement: the skeleton origin sits at the slot's pivot; when
+      // the scenery is hidden, shift the whole group so its bounds centres.
+      s.spine.position.set(0, 0);
+      s.box.position.set(on ? s.pos.x : g.x, on ? s.pos.y : g.y);
+    } else {
+      s.spine.position.set(-c.x * sc, -c.y * sc);
+      s.box.position.set(on ? s.pos.x : s.pos.x + g.x, on ? s.pos.y : s.pos.y + g.y);
+    }
+  }
+  const box = state.eventCharBox;
+  if (box && scene) {
+    const s = on ? state.eventCharScale : 1;
+    if (state.eventBody) {
+      box.position.set(on ? state.eventCharPos.x : 0, on ? state.eventCharPos.y : 0);
+      state.eventBody.scale.set(s, s);
+    }
+    if (state.eventFaceSprite && state.eventFaceIdx >= 0) applyEventFace(state.eventFaceIdx);
+  }
+  fitEventToScreen();
+}
+
+async function loadEventStatic(item, entry, container, seq, artIdx) {
+  const ref = item.eventRef;
+  const bodies = (entry.static && entry.static.bodies) || [];
+  const body = bodies[Math.max(0, Math.min(artIdx, bodies.length - 1))];
+  if (!body) throw new Error('no event art for ' + ref);
+  state.eventArtIdx = bodies.indexOf(body);
+
+  const base = await loadEventTexture(ref, body.file);
+  if (seq !== modelLoadSeq) return;
+  let texture = base;
+  if (body.frame) {
+    // Packed-atlas sprite: Unity rects are y-up from the texture's
+    // bottom-left, Pixi frames are y-down from the top-left.
+    const r = body.frame;
+    texture = new Texture({
+      source: base.source,
+      frame: new Rectangle(r.x, base.height - r.y - r.h, r.w, r.h),
+    });
+    state.eventTextures.push({ key: null, texture, owned: true });
+  }
+  const spr = new Sprite(texture);
+  spr.anchor.set(0.5);
+  spr.eventMode = 'none';
+  spr.interactive = false;
+  // Character slot: centred alone without a scene, fitted into the authored
+  // page slot with one.
+  const scene = state.eventScene;
+  const charBox = new Container();
+  charBox.eventMode = 'none';
+  charBox.interactive = false;
+  state.eventCharBox = charBox;
+  let fit = 1;
+  let cx = 0, cy = 0;
+  if (scene) {
+    await addEventSceneLayers(ref, scene.behind, container, seq);
+    if (seq !== modelLoadSeq) return;
+    cx = scene.char.x;
+    cy = scene.char.y;
+    if (texture.width > 0 && texture.height > 0) {
+      fit = Math.min(scene.char.w / texture.width, scene.char.h / texture.height);
+    }
+  }
+  charBox.position.set(cx, cy);
+  spr.scale.set(fit, fit);
+  charBox.addChild(spr);
+  container.addChild(charBox);
+  state.eventBody = spr;
+  state.eventCharScale = fit;
+  state.eventCharPos = { x: cx, y: cy };
+
+  const face = new Sprite(Texture.EMPTY);
+  face.anchor.set(0.5);
+  face.eventMode = 'none';
+  face.interactive = false;
+  face.scale.set(fit, fit);
+  charBox.addChild(face);
+  state.eventFaceSprite = face;
+
+  state.eventFaceIdx = -1;
+  const faces = (entry.static && entry.static.faces) || [];
+  if (faces.length) {
+    state.eventFaceIdx = 0;
+    await applyEventFace(0);
+  }
+  if (scene) {
+    await addEventSceneLayers(ref, scene.front, container, seq);
+    if (seq !== modelLoadSeq) return;
+  }
+}
+
+async function applyEventFace(idx) {
+  const item = state.eventItem;
+  const entry = item && getEventEntry(item);
+  const face = state.eventFaceSprite;
+  const faces = (entry && entry.static && entry.static.faces) || [];
+  if (!entry || !face) return;
+  if (idx < 0 || idx >= faces.length) {
+    state.eventFaceIdx = -1;
+    face.texture = Texture.EMPTY;
+    return;
+  }
+  const f = faces[idx];
+  state.eventFaceIdx = idx;
+  try {
+    const tex = await loadEventTexture(item.eventRef, f.file);
+    if (state.eventFaceSprite !== face || state.eventFaceIdx !== idx) return;
+    // Face overlays are authored in body pixels; follow the body scale.
+    const s = (state.eventScene && state.eventSceneOn) ? state.eventCharScale : 1;
+    face.scale.set(s, s);
+    face.texture = tex;
+    face.x = (f.x || 0) * s;
+    face.y = -(f.y || 0) * s;
+  } catch (e) {
+    console.error('Failed to load event face', f.file, e);
+  }
+}
+
+async function loadEventSpine(item, entry, container, seq) {
+  const ref = item.eventRef;
+  // Combined scenes (both JointDrill bosses) list every character spine in
+  // item.spines; ordinary entries carry a single item.spine.
+  const names = (item.spines && item.spines.length) ? item.spines : [item.spine];
+  const defs = names
+    .map((n) => (entry.spines || []).find((s) => s.name === n))
+    .filter(Boolean);
+  if (!defs.length) throw new Error('no spine data for ' + ref);
+
+  // The Spine runtime is vendored (js/spine-pixi/ + js/spine-core/) and
+  // shares the viewer's Pixi instance via the importmap's pixi.js mapping.
+  // Dynamic import keeps it out of the initial page load — but Pixi builds
+  // its render-pipe table when the renderer is created (before this
+  // import runs), so register the 'spine' pipe by hand.  (Batchers such as
+  // DarkTintBatcher resolve lazily by name, only pipes need this.)
+  const { Spine, SpinePipe } = await import('./spine-pixi/index.js');
+  if (seq !== modelLoadSeq) return;
+  const pipes = state.app.renderer.renderPipes;
+  if (!pipes.spine) pipes.spine = new SpinePipe(state.app.renderer);
+
+  const scene = state.eventScene;
+  const slots = (scene && scene.chars && scene.chars.length) ? scene.chars : null;
+
+  // Backdrop behind the characters (drawn once).
+  if (scene) {
+    await addEventSceneLayers(ref, scene.behind, container, seq);
+    if (seq !== modelLoadSeq) return;
+  }
+
+  state.eventSpineKeys = [];
+  state.eventSpineList = [];
+  let first = null;
+  let sumX = 0, sumY = 0, nSlot = 0;
+
+  for (const sp of defs) {
+    const skelKey = 'ev-' + item.id + '-' + sp.name + '-skel';
+    const atlasKey = 'ev-' + item.id + '-' + sp.name + '-atlas';
+    Assets.add({ alias: skelKey, src: resolveUrl(eventAsset(ref, 'spine/' + sp.skel)) });
+    Assets.add({ alias: atlasKey, src: resolveUrl(eventAsset(ref, 'spine/' + sp.atlas)) });
+    state.eventSpineKeys.push(skelKey, atlasKey);
+    await Assets.load([skelKey, atlasKey]);
+    if (seq !== modelLoadSeq) return;
+    const spine = Spine.from({ skeleton: skelKey, atlas: atlasKey });
+    const anims = spine.skeleton.data.animations.map((a) => a.name);
+    const preferred = anims.find((n) => /^idle$/i.test(n)) || anims[0];
+    if (preferred) spine.state.setAnimation(0, preferred, true);
+
+    // Character slot: bounds-centred on the container origin without a scene,
+    // fitted into the authored page slot with one (slots are per name in a
+    // combined scene, else the single scene.char).
+    const box = new Container();
+    box.eventMode = 'none';
+    box.interactive = false;
+    const slot = slots ? (slots.find((s) => s.name === sp.name) || scene.char) : (scene ? scene.char : null);
+    // SkeletonGraphic places the skeleton origin at the RectTransform pivot
+    // (not centred in the rect), so scene slots carry px/py for that; fall
+    // back to centre-fit for older data.
+    const originMode = !!(slot && slot.px !== undefined && slot.py !== undefined);
+    let fit = 1, cx = 0, cy = 0, center = { x: 0, y: 0 };
+    spine.update(0);
+    try {
+      const b = spine.bounds;
+      center = { x: b.x + b.width / 2, y: b.y + b.height / 2 };
+      if (slot && b.width > 0 && b.height > 0) {
+        fit = Math.min(slot.w / b.width, slot.h / b.height);
+        cx = originMode ? slot.px : slot.x;
+        cy = originMode ? slot.py : slot.y;
+      }
+      spine.scale.set(fit, fit);
+      spine.position.set(originMode ? 0 : -center.x * fit, originMode ? 0 : -center.y * fit);
+    } catch (e) { /* bounds unavailable — show as-is */ }
+    box.position.set(cx, cy);
+    box.addChild(spine);
+    container.addChild(box);
+    const rec = { box, spine, scale: fit, pos: { x: cx, y: cy }, center, origin: originMode, name: sp.name };
+    state.eventSpineList.push(rec);
+    if (!first) first = rec;
+    // Bounds centre relative to the slot, at scale 1 (used to centre the group
+    // when the scenery is hidden): pivot placement sits its bounds centre at
+    // +center, centre-fit already centres it on the slot.
+    sumX += originMode ? center.x : 0;
+    sumY += originMode ? center.y : 0;
+    nSlot++;
+  }
+
+  state.eventSpine = first.spine;
+  state.eventCharBox = first.box;
+  state.eventCharScale = first.scale;
+  state.eventCharPos = first.pos;
+  state.eventSpineCenter = first.center;
+  // Origin that centres the group when the scenery is hidden.
+  state.eventGroupOffset = nSlot ? { x: -sumX / nSlot, y: -sumY / nSlot } : { x: 0, y: 0 };
+
+  if (scene) {
+    await addEventSceneLayers(ref, scene.front, container, seq);
+    if (seq !== modelLoadSeq) return;
+  }
+}
+
+function buildEventOptionsPanel() {
+  clearElement(els.optionsContent);
+  const item = state.eventItem;
+  const entry = item && getEventEntry(item);
+  if (!item || !entry) return;
+
+  const infoSection = addSection('Event');
+  const info = document.createElement('div');
+  info.className = 'opt-row';
+  info.style.color = 'var(--text-faint)';
+  info.style.fontSize = '11px';
+  info.textContent = item.id.replace(/event$/, '') + ' — ' + entry.name;
+  infoSection.appendChild(info);
+
+  if (state.eventScene) {
+    const check = document.createElement('label');
+    check.className = 'opt-check';
+    const input = document.createElement('input');
+    input.type = 'checkbox';
+    input.checked = state.eventSceneOn;
+    check.appendChild(input);
+    check.appendChild(document.createTextNode('Event Scene (backgrounds)'));
+    input.addEventListener('change', () => {
+      state.eventSceneOn = input.checked;
+      applyEventSceneVisibility();
+    });
+    infoSection.appendChild(check);
+  }
+
+  if (item.sub === 'spine') {
+    const spine = state.eventSpine;
+    const anims = (spine && spine.skeleton.data.animations.map((a) => a.name)) || [];
+    if (anims.length > 1) {
+      const row = document.createElement('div');
+      row.className = 'opt-row';
+      const lab = document.createElement('label');
+      lab.textContent = 'Animation';
+      const sel = document.createElement('select');
+      anims.forEach((n) => {
+        const opt = document.createElement('option');
+        opt.value = n;
+        opt.textContent = n;
+        sel.appendChild(opt);
+      });
+      try {
+        const cur = spine.state.tracks[0];
+        if (cur && cur.animation) sel.value = cur.animation.name;
+      } catch (e) { /* keep first */ }
+      sel.addEventListener('change', () => {
+        try { spine.state.setAnimation(0, sel.value, true); } catch (e) { console.error(e); }
+      });
+      row.appendChild(lab);
+      row.appendChild(sel);
+      infoSection.appendChild(row);
+    } else if (anims.length === 1) {
+      const row = document.createElement('div');
+      row.className = 'opt-row';
+      row.style.color = 'var(--text-faint)';
+      row.style.fontSize = '11px';
+      row.textContent = 'Animation: ' + anims[0];
+      infoSection.appendChild(row);
+    }
+    return;
+  }
+
+  const bodies = (entry.static && entry.static.bodies) || [];
+  if (bodies.length > 1) {
+    const row = document.createElement('div');
+    row.className = 'opt-row';
+    const lab = document.createElement('label');
+    lab.textContent = 'Art';
+    const sel = document.createElement('select');
+    bodies.forEach((b, i) => {
+      const opt = document.createElement('option');
+      opt.value = i;
+      opt.textContent = 'Art ' + (i + 1);
+      sel.appendChild(opt);
+    });
+    sel.value = state.eventArtIdx;
+    sel.addEventListener('change', () => {
+      loadEvent(item, parseInt(sel.value, 10));
+    });
+    row.appendChild(lab);
+    row.appendChild(sel);
+    infoSection.appendChild(row);
+  }
+
+  const faces = (entry.static && entry.static.faces) || [];
+  if (!faces.length) return;
+  const exprSection = addSection('Expressions (' + faces.length + ')');
+  const grid = document.createElement('div');
+  grid.className = 'emoji-grid';
+  faces.forEach((f, i) => {
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'emoji-btn' + (state.eventFaceIdx === i ? ' active' : '');
+    btn.title = f.name || f.file;
+    const img = document.createElement('img');
+    img.loading = 'lazy';
+    img.draggable = false;
+    img.src = resolveUrl(eventAsset(item.eventRef, f.file));
+    btn.appendChild(img);
+    btn.addEventListener('click', () => {
+      const next = state.eventFaceIdx === i ? -1 : i;
+      applyEventFace(next);
+      grid.querySelectorAll('.emoji-btn.active').forEach((b) => b.classList.remove('active'));
+      if (next >= 0) btn.classList.add('active');
+    });
+    grid.appendChild(btn);
+  });
+  exprSection.appendChild(grid);
+  const noneRow = document.createElement('div');
+  noneRow.className = 'opt-buttons';
+  const noneBtn = document.createElement('button');
+  noneBtn.type = 'button';
+  noneBtn.textContent = 'No Expression';
+  noneBtn.addEventListener('click', () => {
+    applyEventFace(-1);
     grid.querySelectorAll('.emoji-btn.active').forEach((b) => b.classList.remove('active'));
   });
   noneRow.appendChild(noneBtn);
@@ -1640,6 +2291,12 @@ function buildOptionsPanel() {
     return;
   }
 
+  // Event-page art / Spine viewer panel.
+  if (state.eventItem) {
+    buildEventOptionsPanel();
+    return;
+  }
+
   if (!state.model) {
     const section = addSection('Disc');
     const row = document.createElement('div');
@@ -1860,6 +2517,7 @@ export async function loadModel(path) {
   state.options.bodyAngles = { x: 0, y: 0, z: 0 };
   clearParallax();
   clearAvg();
+  clearEvent();
 
   if (state.model) {
     const currentModel = state.model;
@@ -1869,6 +2527,7 @@ export async function loadModel(path) {
     state._overrideHandler = null;
     clearBackground();
     clearAvg();
+    clearEvent();
     camera.removeChild(currentModel);
     currentModel.destroy({ children: true, texture: true, baseTexture: true });
     state.model = null;
@@ -2033,12 +2692,18 @@ function addListItem(item) {
       setActiveButton(name);
       loadParallax(item);
     });
-  } else if (item.kind === 'discl2d' || item.kind === 'event' || item.kind === 'other') {
-    // The disc's Live2D, an event Live2D, or a brute-forced Other Live2D
+  } else if (item.kind === 'discl2d' || item.kind === 'other') {
+    // The disc's Live2D or a brute-forced Other Live2D
     const variant = item.variants[0];
     name.addEventListener('click', () => {
       setActiveButton(name);
       loadModel(resolveUrl(variant.path));
+    });
+  } else if (item.kind === 'event') {
+    // Event-page art (static PNG) or Spine skeleton — rendered by loadEvent.
+    name.addEventListener('click', () => {
+      setActiveButton(name);
+      loadEvent(item);
     });
   } else if (item.kind === 'avg') {
     // Story character (AVG dialogue sprite) — opens the body + face viewer.
@@ -2532,6 +3197,12 @@ async function init() {
   } catch (e) {
     console.warn('data/avg.json unavailable', e);
   }
+  try {
+    const resEv = await fetch(resolveUrl('data/events.json'));
+    if (resEv.ok) state.eventData = await resEv.json();
+  } catch (e) {
+    console.warn('data/events.json unavailable', e);
+  }
   els.filter.addEventListener('input', createCharactersList);
   createCharactersList();
 
@@ -2540,6 +3211,7 @@ async function init() {
   enableDrag();
   enableZoom();
   app.ticker.add(parallaxSwayTick);
+  app.ticker.add(eventSceneTick);
   handleMenuState();
   setupBackgroundPicker();
   if (els.screenshot) {

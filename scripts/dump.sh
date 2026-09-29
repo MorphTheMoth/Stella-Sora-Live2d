@@ -554,6 +554,19 @@ node "$SCRIPT_DIR/generateDiscs.mjs" \
   --parallax "$ROOT/data/discparallax.json" \
   --disc-names "$ROOT/data/discid.json" || true
 
+# --- Event-page art + Spine bosses (ui_activity__* / char_2dsp_*) -------------
+# Static event character PNGs (----Actor2D_PNG---- rigs) and Spine skeletons
+# (.skel/.atlas) staged to events/<ref>/ with data/events.json; the Events
+# section of data/models.json is rebuilt from it (generateEvents.mjs).
+# extractEventScenes.mjs then adds the full page compositions (backgrounds +
+# foregrounds around each character) into the same fragments — it must run
+# after extractEvents (which rebuilds fragments from scratch on bundle
+# change) and before generateEvents.
+node "$SCRIPT_DIR/extractEvents.mjs" --game "$GAME" || true
+node "$SCRIPT_DIR/extractEventScenes.mjs" || true
+node "$SCRIPT_DIR/generateEvents.mjs" \
+  --datamine "$DATAMINE" || true
+
 # --- MainView L2D offsets (Actor2DOffsetData) --------------------------------
 # Each skin's CharacterSkin.Offset (Actor2D/Character/<skin>/<skin>.asset) lives
 # in the char_2d_<skin>.unity3d bundles.  We keep the MainView (panel 10) Set 2
@@ -651,7 +664,12 @@ node "$SCRIPT_DIR/generateDiscs.mjs" \
   --models "$ROOT/data/models.json" \
   --parallax "$ROOT/data/discparallax.json" \
   --disc-names "$ROOT/data/discid.json" || true
+# Events section (generateManifest above drops it; rebuild from events.json).
+node "$SCRIPT_DIR/generateEvents.mjs" \
+  --datamine "$DATAMINE" || true
 node "$SCRIPT_DIR/mergeBgLayers.mjs" \
+  --models "$ROOT/data/models.json" \
+  --layers "$BGDIR" || true
 cache_prune || true
 if [[ "$CACHE_HITS" -gt 0 ]]; then echo "Cache hits: $CACHE_HITS (skipped unchanged bundles)"; fi
 

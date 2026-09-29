@@ -26,12 +26,15 @@ js/
   live2dcubismcore.min.js   # Live2D Cubism Core 6.x runtime (proprietary, from Live2D SDK)
   pixi.min.mjs              # PixiJS v8 (vendored)
   cubism.es.js              # untitled-pixi-live2d-engine (vendored + render-order patch)
+  spine-pixi/ spine-core/   # @esotericsoftware/spine-pixi-v8 4.2.65 + spine-core (vendored, two patches: .js import extensions, super({}) — see "Events entries")
   main.js                   # viewer app
 chars/<skinId>/<variant>/   # extracted Live2D models (gitignored, ~1.1GB full-res)
 bg/charbg/                  # per-character main-menu backdrops (Image/CharBg)
 avg/<avgId>/                # story-character (AVG dialogue) sprite PNGs (gitignored)
+events/<ref>/               # event-page art: body.png + spine/*.skel|*.atlas|*.png + scene/*.png (gitignored)
 data/
   models.json               # manifest: characters + events + discs (generated)
+  events.json               # event-page art/Spine manifest (generated)
   avg.json                  # story-character sprite manifest (generated)
   characterid.json          # charId(3) -> display name
   discid.json               # discId(4) -> display name (generated from datamine)
@@ -210,14 +213,92 @@ per disc (`discparallax.json` → `Persistent_Store` + `InstallResource`
 (rebuilt by `generateDiscId.mjs` from `Disc.json` + `Item.<fullId>.1` mapped by
 last 4 digits — needed for new discs like `4057`/`4058` `Summer March`).
 
-## Events entries (true event-page Live2Ds - not disc gacha)
+## Events entries (event-page art + Spine bosses)
 
-Separate from Disc/Disc L2D, some events show a full-screen Live2D directly on
-the event page itself (e.g. *Surfing Splash: A Sparkling Holiday Adventure!*
-Karin on `SummerAdvPanel:508` / `ActivityGroup 10110`). These are **not**
-`disc_l2d` models — the event Live2Ds live elsewhere (e.g. `char_2d`/
-`char_2dsp` spine or a dedicated `ui_activity` prefab) and have not been
-located yet. Currently Events is empty (placeholder).
+Separate from Disc/Disc L2D, events show a character visual directly on the
+event page. There is no Cubism Live2D involved — the game uses two other
+rig flavors, both extracted by `scripts/extractEvents.mjs` (all
+`ui_activity__*` / `ui_activity_*` bundles, Persistent_Store preferred, plus
+the `char_2dsp_*` Spine variants) into `events/<ref>/`, with
+`data/events.json` metadata and the Events section of `data/models.json`
+rebuilt by `scripts/generateEvents.mjs` (runs after `generateManifest.mjs`
++ `generateDiscs.mjs` everywhere, like the Discs section):
+
+- **static** (`----Actor2D_PNG----` rig: `panel_offset -> actor_offset ->
+  img_body + img_face`): one full-frame PNG body (`Joint Drill I — Eye of
+  Ashes` in `ui_activity__510001`, V/VI seasons, `LoginNpc_7160` summer art
+  in `__301041`, `TravelerDuel_002` duel key visual in `__600003`). Only the
+  JointDrill prefabs ship a default body sprite; other events assign
+  `img_body` at runtime (C#), so those resolve through the `STATIC_BODY`
+  texture-name override in `extractEvents.mjs`. The `img_face` overlay is
+  likewise runtime-assigned — only full-frame overlay sprites found in the
+  bundle become `faces` (currently none anywhere, so static entries are
+  body-only). Packed-atlas bodies keep their Unity rect as `frame` and the
+  viewer crops at runtime via a Pixi `Texture` frame.
+- **spine** (binary `.skel` + `.atlas` + page PNGs): JointDrill S7 bosses
+  `BOSS1`/`BOSS2` (`Coppelius & Olympia`, `ui_activity__510007`),
+  `10109GunStorm`, `20103_Summer`, the ice-cream event decorations
+  (`ui_activity__400013`: `CoconutTree`, `bg_Icecream_main`,
+  `btn_Icecream_level_island_*` — smaller deco skeletons under 768px are
+  skipped), and the `char_2dsp_*` Spine variants of released trekkers/NPCs
+  (chibi-style: Amber `10304`, Iris `11104`, Noya `11203`, Shia `15501`,
+  Karin `15701`, Suntide Willow `16001`, NPCs `966002`/`983003`/`983004`/
+  `984003`/`984004`). All game Spine is 4.2.x.
+
+Viewer (`main.js:loadEvent`): entries with a staged scene render the full
+page — background layers, then the character fitted into its authored slot
+(static PNG bodies contain-fit, Spine skeletons bounds-fit), then foreground
+layers — on the game's 2160x1080 event canvas, fitted to the screen. The
+right panel gets an **Event Scene** toggle (on by default) that hides the
+backgrounds/foregrounds and centres the character(s) alone, like scene-less
+entries. All standard viewer features (pan/zoom, screenshot, deep links
+`<ref>event`) work; layer tint/alpha (`Image.color`), `Tiled` repeats
+(`TilingSprite`), packed-atlas sprite crops and UV-scrolled particle stills
+(see the waterfall) are reproduced, while simulated particle motion,
+scroll-list clipping and UI chrome (buttons, bars, TopBar) are out of scope
+by design.  Exact duplicate layers (same sprite/rect the prefab lays twice)
+are collapsed.
+
+**Character placement**: the game lays a `SkeletonGraphic` out with the
+skeleton origin at the RectTransform **pivot**, not centred in the rect (its
+`scale`/`referenceSize` are 1:1 with the canvas for these UI rigs).  That
+distinction only matters where a painted underlay confirms it, so scenes opt
+in with `charOrigin` (only `20103`): the slot then stores the pivot `px`/`py`
+and `main.js` puts the skeleton origin there.  Other scenes centre-fit.
+
+**Combined scenes**: `510007` renders both JointDrill bosses in one entry
+(`Joint Drill S7 — Coppelius & Olympia`, id `510007event`).  Its `scene`
+carries a `chars[]` array (one slot per Spine) plus the usual `char` (primary);
+`main.js:loadEventSpine` loads every name in the entry's `spines[]` and places
+each in its slot, and the toggle keeps the group's relative layout when the
+scenery is hidden.  This is the only multi-character event entry.
+
+Where each live visual is used in-game (host page prefab → scene):
+- `20103_Summer` → `SummerCheckinPanel`: `---Bg---` = the base illustration
+  `bg_summercheckin_main` (girl, waterfall, rocks and foliage painted in) plus
+  the `Bg2` overlays (Back/Middle/Front: `fx_20103_bg_01` rocks, `fx_20103_bowen_01`
+  water, leaves) and `Leaves`/`Water`.  The girl is drawn twice on purpose —
+  the painted one is the underlay the Spine `sp_Role` animates over — so the
+  Spine is placed by `charOrigin`/pivot to sit exactly on her; `lineGroup`/
+  `xiaoguotu`/`---Deco---` are UI ornaments and skipped.  The waterfall is both
+  painted and animated by the `pubu01` particle (material `fx_20103_pubu_01` →
+  `fx_20103_bowen_04`); it is staged as a semi-transparent (`alpha`) foreground
+  layer that **animates**: the material auto-pans the texture vertically
+  (`_BaseAutoPannerSpeed`/`_BaseVerticalSpeed`), reproduced by scrolling a
+  `TilingSprite` (`layer.scroll`, tiles/second — see `main.js:eventSceneTick`).
+- `10109GunStorm` → `GunStormPanel`: `---Bg---` saloon + the hero (`SpBody`)
+  from `---Fg---` (a second live copy sits in the backdrop; the foreground one
+  is shown).  The `imgMask*`/`imgPattern` nodes are full-screen lattices masked
+  by runtime-assigned graphics, so those subtrees are skipped (`skipMaskSubtrees`)
+  — unmasked they covered the whole saloon.
+- `BOSS1`+`BOSS2` → `JointDrillLevelSelect`: the `----Bg----` night-fortress
+  panorama + hanging chains with both bosses together (`combine`).
+- static JointDrill bosses (`510001/510005/510006`) → same page, boss art in
+  `----Actor2D_PNG----/img_body` over the same panorama.
+- `301041` summer bust → `LoginSpReward_01` (`imgActivity` beach backdrop +
+  `rtActor/imgActor1`).
+- `600003` duel splash, `400013` ice-cream decorations and the `char_2dsp_*`
+  chibi Spines are standalone art with no page scene and render solo.
 
 ## Disc entries (parallax scenes)
 
@@ -442,6 +523,14 @@ file it writes; if you ever dump manually, strip the first 3 bytes of all
      `disc_XXXX.unity3d` dumped) and one `[title] l2d` per disc that has a
      Live2D (`kind: "discl2d"` under **Disc L2D** above Discs, e.g. `4057 Ride
      the Waves With Me`).
+ 8. **`extractEvents.mjs` + `generateEvents.mjs`** build the Events side
+     from the `ui_activity_*` / `char_2dsp_*` bundles: static PNG bodies and
+     Spine skeletons staged to `events/<ref>/` (`data/events.json`), one
+     `kind: "event"` entry per renderable. See "Events entries" above.
+     `extractEventScenes.mjs` (runs between the two) walks each character's
+     host page prefab and stages the full scene composition to
+     `events/<ref>/scene/` (behind/front layers + character slot in
+     2160x1080 canvas px, merged into the same fragments).
 
    The three name tables (`--board-npc`, `--skin-names`, `--char-names`)
    auto-resolve from the datamine next to this repo

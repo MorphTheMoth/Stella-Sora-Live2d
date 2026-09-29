@@ -22,7 +22,7 @@
   var stripped = raw.replace(/\/+$/, "");
   var seg = decodeURIComponent(stripped.split("/").pop() || "");
   var isId = !!seg && seg !== "index.html" && seg.indexOf(".") === -1 &&
-             /[\w-]*_\w+$|^\d+p$/i.test(seg);
+             /[\w-]*_\w+$|^\d+p$|^\w+event$/i.test(seg);
   var base = isId
     ? stripped.slice(0, stripped.lastIndexOf("/") + 1) || "/"
     : raw.slice(0, raw.lastIndexOf("/") + 1) || "/";
@@ -35,7 +35,8 @@
 <script type="importmap">
 {
   "imports": {
-    "pixi.js": "./js/pixi.min.mjs"
+    "pixi.js": "./js/pixi.min.mjs",
+    "@esotericsoftware/spine-core": "./js/spine-core/index.js"
   }
 }
 </script>

@@ -61,9 +61,10 @@ Order matters — `data/models.json` is built twice (before and after bg staging
 4. **Name tables** — `scripts/generateDiscId.mjs` → `data/discid.json` (from `Disc.json` + `Item.json`); `scripts/generateCharNames.mjs` → `data/characterid.json`.
 5. **Manifest** — `scripts/generateManifest.mjs` → `data/models.json` (groups skins by first 3 digits, NPCs by first 4, reads `characterid.json`/`discid.json`/`charbg.json`/`offset.json`/`BoardNPC.json`/`CharacterSkin.json`). Re-run after bg staging so both `bg` singles and `bgLayers` survive.
 6. **CharBg backdrops** (only with `--skin`) — `image-*.unity3d` `--filter-by-container CharBg` → `bg/charbg/*.png` + `scripts/generateCharBg.mjs` → `data/charbg.json`.
+8. **Event art + Spine** — every `ui_activity*.unity3d` (+ `char_2dsp_*.unity3d`) → `scripts/extractEvents.mjs` (scene-graph `-f pathID` dumps + monoBehaviour/sprite/texture exports, `.dump_tmp/eventdump/`, cached in `.dump_tmp/events.cache.json`) → stages `events/<ref>/` (`body.png`, `spine/*.skel|*.atlas|*.png`) + fragments (`.dump_tmp/eventstage/<ref>.json`) → `scripts/extractEventScenes.mjs` reuses the same dumps to stage each character's full page composition (`events/<ref>/scene/*.png`, merged into the fragments; per-ref host-panel config in the script's `SCENES` table) → `scripts/generateEvents.mjs` rebuilds `data/events.json` + the models.json Events section (`kind:"event"`, link id `<ref>event`).
 7. **Disc parallax cards** — every `disc_XXXX.unity3d` (+ `disc_common.unity3d` + `ui_big_sprites.unity3d`) → `.dump_tmp/discoverlays/` → `scripts/extractDiscParallax.mjs` → `data/discparallax.json` + `chars/<id>/<id>_p/overlays/*.png`; then `scripts/generateDiscs.mjs` rebuilds the Discs section (`kind:"parallax"` + `kind:"discl2d"`).
-8. **Offsets** — `char_2d_*.unity3d` `Actor2DOffsetData` → `.dump_tmp/offsets/` → `scripts/generateOffset.mjs` → `data/offset.json` (MainView panel 10 Set 2: `{s,x,y}`).
-9. **Story character sprites (AVG)** — every `char_avg_2d_avg*.unity3d` (`avg1/2/3/4`, Persistent_Store copy preferred) → `scripts/extractAvg.py` (UnityPy: mesh-cropped sprite PNGs + mesh bbox centres + `Actor2DOffsetData` Set 2) → `.dump_tmp/avg/` + `.dump_tmp/avgmeta/` → `scripts/generateAvg.mjs` stages PNGs to `avg/<id>/` and writes `data/avg.json` (names from `--avg-names`, default `_Lua/Game/UI/Avg/_en/Preset/AvgCharacter.lua`). See `docs/AgentsReadme.md` → "Story characters".
+9. **Offsets** — `char_2d_*.unity3d` `Actor2DOffsetData` → `.dump_tmp/offsets/` → `scripts/generateOffset.mjs` → `data/offset.json` (MainView panel 10 Set 2: `{s,x,y}`).
+10. **Story character sprites (AVG)** — every `char_avg_2d_avg*.unity3d` (`avg1/2/3/4`, Persistent_Store copy preferred) → `scripts/extractAvg.py` (UnityPy: mesh-cropped sprite PNGs + mesh bbox centres + `Actor2DOffsetData` Set 2) → `.dump_tmp/avg/` + `.dump_tmp/avgmeta/` → `scripts/generateAvg.mjs` stages PNGs to `avg/<id>/` and writes `data/avg.json` (names from `--avg-names`, default `_Lua/Game/UI/Avg/_en/Preset/AvgCharacter.lua`). See `docs/AgentsReadme.md` → "Story characters".
 
 ### What each `data/*.json` is for
 
@@ -75,6 +76,7 @@ Order matters — `data/models.json` is built twice (before and after bg staging
 | `data/charbg.json` | `generateCharBg.mjs` (`CharacterSkin.json`) | skinId → CharBg basename |
 | `data/discparallax.json` | `extractDiscParallax.mjs` | per-disc `{canvasW/H, mask, parallax{ax,ay}, layers[]}` |
 | `data/offset.json` | `generateOffset.mjs` (`Actor2DOffsetData`) | skinId → MainView Set 2 `{s,x,y}` |
+| `data/events.json` | `extractEvents.mjs` + `extractEventScenes.mjs` + `generateEvents.mjs` (`ui_activity*` + `char_2dsp_*`) | event entries: `{name, static:{bodies[], faces[], scene?}, spines[{name, skel, atlas, textures[], scene?}]}`; a scene is `{w,h,behind[],front[],char{,chars[]}}` (slots carry `px/py` when `charOrigin`); art PNGs in `events/<ref>/`, page layers in `events/<ref>/scene/` |
 | `data/avg.json` | `extractAvg.py` + `generateAvg.mjs` (`char_avg_2d_avg*` + `AvgCharacter.lua`) | story-character sprite entries: `{id, shortId, name, poses[{letter, body, black, faces[{file,x,y}], offset}]}`; sprite PNGs in `avg/<id>/` |
 
 ---
@@ -127,7 +129,7 @@ git add chars/
 git commit -m "data: re-dump for <game version> (<date>)"
 ```
 
-`.dump_tmp/` and the caches (`.dump_tmp/dump.cache.json`, `.dump_tmp/brute_others.cache.json`) are gitignored and not committed. `avg/` (story-character sprite PNGs) is gitignored like `chars/` — only `data/avg.json` is committed; host the PNGs from the same remote asset store as `chars/`/`bg/` when using the split hosting (`js/config.js` already redirects `avg/` paths).
+`.dump_tmp/` and the caches (`.dump_tmp/dump.cache.json`, `.dump_tmp/brute_others.cache.json`, `.dump_tmp/events.cache.json`) are gitignored and not committed. `avg/` (story-character sprite PNGs) is gitignored like `chars/` — only `data/avg.json` is committed; host the PNGs from the same remote asset store as `chars/`/`bg/` when using the split hosting (`js/config.js` already redirects `avg/` paths). Same for `events/` (only `data/events.json` is committed).
 
 ---
 

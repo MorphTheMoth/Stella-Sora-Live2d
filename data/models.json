@@ -29350,5 +29350,384 @@
         ]
       }
     ]
+  },
+  {
+    "id": "10109_10109GunStormevent",
+    "name": "A Sandstorm of Gunfire — 10109GunStorm",
+    "kind": "event",
+    "sub": "spine",
+    "eventRef": "10109",
+    "spine": "10109GunStorm",
+    "variants": [
+      {
+        "name": "10109_10109GunStormevent",
+        "label": "Spine",
+        "path": "events/10109/spine/10109GunStorm.skel"
+      }
+    ]
+  },
+  {
+    "id": "20103_20103_Summerevent",
+    "name": "Sunlit Breeze, Azure Seas Checking In for A Cozy Summer~ — 20103_Summer",
+    "kind": "event",
+    "sub": "spine",
+    "eventRef": "20103",
+    "spine": "20103_Summer",
+    "variants": [
+      {
+        "name": "20103_20103_Summerevent",
+        "label": "Spine",
+        "path": "events/20103/spine/20103_Summer.skel"
+      }
+    ]
+  },
+  {
+    "id": "301041event",
+    "name": "Summer Check-in",
+    "kind": "event",
+    "sub": "static",
+    "eventRef": "301041",
+    "variants": [
+      {
+        "name": "301041event",
+        "label": "Event Art",
+        "path": "events/301041/body.png"
+      }
+    ]
+  },
+  {
+    "id": "400013_CoconutTreeevent",
+    "name": "Cool Supply Stand S1 — CoconutTree",
+    "kind": "event",
+    "sub": "spine",
+    "eventRef": "400013",
+    "spine": "CoconutTree",
+    "variants": [
+      {
+        "name": "400013_CoconutTreeevent",
+        "label": "Spine",
+        "path": "events/400013/spine/CoconutTree.skel"
+      }
+    ]
+  },
+  {
+    "id": "400013_bg_Icecream_mainevent",
+    "name": "Cool Supply Stand S1 — bg_Icecream_main",
+    "kind": "event",
+    "sub": "spine",
+    "eventRef": "400013",
+    "spine": "bg_Icecream_main",
+    "variants": [
+      {
+        "name": "400013_bg_Icecream_mainevent",
+        "label": "Spine",
+        "path": "events/400013/spine/bg_Icecream_main.skel"
+      }
+    ]
+  },
+  {
+    "id": "400013_btn_Icecream_level_island_1event",
+    "name": "Cool Supply Stand S1 — btn_Icecream_level_island_1",
+    "kind": "event",
+    "sub": "spine",
+    "eventRef": "400013",
+    "spine": "btn_Icecream_level_island_1",
+    "variants": [
+      {
+        "name": "400013_btn_Icecream_level_island_1event",
+        "label": "Spine",
+        "path": "events/400013/spine/btn_Icecream_level_island_1.skel"
+      }
+    ]
+  },
+  {
+    "id": "400013_btn_Icecream_level_island_2event",
+    "name": "Cool Supply Stand S1 — btn_Icecream_level_island_2",
+    "kind": "event",
+    "sub": "spine",
+    "eventRef": "400013",
+    "spine": "btn_Icecream_level_island_2",
+    "variants": [
+      {
+        "name": "400013_btn_Icecream_level_island_2event",
+        "label": "Spine",
+        "path": "events/400013/spine/btn_Icecream_level_island_2.skel"
+      }
+    ]
+  },
+  {
+    "id": "400013_btn_Icecream_level_island_3event",
+    "name": "Cool Supply Stand S1 — btn_Icecream_level_island_3",
+    "kind": "event",
+    "sub": "spine",
+    "eventRef": "400013",
+    "spine": "btn_Icecream_level_island_3",
+    "variants": [
+      {
+        "name": "400013_btn_Icecream_level_island_3event",
+        "label": "Spine",
+        "path": "events/400013/spine/btn_Icecream_level_island_3.skel"
+      }
+    ]
+  },
+  {
+    "id": "400013_btn_Icecream_level_island_4event",
+    "name": "Cool Supply Stand S1 — btn_Icecream_level_island_4",
+    "kind": "event",
+    "sub": "spine",
+    "eventRef": "400013",
+    "spine": "btn_Icecream_level_island_4",
+    "variants": [
+      {
+        "name": "400013_btn_Icecream_level_island_4event",
+        "label": "Spine",
+        "path": "events/400013/spine/btn_Icecream_level_island_4.skel"
+      }
+    ]
+  },
+  {
+    "id": "510001event",
+    "name": "Joint Drill I — Eye of Ashes",
+    "kind": "event",
+    "sub": "static",
+    "eventRef": "510001",
+    "variants": [
+      {
+        "name": "510001event",
+        "label": "Event Art",
+        "path": "events/510001/body.png"
+      }
+    ]
+  },
+  {
+    "id": "510005event",
+    "name": "Joint Drill V",
+    "kind": "event",
+    "sub": "static",
+    "eventRef": "510005",
+    "variants": [
+      {
+        "name": "510005event",
+        "label": "Event Art",
+        "path": "events/510005/body.png"
+      }
+    ]
+  },
+  {
+    "id": "510006event",
+    "name": "Joint Drill VI",
+    "kind": "event",
+    "sub": "static",
+    "eventRef": "510006",
+    "variants": [
+      {
+        "name": "510006event",
+        "label": "Event Art",
+        "path": "events/510006/body.png"
+      }
+    ]
+  },
+  {
+    "id": "510007event",
+    "name": "Joint Drill S7 — Coppelius & Olympia",
+    "kind": "event",
+    "sub": "spine",
+    "eventRef": "510007",
+    "spine": "BOSS1",
+    "spines": [
+      "BOSS1",
+      "BOSS2"
+    ],
+    "variants": [
+      {
+        "name": "510007event",
+        "label": "BOSS1",
+        "path": "events/510007/spine/BOSS1.skel"
+      },
+      {
+        "name": "510007event",
+        "label": "BOSS2",
+        "path": "events/510007/spine/BOSS2.skel"
+      }
+    ]
+  },
+  {
+    "id": "600003event",
+    "name": "Peak Showcase",
+    "kind": "event",
+    "sub": "static",
+    "eventRef": "600003",
+    "variants": [
+      {
+        "name": "600003event",
+        "label": "Event Art",
+        "path": "events/600003/body.png"
+      }
+    ]
+  },
+  {
+    "id": "sp10304_10304event",
+    "name": "Ease Into an Unhurried Summer (Spine) — 10304",
+    "kind": "event",
+    "sub": "spine",
+    "eventRef": "sp10304",
+    "spine": "10304",
+    "variants": [
+      {
+        "name": "sp10304_10304event",
+        "label": "Spine",
+        "path": "events/sp10304/spine/10304.skel"
+      }
+    ]
+  },
+  {
+    "id": "sp11104_11104event",
+    "name": "Drifting Together on Gentle Waves (Spine) — 11104",
+    "kind": "event",
+    "sub": "spine",
+    "eventRef": "sp11104",
+    "spine": "11104",
+    "variants": [
+      {
+        "name": "sp11104_11104event",
+        "label": "Spine",
+        "path": "events/sp11104/spine/11104.skel"
+      }
+    ]
+  },
+  {
+    "id": "sp11203_11203event",
+    "name": "Lingering Sunlight (Spine) — 11203",
+    "kind": "event",
+    "sub": "spine",
+    "eventRef": "sp11203",
+    "spine": "11203",
+    "variants": [
+      {
+        "name": "sp11203_11203event",
+        "label": "Spine",
+        "path": "events/sp11203/spine/11203.skel"
+      }
+    ]
+  },
+  {
+    "id": "sp15501_15501event",
+    "name": "Shia: Default (Spine) — 15501",
+    "kind": "event",
+    "sub": "spine",
+    "eventRef": "sp15501",
+    "spine": "15501",
+    "variants": [
+      {
+        "name": "sp15501_15501event",
+        "label": "Spine",
+        "path": "events/sp15501/spine/15501.skel"
+      }
+    ]
+  },
+  {
+    "id": "sp15701_15701event",
+    "name": "Karin: Default (Spine) — 15701",
+    "kind": "event",
+    "sub": "spine",
+    "eventRef": "sp15701",
+    "spine": "15701",
+    "variants": [
+      {
+        "name": "sp15701_15701event",
+        "label": "Spine",
+        "path": "events/sp15701/spine/15701.skel"
+      }
+    ]
+  },
+  {
+    "id": "sp16001_16001event",
+    "name": "Suntide Willow: Default (Spine) — 16001",
+    "kind": "event",
+    "sub": "spine",
+    "eventRef": "sp16001",
+    "spine": "16001",
+    "variants": [
+      {
+        "name": "sp16001_16001event",
+        "label": "Spine",
+        "path": "events/sp16001/spine/16001.skel"
+      }
+    ]
+  },
+  {
+    "id": "sp966002_966002event",
+    "name": "Skin 966002 (Spine) — 966002",
+    "kind": "event",
+    "sub": "spine",
+    "eventRef": "sp966002",
+    "spine": "966002",
+    "variants": [
+      {
+        "name": "sp966002_966002event",
+        "label": "Spine",
+        "path": "events/sp966002/spine/966002.skel"
+      }
+    ]
+  },
+  {
+    "id": "sp983003_983003event",
+    "name": "Skin 983003 (Spine) — 983003",
+    "kind": "event",
+    "sub": "spine",
+    "eventRef": "sp983003",
+    "spine": "983003",
+    "variants": [
+      {
+        "name": "sp983003_983003event",
+        "label": "Spine",
+        "path": "events/sp983003/spine/983003.skel"
+      }
+    ]
+  },
+  {
+    "id": "sp983004_983004event",
+    "name": "Skin 983004 (Spine) — 983004",
+    "kind": "event",
+    "sub": "spine",
+    "eventRef": "sp983004",
+    "spine": "983004",
+    "variants": [
+      {
+        "name": "sp983004_983004event",
+        "label": "Spine",
+        "path": "events/sp983004/spine/983004.skel"
+      }
+    ]
+  },
+  {
+    "id": "sp984003_984003event",
+    "name": "Skin 984003 (Spine) — 984003",
+    "kind": "event",
+    "sub": "spine",
+    "eventRef": "sp984003",
+    "spine": "984003",
+    "variants": [
+      {
+        "name": "sp984003_984003event",
+        "label": "Spine",
+        "path": "events/sp984003/spine/984003.skel"
+      }
+    ]
+  },
+  {
+    "id": "sp984004_984004event",
+    "name": "Skin 984004 (Spine) — 984004",
+    "kind": "event",
+    "sub": "spine",
+    "eventRef": "sp984004",
+    "spine": "984004",
+    "variants": [
+      {
+        "name": "sp984004_984004event",
+        "label": "Spine",
+        "path": "events/sp984004/spine/984004.skel"
+      }
+    ]
   }
 ]

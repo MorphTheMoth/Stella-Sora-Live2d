@@ -1,0 +1,1260 @@
+{
+  "10109": {
+    "name": "A Sandstorm of Gunfire",
+    "static": null,
+    "spines": [
+      {
+        "name": "10109GunStorm",
+        "skel": "10109GunStorm.skel",
+        "atlas": "10109GunStorm.atlas",
+        "textures": [
+          {
+            "file": "10109GunStorm.png",
+            "w": 1024,
+            "h": 2048
+          }
+        ],
+        "scene": {
+          "w": 2160,
+          "h": 1080,
+          "behind": [
+            {
+              "file": "scene_bg_gunstorm_main.png",
+              "name": "BG",
+              "x": 0,
+              "y": 0,
+              "w": 2400,
+              "h": 1700
+            },
+            {
+              "file": "scene_bg_gunstorm_main_2.png",
+              "name": "BG1",
+              "x": -462.2,
+              "y": -208,
+              "w": 1000,
+              "h": 488
+            }
+          ],
+          "front": [],
+          "char": {
+            "x": -227.1,
+            "y": 83.05,
+            "w": 1141.25,
+            "h": 1339.21
+          }
+        }
+      }
+    ]
+  },
+  "20103": {
+    "name": "Sunlit Breeze, Azure Seas Checking In for A Cozy Summer~",
+    "static": null,
+    "spines": [
+      {
+        "name": "20103_Summer",
+        "skel": "20103_Summer.skel",
+        "atlas": "20103_Summer.atlas",
+        "textures": [
+          {
+            "file": "20103_Summer.png",
+            "w": 1024,
+            "h": 2048
+          }
+        ],
+        "scene": {
+          "w": 2160,
+          "h": 1080,
+          "behind": [
+            {
+              "file": "scene_bg_summercheckin_main.png",
+              "name": "Bg",
+              "x": 0,
+              "y": 0,
+              "w": 2282.96,
+              "h": 1665.6
+            },
+            {
+              "file": "scene_fx_20103_bg_02.png",
+              "name": "imgBg02",
+              "x": -201,
+              "y": -504.8,
+              "w": 1002,
+              "h": 693
+            },
+            {
+              "file": "scene_fx_20103_bg_01.png",
+              "name": "imgBg01",
+              "x": -6.39,
+              "y": 0,
+              "w": 2520.86,
+              "h": 1682.2
+            },
+            {
+              "file": "scene_fx_20103_bowen_01.png",
+              "name": "shuiwen02",
+              "x": 85,
+              "y": 563,
+              "w": 1340.37,
+              "h": 582.51
+            }
+          ],
+          "front": [
+            {
+              "file": "scene_fx_20103_leaves_03.png",
+              "name": "Leaf04",
+              "x": 642.61,
+              "y": -283.01,
+              "w": 677.65,
+              "h": 756.38
+            },
+            {
+              "file": "scene_fx_20103_leaves_02.png",
+              "name": "Leaf01",
+              "x": 1009.61,
+              "y": 462.99,
+              "w": 452,
+              "h": 789
+            },
+            {
+              "file": "scene_fx_20103_leaves_04.png",
+              "name": "Leaf02",
+              "x": 1067.41,
+              "y": -230.01,
+              "w": 304.49,
+              "h": 228.31
+            },
+            {
+              "file": "scene_fx_20103_leaves_05.png",
+              "name": "Leaf03",
+              "x": 827.51,
+              "y": -554.01,
+              "w": 790,
+              "h": 591
+            },
+            {
+              "file": "scene_20103_FrontLeaves.png",
+              "name": "Leaves",
+              "x": 670.17,
+              "y": -61,
+              "w": 1137.23,
+              "h": 1548.47
+            },
+            {
+              "file": "scene_20103_Water.png",
+              "name": "Water",
+              "x": 572,
+              "y": -193.3,
+              "w": 209.29,
+              "h": 209.29,
+              "frame": {
+                "x": 0,
+                "y": 1200,
+                "w": 200,
+                "h": 200
+              }
+            },
+            {
+              "file": "scene_fx_20103_bowen_04.png",
+              "name": "pubu01",
+              "x": -211.3,
+              "y": -375.4,
+              "w": 318.8,
+              "h": 914.9,
+              "scroll": [
+                0,
+                -0.1
+              ],
+              "alpha": 0.45
+            }
+          ],
+          "char": {
+            "x": 83.53,
+            "y": 37.65,
+            "w": 882.76,
+            "h": 1118.27,
+            "px": 37.61,
+            "py": 551.99
+          }
+        }
+      }
+    ]
+  },
+  "301041": {
+    "name": "Summer Check-in",
+    "static": {
+      "body": "body.png",
+      "w": 956,
+      "h": 944,
+      "faces": [],
+      "scene": {
+        "w": 2160,
+        "h": 1080,
+        "behind": [
+          {
+            "file": "scene_bg_activity_summer2026_01.png",
+            "name": "imgActivity",
+            "x": 0,
+            "y": 32.5,
+            "w": 1644,
+            "h": 804
+          }
+        ],
+        "front": [],
+        "char": {
+          "x": -345.7,
+          "y": -36.81,
+          "w": 956,
+          "h": 944
+        }
+      },
+      "bodies": [
+        {
+          "file": "body.png",
+          "w": 956,
+          "h": 944,
+          "frame": null
+        }
+      ]
+    },
+    "spines": []
+  },
+  "400013": {
+    "name": "Cool Supply Stand S1",
+    "static": null,
+    "spines": [
+      {
+        "name": "CoconutTree",
+        "skel": "CoconutTree.skel",
+        "atlas": "CoconutTree.atlas",
+        "textures": [
+          {
+            "file": "CoconutTree.png",
+            "w": 1024,
+            "h": 1024
+          }
+        ]
+      },
+      {
+        "name": "bg_Icecream_main",
+        "skel": "bg_Icecream_main.skel",
+        "atlas": "bg_Icecream_main.atlas",
+        "textures": [
+          {
+            "file": "bg_Icecream_main.png",
+            "w": 2048,
+            "h": 512
+          }
+        ]
+      },
+      {
+        "name": "btn_Icecream_level_island_1",
+        "skel": "btn_Icecream_level_island_1.skel",
+        "atlas": "btn_Icecream_level_island_1.atlas",
+        "textures": [
+          {
+            "file": "btn_Icecream_level_island_1.png",
+            "w": 2048,
+            "h": 1024
+          }
+        ]
+      },
+      {
+        "name": "btn_Icecream_level_island_2",
+        "skel": "btn_Icecream_level_island_2.skel",
+        "atlas": "btn_Icecream_level_island_2.atlas",
+        "textures": [
+          {
+            "file": "btn_Icecream_level_island_2.png",
+            "w": 2048,
+            "h": 1024
+          }
+        ]
+      },
+      {
+        "name": "btn_Icecream_level_island_3",
+        "skel": "btn_Icecream_level_island_3.skel",
+        "atlas": "btn_Icecream_level_island_3.atlas",
+        "textures": [
+          {
+            "file": "btn_Icecream_level_island_3.png",
+            "w": 2048,
+            "h": 1024
+          }
+        ]
+      },
+      {
+        "name": "btn_Icecream_level_island_4",
+        "skel": "btn_Icecream_level_island_4.skel",
+        "atlas": "btn_Icecream_level_island_4.atlas",
+        "textures": [
+          {
+            "file": "btn_Icecream_level_island_4.png",
+            "w": 1024,
+            "h": 2048
+          }
+        ]
+      }
+    ]
+  },
+  "510001": {
+    "name": "Joint Drill I — Eye of Ashes",
+    "static": {
+      "body": "body.png",
+      "w": 2048,
+      "h": 2048,
+      "faces": [],
+      "scene": {
+        "w": 2160,
+        "h": 1080,
+        "behind": [
+          {
+            "file": "scene_JointDrillBG_Bg.png",
+            "name": "Bg",
+            "x": -183,
+            "y": 0,
+            "w": 2875.39,
+            "h": 1566.86
+          },
+          {
+            "file": "scene_JointDrillBG_Glow_01.png",
+            "name": "Glow_01",
+            "x": -348.12,
+            "y": 71.04,
+            "w": 641.28,
+            "h": 656.64
+          },
+          {
+            "file": "scene_JointDrillBG_StarTowerBig.png",
+            "name": "StarTower_Big",
+            "x": -848.28,
+            "y": 24.96,
+            "w": 591.36,
+            "h": 1585.92
+          },
+          {
+            "file": "scene_JointDrillBG_Mountain.png",
+            "name": "Mountain",
+            "x": -331.8,
+            "y": 244.8,
+            "w": 2697.12,
+            "h": 1140.48
+          },
+          {
+            "file": "scene_JointDrillBG_Building_l_01.png",
+            "name": "Building_l_01",
+            "x": -1051.8,
+            "y": 330.24,
+            "w": 1255.68,
+            "h": 967.68
+          },
+          {
+            "file": "scene_JointDrillBG_Building_r_01.png",
+            "name": "Building_r_01",
+            "x": 522.6,
+            "y": 399.36,
+            "w": 1486.08,
+            "h": 829.44
+          },
+          {
+            "file": "scene_JointDrillBG_Building_l_02.png",
+            "name": "Building_l_02",
+            "x": -1060.44,
+            "y": 672.96,
+            "w": 1236.48,
+            "h": 284.16
+          },
+          {
+            "file": "scene_JointDrillBG_Building_r_02.png",
+            "name": "Building_r_02",
+            "x": 869.16,
+            "y": 552,
+            "w": 890.88,
+            "h": 529.92
+          },
+          {
+            "file": "scene_zs_jointdrill_chain.png",
+            "name": "imgChain1",
+            "x": 150,
+            "y": -75,
+            "w": 52,
+            "h": 2100,
+            "tint": [
+              0.129,
+              0.106,
+              0.153
+            ],
+            "tiled": true
+          },
+          {
+            "file": "scene_zs_jointdrill_chain.png",
+            "name": "imgChain2",
+            "x": -1016,
+            "y": 388,
+            "w": 52,
+            "h": 1600,
+            "tint": [
+              0.114,
+              0.129,
+              0.404
+            ],
+            "tiled": true
+          },
+          {
+            "file": "scene_zs_jointdrill_chain.png",
+            "name": "imgChain3",
+            "x": 867,
+            "y": -442,
+            "w": 52,
+            "h": 1800,
+            "tint": [
+              0.224,
+              0.337,
+              0.553
+            ],
+            "tiled": true
+          }
+        ],
+        "front": [],
+        "char": {
+          "x": -349.06,
+          "y": 350.74,
+          "w": 2170.88,
+          "h": 2170.88
+        }
+      },
+      "bodies": [
+        {
+          "file": "body.png",
+          "w": 2048,
+          "h": 2048,
+          "frame": null
+        }
+      ]
+    },
+    "spines": []
+  },
+  "510005": {
+    "name": "Joint Drill V",
+    "static": {
+      "body": "body.png",
+      "w": 2048,
+      "h": 1133,
+      "faces": [],
+      "scene": {
+        "w": 2160,
+        "h": 1080,
+        "behind": [
+          {
+            "file": "scene_JointDrillBG_Bg.png",
+            "name": "Bg",
+            "x": -183,
+            "y": 0,
+            "w": 2875.39,
+            "h": 1566.86
+          },
+          {
+            "file": "scene_JointDrillBG_Glow_01.png",
+            "name": "Glow_01",
+            "x": -348.12,
+            "y": 71.04,
+            "w": 641.28,
+            "h": 656.64
+          },
+          {
+            "file": "scene_Common_Glow_01.png",
+            "name": "Glow_03",
+            "x": -336.6,
+            "y": 58.56,
+            "w": 983.04,
+            "h": 983.04,
+            "alpha": 0.298
+          },
+          {
+            "file": "scene_JointDrillBG_StarTowerBig.png",
+            "name": "StarTower_Big",
+            "x": -848.28,
+            "y": 24.96,
+            "w": 591.36,
+            "h": 1585.92
+          },
+          {
+            "file": "scene_Common_Glow_01.png",
+            "name": "Glow",
+            "x": -808.92,
+            "y": -335.04,
+            "w": 122.88,
+            "h": 122.88
+          },
+          {
+            "file": "scene_JointDrillBG_Mountain.png",
+            "name": "Mountain",
+            "x": -331.8,
+            "y": 244.8,
+            "w": 2697.12,
+            "h": 1140.48
+          },
+          {
+            "file": "scene_JointDrillBG_Building_l_01.png",
+            "name": "Building_l_01",
+            "x": -1051.8,
+            "y": 330.24,
+            "w": 1255.68,
+            "h": 967.68
+          },
+          {
+            "file": "scene_JointDrillBG_Building_r_01.png",
+            "name": "Building_r_01",
+            "x": 522.6,
+            "y": 399.36,
+            "w": 1486.08,
+            "h": 829.44
+          },
+          {
+            "file": "scene_JointDrillBG_Building_l_02.png",
+            "name": "Building_l_02",
+            "x": -1060.44,
+            "y": 672.96,
+            "w": 1236.48,
+            "h": 284.16
+          },
+          {
+            "file": "scene_JointDrillBG_Building_r_02.png",
+            "name": "Building_r_02",
+            "x": 869.16,
+            "y": 552,
+            "w": 890.88,
+            "h": 529.92
+          },
+          {
+            "file": "scene_zs_jointdrill_chain.png",
+            "name": "imgChain1",
+            "x": 150,
+            "y": -75,
+            "w": 52,
+            "h": 2100,
+            "tint": [
+              0.129,
+              0.106,
+              0.153
+            ],
+            "tiled": true
+          },
+          {
+            "file": "scene_zs_jointdrill_chain.png",
+            "name": "imgChain2",
+            "x": -1016,
+            "y": 388,
+            "w": 52,
+            "h": 1600,
+            "tint": [
+              0.114,
+              0.129,
+              0.404
+            ],
+            "tiled": true
+          },
+          {
+            "file": "scene_zs_jointdrill_chain.png",
+            "name": "imgChain3",
+            "x": 867,
+            "y": -442,
+            "w": 52,
+            "h": 1800,
+            "tint": [
+              0.224,
+              0.337,
+              0.553
+            ],
+            "tiled": true
+          }
+        ],
+        "front": [],
+        "char": {
+          "x": -301,
+          "y": 154,
+          "w": 2400.48,
+          "h": 1328
+        }
+      },
+      "bodies": [
+        {
+          "file": "body.png",
+          "w": 2048,
+          "h": 1133,
+          "frame": null
+        }
+      ]
+    },
+    "spines": []
+  },
+  "510006": {
+    "name": "Joint Drill VI",
+    "static": {
+      "body": "body.png",
+      "w": 2048,
+      "h": 1133,
+      "faces": [],
+      "scene": {
+        "w": 2160,
+        "h": 1080,
+        "behind": [
+          {
+            "file": "scene_JointDrillBG_Bg.png",
+            "name": "Bg",
+            "x": -183,
+            "y": 0,
+            "w": 2875.39,
+            "h": 1566.86
+          },
+          {
+            "file": "scene_JointDrillBG_Glow_01.png",
+            "name": "Glow_01",
+            "x": -348.12,
+            "y": 71.04,
+            "w": 641.28,
+            "h": 656.64
+          },
+          {
+            "file": "scene_Common_Glow_01.png",
+            "name": "Glow_03",
+            "x": -336.6,
+            "y": 58.56,
+            "w": 983.04,
+            "h": 983.04,
+            "alpha": 0.298
+          },
+          {
+            "file": "scene_JointDrillBG_StarTowerBig.png",
+            "name": "StarTower_Big",
+            "x": -848.28,
+            "y": 24.96,
+            "w": 591.36,
+            "h": 1585.92
+          },
+          {
+            "file": "scene_Common_Glow_01.png",
+            "name": "Glow",
+            "x": -808.92,
+            "y": -335.04,
+            "w": 122.88,
+            "h": 122.88
+          },
+          {
+            "file": "scene_JointDrillBG_Mountain.png",
+            "name": "Mountain",
+            "x": -331.8,
+            "y": 244.8,
+            "w": 2697.12,
+            "h": 1140.48
+          },
+          {
+            "file": "scene_JointDrillBG_Building_l_01.png",
+            "name": "Building_l_01",
+            "x": -1051.8,
+            "y": 330.24,
+            "w": 1255.68,
+            "h": 967.68
+          },
+          {
+            "file": "scene_JointDrillBG_Building_r_01.png",
+            "name": "Building_r_01",
+            "x": 522.6,
+            "y": 399.36,
+            "w": 1486.08,
+            "h": 829.44
+          },
+          {
+            "file": "scene_JointDrillBG_Building_l_02.png",
+            "name": "Building_l_02",
+            "x": -1060.44,
+            "y": 672.96,
+            "w": 1236.48,
+            "h": 284.16
+          },
+          {
+            "file": "scene_JointDrillBG_Building_r_02.png",
+            "name": "Building_r_02",
+            "x": 869.16,
+            "y": 552,
+            "w": 890.88,
+            "h": 529.92
+          },
+          {
+            "file": "scene_zs_jointdrill_chain.png",
+            "name": "imgChain1",
+            "x": 150,
+            "y": -75,
+            "w": 52,
+            "h": 2100,
+            "tint": [
+              0.129,
+              0.106,
+              0.153
+            ],
+            "tiled": true
+          },
+          {
+            "file": "scene_zs_jointdrill_chain.png",
+            "name": "imgChain2",
+            "x": -1016,
+            "y": 388,
+            "w": 52,
+            "h": 1600,
+            "tint": [
+              0.114,
+              0.129,
+              0.404
+            ],
+            "tiled": true
+          },
+          {
+            "file": "scene_zs_jointdrill_chain.png",
+            "name": "imgChain3",
+            "x": 867,
+            "y": -442,
+            "w": 52,
+            "h": 1800,
+            "tint": [
+              0.224,
+              0.337,
+              0.553
+            ],
+            "tiled": true
+          }
+        ],
+        "front": [],
+        "char": {
+          "x": -301,
+          "y": 154,
+          "w": 2400.48,
+          "h": 1328
+        }
+      },
+      "bodies": [
+        {
+          "file": "body.png",
+          "w": 2048,
+          "h": 1133,
+          "frame": null
+        }
+      ]
+    },
+    "spines": []
+  },
+  "510007": {
+    "name": "Joint Drill S7 — Coppelius & Olympia",
+    "static": null,
+    "spines": [
+      {
+        "name": "BOSS1",
+        "skel": "BOSS1.skel",
+        "atlas": "BOSS1.atlas",
+        "textures": [
+          {
+            "file": "BOSS1.png",
+            "w": 2048,
+            "h": 2048
+          }
+        ],
+        "scene": {
+          "w": 2160,
+          "h": 1080,
+          "behind": [
+            {
+              "file": "scene_JointDrillBG_Bg.png",
+              "name": "Bg",
+              "x": -183,
+              "y": 0,
+              "w": 2875.39,
+              "h": 1566.86
+            },
+            {
+              "file": "scene_JointDrillBG_Glow_01.png",
+              "name": "Glow_01",
+              "x": -348.12,
+              "y": 71.04,
+              "w": 641.28,
+              "h": 656.64
+            },
+            {
+              "file": "scene_JointDrillBG_StarTowerBig.png",
+              "name": "StarTower_Big",
+              "x": -848.28,
+              "y": 24.96,
+              "w": 591.36,
+              "h": 1585.92
+            },
+            {
+              "file": "scene_JointDrillBG_Mountain.png",
+              "name": "Mountain",
+              "x": -331.8,
+              "y": 244.8,
+              "w": 2697.12,
+              "h": 1140.48
+            },
+            {
+              "file": "scene_JointDrillBG_Building_l_01.png",
+              "name": "Building_l_01",
+              "x": -1051.8,
+              "y": 330.24,
+              "w": 1255.68,
+              "h": 967.68
+            },
+            {
+              "file": "scene_JointDrillBG_Building_r_01.png",
+              "name": "Building_r_01",
+              "x": 522.6,
+              "y": 399.36,
+              "w": 1486.08,
+              "h": 829.44
+            },
+            {
+              "file": "scene_JointDrillBG_Building_l_02.png",
+              "name": "Building_l_02",
+              "x": -1060.44,
+              "y": 672.96,
+              "w": 1236.48,
+              "h": 284.16
+            },
+            {
+              "file": "scene_JointDrillBG_Building_r_02.png",
+              "name": "Building_r_02",
+              "x": 869.16,
+              "y": 552,
+              "w": 890.88,
+              "h": 529.92
+            },
+            {
+              "file": "scene_zs_jointdrill_chain.png",
+              "name": "imgChain1",
+              "x": 150,
+              "y": -75,
+              "w": 52,
+              "h": 2100,
+              "tint": [
+                0.129,
+                0.106,
+                0.153
+              ],
+              "tiled": true
+            },
+            {
+              "file": "scene_zs_jointdrill_chain.png",
+              "name": "imgChain2",
+              "x": -1016,
+              "y": 388,
+              "w": 52,
+              "h": 1600,
+              "tint": [
+                0.114,
+                0.129,
+                0.404
+              ],
+              "tiled": true
+            },
+            {
+              "file": "scene_zs_jointdrill_chain.png",
+              "name": "imgChain3",
+              "x": 867,
+              "y": -442,
+              "w": 52,
+              "h": 1800,
+              "tint": [
+                0.224,
+                0.337,
+                0.553
+              ],
+              "tiled": true
+            }
+          ],
+          "front": [],
+          "char": {
+            "x": -208.83,
+            "y": -56.54,
+            "w": 883.37,
+            "h": 995.97
+          },
+          "chars": [
+            {
+              "name": "BOSS1",
+              "x": -208.83,
+              "y": -56.54,
+              "w": 883.37,
+              "h": 995.97
+            },
+            {
+              "name": "BOSS2",
+              "x": -420.83,
+              "y": 324.46,
+              "w": 883.37,
+              "h": 995.97
+            }
+          ]
+        }
+      },
+      {
+        "name": "BOSS2",
+        "skel": "BOSS2.skel",
+        "atlas": "BOSS2.atlas",
+        "textures": [
+          {
+            "file": "BOSS2.png",
+            "w": 2048,
+            "h": 1024
+          }
+        ],
+        "scene": {
+          "w": 2160,
+          "h": 1080,
+          "behind": [
+            {
+              "file": "scene_JointDrillBG_Bg.png",
+              "name": "Bg",
+              "x": -183,
+              "y": 0,
+              "w": 2875.39,
+              "h": 1566.86
+            },
+            {
+              "file": "scene_JointDrillBG_Glow_01.png",
+              "name": "Glow_01",
+              "x": -348.12,
+              "y": 71.04,
+              "w": 641.28,
+              "h": 656.64
+            },
+            {
+              "file": "scene_JointDrillBG_StarTowerBig.png",
+              "name": "StarTower_Big",
+              "x": -848.28,
+              "y": 24.96,
+              "w": 591.36,
+              "h": 1585.92
+            },
+            {
+              "file": "scene_JointDrillBG_Mountain.png",
+              "name": "Mountain",
+              "x": -331.8,
+              "y": 244.8,
+              "w": 2697.12,
+              "h": 1140.48
+            },
+            {
+              "file": "scene_JointDrillBG_Building_l_01.png",
+              "name": "Building_l_01",
+              "x": -1051.8,
+              "y": 330.24,
+              "w": 1255.68,
+              "h": 967.68
+            },
+            {
+              "file": "scene_JointDrillBG_Building_r_01.png",
+              "name": "Building_r_01",
+              "x": 522.6,
+              "y": 399.36,
+              "w": 1486.08,
+              "h": 829.44
+            },
+            {
+              "file": "scene_JointDrillBG_Building_l_02.png",
+              "name": "Building_l_02",
+              "x": -1060.44,
+              "y": 672.96,
+              "w": 1236.48,
+              "h": 284.16
+            },
+            {
+              "file": "scene_JointDrillBG_Building_r_02.png",
+              "name": "Building_r_02",
+              "x": 869.16,
+              "y": 552,
+              "w": 890.88,
+              "h": 529.92
+            },
+            {
+              "file": "scene_zs_jointdrill_chain.png",
+              "name": "imgChain1",
+              "x": 150,
+              "y": -75,
+              "w": 52,
+              "h": 2100,
+              "tint": [
+                0.129,
+                0.106,
+                0.153
+              ],
+              "tiled": true
+            },
+            {
+              "file": "scene_zs_jointdrill_chain.png",
+              "name": "imgChain2",
+              "x": -1016,
+              "y": 388,
+              "w": 52,
+              "h": 1600,
+              "tint": [
+                0.114,
+                0.129,
+                0.404
+              ],
+              "tiled": true
+            },
+            {
+              "file": "scene_zs_jointdrill_chain.png",
+              "name": "imgChain3",
+              "x": 867,
+              "y": -442,
+              "w": 52,
+              "h": 1800,
+              "tint": [
+                0.224,
+                0.337,
+                0.553
+              ],
+              "tiled": true
+            }
+          ],
+          "front": [],
+          "char": {
+            "x": -208.83,
+            "y": -56.54,
+            "w": 883.37,
+            "h": 995.97
+          },
+          "chars": [
+            {
+              "name": "BOSS1",
+              "x": -208.83,
+              "y": -56.54,
+              "w": 883.37,
+              "h": 995.97
+            },
+            {
+              "name": "BOSS2",
+              "x": -420.83,
+              "y": 324.46,
+              "w": 883.37,
+              "h": 995.97
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "600003": {
+    "name": "Peak Showcase",
+    "static": {
+      "body": "body.png",
+      "w": 2048,
+      "h": 1451,
+      "faces": [],
+      "bodies": [
+        {
+          "file": "body.png",
+          "w": 2048,
+          "h": 1451,
+          "frame": null
+        }
+      ]
+    },
+    "spines": []
+  },
+  "sp10304": {
+    "name": "Ease Into an Unhurried Summer (Spine)",
+    "static": null,
+    "spines": [
+      {
+        "name": "10304",
+        "skel": "10304.skel",
+        "atlas": "10304.atlas",
+        "textures": [
+          {
+            "file": "10304.png",
+            "w": 1024,
+            "h": 512
+          }
+        ]
+      }
+    ]
+  },
+  "sp11104": {
+    "name": "Drifting Together on Gentle Waves (Spine)",
+    "static": null,
+    "spines": [
+      {
+        "name": "11104",
+        "skel": "11104.skel",
+        "atlas": "11104.atlas",
+        "textures": [
+          {
+            "file": "11104.png",
+            "w": 1024,
+            "h": 512
+          }
+        ]
+      }
+    ]
+  },
+  "sp11203": {
+    "name": "Lingering Sunlight (Spine)",
+    "static": null,
+    "spines": [
+      {
+        "name": "11203",
+        "skel": "11203.skel",
+        "atlas": "11203.atlas",
+        "textures": [
+          {
+            "file": "11203.png",
+            "w": 1024,
+            "h": 512
+          }
+        ]
+      }
+    ]
+  },
+  "sp15501": {
+    "name": "Shia: Default (Spine)",
+    "static": null,
+    "spines": [
+      {
+        "name": "15501",
+        "skel": "15501.skel",
+        "atlas": "15501.atlas",
+        "textures": [
+          {
+            "file": "15501.png",
+            "w": 1024,
+            "h": 1024
+          }
+        ]
+      }
+    ]
+  },
+  "sp15701": {
+    "name": "Karin: Default (Spine)",
+    "static": null,
+    "spines": [
+      {
+        "name": "15701",
+        "skel": "15701.skel",
+        "atlas": "15701.atlas",
+        "textures": [
+          {
+            "file": "15701.png",
+            "w": 1024,
+            "h": 512
+          }
+        ]
+      }
+    ]
+  },
+  "sp16001": {
+    "name": "Suntide Willow: Default (Spine)",
+    "static": null,
+    "spines": [
+      {
+        "name": "16001",
+        "skel": "16001.skel",
+        "atlas": "16001.atlas",
+        "textures": [
+          {
+            "file": "16001.png",
+            "w": 1024,
+            "h": 1024
+          }
+        ]
+      }
+    ]
+  },
+  "sp966002": {
+    "name": "Skin 966002 (Spine)",
+    "static": null,
+    "spines": [
+      {
+        "name": "966002",
+        "skel": "966002.skel",
+        "atlas": "966002.atlas",
+        "textures": [
+          {
+            "file": "966002.png",
+            "w": 1024,
+            "h": 512
+          }
+        ]
+      }
+    ]
+  },
+  "sp983003": {
+    "name": "Skin 983003 (Spine)",
+    "static": null,
+    "spines": [
+      {
+        "name": "983003",
+        "skel": "983003.skel",
+        "atlas": "983003.atlas",
+        "textures": [
+          {
+            "file": "983003.png",
+            "w": 1024,
+            "h": 1024
+          }
+        ]
+      }
+    ]
+  },
+  "sp983004": {
+    "name": "Skin 983004 (Spine)",
+    "static": null,
+    "spines": [
+      {
+        "name": "983004",
+        "skel": "983004.skel",
+        "atlas": "983004.atlas",
+        "textures": [
+          {
+            "file": "983004.png",
+            "w": 1024,
+            "h": 1024
+          }
+        ]
+      }
+    ]
+  },
+  "sp984003": {
+    "name": "Skin 984003 (Spine)",
+    "static": null,
+    "spines": [
+      {
+        "name": "984003",
+        "skel": "984003.skel",
+        "atlas": "984003.atlas",
+        "textures": [
+          {
+            "file": "984003.png",
+            "w": 1024,
+            "h": 512
+          }
+        ]
+      }
+    ]
+  },
+  "sp984004": {
+    "name": "Skin 984004 (Spine)",
+    "static": null,
+    "spines": [
+      {
+        "name": "984004",
+        "skel": "984004.skel",
+        "atlas": "984004.atlas",
+        "textures": [
+          {
+            "file": "984004.png",
+            "w": 1024,
+            "h": 512
+          }
+        ]
+      }
+    ]
+  }
+}

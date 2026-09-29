@@ -328,6 +328,11 @@ async function main() {
           '--parallax', path.join(ROOT, 'data/discparallax.json'),
           '--disc-names', path.join(ROOT, 'data/discid.json')
         ], { stdio: 'inherit' });
+        // And the Events section (generateManifest drops it; the datamine
+        // root auto-resolves inside generateEvents.mjs).
+        spawnSync('node', [path.join(ROOT, 'scripts/generateEvents.mjs'),
+          '--models', MODELS_JSON,
+        ], { stdio: 'inherit' });
       }
     }
     cache.entries[file] = { mtimeMs: stat.mtimeMs, size: stat.size, marker: true, cnt, names, staged };

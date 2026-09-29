@@ -12,9 +12,9 @@
 (function () {
   var seg = decodeURIComponent(location.pathname.replace(/\/+$/, '').split('/').pop() || '');
   // Link ids: variant names (10301_lf, avg3_100_a), parallax ids (4060p),
-  // AVG shortIds (avg1_103).  Anything else (e.g. the bare site root or a
-  // real missing file) is treated as a genuine 404.
-  if (/[\w-]*_\w+$|^\d+p$/i.test(seg)) {
+  // AVG shortIds (avg1_103), event ids (510001event).  Anything else (e.g.
+  // the bare site root or a real missing file) is treated as a genuine 404.
+  if (/[\w-]*_\w+$|^\d+p$|^\w+event$/i.test(seg)) {
     // Trailing slashes are stripped first so /10301_lf/ redirects to the
     // viewer root, not to /10301_lf/index.html (which doesn't exist).
     var p = location.pathname.replace(/\/+$/, '');
