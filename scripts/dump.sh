@@ -224,6 +224,13 @@ if [[ -f "$CACHE_FILE" ]]; then
 fi
 # Keep existing chars/data - only override, never delete old entries (e.g. removed bundles stay visible)
 
+# Snapshot the pre-dump manifests: stampVersions.mjs diffs these against the
+# regenerated files at the end to record the game version each entry was
+# added/edited in (data models carry added/updated; data/entryhash.json
+# tracks asset bytes for art-only edits).
+if [[ -f "$ROOT/data/models.json" ]]; then cp "$ROOT/data/models.json" "$TMP/models.prev.json"; fi
+if [[ -f "$ROOT/data/avg.json" ]]; then cp "$ROOT/data/avg.json" "$TMP/avg.prev.json"; fi
+
 # Collect the bundle list
 # char_avg_2d_avg1_* / char_avg_2d_avg3_10*: unreleased characters ship no
 # char_l2d_<id> bundle at all — their Live2D is embedded as a Cubism prefab
@@ -675,6 +682,17 @@ node "$SCRIPT_DIR/generateEvents.mjs" \
 node "$SCRIPT_DIR/mergeBgLayers.mjs" \
   --models "$ROOT/data/models.json" \
   --layers "$BGDIR" || true
+# Stamp added/updated game versions (auto-resolved from the game install;
+# no-op when unresolvable). Runs after every regeneration step so new and
+# edited entries carry the current version for the site's New filter.
+node "$SCRIPT_DIR/stampVersions.mjs" \
+  --game "$GAME" \
+  --root "$ROOT" \
+  --models "$ROOT/data/models.json" \
+  --avg "$ROOT/data/avg.json" \
+  --old-models "$TMP/models.prev.json" \
+  --old-avg "$TMP/avg.prev.json" \
+  --hashes "$ROOT/data/entryhash.json" || true
 cache_prune || true
 if [[ "$CACHE_HITS" -gt 0 ]]; then echo "Cache hits: $CACHE_HITS (skipped unchanged bundles)"; fi
 

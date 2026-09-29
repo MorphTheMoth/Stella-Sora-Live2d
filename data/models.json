@@ -3794,9 +3794,12 @@
             "h": 1468,
             "fg": false
           }
-        ]
+        ],
+        "added": "1.16.0",
+        "updated": "1.16.0"
       }
-    ]
+    ],
+    "updated": "1.16.0"
   },
   {
     "id": "11801",
@@ -5188,9 +5191,12 @@
             "h": 176,
             "fg": false
           }
-        ]
+        ],
+        "added": "1.16.0",
+        "updated": "1.16.0"
       }
-    ]
+    ],
+    "updated": "1.16.0"
   },
   {
     "id": "12701",
@@ -8040,7 +8046,9 @@
           "s": 1.3457341,
           "x": -0.58219975,
           "y": -5.6876526
-        }
+        },
+        "added": "1.16.0",
+        "updated": "1.16.0"
       },
       {
         "name": "13901_lf",
@@ -8170,13 +8178,17 @@
             "h": 804,
             "fg": false
           }
-        ]
+        ],
+        "added": "1.16.0",
+        "updated": "1.16.0"
       },
       {
         "name": "13901_lt",
         "label": "Talent",
         "path": "chars/13901/13901_lt/13901_T.model3.json",
-        "bg": []
+        "bg": [],
+        "added": "1.16.0",
+        "updated": "1.16.0"
       },
       {
         "name": "13902_l",
@@ -8356,9 +8368,13 @@
             "h": 624,
             "fg": true
           }
-        ]
+        ],
+        "added": "1.16.0",
+        "updated": "1.16.0"
       }
-    ]
+    ],
+    "added": "1.16.0",
+    "updated": "1.16.0"
   },
   {
     "id": "14001",
@@ -13101,9 +13117,13 @@
         "label": "Default",
         "path": "chars/99901/99901_l/99901_L.model3.json",
         "bg": [],
-        "charBg": "bg/charbg/ttc_parkbase_daylight.png"
+        "charBg": "bg/charbg/ttc_parkbase_daylight.png",
+        "added": "1.16.0",
+        "updated": "1.16.0"
       }
-    ]
+    ],
+    "added": "1.16.0",
+    "updated": "1.16.0"
   },
   {
     "id": "avg3_100_a",
@@ -27446,7 +27466,9 @@
           "depth": -100
         }
       ]
-    }
+    },
+    "added": "1.16.0",
+    "updated": "1.16.0"
   },
   {
     "id": "4062",
@@ -27948,7 +27970,9 @@
           "depth": -200
         }
       ]
-    }
+    },
+    "added": "1.16.0",
+    "updated": "1.16.0"
   },
   {
     "id": "4004l2d",
@@ -30833,9 +30857,13 @@
             "h": 908,
             "fg": true
           }
-        ]
+        ],
+        "added": "1.16.0",
+        "updated": "1.16.0"
       }
-    ]
+    ],
+    "added": "1.16.0",
+    "updated": "1.16.0"
   },
   {
     "id": "10109_10109GunStormevent",
@@ -30982,9 +31010,13 @@
       {
         "name": "400017_castnetevent",
         "label": "Spine",
-        "path": "events/400017/spine/castnet.skel"
+        "path": "events/400017/spine/castnet.skel",
+        "added": "1.16.0",
+        "updated": "1.16.0"
       }
-    ]
+    ],
+    "added": "1.16.0",
+    "updated": "1.16.0"
   },
   {
     "id": "510001event",
@@ -31043,7 +31075,8 @@
       {
         "name": "510007event",
         "label": "BOSS1",
-        "path": "events/510007/spine/BOSS1.skel"
+        "path": "events/510007/spine/BOSS1.skel",
+        "updated": "1.16.0"
       },
       {
         "name": "510007event",

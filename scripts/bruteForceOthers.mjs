@@ -311,6 +311,10 @@ async function main() {
       }
       if (staged.length > 0) {
         totalStaged += staged.length;
+        // Snapshot for version stamping below (new Others entries get the
+        // current game version).
+        const prevModels = path.join(TMP_BASE, 'models.prev.json');
+        try { fs.copyFileSync(MODELS_JSON, prevModels); } catch { /* first run */ }
         // Regenerate manifest to include new others
         // --board-npc / --skin-names auto-resolve from the datamine (EN/language/en_US)
         // via generateManifest.mjs — no need to hardcode absolute path.
@@ -333,6 +337,16 @@ async function main() {
         // root auto-resolves inside generateEvents.mjs).
         spawnSync('node', [path.join(ROOT, 'scripts/generateEvents.mjs'),
           '--models', MODELS_JSON,
+        ], { stdio: 'inherit' });
+        // Stamp added/updated versions for the newly staged Others (game
+        // root best-effort; the stamper skips itself when unresolvable).
+        const gameRoot = path.dirname(path.dirname(GAME_PERSIST));
+        spawnSync('node', [path.join(ROOT, 'scripts/stampVersions.mjs'),
+          '--game', gameRoot,
+          '--root', ROOT,
+          '--models', MODELS_JSON,
+          '--old-models', prevModels,
+          '--hashes', path.join(ROOT, 'data/entryhash.json'),
         ], { stdio: 'inherit' });
       }
     }

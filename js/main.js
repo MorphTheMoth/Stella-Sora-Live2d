@@ -31,6 +31,10 @@ const state = {
   camera: null,
   model: null,
   models: [],
+  // Highest added/updated version across every entry (models + avg); drives
+  // the New filter and the NEW/UPD badges. null when nothing is stamped.
+  latestVersion: null,
+  newOnly: false,
   currentPath: null,
   currentName: null,
   currentBgList: [],
@@ -142,6 +146,7 @@ const els = {
   canvas: document.getElementById('main-canvas'),
   list: document.getElementById('entity-list'),
   filter: document.getElementById('entity-filter'),
+  newOnly: document.getElementById('new-only'),
   openBtn: document.getElementById('entity-list_open'),
   closeBtn: document.getElementById('entity-list_close'),
   listPrev: document.getElementById('entity-list_prev'),
@@ -2684,6 +2689,9 @@ function addListItem(item) {
   idSpan.textContent = shownId + ' ';
   name.appendChild(idSpan);
   name.appendChild(document.createTextNode(item.name === '#' + shownId ? '' : item.name));
+  // Latest-version badge: NEW = added in it, UPD = edited in it.
+  const kind = newKind(item);
+  if (kind) name.appendChild(newBadgeSpan(kind));
   li.appendChild(name);
   let firstBtn = null;
   if (item.kind === 'parallax') {
@@ -2724,6 +2732,9 @@ function addListItem(item) {
       btn.className = 'character-variation_button' + (variant.label === 'Disc' ? ' is-disc' : '');
       btn.textContent = variant.label;
       btn.title = variant.path;
+      // Per-variant badge: a new outfit/event skin on an existing character.
+      const vkind = newKind(variant);
+      if (vkind) btn.appendChild(newBadgeSpan(vkind));
       btn.addEventListener('click', (e) => {
         setActiveButton(e.target);
         loadModel(resolveUrl(variant.path));
@@ -2781,6 +2792,60 @@ function isHidden(item) {
   return HIDDEN_PREFIXES.some((t) => shownId.startsWith(t) || item.id.startsWith(t));
 }
 
+// Version comparison for "x.y.z" (numeric per segment; missing segments = 0).
+function cmpVersion(a, b) {
+  const pa = String(a || '').split('.');
+  const pb = String(b || '').split('.');
+  const n = Math.max(pa.length, pb.length);
+  for (let i = 0; i < n; i++) {
+    const da = parseInt(pa[i], 10) || 0;
+    const db = parseInt(pb[i], 10) || 0;
+    if (da !== db) return da - db;
+  }
+  return 0;
+}
+
+function latestVersionOf(lists) {
+  let latest = null;
+  const consider = (v) => {
+    if (v && (latest === null || cmpVersion(v, latest) > 0)) latest = v;
+  };
+  for (const list of lists) {
+    for (const item of list || []) {
+      consider(item.updated);
+      consider(item.added);
+      // Skin variants carry their own stamps (new outfit on an old character).
+      for (const v of item.variants || []) {
+        consider(v.updated);
+        consider(v.added);
+      }
+    }
+  }
+  return latest;
+}
+
+// NEW = added in the latest version; UPD = existing entry changed in it.
+function newKind(item) {
+  if (!item || !state.latestVersion) return null;
+  if (item.added === state.latestVersion) return 'new';
+  if (item.updated === state.latestVersion) return 'upd';
+  return null;
+}
+
+// True when the entry itself or any of its variants is new/updated.
+function hasStamp(item) {
+  if (newKind(item)) return true;
+  return (item.variants || []).some((v) => newKind(v));
+}
+
+function newBadgeSpan(kind) {
+  const badge = document.createElement('span');
+  badge.className = 'entity-badge';
+  badge.textContent = kind === 'new' ? 'NEW' : 'UPD';
+  badge.title = (kind === 'new' ? 'Added in v' : 'Updated in v') + state.latestVersion;
+  return badge;
+}
+
 function matchesSearch(item, query) {
   if (!query) return true;
   const q = query.toLowerCase();
@@ -2805,14 +2870,16 @@ function createCharactersList() {
   const isDiscL2dEntry = (item) => item.kind === 'discl2d';
   const isOtherEntry = (item) => item.kind === 'other';
   const query = els.filter.value.trim().toLowerCase();
-  const visible = (item) => !isHidden(item) && matchesSearch(item, query);
+  const showNew = state.newOnly;
+  const isNew = (item) => !showNew || hasStamp(item);
+  const visible = (item) => !isHidden(item) && matchesSearch(item, query) && isNew(item);
 
   const chars = state.models.filter((item) => !isParallaxEntry(item) && !isDiscL2dEntry(item) && !isEventEntry(item) && !isOtherEntry(item) && visible(item));
   const events = state.models.filter((item) => isEventEntry(item) && visible(item));
   const discL2ds = state.models.filter((item) => isDiscL2dEntry(item) && visible(item)).reverse();
   const discs = state.models.filter((item) => isParallaxEntry(item) && visible(item)).reverse();
   const others = state.models.filter((item) => isOtherEntry(item) && visible(item));
-  const avgs = state.avgModels.filter((item) => !isHidden(item) && matchesSearch(item, query));
+  const avgs = state.avgModels.filter((item) => !isHidden(item) && matchesSearch(item, query) && isNew(item));
 
   // Sections with no matches (e.g. Events (0)) are skipped entirely.
   if (chars.length) {
@@ -3203,7 +3270,18 @@ async function init() {
   } catch (e) {
     console.warn('data/events.json unavailable', e);
   }
+  // Latest version across every entry -> New filter + badges.
+  state.latestVersion = latestVersionOf([state.models, state.avgModels]);
   els.filter.addEventListener('input', createCharactersList);
+  if (els.newOnly) {
+    els.newOnly.addEventListener('click', () => {
+      state.newOnly = !state.newOnly;
+      els.newOnly.classList.toggle('active', state.newOnly);
+      createCharactersList();
+    });
+    els.newOnly.hidden = !state.latestVersion;
+    if (state.latestVersion) els.newOnly.title = 'Only entries added or updated in v' + state.latestVersion;
+  }
   createCharactersList();
 
   handleResize();

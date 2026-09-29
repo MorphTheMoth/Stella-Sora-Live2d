@@ -67,6 +67,36 @@ Order matters — `data/models.json` is built twice (before and after bg staging
 7. **Disc parallax cards** — every `disc_XXXX.unity3d` (+ `disc_common.unity3d` + `ui_big_sprites.unity3d`) → `.dump_tmp/discoverlays/` → `scripts/extractDiscParallax.mjs` → `data/discparallax.json` + `chars/<id>/<id>_p/overlays/*.png`; then `scripts/generateDiscs.mjs` rebuilds the Discs section (`kind:"parallax"` + `kind:"discl2d"`).
 9. **Offsets** — `char_2d_*.unity3d` `Actor2DOffsetData` → `.dump_tmp/offsets/` → `scripts/generateOffset.mjs` → `data/offset.json` (MainView panel 10 Set 2: `{s,x,y}`).
 10. **Story character sprites (AVG)** — every `char_avg_2d_avg*.unity3d` (`avg1/2/3/4`, Persistent_Store copy preferred) → `scripts/extractAvg.py` (UnityPy: mesh-cropped sprite PNGs + mesh bbox centres + `Actor2DOffsetData` Set 2) → `.dump_tmp/avg/` + `.dump_tmp/avgmeta/` → `scripts/generateAvg.mjs` stages PNGs to `avg/<id>/` and writes `data/avg.json` (names from `--avg-names`, default `_Lua/Game/UI/Avg/_en/Preset/AvgCharacter.lua`). See `docs/AgentsReadme.md` → "Story characters".
+11. **Version stamping** — `scripts/stampVersions.mjs` records `added`/`updated` on every `data/models.json` / `data/avg.json` entry (see below), then refreshes `data/entryhash.json`. Always the last step.
+
+### Version stamping (`added` / `updated`)
+
+The viewer badges entries added/edited in the latest game version and offers a
+**New** filter (see `docs/AgentsReadme.md` → "New / updated badges"). Data:
+
+- `data/models.json` / `data/avg.json` entries carry `added` and `updated`
+  (game version strings, e.g. `1.16.0`). Entries that predate stamping have
+  neither until they change (then only `updated`). `models.json` **variants**
+  carry their own `added`/`updated` too, so a new skin variant on an existing
+  character is flagged NEW while the character entry is only UPD.
+- `data/entryhash.json` — `{version, models: {id: {hash, variants: {name:
+  sha1}}}, avg: {id: sha1}}`; the per-variant hashes drive variant-level
+  change detection (a v1 flat record migrates silently).
+
+The version comes from the game install's **`prefs.dat`**
+(`LOCAL_GAME_VERSION:1.16.0`; `game-launcher-config.json`/`manifest.json` only
+hold the launcher version `1.13.0`). `--version` overrides it.
+
+`stampVersions.mjs` marks an entry **updated** when either its manifest JSON
+changed (deep-diff against the pre-dump snapshot `.dump_tmp/models.prev.json`
+/ `.dump_tmp/avg.prev.json`, taken by `dump.sh` before rebuilding) or its
+staged files' hash differs from `data/entryhash.json`. Variants are stamped the
+same way against their own dirs, so a newly added skin variant gets
+`added = updated`, while the character entry gets `updated`. New ids get
+`added = updated = version`. A missing hash is seeded silently, so the first
+run never mass-flags everything, and existing stamps are stripped from the
+input first so re-runs are authoritative (idempotent). `bruteForceOthers.mjs`
+stamps new Others the same way.
 
 ### What each `data/*.json` is for
 
@@ -80,6 +110,7 @@ Order matters — `data/models.json` is built twice (before and after bg staging
 | `data/offset.json` | `generateOffset.mjs` (`Actor2DOffsetData`) | skinId → MainView Set 2 `{s,x,y}` |
 | `data/events.json` | `extractEvents.mjs` + `extractEventScenes.mjs` + `generateEvents.mjs` (`ui_activity*` + `char_2dsp_*`) | event entries: `{name, static:{bodies[], faces[], scene?}, spines[{name, skel, atlas, textures[], scene?}]}`; a scene is `{w,h,behind[],front[],char{,chars[]}}` (slots carry `px/py` when `charOrigin`); art PNGs in `events/<ref>/`, page layers in `events/<ref>/scene/` |
 | `data/avg.json` | `extractAvg.py` + `generateAvg.mjs` (`char_avg_2d_avg*` + `AvgCharacter.lua`) | story-character sprite entries: `{id, shortId, name, poses[{letter, body, black, faces[{file,x,y}], offset}]}`; sprite PNGs in `avg/<id>/` |
+| `data/entryhash.json` | `stampVersions.mjs` | entryId → sha1 of the entry's staged files, for version stamping |
 
 ---
 
@@ -110,10 +141,15 @@ python3 -m http.server 8000
 # open a Memory Snapshot (bgLayers composite) and a parallax disc (drag → tilt, Enable Mask/Max Rotation toggles)
 # open a Story Character: body renders; right panel → click expression thumbnails (face composites on the
 #   face area), switch Pose letters, toggle Dark Silhouette on entries with a `_001x`
+# click "New" next to the search box → only the latest version's additions (NEW) and edits (UPD)
 
 # avg manifest sanity
 jq 'length' data/avg.json
 jq '[.[] | .name == .id] | map(select(.)) | length' data/avg.json   # unnamed entries (should be 0)
+
+# version stamps: the new version's additions/edits (badges + New filter)
+jq -r '[.[] | select(.added=="1.16.0") | .id] | length' data/models.json
+jq -r '[.[] | select(.updated=="1.16.0") | .id]' data/models.json
 ```
 
 If something looks wrong, fix the extractor/generator (never the dumped `data/`/`chars/` files) and re-run `bash scripts/dump.sh --game …` or the single `node scripts/*.mjs` that owns the artifact.

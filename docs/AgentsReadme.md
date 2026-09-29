@@ -39,6 +39,7 @@ data/
   characterid.json          # charId(3) -> display name
   discid.json               # discId(4) -> display name (generated from datamine)
   charbg.json               # skinId -> CharBg image basename (generated)
+  entryhash.json            # entryId -> sha1 of its staged files (version stamping)
 scripts/
   dump.sh                   # extraction pipeline
   normalize.py              # AssetStudio output -> chars/ layout
@@ -49,6 +50,7 @@ scripts/
   extractDiscParallax.mjs   # disc parallax scenes -> data/discparallax.json
   generateDiscs.mjs         # rebuild the Discs section (parallax + l2d)
   generateDiscId.mjs        # rebuild discid.json from Disc.json + Item.json
+  stampVersions.mjs         # added/updated game version per entry + entryhash.json
 ```
 
 ## Shareable deep links
@@ -89,6 +91,26 @@ a trailing slash).  Hosts that serve `index.html` for deep-link paths will
 show harmless 404s in the console for the speculative preload of
 `js/main.js` / `js/live2dcubismcore.min.js` (the base tag applies a moment
 later and the real fetches succeed).
+
+## New / updated badges (version filter)
+
+Every `data/models.json` / `data/avg.json` entry records the game version in
+which it was added or last edited (`added` / `updated`).  The viewer computes
+the highest version across all entries → **v1.16.0** and:
+
+- shows a **NEW** badge on entries whose `added` equals that version and an
+  **UPD** badge on entries whose `updated` equals it (an existing entry that
+  changed in this version);
+- shows the same badges on **skin variants** — a new outfit/event skin on an
+  existing character marks that variant NEW while the character itself stays
+  UPD (e.g. Jinglin → "Feast of Fortune March");
+- enables the **New** button next to the search box, which filters every
+  section down to entries that are new/updated themselves or own a
+  new/updated variant (the button is hidden when nothing is stamped).
+
+Both fields are written by `scripts/stampVersions.mjs`, run at the end of
+`scripts/dump.sh` (see `docs/Updating.md` → "Version stamping").  Nothing is
+hand-edited.
 
 ## Main-menu backdrops (CharBg)
 

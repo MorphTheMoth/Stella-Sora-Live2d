@@ -262,6 +262,34 @@
   }
   .entity-filter:focus { outline: none; border-color: var(--accent); }
 
+  .entity-filter_row { display: flex; gap: 4px; margin-bottom: 4px; }
+  .entity-filter_row .entity-filter { flex: 1; min-width: 0; margin-bottom: 0; }
+  .entity-newonly {
+    flex: none;
+    padding: 5px 10px;
+    background: var(--card);
+    color: var(--text-dim);
+    border: 1px solid var(--border);
+    font-family: inherit;
+    font-size: 12px;
+    cursor: pointer;
+  }
+  .entity-newonly.active {
+    color: var(--accent);
+    border-color: var(--accent);
+  }
+  .entity-badge {
+    display: inline-block;
+    margin-left: 6px;
+    padding: 0 5px;
+    font-size: 10px;
+    line-height: 1.6;
+    border: 1px solid var(--text-dim);
+    color: var(--text-dim);
+    border-radius: 3px;
+    vertical-align: 1px;
+  }
+
   .character-name {
     display: block;
     width: 100%;
@@ -543,8 +571,12 @@
       </div>
     </div>
     <div class="panel-body">
-      <input id="entity-filter" class="entity-filter" type="text"
-             title="Search by name or id" placeholder="Search…">
+      <div class="entity-filter_row">
+        <input id="entity-filter" class="entity-filter" type="text"
+               title="Search by name or id" placeholder="Search…">
+        <button id="new-only" class="entity-newonly" type="button"
+                title="Show only entries added or edited in the latest version">New</button>
+      </div>
       <ul id="entity-list"></ul>
     </div>
   </div>
