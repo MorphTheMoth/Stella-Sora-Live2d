@@ -12916,10 +12916,10 @@
       {
         "file": "gyro_4059_sky",
         "path": "chars/4059/4059_p/overlays/gyro_4059_sky.png",
-        "x": 84.1,
+        "x": 154,
         "y": -444.2,
-        "w": 3945.6,
-        "h": 3182.4,
+        "w": 3935.66,
+        "h": 3240,
         "clip": true,
         "follower": {
           "type": 2,
@@ -12950,8 +12950,8 @@
         "path": "chars/4059/4059_p/overlays/gyro_4059_desk.png",
         "x": -633.7,
         "y": 802.6,
-        "w": 1356,
-        "h": 972,
+        "w": 1368,
+        "h": 984,
         "clip": true,
         "follower": {
           "type": 2,
@@ -12985,8 +12985,8 @@
         "path": "chars/4059/4059_p/overlays/gyro_4059_tree.png",
         "x": 870.8,
         "y": 357.7,
-        "w": 1140,
-        "h": 1584,
+        "w": 1137,
+        "h": 1581,
         "clip": true,
         "follower": {
           "type": 2,
@@ -13020,8 +13020,8 @@
         "path": "chars/4059/4059_p/overlays/gyro_4059_actor2.png",
         "x": -174.4,
         "y": 603.7,
-        "w": 1824,
-        "h": 2480,
+        "w": 2144,
+        "h": 2944,
         "clip": true,
         "follower": {
           "type": 2,
@@ -13039,8 +13039,8 @@
         "path": "chars/4059/4059_p/overlays/gyro_4059_sign.png",
         "x": 203.4,
         "y": 302.7,
-        "w": 2553.6,
-        "h": 3813.6,
+        "w": 2990.4,
+        "h": 4907.32,
         "clip": true,
         "follower": {
           "type": 2,
@@ -13113,7 +13113,7 @@
         "x": 35,
         "y": 130.2,
         "w": 2472.96,
-        "h": 1774.08,
+        "h": 1775.03,
         "clip": true,
         "follower": {
           "type": 2,
@@ -14162,6 +14162,473 @@
         },
         "z": -200,
         "depth": -200
+      }
+    ]
+  },
+  "4066": {
+    "canvasW": 1080,
+    "canvasH": 1080,
+    "mask": {
+      "w": 712,
+      "h": 712,
+      "x": 0,
+      "y": 0
+    },
+    "parallax": {
+      "ax": 3,
+      "ay": -8,
+      "xmin": -0.99,
+      "xmax": 0.99,
+      "ymin": -0.99,
+      "ymax": -0.21
+    },
+    "layers": [
+      {
+        "file": "frame",
+        "path": "chars/4066/4066_p/overlays/frame.png",
+        "x": 0,
+        "y": 12,
+        "w": 752,
+        "h": 768,
+        "clip": false,
+        "z": 0,
+        "depth": 0
+      },
+      {
+        "file": "gyro_4066_sky",
+        "path": "chars/4066/4066_p/overlays/gyro_4066_sky.png",
+        "x": -72.68,
+        "y": 19.5,
+        "w": 5790.9,
+        "h": 4100,
+        "clip": true,
+        "follower": {
+          "type": 2,
+          "ax": 3,
+          "ay": -8
+        },
+        "z": 3500,
+        "depth": 3500
+      },
+      {
+        "file": "gyro_4066_foreground",
+        "path": "chars/4066/4066_p/overlays/gyro_4066_foreground.png",
+        "x": -15.4,
+        "y": 383.5,
+        "w": 3389.79,
+        "h": 1920,
+        "clip": true,
+        "follower": {
+          "type": 2,
+          "ax": 3,
+          "ay": -8
+        },
+        "z": 2100,
+        "depth": 2100
+      },
+      {
+        "file": "gyro_4066_actor",
+        "path": "chars/4066/4066_p/overlays/gyro_4066_actor.png",
+        "x": -75.6,
+        "y": 39.69,
+        "w": 3294.37,
+        "h": 2400,
+        "clip": true,
+        "follower": {
+          "type": 2,
+          "ax": 3,
+          "ay": -8
+        },
+        "z": 2000,
+        "depth": 2000
+      },
+      {
+        "file": "gyro_4066_crosslight",
+        "path": "chars/4066/4066_p/overlays/gyro_4066_crosslight.png",
+        "x": -55.1,
+        "y": 121.9,
+        "w": 3107.31,
+        "h": 2200,
+        "clip": true,
+        "follower": {
+          "type": 2,
+          "ax": 3,
+          "ay": -8
+        },
+        "z": 2000,
+        "depth": 2000,
+        "blend": "add"
+      },
+      {
+        "file": "gyro_4066_aura",
+        "path": "chars/4066/4066_p/overlays/gyro_4066_aura.png",
+        "x": -40.2,
+        "y": 51.8,
+        "w": 1404,
+        "h": 1404,
+        "clip": true,
+        "follower": {
+          "type": 2,
+          "ax": 3,
+          "ay": -8
+        },
+        "z": 1000,
+        "depth": 1000,
+        "blend": "add"
+      },
+      {
+        "file": "gyro_4066_radiation",
+        "path": "chars/4066/4066_p/overlays/gyro_4066_radiation.png",
+        "x": -4.5,
+        "y": 39.6,
+        "w": 1699.65,
+        "h": 1243.2,
+        "clip": true,
+        "follower": {
+          "type": 2,
+          "ax": 3,
+          "ay": -8
+        },
+        "z": 600,
+        "depth": 600,
+        "blend": "add"
+      },
+      {
+        "file": "gyro_4066_title",
+        "path": "chars/4066/4066_p/overlays/gyro_4066_title.png",
+        "x": 3.6,
+        "y": -197.5,
+        "w": 340.48,
+        "h": 161.28,
+        "clip": false,
+        "follower": {
+          "type": 1,
+          "ax": 3,
+          "ay": -8
+        },
+        "z": -200,
+        "depth": -200
+      },
+      {
+        "file": "gyro_4066_deco",
+        "path": "chars/4066/4066_p/overlays/gyro_4066_deco.png",
+        "x": -0.1,
+        "y": 296.2,
+        "w": 611,
+        "h": 41.6,
+        "clip": false,
+        "follower": {
+          "type": 1,
+          "ax": 3,
+          "ay": -8
+        },
+        "z": -100,
+        "depth": -100
+      }
+    ]
+  },
+  "4067": {
+    "canvasW": 1080,
+    "canvasH": 1080,
+    "mask": {
+      "w": 712,
+      "h": 712,
+      "x": 0,
+      "y": 0
+    },
+    "parallax": {
+      "ax": 10,
+      "ay": -10,
+      "xmin": -0.99,
+      "xmax": 0.99,
+      "ymin": -0.99,
+      "ymax": -0.21
+    },
+    "layers": [
+      {
+        "file": "frame",
+        "path": "chars/4067/4067_p/overlays/frame.png",
+        "x": 0,
+        "y": 12,
+        "w": 752,
+        "h": 768,
+        "clip": false,
+        "z": 0,
+        "depth": 0
+      },
+      {
+        "file": "gyro_4067_bg",
+        "path": "chars/4067/4067_p/overlays/gyro_4067_bg.png",
+        "x": -72.68,
+        "y": -331.1,
+        "w": 6936.8,
+        "h": 3454.85,
+        "clip": true,
+        "follower": {
+          "type": 2,
+          "ax": 10,
+          "ay": -10
+        },
+        "z": 3000,
+        "depth": 3000
+      },
+      {
+        "file": "gyro_4067_monster",
+        "path": "chars/4067/4067_p/overlays/gyro_4067_monster.png",
+        "x": 7.8,
+        "y": 204.1,
+        "w": 2904,
+        "h": 2448,
+        "clip": true,
+        "follower": {
+          "type": 2,
+          "ax": 10,
+          "ay": -10
+        },
+        "z": 2800,
+        "depth": 2800
+      },
+      {
+        "file": "gyro_4067_actor1",
+        "path": "chars/4067/4067_p/overlays/gyro_4067_actor1.png",
+        "x": -1063.6,
+        "y": 183.8,
+        "w": 2270.4,
+        "h": 1807.01,
+        "clip": true,
+        "follower": {
+          "type": 2,
+          "ax": 10,
+          "ay": -10
+        },
+        "z": 2000,
+        "depth": 2000
+      },
+      {
+        "file": "gyro_4067_actor2",
+        "path": "chars/4067/4067_p/overlays/gyro_4067_actor2.png",
+        "x": 1572.6,
+        "y": 194.9,
+        "w": 2495.03,
+        "h": 1839.6,
+        "clip": true,
+        "follower": {
+          "type": 2,
+          "ax": 10,
+          "ay": -10
+        },
+        "z": 1800,
+        "depth": 1800
+      },
+      {
+        "file": "gyro_4067_tower",
+        "path": "chars/4067/4067_p/overlays/gyro_4067_tower.png",
+        "x": 18.7,
+        "y": 129,
+        "w": 1024,
+        "h": 1356.8,
+        "clip": true,
+        "follower": {
+          "type": 2,
+          "ax": 10,
+          "ay": -10
+        },
+        "z": 1200,
+        "depth": 1200
+      },
+      {
+        "file": "gyro_4067_starlight1",
+        "path": "chars/4067/4067_p/overlays/gyro_4067_starlight1.png",
+        "x": -15.81,
+        "y": 2.54,
+        "w": 4913.43,
+        "h": 1108.4,
+        "clip": true,
+        "follower": {
+          "type": 2,
+          "ax": 10,
+          "ay": -10
+        },
+        "z": 1200,
+        "depth": 1200,
+        "blend": "add"
+      },
+      {
+        "file": "gyro_4067_starlight2",
+        "path": "chars/4067/4067_p/overlays/gyro_4067_starlight2.png",
+        "x": 52.7,
+        "y": -33.89,
+        "w": 896,
+        "h": 560,
+        "clip": true,
+        "follower": {
+          "type": 2,
+          "ax": 10,
+          "ay": -10
+        },
+        "z": 1200,
+        "depth": 1200
+      },
+      {
+        "file": "gyro_4067_starlight3",
+        "path": "chars/4067/4067_p/overlays/gyro_4067_starlight3.png",
+        "x": 109.5,
+        "y": -88.1,
+        "w": 565.8,
+        "h": 516.6,
+        "clip": true,
+        "follower": {
+          "type": 2,
+          "ax": 10,
+          "ay": -10
+        },
+        "z": 1200,
+        "depth": 1200,
+        "blend": "add"
+      },
+      {
+        "file": "gyro_4067_star",
+        "path": "chars/4067/4067_p/overlays/gyro_4067_star.png",
+        "x": -66.7,
+        "y": -40,
+        "w": 2251.24,
+        "h": 288,
+        "clip": true,
+        "follower": {
+          "type": 2,
+          "ax": 10,
+          "ay": -10
+        },
+        "z": 1200,
+        "depth": 1200
+      },
+      {
+        "file": "gyro_4067_actor3",
+        "path": "chars/4067/4067_p/overlays/gyro_4067_actor3.png",
+        "x": 159.6,
+        "y": 326,
+        "w": 240.8,
+        "h": 453.6,
+        "clip": true,
+        "follower": {
+          "type": 2,
+          "ax": 10,
+          "ay": -10
+        },
+        "z": 952,
+        "depth": 952
+      },
+      {
+        "file": "gyro_4067_actor4",
+        "path": "chars/4067/4067_p/overlays/gyro_4067_actor4.png",
+        "x": -48,
+        "y": 304.2,
+        "w": 239.2,
+        "h": 390,
+        "clip": true,
+        "follower": {
+          "type": 2,
+          "ax": 10,
+          "ay": -10
+        },
+        "z": 800,
+        "depth": 800
+      },
+      {
+        "file": "gyro_4067_actor5",
+        "path": "chars/4067/4067_p/overlays/gyro_4067_actor5.png",
+        "x": -163.6,
+        "y": 286.4,
+        "w": 265.2,
+        "h": 405.6,
+        "clip": true,
+        "follower": {
+          "type": 2,
+          "ax": 10,
+          "ay": -10
+        },
+        "z": 780.5,
+        "depth": 780.5
+      },
+      {
+        "file": "gyro_4067_actor6",
+        "path": "chars/4067/4067_p/overlays/gyro_4067_actor6.png",
+        "x": 216.4,
+        "y": 313.3,
+        "w": 190.4,
+        "h": 476,
+        "clip": true,
+        "follower": {
+          "type": 2,
+          "ax": 10,
+          "ay": -10
+        },
+        "z": 929.9,
+        "depth": 929.9
+      },
+      {
+        "file": "gyro_4067_foreground",
+        "path": "chars/4067/4067_p/overlays/gyro_4067_foreground.png",
+        "x": 63.8,
+        "y": 212.4,
+        "w": 2481.6,
+        "h": 1551,
+        "clip": true,
+        "follower": {
+          "type": 2,
+          "ax": 10,
+          "ay": -10
+        },
+        "z": 700,
+        "depth": 700
+      },
+      {
+        "file": "gyro_4067_deco_left",
+        "path": "chars/4067/4067_p/overlays/gyro_4067_deco_left.png",
+        "x": -294.8,
+        "y": 360.9,
+        "w": 291.2,
+        "h": 291.2,
+        "clip": true,
+        "follower": {
+          "type": 2,
+          "ax": 10,
+          "ay": -10
+        },
+        "z": 0,
+        "depth": 0
+      },
+      {
+        "file": "gyro_4067_title",
+        "path": "chars/4067/4067_p/overlays/gyro_4067_title.png",
+        "x": 3.6,
+        "y": -214.2,
+        "w": 387.44,
+        "h": 111.36,
+        "clip": false,
+        "follower": {
+          "type": 1,
+          "ax": 10,
+          "ay": -10
+        },
+        "z": -200,
+        "depth": -200
+      },
+      {
+        "file": "gyro_4067_deco_right",
+        "path": "chars/4067/4067_p/overlays/gyro_4067_deco_right.png",
+        "x": 246.2,
+        "y": 281.9,
+        "w": 103.6,
+        "h": 72.8,
+        "clip": false,
+        "follower": {
+          "type": 1,
+          "ax": 10,
+          "ay": -10
+        },
+        "z": 0,
+        "depth": 0
       }
     ]
   }

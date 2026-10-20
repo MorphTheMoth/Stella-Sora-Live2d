@@ -15,8 +15,8 @@
 
 import fs from 'node:fs';
 import path from 'node:path';
-import { fileURLToPath } from 'node:url';
 import { writeTextIfChanged } from './io.mjs';
+import { resolveDatamineFile } from './datamine.mjs';
 
 function parseArgs() {
   const args = process.argv.slice(2);
@@ -37,15 +37,8 @@ function parseArgs() {
   };
 }
 
-function resolveDatamineFile(explicitFile, datamineDir, langSubpath) {
-  if (explicitFile && fs.existsSync(explicitFile)) return explicitFile;
-  const scriptDir = path.dirname(fileURLToPath(import.meta.url));
-  const root = path.resolve(scriptDir, '..');
-  const dm = datamineDir || path.join(root, '../StellaSoraData Makostar');
-  const cand = path.join(dm, langSubpath);
-  if (fs.existsSync(cand)) return cand;
-  return explicitFile;
-}
+// resolveDatamineFile (./datamine.mjs) probes the ss-data clone first, then
+// the old combined datamine root (`StellaSoraData Makostar`).
 
 // BoardNPC.json (datamine language table) names NPCs that characterid.json
 // doesn't cover.  Each key is "BoardNPC.<id>.<n>", where n=1 holds the NPC
@@ -125,6 +118,69 @@ function getVariantBgs(variantPath) {
     .map((f) => `chars/${skinId}/${variant}/bg/${f}`);
 }
 
+// A variant can hold more than one Cubism model: the game's L2D prefabs carry
+// the character plus the scene/props it poses with under
+// `----live2d_modle----` (10303_L_a = character, 10303_L_b = cat + lantern
+// scene; 11901_F_a/_b/_c = character + cake + props).  normalize.py nests each
+// of those in its own folder so their textures/motions don't collide, so look
+// for model3.json files at any depth instead of only directly in the variant.
+function findModelFiles(variantPath) {
+  const out = [];
+  const walk = (dir, rel) => {
+    for (const ent of fs.readdirSync(dir, { withFileTypes: true })) {
+      const relPath = rel ? `${rel}/${ent.name}` : ent.name;
+      if (ent.isDirectory()) {
+        // bg/ holds the composed sprite textures, never a model
+        if (ent.name === 'bg') continue;
+        walk(path.join(dir, ent.name), relPath);
+      } else if (ent.name.endsWith('.model3.json')) {
+        out.push(relPath);
+      }
+    }
+  };
+  walk(variantPath, '');
+  // Shallowest first, then alphabetical: the flat single-model layout wins and
+  // among nested models <id>_a comes before _b / _c (which is also the
+  // character-first order the game uses).
+  out.sort((a, b) => (a.split('/').length - b.split('/').length) || a.localeCompare(b));
+  return out;
+}
+
+// Draw order fallback for a variant's extra models: the game's prefabs keep
+// the character at sorting order 0 and put every additional model 500 lower
+// (10303_L_b = -500, 11901_F_c = -1000), i.e. the scene models draw *behind*
+// the character even though they come later in the hierarchy.  mergeBgLayers
+// later replaces this with the serialized MeshRenderer order when the bundle
+// dump is available.
+function modelFallbackOrder(file) {
+  const m = /_([a-z])\.model3\.json$/.exec(file);
+  if (!m) return 0;
+  return -500 * (m[1].charCodeAt(0) - 'a'.charCodeAt(0));
+}
+
+// Resolve a variant's primary model (the one the viewer opens, unmodified for
+// single-model variants) and, when the variant has several, the full
+// back-to-front model list.
+function resolveModels(skinId, variant, variantPath, preferName) {
+  const files = findModelFiles(variantPath);
+  if (!files.length) return null;
+  let primary = preferName
+    ? files.find((f) => path.basename(f) === `${preferName}.model3.json`)
+    : null;
+  if (!primary) primary = files[0];
+  const models = files
+    .map((f) => ({
+      path: `chars/${skinId}/${variant}/${f}`,
+      x: 0,
+      y: 0,
+      sx: 1,
+      sy: 1,
+      order: modelFallbackOrder(f),
+    }))
+    .sort((a, b) => a.order - b.order);
+  return { path: `chars/${skinId}/${variant}/${primary}`, models };
+}
+
 function main() {
   const { charsDir, outFile, namesFile, discNamesFile, charBgFile, offsetFile, boardNpcFile, skinNamesFile, datamineDir } = parseArgs();
   const resolvedBoardNpc = resolveDatamineFile(boardNpcFile, datamineDir, 'EN/language/en_US/BoardNPC.json');
@@ -175,27 +231,28 @@ function main() {
       for (const variant of fs.readdirSync(skinPath).sort()) {
         const variantPath = path.join(skinPath, variant);
         if (!fs.statSync(variantPath).isDirectory()) continue;
-        const files = fs.readdirSync(variantPath);
         // Prefer the variant-named model (fixes createplayer2_F/M sharing
         // the same source dir and previously being copied together)
-        let modelFile = files.find((f) => f === `${variant}.model3.json`);
-        if (!modelFile) modelFile = files.find((f) => f.endsWith('.model3.json'));
-        if (!modelFile) continue;
+        const resolved = resolveModels(skinId, variant, variantPath, variant);
+        if (!resolved) continue;
+        const modelFile = path.basename(resolved.path);
         let label = getModelTypeLabel(modelFile);
         if (label === 'Unknown' && skinNames[variant]) label = skinNames[variant];
         if (label === 'Unknown') label = variant;
+        const v = {
+          name: variant,
+          label,
+          path: resolved.path,
+        };
+        if (resolved.models.length > 1) v.models = resolved.models;
+        v.bg = getVariantBgs(variantPath);
+        v.charBg = charBgOf(variant, label);
+        v.offset = offsetOf(variant, label);
         characters.push({
           id: variant,
           name: variant,
           kind: 'other',
-          variants: [{
-            name: variant,
-            label,
-            path: `chars/${skinId}/${variant}/${modelFile}`,
-            bg: getVariantBgs(variantPath),
-            charBg: charBgOf(variant, label),
-            offset: offsetOf(variant, label),
-          }],
+          variants: [v],
         });
       }
       continue;
@@ -217,20 +274,22 @@ function main() {
         const variantPath = path.join(skinPath, variant);
         if (!fs.statSync(variantPath).isDirectory()) continue;
 
-        const files = fs.readdirSync(variantPath);
-        const modelFile = files.find((f) => f.endsWith('.model3.json'));
-        if (!modelFile) continue;
+        const resolved = resolveModels(skinId, variant, variantPath);
+        if (!resolved) continue;
+        const modelFile = path.basename(resolved.path);
 
         let label = getModelTypeLabel(modelFile);
         if (label === 'Unknown' && skinNames[skinId]) label = skinNames[skinId];
-        entry.variants.push({
+        const v = {
           name: variant,
           label,
-          path: `chars/${skinId}/${variant}/${modelFile}`,
-          bg: getVariantBgs(variantPath),
-          charBg: charBgOf(skinId, label),
-          offset: offsetOf(skinId, label),
-        });
+          path: resolved.path,
+        };
+        if (resolved.models.length > 1) v.models = resolved.models;
+        v.bg = getVariantBgs(variantPath);
+        v.charBg = charBgOf(skinId, label);
+        v.offset = offsetOf(skinId, label);
+        entry.variants.push(v);
       }
       continue;
     }
@@ -252,20 +311,22 @@ function main() {
       const variantPath = path.join(skinPath, variant);
       if (!fs.statSync(variantPath).isDirectory()) continue;
 
-      const files = fs.readdirSync(variantPath);
-      const modelFile = files.find((f) => f.endsWith('.model3.json'));
-      if (!modelFile) continue;
+      const resolved = resolveModels(skinId, variant, variantPath);
+      if (!resolved) continue;
+      const modelFile = path.basename(resolved.path);
 
       let label = getModelTypeLabel(modelFile);
       if (label === 'Unknown' && skinNames[skinId]) label = skinNames[skinId];
-      entry.variants.push({
+      const v = {
         name: variant,
         label,
-        path: `chars/${skinId}/${variant}/${modelFile}`,
-        bg: getVariantBgs(variantPath),
-        charBg: charBgOf(skinId, label),
-        offset: offsetOf(skinId, label),
-      });
+        path: resolved.path,
+      };
+      if (resolved.models.length > 1) v.models = resolved.models;
+      v.bg = getVariantBgs(variantPath);
+      v.charBg = charBgOf(skinId, label);
+      v.offset = offsetOf(skinId, label);
+      entry.variants.push(v);
     }
   }
 

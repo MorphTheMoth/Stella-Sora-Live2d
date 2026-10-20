@@ -29,6 +29,8 @@ js/
   spine-pixi/ spine-core/   # @esotericsoftware/spine-pixi-v8 4.2.65 + spine-core (vendored, two patches: .js import extensions, super({}) — see "Events entries")
   main.js                   # viewer app
 chars/<skinId>/<variant>/   # extracted Live2D models (gitignored, ~1.1GB full-res)
+                            # multi-model variants nest one folder per Cubism model:
+                            # chars/10303/10303_l/{10303_L_a,10303_L_b,bg}/
 bg/charbg/                  # per-character main-menu backdrops (Image/CharBg)
 avg/<avgId>/                # story-character (AVG dialogue) sprite PNGs (gitignored)
 events/<ref>/               # event-page art: body.png + spine/*.skel|*.atlas|*.png + scene/*.png (gitignored)
@@ -47,6 +49,7 @@ scripts/
   generateAvg.mjs           # AVG sprite metadata -> avg/ + data/avg.json
   generateManifest.mjs      # scans chars/ -> data/models.json
   generateCharBg.mjs        # datamine CharacterSkin.Bg -> data/charbg.json
+  datamine.mjs              # resolves datamine tables (ss-data, then ss-lua)
   extractDiscParallax.mjs   # disc parallax scenes -> data/discparallax.json
   generateDiscs.mjs         # rebuild the Discs section (parallax + l2d)
   generateDiscId.mjs        # rebuild discid.json from Disc.json + Item.json
@@ -57,7 +60,9 @@ scripts/
 
 Every entry has a compact link id, shown in the address bar as you browse
 (URL synced via `history.replaceState`) and copyable via the top-bar
-**Copy link** button:
+**Copy link** button.  On local dev hosts (`localhost`, `127.0.0.1`, `[::1]`,
+`*.localhost`) the address bar is left alone — those links aren't shareable
+and a path-style URL would 404 on refresh with a plain static server:
 
 - Model entries (trekkers, disc L2D, events, others): the variant's `name`,
   e.g. `10301_l`, `10301_lf`, `4004_l`, `avg3_100_a`.
@@ -74,10 +79,11 @@ Id shapes live in `main.js` (`resolveLinkId`, `currentLinkId`,
 - `file://` / hosts without a 404 fallback: query style `?l=<id>` (a path
   pushState is a SecurityError on `file://`, so `main.js` falls back there).
 
-Local testing needs the same fallback: `python -m http.server` serves its
-own error page for `/10301_l`, so fresh loads of path links break there
-(navigating around still works — only fresh loads need the fallback).  Use
-`node scripts/devserver.mjs [port]` instead (optionally `--spa` to serve
+Local testing no longer hits this while browsing: on localhost the viewer
+doesn't rewrite the URL, so `python -m http.server` stays at `/`.  Manually
+opening a path-style deep link still needs the fallback: `python -m
+http.server` serves its own error page for `/10301_l`.  Use
+`node scripts/devserver.mjs [port]` for that (optionally `--spa` to serve
 index.html for any unknown path); it reproduces the GitHub Pages behaviour
 exactly, so what works locally works on Pages.
 
@@ -222,7 +228,7 @@ game's composite pixel-for-pixel.
 `Actor2DOffsetData` panel 99 / AvgST — what the game applies to the
 `rtRawImage` of the dialogue canvas) per pose, for reference; the viewer
 simply fits the composite to the screen. Names come from the datamine's
-`_Lua/Game/UI/Avg/_en/Preset/AvgCharacter.lua` (`id -> name`; entries with a
+`Lua/Game/UI/Avg/_en/Preset/AvgCharacter.lua` (`id -> name`; entries with a
 `reuse` id share another actor's bundle and are skipped). The `arrEmojiData`
 entries in the offset asset position the shared `UI/Avg/AnimEmoji/*.prefab`
 sticker animations (sweat drops etc., indexed by `AvgPreset.CharEmoji`);
@@ -304,17 +310,29 @@ are collapsed.
 
 **Character placement**: the game lays a `SkeletonGraphic` out with the
 skeleton origin at the RectTransform **pivot**, not centred in the rect (its
-`scale`/`referenceSize` are 1:1 with the canvas for these UI rigs).  That
-distinction only matters where a painted underlay confirms it, so scenes opt
-in with `charOrigin` (only `20103`): the slot then stores the pivot `px`/`py`
-and `main.js` puts the skeleton origin there.  Other scenes centre-fit.
+`scale`/`referenceSize` are 1:1 with the canvas for these UI rigs).  On top of
+that, the generated mesh is offset by the component's `pivotOffset` (canvas
+px, Unity y-up) — e.g. `20104` `mw_Female` has `(62.2, 98.1)`, so ignoring it
+leaves that character ~98px too low.  Scenes opt in with `charOrigin`
+(`20103` and `20104`); the slot stores the pivot `px`/`py` and, when nonzero,
+the mesh offset `ox`/`oy` (y-down), and `main.js` applies both.  Other scenes
+centre-fit.
 
-**Combined scenes**: `510007` renders both JointDrill bosses in one entry
-(`Joint Drill S7 — Coppelius & Olympia`, id `510007event`).  Its `scene`
-carries a `chars[]` array (one slot per Spine) plus the usual `char` (primary);
-`main.js:loadEventSpine` loads every name in the entry's `spines[]` and places
-each in its slot, and the toggle keeps the group's relative layout when the
-scenery is hidden.  This is the only multi-character event entry.
+**Combined scenes** render every character of an event page in one entry:
+- `510007` (`Joint Drill S7 — Coppelius & Olympia`, id `510007event`) loads
+  both JointDrill bosses. Its `scene` carries a `chars[]` array (one slot per
+  Spine) plus the usual `char` (primary); `main.js:loadEventSpine` loads every
+  name in the entry's `spines[]` and places each in its slot, and the toggle
+  keeps the group's relative layout when the scenery is hidden.
+- `20104` (`Wholeness at Reunion's Dawn`, id `20104event`) is the DustDawn
+  event page with the whole cast: Downdust + Iris in the midground and the
+  `mw_Female`/`mw_Male` chibi pairs in the foreground. In the game each
+  `SkeletonGraphic` is nested inside its own scenic layer
+  (`---Bg---/Middle/{Left,Right}` and `---Bg---/Front/{Left,Right}`), so the
+  extractor emits `scene.draw` — one painter-order stream of image layers and
+  `{spine}` placeholders (`interleaved`) — and the viewer reproduces that exact
+  nesting instead of drawing all characters above one backdrop. The GO names
+  (`sp_mw_L`/`sp_mw_R`) map to skeleton names via `charSpine`.
 
 Where each live visual is used in-game (host page prefab → scene):
 - `20103_Summer` → `SummerCheckinPanel`: `---Bg---` = the base illustration
@@ -334,6 +352,15 @@ Where each live visual is used in-game (host page prefab → scene):
   is shown).  The `imgMask*`/`imgPattern` nodes are full-screen lattices masked
   by runtime-assigned graphics, so those subtrees are skipped (`skipMaskSubtrees`)
   — unmasked they covered the whole saloon.
+- `20104_Downdust`+`20104_Iris`+`20104_mw_Female`+`20104_mw_Male` →
+  `DustDawnPanel` (`Wholeness at Reunion's Dawn`): one wide three-column
+  backdrop (`bg_DustDawn_activity_*`), the two large characters nested in the
+  `Middle` groups, the chibi pairs in the `Front` groups, grass/foreground
+  props and the edge light glows. The whole page is one entry, drawn in
+  hierarchy order (`interleaved`). `bg_dustdawn_main_1` is excluded: it is the
+  fully painted still of the same page (characters included), faded out in-game
+  once the live Spines are in — leaving it in just doubles the still over the
+  animated scene.
 - `BOSS1`+`BOSS2` → `JointDrillLevelSelect`: the `----Bg----` night-fortress
   panorama + hanging chains with both bosses together (`combine`).
 - static JointDrill bosses (`510001/510005/510006`) → same page, boss art in
@@ -538,16 +565,21 @@ file it writes; if you ever dump manually, strip the first 3 bytes of all
    re-attaches them to the `model3.json`.
 3. **`normalize.py`** maps the export tree to the site layout:
     - `live2d/`        -> `<id>_l`   (Default)
-    - `live2d_full/`   -> `<id>_lf`  (Memory Snapshot; `_a`/`_b` dual models share the folder)
+    - `live2d_full/`   -> `<id>_lf`  (Memory Snapshot)
     - `live2d_talent/` -> `<id>_lt`  (Talent)
     - `l2d/`           -> `<id>_l`   (Discs/Events, 4-digit ids)
-    Shared `textures/` and `motions/` subfolders are merged across dual models
-    instead of overwritten (the manifest only loads the primary `_a` model).
+    A prefab can hold several Cubism models (the character plus the scene it
+    poses with: `10303_L_a` girl + `10303_L_b` cat/lantern, `11901_F_a/_b/_c`,
+    `14501_LF_a/_b/_c`).  Those are staged one folder per model,
+    `chars/<id>/<variant>/<modelName>/`, because their `textures/` and
+    `motions/` collide otherwise; the manifest lists them back-to-front under
+    `variants[].models[]` (see "Multi-model prefabs" below).  Single-model
+    variants keep the flat layout (`chars/<id>/<variant>/<model>.model3.json`).
  4. **`generateCharNames.mjs`** rebuilds `data/characterid.json` (charId -> name)
     from the datamine `EN/language/en_US/Character.json` (`--char-names`); ids
     missing there keep their existing name.
  5. **`generateDiscId.mjs`** rebuilds `data/discid.json` from
-    `StellaSoraData/EN/bin/Disc.json` + `language/en_US/Item.json` (name key
+    `ss-data/EN/bin/Disc.json` + `language/en_US/Item.json` (name key
     `Item.<fullId>.1`, mapped by the last 4 digits). Run before the manifest
     so new discs like `4057`/`4058` resolve to *Ride the Waves With Me* /
     *Summer March*.
@@ -576,11 +608,34 @@ file it writes; if you ever dump manually, strip the first 3 bytes of all
      2160x1080 canvas px, merged into the same fragments).
 
    The three name tables (`--board-npc`, `--skin-names`, `--char-names`)
-   auto-resolve from the datamine next to this repo
-   (`../StellaSoraData Makostar/EN/language/en_US`, override the root with
-   `--datamine DIR`) — no need to pass them by hand; explicit flags still win.
-   Only `--skin` stays manual: it additionally re-extracts CharBg images from
-   the game's image bundles.
+   auto-resolve from the datamine next to this repo — game 2.0 split it, so
+   the tables live in `../ss-data/EN/language/en_US` while the decompiled Lua
+   tree (AVG names) stays in `../StellaSoraData Makostar`.  `scripts/datamine.mjs`
+   probes both roots (`../ss-data` first) and `dump.sh --data DIR` /
+   `--datamine DIR` override them; no need to pass the tables by hand and
+   explicit flags still win.  Only `--skin` stays manual: it additionally
+   re-extracts CharBg images from the game's image bundles.
+
+### Multi-model prefabs
+
+A Live2D prefab is not always one Cubism model: `----live2d_modle----` can
+hold the character plus the props/scene it is posed with (30 variants at game
+2.0).  The pipeline and viewer handle them together:
+
+- `extractBgLayers.mjs` walks the `----live2d_modle----` children named
+  `<id>_<L|F|T>[_<a-z>]`, reads each model's lowest MeshRenderer
+  `m_SortingOrder`, and emits `models[]` sorted back-to-front;
+  `mergeBgLayers.mjs` attaches it to the variant (only when there is more
+  than one model — singles keep just `path`).
+- `normalize.py` stages each model in its own folder and prunes stale model
+  files (keeping `bg/`), so a layout change needs no re-export.
+- `js/main.js` loads every model in manifest order under one shared rig:
+  `state.modelLayers` holds the Cubism instances, each restored to its
+  serialized draw order (`_b` under the character for `10303_l`/`11901_lf`,
+  `_c` collar overlay over `_a` torso for `14501_lf`), extras auto-play their
+  `idle` (or first) motion group, and `fitModelToScreen` fits the union of all
+  model bounds using per-model placement/offset.  The primary/alphabetically
+  first model stays the URL, options panel and click target.
 
 ### Deploying the models
 

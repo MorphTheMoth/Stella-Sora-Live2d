@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 /**
  * mergeBgLayers.mjs — merge per-bundle `----bg----` compositions into
- * data/models.json as a `bgLayers` array on each variant.
+ * data/models.json as a `bgLayers` array on each variant, and attach the
+ * prefab placement/draw order of each variant's Cubism models.
  *
  * For each variant we look up the prefab root (e.g. "16001_LF") and, when
  * the bundle only yields one active composition, attach its layers.  The
@@ -12,6 +13,11 @@
  * `----live2d_modle----` (i.e. `----fg_effect----`); layers inside the model
  * group follow the sprite's own sortOrder (>= 1 is in front, matching the
  * game's `CubismRenderController.SortingOrder`).
+ *
+ * Multi-model variants (10303_l, 15801_lf, 11901_lf, …) additionally get each
+ * model's `x`/`y`/`sx`/`sy` from the prefab transform and its base sorting
+ * order from the model's MeshRenderers, sorted back-to-front so the viewer
+ * draws the scene models behind the character exactly like the game.
  *
  * Usage:
  *   node scripts/mergeBgLayers.mjs --models data/models.json
@@ -83,6 +89,7 @@ function main() {
   }
 
   let added = 0;
+  let modelVariants = 0;
   for (const item of models) {
     if (!item.variants) continue;
     for (const variant of item.variants) {
@@ -111,6 +118,34 @@ function main() {
         if (withLayers.length === 1) comps2 = withLayers;
       }
       if (!comps2.length) continue;
+
+      // Model instances of a multi-model variant: take the prefab transform
+      // (all of them sit at the same origin, some are nudged a few dozen
+      // pixels) and the base MeshRenderer sorting order, then order the models
+      // back-to-front.  generateManifest.mjs seeded x/y/sx/sy/order with its
+      // name-based fallback, so unmatched models keep working.
+      if (variant.models && variant.models.length) {
+        const byName = new Map();
+        for (const c of comps2) {
+          for (const m of c.models || []) if (!byName.has(m.name)) byName.set(m.name, m);
+        }
+        if (byName.size) {
+          for (const vm of variant.models) {
+            const info = byName.get(path.basename(vm.path, '.model3.json'));
+            if (!info) continue;
+            vm.x = info.posX || 0;
+            vm.y = info.posY || 0;
+            vm.sx = info.scaleX || 1;
+            vm.sy = info.scaleY || 1;
+            vm.order = info.order;
+          }
+          // Back-to-front: b (-500) / c (-1000) draw behind a (0).  Array
+          // sort is stable, so equal orders keep the manifest's name order.
+          variant.models.sort((a, b) => (a.order || 0) - (b.order || 0));
+          modelVariants++;
+        }
+      }
+
       const allLayers = comps2.flatMap((c) => (c.layers || []).filter((l) => l.texture));
       if (!allLayers.length) continue;
 
@@ -155,7 +190,7 @@ function main() {
   }
 
   writeTextIfChanged(modelsFile, JSON.stringify(models, null, 2));
-  console.log(`Merged bgLayers into ${added} variants -> ${modelsFile}`);
+  console.log(`Merged bgLayers into ${added} variants (${modelVariants} with model placement) -> ${modelsFile}`);
 }
 
 main();

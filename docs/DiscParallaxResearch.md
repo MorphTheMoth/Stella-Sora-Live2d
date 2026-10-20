@@ -2,7 +2,7 @@
 
 Investigation notes covering: where disc card assets live, how the `<id>Card.prefab` is structured, how the gyroscope rotates the card, how `Disc_OffScreen_Renderer` projects it, and how the viewer replicates it. Complements the summary in `AgentsReadme.md` → "Disc entries".
 
-Sources: decompiled `GameAssembly.dll` (`dll/Stella-Sora-Combat-Logger/decompilation/decompiled.c`), Lua UI in `StellaSoraData Makostar/_Lua/Game/UI/Disc/LiveDiscCtrl.lua`, asset bundles under `Link to YostarGames/StellaSora_EN/{StellaSora_Data/StreamingAssets/InstallResource,Persistent_Store/AssetBundles}`, and the datamine at `StellaSoraData Makostar`.
+Sources: decompiled `GameAssembly.dll` (`dll/Stella-Sora-Combat-Logger/decompilation/decompiled.c`), Lua UI in `StellaSoraData Makostar/Lua/Game/UI/Disc/LiveDiscCtrl.lua`, asset bundles under `Link to YostarGames/StellaSora_EN/{StellaSora_Data/StreamingAssets/InstallResource,Persistent_Store/AssetBundles}`, and the datamine at `StellaSoraData Makostar`.
 
 ---
 
@@ -18,7 +18,7 @@ The live site shows **one** parallax entry per disc and, when a Live2D exists, a
 
 ### Off-screen renderer
 
-`UI/Disc/Disc_OffScreen_Renderer.prefab` (`StellaSoraData Makostar/_Lua/Game/UI/Disc/LiveDiscCtrl.lua:52`):
+`UI/Disc/Disc_OffScreen_Renderer.prefab` (`StellaSoraData Makostar/Lua/Game/UI/Disc/LiveDiscCtrl.lua:52`):
 
 ```
 Disc_OffScreen_Renderer
@@ -110,7 +110,7 @@ Left-handed Unity convention (`decompiled.c:3889580` → `Quaternion_Internal_Fr
 - Reads `InputManager.GetGravityValue()`; if `gyro.z ≥ 0` bails.
 - Clamps `gyro.x` to `[Xmin,Xmax]`, `gyro.y` to `[Ymin,Ymax]` (per-disc, dumped as `Xmin=-0.99 Xmax=0.99 Ymin=-0.99 Ymax=-0.21` — `extractDiscParallax.mjs:608`, also `AvgL2DUseGyroscope__ctor:3884300` defaults `-0.1/0.1`, `-0.85/-0.65`), normalizes `t∈[0,1]`, then `MIN=-100 MAX=+100` scaled by `×100` in `Start` (constant at `GameAssembly.dll` VA `0x185d50a7c = 100.0`) → `target = lerp(-100,+100,t)` in `anchoredPosition3D`.
 
-**Desktop** (`StellaSoraData Makostar/_Lua/Game/UI/Disc/LiveDiscCtrl.lua:127` `OnUIDrag_Drag` — authoritative for the viewer):
+**Desktop** (`StellaSoraData Makostar/Lua/Game/UI/Disc/LiveDiscCtrl.lua:127` `OnUIDrag_Drag` — authoritative for the viewer):
 
 ```lua
 -- LiveDiscCtrl.lua:46 SetRawImage
@@ -197,7 +197,7 @@ Viewer (`js/main.js:504`) fits the 1080 canvas to the viewport, builds a `Mesh` 
 
 | Concern | Location |
 |---|---|
-| Follow target + tweener (desktop) | `StellaSoraData Makostar/_Lua/Game/UI/Disc/LiveDiscCtrl.lua:52` `SetRawImage`, `:127` `OnUIDrag_Drag` |
+| Follow target + tweener (desktop) | `StellaSoraData Makostar/Lua/Game/UI/Disc/LiveDiscCtrl.lua:52` `SetRawImage`, `:127` `OnUIDrag_Drag` |
 | Gyroscope math (mobile + follower) | `dll/.../decompiled.c:3884121` `AvgL2DUseGyroscope_Update`, `:3889546` `GyroscopeFollower_Update`, `:3884300` ctor |
 | Off-screen camera / canvas | `ui_disc.en.unity3d` → `Camera @2057424196105403687.txt`, `Canvas @3778704391113987227.txt`, `CanvasScaler @-2225720952503350124.txt` |
 | Card prefabs | `disc_*.unity3d` → `<id>Card.prefab` / `<id>_G` / `Gyroscope/Target` |

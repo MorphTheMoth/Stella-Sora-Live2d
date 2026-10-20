@@ -30,6 +30,11 @@ const state = {
   app: null,
   camera: null,
   model: null,
+  // Every Cubism model of the current entry, back-to-front:
+  // [{ model, info: {path,x,y,sx,sy,order}, primary }].  The prefabs can carry
+  // more than one model (10303_L_a character + 10303_L_b cat scene), so the
+  // scene models have to be loaded and drawn too.
+  modelLayers: [],
   models: [],
   // Highest added/updated version across every entry (models + avg); drives
   // the New filter and the NEW/UPD badges. null when nothing is stamped.
@@ -191,12 +196,35 @@ const GAME_CAMERA_VIEW_H = 10.8;
 function fitModelToScreen() {
   const model = state.model;
   const app = state.app;
+  if (!model) return;
   const screenWidth = app.renderer.width;
   const screenHeight = app.renderer.height;
   const canvasX = screenWidth / 2;
   const canvasY = screenHeight / 2;
   const variant = getVariantInfo(state.currentPath);
   const pxPerUnit = model.internalModel.width / model.internalModel.coreModel.getCanvasWidth();
+
+  // A variant can hold several Cubism models (the prefab's
+  // ----live2d_modle---- group: character + scene props).  Measure them all at
+  // their own origin so the framing covers the whole scene and not just the
+  // primary model.
+  let minX = Infinity;
+  let minY = Infinity;
+  let maxX = -Infinity;
+  let maxY = -Infinity;
+  for (const layer of state.modelLayers) {
+    const m = layer.model;
+    m.position.set(0, 0);
+    m.scale.set(1, 1);
+    let b = null;
+    try { b = m.getBounds(); } catch (e) { b = null; }
+    if (!b || !Number.isFinite(b.width) || !Number.isFinite(b.height)) continue;
+    minX = Math.min(minX, b.x);
+    minY = Math.min(minY, b.y);
+    maxX = Math.max(maxX, b.x + b.width);
+    maxY = Math.max(maxY, b.y + b.height);
+  }
+  const hasBounds = Number.isFinite(minX) && Number.isFinite(maxX) && maxX > minX && maxY > minY;
 
   if (variant && variant.charBg) {
     // Fit the rig camera view (21.6 x 10.8 world units) to the screen.
@@ -206,9 +234,8 @@ function fitModelToScreen() {
     );
   } else {
     const offset = 500;
-    const bounds = model.getBounds();
-    const modelWidth = Math.max(bounds.width, 1);
-    const modelHeight = Math.max(bounds.height, 1) + offset;
+    const modelWidth = hasBounds ? Math.max(maxX - minX, 1) : 1;
+    const modelHeight = hasBounds ? Math.max(maxY - minY, 1) + offset : 1;
     const scaleX = screenWidth / modelWidth;
     const scaleY = screenHeight / modelHeight;
     state.canvasScale = Math.min(scaleX, scaleY);
@@ -219,15 +246,24 @@ function fitModelToScreen() {
   // The canvas/backdrop stays at the screen center.  The L2D itself is
   // parented under the rig's actor_offset, which the game drives from the
   // skin's MainView offset (Actor2DOffsetData panel 10, Set 2): a downward
-  // shift + slight scale that frames the half-body view.
-  model.x = canvasX;
-  model.y = canvasY;
-  model.scale.set(state.canvasScale, state.canvasScale);
-  if (variant && variant.offset) {
-    const o = variant.offset;
-    model.scale.set(state.canvasScale * o.s, state.canvasScale * o.s);
-    model.x = canvasX + o.x * pxPerUnit * state.canvasScale;
-    model.y = canvasY - o.y * pxPerUnit * state.canvasScale;
+  // shift + slight scale that frames the half-body view.  Scene models keep
+  // the small prefab offset they carry under ----live2d_modle---- (world px
+  // at PPU 100, Unity y-up).
+  for (const layer of state.modelLayers) {
+    const m = layer.model;
+    const info = layer.info || {};
+    m.scale.set(
+      state.canvasScale * (info.sx || 1),
+      state.canvasScale * (info.sy || 1)
+    );
+    m.x = canvasX + (info.x || 0) * pxPerUnit * state.canvasScale;
+    m.y = canvasY - (info.y || 0) * pxPerUnit * state.canvasScale;
+    if (layer.primary && variant && variant.offset) {
+      const o = variant.offset;
+      m.scale.set(state.canvasScale * o.s, state.canvasScale * o.s);
+      m.x = canvasX + o.x * pxPerUnit * state.canvasScale;
+      m.y = canvasY - o.y * pxPerUnit * state.canvasScale;
+    }
   }
   resetCamera();
 }
@@ -562,12 +598,21 @@ function linkIdFromUrl() {
   return null;
 }
 
+// True when the viewer is served from the dev machine (localhost, 127.0.0.1,
+// [::1], *.localhost).  Those URLs aren't shareable and, on a plain static
+// server (python -m http.server), the path-style link would 404 on reload.
+function isLocalHost() {
+  const host = location.hostname;
+  return host === 'localhost' || host === '127.0.0.1' || host === '::1' ||
+    host === '[::1]' || host.endsWith('.localhost');
+}
+
 // Keep the address bar in sync with the displayed entry so the browser URL
 // can always be copied directly (replaceState = no history spam).  Clean
 // path style on http(s), ?l= style on file:// (pushState with a path is a
-// SecurityError there).
+// SecurityError there).  Local dev serving leaves the address bar alone.
 function setUrlLink(id) {
-  if (!id) return;
+  if (!id || isLocalHost()) return;
   try {
     if (location.protocol === 'http:' || location.protocol === 'https:') {
       history.replaceState(null, '', siteBase() + encodeURIComponent(id) + location.hash);
@@ -718,16 +763,9 @@ async function loadParallax(item) {
   showBgLoading();
 
   // Tear down any live model and parallax scene.
-  if (state.model) {
-    const currentModel = state.model;
-    if (state._overrideHandler && currentModel.internalModel) {
-      currentModel.internalModel.off('beforeModelUpdate', state._overrideHandler);
-    }
-    state._overrideHandler = null;
+  if (state.modelLayers.length) {
     clearBackground();
-    state.camera.removeChild(currentModel);
-    currentModel.destroy({ children: true, texture: true, baseTexture: true });
-    state.model = null;
+    destroyModels();
   }
   clearBackground();
   clearParallax();
@@ -1234,16 +1272,9 @@ async function loadAvg(item, poseIdx) {
   setUrlLink(item.shortId || item.id);
 
   // Tear down any live model (same sequence as loadParallax).
-  if (state.model) {
-    const currentModel = state.model;
-    if (state._overrideHandler && currentModel.internalModel) {
-      currentModel.internalModel.off('beforeModelUpdate', state._overrideHandler);
-    }
-    state._overrideHandler = null;
+  if (state.modelLayers.length) {
     clearBackground();
-    state.camera.removeChild(currentModel);
-    currentModel.destroy({ children: true, texture: true, baseTexture: true });
-    state.model = null;
+    destroyModels();
   }
   clearBackground();
   clearParallax();
@@ -1545,16 +1576,9 @@ async function loadEvent(item, artIdx) {
   state.currentPath = item.id;
   setUrlLink(item.id);
 
-  if (state.model) {
-    const currentModel = state.model;
-    if (state._overrideHandler && currentModel.internalModel) {
-      currentModel.internalModel.off('beforeModelUpdate', state._overrideHandler);
-    }
-    state._overrideHandler = null;
+  if (state.modelLayers.length) {
     clearBackground();
-    state.camera.removeChild(currentModel);
-    currentModel.destroy({ children: true, texture: true, baseTexture: true });
-    state.model = null;
+    destroyModels();
   }
   clearBackground();
   clearParallax();
@@ -1623,52 +1647,57 @@ function eventSceneFor(item, entry) {
   return (entry.static && entry.static.scene) || null;
 }
 
+async function addEventSceneLayer(ref, l, box, seq) {
+  const tex = await loadEventTexture(ref, 'scene/' + l.file);
+  if (seq !== modelLoadSeq) return;
+  // Packed-atlas sprite: crop the sprite's rect (Unity y-up) out of the
+  // shared texture, like static body frames.
+  let texture = tex;
+  let natW = tex.width, natH = tex.height;
+  if (l.frame) {
+    const r = l.frame;
+    texture = new Texture({
+      source: tex.source,
+      frame: new Rectangle(r.x, tex.height - r.y - r.h, r.w, r.h),
+    });
+    state.eventTextures.push({ key: null, texture, owned: true });
+    natW = r.w;
+    natH = r.h;
+  }
+  // Unity Tiled images repeat the texture across the rect (PPU 100, 1:1 —
+  // no stretching). Pixi's TilingSprite does exactly this.
+  let spr;
+  if (l.tiled || l.scroll) {
+    tex.source.addressModeU = 'repeat';
+    tex.source.addressModeV = 'repeat';
+    spr = new TilingSprite({ texture: tex, width: l.w, height: l.h });
+    if (l.scroll) {
+      // One tile spans the layer width; vertical repeat stays native.
+      spr.tileScale.set(l.w / tex.width, 1);
+      state.eventAnimLayers.push({ spr, tex, scroll: l.scroll });
+    }
+  } else {
+    spr = new Sprite(texture);
+    if (natW > 0 && natH > 0) spr.scale.set(l.w / natW, l.h / natH);
+  }
+  spr.anchor.set(0.5);
+  spr.eventMode = 'none';
+  spr.interactive = false;
+  spr.position.set(l.x, l.y);
+  // Unity Image tint: multiplied over the texture (white = no-op).
+  if (l.tint) {
+    const [r, g, b] = l.tint;
+    spr.tint = ((Math.round(r * 255) << 16) | (Math.round(g * 255) << 8) | Math.round(b * 255)) >>> 0;
+  }
+  if (l.alpha !== undefined) spr.alpha = l.alpha;
+  box.addChild(spr);
+  state.eventSceneLayers.push(spr);
+}
+
 async function addEventSceneLayers(ref, layers, box, seq) {
   for (const l of layers || []) {
-    const tex = await loadEventTexture(ref, 'scene/' + l.file);
+    await addEventSceneLayer(ref, l, box, seq);
     if (seq !== modelLoadSeq) return;
-    // Packed-atlas sprite: crop the sprite's rect (Unity y-up) out of the
-    // shared texture, like static body frames.
-    let texture = tex;
-    let natW = tex.width, natH = tex.height;
-    if (l.frame) {
-      const r = l.frame;
-      texture = new Texture({
-        source: tex.source,
-        frame: new Rectangle(r.x, tex.height - r.y - r.h, r.w, r.h),
-      });
-      state.eventTextures.push({ key: null, texture, owned: true });
-      natW = r.w;
-      natH = r.h;
-    }
-    // Unity Tiled images repeat the texture across the rect (PPU 100, 1:1 —
-    // no stretching). Pixi's TilingSprite does exactly this.
-    let spr;
-    if (l.tiled || l.scroll) {
-      tex.source.addressModeU = 'repeat';
-      tex.source.addressModeV = 'repeat';
-      spr = new TilingSprite({ texture: tex, width: l.w, height: l.h });
-      if (l.scroll) {
-        // One tile spans the layer width; vertical repeat stays native.
-        spr.tileScale.set(l.w / tex.width, 1);
-        state.eventAnimLayers.push({ spr, tex, scroll: l.scroll });
-      }
-    } else {
-      spr = new Sprite(texture);
-      if (natW > 0 && natH > 0) spr.scale.set(l.w / natW, l.h / natH);
-    }
-    spr.anchor.set(0.5);
-    spr.eventMode = 'none';
-    spr.interactive = false;
-    spr.position.set(l.x, l.y);
-    // Unity Image tint: multiplied over the texture (white = no-op).
-    if (l.tint) {
-      const [r, g, b] = l.tint;
-      spr.tint = ((Math.round(r * 255) << 16) | (Math.round(g * 255) << 8) | Math.round(b * 255)) >>> 0;
-    }
-    if (l.alpha !== undefined) spr.alpha = l.alpha;
-    box.addChild(spr);
-    state.eventSceneLayers.push(spr);
   }
 }
 
@@ -1695,13 +1724,14 @@ function applyEventSceneVisibility() {
     const sc = on ? s.scale : 1;
     s.spine.scale.set(sc, sc);
     const c = s.center || { x: 0, y: 0 };
+    const off = s.off || { x: 0, y: 0 };
     if (s.origin) {
       // Pivot placement: the skeleton origin sits at the slot's pivot; when
       // the scenery is hidden, shift the whole group so its bounds centres.
-      s.spine.position.set(0, 0);
+      s.spine.position.set(off.x, off.y);
       s.box.position.set(on ? s.pos.x : g.x, on ? s.pos.y : g.y);
     } else {
-      s.spine.position.set(-c.x * sc, -c.y * sc);
+      s.spine.position.set(-c.x * sc + off.x, -c.y * sc + off.y);
       s.box.position.set(on ? s.pos.x : s.pos.x + g.x, on ? s.pos.y : s.pos.y + g.y);
     }
   }
@@ -1838,8 +1868,10 @@ async function loadEventSpine(item, entry, container, seq) {
   const scene = state.eventScene;
   const slots = (scene && scene.chars && scene.chars.length) ? scene.chars : null;
 
-  // Backdrop behind the characters (drawn once).
-  if (scene) {
+  // Backdrop behind the characters (drawn once).  Interleaved scenes draw in
+  // hierarchy order after every skeleton is loaded, so their backdrop is not
+  // added here.
+  if (scene && !scene.draw) {
     await addEventSceneLayers(ref, scene.behind, container, seq);
     if (seq !== modelLoadSeq) return;
   }
@@ -1873,6 +1905,10 @@ async function loadEventSpine(item, entry, container, seq) {
     // (not centred in the rect), so scene slots carry px/py for that; fall
     // back to centre-fit for older data.
     const originMode = !!(slot && slot.px !== undefined && slot.py !== undefined);
+    // SkeletonGraphic's mesh is generated at skeleton origin + pivotOffset
+    // (scene data stores it y-down as ox/oy).
+    const offX = (slot && slot.ox) || 0;
+    const offY = (slot && slot.oy) || 0;
     let fit = 1, cx = 0, cy = 0, center = { x: 0, y: 0 };
     spine.update(0);
     try {
@@ -1884,12 +1920,15 @@ async function loadEventSpine(item, entry, container, seq) {
         cy = originMode ? slot.py : slot.y;
       }
       spine.scale.set(fit, fit);
-      spine.position.set(originMode ? 0 : -center.x * fit, originMode ? 0 : -center.y * fit);
+      spine.position.set(
+        (originMode ? 0 : -center.x * fit) + offX,
+        (originMode ? 0 : -center.y * fit) + offY
+      );
     } catch (e) { /* bounds unavailable — show as-is */ }
     box.position.set(cx, cy);
     box.addChild(spine);
-    container.addChild(box);
-    const rec = { box, spine, scale: fit, pos: { x: cx, y: cy }, center, origin: originMode, name: sp.name };
+    if (!(scene && scene.draw)) container.addChild(box);
+    const rec = { box, spine, scale: fit, pos: { x: cx, y: cy }, center, origin: originMode, off: { x: offX, y: offY }, name: sp.name };
     state.eventSpineList.push(rec);
     if (!first) first = rec;
     // Bounds centre relative to the slot, at scale 1 (used to centre the group
@@ -1908,7 +1947,22 @@ async function loadEventSpine(item, entry, container, seq) {
   // Origin that centres the group when the scenery is hidden.
   state.eventGroupOffset = nSlot ? { x: -sumX / nSlot, y: -sumY / nSlot } : { x: 0, y: 0 };
 
-  if (scene) {
+  if (scene && scene.draw) {
+    // Interleaved page (e.g. 20104 DustDawnPanel): the game nests each
+    // SkeletonGraphic inside its own scenic layer, so reproduce the exact
+    // hierarchy order — image layers and character boxes share one stream.
+    const byName = new Map(state.eventSpineList.map((r) => [r.name, r]));
+    for (const l of scene.draw) {
+      if (seq !== modelLoadSeq) return;
+      if (l.spine) {
+        const rec = byName.get(l.spine);
+        if (rec) container.addChild(rec.box);
+        continue;
+      }
+      await addEventSceneLayer(ref, l, container, seq);
+      if (seq !== modelLoadSeq) return;
+    }
+  } else if (scene) {
     await addEventSceneLayers(ref, scene.front, container, seq);
     if (seq !== modelLoadSeq) return;
   }
@@ -2524,48 +2578,63 @@ export async function loadModel(path) {
   clearAvg();
   clearEvent();
 
-  if (state.model) {
-    const currentModel = state.model;
-    if (state._overrideHandler && currentModel.internalModel) {
-      currentModel.internalModel.off('beforeModelUpdate', state._overrideHandler);
-    }
-    state._overrideHandler = null;
+  if (state.modelLayers.length) {
     clearBackground();
     clearAvg();
     clearEvent();
-    camera.removeChild(currentModel);
-    currentModel.destroy({ children: true, texture: true, baseTexture: true });
-    state.model = null;
+    destroyModels();
   }
 
-  els.status.textContent = 'Loading ' + stripAssetBase(path).split('/').slice(-2).join('/') + ' ...';
+  const shownName = linkVariant && linkVariant.name
+    ? linkVariant.name
+    : stripAssetBase(path).split('/').pop();
+  els.status.textContent = 'Loading ' + shownName + ' ...';
   showBgLoading();
   await new Promise((r) => requestAnimationFrame(r));
 
   try {
-    const model = await Live2DModel.from(path);
-    // A newer entry was clicked while this one was loading; drop it so stale
-    // loads don't stack every previously clicked model on the scene.
-    if (seq !== modelLoadSeq) {
-      model.destroy({ children: true, texture: true, baseTexture: true });
-      hideBgLoading();
-      return;
+    // Multi-model support: the prefab's ----live2d_modle---- group can hold
+    // several Cubism models (character + the scene/props it poses with), and
+    // data/models.json lists them back-to-front.
+    const modelPaths = linkVariant && Array.isArray(linkVariant.models) && linkVariant.models.length
+      ? linkVariant.models
+      : [{ path }];
+    const loaded = [];
+    for (const info of modelPaths) {
+      const m = await Live2DModel.from(info.path);
+      // A newer entry was clicked while this one was loading; drop it so stale
+      // loads don't stack every previously clicked model on the scene.
+      if (seq !== modelLoadSeq) {
+        m.destroy({ children: true, texture: true, baseTexture: true });
+        for (const l of loaded) l.model.destroy({ children: true, texture: true, baseTexture: true });
+        hideBgLoading();
+        return;
+      }
+      loaded.push({ model: m, info, primary: resolveUrl(info.path) === resolveUrl(path) });
     }
-    camera.addChild(model);
-    // Keep camera child order: bg (0), model, fg (last) so fg draws in front.
+    if (!loaded.length) throw new Error('no model in variant');
+    const primary = loaded.find((l) => l.primary) || loaded[loaded.length - 1];
+    primary.primary = true;
+    for (const l of loaded) {
+      // Add in manifest order (index 0 draws behind); the extra models keep
+      // their own Cubism draw order inside the model group.
+      camera.addChild(l.model);
+      l.model.interactive = false;
+      l.model.anchor?.set?.(0.5);
+    }
+    // Keep camera child order: bg (0), models, fg (last) so fg draws in front.
     if (state.bgContainer && state.fgContainer) {
       camera.removeChild(state.fgContainer);
       camera.addChild(state.fgContainer);
     }
-    model.interactive = false;
-    model.position.set(0, 0);
-    model.anchor?.set?.(0.5);
-    state.model = model;
+    state.modelLayers = loaded;
+    state.model = primary.model;
     fitModelToScreen();
     setBackground(state.currentBgList);
     buildOptionsPanel();
     applyEyeBlink();
     hookOverrideApply();
+    startSceneMotions();
     els.status.textContent = '';
   } catch (e) {
     if (seq !== modelLoadSeq) { hideBgLoading(); return; }
@@ -2573,6 +2642,41 @@ export async function loadModel(path) {
     console.error(e);
   }
   hideBgLoading();
+}
+
+// Tear down the primary model and every scene model of the current entry.
+function destroyModels() {
+  if (state.model && state._overrideHandler && state.model.internalModel) {
+    state.model.internalModel.off('beforeModelUpdate', state._overrideHandler);
+  }
+  state._overrideHandler = null;
+  for (const layer of state.modelLayers) {
+    const m = layer.model;
+    if (state.camera) {
+      try { state.camera.removeChild(m); } catch (e) { /* already detached */ }
+    }
+    try { m.destroy({ children: true, texture: true, baseTexture: true }); } catch (e) { /* already destroyed */ }
+  }
+  state.modelLayers = [];
+  state.model = null;
+}
+
+// Let the scene models (cat scene, backdrop props, …) play their idle motion
+// so they aren't frozen while the character animates.  The options panel keeps
+// controlling the primary model only.
+function startSceneMotions() {
+  for (const layer of state.modelLayers) {
+    if (layer.primary) continue;
+    const motionManager = layer.model.internalModel && layer.model.internalModel.motionManager;
+    const definitions = (motionManager && motionManager.definitions) || {};
+    const groups = Object.keys(definitions).filter((g) => definitions[g] && definitions[g].length);
+    if (!groups.length) continue;
+    const group = groups.includes('idle') ? 'idle' : groups[0];
+    try {
+      const p = layer.model.motion(group, 0, 3);
+      if (p && typeof p.catch === 'function') p.catch(() => {});
+    } catch (e) { /* no playable motion */ }
+  }
 }
 
 function setActiveButton(activeBtn) {
@@ -3096,10 +3200,9 @@ function handleContextLost() {
   canvas.addEventListener('webglcontextlost', (e) => {
     e.preventDefault();
     els.status.textContent = 'WebGL context lost - reloading ...';
-    if (state.model) {
+    if (state.modelLayers.length) {
       clearBackground();
-      state.model.destroy({ children: true, texture: true, baseTexture: true });
-      state.model = null;
+      destroyModels();
     }
     clearParallax();
     clearAvg();
@@ -3253,11 +3356,14 @@ async function init() {
   state.camera = camera;
   createBackgroundContainer();
 
-  const res = await fetch(resolveUrl('data/models.json'));
+  // Manifests change on every dump; always revalidate them so a cached copy
+  // can't pair a fresh models.json with stale event/avg data (which shows up
+  // as list entries that render nothing).
+  const res = await fetch(resolveUrl('data/models.json'), { cache: 'no-cache' });
   state.models = await res.json();
   els.title.textContent = 'Stella Sora l2d (' + state.models.length + ' models)';
   try {
-    const resAvg = await fetch(resolveUrl('data/avg.json'));
+    const resAvg = await fetch(resolveUrl('data/avg.json'), { cache: 'no-cache' });
     if (resAvg.ok) {
       state.avgModels = (await resAvg.json()).map((e) => ({ ...e, kind: 'avg' }));
     }
@@ -3265,7 +3371,7 @@ async function init() {
     console.warn('data/avg.json unavailable', e);
   }
   try {
-    const resEv = await fetch(resolveUrl('data/events.json'));
+    const resEv = await fetch(resolveUrl('data/events.json'), { cache: 'no-cache' });
     if (resEv.ok) state.eventData = await resEv.json();
   } catch (e) {
     console.warn('data/events.json unavailable', e);

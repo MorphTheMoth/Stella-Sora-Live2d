@@ -8,6 +8,18 @@ Variant mapping:
   live2d_full   -> <id>_lf  (Memory Snapshot)   model <id>_F / <id>_F_a / <id>_F_b
   live2d_talent -> <id>_lt  (Talent)            model <id>_T
 
+Several model3.json files can map to the same variant: the game's L2D prefabs
+carry more than one Cubism model under `----live2d_modle----` (e.g.
+10303_L_a = the character, 10303_L_b = the cat/lantern scene it poses with,
+11901_F_a/_b/_c = character + cake + props).  Those models are rendered
+together and each one ships its own `textures/texture_00.png` and
+`motions/idle.motion3.json`, so a single flat variant folder would make them
+overwrite each other.  A variant with one model keeps the flat layout
+`chars/<id>/<variant>/<model>.model3.json`; a variant with several models
+puts each model in its own `chars/<id>/<variant>/<model>/` folder (the
+model3.json paths are already relative to the model folder, so nothing has to
+be rewritten).
+
 Newer bundles sometimes come out with empty Motions in the model3.json
 while the actual motion clips live in a sibling `mtn/` folder. This
 script re-attaches those motions by reading the raw textAsset export
@@ -160,27 +172,32 @@ def attach_motions(model_dir, model_json, raw_root, dest):
     Copies the raw `.motion3` clips (valid motion3.json content) into
     the destination variant folder as `motions/<name>.motion3.json` and
     adds corresponding entries to the model3.json FileReferences.
+
+    Returns (model_json, written_paths).
     """
     fr = model_json.get("FileReferences", {})
     if fr.get("Motions"):
-        return model_json
+        return model_json, []
     mtn = find_mtn_folder(model_dir, raw_root)
     if not mtn:
-        return model_json
+        return model_json, []
     motions = {}
+    written = []
     motions_dir = os.path.join(dest, "motions")
     os.makedirs(motions_dir, exist_ok=True)
     for fn in sorted(os.listdir(mtn)):
         if not fn.endswith(".motion3"):
             continue
         name = fn[: -len(".motion3")]
-        copy_no_bom(os.path.join(mtn, fn), os.path.join(motions_dir, f"{name}.motion3.json"))
+        dst = os.path.join(motions_dir, f"{name}.motion3.json")
+        copy_no_bom(os.path.join(mtn, fn), dst)
+        written.append(dst)
         motions[name] = [{"File": f"motions/{name}.motion3.json"}]
     if not motions:
-        return model_json
+        return model_json, written
     fr["Motions"] = motions
     model_json["FileReferences"] = fr
-    return model_json
+    return model_json, written
 
 
 def merge_copy(src_dir, dst_dir):
@@ -218,39 +235,82 @@ def main():
     # process primary models first so their shared files win
     models.sort(key=lambda m: m["file"])
 
+    # Resolve every model to its variant before copying: a variant may host
+    # several models (prefab sub-models), which changes the layout.
+    targets = []
     for m in models:
         info = guess_skin_and_variant(m["dir"], m["file"])
         if not info:
             print("SKIP (no numeric skin id or unrecognized path):", os.path.join(m["dir"], m["file"]))
             continue
-        skin_id, suffix, model_name = info
+        targets.append((m, *info))
+    multi = {}
+    for _, skin_id, suffix, _name in targets:
+        key = (skin_id, suffix)
+        multi[key] = multi.get(key, 0) + 1
 
+    # Files each variant is supposed to contain after this run; anything else
+    # under the variant folder (except bg/, owned by copyBgTextures.mjs) is a
+    # leftover from a previous layout and gets pruned below.
+    expected = {}
+
+    for m, skin_id, suffix, model_name in targets:
         variant_dir = f"{skin_id}_{suffix}"
-        dest = os.path.join(args.out, skin_id, variant_dir)
+        variant_root = os.path.join(args.out, skin_id, variant_dir)
+        # Multi-model variants keep each model's own textures/motions in a
+        # per-model folder so they can't overwrite each other.
+        nested = multi[(skin_id, suffix)] > 1
+        dest = os.path.join(variant_root, model_name) if nested else variant_root
         os.makedirs(dest, exist_ok=True)
+        keep = expected.setdefault(variant_root, set())
 
         # copy model files; merge shared subfolders (textures, motions)
         for entry in os.listdir(m["dir"]):
             src = os.path.join(m["dir"], entry)
             if os.path.isdir(src):
                 merge_copy(src, os.path.join(dest, entry))
+                for dirpath, _dirnames, filenames in os.walk(src):
+                    rel = os.path.relpath(dirpath, m["dir"])
+                    for fn in filenames:
+                        keep.add(os.path.join(dest, rel, fn))
             else:
                 copy_no_bom(src, os.path.join(dest, entry))
+                keep.add(os.path.join(dest, entry))
 
         # attach missing motions for newer bundles
         model3_path = os.path.join(dest, m["file"])
         try:
             with open(model3_path, "r", encoding="utf-8-sig") as f:
                 model_json = json.load(f)
-            model_json = attach_motions(m["dir"], model_json, args.raw, dest)
+            model_json, written = attach_motions(m["dir"], model_json, args.raw, dest)
             blob = json.dumps(model_json, indent=2, ensure_ascii=False).encode("utf-8")
             write_bytes_if_changed(model3_path, blob)
+            keep.update(written)
         except (OSError, json.JSONDecodeError) as e:
             print("WARN: could not post-process", model3_path, e)
 
-        print(f"  {skin_id}/{variant_dir}/{m['file']}")
+        print(f"  {skin_id}/{variant_dir}/{model_name if nested else m['file']}")
 
-    print(f"Done. {len(models)} model(s) -> {args.out}")
+    # Drop stale model files (e.g. the flat <model>.model3.json + textures/ of
+    # a variant that now nests its models) so a re-dump never leaves two
+    # copies of the same model behind.  bg/ is left untouched.
+    pruned = 0
+    for variant_root, keep in expected.items():
+        for dirpath, _dirnames, filenames in os.walk(variant_root, topdown=False):
+            rel = os.path.relpath(dirpath, variant_root)
+            if rel == "bg" or rel.startswith("bg" + os.sep):
+                continue
+            for fn in filenames:
+                p = os.path.join(dirpath, fn)
+                if p not in keep:
+                    os.remove(p)
+                    pruned += 1
+            if dirpath != variant_root and not os.listdir(dirpath):
+                os.rmdir(dirpath)
+    if pruned:
+        print(f"Pruned {pruned} stale model file(s)")
+
+    print(f"Done. {len(targets)} model(s) -> {args.out}")
 
 
 if __name__ == "__main__":

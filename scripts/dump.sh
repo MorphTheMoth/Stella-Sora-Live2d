@@ -12,9 +12,11 @@
 #   --game DIR   game install dir (default: resolved symlink of
 #                "../Link to YostarGames/StellaSora_EN")
 #   --datamine DIR
-#                datamine root (default: "../StellaSoraData Makostar"); the
-#                name tables below are auto-resolved from its
-#                EN/language/en_US when not given explicitly
+#                datamine root for the decompiled Lua tree (default:
+#                "../StellaSoraData Makostar", the ss-lua clone)
+#   --data DIR   datamine root for the language/binary tables (default:
+#                "../ss-data" when present, else --datamine); the name tables
+#                below are auto-resolved from its EN/language/en_US
 #   --all        also dump npc_l2d_* and disc_l2d_* bundles
 #                (default: only char_l2d_* + the AVG actor bundles that
 #                carry unreleased characters' Live2D)
@@ -24,18 +26,18 @@
 #   --board-npc FILE
 #                datamine language/en_US/BoardNPC.json; fallback names for
 #                NPCs that characterid.json doesn't cover
-#                (default: auto-resolved from --datamine)
+#                (default: auto-resolved from --data)
 #   --skin-names FILE
 #                datamine language/en_US/CharacterSkin.json; labels the extra
 #                skin variants that don't match Default/Awakened/Talent/Memory
 #                Snapshot (shown as "Unknown" otherwise)
-#                (default: auto-resolved from --datamine)
+#                (default: auto-resolved from --data)
 #   --char-names FILE
 #                datamine language/en_US/Character.json; authoritative
 #                character names, rebuilt into data/characterid.json
-#                (default: auto-resolved from --datamine)
+#                (default: auto-resolved from --data)
 #   --avg-names FILE
-#                datamine _Lua/Game/UI/Avg/_en/Preset/AvgCharacter.lua;
+#                datamine Lua/Game/UI/Avg/_en/Preset/AvgCharacter.lua;
 #                display names for the Story Characters (avg sprite) entries
 #                (default: auto-resolved from --datamine)
 #
@@ -60,6 +62,7 @@ TMP="$ROOT/.dump_tmp"
 CACHE_FILE="$TMP/dump.cache.json"
 CACHE_HITS=0
 DATAMINE="$ROOT/../StellaSoraData Makostar"
+DATA=""
 
 while [[ $# -gt 0 ]]; do
   case "$1" in
@@ -72,15 +75,17 @@ while [[ $# -gt 0 ]]; do
     --char-names) CHAR_NAMES="$2"; shift 2 ;;
     --avg-names) AVG_NAMES="$2"; shift 2 ;;
     --datamine) DATAMINE="$2"; shift 2 ;;
+    --data) DATA="$2"; shift 2 ;;
     --force|-f) FORCE=1; shift ;;
     *) echo "unknown arg: $1"; exit 1 ;;
   esac
 done
 
 # --- Incremental cache (mtime+size, like bruteForceOthers.mjs) -----------------
-# Cache file: .dump_tmp/dump.cache.json  {version:1, entries:{path:{mtimeMs,size,live2d_ok,live2d_cnt,bg2_ok,disc_ok,offset_ok,charbg_ok}}}
-# (bg2 == the bg-layer stage after adding the sortingGroup type to its dump;
-#  the old bg_* keys are ignored so every bundle is re-dumped once.)
+# Cache file: .dump_tmp/dump.cache.json  {version:1, entries:{path:{mtimeMs,size,live2d_ok,live2d_cnt,bg3_ok,disc_ok,offset_ok,charbg_ok}}}
+# (bg3 == the bg-layer stage after adding the meshRenderer type to its dump,
+#  needed for the per-model sorting order of multi-model prefabs; the old
+#  bg*/bg2_* keys are ignored so every bundle is re-dumped once.)
 # Skips dotnet exports for unchanged bundles; --force / -f ignores cache.
 cache_ensure() {
   mkdir -p "$(dirname "$CACHE_FILE")"
@@ -195,10 +200,27 @@ fi
 # Name tables (BoardNPC / CharacterSkin / Character) auto-resolve from the
 # datamine's EN language dir when not passed explicitly — the pipeline should
 # pick up NPC/skin/character names on every run without hand-arguing files.
-LANG_DIR="$DATAMINE/EN/language/en_US"
+# Game 2.0 split the datamine: `ss-data` now holds EN/bin + EN/language while
+# `StellaSoraData Makostar` (ss-lua) only keeps the decompiled Lua tree.  So
+# probe `../ss-data` first and fall back to --datamine for older checkouts.
+if [[ -z "$DATA" ]]; then
+  if [[ -d "$ROOT/../ss-data/EN" ]]; then DATA="$ROOT/../ss-data"; else DATA="$DATAMINE"; fi
+fi
+LANG_DIR="$DATA/EN/language/en_US"
 [[ -n "$BOARD_NPC" || ! -f "$LANG_DIR/BoardNPC.json" ]] || BOARD_NPC="$LANG_DIR/BoardNPC.json"
 [[ -n "$SKIN_NAMES" || ! -f "$LANG_DIR/CharacterSkin.json" ]] || SKIN_NAMES="$LANG_DIR/CharacterSkin.json"
 [[ -n "$CHAR_NAMES" || ! -f "$LANG_DIR/Character.json" ]] || CHAR_NAMES="$LANG_DIR/Character.json"
+# Story-character names come from the decompiled Lua tree.  The clone keeps it
+# under `Lua/` (older checkouts used `_Lua/`), so probe both spellings in both
+# datamine roots.
+if [[ -z "$AVG_NAMES" ]]; then
+  for _root in "$DATAMINE" "$DATA"; do
+    for _sub in Lua _Lua; do
+      _avg="$_root/$_sub/Game/UI/Avg/_en/Preset/AvgCharacter.lua"
+      [[ ! -f "$_avg" ]] || { AVG_NAMES="$_avg"; break 2; }
+    done
+  done
+fi
 
 INSTALL_RESOURCE="$GAME/StellaSora_Data/StreamingAssets/InstallResource"
 PERSISTENT="$GAME/Persistent_Store/AssetBundles"
@@ -211,10 +233,12 @@ fi
 echo "Game: $GAME"
 echo "AssetStudio CLI: $CLI"
 echo "InstallResource: $INSTALL_RESOURCE"
+echo "Data (names/bin): $DATA"
+echo "Lua (avg names): $DATAMINE"
 echo "BoardNPC names: ${BOARD_NPC:-<none found>}"
 echo "Skin names: ${SKIN_NAMES:-<none found>}"
 echo "Char names: ${CHAR_NAMES:-<none found>}"
-echo "Avg names: ${AVG_NAMES:-$DATAMINE/_Lua/Game/UI/Avg/_en/Preset/AvgCharacter.lua}"
+echo "Avg names: ${AVG_NAMES:-<none found>}"
 
 mkdir -p "$TMP/live2d" "$TMP/raw" "$ROOT/chars"
 # Incremental cache init (like bruteForceOthers.mjs)
@@ -269,16 +293,6 @@ mkdir -p "$TMP/chars_avg"
 for bundle in "${BUNDLES[@]}"; do
   base="$(basename "$bundle" .unity3d)"
   echo "=== $base ==="
-  # incremental cache: skip unchanged live2d bundles
-  _live_expect="-"
-  if [[ "$base" == char_l2d_* ]]; then _live_expect="$ROOT/chars/${base#char_l2d_}"; fi
-  # char_avg / npc / disc variants use TMP staging; check live2d output dir instead of final chars
-  # sprite-only bundles have cnt==0 so expect check is bypassed inside cache_hit
-  if cache_hit "$bundle" "live2d" "$_live_expect"; then
-    echo "  cached (unchanged) — skipping live2d"
-    CACHE_HITS=$((CACHE_HITS+1))
-    continue
-  fi
   # avg-derived models are staged separately: they duplicate the _l/_lf
   # variants already extracted (richer) from char_l2d bundles for released
   # characters, and only the ids without a char_l2d source are merged below.
@@ -288,6 +302,24 @@ for bundle in "${BUNDLES[@]}"; do
   fi
   out_l2d="$TMP/live2d/$base"
   out_raw="$TMP/raw/$base"
+  # incremental cache: skip unchanged live2d bundles
+  _live_expect="-"
+  if [[ "$base" == char_l2d_* ]]; then _live_expect="$ROOT/chars/${base#char_l2d_}"; fi
+  # char_avg / npc / disc variants use TMP staging; check live2d output dir instead of final chars
+  # sprite-only bundles have cnt==0 so expect check is bypassed inside cache_hit
+  if cache_hit "$bundle" "live2d" "$_live_expect"; then
+    echo "  cached (unchanged) — skipping live2d export"
+    CACHE_HITS=$((CACHE_HITS+1))
+    # Still re-stage the cached export: normalize.py is cheap and decides the
+    # chars/ layout (e.g. one folder per Cubism model in multi-model prefabs),
+    # so a layout change must not need a full re-export of every bundle.
+    if [[ -n "$(find "$out_l2d" -name '*.model3.json' -print -quit 2>/dev/null)" ]]; then
+      python3 "$SCRIPT_DIR/normalize.py" \
+        --live2d "$out_l2d" --raw "$out_raw" --out "$stage" \
+        || echo "  normalize FAILED"
+    fi
+    continue
+  fi
   mkdir -p "$out_l2d" "$out_raw"
 
   # Live2D model export
@@ -329,11 +361,14 @@ if [[ ${#FAILED[@]} -gt 0 ]]; then
 fi
 
 # Background layer composition: for every bundle, dump the scene graph
-# (gameobject/transform/sprite/spriteRenderer/sortingGroup) so
+# (gameobject/transform/sprite/spriteRenderer/sortingGroup/meshRenderer) so
 # extractBgLayers.mjs can reconstruct the layered `----bg----` /
 # `----bg_effect----` / `----fg_effect----` / model-subtree sprite stack for
 # each variant.  The `----*----` group nodes carry a SortingGroup that decides
-# where each group as a whole sorts, so it must be dumped too.
+# where each group as a whole sorts, so it must be dumped too; the Cubism
+# drawable MeshRenderers give each model instance's base sorting order (the
+# prefabs hold several models — e.g. 10303_L_a character + 10303_L_b cat
+# scene — and the serialized orders put the extras behind the character).
 BGDIR="$TMP/bglayers"
 TEXDIR="$TMP/bgtex"
 mkdir -p "$BGDIR" "$TEXDIR"
@@ -342,7 +377,7 @@ for bundle in "${BUNDLES[@]}"; do
   base="$(basename "$bundle" .unity3d)"
   # avg prefabs are plain model rigs — no ----bg---- scene layers to compose
   [[ "$base" == char_avg_2d_* ]] && continue
-  if cache_hit "$bundle" "bg2" "$BGDIR/$base/compositions.json"; then
+  if cache_hit "$bundle" "bg3" "$BGDIR/$base/compositions.json"; then
     echo "=== $base (bg) ==="
     echo "  cached (unchanged) — skipping bg dump"
     CACHE_HITS=$((CACHE_HITS+1))
@@ -359,7 +394,7 @@ for bundle in "${BUNDLES[@]}"; do
   # dual-model Memory Snapshot), so it must be in the type list or those
   # layers are silently dropped.
   if ! DOTNET_ROLL_FORWARD=Major dotnet "$CLI" "$bundle" -m dump \
-      -t gameobject,transform,rectTransform,sprite,spriteRenderer,sortingGroup \
+      -t gameobject,transform,rectTransform,sprite,spriteRenderer,sortingGroup,meshRenderer \
       -f assetName_pathID --load-all -o "$out_bg" >/dev/null 2>&1; then
     echo "  bg dump FAILED"; BG_FAILED+=("$base"); continue
   fi
@@ -374,7 +409,7 @@ for bundle in "${BUNDLES[@]}"; do
       -t texture2d -o "$out_tex" --image-format png >/dev/null 2>&1; then
     echo "  texture export FAILED"
   fi
-  cache_mark "$bundle" "bg2" 0
+  cache_mark "$bundle" "bg3" 0
 done
 
 if [[ ${#BG_FAILED[@]} -gt 0 ]]; then
@@ -388,7 +423,7 @@ fi
 # Rebuild disc name table (Disc.json + Item.json) so new discs like 4057/4058
 # resolve to "Ride the Waves With Me" / "Summer March" instead of "Disc 4057".
 node "$SCRIPT_DIR/generateDiscId.mjs" \
-  --datamine "$DATAMINE" \
+  --datamine "$DATA" \
   --out "$ROOT/data/discid.json" || true
 
 if [[ -n "$CHAR_NAMES" ]]; then
@@ -581,7 +616,7 @@ node "$SCRIPT_DIR/generateDiscs.mjs" \
 node "$SCRIPT_DIR/extractEvents.mjs" --game "$GAME" || true
 node "$SCRIPT_DIR/extractEventScenes.mjs" || true
 node "$SCRIPT_DIR/generateEvents.mjs" \
-  --datamine "$DATAMINE" || true
+  --datamine "$DATA" || true
 
 # --- MainView L2D offsets (Actor2DOffsetData) --------------------------------
 # Each skin's CharacterSkin.Offset (Actor2D/Character/<skin>/<skin>.asset) lives
@@ -657,7 +692,7 @@ node "$SCRIPT_DIR/generateAvg.mjs" \
   --meta "$AVG_META" \
   --staging "$AVG_TMP" \
   --avg "$ROOT/avg" \
-  --names "${AVG_NAMES:-$DATAMINE/_Lua/Game/UI/Avg/_en/Preset/AvgCharacter.lua}" \
+  --names "${AVG_NAMES:-}" \
   --out "$ROOT/data/avg.json" || true
 
 # --- Final manifest rebuild ---------------------------------------------------
@@ -682,7 +717,7 @@ node "$SCRIPT_DIR/generateDiscs.mjs" \
   --disc-names "$ROOT/data/discid.json" || true
 # Events section (generateManifest above drops it; rebuild from events.json).
 node "$SCRIPT_DIR/generateEvents.mjs" \
-  --datamine "$DATAMINE" || true
+  --datamine "$DATA" || true
 node "$SCRIPT_DIR/mergeBgLayers.mjs" \
   --models "$ROOT/data/models.json" \
   --layers "$BGDIR" || true

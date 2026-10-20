@@ -179,6 +179,2265 @@
       }
     ]
   },
+  "20104": {
+    "name": "Wholeness at Reunion's Dawn",
+    "static": null,
+    "spines": [
+      {
+        "name": "20104_Downdust",
+        "skel": "20104_Downdust.skel",
+        "atlas": "20104_Downdust.atlas",
+        "textures": [
+          {
+            "file": "20104_Downdust.png",
+            "w": 2048,
+            "h": 2048
+          }
+        ],
+        "scene": {
+          "w": 2160,
+          "h": 1080,
+          "behind": [
+            {
+              "file": "scene_bg_DustDawn_activity_30.png",
+              "name": "BgImg_L",
+              "x": -1298.51,
+              "y": -110,
+              "w": 1271.44,
+              "h": 1432.2
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_31.png",
+              "name": "BgImg_M",
+              "x": -27.01,
+              "y": -110,
+              "w": 1271.54,
+              "h": 1432.31
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_32.png",
+              "name": "BgImg_R",
+              "x": 1244.39,
+              "y": -110,
+              "w": 1271.54,
+              "h": 1432.31
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_29.png",
+              "name": "Image01",
+              "x": -1222.3,
+              "y": -112,
+              "w": 1392.14,
+              "h": 790.74
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_03.png",
+              "name": "Image04",
+              "x": -1109,
+              "y": -581.2,
+              "w": 1485,
+              "h": 473.69
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_02.png",
+              "name": "Image03",
+              "x": -821.1,
+              "y": -669.7,
+              "w": 1457.94,
+              "h": 313.78
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_01.png",
+              "name": "Image02",
+              "x": -307.3,
+              "y": -663.2,
+              "w": 578.66,
+              "h": 312.17
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_28.png",
+              "name": "Image05",
+              "x": -1272,
+              "y": -102.61,
+              "w": 1324.61,
+              "h": 1429.1
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_06.png",
+              "name": "boss",
+              "x": -34,
+              "y": 23,
+              "w": 1384.48,
+              "h": 1224.45
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_27.png",
+              "name": "Image01",
+              "x": 1096,
+              "y": -464,
+              "w": 1520.43,
+              "h": 702.32
+            }
+          ],
+          "front": [
+            {
+              "file": "scene_bg_DustDawn_activity_25.png",
+              "name": "Image01",
+              "x": 6,
+              "y": 37.01,
+              "w": 264.99,
+              "h": 1201.78
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_40.png",
+              "name": "Grass_L",
+              "x": -1299.01,
+              "y": 632,
+              "w": 1272.13,
+              "h": 441.5
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_41.png",
+              "name": "Grass_M",
+              "x": -27.11,
+              "y": 632,
+              "w": 1272.06,
+              "h": 441.48
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_34.png",
+              "name": "Grass_plate",
+              "x": -27.11,
+              "y": 461,
+              "w": 1271.8,
+              "h": 362.83
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_42.png",
+              "name": "Grass_R",
+              "x": 1244.89,
+              "y": 632,
+              "w": 1272.06,
+              "h": 441.48
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_26.png",
+              "name": "Image01",
+              "x": -27,
+              "y": 11.8,
+              "w": 3813.91,
+              "h": 1176.99,
+              "frame": {
+                "x": 0,
+                "y": 0,
+                "w": 2048,
+                "h": 632
+              },
+              "alpha": 0.733
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_14.png",
+              "name": "Image01",
+              "x": -289.87,
+              "y": 405.03,
+              "w": 97.74,
+              "h": 191.72
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_08.png",
+              "name": "Image03",
+              "x": -573.49,
+              "y": 336.83,
+              "w": 273.42,
+              "h": 397.01
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_22.png",
+              "name": "Image04",
+              "x": -594.19,
+              "y": 532.18,
+              "w": 182.29,
+              "h": 44.64
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_43.png",
+              "name": "Image06",
+              "x": -951.82,
+              "y": 306.53,
+              "w": 526.33,
+              "h": 735.37
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_38.png",
+              "name": "Image07",
+              "x": -930.62,
+              "y": 601.05,
+              "w": 740.8,
+              "h": 325.5
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_13.png",
+              "name": "Image01",
+              "x": 779.1,
+              "y": 389.03,
+              "w": 175.57,
+              "h": 209.18
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_10.png",
+              "name": "Image02",
+              "x": 1209.04,
+              "y": 82.11,
+              "w": 446.71,
+              "h": 900.93
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_05.png",
+              "name": "Image03",
+              "x": 1161.43,
+              "y": 312.15,
+              "w": 251.14,
+              "h": 168.69
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_23.png",
+              "name": "Image04",
+              "x": 1112.23,
+              "y": 485.97,
+              "w": 288.34,
+              "h": 101.12
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_09.png",
+              "name": "Image05",
+              "x": 461.68,
+              "y": 362.73,
+              "w": 291.41,
+              "h": 418.43
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_21.png",
+              "name": "Image06",
+              "x": 532.19,
+              "y": 556.99,
+              "w": 241.23,
+              "h": 81.65
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_37.png",
+              "name": "Image08",
+              "x": 1237.44,
+              "y": 626.15,
+              "w": 580.54,
+              "h": 314.62
+            },
+            {
+              "file": "scene_fx_20104_lineglow.png",
+              "name": "imgLineGlow_R",
+              "x": -1176.89,
+              "y": -1294.13,
+              "w": 278.86,
+              "h": 3384.06,
+              "alpha": 0.682
+            }
+          ],
+          "char": {
+            "x": -706.11,
+            "y": 46.18,
+            "w": 1504.89,
+            "h": 1194.43,
+            "px": -430.98,
+            "py": 643.05
+          },
+          "chars": [
+            {
+              "name": "20104_Downdust",
+              "x": -706.11,
+              "y": 46.18,
+              "w": 1504.89,
+              "h": 1194.43,
+              "px": -430.98,
+              "py": 643.05
+            },
+            {
+              "name": "20104_Iris",
+              "x": 1023.52,
+              "y": 12.03,
+              "w": 1692.87,
+              "h": 1248.72,
+              "px": 501.94,
+              "py": 636.1
+            },
+            {
+              "name": "20104_mw_Female",
+              "x": -233.89,
+              "y": 299.26,
+              "w": 398.47,
+              "h": 445.24,
+              "px": -178.76,
+              "py": 519.24,
+              "ox": 62.23,
+              "oy": -98.12
+            },
+            {
+              "name": "20104_mw_Male",
+              "x": 151.17,
+              "y": 183.88,
+              "w": 275,
+              "h": 484.76,
+              "px": 141.65,
+              "py": 423.46
+            }
+          ],
+          "draw": [
+            {
+              "file": "scene_bg_DustDawn_activity_30.png",
+              "name": "BgImg_L",
+              "x": -1298.51,
+              "y": -110,
+              "w": 1271.44,
+              "h": 1432.2
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_31.png",
+              "name": "BgImg_M",
+              "x": -27.01,
+              "y": -110,
+              "w": 1271.54,
+              "h": 1432.31
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_32.png",
+              "name": "BgImg_R",
+              "x": 1244.39,
+              "y": -110,
+              "w": 1271.54,
+              "h": 1432.31
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_29.png",
+              "name": "Image01",
+              "x": -1222.3,
+              "y": -112,
+              "w": 1392.14,
+              "h": 790.74
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_03.png",
+              "name": "Image04",
+              "x": -1109,
+              "y": -581.2,
+              "w": 1485,
+              "h": 473.69
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_02.png",
+              "name": "Image03",
+              "x": -821.1,
+              "y": -669.7,
+              "w": 1457.94,
+              "h": 313.78
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_01.png",
+              "name": "Image02",
+              "x": -307.3,
+              "y": -663.2,
+              "w": 578.66,
+              "h": 312.17
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_28.png",
+              "name": "Image05",
+              "x": -1272,
+              "y": -102.61,
+              "w": 1324.61,
+              "h": 1429.1
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_06.png",
+              "name": "boss",
+              "x": -34,
+              "y": 23,
+              "w": 1384.48,
+              "h": 1224.45
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_27.png",
+              "name": "Image01",
+              "x": 1096,
+              "y": -464,
+              "w": 1520.43,
+              "h": 702.32
+            },
+            {
+              "spine": "20104_Iris"
+            },
+            {
+              "spine": "20104_Downdust"
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_25.png",
+              "name": "Image01",
+              "x": 6,
+              "y": 37.01,
+              "w": 264.99,
+              "h": 1201.78
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_40.png",
+              "name": "Grass_L",
+              "x": -1299.01,
+              "y": 632,
+              "w": 1272.13,
+              "h": 441.5
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_41.png",
+              "name": "Grass_M",
+              "x": -27.11,
+              "y": 632,
+              "w": 1272.06,
+              "h": 441.48
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_34.png",
+              "name": "Grass_plate",
+              "x": -27.11,
+              "y": 461,
+              "w": 1271.8,
+              "h": 362.83
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_42.png",
+              "name": "Grass_R",
+              "x": 1244.89,
+              "y": 632,
+              "w": 1272.06,
+              "h": 441.48
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_26.png",
+              "name": "Image01",
+              "x": -27,
+              "y": 11.8,
+              "w": 3813.91,
+              "h": 1176.99,
+              "frame": {
+                "x": 0,
+                "y": 0,
+                "w": 2048,
+                "h": 632
+              },
+              "alpha": 0.733
+            },
+            {
+              "spine": "20104_mw_Female"
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_14.png",
+              "name": "Image01",
+              "x": -289.87,
+              "y": 405.03,
+              "w": 97.74,
+              "h": 191.72
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_08.png",
+              "name": "Image03",
+              "x": -573.49,
+              "y": 336.83,
+              "w": 273.42,
+              "h": 397.01
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_22.png",
+              "name": "Image04",
+              "x": -594.19,
+              "y": 532.18,
+              "w": 182.29,
+              "h": 44.64
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_43.png",
+              "name": "Image06",
+              "x": -951.82,
+              "y": 306.53,
+              "w": 526.33,
+              "h": 735.37
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_38.png",
+              "name": "Image07",
+              "x": -930.62,
+              "y": 601.05,
+              "w": 740.8,
+              "h": 325.5
+            },
+            {
+              "spine": "20104_mw_Male"
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_13.png",
+              "name": "Image01",
+              "x": 779.1,
+              "y": 389.03,
+              "w": 175.57,
+              "h": 209.18
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_10.png",
+              "name": "Image02",
+              "x": 1209.04,
+              "y": 82.11,
+              "w": 446.71,
+              "h": 900.93
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_05.png",
+              "name": "Image03",
+              "x": 1161.43,
+              "y": 312.15,
+              "w": 251.14,
+              "h": 168.69
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_23.png",
+              "name": "Image04",
+              "x": 1112.23,
+              "y": 485.97,
+              "w": 288.34,
+              "h": 101.12
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_09.png",
+              "name": "Image05",
+              "x": 461.68,
+              "y": 362.73,
+              "w": 291.41,
+              "h": 418.43
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_21.png",
+              "name": "Image06",
+              "x": 532.19,
+              "y": 556.99,
+              "w": 241.23,
+              "h": 81.65
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_37.png",
+              "name": "Image08",
+              "x": 1237.44,
+              "y": 626.15,
+              "w": 580.54,
+              "h": 314.62
+            },
+            {
+              "file": "scene_fx_20104_lineglow.png",
+              "name": "imgLineGlow_R",
+              "x": -1176.89,
+              "y": -1294.13,
+              "w": 278.86,
+              "h": 3384.06,
+              "alpha": 0.682
+            }
+          ]
+        }
+      },
+      {
+        "name": "20104_Iris",
+        "skel": "20104_Iris.skel",
+        "atlas": "20104_Iris.atlas",
+        "textures": [
+          {
+            "file": "20104_Iris.png",
+            "w": 2048,
+            "h": 2048
+          },
+          {
+            "file": "20104_Iris_2.png",
+            "w": 1024,
+            "h": 1024
+          }
+        ],
+        "scene": {
+          "w": 2160,
+          "h": 1080,
+          "behind": [
+            {
+              "file": "scene_bg_DustDawn_activity_30.png",
+              "name": "BgImg_L",
+              "x": -1298.51,
+              "y": -110,
+              "w": 1271.44,
+              "h": 1432.2
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_31.png",
+              "name": "BgImg_M",
+              "x": -27.01,
+              "y": -110,
+              "w": 1271.54,
+              "h": 1432.31
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_32.png",
+              "name": "BgImg_R",
+              "x": 1244.39,
+              "y": -110,
+              "w": 1271.54,
+              "h": 1432.31
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_29.png",
+              "name": "Image01",
+              "x": -1222.3,
+              "y": -112,
+              "w": 1392.14,
+              "h": 790.74
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_03.png",
+              "name": "Image04",
+              "x": -1109,
+              "y": -581.2,
+              "w": 1485,
+              "h": 473.69
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_02.png",
+              "name": "Image03",
+              "x": -821.1,
+              "y": -669.7,
+              "w": 1457.94,
+              "h": 313.78
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_01.png",
+              "name": "Image02",
+              "x": -307.3,
+              "y": -663.2,
+              "w": 578.66,
+              "h": 312.17
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_28.png",
+              "name": "Image05",
+              "x": -1272,
+              "y": -102.61,
+              "w": 1324.61,
+              "h": 1429.1
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_06.png",
+              "name": "boss",
+              "x": -34,
+              "y": 23,
+              "w": 1384.48,
+              "h": 1224.45
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_27.png",
+              "name": "Image01",
+              "x": 1096,
+              "y": -464,
+              "w": 1520.43,
+              "h": 702.32
+            }
+          ],
+          "front": [
+            {
+              "file": "scene_bg_DustDawn_activity_25.png",
+              "name": "Image01",
+              "x": 6,
+              "y": 37.01,
+              "w": 264.99,
+              "h": 1201.78
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_40.png",
+              "name": "Grass_L",
+              "x": -1299.01,
+              "y": 632,
+              "w": 1272.13,
+              "h": 441.5
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_41.png",
+              "name": "Grass_M",
+              "x": -27.11,
+              "y": 632,
+              "w": 1272.06,
+              "h": 441.48
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_34.png",
+              "name": "Grass_plate",
+              "x": -27.11,
+              "y": 461,
+              "w": 1271.8,
+              "h": 362.83
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_42.png",
+              "name": "Grass_R",
+              "x": 1244.89,
+              "y": 632,
+              "w": 1272.06,
+              "h": 441.48
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_26.png",
+              "name": "Image01",
+              "x": -27,
+              "y": 11.8,
+              "w": 3813.91,
+              "h": 1176.99,
+              "frame": {
+                "x": 0,
+                "y": 0,
+                "w": 2048,
+                "h": 632
+              },
+              "alpha": 0.733
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_14.png",
+              "name": "Image01",
+              "x": -289.87,
+              "y": 405.03,
+              "w": 97.74,
+              "h": 191.72
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_08.png",
+              "name": "Image03",
+              "x": -573.49,
+              "y": 336.83,
+              "w": 273.42,
+              "h": 397.01
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_22.png",
+              "name": "Image04",
+              "x": -594.19,
+              "y": 532.18,
+              "w": 182.29,
+              "h": 44.64
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_43.png",
+              "name": "Image06",
+              "x": -951.82,
+              "y": 306.53,
+              "w": 526.33,
+              "h": 735.37
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_38.png",
+              "name": "Image07",
+              "x": -930.62,
+              "y": 601.05,
+              "w": 740.8,
+              "h": 325.5
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_13.png",
+              "name": "Image01",
+              "x": 779.1,
+              "y": 389.03,
+              "w": 175.57,
+              "h": 209.18
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_10.png",
+              "name": "Image02",
+              "x": 1209.04,
+              "y": 82.11,
+              "w": 446.71,
+              "h": 900.93
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_05.png",
+              "name": "Image03",
+              "x": 1161.43,
+              "y": 312.15,
+              "w": 251.14,
+              "h": 168.69
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_23.png",
+              "name": "Image04",
+              "x": 1112.23,
+              "y": 485.97,
+              "w": 288.34,
+              "h": 101.12
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_09.png",
+              "name": "Image05",
+              "x": 461.68,
+              "y": 362.73,
+              "w": 291.41,
+              "h": 418.43
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_21.png",
+              "name": "Image06",
+              "x": 532.19,
+              "y": 556.99,
+              "w": 241.23,
+              "h": 81.65
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_37.png",
+              "name": "Image08",
+              "x": 1237.44,
+              "y": 626.15,
+              "w": 580.54,
+              "h": 314.62
+            },
+            {
+              "file": "scene_fx_20104_lineglow.png",
+              "name": "imgLineGlow_R",
+              "x": -1176.89,
+              "y": -1294.13,
+              "w": 278.86,
+              "h": 3384.06,
+              "alpha": 0.682
+            }
+          ],
+          "char": {
+            "x": -706.11,
+            "y": 46.18,
+            "w": 1504.89,
+            "h": 1194.43,
+            "px": -430.98,
+            "py": 643.05
+          },
+          "chars": [
+            {
+              "name": "20104_Downdust",
+              "x": -706.11,
+              "y": 46.18,
+              "w": 1504.89,
+              "h": 1194.43,
+              "px": -430.98,
+              "py": 643.05
+            },
+            {
+              "name": "20104_Iris",
+              "x": 1023.52,
+              "y": 12.03,
+              "w": 1692.87,
+              "h": 1248.72,
+              "px": 501.94,
+              "py": 636.1
+            },
+            {
+              "name": "20104_mw_Female",
+              "x": -233.89,
+              "y": 299.26,
+              "w": 398.47,
+              "h": 445.24,
+              "px": -178.76,
+              "py": 519.24,
+              "ox": 62.23,
+              "oy": -98.12
+            },
+            {
+              "name": "20104_mw_Male",
+              "x": 151.17,
+              "y": 183.88,
+              "w": 275,
+              "h": 484.76,
+              "px": 141.65,
+              "py": 423.46
+            }
+          ],
+          "draw": [
+            {
+              "file": "scene_bg_DustDawn_activity_30.png",
+              "name": "BgImg_L",
+              "x": -1298.51,
+              "y": -110,
+              "w": 1271.44,
+              "h": 1432.2
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_31.png",
+              "name": "BgImg_M",
+              "x": -27.01,
+              "y": -110,
+              "w": 1271.54,
+              "h": 1432.31
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_32.png",
+              "name": "BgImg_R",
+              "x": 1244.39,
+              "y": -110,
+              "w": 1271.54,
+              "h": 1432.31
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_29.png",
+              "name": "Image01",
+              "x": -1222.3,
+              "y": -112,
+              "w": 1392.14,
+              "h": 790.74
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_03.png",
+              "name": "Image04",
+              "x": -1109,
+              "y": -581.2,
+              "w": 1485,
+              "h": 473.69
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_02.png",
+              "name": "Image03",
+              "x": -821.1,
+              "y": -669.7,
+              "w": 1457.94,
+              "h": 313.78
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_01.png",
+              "name": "Image02",
+              "x": -307.3,
+              "y": -663.2,
+              "w": 578.66,
+              "h": 312.17
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_28.png",
+              "name": "Image05",
+              "x": -1272,
+              "y": -102.61,
+              "w": 1324.61,
+              "h": 1429.1
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_06.png",
+              "name": "boss",
+              "x": -34,
+              "y": 23,
+              "w": 1384.48,
+              "h": 1224.45
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_27.png",
+              "name": "Image01",
+              "x": 1096,
+              "y": -464,
+              "w": 1520.43,
+              "h": 702.32
+            },
+            {
+              "spine": "20104_Iris"
+            },
+            {
+              "spine": "20104_Downdust"
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_25.png",
+              "name": "Image01",
+              "x": 6,
+              "y": 37.01,
+              "w": 264.99,
+              "h": 1201.78
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_40.png",
+              "name": "Grass_L",
+              "x": -1299.01,
+              "y": 632,
+              "w": 1272.13,
+              "h": 441.5
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_41.png",
+              "name": "Grass_M",
+              "x": -27.11,
+              "y": 632,
+              "w": 1272.06,
+              "h": 441.48
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_34.png",
+              "name": "Grass_plate",
+              "x": -27.11,
+              "y": 461,
+              "w": 1271.8,
+              "h": 362.83
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_42.png",
+              "name": "Grass_R",
+              "x": 1244.89,
+              "y": 632,
+              "w": 1272.06,
+              "h": 441.48
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_26.png",
+              "name": "Image01",
+              "x": -27,
+              "y": 11.8,
+              "w": 3813.91,
+              "h": 1176.99,
+              "frame": {
+                "x": 0,
+                "y": 0,
+                "w": 2048,
+                "h": 632
+              },
+              "alpha": 0.733
+            },
+            {
+              "spine": "20104_mw_Female"
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_14.png",
+              "name": "Image01",
+              "x": -289.87,
+              "y": 405.03,
+              "w": 97.74,
+              "h": 191.72
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_08.png",
+              "name": "Image03",
+              "x": -573.49,
+              "y": 336.83,
+              "w": 273.42,
+              "h": 397.01
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_22.png",
+              "name": "Image04",
+              "x": -594.19,
+              "y": 532.18,
+              "w": 182.29,
+              "h": 44.64
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_43.png",
+              "name": "Image06",
+              "x": -951.82,
+              "y": 306.53,
+              "w": 526.33,
+              "h": 735.37
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_38.png",
+              "name": "Image07",
+              "x": -930.62,
+              "y": 601.05,
+              "w": 740.8,
+              "h": 325.5
+            },
+            {
+              "spine": "20104_mw_Male"
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_13.png",
+              "name": "Image01",
+              "x": 779.1,
+              "y": 389.03,
+              "w": 175.57,
+              "h": 209.18
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_10.png",
+              "name": "Image02",
+              "x": 1209.04,
+              "y": 82.11,
+              "w": 446.71,
+              "h": 900.93
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_05.png",
+              "name": "Image03",
+              "x": 1161.43,
+              "y": 312.15,
+              "w": 251.14,
+              "h": 168.69
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_23.png",
+              "name": "Image04",
+              "x": 1112.23,
+              "y": 485.97,
+              "w": 288.34,
+              "h": 101.12
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_09.png",
+              "name": "Image05",
+              "x": 461.68,
+              "y": 362.73,
+              "w": 291.41,
+              "h": 418.43
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_21.png",
+              "name": "Image06",
+              "x": 532.19,
+              "y": 556.99,
+              "w": 241.23,
+              "h": 81.65
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_37.png",
+              "name": "Image08",
+              "x": 1237.44,
+              "y": 626.15,
+              "w": 580.54,
+              "h": 314.62
+            },
+            {
+              "file": "scene_fx_20104_lineglow.png",
+              "name": "imgLineGlow_R",
+              "x": -1176.89,
+              "y": -1294.13,
+              "w": 278.86,
+              "h": 3384.06,
+              "alpha": 0.682
+            }
+          ]
+        }
+      },
+      {
+        "name": "20104_mw_Female",
+        "skel": "20104_mw_Female.skel",
+        "atlas": "20104_mw_Female.atlas",
+        "textures": [
+          {
+            "file": "20104_mw_Female.png",
+            "w": 1024,
+            "h": 512
+          }
+        ],
+        "scene": {
+          "w": 2160,
+          "h": 1080,
+          "behind": [
+            {
+              "file": "scene_bg_DustDawn_activity_30.png",
+              "name": "BgImg_L",
+              "x": -1298.51,
+              "y": -110,
+              "w": 1271.44,
+              "h": 1432.2
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_31.png",
+              "name": "BgImg_M",
+              "x": -27.01,
+              "y": -110,
+              "w": 1271.54,
+              "h": 1432.31
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_32.png",
+              "name": "BgImg_R",
+              "x": 1244.39,
+              "y": -110,
+              "w": 1271.54,
+              "h": 1432.31
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_29.png",
+              "name": "Image01",
+              "x": -1222.3,
+              "y": -112,
+              "w": 1392.14,
+              "h": 790.74
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_03.png",
+              "name": "Image04",
+              "x": -1109,
+              "y": -581.2,
+              "w": 1485,
+              "h": 473.69
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_02.png",
+              "name": "Image03",
+              "x": -821.1,
+              "y": -669.7,
+              "w": 1457.94,
+              "h": 313.78
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_01.png",
+              "name": "Image02",
+              "x": -307.3,
+              "y": -663.2,
+              "w": 578.66,
+              "h": 312.17
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_28.png",
+              "name": "Image05",
+              "x": -1272,
+              "y": -102.61,
+              "w": 1324.61,
+              "h": 1429.1
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_06.png",
+              "name": "boss",
+              "x": -34,
+              "y": 23,
+              "w": 1384.48,
+              "h": 1224.45
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_27.png",
+              "name": "Image01",
+              "x": 1096,
+              "y": -464,
+              "w": 1520.43,
+              "h": 702.32
+            }
+          ],
+          "front": [
+            {
+              "file": "scene_bg_DustDawn_activity_25.png",
+              "name": "Image01",
+              "x": 6,
+              "y": 37.01,
+              "w": 264.99,
+              "h": 1201.78
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_40.png",
+              "name": "Grass_L",
+              "x": -1299.01,
+              "y": 632,
+              "w": 1272.13,
+              "h": 441.5
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_41.png",
+              "name": "Grass_M",
+              "x": -27.11,
+              "y": 632,
+              "w": 1272.06,
+              "h": 441.48
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_34.png",
+              "name": "Grass_plate",
+              "x": -27.11,
+              "y": 461,
+              "w": 1271.8,
+              "h": 362.83
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_42.png",
+              "name": "Grass_R",
+              "x": 1244.89,
+              "y": 632,
+              "w": 1272.06,
+              "h": 441.48
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_26.png",
+              "name": "Image01",
+              "x": -27,
+              "y": 11.8,
+              "w": 3813.91,
+              "h": 1176.99,
+              "frame": {
+                "x": 0,
+                "y": 0,
+                "w": 2048,
+                "h": 632
+              },
+              "alpha": 0.733
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_14.png",
+              "name": "Image01",
+              "x": -289.87,
+              "y": 405.03,
+              "w": 97.74,
+              "h": 191.72
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_08.png",
+              "name": "Image03",
+              "x": -573.49,
+              "y": 336.83,
+              "w": 273.42,
+              "h": 397.01
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_22.png",
+              "name": "Image04",
+              "x": -594.19,
+              "y": 532.18,
+              "w": 182.29,
+              "h": 44.64
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_43.png",
+              "name": "Image06",
+              "x": -951.82,
+              "y": 306.53,
+              "w": 526.33,
+              "h": 735.37
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_38.png",
+              "name": "Image07",
+              "x": -930.62,
+              "y": 601.05,
+              "w": 740.8,
+              "h": 325.5
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_13.png",
+              "name": "Image01",
+              "x": 779.1,
+              "y": 389.03,
+              "w": 175.57,
+              "h": 209.18
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_10.png",
+              "name": "Image02",
+              "x": 1209.04,
+              "y": 82.11,
+              "w": 446.71,
+              "h": 900.93
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_05.png",
+              "name": "Image03",
+              "x": 1161.43,
+              "y": 312.15,
+              "w": 251.14,
+              "h": 168.69
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_23.png",
+              "name": "Image04",
+              "x": 1112.23,
+              "y": 485.97,
+              "w": 288.34,
+              "h": 101.12
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_09.png",
+              "name": "Image05",
+              "x": 461.68,
+              "y": 362.73,
+              "w": 291.41,
+              "h": 418.43
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_21.png",
+              "name": "Image06",
+              "x": 532.19,
+              "y": 556.99,
+              "w": 241.23,
+              "h": 81.65
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_37.png",
+              "name": "Image08",
+              "x": 1237.44,
+              "y": 626.15,
+              "w": 580.54,
+              "h": 314.62
+            },
+            {
+              "file": "scene_fx_20104_lineglow.png",
+              "name": "imgLineGlow_R",
+              "x": -1176.89,
+              "y": -1294.13,
+              "w": 278.86,
+              "h": 3384.06,
+              "alpha": 0.682
+            }
+          ],
+          "char": {
+            "x": -706.11,
+            "y": 46.18,
+            "w": 1504.89,
+            "h": 1194.43,
+            "px": -430.98,
+            "py": 643.05
+          },
+          "chars": [
+            {
+              "name": "20104_Downdust",
+              "x": -706.11,
+              "y": 46.18,
+              "w": 1504.89,
+              "h": 1194.43,
+              "px": -430.98,
+              "py": 643.05
+            },
+            {
+              "name": "20104_Iris",
+              "x": 1023.52,
+              "y": 12.03,
+              "w": 1692.87,
+              "h": 1248.72,
+              "px": 501.94,
+              "py": 636.1
+            },
+            {
+              "name": "20104_mw_Female",
+              "x": -233.89,
+              "y": 299.26,
+              "w": 398.47,
+              "h": 445.24,
+              "px": -178.76,
+              "py": 519.24,
+              "ox": 62.23,
+              "oy": -98.12
+            },
+            {
+              "name": "20104_mw_Male",
+              "x": 151.17,
+              "y": 183.88,
+              "w": 275,
+              "h": 484.76,
+              "px": 141.65,
+              "py": 423.46
+            }
+          ],
+          "draw": [
+            {
+              "file": "scene_bg_DustDawn_activity_30.png",
+              "name": "BgImg_L",
+              "x": -1298.51,
+              "y": -110,
+              "w": 1271.44,
+              "h": 1432.2
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_31.png",
+              "name": "BgImg_M",
+              "x": -27.01,
+              "y": -110,
+              "w": 1271.54,
+              "h": 1432.31
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_32.png",
+              "name": "BgImg_R",
+              "x": 1244.39,
+              "y": -110,
+              "w": 1271.54,
+              "h": 1432.31
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_29.png",
+              "name": "Image01",
+              "x": -1222.3,
+              "y": -112,
+              "w": 1392.14,
+              "h": 790.74
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_03.png",
+              "name": "Image04",
+              "x": -1109,
+              "y": -581.2,
+              "w": 1485,
+              "h": 473.69
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_02.png",
+              "name": "Image03",
+              "x": -821.1,
+              "y": -669.7,
+              "w": 1457.94,
+              "h": 313.78
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_01.png",
+              "name": "Image02",
+              "x": -307.3,
+              "y": -663.2,
+              "w": 578.66,
+              "h": 312.17
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_28.png",
+              "name": "Image05",
+              "x": -1272,
+              "y": -102.61,
+              "w": 1324.61,
+              "h": 1429.1
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_06.png",
+              "name": "boss",
+              "x": -34,
+              "y": 23,
+              "w": 1384.48,
+              "h": 1224.45
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_27.png",
+              "name": "Image01",
+              "x": 1096,
+              "y": -464,
+              "w": 1520.43,
+              "h": 702.32
+            },
+            {
+              "spine": "20104_Iris"
+            },
+            {
+              "spine": "20104_Downdust"
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_25.png",
+              "name": "Image01",
+              "x": 6,
+              "y": 37.01,
+              "w": 264.99,
+              "h": 1201.78
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_40.png",
+              "name": "Grass_L",
+              "x": -1299.01,
+              "y": 632,
+              "w": 1272.13,
+              "h": 441.5
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_41.png",
+              "name": "Grass_M",
+              "x": -27.11,
+              "y": 632,
+              "w": 1272.06,
+              "h": 441.48
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_34.png",
+              "name": "Grass_plate",
+              "x": -27.11,
+              "y": 461,
+              "w": 1271.8,
+              "h": 362.83
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_42.png",
+              "name": "Grass_R",
+              "x": 1244.89,
+              "y": 632,
+              "w": 1272.06,
+              "h": 441.48
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_26.png",
+              "name": "Image01",
+              "x": -27,
+              "y": 11.8,
+              "w": 3813.91,
+              "h": 1176.99,
+              "frame": {
+                "x": 0,
+                "y": 0,
+                "w": 2048,
+                "h": 632
+              },
+              "alpha": 0.733
+            },
+            {
+              "spine": "20104_mw_Female"
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_14.png",
+              "name": "Image01",
+              "x": -289.87,
+              "y": 405.03,
+              "w": 97.74,
+              "h": 191.72
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_08.png",
+              "name": "Image03",
+              "x": -573.49,
+              "y": 336.83,
+              "w": 273.42,
+              "h": 397.01
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_22.png",
+              "name": "Image04",
+              "x": -594.19,
+              "y": 532.18,
+              "w": 182.29,
+              "h": 44.64
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_43.png",
+              "name": "Image06",
+              "x": -951.82,
+              "y": 306.53,
+              "w": 526.33,
+              "h": 735.37
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_38.png",
+              "name": "Image07",
+              "x": -930.62,
+              "y": 601.05,
+              "w": 740.8,
+              "h": 325.5
+            },
+            {
+              "spine": "20104_mw_Male"
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_13.png",
+              "name": "Image01",
+              "x": 779.1,
+              "y": 389.03,
+              "w": 175.57,
+              "h": 209.18
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_10.png",
+              "name": "Image02",
+              "x": 1209.04,
+              "y": 82.11,
+              "w": 446.71,
+              "h": 900.93
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_05.png",
+              "name": "Image03",
+              "x": 1161.43,
+              "y": 312.15,
+              "w": 251.14,
+              "h": 168.69
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_23.png",
+              "name": "Image04",
+              "x": 1112.23,
+              "y": 485.97,
+              "w": 288.34,
+              "h": 101.12
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_09.png",
+              "name": "Image05",
+              "x": 461.68,
+              "y": 362.73,
+              "w": 291.41,
+              "h": 418.43
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_21.png",
+              "name": "Image06",
+              "x": 532.19,
+              "y": 556.99,
+              "w": 241.23,
+              "h": 81.65
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_37.png",
+              "name": "Image08",
+              "x": 1237.44,
+              "y": 626.15,
+              "w": 580.54,
+              "h": 314.62
+            },
+            {
+              "file": "scene_fx_20104_lineglow.png",
+              "name": "imgLineGlow_R",
+              "x": -1176.89,
+              "y": -1294.13,
+              "w": 278.86,
+              "h": 3384.06,
+              "alpha": 0.682
+            }
+          ]
+        }
+      },
+      {
+        "name": "20104_mw_Male",
+        "skel": "20104_mw_Male.skel",
+        "atlas": "20104_mw_Male.atlas",
+        "textures": [
+          {
+            "file": "20104_mw_Male.png",
+            "w": 1024,
+            "h": 512
+          }
+        ],
+        "scene": {
+          "w": 2160,
+          "h": 1080,
+          "behind": [
+            {
+              "file": "scene_bg_DustDawn_activity_30.png",
+              "name": "BgImg_L",
+              "x": -1298.51,
+              "y": -110,
+              "w": 1271.44,
+              "h": 1432.2
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_31.png",
+              "name": "BgImg_M",
+              "x": -27.01,
+              "y": -110,
+              "w": 1271.54,
+              "h": 1432.31
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_32.png",
+              "name": "BgImg_R",
+              "x": 1244.39,
+              "y": -110,
+              "w": 1271.54,
+              "h": 1432.31
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_29.png",
+              "name": "Image01",
+              "x": -1222.3,
+              "y": -112,
+              "w": 1392.14,
+              "h": 790.74
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_03.png",
+              "name": "Image04",
+              "x": -1109,
+              "y": -581.2,
+              "w": 1485,
+              "h": 473.69
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_02.png",
+              "name": "Image03",
+              "x": -821.1,
+              "y": -669.7,
+              "w": 1457.94,
+              "h": 313.78
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_01.png",
+              "name": "Image02",
+              "x": -307.3,
+              "y": -663.2,
+              "w": 578.66,
+              "h": 312.17
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_28.png",
+              "name": "Image05",
+              "x": -1272,
+              "y": -102.61,
+              "w": 1324.61,
+              "h": 1429.1
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_06.png",
+              "name": "boss",
+              "x": -34,
+              "y": 23,
+              "w": 1384.48,
+              "h": 1224.45
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_27.png",
+              "name": "Image01",
+              "x": 1096,
+              "y": -464,
+              "w": 1520.43,
+              "h": 702.32
+            }
+          ],
+          "front": [
+            {
+              "file": "scene_bg_DustDawn_activity_25.png",
+              "name": "Image01",
+              "x": 6,
+              "y": 37.01,
+              "w": 264.99,
+              "h": 1201.78
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_40.png",
+              "name": "Grass_L",
+              "x": -1299.01,
+              "y": 632,
+              "w": 1272.13,
+              "h": 441.5
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_41.png",
+              "name": "Grass_M",
+              "x": -27.11,
+              "y": 632,
+              "w": 1272.06,
+              "h": 441.48
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_34.png",
+              "name": "Grass_plate",
+              "x": -27.11,
+              "y": 461,
+              "w": 1271.8,
+              "h": 362.83
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_42.png",
+              "name": "Grass_R",
+              "x": 1244.89,
+              "y": 632,
+              "w": 1272.06,
+              "h": 441.48
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_26.png",
+              "name": "Image01",
+              "x": -27,
+              "y": 11.8,
+              "w": 3813.91,
+              "h": 1176.99,
+              "frame": {
+                "x": 0,
+                "y": 0,
+                "w": 2048,
+                "h": 632
+              },
+              "alpha": 0.733
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_14.png",
+              "name": "Image01",
+              "x": -289.87,
+              "y": 405.03,
+              "w": 97.74,
+              "h": 191.72
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_08.png",
+              "name": "Image03",
+              "x": -573.49,
+              "y": 336.83,
+              "w": 273.42,
+              "h": 397.01
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_22.png",
+              "name": "Image04",
+              "x": -594.19,
+              "y": 532.18,
+              "w": 182.29,
+              "h": 44.64
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_43.png",
+              "name": "Image06",
+              "x": -951.82,
+              "y": 306.53,
+              "w": 526.33,
+              "h": 735.37
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_38.png",
+              "name": "Image07",
+              "x": -930.62,
+              "y": 601.05,
+              "w": 740.8,
+              "h": 325.5
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_13.png",
+              "name": "Image01",
+              "x": 779.1,
+              "y": 389.03,
+              "w": 175.57,
+              "h": 209.18
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_10.png",
+              "name": "Image02",
+              "x": 1209.04,
+              "y": 82.11,
+              "w": 446.71,
+              "h": 900.93
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_05.png",
+              "name": "Image03",
+              "x": 1161.43,
+              "y": 312.15,
+              "w": 251.14,
+              "h": 168.69
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_23.png",
+              "name": "Image04",
+              "x": 1112.23,
+              "y": 485.97,
+              "w": 288.34,
+              "h": 101.12
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_09.png",
+              "name": "Image05",
+              "x": 461.68,
+              "y": 362.73,
+              "w": 291.41,
+              "h": 418.43
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_21.png",
+              "name": "Image06",
+              "x": 532.19,
+              "y": 556.99,
+              "w": 241.23,
+              "h": 81.65
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_37.png",
+              "name": "Image08",
+              "x": 1237.44,
+              "y": 626.15,
+              "w": 580.54,
+              "h": 314.62
+            },
+            {
+              "file": "scene_fx_20104_lineglow.png",
+              "name": "imgLineGlow_R",
+              "x": -1176.89,
+              "y": -1294.13,
+              "w": 278.86,
+              "h": 3384.06,
+              "alpha": 0.682
+            }
+          ],
+          "char": {
+            "x": -706.11,
+            "y": 46.18,
+            "w": 1504.89,
+            "h": 1194.43,
+            "px": -430.98,
+            "py": 643.05
+          },
+          "chars": [
+            {
+              "name": "20104_Downdust",
+              "x": -706.11,
+              "y": 46.18,
+              "w": 1504.89,
+              "h": 1194.43,
+              "px": -430.98,
+              "py": 643.05
+            },
+            {
+              "name": "20104_Iris",
+              "x": 1023.52,
+              "y": 12.03,
+              "w": 1692.87,
+              "h": 1248.72,
+              "px": 501.94,
+              "py": 636.1
+            },
+            {
+              "name": "20104_mw_Female",
+              "x": -233.89,
+              "y": 299.26,
+              "w": 398.47,
+              "h": 445.24,
+              "px": -178.76,
+              "py": 519.24,
+              "ox": 62.23,
+              "oy": -98.12
+            },
+            {
+              "name": "20104_mw_Male",
+              "x": 151.17,
+              "y": 183.88,
+              "w": 275,
+              "h": 484.76,
+              "px": 141.65,
+              "py": 423.46
+            }
+          ],
+          "draw": [
+            {
+              "file": "scene_bg_DustDawn_activity_30.png",
+              "name": "BgImg_L",
+              "x": -1298.51,
+              "y": -110,
+              "w": 1271.44,
+              "h": 1432.2
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_31.png",
+              "name": "BgImg_M",
+              "x": -27.01,
+              "y": -110,
+              "w": 1271.54,
+              "h": 1432.31
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_32.png",
+              "name": "BgImg_R",
+              "x": 1244.39,
+              "y": -110,
+              "w": 1271.54,
+              "h": 1432.31
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_29.png",
+              "name": "Image01",
+              "x": -1222.3,
+              "y": -112,
+              "w": 1392.14,
+              "h": 790.74
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_03.png",
+              "name": "Image04",
+              "x": -1109,
+              "y": -581.2,
+              "w": 1485,
+              "h": 473.69
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_02.png",
+              "name": "Image03",
+              "x": -821.1,
+              "y": -669.7,
+              "w": 1457.94,
+              "h": 313.78
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_01.png",
+              "name": "Image02",
+              "x": -307.3,
+              "y": -663.2,
+              "w": 578.66,
+              "h": 312.17
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_28.png",
+              "name": "Image05",
+              "x": -1272,
+              "y": -102.61,
+              "w": 1324.61,
+              "h": 1429.1
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_06.png",
+              "name": "boss",
+              "x": -34,
+              "y": 23,
+              "w": 1384.48,
+              "h": 1224.45
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_27.png",
+              "name": "Image01",
+              "x": 1096,
+              "y": -464,
+              "w": 1520.43,
+              "h": 702.32
+            },
+            {
+              "spine": "20104_Iris"
+            },
+            {
+              "spine": "20104_Downdust"
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_25.png",
+              "name": "Image01",
+              "x": 6,
+              "y": 37.01,
+              "w": 264.99,
+              "h": 1201.78
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_40.png",
+              "name": "Grass_L",
+              "x": -1299.01,
+              "y": 632,
+              "w": 1272.13,
+              "h": 441.5
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_41.png",
+              "name": "Grass_M",
+              "x": -27.11,
+              "y": 632,
+              "w": 1272.06,
+              "h": 441.48
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_34.png",
+              "name": "Grass_plate",
+              "x": -27.11,
+              "y": 461,
+              "w": 1271.8,
+              "h": 362.83
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_42.png",
+              "name": "Grass_R",
+              "x": 1244.89,
+              "y": 632,
+              "w": 1272.06,
+              "h": 441.48
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_26.png",
+              "name": "Image01",
+              "x": -27,
+              "y": 11.8,
+              "w": 3813.91,
+              "h": 1176.99,
+              "frame": {
+                "x": 0,
+                "y": 0,
+                "w": 2048,
+                "h": 632
+              },
+              "alpha": 0.733
+            },
+            {
+              "spine": "20104_mw_Female"
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_14.png",
+              "name": "Image01",
+              "x": -289.87,
+              "y": 405.03,
+              "w": 97.74,
+              "h": 191.72
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_08.png",
+              "name": "Image03",
+              "x": -573.49,
+              "y": 336.83,
+              "w": 273.42,
+              "h": 397.01
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_22.png",
+              "name": "Image04",
+              "x": -594.19,
+              "y": 532.18,
+              "w": 182.29,
+              "h": 44.64
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_43.png",
+              "name": "Image06",
+              "x": -951.82,
+              "y": 306.53,
+              "w": 526.33,
+              "h": 735.37
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_38.png",
+              "name": "Image07",
+              "x": -930.62,
+              "y": 601.05,
+              "w": 740.8,
+              "h": 325.5
+            },
+            {
+              "spine": "20104_mw_Male"
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_13.png",
+              "name": "Image01",
+              "x": 779.1,
+              "y": 389.03,
+              "w": 175.57,
+              "h": 209.18
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_10.png",
+              "name": "Image02",
+              "x": 1209.04,
+              "y": 82.11,
+              "w": 446.71,
+              "h": 900.93
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_05.png",
+              "name": "Image03",
+              "x": 1161.43,
+              "y": 312.15,
+              "w": 251.14,
+              "h": 168.69
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_23.png",
+              "name": "Image04",
+              "x": 1112.23,
+              "y": 485.97,
+              "w": 288.34,
+              "h": 101.12
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_09.png",
+              "name": "Image05",
+              "x": 461.68,
+              "y": 362.73,
+              "w": 291.41,
+              "h": 418.43
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_21.png",
+              "name": "Image06",
+              "x": 532.19,
+              "y": 556.99,
+              "w": 241.23,
+              "h": 81.65
+            },
+            {
+              "file": "scene_bg_DustDawn_activity_37.png",
+              "name": "Image08",
+              "x": 1237.44,
+              "y": 626.15,
+              "w": 580.54,
+              "h": 314.62
+            },
+            {
+              "file": "scene_fx_20104_lineglow.png",
+              "name": "imgLineGlow_R",
+              "x": -1176.89,
+              "y": -1294.13,
+              "w": 278.86,
+              "h": 3384.06,
+              "alpha": 0.682
+            }
+          ]
+        }
+      }
+    ]
+  },
   "301041": {
     "name": "Summer Check-in",
     "static": {
@@ -217,6 +2476,24 @@
       ]
     },
     "spines": []
+  },
+  "302001": {
+    "name": "一周年5日付费签到礼包 (302001)",
+    "static": null,
+    "spines": [
+      {
+        "name": "MallCheckInAct_Actor",
+        "skel": "MallCheckInAct_Actor.skel",
+        "atlas": "MallCheckInAct_Actor.atlas",
+        "textures": [
+          {
+            "file": "MallCheckInAct_Actor.png",
+            "w": 1024,
+            "h": 1024
+          }
+        ]
+      }
+    ]
   },
   "400013": {
     "name": "Cool Supply Stand S1",
@@ -309,6 +2586,29 @@
             "file": "castnet.png",
             "w": 1024,
             "h": 512
+          }
+        ]
+      }
+    ]
+  },
+  "400018": {
+    "name": "Wholeness at Reunion's Dawn",
+    "static": null,
+    "spines": [
+      {
+        "name": "BookScene",
+        "skel": "BookScene.skel",
+        "atlas": "BookScene.atlas",
+        "textures": [
+          {
+            "file": "BookScene.png",
+            "w": 2048,
+            "h": 2048
+          },
+          {
+            "file": "BookScene_2.png",
+            "w": 2048,
+            "h": 2048
           }
         ]
       }
@@ -1077,6 +3377,24 @@
     },
     "spines": []
   },
+  "sp10301": {
+    "name": "Amber: Default (Spine)",
+    "static": null,
+    "spines": [
+      {
+        "name": "10301",
+        "skel": "10301.skel",
+        "atlas": "10301.atlas",
+        "textures": [
+          {
+            "file": "10301.png",
+            "w": 1024,
+            "h": 512
+          }
+        ]
+      }
+    ]
+  },
   "sp10304": {
     "name": "Ease Into an Unhurried Summer (Spine)",
     "static": null,
@@ -1088,6 +3406,24 @@
         "textures": [
           {
             "file": "10304.png",
+            "w": 1024,
+            "h": 512
+          }
+        ]
+      }
+    ]
+  },
+  "sp11101": {
+    "name": "Iris: Default (Spine)",
+    "static": null,
+    "spines": [
+      {
+        "name": "11101",
+        "skel": "11101.skel",
+        "atlas": "11101.atlas",
+        "textures": [
+          {
+            "file": "11101.png",
             "w": 1024,
             "h": 512
           }
@@ -1108,6 +3444,24 @@
             "file": "11104.png",
             "w": 1024,
             "h": 512
+          }
+        ]
+      }
+    ]
+  },
+  "sp11201": {
+    "name": "Noya: Default (Spine)",
+    "static": null,
+    "spines": [
+      {
+        "name": "11201",
+        "skel": "11201.skel",
+        "atlas": "11201.atlas",
+        "textures": [
+          {
+            "file": "11201.png",
+            "w": 1024,
+            "h": 1024
           }
         ]
       }
@@ -1185,6 +3539,24 @@
       }
     ]
   },
+  "sp966001": {
+    "name": "Skin 966001 (Spine)",
+    "static": null,
+    "spines": [
+      {
+        "name": "966001",
+        "skel": "966001.skel",
+        "atlas": "966001.atlas",
+        "textures": [
+          {
+            "file": "966001.png",
+            "w": 1024,
+            "h": 512
+          }
+        ]
+      }
+    ]
+  },
   "sp966002": {
     "name": "Skin 966002 (Spine)",
     "static": null,
@@ -1198,6 +3570,42 @@
             "file": "966002.png",
             "w": 1024,
             "h": 512
+          }
+        ]
+      }
+    ]
+  },
+  "sp983001": {
+    "name": "Skin 983001 (Spine)",
+    "static": null,
+    "spines": [
+      {
+        "name": "983001",
+        "skel": "983001.skel",
+        "atlas": "983001.atlas",
+        "textures": [
+          {
+            "file": "983001.png",
+            "w": 1024,
+            "h": 1024
+          }
+        ]
+      }
+    ]
+  },
+  "sp983002": {
+    "name": "Skin 983002 (Spine)",
+    "static": null,
+    "spines": [
+      {
+        "name": "983002",
+        "skel": "983002.skel",
+        "atlas": "983002.atlas",
+        "textures": [
+          {
+            "file": "983002.png",
+            "w": 1024,
+            "h": 1024
           }
         ]
       }
@@ -1234,6 +3642,42 @@
             "file": "983004.png",
             "w": 1024,
             "h": 1024
+          }
+        ]
+      }
+    ]
+  },
+  "sp984001": {
+    "name": "Skin 984001 (Spine)",
+    "static": null,
+    "spines": [
+      {
+        "name": "984001",
+        "skel": "984001.skel",
+        "atlas": "984001.atlas",
+        "textures": [
+          {
+            "file": "984001.png",
+            "w": 1024,
+            "h": 512
+          }
+        ]
+      }
+    ]
+  },
+  "sp984002": {
+    "name": "Skin 984002 (Spine)",
+    "static": null,
+    "spines": [
+      {
+        "name": "984002",
+        "skel": "984002.skel",
+        "atlas": "984002.atlas",
+        "textures": [
+          {
+            "file": "984002.png",
+            "w": 1024,
+            "h": 512
           }
         ]
       }

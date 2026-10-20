@@ -15,6 +15,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { writeTextIfChanged } from './io.mjs';
+import { resolveDatamineDir } from './datamine.mjs';
 
 function parseArgs() {
   const args = process.argv.slice(2);
@@ -31,7 +32,8 @@ function parseArgs() {
 }
 
 function resolveFromDatamine(datamine, discFile, itemFile) {
-  const dm = datamine || path.resolve(path.dirname(new URL(import.meta.url).pathname), '../../StellaSoraData Makostar');
+  // Probes ../ss-data, then the pre-2.0 combined datamine root.
+  const dm = resolveDatamineDir(datamine, 'EN/bin/Disc.json');
   if (!discFile) {
     const cand = path.join(dm, 'EN/bin/Disc.json');
     if (fs.existsSync(cand)) discFile = cand;

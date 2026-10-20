@@ -29,7 +29,7 @@
  * — kept for reference/reconstruction, unused by the viewer fit.
  *
  * Names come from the datamine's localised AVG preset
- * (`_Lua/Game/UI/Avg/_en/Preset/AvgCharacter.lua`, id -> name; entries with
+ * (`Lua/Game/UI/Avg/_en/Preset/AvgCharacter.lua`, id -> name; entries with
  * a `reuse` id share another actor's bundle and are skipped).
  *
  * Usage:

@@ -24,6 +24,12 @@
  *   - walkRoots/behindRoots/frontRoots: which subtrees are scenic art.
  *   - charGO (name or [names]) + combine: one character, or a combined scene
  *     with one slot per name (scene.chars[], single entry `<ref>event`).
+ *   - charSpine: map a character GO name to its staged Spine name when they
+ *     differ (e.g. `sp_mw_L` -> `20104_mw_Female`).
+ *   - interleaved: build `scene.draw`, the hierarchy's exact painter order
+ *     with `{spine}` placeholders between image layers (characters nested in
+ *     different scenic groups, e.g. 20104).  Without it the viewer uses the
+ *     behind[] -> characters -> front[] split.
  *   - charOrigin: place the Spine at the RectTransform pivot (the game's
  *     SkeletonGraphic layout) instead of centring it in the slot; only used
  *     where a painted underlay confirms the alignment.
@@ -115,6 +121,29 @@ const SCENES = {
       // alpha < 1 matches the game's particle over the painted water.
       { name: 'pubu01', texture: 'fx_20103_bowen_04', x: -211.3, y: -375.4, w: 318.8, h: 914.9, front: true, scroll: [0, -0.1], alpha: 0.45 },
     ],
+  },
+  // DustDawnPanel (Wholeness at Reunion's Dawn): one wide event page holding
+  // the whole cast — Downdust + Iris in the midground scene groups and the two
+  // chibi mascots in the foreground groups.  Each is a SkeletonGraphic nested
+  // inside its own scenic layer, so the page must be drawn in hierarchy order
+  // with the characters interleaved between the image layers (`interleaved`).
+  // The chibi skeletons are char_2dsp-style files whose names (mw_Female/
+  // mw_Male) don't match their GO names (sp_mw_L/sp_mw_R), hence `charSpine`.
+  '20104': {
+    panel: 'DustDawnPanel', sub: '_20104',
+    walkRoots: ['---Bg---', 'imgBlack_Glow', 'imgBlack_R', 'imgBlack_L',
+      'imgStarLine', 'imgStarLine2', 'imgStarLine3'],
+    charGO: ['sp_Downdust', 'sp_Iris', 'sp_mw_L', 'sp_mw_R'],
+    charSpine: {
+      sp_Downdust: '20104_Downdust', sp_Iris: '20104_Iris',
+      sp_mw_L: '20104_mw_Female', sp_mw_R: '20104_mw_Male',
+    },
+    // bg_dustdawn_main_1 is the fully painted composite of this same page
+    // (characters included); the game fades it out once the live Spines are
+    // in, so overlaying it here just doubles the still art over the animated
+    // scene.
+    excludeTextures: ['bg_dustdawn_main_1'],
+    combine: true, charOrigin: true, interleaved: true,
   },
   // GunStormPanel: ---Bg--- behind; ---Fg--- holds masks/lines + the
   // character (BodyConstraintBG/imgBody/SpBody) in hierarchy order.  The
@@ -271,6 +300,31 @@ function parseImages(mbDir) {
     images.set(go[1], { sprite: spr[1], color, type: ty ? parseInt(ty[1], 10) : 0 });
   }
   return images;
+}
+
+// SkeletonGraphic components: the mesh is generated at skeleton origin +
+// pivotOffset (canvas units, Unity y-up), so a non-zero pivotOffset shifts a
+// character relative to its RectTransform pivot — e.g. 20104 mw_Female has
+// (62.23, 98.12) and would otherwise sit ~98px too low.  layoutScaleMode
+// None (0) uses pivotOffset directly; other modes scale it by layoutScale.
+function parseSkeletonGraphicOffsets(mbDir) {
+  const out = new Map(); // goPathID -> {x, y}
+  const goRe = /"m_GameObject"\s*:\s*\{\s*"m_FileID"\s*:\s*\d+\s*,\s*"m_PathID"\s*:\s*(-?\d+)/;
+  const offRe = /"pivotOffset"\s*:\s*\{\s*"x"\s*:\s*([-.0-9Ee+]+)\s*,\s*"y"\s*:\s*([-.0-9Ee+]+)/;
+  const modeRe = /"layoutScaleMode"\s*:\s*(-?\d+)/;
+  const scaleRe = /"layoutScale"\s*:\s*([-.0-9Ee+]+)/;
+  for (const p of listFiles(mbDir)) {
+    if (!/(^|[\\/])SkeletonGraphic[^\\/]*\.json$/.test(p)) continue;
+    const text = fs.readFileSync(p, 'utf8');
+    const go = goRe.exec(text);
+    const off = offRe.exec(text);
+    if (!go || !off) continue;
+    const mode = modeRe.exec(text);
+    const ls = scaleRe.exec(text);
+    const k = (mode && mode[1] !== '0' && ls) ? parseFloat(ls[1]) : 1;
+    out.set(go[1], { x: parseFloat(off[1]) * k, y: parseFloat(off[2]) * k });
+  }
+  return out;
 }
 
 function parseSprites(spriteDir) {
@@ -445,19 +499,24 @@ function main() {
         .map(([pid]) => pid)
         .sort((a, b) => rankOf(a) - rankOf(b));
       if (cfg.charAncestor) cand = cand.filter((pid) => under(pid, cfg.charAncestor));
-      if (!cand.length) { console.error(`  char GO '${nm}' not found under panel`); chatGosFail = true; break; }
+      if (!cand.length) { console.error(`  char GO '${nm}' not found under panel`); charGosFail = true; break; }
       if (cand.length > 1) console.log(`  note: ${cand.length} '${nm}' GOs under panel, using last (foreground-most)`);
       charGos.push(cand[cand.length - 1]);
     }
     if (charGosFail || !charGos.length) continue;
     const charSet = new Set(charGos);
+    // Some hosts name the GO differently from the staged skeleton (e.g. the
+    // 20104 mascots: sp_mw_L -> 20104_mw_Female); scene slots and the
+    // combinedSpines list must use the skeleton names.
+    const spineNameOf = (goNameStr) => (cfg.charSpine && cfg.charSpine[goNameStr]) || goNameStr;
+    const spineByGo = new Map(charGos.map((g) => [g, spineNameOf(goName(g))]));
     const charSlots = charGos.map((g) => {
       const l = layoutOf(trOfGo.get(g), trs, panelRootTr);
       if (l) {
         if (Math.abs(l.rz) > 0.001) console.log(`  warn: char ${goName(g)} rotated rz=${l.rz}`);
-        console.log(`  char ${goName(g)} rect: x=${l.x.toFixed(1)} y=${l.y.toFixed(1)} w=${l.w.toFixed(1)} h=${l.h.toFixed(1)}`);
+        console.log(`  char ${goName(g)} -> ${spineByGo.get(g)} rect: x=${l.x.toFixed(1)} y=${l.y.toFixed(1)} w=${l.w.toFixed(1)} h=${l.h.toFixed(1)}`);
       }
-      return { name: goName(g), layout: l };
+      return { name: spineNameOf(goName(g)), layout: l, go: g };
     });
     if (charSlots.some((s) => !s.layout)) { console.error('  char layout failed'); continue; }
     const charLayout = charSlots[0].layout;
@@ -469,6 +528,16 @@ function main() {
     const images = parseImages(mbDir);
     const sprites = parseSprites(spriteDir);
     const texNames = parseTextures(texDir);
+    // SkeletonGraphic mesh offset (see parseSkeletonGraphicOffsets): store it
+    // in scene coords (y-down) on each character slot.
+    const sgOffsets = parseSkeletonGraphicOffsets(mbDir);
+    for (const s of charSlots) {
+      const off = sgOffsets.get(s.go);
+      s.off = off ? { x: off.x, y: -off.y } : { x: 0, y: 0 };
+      if (off && (off.x || off.y)) {
+        console.log(`  char ${goName(s.go)} pivotOffset: x=${off.x.toFixed(1)} y=${off.y.toFixed(1)}`);
+      }
+    }
 
     const sceneDir = path.join(o.outDir, ref, 'scene');
     // Stale layers from previous runs are pruned after staging (below), so
@@ -476,6 +545,10 @@ function main() {
     const stagedByTex = new Map(); // texName -> staged file (packed textures shared)
     const behind = [];
     const front = [];
+    // Full painter's-order stream for interleaved scenes: the same image
+    // layers as behind[]/front[] plus {spine} placeholders where each
+    // character sits between them.
+    const draw = [];
     let charSeen = false;
     let nImg = 0, nSkip = 0;
     const skipRoots = new Set(cfg.skipRoots || []);
@@ -542,11 +615,16 @@ function main() {
       // Tiled images repeat the texture across the rect (no stretching).
       if (img.type === 2 && !layer.frame) layer.tiled = true;
       arr.push(layer);
+      draw.push(layer);
       nImg++;
     };
 
     const walk = (goPid) => {
-      if (charSet.has(goPid)) { charSeen = true; return; }
+      if (charSet.has(goPid)) {
+        charSeen = true;
+        draw.push({ spine: spineByGo.get(goPid) });
+        return;
+      }
       emitImage(goPid, charSeen ? front : behind);
       const tr = trOfGo.get(goPid);
       const t = tr ? trs.get(tr) : null;
@@ -661,6 +739,11 @@ function main() {
       scene.char.px = Math.round(charLayout.px * 100) / 100;
       scene.char.py = Math.round(-charLayout.py * 100) / 100;
     }
+    const off0 = charSlots[0].off || { x: 0, y: 0 };
+    if (off0.x || off0.y) {
+      scene.char.ox = Math.round(off0.x * 100) / 100;
+      scene.char.oy = Math.round(off0.y * 100) / 100;
+    }
     if (charSlots.length > 1) {
       // Combined scene: one slot per character (viewer places each Spine in
       // its own slot).
@@ -674,7 +757,25 @@ function main() {
           slot.px = Math.round(s.layout.px * 100) / 100;
           slot.py = Math.round(-s.layout.py * 100) / 100;
         }
+        const off = s.off || { x: 0, y: 0 };
+        if (off.x || off.y) {
+          slot.ox = Math.round(off.x * 100) / 100;
+          slot.oy = Math.round(off.y * 100) / 100;
+        }
         return slot;
+      });
+    }
+    if (cfg.interleaved) {
+      // Preserve the hierarchy's painter order exactly: backgrounds, the
+      // midground characters, foreground scenery, chibis, then the topmost
+      // overlays.  Duplicate image layers are collapsed like behind/front.
+      const seenDraw = new Set();
+      scene.draw = draw.filter((l) => {
+        if (l.spine) return true;
+        const k = JSON.stringify([l.file, l.frame || null, l.x, l.y, l.w, l.h, l.tint || null, l.alpha ?? null, !!l.tiled, l.scroll || null]);
+        if (seenDraw.has(k)) { nSkip++; return false; }
+        seenDraw.add(k);
+        return true;
       });
     }
     console.log(`  layers: ${scene.behind.length} behind, ${scene.front.length} front, skipped ${nSkip}`);
@@ -685,12 +786,13 @@ function main() {
     const frag = JSON.parse(fs.readFileSync(fragPath, 'utf8'));
     if (charSlots.length > 1) {
       // One combined entry: attach the shared scene to every character spine.
-      for (const nm of charNames) {
+      const spines = charGos.map((g) => spineByGo.get(g));
+      for (const nm of spines) {
         const sp = (frag.spines || []).find((s) => s.name === nm);
         if (!sp) { console.error(`  spine '${nm}' not in fragment`); continue; }
         sp.scene = scene;
       }
-      frag.combinedSpines = charNames.slice();
+      frag.combinedSpines = spines;
     } else if (cfg.forStatic) {
       if (!frag.static) { console.error('  fragment has no static entry'); continue; }
       frag.static.scene = scene;

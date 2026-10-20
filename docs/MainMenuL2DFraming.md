@@ -17,7 +17,7 @@ never applied the per-character offset.
 
 The game renders every Actor2D panel through an off-screen camera rig defined in
 `----Actor2D_Node----.prefab` (`ui_commonex.unity3d`) and driven by
-`_Lua/Game/Actor2D/Actor2DManager.lua`:
+`Lua/Game/Actor2D/Actor2DManager.lua`:
 
 ```
 renderer (----Actor2D_Node----)
@@ -195,8 +195,8 @@ transform with the model.
 
 | file | what it told us |
 |------|-----------------|
-| `_Lua/Game/Actor2D/Actor2DManager.lua` | rig structure, camera ortho size, `customized_bg` scale=1, `SetRelativeL2DPoseScale` |
-| `_Lua/GameCore/Common/Settings.lua` | `CURRENT_CANVAS_FULL_RECT = 2160x1080` |
+| `Lua/Game/Actor2D/Actor2DManager.lua` | rig structure, camera ortho size, `customized_bg` scale=1, `SetRelativeL2DPoseScale` |
+| `Lua/GameCore/Common/Settings.lua` | `CURRENT_CANVAS_FULL_RECT = 2160x1080` |
 | `ui_commonex.unity3d` → `Actor2DInPanel.asset` | panel 10 = MainView, `PreferL2DType=2`, `PreferActorBg=1` |
 | `ui_commonex.unity3d` → `----Actor2D_Node----.prefab` | camera at (0,0,-11) ortho 5.4; `customized_bg` at (0,0,9) |
 | `image-*.unity3d` → CharBg `Sprite` | `m_PixelsToUnits = 100` → 24×17 world units |

@@ -29,6 +29,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { writeTextIfChanged } from './io.mjs';
+import { resolveDatamineDir } from './datamine.mjs';
 
 const SCRIPT_DIR = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(SCRIPT_DIR, '..');
@@ -44,7 +45,7 @@ function parseArgs() {
     eventsDir: path.resolve(get('--events', path.join(ROOT, 'events'))),
     outFile: path.resolve(get('--out', path.join(ROOT, 'data/events.json'))),
     modelsFile: path.resolve(get('--models', path.join(ROOT, 'data/models.json'))),
-    datamine: get('--datamine', path.join(ROOT, '../StellaSoraData Makostar')),
+    datamine: get('--datamine', ''),
   };
 }
 
@@ -109,7 +110,9 @@ function nameFor(ref, names) {
 
 function main() {
   const o = parseArgs();
-  const names = buildNames(o.datamine);
+  // Language/bin tables live in the ss-data clone since game 2.0; the old
+  // combined datamine root is still probed as a fallback.
+  const names = buildNames(resolveDatamineDir(o.datamine, 'EN/language/en_US'));
   const frags = fs.existsSync(o.stageDir)
     ? fs.readdirSync(o.stageDir).filter((f) => f.endsWith('.json')).sort()
     : [];

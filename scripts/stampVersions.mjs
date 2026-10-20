@@ -208,9 +208,18 @@ function stampModelEntry(entry, old, prevHashes, version, root) {
   const variantHashes = {};
   let anyFilesChanged = false;
 
-  const oldVariants = new Map((old && Array.isArray(old.variants) ? old.variants : [])
-    .filter((v) => v && v.name !== undefined)
-    .map((v) => [String(v.name), v]));
+  // Variant names are not unique: event entries reuse the ref for each spine
+  // (e.g. 510007event / BOSS1 + BOSS2), so match by name+path first and only
+  // fall back to name for entries whose layout changed (e.g. multi-model
+  // nesting) to avoid cross-comparing two different variants.
+  const oldVariantsByPath = new Map();
+  const oldVariantsByName = new Map();
+  for (const v of old && Array.isArray(old.variants) ? old.variants : []) {
+    if (!v || v.name === undefined) continue;
+    const k = String(v.name) + '\0' + String(v.path || '');
+    if (!oldVariantsByPath.has(k)) oldVariantsByPath.set(k, v);
+    if (!oldVariantsByName.has(String(v.name))) oldVariantsByName.set(String(v.name), v);
+  }
 
   for (const vv of entry.variants || []) {
     if (typeof vv.name !== 'string') continue;
@@ -220,7 +229,8 @@ function stampModelEntry(entry, old, prevHashes, version, root) {
     const prev = prevHashes.variants ? prevHashes.variants[vv.name] : null;
     const filesChanged = prev ? prev !== fh : false;
     anyFilesChanged = anyFilesChanged || filesChanged;
-    const oldV = oldVariants.get(vv.name);
+    const oldV = oldVariantsByPath.get(String(vv.name) + '\0' + String(vv.path || ''))
+      || oldVariantsByName.get(vv.name);
     if (!oldV) {
       // New skin variant on an existing character (e.g. a new event outfit).
       vv.added = version;

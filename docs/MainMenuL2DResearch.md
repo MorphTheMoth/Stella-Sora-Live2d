@@ -4,9 +4,10 @@ Investigation notes covering: what the "Default" L2D is, how the game picks
 the main-menu character, where the main-menu background image comes from, and
 how mouse/touch interaction with the L2D is wired up.
 
-Sources: the decompiled game scripts in `StellaSoraData Makostar/_Lua`, the
-datamine tables in `StellaSoraData Makostar/EN/bin`, and Unity assets extracted
-from the installed game with `AssetStudioModCLI`.
+Sources: the decompiled game scripts in `StellaSoraData Makostar/Lua`, the
+datamine tables in `ss-data/EN/bin` (game 2.0 split the tables out of the Lua
+clone), and Unity assets extracted from the installed game with
+`AssetStudioModCLI`.
 
 ---
 
@@ -162,6 +163,29 @@ The viewer already handles (b): `data/models.json` records per-variant
 and `main.js` (`setBackground`, `fitBgLayer`) draws them as sibling containers
 behind/in front of the model.
 
+### c) Extra Cubism models in the same prefab
+
+`root/----live2d_modle----` can host more than one Cubism model instance: the
+character (`10303_L_a`), plus the scene/props it is posed with (`10303_L_b` =
+cat + lantern). The game instantiates the whole subtree, so the viewer must
+too — 30 variants at game 2.0 are multi-model (`11901_F_a/_b/_c`,
+`14501_LF_a/_b/_c`, `15801_LF_a/_b`, ...).
+
+- Each model is a direct child named `<id>_<L|F|T>[_<a-z>]` whose subtree has
+  MeshRenderers; `extractBgLayers.mjs` records its transform, base sorting
+  order and canvas size, and `mergeBgLayers.mjs` merges them into
+  `variants[].models[]` (back-to-front).
+- The serialized MeshRenderer `m_SortingOrder` is authoritative: extras sit
+  *behind* the character for `10303_l`/`11901_lf` (`_b` = -500) but `14501_lf`
+  puts the `_c` collar overlay (-500) *over* the `_a` torso (-1000).  There is
+  no runtime Lua re-sorting outside the editor-only `SortingOrder = 1` helper
+  in `Actor2DManager`.
+- `normalize.py` nests each model in `chars/<id>/<variant>/<modelName>/` so
+  their `textures/`/`motions/` cannot collide; single-model variants stay flat.
+- The alphabetically first model (`_a`) remains the primary: it is the one
+  named by the URL, the options/interaction target, and the fallback when a
+  variant ships no `models[]`.
+
 **What the viewer is missing is (a)** — the per-character `Image/CharBg/*.png`
 that the game draws on `customized_bg` in the main menu for the Normal/Default
 display. To add it: extract the CharBg textures from the `image-XX` bundles and
@@ -214,11 +238,11 @@ clamped to ±8 / ±9 units) is used by the character preview panels — e.g.
 | Concern | Location |
 |---------|----------|
 | Default L2D prefab | `CharacterSkin.L2D` = `Actor2D/Character/<skin>/<skin>_L.prefab` |
-| Board / main-menu char | `_Lua/GameCore/Data/DataClass/PlayerBoardData.lua` |
-| Main view actor setup | `_Lua/Game/UI/MainViewEx/MainViewCtrl.lua:500` `RefreshActor2D` |
-| L2D engine glue | `_Lua/Game/Actor2D/Actor2DManager.lua` |
+| Board / main-menu char | `Lua/GameCore/Data/DataClass/PlayerBoardData.lua` |
+| Main view actor setup | `Lua/Game/UI/MainViewEx/MainViewCtrl.lua:500` `RefreshActor2D` |
+| L2D engine glue | `Lua/Game/Actor2D/Actor2DManager.lua` |
 | MainView panel config | `ui_commonex.unity3d` → `Actor2DInPanel.asset` (PanelId 10) |
 | Main-menu bg image | `Image/CharBg/<CharacterSkin.Bg>.png` in `image-XX.unity3d` |
 | In-model bg scene | `root/----bg----` in each L2D prefab (viewer `bg/`, `bgLayers`) |
-| Char picker | `_Lua/Game/UI/MainViewBoard/ChooseHomePageRoleCtrl.lua` |
+| Char picker | `Lua/Game/UI/MainViewBoard/ChooseHomePageRoleCtrl.lua` |
 | Click/swipe handlers | `MainViewCtrl.lua:1341` / `1807` |
