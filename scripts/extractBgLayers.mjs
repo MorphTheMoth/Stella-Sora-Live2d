@@ -1,27 +1,41 @@
 #!/usr/bin/env node
 /**
  * extractBgLayers.mjs — parse an AssetStudioModCLI `-m dump` of the l2d
- * bundle types (gameobject, transform, sprite, spriteRenderer) and emit the
- * per-prefab `----bg----` / `----bg_effect----` / `----fg_effect----` /
- * model-subtree sprite composition used to build `bgLayers` in models.json.
+ * bundle types (gameobject, transform, sprite, spriteRenderer, sortingGroup)
+ * and emit the per-prefab `----bg----` / `----bg_effect----` /
+ * `----fg_effect----` / model-subtree sprite composition used to build
+ * `bgLayers` in models.json.
  *
  * Each dumped asset is a file named `<assetName> @<pathID>.txt` in the dump
  * root.  The dump command (see dump.sh):
  *
  *   dotnet AssetStudioModCLI.dll <bundle> -m dump \
- *     -t gameobject,transform,rectTransform,sprite,spriteRenderer \
+ *     -t gameobject,transform,rectTransform,sprite,spriteRenderer,sortingGroup \
  *     -f assetName_pathID --load-all -o <dumpDir>
  *
  * Output (written to --out):
- *   { bundle, compositions: [ { prefab, active, layers: [ { goName, group,
- *     active, posX, posY, scaleX, scaleY, sortLayer, sortOrder, sizeX,
- *     sizeY, texture, texW, texH } ] } ] }
+ *   { bundle, compositions: [ { prefab, active,
+ *     groups: { "----bg----": 0, ... },
+ *     layers: [ { goName, group, groupOrder, active, posX, posY, scaleX,
+ *     scaleY, sortLayer, sortOrder, sizeX, sizeY, texture, texW, texH } ] } ] }
  *
  * `texture` is the Sprite's name (resolved to a PNG in the variant bg/ dir).
- * `group` is the enclosing `----*----` node (or "model" when the layer sits
- * directly on the prefab root).  `posX/posY` and `scaleX/scaleY` are the
+ * `group` is the enclosing `----*----` node (or the prefab root name when the
+ * layer sits directly on the root).  `posX/posY` and `scaleX/scaleY` are the
  * accumulated world-space transform (Unity y-up), matching how the game
  * positions each layer.
+ *
+ * `groupOrder` is the Unity `SortingGroup` "Order in Layer" of the enclosing
+ * `----*----` node.  A SortingGroup renders its whole subtree as one unit on
+ * the group's sublayer ("all the child GameObjects render on this sublayer,
+ * but keep their order" — Unity manual, Sorting Group component reference), so
+ * `groupOrder` is the primary sort key: it is what puts `----bg----` (0)
+ * behind `----bg_effect----` (1), the model (2) behind `----fg_effect----` (3).
+ * The `sortOrder` of each SpriteRenderer only orders layers *within* one group.
+ * When the dump predates the `sortingGroup` type the order is derived from the
+ * group name (the four group names are fixed), so the output is stable either
+ * way; `null` means the group is neither a standard group nor a `*fg_effect*` /
+ * `*bg_effect*` / `*live2d_modle*` root.
  *
  * Usage:
  *   node scripts/extractBgLayers.mjs --dump <dumpDir> --out <compositions.json>
@@ -118,6 +132,7 @@ function parseDump(dumpDir) {
   const trs = new Map(); // pathID -> { go, x, y, sx, sy, children, father }
   const srs = new Map(); // pathID -> { go, sortLayer, sortOrder, sprite, szX, szY }
   const sprs = new Map(); // pathID -> { name, w, h }
+  const sgs = new Map(); // pathID -> { go, sortLayer, sortOrder }
 
   for (const p of files) {
     const pidM = / @(-?\d+)\.txt$/.exec(p);
@@ -166,20 +181,56 @@ function parseDump(dumpDir) {
         sortOrder: sortO ? intVal(sortO.block) : 0,
         szX: size.x || 0, szY: size.y || 0,
       });
+    } else if (first.startsWith('SortingGroup')) {
+      const goF = byName.get('GameObject');
+      const sortL = byName.get('SortingLayer');
+      const sortO = byName.get('SortingOrder');
+      const intVal = (b) => {
+        const m = /SInt(?:16|32) \w+ = (-?\d+)/.exec(b.join('\n'));
+        return m ? parseInt(m[1], 10) : 0;
+      };
+      sgs.set(pid, {
+        go: goF ? singlePathID(goF.block) : null,
+        sortLayer: sortL ? intVal(sortL.block) : 0,
+        sortOrder: sortO ? intVal(sortO.block) : 0,
+      });
     } else if (first.startsWith('Sprite')) {
       const rectF = byName.get('Rect');
       const rect = rectF ? floatXY(rectF.block, ['width', 'height']) : {};
       sprs.set(pid, { name: strVal(byName.get('Name') ? byName.get('Name').block : []), w: rect.width || 0, h: rect.height || 0 });
     }
   }
-  return { gos, trs, srs, sprs };
+  return { gos, trs, srs, sprs, sgs };
 }
 
 // --- composition ------------------------------------------------------------
 
+// SortingGroup "Order in Layer" of a `----*----` group node (or of a prefab
+// root that acts as one, e.g. `fx_live2d_11101_bg_effect_01`).
+//
+// A SortingGroup renders its whole subtree as a single unit on the group's
+// sublayer while the children keep their relative order, so this value decides
+// where the group as a whole sits relative to the other groups (and relative to
+// the Live2D model, which lives under `----live2d_modle----`).  The four
+// standard group names always carry 0/1/2/3 in that order; older dumps that
+// predate the `sortingGroup` type fall back to the name so the result does not
+// depend on re-dumping.
+function groupOrderFor(name, sgOrder) {
+  if (typeof sgOrder === 'number') return sgOrder;
+  const n = name || '';
+  if (/fg_effect/i.test(n)) return 3;
+  if (/bg_effect/i.test(n)) return 1;
+  if (/live2d_modle/i.test(n)) return 2;
+  if (n === '----bg----') return 0;
+  return null;
+}
+
 function main() {
   const { dumpDir, outFile } = parseArgs();
-  const { gos, trs, srs, sprs } = parseDump(dumpDir);
+  const { gos, trs, srs, sprs, sgs } = parseDump(dumpDir);
+
+  const sgOfGo = new Map(); // gameobject pathID -> SortingGroup order
+  for (const sg of sgs.values()) if (sg.go) sgOfGo.set(sg.go, sg.sortOrder);
 
   const goOfTr = new Map(); // transform pathID -> gameobject pathID
   const trOfGo = new Map(); // gameobject pathID -> transform pathID
@@ -203,7 +254,7 @@ function main() {
 
   const prefabMap = new Map(); // prefab name -> best composition (most layers)
 
-  const walk = (tid, group, accX, accY, accSx, accSy, layers, visited) => {
+  const walk = (tid, group, groupOrder, accX, accY, accSx, accSy, layers, groups, visited) => {
     if (!tid || visited.has(tid)) return;
     visited.add(tid);
     const ctr = trs.get(tid);
@@ -214,7 +265,12 @@ function main() {
     const asy = accSy * (ctr.sy || 1);
     const go = ctr.go ? gos.get(ctr.go) : null;
     let nodeGroup = group;
-    if (go && /^----[^"]+----$/.test(go.name)) nodeGroup = go.name;
+    let nodeOrder = groupOrder;
+    if (go && /^----[^"]+----$/.test(go.name)) {
+      nodeGroup = go.name;
+      nodeOrder = groupOrderFor(go.name, sgOfGo.get(ctr.go));
+      groups.set(nodeGroup, nodeOrder);
+    }
     if (go) {
       for (const comp of go.comps) {
         const csr = srs.get(comp);
@@ -224,6 +280,7 @@ function main() {
         layers.push({
           goName: go.name,
           group: nodeGroup || 'model',
+          groupOrder: nodeOrder,
           active: go.active || 'True',
           posX: ax, posY: ay, scaleX: asx, scaleY: asy,
           sortLayer: csr.sortLayer, sortOrder: csr.sortOrder,
@@ -233,7 +290,7 @@ function main() {
         });
       }
     }
-    for (const c of ctr.children) walk(c, nodeGroup, ax, ay, asx, asy, layers, visited);
+    for (const c of ctr.children) walk(c, nodeGroup, nodeOrder, ax, ay, asx, asy, layers, groups, visited);
   };
 
   for (const gid of roots) {
@@ -241,16 +298,30 @@ function main() {
     if (!g || !g.name) continue;
     const tid = trOfGo.get(gid);
     const layers = [];
+    const groups = new Map();
     // Each prefab root gets its own visited set so duplicate roots (sub-model
     // instances) that share transforms don't suppress the real root's walk.
     const visited = new Set();
-    walk(tid, g.name, 0, 0, 1, 1, layers, visited);
-    layers.sort((a, b) => (a.sortLayer - b.sortLayer) || (a.sortOrder - b.sortOrder));
+    const rootOrder = groupOrderFor(g.name, sgOfGo.get(gid));
+    if (rootOrder !== null) groups.set(g.name, rootOrder);
+    walk(tid, g.name, rootOrder, 0, 0, 1, 1, layers, groups, visited);
+    // Back-to-front: the group (SortingGroup) order first, then the layer's own
+    // sorting order inside the group.  Array sort is stable, so equal keys keep
+    // prefab hierarchy order.
+    layers.sort((a, b) =>
+      (a.sortLayer - b.sortLayer) ||
+      ((a.groupOrder ?? 1) - (b.groupOrder ?? 1)) ||
+      (a.sortOrder - b.sortOrder));
     // Some bundles carry duplicate prefab roots (sub-model instances) with
     // the same name; keep the one holding the most sprite layers.
     const existing = prefabMap.get(g.name);
     if (!existing || layers.length > existing.layers.length) {
-      prefabMap.set(g.name, { prefab: g.name, active: g.active || 'True', layers });
+      prefabMap.set(g.name, {
+        prefab: g.name,
+        active: g.active || 'True',
+        groups: Object.fromEntries(groups),
+        layers,
+      });
     }
   }
 

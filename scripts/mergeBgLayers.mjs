@@ -5,7 +5,13 @@
  *
  * For each variant we look up the prefab root (e.g. "16001_LF") and, when
  * the bundle only yields one active composition, attach its layers.  The
- * layer list is ordered back-to-front (Unity sortOrder ascending).
+ * layer list is ordered back-to-front: the enclosing group's SortingGroup
+ * order first (`----bg----` 0 < `----bg_effect----` 1 < the model 2 <
+ * `----fg_effect----` 3), then the layer's own Unity sortOrder inside that
+ * group.  A layer draws in front of the character when its group sorts above
+ * `----live2d_modle----` (i.e. `----fg_effect----`); layers inside the model
+ * group follow the sprite's own sortOrder (>= 1 is in front, matching the
+ * game's `CubismRenderController.SortingOrder`).
  *
  * Usage:
  *   node scripts/mergeBgLayers.mjs --models data/models.json
@@ -37,6 +43,28 @@ function variantToPrefab(variantPath) {
   if (!variant) return null;
   const suffix = variant.replace(skin, '');
   return skin.toUpperCase() + suffix.toUpperCase();
+}
+
+const MODEL_GROUP = '----live2d_modle----';
+
+// SortingGroup order of the Live2D model group for a composition: the prefab
+// value when the dump captured it, otherwise the shared default (every L2D
+// prefab in the game uses 0/1/2/3 for bg/bg_effect/model/fg_effect).
+function modelGroupOrder(comps) {
+  for (const c of comps) {
+    const v = c.groups && c.groups[MODEL_GROUP];
+    if (typeof v === 'number') return v;
+    const l = (c.layers || []).find((x) => x.group === MODEL_GROUP && typeof x.groupOrder === 'number');
+    if (l) return l.groupOrder;
+  }
+  return 2;
+}
+
+// Back-to-front key inside one group: unknown groups (a prefab root whose name
+// is not a `----*----` node, e.g. an `fx_*_bg_effect_*` rig) sit in the
+// bg_effect band.
+function groupOrderOf(layer) {
+  return typeof layer.groupOrder === 'number' ? layer.groupOrder : 1;
 }
 
 function main() {
@@ -93,19 +121,24 @@ function main() {
       const visible = allLayers.filter((l) => l.active !== 'False');
       const use = visible.length ? visible : allLayers;
 
-      // Store ordered back-to-front layers (sortLayer, then sortOrder).
-      use.sort((a, b) => (a.sortLayer - b.sortLayer) || (a.sortOrder - b.sortOrder));
+      // Store ordered back-to-front layers: the group (SortingGroup) order is
+      // the primary key, the layer's own sortOrder orders layers inside it.
+      // Array sort is stable, so equal keys keep the prefab hierarchy order.
+      const modelOrder = modelGroupOrder(comps2);
+      use.sort((a, b) =>
+        (a.sortLayer - b.sortLayer) ||
+        (groupOrderOf(a) - groupOrderOf(b)) ||
+        (a.sortOrder - b.sortOrder));
       variant.bgLayers = use.map((l) => {
-        const isDisc = /^\d{4}$/.test(skin);
-        // Disc L2Ds use a different panel setup: the character's
-        // CubismRenderer stays at sortingOrder 0 and the foreground
-        // is defined by the prefab hierarchy (----fg_effect---- after
-        // ----live2d_modle----), not just sortingOrder.  Keep the
-        // strict sortOrder>=1 check for trekker (char) L2Ds where
-        // many fg_effect layers at -100..-200 must stay behind.
-        const fg = isDisc
-          ? (l.group === '----fg_effect----' || l.group === '----live2d_modle----' || l.sortOrder >= 1)
-          : l.sortOrder >= 1;
+        const groupOrder = groupOrderOf(l);
+        // A SortingGroup makes its whole subtree sort as one unit, so a layer
+        // in front of the character is simply one whose group sorts above
+        // ----live2d_modle---- (----fg_effect----).  Layers inside the model
+        // group (weapons, held props, props parented under the model) use
+        // their own sortOrder: >= 1 draws in front of the Cubism renderer.
+        const fg = groupOrder === modelOrder
+          ? l.sortOrder >= 1
+          : groupOrder > modelOrder;
         return {
           file: l.texture, // texture name; resolved against the variant bg/ dir
           x: l.posX || 0,

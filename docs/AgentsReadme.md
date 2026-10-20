@@ -150,8 +150,8 @@ Each character skin has a main-menu background the game draws behind the L2D
 
 > **RectTransform:** the bg scene-graph dump must include `rectTransform`
 > alongside `transform` (`-t gameobject,transform,rectTransform,sprite,
-> spriteRenderer`). `RectTransform` is a distinct Unity class, and some
-> bundles' `----bg----` compositions hang off a RectTransform root (e.g.
+> spriteRenderer,sortingGroup`). `RectTransform` is a distinct Unity class, and
+> some bundles' `----bg----` compositions hang off a RectTransform root (e.g.
 > Donna's dual-model Memory Snapshot), so the composition extractor silently
 > drops those layers without it.
 
@@ -163,14 +163,35 @@ Each character skin has a main-menu background the game draws behind the L2D
 > breaks the composite `----bg----` backgrounds. Re-run `mergeBgLayers.mjs`
 > afterwards, or just re-run `dump.sh`.
 
-> **Foreground layers:** a composed `bgLayers` entry is treated as foreground
-> (drawn in front of the character) only when its Unity `sortingOrder >= 1`
-> (the L2D renders at sorting order 1 — `Actor2DManager` sets
-> `CubismRenderController.SortingOrder = 1`). The `----fg_effect----` /
-> `----bg_effect----` group names do **not** decide front/behind on their own:
-> many `fg_effect` objects sit at negative sorting orders and render *behind*
-> the character in-game (e.g. Shia's Memory Snapshot rocks at order -100..-200).
-> `mergeBgLayers.mjs` therefore sets each layer's `fg` from `sortOrder >= 1`.
+> **Foreground layers (SortingGroup):** every `----bg----` / `----bg_effect----`
+> / `----live2d_modle----` / `----fg_effect----` node carries a Unity
+> **`SortingGroup`** whose *Order in Layer* is `0 / 1 / 2 / 3` in that order
+> (all 228 prefab compositions in the game use exactly these four values).
+> A SortingGroup renders its whole subtree "as one unit on a single sorting
+> layer and sublayer … [the children] keep their order", so the group's order —
+> not the layers' individual `sortingOrder` — decides where the group sits
+> relative to everything else: `----bg----` (0) behind `----bg_effect----` (1),
+> both behind the model (2), and `----fg_effect----` (3) in front of it.
+> The children's own `sortingOrder` only orders layers *within* one group.
+> `extractBgLayers.mjs` records the group order as each layer's `groupOrder`
+> and `mergeBgLayers.mjs` sorts by `(sortLayer, groupOrder, sortOrder)`, marking
+> a layer `fg` when its group sorts above `----live2d_modle----`.
+> The group **name** alone is not enough, and neither is `sortingOrder`:
+> `11103_L` has its railing/pavilion in `----bg_effect----` (in front of the
+> `----bg----` tree) at `sortingOrder -100`, while `11301_LF` duplicates the
+> same windmill/decorations in both `----bg_effect----` and `----fg_effect----`.
+> Consequence: the `-100..-200` `fg_effect` layers are genuinely foreground —
+> e.g. Shia's `15501_LF` beach stones (`----fg_effect----`, order -100..-200)
+> sit **in front of** the character, and `15801_LF`'s gift-box frame
+> (`FG_002`, order -150) draws over her.
+> Layers parented *inside* `----live2d_modle----` (weapons, held props,
+> `*_ex_bg_*` backdrops) have no group of their own, so they keep the
+> `sortOrder >= 1` rule (`CubismRenderController.SortingOrder = 1`, set in
+> `Actor2DManager`): `bg_02`/`zhiwu01`/`beizi02` at -180..-2650 stay behind,
+> `weapon_01`/`trumpet_01`/`desk_01` at 10..89 go in front.
+> `dump.sh` dumps `sortingGroup` with the scene graph; if an older dump lacks
+> it, `extractBgLayers.mjs` derives the same 0/1/2/3 from the fixed group names,
+> so both paths produce identical output.
 
 ## Story characters (AVG dialogue sprites)
 

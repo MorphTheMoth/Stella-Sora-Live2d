@@ -144,7 +144,11 @@ AssetStudioModCLI <game>/StellaSora_Data/StreamingAssets/InstallResource/image-X
 Separate from `customized_bg`, each L2D prefab can contain a layered background
 scene under `root/----bg----` (plus `----bg_effect----` / `----fg_effect----`),
 a stack of SpriteRenderers at world position/scale (PPU 100; the canvas is
-24×17 world units). The game toggles/hides these nodes from Lua
+24×17 world units). Each of those four nodes carries a Unity **SortingGroup**
+(Order in Layer `0/1/2/3`) that places the group as a whole — see
+`docs/AgentsReadme.md` → "Foreground layers (SortingGroup)" for how
+`extractBgLayers.mjs` / `mergeBgLayers.mjs` derive the back-to-front order and
+the `fg` flag from it. The game toggles/hides these nodes from Lua
 (`ResetRenderer` line 400, `SetBoardNPC2D` line 1270).
 
 - **Memory Snapshot (`_lf`) models always carry `----bg----`** — e.g. 10301_LF

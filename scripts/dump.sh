@@ -78,7 +78,9 @@ while [[ $# -gt 0 ]]; do
 done
 
 # --- Incremental cache (mtime+size, like bruteForceOthers.mjs) -----------------
-# Cache file: .dump_tmp/dump.cache.json  {version:1, entries:{path:{mtimeMs,size,live2d_ok,live2d_cnt,bg_ok,disc_ok,offset_ok,charbg_ok}}}
+# Cache file: .dump_tmp/dump.cache.json  {version:1, entries:{path:{mtimeMs,size,live2d_ok,live2d_cnt,bg2_ok,disc_ok,offset_ok,charbg_ok}}}
+# (bg2 == the bg-layer stage after adding the sortingGroup type to its dump;
+#  the old bg_* keys are ignored so every bundle is re-dumped once.)
 # Skips dotnet exports for unchanged bundles; --force / -f ignores cache.
 cache_ensure() {
   mkdir -p "$(dirname "$CACHE_FILE")"
@@ -327,9 +329,11 @@ if [[ ${#FAILED[@]} -gt 0 ]]; then
 fi
 
 # Background layer composition: for every bundle, dump the scene graph
-# (gameobject/transform/sprite/spriteRenderer) so extractBgLayers.mjs can
-# reconstruct the layered `----bg----` / `----bg_effect----` /
-# `----fg_effect----` / model-subtree sprite stack for each variant.
+# (gameobject/transform/sprite/spriteRenderer/sortingGroup) so
+# extractBgLayers.mjs can reconstruct the layered `----bg----` /
+# `----bg_effect----` / `----fg_effect----` / model-subtree sprite stack for
+# each variant.  The `----*----` group nodes carry a SortingGroup that decides
+# where each group as a whole sorts, so it must be dumped too.
 BGDIR="$TMP/bglayers"
 TEXDIR="$TMP/bgtex"
 mkdir -p "$BGDIR" "$TEXDIR"
@@ -338,7 +342,7 @@ for bundle in "${BUNDLES[@]}"; do
   base="$(basename "$bundle" .unity3d)"
   # avg prefabs are plain model rigs — no ----bg---- scene layers to compose
   [[ "$base" == char_avg_2d_* ]] && continue
-  if cache_hit "$bundle" "bg" "$BGDIR/$base/compositions.json"; then
+  if cache_hit "$bundle" "bg2" "$BGDIR/$base/compositions.json"; then
     echo "=== $base (bg) ==="
     echo "  cached (unchanged) — skipping bg dump"
     CACHE_HITS=$((CACHE_HITS+1))
@@ -355,7 +359,7 @@ for bundle in "${BUNDLES[@]}"; do
   # dual-model Memory Snapshot), so it must be in the type list or those
   # layers are silently dropped.
   if ! DOTNET_ROLL_FORWARD=Major dotnet "$CLI" "$bundle" -m dump \
-      -t gameobject,transform,rectTransform,sprite,spriteRenderer \
+      -t gameobject,transform,rectTransform,sprite,spriteRenderer,sortingGroup \
       -f assetName_pathID --load-all -o "$out_bg" >/dev/null 2>&1; then
     echo "  bg dump FAILED"; BG_FAILED+=("$base"); continue
   fi
@@ -370,7 +374,7 @@ for bundle in "${BUNDLES[@]}"; do
       -t texture2d -o "$out_tex" --image-format png >/dev/null 2>&1; then
     echo "  texture export FAILED"
   fi
-  cache_mark "$bundle" "bg" 0
+  cache_mark "$bundle" "bg2" 0
 done
 
 if [[ ${#BG_FAILED[@]} -gt 0 ]]; then
