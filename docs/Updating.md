@@ -78,14 +78,15 @@ Order matters — `data/models.json` is rebuilt after bg staging and again at th
 
 ### Version stamping (`added` / `updated`)
 
-The viewer badges entries added/edited in the latest game version and offers a
+The viewer badges entries added in the latest game version and offers a
 **New** filter (see `docs/AgentsReadme.md` → "New / updated badges"). Data:
 
 - `data/models.json` / `data/avg.json` entries carry `added` and `updated`
   (game version strings, e.g. `1.16.0`). Entries that predate stamping have
   neither until they change (then only `updated`). `models.json` **variants**
   carry their own `added`/`updated` too, so a new skin variant on an existing
-  character is flagged NEW while the character entry is only UPD.
+  character badges both the variant and the character row as NEW; entries that
+  were only edited get no badge and are not shown by the New filter.
 - `data/entryhash.json` — `{version, models: {id: {hash, variants: {name:
   sha1}}}, avg: {id: sha1}}`; the per-variant hashes drive variant-level
   change detection (a v1 flat record migrates silently).
@@ -102,7 +103,11 @@ same way against their own dirs, so a newly added skin variant gets
 `added = updated`, while the character entry gets `updated`. New ids get
 `added = updated = version`. A missing hash is seeded silently, so the first
 run never mass-flags everything, and existing stamps are stripped from the
-input first so re-runs are authoritative (idempotent). `bruteForceOthers.mjs`
+input first so re-runs are authoritative (idempotent). If the pre-dump
+snapshot is incomplete (interrupted/stale build) but `data/entryhash.json`
+already has a record for the id, the entry counts as pre-existing: no `added`
+is written, and only changed files bump `updated` (this is what stops a stale
+snapshot from marking every disc L2D as NEW). `bruteForceOthers.mjs`
 stamps new Others the same way.
 
 ### What each `data/*.json` is for
@@ -148,7 +153,7 @@ python3 -m http.server 8000
 # open a Memory Snapshot (bgLayers composite) and a parallax disc (drag → tilt, Enable Mask/Max Rotation toggles)
 # open a Story Character: body renders; right panel → click expression thumbnails (face composites on the
 #   face area), switch Pose letters, toggle Dark Silhouette on entries with a `_001x`
-# click "New" next to the search box → only the latest version's additions (NEW) and edits (UPD)
+# click "New" next to the search box → only the latest version's additions (NEW)
 
 # avg manifest sanity
 jq 'length' data/avg.json

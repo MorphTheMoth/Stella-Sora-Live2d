@@ -104,15 +104,14 @@ Every `data/models.json` / `data/avg.json` entry records the game version in
 which it was added or last edited (`added` / `updated`).  The viewer computes
 the highest version across all entries → **v1.16.0** and:
 
-- shows a **NEW** badge on entries whose `added` equals that version and an
-  **UPD** badge on entries whose `updated` equals it (an existing entry that
-  changed in this version);
-- shows the same badges on **skin variants** — a new outfit/event skin on an
-  existing character marks that variant NEW while the character itself stays
-  UPD (e.g. Jinglin → "Feast of Fortune March");
+- shows a **NEW** badge on entries whose `added` equals that version (edited
+  entries get no badge);
+- shows the same badge on **skin variants** — a new outfit/event skin on an
+  existing character marks that variant NEW, and the character row gets a
+  NEW badge too (e.g. Firenze → "Deadly Beauty, Unparalleled Allure");
 - enables the **New** button next to the search box, which filters every
-  section down to entries that are new/updated themselves or own a
-  new/updated variant (the button is hidden when nothing is stamped).
+  section down to entries that were added in that version or own a newly
+  added variant (the button is hidden when nothing is stamped).
 
 Both fields are written by `scripts/stampVersions.mjs`, run at the end of
 `scripts/dump.sh` (see `docs/Updating.md` → "Version stamping").  Nothing is

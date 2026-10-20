@@ -1289,28 +1289,10 @@
         "4066_l": "6dcb4e86fc20b27b7b215b058d9b6b658fee5b7b"
       }
     },
-    "20104_20104_Downdustevent": {
-      "hash": "f253cc4232860fdbaa465f41d5947eb5f18192d1",
+    "20104event": {
+      "hash": "2ce9dd97c58f800ba688c5bc8ebe5168971bc72f",
       "variants": {
-        "20104_20104_Downdustevent": "e81c3c2e7530652ae97e718553bbb7a1c103222f"
-      }
-    },
-    "20104_20104_Irisevent": {
-      "hash": "e8734a66f528f49c022bb7736647c931abd67d47",
-      "variants": {
-        "20104_20104_Irisevent": "e81c3c2e7530652ae97e718553bbb7a1c103222f"
-      }
-    },
-    "20104_20104_mw_Femaleevent": {
-      "hash": "dba593af03dee78c36dfe43a0b49750be34bc1d5",
-      "variants": {
-        "20104_20104_mw_Femaleevent": "e81c3c2e7530652ae97e718553bbb7a1c103222f"
-      }
-    },
-    "20104_20104_mw_Maleevent": {
-      "hash": "2adbf65e34cf2d7c123c73363cba51ca620042ea",
-      "variants": {
-        "20104_20104_mw_Maleevent": "e81c3c2e7530652ae97e718553bbb7a1c103222f"
+        "20104event": "e81c3c2e7530652ae97e718553bbb7a1c103222f"
       }
     },
     "302001_MallCheckInAct_Actorevent": {
@@ -1371,12 +1353,6 @@
       "hash": "b989f0e839e73560ca6609a135384ddf5e90706e",
       "variants": {
         "sp984002_984002event": "16bb2e88efc126a1fd8948d731f049213c61fc93"
-      }
-    },
-    "20104event": {
-      "hash": "2ce9dd97c58f800ba688c5bc8ebe5168971bc72f",
-      "variants": {
-        "20104event": "e81c3c2e7530652ae97e718553bbb7a1c103222f"
       }
     }
   },

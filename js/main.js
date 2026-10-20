@@ -37,7 +37,7 @@ const state = {
   modelLayers: [],
   models: [],
   // Highest added/updated version across every entry (models + avg); drives
-  // the New filter and the NEW/UPD badges. null when nothing is stamped.
+  // the New filter and the NEW badge. null when nothing is stamped.
   latestVersion: null,
   newOnly: false,
   currentPath: null,
@@ -2793,9 +2793,11 @@ function addListItem(item) {
   idSpan.textContent = shownId + ' ';
   name.appendChild(idSpan);
   name.appendChild(document.createTextNode(item.name === '#' + shownId ? '' : item.name));
-  // Latest-version badge: NEW = added in it, UPD = edited in it.
-  const kind = newKind(item);
-  if (kind) name.appendChild(newBadgeSpan(kind));
+  // Latest-version badge: NEW is shown when the entry itself was added in
+  // the latest version or when one of its variants was (a new skin still
+  // marks the character NEW). Edited-in entries count for the New filter
+  // but get no badge.
+  if (isNewEntry(item)) name.appendChild(newBadgeSpan());
   li.appendChild(name);
   let firstBtn = null;
   if (item.kind === 'parallax') {
@@ -2838,7 +2840,7 @@ function addListItem(item) {
       btn.title = variant.path;
       // Per-variant badge: a new outfit/event skin on an existing character.
       const vkind = newKind(variant);
-      if (vkind) btn.appendChild(newBadgeSpan(vkind));
+      if (vkind === 'new') btn.appendChild(newBadgeSpan());
       btn.addEventListener('click', (e) => {
         setActiveButton(e.target);
         loadModel(resolveUrl(variant.path));
@@ -2928,7 +2930,8 @@ function latestVersionOf(lists) {
   return latest;
 }
 
-// NEW = added in the latest version; UPD = existing entry changed in it.
+// NEW = added in the latest version; UPD = existing entry changed in it
+// (informational only: neither a badge nor the New filter uses UPD).
 function newKind(item) {
   if (!item || !state.latestVersion) return null;
   if (item.added === state.latestVersion) return 'new';
@@ -2936,17 +2939,19 @@ function newKind(item) {
   return null;
 }
 
-// True when the entry itself or any of its variants is new/updated.
-function hasStamp(item) {
-  if (newKind(item)) return true;
-  return (item.variants || []).some((v) => newKind(v));
+// Entry-level NEW badge and the New filter: added in the latest version, or a
+// new variant on an existing entry (e.g. Firenze gains "Deadly Beauty,
+// Unparalleled Allure").
+function isNewEntry(item) {
+  if (newKind(item) === 'new') return true;
+  return (item.variants || []).some((v) => newKind(v) === 'new');
 }
 
-function newBadgeSpan(kind) {
+function newBadgeSpan() {
   const badge = document.createElement('span');
   badge.className = 'entity-badge';
-  badge.textContent = kind === 'new' ? 'NEW' : 'UPD';
-  badge.title = (kind === 'new' ? 'Added in v' : 'Updated in v') + state.latestVersion;
+  badge.textContent = 'NEW';
+  badge.title = 'Added in v' + state.latestVersion;
   return badge;
 }
 
@@ -2975,7 +2980,7 @@ function createCharactersList() {
   const isOtherEntry = (item) => item.kind === 'other';
   const query = els.filter.value.trim().toLowerCase();
   const showNew = state.newOnly;
-  const isNew = (item) => !showNew || hasStamp(item);
+  const isNew = (item) => !showNew || isNewEntry(item);
   const visible = (item) => !isHidden(item) && matchesSearch(item, query) && isNew(item);
 
   const chars = state.models.filter((item) => !isParallaxEntry(item) && !isDiscL2dEntry(item) && !isEventEntry(item) && !isOtherEntry(item) && visible(item));
@@ -3386,7 +3391,7 @@ async function init() {
       createCharactersList();
     });
     els.newOnly.hidden = !state.latestVersion;
-    if (state.latestVersion) els.newOnly.title = 'Only entries added or updated in v' + state.latestVersion;
+    if (state.latestVersion) els.newOnly.title = 'Show only entries added in v' + state.latestVersion;
   }
   createCharactersList();
 

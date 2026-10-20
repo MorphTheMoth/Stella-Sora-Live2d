@@ -207,6 +207,12 @@ function stampModelEntry(entry, old, prevHashes, version, root) {
   const variantInfos = modelEntryVariants(entry, root);
   const variantHashes = {};
   let anyFilesChanged = false;
+  // The pre-dump snapshot can be incomplete (stale/interrupted build) while
+  // data/entryhash.json still remembers the entry.  A hash record means the
+  // id was committed before, so it was not added in this version: never
+  // stamp `added`, and only bump `updated` when its files actually changed.
+  const knownBefore = !old && !!(prevHashes.entry
+    || (prevHashes.variants && Object.keys(prevHashes.variants).length));
 
   // Variant names are not unique: event entries reuse the ref for each spine
   // (e.g. 510007event / BOSS1 + BOSS2), so match by name+path first and only
@@ -233,8 +239,14 @@ function stampModelEntry(entry, old, prevHashes, version, root) {
       || oldVariantsByName.get(vv.name);
     if (!oldV) {
       // New skin variant on an existing character (e.g. a new event outfit).
-      vv.added = version;
-      vv.updated = version;
+      // When the whole entry is merely missing from the snapshot but known
+      // by hash, its variants are pre-existing too (unknown `added`).
+      if (knownBefore) {
+        if (filesChanged) vv.updated = version;
+      } else {
+        vv.added = version;
+        vv.updated = version;
+      }
     } else {
       if (vv.added === undefined && oldV.added !== undefined) vv.added = oldV.added;
       const jsonChanged = !deepEqual(stripStamps(oldV), stripStamps(vv));
@@ -251,15 +263,22 @@ function stampModelEntry(entry, old, prevHashes, version, root) {
   const entryHash = h.digest('hex');
 
   if (!old) {
-    entry.added = version;
-    entry.updated = version;
+    if (knownBefore) {
+      const filesChanged = prevHashes.entry
+        ? prevHashes.entry !== entryHash
+        : anyFilesChanged;
+      if (filesChanged) entry.updated = version;
+    } else {
+      entry.added = version;
+      entry.updated = version;
+    }
   } else {
     if (entry.added === undefined && old.added !== undefined) entry.added = old.added;
     const jsonChanged = !deepEqual(stripStamps(old), stripStamps(entry));
     if (jsonChanged || anyFilesChanged) entry.updated = version;
     else if (entry.updated === undefined && old.updated !== undefined) entry.updated = old.updated;
   }
-  return { hash: entryHash, variants: variantHashes };
+  return { hash: entryHash, variants: variantHashes, isNew: !old && !knownBefore };
 }
 
 function stampList({ list, oldById, hashes, version, fileLister, root, label }) {
@@ -273,11 +292,18 @@ function stampList({ list, oldById, hashes, version, fileLister, root, label }) 
     const fh = hashFiles(root, files);
     const prevHash = typeof hashes[String(id)] === 'string' ? hashes[String(id)] : null;
     const filesChanged = prevHash ? prevHash !== fh : false; // missing hash: seed silently
+    // Same recovery rule as models: a hash record proves the id predates
+    // this version even if the snapshot lost it.
+    const knownBefore = !old && !!prevHash;
     hashes[String(id)] = fh;
     if (!old) {
-      entry.added = version;
-      entry.updated = version;
-      added++;
+      if (knownBefore) {
+        if (filesChanged) entry.updated = version;
+      } else {
+        entry.added = version;
+        entry.updated = version;
+        added++;
+      }
     } else {
       if (entry.added === undefined && old.added !== undefined) entry.added = old.added; // pre-stamp entries stay undefined
       const jsonChanged = !deepEqual(stripStamps(old), stripStamps(entry));
@@ -322,11 +348,12 @@ function main() {
       const id = String(entry.id);
       const oldEntry = oldById.get(id);
       const prev = prevModelHashes(hashesAll.models[id]);
-      hashesAll.models[id] = stampModelEntry(entry, oldEntry, prev, version, o.root);
-      if (!oldEntry) added++;
+      const rec = stampModelEntry(entry, oldEntry, prev, version, o.root);
+      hashesAll.models[id] = { hash: rec.hash, variants: rec.variants };
+      if (rec.isNew) added++;
       // Only report entries newly stamped this run (re-runs on an already
       // stamped manifest must not re-count them).
-      else if (entry.updated === version && oldEntry.updated !== version) updated++;
+      else if (entry.updated === version && (!oldEntry || oldEntry.updated !== version)) updated++;
     }
     writeTextIfChanged(o.modelsFile, JSON.stringify(list, null, 2));
     console.log(`stampVersions: models @${version}: ${added} added, ${updated} updated`);
