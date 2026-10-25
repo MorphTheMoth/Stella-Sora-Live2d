@@ -160,8 +160,11 @@ the `fg` flag from it. The game toggles/hides these nodes from Lua
 
 The viewer already handles (b): `data/models.json` records per-variant
 `bgLayers` (from `mergeBgLayers.mjs` / `compositions.json`) and `bg` singles,
-and `main.js` (`setBackground`, `fitBgLayer`) draws them as sibling containers
-behind/in front of the model.
+and `main.js` draws them as camera siblings: `bg` behind the models, `fg` in
+front, both in the manifest's back-to-front order, and `model`-band layers
+(props parented inside `----live2d_modle----`) sorted by their Unity sorting
+order inside the model's own space, so they can land between two models or even
+between two drawables of one model.
 
 ### c) Extra Cubism models in the same prefab
 
@@ -180,6 +183,12 @@ too — 30 variants at game 2.0 are multi-model (`11901_F_a/_b/_c`,
   puts the `_c` collar overlay (-500) *over* the `_a` torso (-1000).  There is
   no runtime Lua re-sorting outside the editor-only `SortingOrder = 1` helper
   in `Actor2DManager`.
+- In-model prop sprites (`*_ex_bg_04`, `weapon_01`, ...) live in that same
+  number space: `10303_l`'s bamboo is -400 and its sofa -366 against the cat
+  model's -500, so the sofa is drawn inside `10303_L_b`'s 245-drawable stack
+  (ribbons behind it, cats in front). `main.js` reproduces that by splitting
+  the model into draw passes — see `docs/AgentsReadme.md` → "Model-band layers
+  / model pass splitting".
 - `normalize.py` nests each model in `chars/<id>/<variant>/<modelName>/` so
   their `textures/`/`motions/` cannot collide; single-model variants stay flat.
 - The alphabetically first model (`_a`) remains the primary: it is the one

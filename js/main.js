@@ -43,8 +43,10 @@ const state = {
   currentPath: null,
   currentName: null,
   currentBgList: [],
-  bgContainer: null,
-  fgContainer: null,
+  // Every bg/fg layer sprite currently on screen: [{ sprite, layer }].  They
+  // are direct children of the camera (not one container per band) so a layer
+  // can sit *between* models, like the sofa in 10303_l.
+  bgSprites: [],
   bgTextures: [],
   currentBgKey: null,
   // Disc parallax (image-only) scene state.
@@ -277,24 +279,29 @@ function fitModelToScreen() {
 // pixi-cubism renders the model's cubism meshes via addRenderable() and then
 // its own children (collectRenderables -> addRenderable; collectChildren), so
 // any child of the model draws ON TOP of the character.  We therefore keep the
-// bg as a sibling of the model inside the camera container (behind it) and
-// mirror the model's transform manually so it still pans/zooms/fits together.
+// bg as a sibling of the model inside the camera container and mirror the
+// model's transform manually so it still pans/zooms/fits together.
+//
+// The layers are *not* grouped into one container per band: Unity's sorting
+// groups only decide which band a layer is in, and inside the
+// `----live2d_modle----` band the sprite's own sortingOrder is in the same
+// number space as the Cubism models' sorting orders.  10303_L proves it — its
+// cat-scene model `10303_L_b` starts at -500, the bamboo (`zhiwu01`) is -400
+// and the sofa (`dianzi`) -366, so the game draws the sofa *between* the cat
+// scene's drawables (ribbon backs behind it, cats in front of it).  The viewer
+// reproduces that by ordering every bg sprite and model by
+// (band, order, insertion) in applySceneOrder() and, when a sprite's order
+// falls inside a model's drawable stack, splitting that model into passes
+// (see splitModelPasses()).
+const BAND_RANK = { bg: 0, model: 1, fg: 2 };
+
+// Which stack a bg layer belongs to.  Manifests written before `band` existed
+// only carry the boolean `fg` (everything positive was treated as foreground).
+function layerBand(layer) {
+  return layer.band || (layer.fg ? 'fg' : 'bg');
+}
+
 function createBackgroundContainer() {
-  const container = new Container();
-  container.eventMode = 'none';
-  container.interactive = false;
-  state.bgContainer = container;
-  // Behind the model (which is added to the camera after this).
-  state.camera.addChildAt(container, 0);
-
-  // ----fg_effect---- layers draw in front of the character, so they get a
-  // container added AFTER the model.
-  const fg = new Container();
-  fg.eventMode = 'none';
-  fg.interactive = false;
-  state.fgContainer = fg;
-  state.camera.addChild(fg);
-
   // Disc parallax (image-only) scene container.
   const parallax = new Container();
   parallax.eventMode = 'none';
@@ -302,6 +309,59 @@ function createBackgroundContainer() {
   parallax.visible = false;
   state.parallaxContainer = parallax;
   state.camera.addChild(parallax);
+}
+
+// Rebuild the camera's child order: bg sprites, then models and model-band
+// sprites interleaved by their Unity sorting order, then fg sprites, then the
+// parallax container (AVG/event scenes are exclusive with the L2D scene but
+// stay on top if one is somehow present).
+function applySceneOrder() {
+  const camera = state.camera;
+  if (!camera) return;
+  const items = [];
+  let seq = 0;
+  for (const { sprite, layer } of state.bgSprites) {
+    const band = layerBand(layer);
+    const rank = BAND_RANK[band] ?? 1;
+    items.push({
+      obj: sprite,
+      rank,
+      // Only the model band shares Unity's sorting-order space with the
+      // Cubism drawables.  bg/fg layers already arrive back-to-front from
+      // mergeBgLayers.mjs (`sortLayer`, SortingGroup order, own sortingOrder):
+      // a layer's sortingOrder only orders it *within its own SortingGroup*,
+      // so sorting a whole band by it mixes the groups up — 11103_l's railing
+      // is in ----bg_effect---- (group 1, order -100) and must stay in front of
+      // ----bg----'s bg_002 (group 0, order 0).  Insertion order handles them.
+      order: rank === BAND_RANK.model ? (layer.order || 0) : 0,
+      seq: seq++,
+    });
+  }
+  for (const layer of state.modelLayers) {
+    // A split pass starts at Unity sorting order `base + passLo` (passLo is
+    // the render order its first drawable has), so each pass slots in at the
+    // right position relative to the model-band bg sprites: 10303_L_b pass 0
+    // (-500) draws before the bamboo (-400) and the sofa (-366), the pass that
+    // starts at -366 draws the cats *on top of* that sofa.  Sprites win ties in
+    // the seq tiebreak below, so a pass beginning at exactly a sprite's order
+    // draws after it, like the game's draw-order list.
+    const base = (layer.info && layer.info.order) || 0;
+    items.push({
+      obj: layer.model,
+      rank: BAND_RANK.model,
+      order: base + (layer.passLo || 0),
+      seq: seq++,
+    });
+  }
+  items.sort((a, b) => (a.rank - b.rank) || (a.order - b.order) || (a.seq - b.seq));
+  if (state.parallaxContainer && state.parallaxContainer.parent === camera) {
+    camera.removeChild(state.parallaxContainer);
+  }
+  for (const item of items) {
+    if (item.obj.parent === camera) camera.removeChild(item.obj);
+    camera.addChild(item.obj);
+  }
+  if (state.parallaxContainer) camera.addChild(state.parallaxContainer);
 }
 
 function bgTextureValid(tex) {
@@ -345,19 +405,7 @@ function fitBgLayer(sprite, layer) {
 
 // Re-apply transform of every bg/fg layer after the model is fitted/rescaled.
 function fitBackground() {
-  for (const container of [state.bgContainer, state.fgContainer]) {
-    if (!container) continue;
-    for (const child of container.children) {
-      if (child._bgLayer) fitBgLayer(child, child._bgLayer);
-    }
-  }
-}
-
-function clearContainer(container) {
-  if (!container) return;
-  // Detach all sprites first: destroying a texture still referenced by a
-  // sprite makes the batch pipe flush a sprite whose _source is null.
-  while (container.children.length) container.removeChildAt(0);
+  for (const { sprite, layer } of state.bgSprites) fitBgLayer(sprite, layer);
 }
 
 function clearBackground() {
@@ -367,8 +415,11 @@ function clearBackground() {
   // new scene (e.g. swapping to a parallax disc / AVG entry while a bg was
   // loading — nothing else would bump the seq and clear it again).
   bgLoadSeq++;
-  clearContainer(state.bgContainer);
-  clearContainer(state.fgContainer);
+  for (const { sprite } of state.bgSprites) {
+    if (sprite.parent) sprite.parent.removeChild(sprite);
+    try { sprite.destroy(); } catch (e) { /* already destroyed */ }
+  }
+  state.bgSprites = [];
   for (const tex of state.bgTextures) {
     try {
       if (tex.key) Assets.cache.remove(tex.key);
@@ -387,17 +438,16 @@ let bgLoadSeq = 0;
 // newer entry was clicked is dropped so only the last-clicked model renders.
 let modelLoadSeq = 0;
 
-// Render a background composed of one or more ordered layers.  Layers with
-// fg=true go in front of the model; all others go behind it.
+// Render a background composed of one or more ordered layers.  Each layer is
+// slotted in by applySceneOrder() using its band/order (bg behind the models,
+// fg in front, model inside the model band's own sorting space).
 async function setBackground(layers) {
-  const container = state.bgContainer;
-  const fgContainer = state.fgContainer;
   // clearBackground() bumps bgLoadSeq to invalidate any in-flight older
   // composition — capture OUR seq only afterwards, or the bump would make
   // this very request treat itself as stale and never attach a layer.
   clearBackground();
   const seq = bgLoadSeq;
-  if (!container || !layers || !layers.length) { hideBgLoading(); return; }
+  if (!state.camera || !layers || !layers.length) { hideBgLoading(); return; }
 
   showBgLoading();
   // Load all layer textures up-front, then attach in order so no frame ever
@@ -422,10 +472,12 @@ async function setBackground(layers) {
     sprite.interactive = false;
     sprite._bgLayer = layer;
     fitBgLayer(sprite, layer);
-    (layer.fg ? fgContainer : container).addChild(sprite);
+    state.camera.addChild(sprite);
+    state.bgSprites.push({ sprite, layer });
     state.bgTextures.push({ key: resolveUrl(layer.path), texture });
   }
   state.currentBgKey = loaded[0].layer.path;
+  applySceneOrder();
   hideBgLoading();
 }
 
@@ -2556,6 +2608,134 @@ function hookOverrideApply() {
   state._overrideHandler = onBeforeUpdate;
 }
 
+// ---------------------------------------------------------------------------
+// Model passes (bg sprites drawn *inside* a model's drawable stack)
+//
+// Unity assigns every Cubism drawable `SortingOrder = model order + drawable
+// index`, so a sprite whose order lands inside that range is drawn between two
+// of the model's drawables.  10303_l is the clearest case: 10303_L_b (cat
+// scene, base -500, 245 drawables) has the bamboo at -400 and the sofa at
+// -366, i.e. the sofa covers the scene model's back ribbons/plants but stays
+// behind its cats.
+//
+// pixi-cubism draws a model as one unit, so the only way to sandwich a sprite
+// is to draw that model several times, each pass hiding the drawables that
+// belong to another pass through the Cubism `IsVisible` dynamic flag.  Every
+// pass after the first copies its parameters/part opacities from the first one
+// each frame, so the passes stay pixel-identical to the single model.
+function drawableVisibilityFlags(model) {
+  const core = model.internalModel && model.internalModel.coreModel;
+  const flags = core && core._model && core._model.drawables && core._model.drawables.dynamicFlags;
+  return flags || null;
+}
+
+// Hide every drawable whose render order is outside [loOrder, hiOrder) for
+// this pass.  Unity gives each drawable `SortingOrder = model order +
+// renderOrder`; the viewer uses the exact list the renderer itself sorts by
+// (`CubismRenderer_WebGL.doDrawModel` -> `getModel().getRenderOrders()`), which
+// is per-drawable index and recomputed on every core update.  Note the raw
+// `drawables.drawOrders` array is a *single constant* for some exports (all
+// 200 for 10303_L_b), so it must not be used here.
+function filterDrawables(model, loOrder, hiOrder) {
+  const internal = model.internalModel;
+  const core = internal && internal.coreModel;
+  if (!core) return;
+  const count = core.getDrawableCount();
+  if (loOrder <= 0 && hiOrder >= count) return;
+  const flags = drawableVisibilityFlags(model);
+  if (!flags) return;
+  const apply = () => {
+    const raw = core.getModel && core.getModel();
+    const orders = raw && typeof raw.getRenderOrders === 'function'
+      ? raw.getRenderOrders()
+      : null;
+    if (!orders) return;
+    const last = Math.min(count, flags.length, orders.length);
+    for (let i = 0; i < last; i++) {
+      const order = orders[i];
+      if (order < loOrder || order >= hiOrder) flags[i] &= 0xfe; // clear CubismRenderer IsVisible bit
+    }
+  };
+  const baseUpdate = internal.update.bind(internal);
+  internal.update = (dt, now) => {
+    baseUpdate(dt, now);
+    apply();
+  };
+  apply();
+}
+
+// Keep a split pass in lockstep with the first pass of the same model: copy
+// every parameter and part opacity right before the copy's core update, so
+// motions, expressions, physics, eye blink and the options panel (which only
+// drives state.model) all land identically on every pass.
+function syncSplitPass(copy, master) {
+  const onBeforeUpdate = () => {
+    const src = master.internalModel && master.internalModel.coreModel;
+    const dst = copy.internalModel && copy.internalModel.coreModel;
+    if (!src || !dst) return;
+    const paramCount = src.getParameterCount();
+    for (let i = 0; i < paramCount; i++) {
+      dst.setParameterValueByIndex(i, src.getParameterValueByIndex(i));
+    }
+    const partCount = src.getPartCount();
+    for (let i = 0; i < partCount; i++) {
+      dst.setPartOpacityByIndex(i, src.getPartOpacityByIndex(i));
+    }
+  };
+  copy.internalModel.on('beforeModelUpdate', onBeforeUpdate);
+  copy._splitSyncHandler = onBeforeUpdate;
+}
+
+// Expand a loaded model into draw passes.  Returns [{ model, info, primary,
+// splitCopy, passLo, passHi }] back-to-front; a model with no model-band sprite
+// inside its drawable range yields a single pass (the model itself).
+async function splitModelPasses(loadedLayer, modelBandLayers) {
+  const info = loadedLayer.info || {};
+  const model = loadedLayer.model;
+  const core = model.internalModel.coreModel;
+  const base = info.order || 0;
+  const count = core.getDrawableCount();
+  // Sprite orders strictly inside (base, base + count - 1) split the stack.
+  const bounds = [...new Set(
+    modelBandLayers
+      .map((l) => l.order || 0)
+      .filter((o) => o > base && o < base + count)
+  )].sort((a, b) => a - b);
+  const edges = [base, ...bounds, base + count];
+  const passes = [{
+    model,
+    info,
+    primary: loadedLayer.primary,
+    splitCopy: false,
+    passLo: 0,
+    passHi: edges[1] - base,
+  }];
+  for (let p = 1; p < edges.length - 1; p++) {
+    const copy = await Live2DModel.from(
+      resolveUrl(info.path),
+      { textureOptions: { lod: false } }
+    );
+    const lo = edges[p] - base;
+    const hi = edges[p + 1] - base;
+    filterDrawables(copy, lo, hi);
+    syncSplitPass(copy, model);
+    passes.push({
+      model: copy,
+      info,
+      // Every pass of the primary model must get the skin's MainView offset.
+      primary: loadedLayer.primary,
+      splitCopy: true,
+      passLo: lo,
+      passHi: hi,
+    });
+  }
+  if (passes.length > 1) {
+    // The first pass is the mostly-back one; hide the drawables drawn later.
+    filterDrawables(model, 0, edges[1] - base);
+  }
+  return passes;
+}
+
 export async function loadModel(path) {
   const app = state.app;
   const camera = state.camera;
@@ -2595,13 +2775,35 @@ export async function loadModel(path) {
   try {
     // Multi-model support: the prefab's ----live2d_modle---- group can hold
     // several Cubism models (character + the scene/props it poses with), and
-    // data/models.json lists them back-to-front.
+    // data/models.json lists them back-to-front.  A single-model variant only
+    // has `path`, so carry the prefab's base sorting order (`modelOrder`, from
+    // mergeBgLayers.mjs) — the split-pass logic needs it to compare model-band
+    // sprite orders against the model's own drawable range.
+    const singleOrder = linkVariant && typeof linkVariant.modelOrder === 'number'
+      ? linkVariant.modelOrder
+      : 0;
     const modelPaths = linkVariant && Array.isArray(linkVariant.models) && linkVariant.models.length
       ? linkVariant.models
-      : [{ path }];
+      : [{ path, order: singleOrder }];
     const loaded = [];
     for (const info of modelPaths) {
-      const m = await Live2DModel.from(info.path);
+      // resolveUrl is mandatory here: with USE_REMOTE_ASSETS the scene models
+      // (10303_L_b, 11901_F_c, …) live on the asset host too.  Passing the raw
+      // relative manifest path makes the browser fetch them from the Pages
+      // origin, which never has chars/ -> 404 and the whole entry fails.
+      //
+      // lod: false keeps the 2048px atlases un-mipmapped.  The engine's default
+      // ("full") builds a mip chain, which the GPU then trilinearly blends as
+      // soon as the model is drawn below 1:1 — and fitModelToScreen() always
+      // draws it below 1:1 (the game's 21.6-unit camera view).  At the same
+      // time the CharBg/----bg---- sprites (plain Pixi sprites, no mips) stay
+      // crisp, so the skin read as "blurry when zoomed out" next to its own
+      // backdrop.  Bilinear sampling matches the sprites; the model is a
+      // mostly-smooth illustration, so the missing mip chain doesn't alias
+      // badly even at the 0.2x zoom-out limit.
+      const m = await Live2DModel.from(resolveUrl(info.path), {
+        textureOptions: { lod: false },
+      });
       // A newer entry was clicked while this one was loading; drop it so stale
       // loads don't stack every previously clicked model on the scene.
       if (seq !== modelLoadSeq) {
@@ -2615,21 +2817,45 @@ export async function loadModel(path) {
     if (!loaded.length) throw new Error('no model in variant');
     const primary = loaded.find((l) => l.primary) || loaded[loaded.length - 1];
     primary.primary = true;
+    // A model-band bg sprite whose order falls inside a model's drawable stack
+    // has to be sandwiched between that model's drawables (10303_l's sofa);
+    // expand such models into one instance per pass.
+    const modelBandLayers = state.currentBgList.filter((l) => layerBand(l) === 'model');
+    const expanded = [];
     for (const l of loaded) {
-      // Add in manifest order (index 0 draws behind); the extra models keep
-      // their own Cubism draw order inside the model group.
+      let passes;
+      try {
+        passes = await splitModelPasses(l, modelBandLayers);
+      } catch (e) {
+        // A split copy failed to load — fall back to the single model rather
+        // than dropping the whole entry.
+        console.error('Failed to split model passes', e);
+        passes = [l];
+      }
+      if (seq !== modelLoadSeq) {
+        for (const p of passes.concat(expanded)) {
+          try { p.model.destroy({ children: true }); } catch (err) { /* already gone */ }
+        }
+        for (const o of loaded) {
+          if (passes.some((p) => p.model === o.model) || expanded.some((p) => p.model === o.model)) continue;
+          try { o.model.destroy({ children: true, texture: true, baseTexture: true }); } catch (err) { /* already gone */ }
+        }
+        hideBgLoading();
+        return;
+      }
+      expanded.push(...passes);
+    }
+    for (const l of expanded) {
+      // Add in manifest order (index 0 draws behind); applySceneOrder() then
+      // slots the bg sprites in between by their Unity sorting order.
       camera.addChild(l.model);
       l.model.interactive = false;
       l.model.anchor?.set?.(0.5);
     }
-    // Keep camera child order: bg (0), models, fg (last) so fg draws in front.
-    if (state.bgContainer && state.fgContainer) {
-      camera.removeChild(state.fgContainer);
-      camera.addChild(state.fgContainer);
-    }
-    state.modelLayers = loaded;
+    state.modelLayers = expanded;
     state.model = primary.model;
     fitModelToScreen();
+    applySceneOrder();
     setBackground(state.currentBgList);
     buildOptionsPanel();
     applyEyeBlink();
@@ -2650,12 +2876,25 @@ function destroyModels() {
     state.model.internalModel.off('beforeModelUpdate', state._overrideHandler);
   }
   state._overrideHandler = null;
-  for (const layer of state.modelLayers) {
+  // Split copies share their master's textures (Live2DModel.from resolves them
+  // through the Pixi Assets cache), so drop the copies first and only then let
+  // the pass-0 instances destroy the textures.
+  const ordered = [
+    ...state.modelLayers.filter((l) => l.splitCopy),
+    ...state.modelLayers.filter((l) => !l.splitCopy),
+  ];
+  for (const layer of ordered) {
     const m = layer.model;
+    if (m._splitSyncHandler && m.internalModel) {
+      try { m.internalModel.off('beforeModelUpdate', m._splitSyncHandler); } catch (e) { /* gone */ }
+      m._splitSyncHandler = null;
+    }
     if (state.camera) {
       try { state.camera.removeChild(m); } catch (e) { /* already detached */ }
     }
-    try { m.destroy({ children: true, texture: true, baseTexture: true }); } catch (e) { /* already destroyed */ }
+    try {
+      m.destroy({ children: true, texture: !layer.splitCopy, baseTexture: !layer.splitCopy });
+    } catch (e) { /* already destroyed */ }
   }
   state.modelLayers = [];
   state.model = null;
@@ -2663,10 +2902,11 @@ function destroyModels() {
 
 // Let the scene models (cat scene, backdrop props, …) play their idle motion
 // so they aren't frozen while the character animates.  The options panel keeps
-// controlling the primary model only.
+// controlling the primary model only.  Split passes mirror their master, so
+// they never drive their own motion.
 function startSceneMotions() {
   for (const layer of state.modelLayers) {
-    if (layer.primary) continue;
+    if (layer.primary || layer.splitCopy) continue;
     const motionManager = layer.model.internalModel && layer.model.internalModel.motionManager;
     const definitions = (motionManager && motionManager.definitions) || {};
     const groups = Object.keys(definitions).filter((g) => definitions[g] && definitions[g].length);

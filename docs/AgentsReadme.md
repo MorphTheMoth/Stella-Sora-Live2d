@@ -190,13 +190,54 @@ Each character skin has a main-menu background the game draws behind the L2D
 > sit **in front of** the character, and `15801_LF`'s gift-box frame
 > (`FG_002`, order -150) draws over her.
 > Layers parented *inside* `----live2d_modle----` (weapons, held props,
-> `*_ex_bg_*` backdrops) have no group of their own, so they keep the
-> `sortOrder >= 1` rule (`CubismRenderController.SortingOrder = 1`, set in
-> `Actor2DManager`): `bg_02`/`zhiwu01`/`beizi02` at -180..-2650 stay behind,
-> `weapon_01`/`trumpet_01`/`desk_01` at 10..89 go in front.
+> `*_ex_bg_*` props) share the models' sorting space directly: their
+> `sortingOrder` is in the same number space as each model's MeshRenderer
+> `m_SortingOrder`, and Unity gives every Cubism drawable
+> `model order + draw-order index`. `mergeBgLayers.mjs` therefore stamps each
+> layer with `band` (`bg` / `model` / `fg`) and its raw `order`, and for
+> single-model variants records the model's base order as
+> `variants[].modelOrder`. The viewer keeps the manifest's back-to-front order
+> for the `bg`/`fg` bands and sorts only the `model` band by `order` in
+> `applySceneOrder()`, so a model-band sprite can sit between two models *or
+> between two drawables of one model*. (A layer's own `sortingOrder` only
+> orders it inside its own SortingGroup, so re-sorting a whole band by it would
+> mix `----bg----` and `----bg_effect----` up — Iris's `11103_l` railing is in
+> `----bg_effect----` at -100 but belongs in front of `----bg----`'s `bg_002`
+> at 0.)
 > `dump.sh` dumps `sortingGroup` with the scene graph; if an older dump lacks
 > it, `extractBgLayers.mjs` derives the same 0/1/2/3 from the fixed group names,
 > so both paths produce identical output.
+
+> **Model-band layers / model pass splitting:** `10303_l` ("Playful
+> Innocence") is the case that forced the interleaving. Its cat-scene model
+> `10303_L_b` starts at sorting order **-500** and has 245 drawables, the bamboo
+> (`*_ex_bg_04`) sits at **-400** and the sofa (`*_ex_bg_05`) at **-366**, i.e.
+> Unity draws the sofa *inside* that model's drawable stack: the hanging
+> ribbons/plants/back cushions are behind it, the cats (draw orders 213..244)
+> are in front. Treating every in-model layer as "behind the model" or
+> "`sortOrder >= 1` means in front" drew the sofa over the cats and the tents
+> over the sofa.
+>
+> `main.js` reproduces the game by expanding such a model into **draw passes**:
+> `splitModelPasses()` cuts the model at every model-band sprite order inside
+> `(base, base + drawableCount)`, loads one extra `Live2DModel` per pass
+> (textures are shared through the Pixi `Assets` cache), and `filterDrawables()`
+> clears bit 0 (`IsVisible`) of `coreModel._model.drawables.dynamicFlags` for
+> the drawables each pass must not draw, right after every core update.
+> `syncSplitPass()` copies all parameters + part opacities from pass 0 before
+> each copy updates, so the passes stay pixel-identical; `startSceneMotions()`
+> never drives a copy's own motion, and `destroyModels()` drops the copies
+> before the master so the shared textures are destroyed once.
+>
+> Each pass is stamped with sorting order `base + passLo` (the render order of
+> its first drawable), so `applySceneOrder()` interleaves it with the bg
+> sprites; a pass that starts exactly at a sprite's order draws after it (the
+> sort's `seq` tiebreak puts sprites first). The drawable list to compare against
+> must be `core.getModel().getRenderOrders()` — the same list
+> `CubismRenderer_WebGL.doDrawModel()` sorts by. `drawables.drawOrders` is
+> **not** usable: it is a single constant (200) for all 245 drawables of
+> `10303_L_b`, and `getDrawableRenderOrders()` reads a non-existent
+> `drawables.renderOrders` and returns `undefined` in this core build.
 
 ## Story characters (AVG dialogue sprites)
 

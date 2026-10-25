@@ -9,10 +9,13 @@
  * layer list is ordered back-to-front: the enclosing group's SortingGroup
  * order first (`----bg----` 0 < `----bg_effect----` 1 < the model 2 <
  * `----fg_effect----` 3), then the layer's own Unity sortOrder inside that
- * group.  A layer draws in front of the character when its group sorts above
- * `----live2d_modle----` (i.e. `----fg_effect----`); layers inside the model
- * group follow the sprite's own sortOrder (>= 1 is in front, matching the
- * game's `CubismRenderController.SortingOrder`).
+ * group.  Each layer is tagged with its `band` (`bg` / `model` / `fg`) and raw
+ * `order` (the sprite's sortingOrder); the viewer keeps the array order for the
+ * bg/fg bands and uses `order` only inside the model band, where it is in the
+ * same number space as the Cubism models' base sorting order + draw order.
+ *
+ * Single-model variants also get `modelOrder` (their model's base sorting
+ * order); multi-model variants get it per entry in `models[]`.
  *
  * Multi-model variants (10303_l, 15801_lf, 11901_lf, …) additionally get each
  * model's `x`/`y`/`sx`/`sy` from the prefab transform and its base sorting
@@ -144,6 +147,21 @@ function main() {
           variant.models.sort((a, b) => (a.order || 0) - (b.order || 0));
           modelVariants++;
         }
+      } else {
+        // Single-model variant: the manifest only carries `path`, so record the
+        // model's base sorting order on the variant itself.  The viewer needs
+        // it to place model-band sprites (ice, water, weapons, ...) inside the
+        // model's drawable stack: a variant whose Cubism MeshRenderer sorts at
+        // -2500 puts a sprite at sortingOrder 20 *in front of* the whole model,
+        // while assuming a base of 0 would wrongly cut the model open at that
+        // drawable.
+        const baseName = path.basename(variant.path, '.model3.json');
+        const byName = new Map();
+        for (const c of comps2) {
+          for (const m of c.models || []) if (!byName.has(m.name)) byName.set(m.name, m);
+        }
+        const info = byName.get(baseName) || (byName.size === 1 ? byName.values().next().value : null);
+        if (info && typeof info.order === 'number') variant.modelOrder = info.order;
       }
 
       const allLayers = comps2.flatMap((c) => (c.layers || []).filter((l) => l.texture));
@@ -169,11 +187,19 @@ function main() {
         // A SortingGroup makes its whole subtree sort as one unit, so a layer
         // in front of the character is simply one whose group sorts above
         // ----live2d_modle---- (----fg_effect----).  Layers inside the model
-        // group (weapons, held props, props parented under the model) use
-        // their own sortOrder: >= 1 draws in front of the Cubism renderer.
-        const fg = groupOrder === modelOrder
-          ? l.sortOrder >= 1
-          : groupOrder > modelOrder;
+        // group (weapons, held props, props parented under the model) keep
+        // their own Unity sortingOrder, which is in the *same* number space as
+        // the Cubism models' sorting orders: the sofa in 10303_L sits at -366
+        // while the cat scene model 10303_L_b starts at -500 and the character
+        // 10303_L_a at 0, i.e. the game draws the sofa *inside* that model's
+        // drawable stack (back ribbons behind it, cats in front of it).
+        // `band` tells the viewer which stack the layer belongs to and `order`
+        // where it sits inside it, so it can interleave bg sprites with the
+        // models exactly like Unity does instead of lumping every layer behind
+        // (or in front of) the whole model.
+        const band = groupOrder === modelOrder
+          ? 'model'
+          : (groupOrder > modelOrder ? 'fg' : 'bg');
         return {
           file: l.texture, // texture name; resolved against the variant bg/ dir
           x: l.posX || 0,
@@ -182,7 +208,11 @@ function main() {
           sy: l.scaleY || 1,
           w: l.texW,
           h: l.texH,
-          fg,
+          // Legacy flag kept for older viewers: model-band layers with a
+          // positive order draw in front of the character.
+          fg: band === 'model' ? l.sortOrder >= 1 : band === 'fg',
+          band,
+          order: l.sortOrder,
         };
       });
       added++;
