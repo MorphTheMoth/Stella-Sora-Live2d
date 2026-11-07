@@ -14,8 +14,8 @@
           "x": 0.0049987896,
           "y": -5.3952394
         },
-        "updated": "2.0.0",
-        "modelOrder": 0
+        "modelOrder": 0,
+        "updated": "2.0.0"
       },
       {
         "name": "10301_lf",
@@ -24,6 +24,7 @@
         "bg": [
           "chars/10301/10301_lf/bg/10301_live2d_BG_001.png"
         ],
+        "modelOrder": 0,
         "bgLayers": [
           {
             "file": "10301_live2d_BG_001",
@@ -37,8 +38,7 @@
             "band": "bg",
             "order": 0
           }
-        ],
-        "modelOrder": 0
+        ]
       },
       {
         "name": "10301_lt",
@@ -62,6 +62,7 @@
           "x": -0.46914673,
           "y": 0.2911679
         },
+        "modelOrder": 0,
         "bgLayers": [
           {
             "file": "fx_live2d_10301_ex_bg_01",
@@ -99,8 +100,7 @@
             "band": "fg",
             "order": -700
           }
-        ],
-        "modelOrder": 0
+        ]
       },
       {
         "name": "10303_l",
@@ -213,6 +213,7 @@
           "chars/10304/10304_l/bg/live2d_10304_ex_bg_11.png",
           "chars/10304/10304_l/bg/live2d_10304_ex_bg_12.png"
         ],
+        "modelOrder": 0,
         "bgLayers": [
           {
             "file": "live2d_10304_ex_bg_11",
@@ -359,8 +360,7 @@
             "order": -100
           }
         ],
-        "updated": "2.0.0",
-        "modelOrder": 0
+        "updated": "2.0.0"
       }
     ],
     "updated": "2.0.0"
@@ -411,6 +411,7 @@
           "chars/10701/10701_lf/bg/tiliya_cg_fenche.png",
           "chars/10701/10701_lf/bg/tiliya_cg_fenche_yezi.png"
         ],
+        "modelOrder": 0,
         "bgLayers": [
           {
             "file": "tiliya_cg_bg",
@@ -544,8 +545,7 @@
             "band": "fg",
             "order": -10
           }
-        ],
-        "modelOrder": 0
+        ]
       },
       {
         "name": "10701_lt",
@@ -567,6 +567,7 @@
           "x": -0.26850703,
           "y": -0.042894293
         },
+        "modelOrder": 0,
         "bgLayers": [
           {
             "file": "fx_live2d_10701_ex_electromobile",
@@ -580,8 +581,7 @@
             "band": "bg",
             "order": -1200
           }
-        ],
-        "modelOrder": 0
+        ]
       },
       {
         "name": "10703_l",
@@ -739,6 +739,7 @@
           "chars/10704/10704_l/bg/10704_live2d_flag_002.png",
           "chars/10704/10704_l/bg/10704_live2d_leaves_001.png"
         ],
+        "modelOrder": 0,
         "bgLayers": [
           {
             "file": "10704_live2d_bg_001",
@@ -801,8 +802,7 @@
             "order": 0
           }
         ],
-        "updated": "2.0.0",
-        "modelOrder": 0
+        "updated": "2.0.0"
       }
     ],
     "updated": "2.0.0"
@@ -833,6 +833,7 @@
           "chars/10801/10801_lf/bg/10801_live2d_BG_001.png",
           "chars/10801/10801_lf/bg/10801_live2d_BG_002.png"
         ],
+        "modelOrder": 0,
         "bgLayers": [
           {
             "file": "10801_live2d_BG_001",
@@ -870,8 +871,7 @@
             "band": "fg",
             "order": -1000
           }
-        ],
-        "modelOrder": 0
+        ]
       },
       {
         "name": "10801_lt",
@@ -1163,6 +1163,7 @@
           "x": -0.11822264,
           "y": -1.064581
         },
+        "modelOrder": 0,
         "bgLayers": [
           {
             "file": "live2d_11002_ex_tree_001",
@@ -1284,8 +1285,7 @@
             "band": "fg",
             "order": -100
           }
-        ],
-        "modelOrder": 0
+        ]
       },
       {
         "name": "11003_l",
@@ -1300,6 +1300,7 @@
           "chars/11003/11003_l/bg/11003_live2d_light_002.png",
           "chars/11003/11003_l/bg/fx_11003_live2d_wood_001.png"
         ],
+        "modelOrder": 0,
         "bgLayers": [
           {
             "file": "11003_live2d_bg_001",
@@ -1387,8 +1388,7 @@
           }
         ],
         "added": "2.0.0",
-        "updated": "2.0.0",
-        "modelOrder": 0
+        "updated": "2.0.0"
       }
     ],
     "updated": "2.0.0"
@@ -1423,6 +1423,7 @@
           "chars/11101/11101_lf/bg/11101_live2d_BG_006.png",
           "chars/11101/11101_lf/bg/11101_live2d_BG_007.png"
         ],
+        "modelOrder": 0,
         "bgLayers": [
           {
             "file": "11101_live2d_BG_001",
@@ -1508,8 +1509,7 @@
             "band": "fg",
             "order": -1000
           }
-        ],
-        "modelOrder": 0
+        ]
       },
       {
         "name": "11101_lt",
@@ -1537,6 +1537,7 @@
           "x": -0.54206055,
           "y": 0.08418242
         },
+        "modelOrder": -500,
         "bgLayers": [
           {
             "file": "fx_live2d_11101_main_bg_06",
@@ -1622,8 +1623,7 @@
             "band": "fg",
             "order": -400
           }
-        ],
-        "modelOrder": -500
+        ]
       },
       {
         "name": "11103_l",
@@ -1724,6 +1724,7 @@
           "chars/11104/11104_l/bg/11104_live2d_leaves_003.png",
           "chars/11104/11104_l/bg/11104_live2d_leaves_004.png"
         ],
+        "modelOrder": 0,
         "bgLayers": [
           {
             "file": "11104_live2d_bg_001",
@@ -1785,8 +1786,7 @@
             "band": "fg",
             "order": 0
           }
-        ],
-        "modelOrder": 0
+        ]
       }
     ],
     "updated": "2.0.0"
@@ -1806,8 +1806,8 @@
           "x": -0.21902466,
           "y": -5.04224
         },
-        "updated": "2.0.0",
-        "modelOrder": 0
+        "modelOrder": 0,
+        "updated": "2.0.0"
       },
       {
         "name": "11201_lf",
@@ -1817,6 +1817,7 @@
           "chars/11201/11201_lf/bg/11201_live2d_BG_001.png",
           "chars/11201/11201_lf/bg/11201_live2d_BG_002.png"
         ],
+        "modelOrder": 0,
         "bgLayers": [
           {
             "file": "11201_live2d_BG_001",
@@ -1842,8 +1843,7 @@
             "band": "bg",
             "order": -4000
           }
-        ],
-        "modelOrder": 0
+        ]
       },
       {
         "name": "11201_lt",
@@ -1892,6 +1892,7 @@
           "chars/11203/11203_l/bg/11203_live2d_umbrella_003.png",
           "chars/11203/11203_l/bg/11203_live2d_umbrella_004.png"
         ],
+        "modelOrder": 0,
         "bgLayers": [
           {
             "file": "11203_live2d_bg_001",
@@ -2145,8 +2146,7 @@
             "band": "fg",
             "order": 0
           }
-        ],
-        "modelOrder": 0
+        ]
       },
       {
         "name": "11205_l",
@@ -2158,6 +2158,7 @@
           "chars/11205/11205_l/bg/live2d_11205_bg_03.png",
           "chars/11205/11205_l/bg/live2d_11205_bg_04.png"
         ],
+        "modelOrder": 0,
         "bgLayers": [
           {
             "file": "live2d_11205_bg_01",
@@ -2209,8 +2210,7 @@
           }
         ],
         "added": "2.0.0",
-        "updated": "2.0.0",
-        "modelOrder": 0
+        "updated": "2.0.0"
       }
     ],
     "updated": "2.0.0"
@@ -2230,8 +2230,8 @@
           "x": -0.34218383,
           "y": -4.6276393
         },
-        "updated": "2.0.0",
-        "modelOrder": 0
+        "modelOrder": 0,
+        "updated": "2.0.0"
       },
       {
         "name": "11301_lf",
@@ -2278,6 +2278,7 @@
           "chars/11301/11301_lf/bg/live2d_11301_fg_huoguocenter.png",
           "chars/11301/11301_lf/bg/live2d_11301_fg_huoguofg.png"
         ],
+        "modelOrder": 0,
         "bgLayers": [
           {
             "file": "live2d_11301_0037_background",
@@ -2747,8 +2748,7 @@
             "band": "fg",
             "order": -64
           }
-        ],
-        "modelOrder": 0
+        ]
       },
       {
         "name": "11301_lt",
@@ -2783,6 +2783,7 @@
           "x": -0.16077515,
           "y": -1.3939638
         },
+        "modelOrder": 0,
         "bgLayers": [
           {
             "file": "shimiao_TX2",
@@ -2952,8 +2953,7 @@
             "band": "fg",
             "order": -1400
           }
-        ],
-        "modelOrder": 0
+        ]
       },
       {
         "name": "11303_l",
@@ -3018,6 +3018,7 @@
           "chars/11303/11303_l/bg/11303_live2d_piaodai_003.png",
           "chars/11303/11303_l/bg/11303_live2d_piaodai_004.png"
         ],
+        "modelOrder": 0,
         "bgLayers": [
           {
             "file": "11303_live2d_bg_001",
@@ -3704,8 +3705,7 @@
             "order": 110
           }
         ],
-        "updated": "2.0.0",
-        "modelOrder": 0
+        "updated": "2.0.0"
       }
     ],
     "updated": "2.0.0"
@@ -3725,8 +3725,8 @@
           "x": -0.6803784,
           "y": -4.297058
         },
-        "updated": "2.0.0",
-        "modelOrder": 0
+        "modelOrder": 0,
+        "updated": "2.0.0"
       },
       {
         "name": "11401_lf",
@@ -3845,6 +3845,7 @@
           "x": -0.82005984,
           "y": -0.2625257
         },
+        "modelOrder": 0,
         "bgLayers": [
           {
             "file": "fx_live2d_11401_bg_3",
@@ -3906,8 +3907,7 @@
             "band": "fg",
             "order": -100
           }
-        ],
-        "modelOrder": 0
+        ]
       }
     ],
     "updated": "2.0.0"
@@ -3995,6 +3995,7 @@
           "x": 0.023803722,
           "y": -0.8341722
         },
+        "modelOrder": 0,
         "bgLayers": [
           {
             "file": "11502_live2d_BG_001",
@@ -4068,8 +4069,7 @@
             "band": "fg",
             "order": -500
           }
-        ],
-        "modelOrder": 0
+        ]
       }
     ],
     "updated": "2.0.0"
@@ -4099,6 +4099,7 @@
           "chars/11601/11601_lf/bg/11601_live2d_BG_02.png",
           "chars/11601/11601_lf/bg/11601_live2d_BG_03.png"
         ],
+        "modelOrder": 0,
         "bgLayers": [
           {
             "file": "11601_live2d_BG_03",
@@ -4124,8 +4125,7 @@
             "band": "bg",
             "order": -100
           }
-        ],
-        "modelOrder": 0
+        ]
       },
       {
         "name": "11601_lt",
@@ -4156,6 +4156,7 @@
           "x": 1.0996888,
           "y": 0.5201239
         },
+        "modelOrder": 0,
         "bgLayers": [
           {
             "file": "live2d_11602_stone_02",
@@ -4277,8 +4278,7 @@
             "band": "bg",
             "order": -900
           }
-        ],
-        "modelOrder": 0
+        ]
       },
       {
         "name": "11603_l",
@@ -4288,6 +4288,7 @@
           "chars/11603/11603_l/bg/11103_live2d_bg_001.png",
           "chars/11603/11603_l/bg/11103_live2d_pillow_001.png"
         ],
+        "modelOrder": 0,
         "bgLayers": [
           {
             "file": "11103_live2d_bg_001",
@@ -4313,8 +4314,7 @@
             "band": "bg",
             "order": -100
           }
-        ],
-        "modelOrder": 0
+        ]
       }
     ]
   },
@@ -4333,8 +4333,8 @@
           "x": -0.27809206,
           "y": -4.7377205
         },
-        "updated": "2.0.0",
-        "modelOrder": 0
+        "modelOrder": 0,
+        "updated": "2.0.0"
       },
       {
         "name": "11701_lf",
@@ -4343,6 +4343,7 @@
         "bg": [
           "chars/11701/11701_lf/bg/11701_live2d_BG_001.png"
         ],
+        "modelOrder": 0,
         "bgLayers": [
           {
             "file": "11701_live2d_BG_001",
@@ -4356,8 +4357,7 @@
             "band": "bg",
             "order": 0
           }
-        ],
-        "modelOrder": 0
+        ]
       },
       {
         "name": "11701_lt",
@@ -4387,6 +4387,7 @@
           "x": -0.12422243,
           "y": 0.2165069
         },
+        "modelOrder": 0,
         "bgLayers": [
           {
             "file": "live2d_11702_cloud_001",
@@ -4556,8 +4557,7 @@
             "band": "bg",
             "order": -10
           }
-        ],
-        "modelOrder": 0
+        ]
       },
       {
         "name": "11703_l",
@@ -4575,6 +4575,7 @@
           "chars/11703/11703_l/bg/11703_live2d_bg_009.png",
           "chars/11703/11703_l/bg/11703_live2d_bg_010.png"
         ],
+        "modelOrder": 0,
         "bgLayers": [
           {
             "file": "11703_live2d_bg_002",
@@ -4698,8 +4699,7 @@
           }
         ],
         "added": "1.16.0",
-        "updated": "2.0.0",
-        "modelOrder": 0
+        "updated": "2.0.0"
       }
     ],
     "updated": "2.0.0"
@@ -4733,6 +4733,7 @@
           "chars/11801/11801_lf/bg/11801_live2d_paper_003.png",
           "chars/11801/11801_lf/bg/11801_live2d_paper_004.png"
         ],
+        "modelOrder": 0,
         "bgLayers": [
           {
             "file": "11801_live2d_BG_01",
@@ -4806,8 +4807,7 @@
             "band": "fg",
             "order": 0
           }
-        ],
-        "modelOrder": 0
+        ]
       },
       {
         "name": "11801_lt",
@@ -4831,6 +4831,7 @@
           "x": -0.9331701,
           "y": -0.37806186
         },
+        "modelOrder": 0,
         "bgLayers": [
           {
             "file": "fx_live2d_11801_ex_bg_01",
@@ -4868,8 +4869,7 @@
             "band": "fg",
             "order": 0
           }
-        ],
-        "modelOrder": 0
+        ]
       }
     ]
   },
@@ -5000,6 +5000,7 @@
           "x": -0.030905765,
           "y": -1.0037147
         },
+        "modelOrder": 0,
         "bgLayers": [
           {
             "file": "live2d_11901_ex_001",
@@ -5037,8 +5038,7 @@
             "band": "bg",
             "order": -800
           }
-        ],
-        "modelOrder": 0
+        ]
       },
       {
         "name": "11903_l",
@@ -5055,6 +5055,7 @@
           "chars/11903/11903_l/bg/11903_live2d_tree_001.png",
           "chars/11903/11903_l/bg/11903_live2d_trumpet_001.png"
         ],
+        "modelOrder": -2500,
         "bgLayers": [
           {
             "file": "11903_live2d_bg_002",
@@ -5164,8 +5165,7 @@
             "band": "model",
             "order": 20
           }
-        ],
-        "modelOrder": -2500
+        ]
       }
     ],
     "updated": "2.0.0"
@@ -5253,6 +5253,7 @@
           "x": -0.52467895,
           "y": -0.49001634
         },
+        "modelOrder": 0,
         "bgLayers": [
           {
             "file": "live2d_12002_branches_001",
@@ -5326,8 +5327,7 @@
             "band": "bg",
             "order": -800
           }
-        ],
-        "modelOrder": 0
+        ]
       },
       {
         "name": "12003_l",
@@ -5474,6 +5474,7 @@
           "chars/12301/12301_lf/bg/12301_live2d_leaves_004.png",
           "chars/12301/12301_lf/bg/12301_live2d_leaves_005.png"
         ],
+        "modelOrder": 0,
         "bgLayers": [
           {
             "file": "12301_live2d_BG_001",
@@ -5547,8 +5548,7 @@
             "band": "fg",
             "order": 0
           }
-        ],
-        "modelOrder": 0
+        ]
       },
       {
         "name": "12301_lt",
@@ -5570,6 +5570,7 @@
           "x": -0.0715393,
           "y": -0.45540062
         },
+        "modelOrder": 0,
         "bgLayers": [
           {
             "file": "fx_12301_live2d_09",
@@ -5583,8 +5584,7 @@
             "band": "bg",
             "order": -1997
           }
-        ],
-        "modelOrder": 0
+        ]
       },
       {
         "name": "12303_l",
@@ -5605,6 +5605,7 @@
           "chars/12303/12303_l/bg/12303_live2d_bg_012.png",
           "chars/12303/12303_l/bg/12303_live2d_bg_013.png"
         ],
+        "modelOrder": 0,
         "bgLayers": [
           {
             "file": "12303_live2d_bg_001",
@@ -5774,8 +5775,7 @@
             "band": "bg",
             "order": -100
           }
-        ],
-        "modelOrder": 0
+        ]
       }
     ]
   },
@@ -5895,6 +5895,7 @@
           "chars/12502/12502_l/bg/live2d_12502_leaves_002.png"
         ],
         "charBg": "bg/charbg/posthouse.png",
+        "modelOrder": -1000,
         "bgLayers": [
           {
             "file": "live2d_12502_leaves_001",
@@ -5956,8 +5957,7 @@
             "band": "model",
             "order": 130
           }
-        ],
-        "modelOrder": -1000
+        ]
       },
       {
         "name": "12503_l",
@@ -6070,8 +6070,8 @@
           "x": 0.034851063,
           "y": -5.7883162
         },
-        "updated": "2.0.0",
-        "modelOrder": 0
+        "modelOrder": 0,
+        "updated": "2.0.0"
       },
       {
         "name": "12601_lf",
@@ -6080,6 +6080,7 @@
         "bg": [
           "chars/12601/12601_lf/bg/12601_live2d_BG_001.png"
         ],
+        "modelOrder": 0,
         "bgLayers": [
           {
             "file": "12601_live2d_BG_001",
@@ -6093,8 +6094,7 @@
             "band": "bg",
             "order": 0
           }
-        ],
-        "modelOrder": 0
+        ]
       },
       {
         "name": "12601_lt",
@@ -6119,6 +6119,7 @@
           "x": -0.1581128,
           "y": -1.3746594
         },
+        "modelOrder": 0,
         "bgLayers": [
           {
             "file": "live2d_12602_card_002",
@@ -6168,8 +6169,7 @@
             "band": "fg",
             "order": -100
           }
-        ],
-        "modelOrder": 0
+        ]
       },
       {
         "name": "12603_l",
@@ -6194,6 +6194,7 @@
           "chars/12603/12603_l/bg/12603_live2d_rope_003.png",
           "chars/12603/12603_l/bg/12603_live2d_stage_001.png"
         ],
+        "modelOrder": 0,
         "bgLayers": [
           {
             "file": "12603_live2d_bg_001",
@@ -6401,8 +6402,7 @@
           }
         ],
         "added": "1.16.0",
-        "updated": "2.0.0",
-        "modelOrder": 0
+        "updated": "2.0.0"
       }
     ],
     "updated": "2.0.0"
@@ -6422,8 +6422,8 @@
           "x": 0.45624635,
           "y": -4.6276407
         },
-        "updated": "2.0.0",
-        "modelOrder": 0
+        "modelOrder": 0,
+        "updated": "2.0.0"
       },
       {
         "name": "12701_lf",
@@ -6439,6 +6439,7 @@
           "chars/12701/12701_lf/bg/12701_live2d_dress_001.png",
           "chars/12701/12701_lf/bg/12701_live2d_leaves_001.png"
         ],
+        "modelOrder": 0,
         "bgLayers": [
           {
             "file": "12701_live2d_BG_001",
@@ -6536,8 +6537,7 @@
             "band": "bg",
             "order": -100
           }
-        ],
-        "modelOrder": 0
+        ]
       },
       {
         "name": "12701_lt",
@@ -6580,6 +6580,7 @@
           "x": -0.28948364,
           "y": 0.23434478
         },
+        "modelOrder": 0,
         "bgLayers": [
           {
             "file": "live2d_12701_dragon_001",
@@ -6845,8 +6846,7 @@
             "band": "fg",
             "order": 0
           }
-        ],
-        "modelOrder": 0
+        ]
       },
       {
         "name": "12703_l",
@@ -6859,6 +6859,7 @@
           "chars/12703/12703_l/bg/live2d_12703_bg_04.png",
           "chars/12703/12703_l/bg/live2d_12703_bg_05.png"
         ],
+        "modelOrder": 0,
         "bgLayers": [
           {
             "file": "live2d_12703_bg_03",
@@ -6920,8 +6921,7 @@
             "band": "bg",
             "order": -1200
           }
-        ],
-        "modelOrder": 0
+        ]
       }
     ],
     "updated": "2.0.0"
@@ -6941,8 +6941,8 @@
           "x": 0.26828617,
           "y": -4.058867
         },
-        "updated": "2.0.0",
-        "modelOrder": 0
+        "modelOrder": 0,
+        "updated": "2.0.0"
       },
       {
         "name": "13001_lf",
@@ -7008,6 +7008,7 @@
           "x": -0.21364135,
           "y": -1.0752283
         },
+        "modelOrder": 0,
         "bgLayers": [
           {
             "file": "live2d_13002_ex_leaves_001",
@@ -7057,8 +7058,7 @@
             "band": "bg",
             "order": -300
           }
-        ],
-        "modelOrder": 0
+        ]
       }
     ],
     "updated": "2.0.0"
@@ -7182,6 +7182,7 @@
           "chars/13203/13203_l/bg/live2d_13203_bg_03.png",
           "chars/13203/13203_l/bg/live2d_13203_bg_04.png"
         ],
+        "modelOrder": 0,
         "bgLayers": [
           {
             "file": "live2d_13203_bg_01",
@@ -7231,8 +7232,7 @@
             "band": "fg",
             "order": 0
           }
-        ],
-        "modelOrder": 0
+        ]
       },
       {
         "name": "13204_l",
@@ -7245,6 +7245,7 @@
           "chars/13204/13204_l/bg/13204_live2d_fg_001.png",
           "chars/13204/13204_l/bg/13204_live2d_fg_002.png"
         ],
+        "modelOrder": 0,
         "bgLayers": [
           {
             "file": "13204_live2d_bg_001",
@@ -7306,8 +7307,7 @@
             "band": "fg",
             "order": 0
           }
-        ],
-        "modelOrder": 0
+        ]
       }
     ],
     "updated": "2.0.0"
@@ -7332,6 +7332,7 @@
           "x": 0.7996875,
           "y": -4.587685
         },
+        "modelOrder": -500,
         "bgLayers": [
           {
             "file": "13301_live2d_weapon_01",
@@ -7382,8 +7383,7 @@
             "order": 89
           }
         ],
-        "updated": "2.0.0",
-        "modelOrder": -500
+        "updated": "2.0.0"
       },
       {
         "name": "13301_lf",
@@ -7639,6 +7639,7 @@
           "chars/13302/13302_l/bg/live2d_13302_leaf_022.png"
         ],
         "charBg": "bg/charbg/traveller_camp_a_daylight.png",
+        "modelOrder": 0,
         "bgLayers": [
           {
             "file": "live2d_13302_bg_001",
@@ -8024,8 +8025,7 @@
             "band": "model",
             "order": 1300
           }
-        ],
-        "modelOrder": 0
+        ]
       },
       {
         "name": "13303_l",
@@ -8044,6 +8044,7 @@
           "chars/13303/13303_l/bg/13303_live2d_umbrella_002.png",
           "chars/13303/13303_l/bg/13303_live2d_umbrella_003.png"
         ],
+        "modelOrder": 0,
         "bgLayers": [
           {
             "file": "13303_live2d_bg_001",
@@ -8178,8 +8179,7 @@
             "order": -500
           }
         ],
-        "updated": "2.0.0",
-        "modelOrder": 0
+        "updated": "2.0.0"
       }
     ],
     "updated": "2.0.0"
@@ -8199,8 +8199,8 @@
           "x": 0.19553345,
           "y": -4.294296
         },
-        "updated": "2.0.0",
-        "modelOrder": 0
+        "modelOrder": 0,
+        "updated": "2.0.0"
       },
       {
         "name": "13401_lf",
@@ -8464,6 +8464,7 @@
           "x": -1.020089,
           "y": -0.17920472
         },
+        "modelOrder": 0,
         "bgLayers": [
           {
             "file": "live2d_13402_bg_001",
@@ -8705,8 +8706,7 @@
             "band": "fg",
             "order": 0
           }
-        ],
-        "modelOrder": 0
+        ]
       },
       {
         "name": "13403_l",
@@ -8717,6 +8717,7 @@
           "chars/13403/13403_l/bg/13403_live2d_box_001.png",
           "chars/13403/13403_l/bg/13403_live2d_mg_001.png"
         ],
+        "modelOrder": 0,
         "bgLayers": [
           {
             "file": "13403_live2d_bg_001",
@@ -8755,8 +8756,7 @@
             "order": -21
           }
         ],
-        "updated": "2.0.0",
-        "modelOrder": 0
+        "updated": "2.0.0"
       }
     ],
     "updated": "2.0.0"
@@ -8776,8 +8776,8 @@
           "x": -0.61919075,
           "y": -5.6216044
         },
-        "updated": "2.0.0",
-        "modelOrder": 0
+        "modelOrder": 0,
+        "updated": "2.0.0"
       },
       {
         "name": "13501_lf",
@@ -8868,6 +8868,7 @@
           "x": 1.0200878,
           "y": -0.6065393
         },
+        "modelOrder": 0,
         "bgLayers": [
           {
             "file": "live2d_13502_ex_smoke_001",
@@ -9061,8 +9062,7 @@
             "band": "bg",
             "order": -200
           }
-        ],
-        "modelOrder": 0
+        ]
       },
       {
         "name": "13503_l",
@@ -9075,6 +9075,7 @@
           "chars/13503/13503_l/bg/live2d_13503_bg_04.png",
           "chars/13503/13503_l/bg/live2d_13503_bg_05.png"
         ],
+        "modelOrder": 0,
         "bgLayers": [
           {
             "file": "live2d_13503_bg_01",
@@ -9136,8 +9137,7 @@
             "band": "bg",
             "order": -100
           }
-        ],
-        "modelOrder": 0
+        ]
       },
       {
         "name": "13504_l",
@@ -9170,6 +9170,7 @@
           "chars/13504/13504_l/bg/13504_live2d_tent_001.png",
           "chars/13504/13504_l/bg/13504_live2d_tent_002.png"
         ],
+        "modelOrder": 0,
         "bgLayers": [
           {
             "file": "13504_live2d_bg_001",
@@ -9472,8 +9473,7 @@
             "order": 0
           }
         ],
-        "updated": "2.0.0",
-        "modelOrder": 0
+        "updated": "2.0.0"
       }
     ],
     "updated": "2.0.0"
@@ -9493,8 +9493,8 @@
           "x": 0.34935862,
           "y": -4.2718697
         },
-        "updated": "2.0.0",
-        "modelOrder": 0
+        "modelOrder": 0,
+        "updated": "2.0.0"
       },
       {
         "name": "13701_lf",
@@ -9654,8 +9654,8 @@
         "label": "Talent",
         "path": "chars/13701/13701_lt/13701_T.model3.json",
         "bg": [],
-        "updated": "2.0.0",
-        "modelOrder": 0
+        "modelOrder": 0,
+        "updated": "2.0.0"
       },
       {
         "name": "13702_l",
@@ -9684,6 +9684,7 @@
           "x": 0.1632776,
           "y": -1.2517792
         },
+        "modelOrder": 0,
         "bgLayers": [
           {
             "file": "13702_live2d_tower_001",
@@ -9865,8 +9866,7 @@
             "band": "bg",
             "order": -90
           }
-        ],
-        "modelOrder": 0
+        ]
       }
     ],
     "updated": "2.0.0"
@@ -9886,9 +9886,9 @@
           "x": -0.58219975,
           "y": -5.6876526
         },
+        "modelOrder": 0,
         "added": "1.16.0",
-        "updated": "2.0.0",
-        "modelOrder": 0
+        "updated": "2.0.0"
       },
       {
         "name": "13901_lf",
@@ -9907,6 +9907,7 @@
           "chars/13901/13901_lf/bg/13901_live2d_Full_zhiwu_02.png",
           "chars/13901/13901_lf/bg/13901_live2d_Full_zhiwu_03.png"
         ],
+        "modelOrder": 0,
         "bgLayers": [
           {
             "file": "13901_live2d_Full_BG_001",
@@ -10042,17 +10043,16 @@
           }
         ],
         "added": "1.16.0",
-        "updated": "2.0.0",
-        "modelOrder": 0
+        "updated": "2.0.0"
       },
       {
         "name": "13901_lt",
         "label": "Talent",
         "path": "chars/13901/13901_lt/13901_T.model3.json",
         "bg": [],
+        "modelOrder": 0,
         "added": "1.16.0",
-        "updated": "1.16.0",
-        "modelOrder": 0
+        "updated": "1.16.0"
       },
       {
         "name": "13902_l",
@@ -10081,6 +10081,7 @@
           "x": -0.18248779,
           "y": -2.4387097
         },
+        "modelOrder": 0,
         "bgLayers": [
           {
             "file": "13902_live2d_house_001",
@@ -10264,8 +10265,7 @@
           }
         ],
         "added": "1.16.0",
-        "updated": "2.0.0",
-        "modelOrder": 0
+        "updated": "2.0.0"
       }
     ],
     "added": "1.16.0",
@@ -10419,6 +10419,7 @@
           "x": -0.33960205,
           "y": 0.24055116
         },
+        "modelOrder": 0,
         "bgLayers": [
           {
             "file": "14002_live2d_gear_001",
@@ -10492,8 +10493,7 @@
             "band": "fg",
             "order": 0
           }
-        ],
-        "modelOrder": 0
+        ]
       }
     ],
     "updated": "2.0.0"
@@ -10632,6 +10632,7 @@
           "x": -0.31091553,
           "y": 0.2516925
         },
+        "modelOrder": 0,
         "bgLayers": [
           {
             "file": "live2d_14102_painting_002",
@@ -10849,8 +10850,7 @@
             "band": "bg",
             "order": 10
           }
-        ],
-        "modelOrder": 0
+        ]
       },
       {
         "name": "14103_l",
@@ -10878,6 +10878,7 @@
           "chars/14103/14103_l/bg/14103_live2d_soldier_003.png",
           "chars/14103/14103_l/bg/14103_live2d_soldier_004.png"
         ],
+        "modelOrder": 0,
         "bgLayers": [
           {
             "file": "14103_live2d_soldier_001",
@@ -11119,8 +11120,7 @@
             "band": "bg",
             "order": 0
           }
-        ],
-        "modelOrder": 0
+        ]
       }
     ],
     "updated": "2.0.0"
@@ -11153,6 +11153,7 @@
           "chars/14201/14201_lf/bg/14201_live2d_leaves_002.png",
           "chars/14201/14201_lf/bg/14201_live2d_ludeng_001.png"
         ],
+        "modelOrder": 0,
         "bgLayers": [
           {
             "file": "14201_live2d_BG_001",
@@ -11214,8 +11215,7 @@
             "band": "bg",
             "order": 0
           }
-        ],
-        "modelOrder": 0
+        ]
       },
       {
         "name": "14201_lt",
@@ -11242,6 +11242,7 @@
           "x": 0.6207385,
           "y": 0.6331274
         },
+        "modelOrder": 0,
         "bgLayers": [
           {
             "file": "live2d_14202_rock_001",
@@ -11315,8 +11316,7 @@
             "band": "bg",
             "order": 0
           }
-        ],
-        "modelOrder": 0
+        ]
       },
       {
         "name": "14203_l",
@@ -11335,6 +11335,7 @@
           "chars/14203/14203_l/bg/live2d_14203_ex_hailang_02.png",
           "chars/14203/14203_l/bg/live2d_14203_ex_hailang_03.png"
         ],
+        "modelOrder": 0,
         "bgLayers": [
           {
             "file": "live2d_14203_ex_bg_08",
@@ -11468,8 +11469,7 @@
             "band": "bg",
             "order": -1600
           }
-        ],
-        "modelOrder": 0
+        ]
       }
     ]
   },
@@ -11601,6 +11601,7 @@
           "x": -0.35840818,
           "y": -0.610036
         },
+        "modelOrder": 0,
         "bgLayers": [
           {
             "file": "live2d_14302_ex_bg_001",
@@ -12214,8 +12215,7 @@
             "band": "fg",
             "order": 0
           }
-        ],
-        "modelOrder": 0
+        ]
       }
     ],
     "updated": "2.0.0"
@@ -12439,6 +12439,7 @@
           "x": -0.68104863,
           "y": 0.310914
         },
+        "modelOrder": -2500,
         "bgLayers": [
           {
             "file": "live2d_14402_ex_bg_001",
@@ -12584,8 +12585,7 @@
             "band": "fg",
             "order": -1500
           }
-        ],
-        "modelOrder": -2500
+        ]
       },
       {
         "name": "14403_l",
@@ -12627,9 +12627,86 @@
           }
         ],
         "updated": "2.0.0"
+      },
+      {
+        "name": "14404_l",
+        "label": "I Will Always... Stay by Your Side…",
+        "path": "chars/14404/14404_l/14404_L.model3.json",
+        "bg": [
+          "chars/14404/14404_l/bg/14404_live2d_bg_001.png",
+          "chars/14404/14404_l/bg/14404_live2d_flower_001.png",
+          "chars/14404/14404_l/bg/14404_live2d_pot_001.png",
+          "chars/14404/14404_l/bg/14404_live2d_talisman_001.png",
+          "chars/14404/14404_l/bg/14404_live2d_talisman_002.png"
+        ],
+        "modelOrder": 0,
+        "bgLayers": [
+          {
+            "file": "14404_live2d_bg_001",
+            "x": 0.020000016,
+            "y": -0.07,
+            "sx": 1,
+            "sy": 1,
+            "w": 1960,
+            "h": 1396,
+            "fg": false,
+            "band": "bg",
+            "order": -100
+          },
+          {
+            "file": "14404_live2d_talisman_001",
+            "x": -2.479,
+            "y": 3.2019997,
+            "sx": 1,
+            "sy": 1,
+            "w": 52,
+            "h": 80,
+            "fg": false,
+            "band": "bg",
+            "order": -100
+          },
+          {
+            "file": "14404_live2d_talisman_002",
+            "x": 2.708,
+            "y": 5.366,
+            "sx": 1,
+            "sy": 1,
+            "w": 48,
+            "h": 72,
+            "fg": false,
+            "band": "bg",
+            "order": -100
+          },
+          {
+            "file": "14404_live2d_flower_001",
+            "x": -6.641,
+            "y": -1.4,
+            "sx": 1,
+            "sy": 1,
+            "w": 428,
+            "h": 352,
+            "fg": false,
+            "band": "bg",
+            "order": -20
+          },
+          {
+            "file": "14404_live2d_pot_001",
+            "x": -6.680999,
+            "y": -3.6279998,
+            "sx": 1,
+            "sy": 1,
+            "w": 188,
+            "h": 204,
+            "fg": false,
+            "band": "bg",
+            "order": -10
+          }
+        ],
+        "added": "2.0.1",
+        "updated": "2.0.1"
       }
     ],
-    "updated": "2.0.0"
+    "updated": "2.0.1"
   },
   {
     "id": "14501",
@@ -12769,6 +12846,7 @@
           "x": 0.04245117,
           "y": 1.6980029
         },
+        "modelOrder": 0,
         "bgLayers": [
           {
             "file": "14502_live2d_BG_001",
@@ -12962,8 +13040,7 @@
             "band": "bg",
             "order": -100
           }
-        ],
-        "modelOrder": 0
+        ]
       }
     ],
     "updated": "2.0.0"
@@ -12983,8 +13060,8 @@
           "x": -0.29768553,
           "y": -4.131863
         },
-        "updated": "2.0.0",
-        "modelOrder": 0
+        "modelOrder": 0,
+        "updated": "2.0.0"
       },
       {
         "name": "14701_lf",
@@ -13069,6 +13146,7 @@
           "x": -0.044416502,
           "y": 0.45896912
         },
+        "modelOrder": 0,
         "bgLayers": [
           {
             "file": "live2d_14702_ex_bg_039",
@@ -13190,8 +13268,7 @@
             "band": "bg",
             "order": -900
           }
-        ],
-        "modelOrder": 0
+        ]
       },
       {
         "name": "14703_l",
@@ -13207,6 +13284,7 @@
           "chars/14703/14703_l/bg/live2d_14703_bg_07.png",
           "chars/14703/14703_l/bg/live2d_14703_bg_08.png"
         ],
+        "modelOrder": 0,
         "bgLayers": [
           {
             "file": "live2d_14703_bg_04",
@@ -13304,8 +13382,7 @@
             "band": "bg",
             "order": -10
           }
-        ],
-        "modelOrder": 0
+        ]
       }
     ],
     "updated": "2.0.0"
@@ -13438,6 +13515,7 @@
           "x": -0.32693604,
           "y": 0.5349847
         },
+        "modelOrder": -500,
         "bgLayers": [
           {
             "file": "live2d_14902_ex_bg_001",
@@ -13739,8 +13817,7 @@
             "band": "fg",
             "order": 0
           }
-        ],
-        "modelOrder": -500
+        ]
       },
       {
         "name": "14903_l",
@@ -13755,6 +13832,7 @@
           "chars/14903/14903_l/bg/14903_live2d_leaves_002.png",
           "chars/14903/14903_l/bg/14903_live2d_lianzi_001.png"
         ],
+        "modelOrder": 0,
         "bgLayers": [
           {
             "file": "14903_live2d_bg_001",
@@ -13840,8 +13918,7 @@
             "band": "fg",
             "order": -100
           }
-        ],
-        "modelOrder": 0
+        ]
       }
     ],
     "updated": "2.0.0"
@@ -13927,6 +14004,7 @@
           "x": -0.47377566,
           "y": 0.26966736
         },
+        "modelOrder": 0,
         "bgLayers": [
           {
             "file": "live2d_15002_ex_bg_002",
@@ -13976,8 +14054,7 @@
             "band": "bg",
             "order": 0
           }
-        ],
-        "modelOrder": 0
+        ]
       }
     ],
     "updated": "2.0.0"
@@ -13997,8 +14074,8 @@
           "x": -0.19531494,
           "y": -4.656264
         },
-        "updated": "2.0.0",
-        "modelOrder": -1000
+        "modelOrder": -1000,
+        "updated": "2.0.0"
       },
       {
         "name": "15501_lf",
@@ -14152,6 +14229,7 @@
           "x": -0.014859625,
           "y": 0.029721072
         },
+        "modelOrder": 0,
         "bgLayers": [
           {
             "file": "live2d_15502_ex_bg_002",
@@ -14321,8 +14399,7 @@
             "band": "fg",
             "order": -900
           }
-        ],
-        "modelOrder": 0
+        ]
       },
       {
         "name": "15503_l",
@@ -14344,6 +14421,7 @@
           "chars/15503/15503_l/bg/15503_live2d_yu_05.png",
           "chars/15503/15503_l/bg/15503_live2d_yu_06.png"
         ],
+        "modelOrder": 0,
         "bgLayers": [
           {
             "file": "15503_live2d_bg_001",
@@ -14515,8 +14593,7 @@
           }
         ],
         "added": "2.0.0",
-        "updated": "2.0.0",
-        "modelOrder": 0
+        "updated": "2.0.0"
       }
     ],
     "updated": "2.0.0"
@@ -14629,6 +14706,7 @@
           "x": -0.44582152,
           "y": 0.029721985
         },
+        "modelOrder": 0,
         "bgLayers": [
           {
             "file": "live2d_15602_ex_bg_001",
@@ -14702,8 +14780,7 @@
             "band": "fg",
             "order": 100
           }
-        ],
-        "modelOrder": 0
+        ]
       },
       {
         "name": "15603_l",
@@ -14716,6 +14793,7 @@
           "chars/15603/15603_l/bg/145603_live2d_bg_04.png",
           "chars/15603/15603_l/bg/145603_live2d_bg_05.png"
         ],
+        "modelOrder": 0,
         "bgLayers": [
           {
             "file": "145603_live2d_bg_01",
@@ -14777,8 +14855,7 @@
             "band": "bg",
             "order": -1200
           }
-        ],
-        "modelOrder": 0
+        ]
       }
     ],
     "updated": "2.0.0"
@@ -15136,8 +15213,8 @@
           "x": 0.22986214,
           "y": -2.3606334
         },
-        "updated": "2.0.0",
-        "modelOrder": 0
+        "modelOrder": 0,
+        "updated": "2.0.0"
       },
       {
         "name": "15801_lf",
@@ -15348,6 +15425,7 @@
           "x": 0.45972717,
           "y": 0.10056519
         },
+        "modelOrder": -500,
         "bgLayers": [
           {
             "file": "live2d_15802_ex_bg_005",
@@ -15421,8 +15499,7 @@
             "band": "model",
             "order": -600
           }
-        ],
-        "modelOrder": -500
+        ]
       }
     ],
     "updated": "2.0.0"
@@ -15553,6 +15630,7 @@
           "x": -0.026676023,
           "y": -0.24007536
         },
+        "modelOrder": 0,
         "bgLayers": [
           {
             "file": "15902_live2d_leaves_001",
@@ -15674,8 +15752,7 @@
             "band": "fg",
             "order": -10
           }
-        ],
-        "modelOrder": 0
+        ]
       }
     ],
     "updated": "2.0.0"
@@ -16090,9 +16167,9 @@
           "x": -0.45942992,
           "y": -3.9457014
         },
+        "modelOrder": 0,
         "added": "2.0.0",
-        "updated": "2.0.0",
-        "modelOrder": 0
+        "updated": "2.0.0"
       },
       {
         "name": "16201_lf",
@@ -16388,9 +16465,9 @@
         "label": "Talent",
         "path": "chars/16201/16201_lt/16201_T.model3.json",
         "bg": [],
+        "modelOrder": 0,
         "added": "2.0.0",
-        "updated": "2.0.0",
-        "modelOrder": 0
+        "updated": "2.0.0"
       },
       {
         "name": "16202_l",
@@ -16412,6 +16489,7 @@
           "x": -0.094588615,
           "y": -1.0810138
         },
+        "modelOrder": 0,
         "bgLayers": [
           {
             "file": "16202_live2d_bg_01",
@@ -16511,8 +16589,7 @@
           }
         ],
         "added": "2.0.0",
-        "updated": "2.0.0",
-        "modelOrder": 0
+        "updated": "2.0.0"
       }
     ],
     "added": "2.0.0",
@@ -16694,9 +16771,9 @@
         "path": "chars/99901/99901_l/99901_L.model3.json",
         "bg": [],
         "charBg": "bg/charbg/ttc_parkbase_daylight.png",
+        "modelOrder": 0,
         "added": "1.16.0",
-        "updated": "1.16.0",
-        "modelOrder": 0
+        "updated": "1.16.0"
       }
     ],
     "added": "1.16.0",
@@ -32045,6 +32122,7 @@
         "bg": [
           "chars/4004/4004_l/bg/4004_disc_l2d_main_bg_001.png"
         ],
+        "modelOrder": 0,
         "bgLayers": [
           {
             "file": "4004_disc_l2d_main_bg_001",
@@ -32059,8 +32137,7 @@
             "order": 0
           }
         ],
-        "updated": "2.0.0",
-        "modelOrder": 0
+        "updated": "2.0.0"
       }
     ],
     "updated": "2.0.0"
@@ -32078,6 +32155,7 @@
           "chars/4005/4005_l/bg/4005_disc_l2d_bg_001.png",
           "chars/4005/4005_l/bg/4005_disc_l2d_flower_001.png"
         ],
+        "modelOrder": -500,
         "bgLayers": [
           {
             "file": "4005_disc_l2d_bg_001",
@@ -32103,8 +32181,7 @@
             "band": "bg",
             "order": -90
           }
-        ],
-        "modelOrder": -500
+        ]
       }
     ]
   },
@@ -32124,6 +32201,7 @@
           "chars/4006/4006_l/bg/4006_disc_l2d_main_bg_005.png",
           "chars/4006/4006_l/bg/4006_disc_l2d_main_bg_006.png"
         ],
+        "modelOrder": -500,
         "bgLayers": [
           {
             "file": "4006_disc_l2d_main_bg_001",
@@ -32186,8 +32264,7 @@
             "order": 0
           }
         ],
-        "updated": "2.0.0",
-        "modelOrder": -500
+        "updated": "2.0.0"
       }
     ],
     "updated": "2.0.0"
@@ -32210,6 +32287,7 @@
           "chars/4007/4007_l/bg/fx_4007_disc_l2d_shuiliu_007.png",
           "chars/4007/4007_l/bg/fx_4007_disc_l2d_shuiliu_008.png"
         ],
+        "modelOrder": -500,
         "bgLayers": [
           {
             "file": "4007_disc_l2d_bg_001",
@@ -32308,8 +32386,7 @@
             "order": 0
           }
         ],
-        "updated": "2.0.0",
-        "modelOrder": -500
+        "updated": "2.0.0"
       }
     ],
     "updated": "2.0.0"
@@ -32330,6 +32407,7 @@
           "chars/4008/4008_l/bg/4008_disc_l2d_leaves_002.png",
           "chars/4008/4008_l/bg/4008_disc_l2d_leaves_003.png"
         ],
+        "modelOrder": 0,
         "bgLayers": [
           {
             "file": "4008_disc_l2d_bg_001",
@@ -32391,8 +32469,7 @@
             "band": "model",
             "order": 0
           }
-        ],
-        "modelOrder": 0
+        ]
       }
     ]
   },
@@ -32415,6 +32492,7 @@
           "chars/4015/4015_l/bg/4015_disc_l2d_leaves_002.png",
           "chars/4015/4015_l/bg/4015_disc_l2d_leaves_003.png"
         ],
+        "modelOrder": -500,
         "bgLayers": [
           {
             "file": "4015_disc_l2d_bg_001",
@@ -32512,8 +32590,7 @@
             "band": "fg",
             "order": -10
           }
-        ],
-        "modelOrder": -500
+        ]
       }
     ]
   },
@@ -32547,6 +32624,7 @@
           "chars/4016/4016_l/bg/4016_disc_l2d_grass_014.png",
           "chars/4016/4016_l/bg/4016_disc_l2d_leaves_001.png"
         ],
+        "modelOrder": 0,
         "bgLayers": [
           {
             "file": "4016_disc_l2d_bg_001",
@@ -32777,8 +32855,7 @@
             "order": -100
           }
         ],
-        "updated": "2.0.0",
-        "modelOrder": 0
+        "updated": "2.0.0"
       }
     ],
     "updated": "2.0.0"
@@ -32799,6 +32876,7 @@
           "chars/4017/4017_l/bg/4017_disc_l2d_bg_004.png",
           "chars/4017/4017_l/bg/4017_disc_l2d_fg_001.png"
         ],
+        "modelOrder": -500,
         "bgLayers": [
           {
             "file": "4017_disc_l2d_bg_001",
@@ -32860,8 +32938,7 @@
             "band": "fg",
             "order": 0
           }
-        ],
-        "modelOrder": -500
+        ]
       }
     ]
   },
@@ -32888,6 +32965,7 @@
           "chars/4026/4026_l/bg/4026_disc_l2d_bg_11.png",
           "chars/4026/4026_l/bg/fx_4026_disc_l2d_03.png"
         ],
+        "modelOrder": 0,
         "bgLayers": [
           {
             "file": "4026_disc_l2d_bg_01",
@@ -33045,8 +33123,7 @@
             "band": "fg",
             "order": 0
           }
-        ],
-        "modelOrder": 0
+        ]
       }
     ]
   },
@@ -33075,6 +33152,7 @@
           "chars/4027/4027_l/bg/4027_disc_l2d_painting_02.png",
           "chars/4027/4027_l/bg/4027_disc_l2d_painting_03.png"
         ],
+        "modelOrder": 0,
         "bgLayers": [
           {
             "file": "4027_disc_l2d_bg_01",
@@ -33280,8 +33358,7 @@
             "band": "fg",
             "order": 0
           }
-        ],
-        "modelOrder": 0
+        ]
       }
     ]
   },
@@ -33297,6 +33374,7 @@
         "bg": [
           "chars/4028/4028_l/bg/4028_disc_l2d_bg_01.png"
         ],
+        "modelOrder": -500,
         "bgLayers": [
           {
             "file": "4028_disc_l2d_bg_01",
@@ -33310,8 +33388,7 @@
             "band": "bg",
             "order": -1000
           }
-        ],
-        "modelOrder": -500
+        ]
       }
     ]
   },
@@ -33328,6 +33405,7 @@
           "chars/4029/4029_l/bg/4029_disc_l2d_bg_001.png",
           "chars/4029/4029_l/bg/4029_disc_l2d_fg_001.png"
         ],
+        "modelOrder": 0,
         "bgLayers": [
           {
             "file": "4029_disc_l2d_bg_001",
@@ -33353,8 +33431,7 @@
             "band": "fg",
             "order": 0
           }
-        ],
-        "modelOrder": 0
+        ]
       }
     ]
   },
@@ -33370,6 +33447,7 @@
         "bg": [
           "chars/4036/4036_l/bg/4036_disc_l2d_bg_001.png"
         ],
+        "modelOrder": 0,
         "bgLayers": [
           {
             "file": "4036_disc_l2d_bg_001",
@@ -33383,8 +33461,7 @@
             "band": "bg",
             "order": 0
           }
-        ],
-        "modelOrder": 0
+        ]
       }
     ]
   },
@@ -33401,6 +33478,7 @@
           "chars/4037/4037_l/bg/4037_disc_main_bg_01.png",
           "chars/4037/4037_l/bg/4037_disc_main_bg_02.png"
         ],
+        "modelOrder": 0,
         "bgLayers": [
           {
             "file": "4037_disc_main_bg_01",
@@ -33427,8 +33505,7 @@
             "order": -1000
           }
         ],
-        "updated": "2.0.0",
-        "modelOrder": 0
+        "updated": "2.0.0"
       }
     ],
     "updated": "2.0.0"
@@ -34161,6 +34238,7 @@
           "chars/4044/4044_l/bg/4044_disc_l2d_fg_004.png",
           "chars/4044/4044_l/bg/4044_disc_l2d_fg_005.png"
         ],
+        "modelOrder": 0,
         "bgLayers": [
           {
             "file": "4044_disc_l2d_bg_001",
@@ -34282,8 +34360,7 @@
             "band": "fg",
             "order": 0
           }
-        ],
-        "modelOrder": 0
+        ]
       }
     ]
   },
@@ -34299,6 +34376,7 @@
         "bg": [
           "chars/4045/4045_l/bg/4045_disc_l2d_bg_001.png"
         ],
+        "modelOrder": 0,
         "bgLayers": [
           {
             "file": "4045_disc_l2d_bg_001",
@@ -34313,8 +34391,7 @@
             "order": -1000
           }
         ],
-        "updated": "2.0.0",
-        "modelOrder": 0
+        "updated": "2.0.0"
       }
     ],
     "updated": "2.0.0"
@@ -34333,6 +34410,7 @@
           "chars/4048/4048_l/bg/4048_disc_main_bg_02.png",
           "chars/4048/4048_l/bg/4048_disc_main_bg_03.png"
         ],
+        "modelOrder": -500,
         "bgLayers": [
           {
             "file": "4048_disc_main_bg_01",
@@ -34370,8 +34448,7 @@
             "band": "model",
             "order": -180
           }
-        ],
-        "modelOrder": -500
+        ]
       }
     ]
   },
@@ -34392,6 +34469,7 @@
           "chars/4051/4051_l/bg/4051_disc_l2d_bg_05.png",
           "chars/4051/4051_l/bg/4051_disc_l2d_bg_06.png"
         ],
+        "modelOrder": 0,
         "bgLayers": [
           {
             "file": "4051_disc_l2d_bg_02",
@@ -34466,8 +34544,7 @@
             "order": -1000
           }
         ],
-        "updated": "2.0.0",
-        "modelOrder": 0
+        "updated": "2.0.0"
       }
     ],
     "updated": "2.0.0"
@@ -34501,6 +34578,7 @@
           "chars/4054/4054_l/bg/fx_4054_disc_l2d_paopao_012.png",
           "chars/4054/4054_l/bg/fx_4054_disc_l2d_paopao_013.png"
         ],
+        "modelOrder": 0,
         "bgLayers": [
           {
             "file": "4054_disc_l2d_bg_001",
@@ -34718,8 +34796,7 @@
             "band": "fg",
             "order": 0
           }
-        ],
-        "modelOrder": 0
+        ]
       }
     ]
   },
@@ -34766,6 +34843,7 @@
           "chars/4055/4055_l/bg/4055_disc_l2d_pao_10.png",
           "chars/4055/4055_l/bg/4055_disc_l2d_pao_11.png"
         ],
+        "modelOrder": 0,
         "bgLayers": [
           {
             "file": "4055_disc_l2d_bg_001",
@@ -35151,8 +35229,7 @@
             "band": "fg",
             "order": 0
           }
-        ],
-        "modelOrder": 0
+        ]
       }
     ]
   },
@@ -35170,6 +35247,7 @@
           "chars/4057/4057_l/bg/4057_disc_l2d_bird_001.png",
           "chars/4057/4057_l/bg/4057_disc_l2d_bird_002.png"
         ],
+        "modelOrder": 0,
         "bgLayers": [
           {
             "file": "4057_disc_l2d_bg_001",
@@ -35208,8 +35286,7 @@
             "order": 0
           }
         ],
-        "updated": "2.0.0",
-        "modelOrder": 0
+        "updated": "2.0.0"
       }
     ],
     "updated": "2.0.0"
@@ -35233,6 +35310,7 @@
           "chars/4059/4059_l/bg/4059_disc_l2d_bg_010.png",
           "chars/4059/4059_l/bg/4059_disc_l2d_bg_011.png"
         ],
+        "modelOrder": 0,
         "bgLayers": [
           {
             "file": "4059_disc_l2d_bg_001",
@@ -35331,8 +35409,7 @@
             "order": -100
           }
         ],
-        "updated": "2.0.0",
-        "modelOrder": 0
+        "updated": "2.0.0"
       }
     ],
     "updated": "2.0.0"
@@ -35353,6 +35430,7 @@
           "chars/4061/4061_l/bg/4061_disc_l2d_bg_004.png",
           "chars/4061/4061_l/bg/4061_disc_l2d_bg_005.png"
         ],
+        "modelOrder": 0,
         "bgLayers": [
           {
             "file": "4061_disc_l2d_bg_001",
@@ -35416,8 +35494,7 @@
           }
         ],
         "added": "1.16.0",
-        "updated": "2.0.0",
-        "modelOrder": 0
+        "updated": "2.0.0"
       }
     ],
     "added": "1.16.0",
@@ -35439,6 +35516,7 @@
           "chars/4066/4066_l/bg/4066_disc_l2d_bg_004.png",
           "chars/4066/4066_l/bg/4066_disc_l2d_bg_005.png"
         ],
+        "modelOrder": 0,
         "bgLayers": [
           {
             "file": "4066_disc_l2d_bg_001",
@@ -35502,8 +35580,7 @@
           }
         ],
         "added": "2.0.0",
-        "updated": "2.0.0",
-        "modelOrder": 0
+        "updated": "2.0.0"
       }
     ],
     "added": "2.0.0",
@@ -35558,32 +35635,32 @@
         "label": "20104_Downdust",
         "path": "events/20104/spine/20104_Downdust.skel",
         "added": "2.0.0",
-        "updated": "2.0.0"
+        "updated": "2.0.1"
       },
       {
         "name": "20104event",
         "label": "20104_Iris",
         "path": "events/20104/spine/20104_Iris.skel",
         "added": "2.0.0",
-        "updated": "2.0.0"
+        "updated": "2.0.1"
       },
       {
         "name": "20104event",
         "label": "20104_mw_Female",
         "path": "events/20104/spine/20104_mw_Female.skel",
         "added": "2.0.0",
-        "updated": "2.0.0"
+        "updated": "2.0.1"
       },
       {
         "name": "20104event",
         "label": "20104_mw_Male",
         "path": "events/20104/spine/20104_mw_Male.skel",
         "added": "2.0.0",
-        "updated": "2.0.0"
+        "updated": "2.0.1"
       }
     ],
     "added": "2.0.0",
-    "updated": "2.0.0"
+    "updated": "2.0.1"
   },
   {
     "id": "301041event",
