@@ -429,6 +429,14 @@
       "hash": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
       "variants": {}
     },
+    "4068": {
+      "hash": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
+      "variants": {}
+    },
+    "4069": {
+      "hash": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
+      "variants": {}
+    },
     "10301": {
       "hash": "9132b6df0dfed1493aff02337ff08bd0aebedd5a",
       "variants": {
@@ -708,12 +716,13 @@
       }
     },
     "14301": {
-      "hash": "8a95c711a3200a2536f09635754d4e2d3819ef48",
+      "hash": "3363dc609e0c12ba2be56d556f269863349657ea",
       "variants": {
         "14301_l": "84e7f8602797a63810e8a7be9189490a8ae00c2e",
         "14301_lf": "b20d9a82c694796cb458e71f61887d82b075c0dd",
         "14301_lt": "bcc73d20b6249d6d97e49c8e269aa5f7b641f4f5",
-        "14302_l": "c8fbeec33f82201299d78463cf3cb08ed514209e"
+        "14302_l": "c8fbeec33f82201299d78463cf3cb08ed514209e",
+        "14303_l": "3eae0b97c2f3322fc51e845fa493045a788e9462"
       }
     },
     "14401": {
@@ -819,6 +828,15 @@
         "16001_lf": "d979743d9b83a243ea0045908d2eb884e3ceb70a",
         "16001_lt": "c8952f6598ae84702f395d5b6e41e90c0872d477",
         "16002_l": "b6ff41dcf0ad0b2d485b704be917a47729ec83d9"
+      }
+    },
+    "16101": {
+      "hash": "0bea1c4036e4587c7ac5baa968f1ac3fc92ae4da",
+      "variants": {
+        "16101_l": "9dd20049b3ef7216e18423f63efdd56596ee0674",
+        "16101_lf": "882ca9b6e8ed9039788f746bf9cdbeab8db10b85",
+        "16101_lt": "8da15d2c63803abfded187ef505579e5963b2d1f",
+        "16102_l": "9c7000035f2acb5afcdaaf10303248e0068dc66e"
       }
     },
     "16201": {
@@ -1309,9 +1327,9 @@
       }
     },
     "sp10301_10301event": {
-      "hash": "af4446777b4fdf81c7d1e4784a33831f7ee72a80",
+      "hash": "39d69f41faf5a2281d042dee91e9ec6f8072cc99",
       "variants": {
-        "sp10301_10301event": "ede33e22c621304be949d9864649c6df6ae812fc"
+        "sp10301_10301event": "94d20638ebcbe87c2069256d3ea1f1e1e0de6ff0"
       }
     },
     "sp11101_11101event": {
@@ -1321,9 +1339,9 @@
       }
     },
     "sp11201_11201event": {
-      "hash": "1eacde627d39c05131b70ad7632daabfa99d00ff",
+      "hash": "8f86a69e65e8a4fd19a9346b7bebcc0b8ed40d75",
       "variants": {
-        "sp11201_11201event": "7e30021cbb42c5b699ed928783ecc730ed6f96f4"
+        "sp11201_11201event": "db33602d6bcb35626124d2ccfef67601df1f42b8"
       }
     },
     "sp966001_966001event": {
@@ -1333,15 +1351,15 @@
       }
     },
     "sp983001_983001event": {
-      "hash": "2b69989c60926e52ef61b6593c985e3f5def8d9b",
+      "hash": "cfeec2c4f414ffd52a8eefaf147cc2696e64af05",
       "variants": {
-        "sp983001_983001event": "d47166bbcc217632d31aa60b086a5ed32ac8ff6d"
+        "sp983001_983001event": "d025cc488252b725650d6209a43948318ed9ce23"
       }
     },
     "sp983002_983002event": {
-      "hash": "95247f234650752da400730554529692f2278e3d",
+      "hash": "03d3cccd2b86a701e5a122f31af36a263a82aa25",
       "variants": {
-        "sp983002_983002event": "99c387844d4682bc1811a88d3b585f2b8794d8ad"
+        "sp983002_983002event": "c07bce0022c96172420c5a76fb759709bdf71f31"
       }
     },
     "sp984001_984001event": {
@@ -1354,6 +1372,102 @@
       "hash": "b989f0e839e73560ca6609a135384ddf5e90706e",
       "variants": {
         "sp984002_984002event": "16bb2e88efc126a1fd8948d731f049213c61fc93"
+      }
+    },
+    "4068l2d": {
+      "hash": "75c5aabf5f8bea64771c47e2b3590cc67774cee2",
+      "variants": {
+        "4068_l": "ca8208a082e82b67364aa7f18d1ee7ae8137b3fc"
+      }
+    },
+    "400020_CoconutTreeevent": {
+      "hash": "933b27bf510ccbaec3e3ba103d838454a79a7dd6",
+      "variants": {
+        "400020_CoconutTreeevent": "92f3570f97c2f2ec6543ad65f2237e35a3e69149"
+      }
+    },
+    "400020_OctopusFoot1event": {
+      "hash": "f2bef3d898180befb6cdc1d0fb8054f2bbe35e64",
+      "variants": {
+        "400020_OctopusFoot1event": "92f3570f97c2f2ec6543ad65f2237e35a3e69149"
+      }
+    },
+    "400020_OctopusFoot2event": {
+      "hash": "385318c1e37c32addc88c54bbbac546bebe4839b",
+      "variants": {
+        "400020_OctopusFoot2event": "92f3570f97c2f2ec6543ad65f2237e35a3e69149"
+      }
+    },
+    "400020_OctopusFoot3event": {
+      "hash": "89426392a6aa2d67df301bfd97af266cceec25d2",
+      "variants": {
+        "400020_OctopusFoot3event": "92f3570f97c2f2ec6543ad65f2237e35a3e69149"
+      }
+    },
+    "400020_OctopusFoot4event": {
+      "hash": "07da9c651e1da98f75cc2e485e4c5004647d5beb",
+      "variants": {
+        "400020_OctopusFoot4event": "92f3570f97c2f2ec6543ad65f2237e35a3e69149"
+      }
+    },
+    "400020_OctopusFoot5event": {
+      "hash": "0a04ce10c4c9acab34d3b597ec4aff00ef0cda43",
+      "variants": {
+        "400020_OctopusFoot5event": "92f3570f97c2f2ec6543ad65f2237e35a3e69149"
+      }
+    },
+    "400020_OctopusFoot6event": {
+      "hash": "968b1a0cd349b93290b64b70d4b256315a77a66e",
+      "variants": {
+        "400020_OctopusFoot6event": "92f3570f97c2f2ec6543ad65f2237e35a3e69149"
+      }
+    },
+    "400020_OctopusHeadevent": {
+      "hash": "e1205026d08e80f329d7b497444be285e1bf1cfb",
+      "variants": {
+        "400020_OctopusHeadevent": "92f3570f97c2f2ec6543ad65f2237e35a3e69149"
+      }
+    },
+    "400020_bg_Icecream_mainevent": {
+      "hash": "35c2952ed635e2eb553f0ca8fef019abfceb293e",
+      "variants": {
+        "400020_bg_Icecream_mainevent": "92f3570f97c2f2ec6543ad65f2237e35a3e69149"
+      }
+    },
+    "400020_btn_Icecream_level_island_1event": {
+      "hash": "3bbc45c1abe6f535583f3a9693c31864696936cc",
+      "variants": {
+        "400020_btn_Icecream_level_island_1event": "92f3570f97c2f2ec6543ad65f2237e35a3e69149"
+      }
+    },
+    "400020_btn_Icecream_level_island_2event": {
+      "hash": "42c1a0bee6bfecef1bc721f34c9180434ea71e28",
+      "variants": {
+        "400020_btn_Icecream_level_island_2event": "92f3570f97c2f2ec6543ad65f2237e35a3e69149"
+      }
+    },
+    "400020_btn_Icecream_level_island_3event": {
+      "hash": "d348a78143176b9dccd61132fce9b8d387b918e7",
+      "variants": {
+        "400020_btn_Icecream_level_island_3event": "92f3570f97c2f2ec6543ad65f2237e35a3e69149"
+      }
+    },
+    "400020_btn_Icecream_level_island_4event": {
+      "hash": "bf45b30670b015a6bbcea427d3759b9afe970636",
+      "variants": {
+        "400020_btn_Icecream_level_island_4event": "92f3570f97c2f2ec6543ad65f2237e35a3e69149"
+      }
+    },
+    "510008event": {
+      "hash": "588de8cd639902e9cc388135483a9e282be27617",
+      "variants": {
+        "510008event": "428d14e353a7ffc57cd52e07e2484c8f3bf86295"
+      }
+    },
+    "sp16101_16101event": {
+      "hash": "2951a98c4200c0d09baf55614d8ab0a906201016",
+      "variants": {
+        "sp16101_16101event": "4c7a7eea46eafce12d9409e59426dcb2016ecc3e"
       }
     }
   },
@@ -1573,6 +1687,11 @@
     "char_avg_2d_avg3_227": "6e2d24ee417fe7bb74e0544075cbe98a89daa5f0",
     "char_avg_2d_avg3_228": "fb5b305d2148a59a474dd5351a3d111848413ff6",
     "char_avg_2d_avg3_229": "2ebf94191cfb99576d9741f9ec2c19eed494906e",
-    "char_avg_2d_avg4_106": "001eb056ab996b727df292e44459e67a84a6549f"
+    "char_avg_2d_avg4_106": "001eb056ab996b727df292e44459e67a84a6549f",
+    "char_avg_2d_avg1_161": "dc3c47deea64efb8ea2b847427c1f8662d7a6c37",
+    "char_avg_2d_avg2_937": "78e1adb6a12d16de8e87b719a8fc8c100d42900a",
+    "char_avg_2d_avg3_230": "a132fe7c4b393c318719876f02f6848a00deb85c",
+    "char_avg_2d_avg3_231": "73b77d909c9ed30b9d2c1a0642b5b8e10511854b",
+    "char_avg_2d_avg4_107": "67f5b938e19ca25cf5c70f3aa63b1f1beb554fff"
   }
 }

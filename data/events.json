@@ -2614,6 +2614,168 @@
       }
     ]
   },
+  "400020": {
+    "name": "沁凉补给站2期 (400020)",
+    "static": null,
+    "spines": [
+      {
+        "name": "CoconutTree",
+        "skel": "CoconutTree.skel",
+        "atlas": "CoconutTree.atlas",
+        "textures": [
+          {
+            "file": "CoconutTree.png",
+            "w": 1024,
+            "h": 1024
+          }
+        ]
+      },
+      {
+        "name": "OctopusFoot1",
+        "skel": "OctopusFoot1.skel",
+        "atlas": "OctopusFoot1.atlas",
+        "textures": [
+          {
+            "file": "OctopusFoot1.png",
+            "w": 1024,
+            "h": 1024
+          }
+        ]
+      },
+      {
+        "name": "OctopusFoot2",
+        "skel": "OctopusFoot2.skel",
+        "atlas": "OctopusFoot2.atlas",
+        "textures": [
+          {
+            "file": "OctopusFoot2.png",
+            "w": 1024,
+            "h": 512
+          }
+        ]
+      },
+      {
+        "name": "OctopusFoot3",
+        "skel": "OctopusFoot3.skel",
+        "atlas": "OctopusFoot3.atlas",
+        "textures": [
+          {
+            "file": "OctopusFoot3.png",
+            "w": 1024,
+            "h": 1024
+          }
+        ]
+      },
+      {
+        "name": "OctopusFoot4",
+        "skel": "OctopusFoot4.skel",
+        "atlas": "OctopusFoot4.atlas",
+        "textures": [
+          {
+            "file": "OctopusFoot4.png",
+            "w": 1024,
+            "h": 1024
+          }
+        ]
+      },
+      {
+        "name": "OctopusFoot5",
+        "skel": "OctopusFoot5.skel",
+        "atlas": "OctopusFoot5.atlas",
+        "textures": [
+          {
+            "file": "OctopusFoot5.png",
+            "w": 1024,
+            "h": 1024
+          }
+        ]
+      },
+      {
+        "name": "OctopusFoot6",
+        "skel": "OctopusFoot6.skel",
+        "atlas": "OctopusFoot6.atlas",
+        "textures": [
+          {
+            "file": "OctopusFoot6.png",
+            "w": 1024,
+            "h": 1024
+          }
+        ]
+      },
+      {
+        "name": "OctopusHead",
+        "skel": "OctopusHead.skel",
+        "atlas": "OctopusHead.atlas",
+        "textures": [
+          {
+            "file": "OctopusHead.png",
+            "w": 1024,
+            "h": 1024
+          }
+        ]
+      },
+      {
+        "name": "bg_Icecream_main",
+        "skel": "bg_Icecream_main.skel",
+        "atlas": "bg_Icecream_main.atlas",
+        "textures": [
+          {
+            "file": "bg_Icecream_main.png",
+            "w": 2048,
+            "h": 512
+          }
+        ]
+      },
+      {
+        "name": "btn_Icecream_level_island_1",
+        "skel": "btn_Icecream_level_island_1.skel",
+        "atlas": "btn_Icecream_level_island_1.atlas",
+        "textures": [
+          {
+            "file": "btn_Icecream_level_island_1.png",
+            "w": 2048,
+            "h": 1024
+          }
+        ]
+      },
+      {
+        "name": "btn_Icecream_level_island_2",
+        "skel": "btn_Icecream_level_island_2.skel",
+        "atlas": "btn_Icecream_level_island_2.atlas",
+        "textures": [
+          {
+            "file": "btn_Icecream_level_island_2.png",
+            "w": 2048,
+            "h": 1024
+          }
+        ]
+      },
+      {
+        "name": "btn_Icecream_level_island_3",
+        "skel": "btn_Icecream_level_island_3.skel",
+        "atlas": "btn_Icecream_level_island_3.atlas",
+        "textures": [
+          {
+            "file": "btn_Icecream_level_island_3.png",
+            "w": 2048,
+            "h": 1024
+          }
+        ]
+      },
+      {
+        "name": "btn_Icecream_level_island_4",
+        "skel": "btn_Icecream_level_island_4.skel",
+        "atlas": "btn_Icecream_level_island_4.atlas",
+        "textures": [
+          {
+            "file": "btn_Icecream_level_island_4.png",
+            "w": 1024,
+            "h": 2048
+          }
+        ]
+      }
+    ]
+  },
   "510001": {
     "name": "Joint Drill I — Eye of Ashes",
     "static": {
@@ -3359,6 +3521,24 @@
       }
     ]
   },
+  "510008": {
+    "name": "总力战S8 (510008)",
+    "static": {
+      "body": "body.png",
+      "w": 2048,
+      "h": 2048,
+      "faces": [],
+      "bodies": [
+        {
+          "file": "body.png",
+          "w": 2048,
+          "h": 2048,
+          "frame": null
+        }
+      ]
+    },
+    "spines": []
+  },
   "600003": {
     "name": "Peak Showcase",
     "static": {
@@ -3539,6 +3719,24 @@
       }
     ]
   },
+  "sp16101": {
+    "name": "Leafia: Default (Spine)",
+    "static": null,
+    "spines": [
+      {
+        "name": "16101",
+        "skel": "16101.skel",
+        "atlas": "16101.atlas",
+        "textures": [
+          {
+            "file": "16101.png",
+            "w": 1024,
+            "h": 1024
+          }
+        ]
+      }
+    ]
+  },
   "sp966001": {
     "name": "Skin 966001 (Spine)",
     "static": null,
@@ -3587,7 +3785,7 @@
           {
             "file": "983001.png",
             "w": 1024,
-            "h": 1024
+            "h": 512
           }
         ]
       }
@@ -3605,7 +3803,7 @@
           {
             "file": "983002.png",
             "w": 1024,
-            "h": 1024
+            "h": 512
           }
         ]
       }
