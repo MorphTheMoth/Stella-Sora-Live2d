@@ -892,8 +892,99 @@
           "y": -0.86707574
         },
         "modelOrder": 0
+      },
+      {
+        "name": "10803_l",
+        "label": "Fate's Final Draw",
+        "path": "chars/10803/10803_l/10803_L.model3.json",
+        "bg": [
+          "chars/10803/10803_l/bg/10803_live2d_ball_001.png",
+          "chars/10803/10803_l/bg/10803_live2d_bg_001.png",
+          "chars/10803/10803_l/bg/10803_live2d_curtain_001.png",
+          "chars/10803/10803_l/bg/10803_live2d_curtain_002.png",
+          "chars/10803/10803_l/bg/10803_live2d_curtain_003.png",
+          "chars/10803/10803_l/bg/10803_live2d_light_001.png"
+        ],
+        "modelOrder": 0,
+        "bgLayers": [
+          {
+            "file": "10803_live2d_bg_001",
+            "x": 0,
+            "y": 0,
+            "sx": 1,
+            "sy": 1,
+            "w": 2048,
+            "h": 2048,
+            "fg": false,
+            "band": "bg",
+            "order": -100
+          },
+          {
+            "file": "10803_live2d_curtain_003",
+            "x": 0.6099999,
+            "y": 7.564999,
+            "sx": 1,
+            "sy": 1,
+            "w": 448,
+            "h": 392,
+            "fg": false,
+            "band": "bg",
+            "order": -39
+          },
+          {
+            "file": "10803_live2d_ball_001",
+            "x": -0.892,
+            "y": -2.2519999,
+            "sx": 1,
+            "sy": 1,
+            "w": 508,
+            "h": 288,
+            "fg": false,
+            "band": "bg",
+            "order": 0
+          },
+          {
+            "file": "10803_live2d_curtain_001",
+            "x": -2.6239998,
+            "y": 3.947,
+            "sx": 1,
+            "sy": 1,
+            "w": 504,
+            "h": 1064,
+            "fg": false,
+            "band": "bg",
+            "order": 0
+          },
+          {
+            "file": "10803_live2d_curtain_002",
+            "x": 5.839999,
+            "y": 4.1469994,
+            "sx": 1,
+            "sy": 1,
+            "w": 880,
+            "h": 1040,
+            "fg": false,
+            "band": "bg",
+            "order": 0
+          },
+          {
+            "file": "10803_live2d_light_001",
+            "x": 7.656,
+            "y": 4.617,
+            "sx": 1,
+            "sy": 1,
+            "w": 144,
+            "h": 212,
+            "fg": false,
+            "band": "bg",
+            "order": 0
+          }
+        ],
+        "added": "2.1.1",
+        "updated": "2.1.1"
       }
-    ]
+    ],
+    "updated": "2.1.1"
   },
   {
     "id": "109",
@@ -16238,7 +16329,7 @@
         "label": "Default",
         "path": "chars/16101/16101_l/16101_L.model3.json",
         "bg": [],
-        "charBg": "bg/charbg/carriage_inside_a.png",
+        "charBg": "bg/charbg/travellers_home_office_dusk.png",
         "offset": {
           "s": 1.12355,
           "x": 0.67000073,
@@ -16246,7 +16337,7 @@
         },
         "modelOrder": 0,
         "added": "2.1.0",
-        "updated": "2.1.0"
+        "updated": "2.1.1"
       },
       {
         "name": "16101_lf",
@@ -16310,7 +16401,7 @@
           }
         ],
         "added": "2.1.0",
-        "updated": "2.1.0"
+        "updated": "2.1.1"
       },
       {
         "name": "16101_lt",
@@ -16341,7 +16432,7 @@
           "chars/16102/16102_l/bg/16102_live2d_smoke_01.png",
           "chars/16102/16102_l/bg/16102_live2d_smoke_02.png"
         ],
-        "charBg": "bg/charbg/travellers_home_office_dusk.png",
+        "charBg": "bg/charbg/forest_burn.png",
         "offset": {
           "s": 1.0274719,
           "x": -1.0776122,
@@ -16519,11 +16610,11 @@
           }
         ],
         "added": "2.1.0",
-        "updated": "2.1.0"
+        "updated": "2.1.1"
       }
     ],
     "added": "2.1.0",
-    "updated": "2.1.0"
+    "updated": "2.1.1"
   },
   {
     "id": "16201",
